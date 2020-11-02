@@ -1,0 +1,116 @@
+﻿@page "/Generators/TravellerSpecialNPCGenerator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@inject TravellerSpecialNPCService NPCService
+
+<h1>NPC Generator</h1>
+    <input type="number"  @bind="NPCCount"/>
+    <select @bind="NationNameList">
+        <option>Federation</option>
+        <option>
+            Vers
+        </option>
+        <option>
+            Empire
+        </option>
+        <option>
+            Britannia
+        </option>
+        <option>Germushia</option>
+        <option>  Deutschland</option>
+        <option> XiaoMing</option>
+        <option>AxionAlliance</option>
+        <option> Any</option>
+    </select>
+    <button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
+
+@if (npcs == null)
+{
+    <p>Generating npcs</p>
+}
+else
+{
+    <table style="margin: 10px;height:100%;">
+        <thead>
+            <tr>
+                <th style="padding: 10px;border-style: solid">Name</th>
+                <th style="padding: 10px;border-style: solid">UPP</th>
+                <th style="padding: 10px; border-style: solid">Skills</th>
+                <th style="padding: 10px;border-style: solid">Background Information</th>
+                <th style="padding: 10px;border-style: solid">Patron info</th>
+                <th style="padding: 10px;border-style: solid">Character Quirk</th>
+                <th style="padding: 10px;border-style: solid">Affinity</th>
+                <th style="padding: 10px;border-style: solid">Enmity</th>
+                <th style="padding: 10px;border-style: solid">Power</th>
+                <th style="padding: 10px;border-style: solid">Influence</th>
+            </tr>
+        </thead>
+        @foreach (var npc in npcs)
+        {
+            <tbody style="color:#ffe81F">
+                <tr>
+                    <td style=" height: 30px;padding: 10px;border-style: solid">@npc.Name.Replace("_", " ")</td>
+                    <td>
+                        <table style="text-align: right; padding: 2px;">
+                            <thead>
+                                <tr><th>Str</th><th>Dex</th><th>End</th><th>Int</th><th>Edu</th><th>Soc</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tableInfo" style="padding: 2px"><td>@npc.Strength</td><td>@npc.Dexterity</td><td>@npc.Endurance</td><td>@npc.Intelligence</td><td>@npc.Education</td><td>@npc.Social</td></tr>
+                                <tr class="tableInfo"style="padding: 2px"><td>@npc.Modifier(npc.Strength)</td><td>@npc.Modifier(npc.Dexterity)</td><td>@npc.Modifier(npc.Endurance)</td><td>@npc.Modifier(npc.Intelligence)</td><td>@npc.Modifier(npc.Education)</td><td>@npc.Modifier(npc.Social)</td></tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="height: 30px;padding: 10px; border-style: solid">
+                        @{
+                            var skills = npc.SkillDictionary
+                                .Where(skill
+                                    => !BadSkills.Contains(skill.Key))
+                                .Select(skills
+                                    => $"{skills.Key}:{skills.Value}")
+                                .ToArray();
+
+                            foreach (var skill in skills)
+                            {
+                                var outSkill = skill + " ";
+                                @outSkill
+                            }
+                        }
+                    </td>
+                    <td style="        height: 30px;padding: 10px;
+        border-style: solid">
+                        @npc.Background, @npc.Career.
+                    </td>
+                    <td style="        height: 30px;padding: 10px;
+        border-style: solid">@npc.PatronText</td>
+                    <td style="        height: 30px;padding: 10px;
+        border-style: solid">@npc.QuirkText </td>
+                    <td style="padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.AffinityText(@npc.Affinity)">@TravellerSpecialNPC.AffinityDegree(@npc.Affinity)</a></td>
+                    <td style="height: 30px;padding: 10px; border-style: solid;"><a href="." title="@TravellerSpecialNPC.EnmityText(@npc.Enmity)">@TravellerSpecialNPC.EnmityDegree(@npc.Enmity)</a></td>
+                    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.PowerText(@npc.Power)"> @TravellerSpecialNPC.PowerDegree(@npc.Power)</a></td>
+                    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.InfluenceText(@npc.Influence)">@TravellerSpecialNPC.InfluenceDegree(@npc.Influence)</a></td>
+                </tr>
+            </tbody>
+            <p></p>
+        }
+    </table>
+}
+
+@code {
+    private List<TravellerSpecialNPC> npcs;
+
+    private string[] BadSkills = new[] { "Str", "Dex", "End", "Int", "Edu", "Soc" };
+    private int NPCCount;
+    private TravellerNameService.NationNameList NationNameList = TravellerNameService.NationNameList.Any;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadNPCs();
+    }
+
+    public async Task LoadNPCs()
+    {
+        npcs = await NPCService.GetNPCAsync(NPCCount,NationNameList);
+    }
+}

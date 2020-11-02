@@ -1,0 +1,202 @@
+@page "/CharacterCreation"
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+</head>
+
+<body>
+    <h1>Character Creation</h1>
+    <p>Welcome to my custom traveller character creation rules! These are designed to work with the Known Universe setting. Any relations to other settings are purely coincidental</p>
+    <p>
+        The order of character creation is as follows:
+        <ol>
+            <li>Roll Characteristics</li>
+            <li>Determine nationality</li>
+            <li>Choose Background Skills</li>
+            <li>
+                Choose Pre Career-Education. Choosing further education is optional, but grants bonus' to getting into appropriate careers
+                <ol>
+                    <li>Roll for Entry</li>
+                    <li>Gain Skills</li>
+                    <li>Roll for an Event</li>
+                    <li>Roll for graduation</li>
+                </ol>
+            </li>
+            <li>
+                Chose Career, Roll for Entry - Entry: You do not need to roll for entry if you are staying in the same career. If changing assignment then roll for entry, but failure only results in you staying in your old assignment. After changing assignment, reset rank to 0.
+                <ol>
+                    <li>
+                        Fail, Become a drifter or enter the draft
+                        <ol>
+                            <b style="text-decoration: underline"> Draft Table</b>
+                            <li>Navy (Any)</li>
+                            <li>Army (Any)</li>
+                            <li>Marine (Any)</li>
+                            <li>Merchant (Merchant Marines)</li>
+                            <li>Scout (Any)</li>
+                            <li>Agent (Law Enforcement)</li>
+                        </ol>
+                        GOTO 5.2
+                    </li>
+                    <li>Pass - GOTO 6</li>
+                </ol>
+            </li>
+            <li>
+                First Term in Career
+                <ol>
+                    <li>
+                        Yes
+                        <ol>
+                            <li>
+                                Get Basic Training. For your career, Basic Training gives you each of your Careers Service skills at level 0. If it is not your career, then Basic Training only allows you to select one Service Skills to take at level 0
+                            </li>
+                            <li>GOTO 7</li>
+                        </ol>
+                    </li>
+                    <li>
+                        No - GOTO 7.
+                    </li>
+                </ol>
+            </li>
+            <li>Choose a Skill Table and generate a Skill. - Skill Limits: During character generation, no Skill can exceed level 4 (any further improvements are lost), and your character may never exceed to total of (3 * (INT+ EDU)) Skill levels.</li>
+            <li>
+                Roll Survival
+                <ol>
+                    <li>
+                        Fail
+                        <ol>
+                            <li>Roll for Mishap - Leave the career unless otherwise noted</li>
+                            <li>GOTO 9</li>
+                        </ol>
+                    </li>
+                    <li>
+                        Pass - GOTO 9
+                    </li>
+                </ol>
+            </li>
+            <li>Roll an Event - Connect with another traveller? Connections: You may benefit from up to two free Skill levels by linking your rolled Events with another player characters past. These Skill levels grant a +1 bonus to a skill of your chocie with the exception of Jack-of-all-Trades. They cannot be used to raise a skill above level 3</li>
+            <li>
+                Possible Commission? Roll for Commission. Gaining a Commission: Some careers allow you to try for a commission. You may always attempt ot become comissioned during your first Term in a Career. Thereafter you may only attempt to gain a comission if you have SOC of 9+. There is a cumulative DM -1 penealty when trying for a comission for each Term after the first. Anyb DMs which apply to an advacement roll, may also be applied to a roll for a Commision
+                <ol>
+                    <li>Pass - Become A rank 1 officer GOTO 12</li>
+                    <li>None or Fail GOTO 11</li>
+                </ol>
+            </li>
+            <li>
+                Roll for Advancement - Whether you pass or not, do you roll a 12?
+                <ol>
+                    <li>Yes - Go to 13.1</li>
+                    <li>No GOTO 12</li>
+                </ol>
+            </li>
+            <li>
+                Are you leaving your Career?
+                <ol>
+                    <li>Yes, Generate Benefits. Benefits: When generating benefits, you will typically gain one roll per term. Additionally you will gain one additional roll for reaching ranks 1, 3, and 5 (if you where comissioned, add your noncom and comissioned ranks together). If you are ejected from a career following a mishap you will generate lose one roll. If you reach rank 5 or higher you gain DM +1 to all Benefit rolls for that Career. You may never roll for Cash Benefits more than three times during character generation.</li>
+                    <li>No GOTO 5</li>
+                </ol>
+            </li>
+            <li>
+                Finished? - Have you finished character creation
+                <ol>
+                    <li>No - Start a new term, +4 age. GOTO 7</li>
+                    <li>Yes</li>
+                </ol>
+            </li>
+            <li>Resolve Pensions and Debts</li>
+            <li>Buy Equipment. If you have any money left, spent up to Cr 2,000</li>
+            <li>Choose a Skill Package</li>
+            <li>Play!</li>
+        </ol>
+    </p>
+    <h2 id="RollAttributes">Roll Characteristics</h2>
+    <p>First, consult with the game master for what tier of play you will be using, then refer to the list below to see how many D6 you roll to determine your stats.</p>
+    <ol>
+        <li>- Nobody, 7 for each normal stat, excluding psi</li>
+        <li>- Average Joe. 2D for each normal stat, excluding psi</li>
+        <li>- Wannabe Hero. 3D drop the lowest for each normal stat, excluding psi</li>
+        <li>- Kinda Hero. 3D For each stat, excluding psi</li>
+        <li>- A Real Hero. 4D drop the lowest for each stat, 2D for psi.</li>
+        <li>- God Among Men. 4D, 3D for psi.</li>
+    </ol>
+    <p>Once you have rolled your stats, note them down in order on your character sheet. After that is complete, refer to the list below for your stats dice modifer</p>
+    <ol>
+     0  = -3
+        <li> = -2</li>
+        <li> = -2 </li>
+        <li> = -1</li>
+        <li> = -1</li>
+        <li> = -1</li>
+        <li> = 0</li>
+        <li> = 0</li>
+        <li> = 0</li>
+        <li> = 1</li>
+        <li> = 1</li>
+        <li> = 1</li>
+        <li> = 2</li>
+        <li> = 2</li>
+        <li> = 2</li>
+        <li> = 3</li>
+        <li> = 3</li>
+        <li> = 3</li>
+        <li> = 4</li>
+        <li> = 4</li>
+        <li> = 4</li>
+        <li> = 5</li>
+        <li> = 5</li>
+        <li> = 5</li>
+     Every +3 thereafter  = +1 to DM
+    </ol>
+    <h2 id="Nationality">Nationalities</h2>
+    <p>Your nationality isn't just where you were born, it influences your personality, your jobs, and what kind of skills you learn growing up there. Select one of the nationalities below and open it in a seperate browser tab. Check to see if you meet the entry requirements, if you do, then apply the stat changes to your character, and note down any perks your nationality gives you. As well, you'll need the background skills from your nationality for the next section.</p>
+    <ul>
+        <li>
+            <a href="/CharacterCreation/NationInfoPage?nationName=Axion_Alliance">Axion Alliance</a>
+            <ol>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=Artekkan_Guilds">Artekkan Guilds</a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="/CharacterCreation/NationInfoPage?nationName=Communist_Empire_of_the_Deutschland">Communist Empire of the Deutschland</a>
+            <ol>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=Church_of_Sigmar">Church of Sigmar</a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="/CharacterCreation/NationInfoPage?nationName=Fifth_Vers_Empire">Fifth Vers Empire</a>
+            <ol>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=Equites_Ordinis_Deorum">Equites Ordinis Deorum</a></li>
+            </ol>
+        </li>
+        <li><a href="/CharacterCreation/NationInfoPage?nationName=Germushian_Free_Republic">Germushian Free Republic</a></li>
+        <li><a href="/CharacterCreation/NationInfoPage?nationName=Polandskia_Peoples_Union">Polandskia Peoples Union</a></li>
+        <li>
+            <a href="/CharacterCreation/NationInfoPage?nationName=Trans_Galactic_Empire">Trans Galactic Empire</a>
+            <ol>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=Sith">Sith</a></li>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=First_Order">First Order</a></li>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=The_Kingdom_of_Britannia">The Kingdom of Britannia</a></li>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=Imperial_Versian_Federated_Territories">Imperial Versian Federated Territories</a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="/CharacterCreation/NationInfoPage?nationName=Universalis_Confederation">Universalis Confederation</a>
+            <ol>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=Witcher ">Witcher </a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="/CharacterCreation/NationInfoPage?nationName=United_Federation_of_Earth_and_her_Colonies_Among_the_Stars">United Federation of Earth and her Colonies Among the Stars</a>
+            <ol>
+                <li><a href="/CharacterCreation/NationInfoPage?nationName=Luna_Knights">Luna Knights</a></li>
+            </ol>
+        </li>
+        <li><a href="/CharacterCreation/NationInfoPage?nationName=United_Reverse_Lords">United Reverse Lords</a></li>
+        <li><a href="/CharacterCreation/NationInfoPage?nationName=Xiao-Ming_Mega_Corporation">Xiao-Ming Mega Corporation</a></li>
+
+    </ul>
+    <h2>Background Skills</h2>
+    <p>With your nationality selected, look at the background skills section. You may take 3+EDU modifier background skills at level 0.</p>
+    
+    <h2>From here on out!</h2>
+    <p>The rest of this is under construction, so refer to the Character Creation Kit zip in the discord for the rest of the rules. For now use those rules. If you are confused just ask me!</p>
+</body>

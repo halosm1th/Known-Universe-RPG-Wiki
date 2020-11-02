@@ -1,0 +1,68 @@
+﻿@page "/JobBoard/"
+@using TravellerWiki.Data
+@model TravellerWiki.JobBoardModel
+@inject TravellerJobBoardService JobBoardService
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "JobBoard";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>JobBoard</h1>
+    @if (!Model.CanViewBoard && !Model.InvalidID)
+    {
+        <form method="post">
+            <p>Travellers Aid Society ID: </p> <input type="number" name="TASID" value="0" />
+            <button>Login</button>
+        </form>
+    }
+
+    @if (!Model.CanViewBoard && Model.InvalidID)
+    {
+        <h2>ERROR, YOU HAVE BEEN KICKED OUT ASSHOLE!</h2>
+        <p>HA HA HA HA HA HA HA HA YOUR ID IS BANNED. YOU CANT GET INTO THE BOARD. I SURE HOPE YOU'RE TOO STEWPED TO FIGURE OUT HOW TO GET ROUND IT!</p>
+    }
+
+    @if (Model.CanViewBoard && !Model.InvalidID)
+    {
+        <p>Welcome to the traveller job board. Below is a listing of all available.</p>
+
+
+        <table style="width:100%;">
+            <thead style="text-align: center; padding: 5px;">
+            <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Description</th><th>Payment</th><th>Accepted</th><th>Max Accepted</th><th>Active</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>On Board</th><th>Issue Date</th><th>Expiry Date</th></tr>
+            </thead>
+            <tbody  style="text-align: center; padding: 5px;color:#ffe81F">
+                @foreach (var job in JobBoardService.GetJobBoardJobs.Where(job => job.Visible))
+                {
+                <tr id="tableInfo">
+                    <td style="border-style: solid">@job.JobTitle</td>
+                    <td style="border-style: solid">@job.JobDescription</td>
+                    <td style="border-style: solid">@job.JobPayment</td>
+                    <td style="border-style: solid">@job.NumberOfAccepted</td>
+                    <td style="border-style: solid">@job.NumberOfActive</td>
+                    <td style="border-style: solid">@job.MaxAccepts</td>
+                    <td style="border-style: solid">@job.SenderName</td>
+                    <td style="border-style: solid">@job.SenderLocation</td>
+                    <td style="border-style: solid">@job.JobBoardOfferedOn</td>
+                    <td style="border-style: solid">@job.IssuedOnDate</td>
+                    <td style="border-style: solid">@job.ExpiryDate</td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+</body>

@@ -1,0 +1,52 @@
+﻿@page "/Search"
+@model TravellerWiki.SearchModel
+@using System.Linq;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Search";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<h1>Search</h1>
+<a href="/Index">Main Menu</a>
+<form method="post">
+    <p>
+        Search Text: <input type="text" asp-for="SearchString" />
+        <button type="submit" style="">Submit!</button>
+    </p>
+</form>
+
+<br />
+@if (Model.SearchResults != null)
+{
+    int index = 0;
+    var textDict = new Dictionary<string, int>();
+
+    foreach (var result in Model.SearchResults)
+    {
+        var split = result.Value.Split(new[] {'.', '?', '!', ' ', ';', ':', ','}, StringSplitOptions.RemoveEmptyEntries);
+        var count = (from word in split
+            where word.ToLowerInvariant() == Model.SearchString.ToLowerInvariant()
+            select word).Count()+1;
+        var URL = result.Key;
+        textDict[URL] = count;
+    }
+
+    foreach (var line in textDict.OrderByDescending(x => x.Value))
+    {
+        index++;
+        <a href="@line.Key"><p>@index: @line.Key [@line.Value]</p></a>
+    }
+}

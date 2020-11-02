@@ -1,0 +1,53 @@
+﻿@page
+@model TravellerWiki.NationInfoPageModel
+@{
+    ViewData["Title"] = @Model.NationName;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+<h1>@Model.NationName</h1>
+<p style="font-size: xx-small">Brackets represent an optional choice, a '|' or separation means OR as in: A | B == A OR B</p>
+<a href="/CharacterCreation/">Back to Character Creation</a>
+<h2>Background</h2>
+    <p>@Model.CharacterInfo.BackgroundText</p>
+    <h3>Entry Requirements</h3>
+    <p>@Model.CharacterInfo.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core,", ",addition))</p>
+    <h3>Stat Changes</h3>
+    <ol>
+        @{
+            foreach (var statChange in Model.CharacterInfo.StatChanges)
+            {
+                <li>@statChange.Stat: @statChange.ChangeBy</li>
+            }
+        }
+    </ol>
+    <h3>Perks</h3>
+    <ol>
+        @{
+            foreach (var perks in Model.CharacterInfo.Perks)
+            {
+                <li>@perks</li>
+            }
+        }
+    </ol>
+    <h3>Background Skills</h3>
+    <ul>
+        @foreach (var skill in Model.CharacterInfo.BackgroundSkills)
+        {
+            <li>@skill</li>
+        }
+
+</ul>
+</body>

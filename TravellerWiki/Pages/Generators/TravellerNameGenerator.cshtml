@@ -1,0 +1,43 @@
+﻿@page
+@model TravellerWiki.TravellerNameGeneratorModel
+@using System.Linq;
+@using TravellerWiki.Data
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "TravellerNameGenerator";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<h1>Traveller Name Generator</h1>
+
+<form method="post">
+    Number of names to Generate: <input type="number" asp-for="NumberOfNames" />
+    Nation name list:
+    <select asp-items="Html.GetEnumSelectList<TravellerNameService.NationNameList>()" asp-for="NameList"></select>
+    <button class="" type="submit">Generate some names!</button>
+</form>
+
+@{
+    <h2>Results</h2>
+    if (Model.ListOfNames != null)
+    {
+        <h2>Names: (@Model.NameList)</h2>
+        foreach (var name in Model.ListOfNames)
+        {
+            <p>@name</p>
+        }
+
+        <br />
+    }
+}
