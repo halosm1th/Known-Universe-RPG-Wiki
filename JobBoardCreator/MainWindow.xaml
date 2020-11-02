@@ -8,10 +8,10 @@
         Title="Job Board Job Creator" Height="475" Width="800" WindowStyle="SingleBorderWindow" ResizeMode="NoResize"  WindowState="Normal">
     <Grid>
         <Label Content="Job Title:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
-        <TextBox HorizontalAlignment="Left" Name="Title" TabIndex="0" Margin="72,14,0,0" Text="Title" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Name="Title" TabIndex="0" Margin="72,14,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Job Description:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="Description" TabIndex="1" Margin="110,49,0,0" Text="Description of the job" TextWrapping="Wrap" VerticalAlignment="Top" Width="329" Height="80"/>
+        <TextBox HorizontalAlignment="Left" AcceptsReturn="true" AcceptsTab="true" Name="Description" TabIndex="1" Margin="110,49,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="329" Height="80"/>
 
         <Label Content="Job Payment:" HorizontalAlignment="Left" Margin="197,10,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Name="Payment" TabIndex="2" Margin="281,14,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -71,33 +71,34 @@
         <Label Content="Board Offered On:" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Name="JobBoardOfferedOn" TabIndex="16" Margin="116,223,0,0" Text="Travellers Job Board" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Mission:" HorizontalAlignment="Left" Margin="433,175,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="Mission" TabIndex="21"  Margin="486,180,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+        <Label Content="Mission:" HorizontalAlignment="Left" Margin="434,160,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="Mission" TabIndex="21"  Margin="486,168,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
 
         <Label Content="Patron:" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Name="Patron" TabIndex="26" Margin="58,314,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
 
-        <Label Content="Target: " HorizontalAlignment="Left" Margin="437,198,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="Target" TabIndex="22" Margin="486,202,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="30"/>
+        <Label Content="Target: " HorizontalAlignment="Left" Margin="436,191,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="Target" TabIndex="22" Margin="486,190,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="24"/>
 
-        <Label Content="Opposition:" HorizontalAlignment="Left" Margin="10,363,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="Opposition" TabIndex="28" Margin="82,367,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="318"/>
+        <Label Content="Opposition:" HorizontalAlignment="Left" Margin="11,378,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="Opposition" TabIndex="28" Margin="88,384,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="312"/>
 
         <Label Content="Patron Quirk:" HorizontalAlignment="Left" Margin="9,337,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="PatronQuirk"  TabIndex="27" Margin="88,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="312"/>
+        <TextBox HorizontalAlignment="Left" Name="PatronQuirk"  TabIndex="27" Margin="88,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="38"/>
 
-        <Label Content="Target Quirk:" HorizontalAlignment="Left" Margin="406,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.318,0.371"/>
-        <TextBox HorizontalAlignment="Left" Name="TargetQuirk" TabIndex="23" Margin="486,237,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+        <Label Content="Target Quirk:" HorizontalAlignment="Left" Margin="406,226,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.318,0.371"/>
+        <TextBox HorizontalAlignment="Left" Name="TargetQuirk" TabIndex="23" Margin="486,219,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="36"/>
 
         <Label Content="Ally:" HorizontalAlignment="Left" Margin="451,257,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Name="Ally" TabIndex="24" Margin="486,260,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
 
         <Label Content="Enemy:" HorizontalAlignment="Left" Margin="435,279,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="Enemy" TabIndex="25" Margin="486,283,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Generate Mission" HorizontalAlignment="Left" Margin="433,313,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="Enemy" TabIndex="25" Margin="486,283,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+        <Button Content="Generate Mission" HorizontalAlignment="Left" Margin="433,313,0,0" VerticalAlignment="Top" Click="Button_Click_5"/>
         <Button Content="Generate Valid Location" HorizontalAlignment="Left" Margin="433,343,0,0" VerticalAlignment="Top" Click="Button_Click_4"/>
         <Button Content="Generate Start Date" HorizontalAlignment="Left" Margin="433,369,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
         <Button Content="Generate End Date" HorizontalAlignment="Left" Margin="433,394,0,0" VerticalAlignment="Top" Click="Button_Click_3"/>
+        <Button Content="Filll all possible fields" HorizontalAlignment="Left" Margin="568,313,0,0" VerticalAlignment="Top" Click="Button_Click_6"/>
 
     </Grid>
 </Window>
