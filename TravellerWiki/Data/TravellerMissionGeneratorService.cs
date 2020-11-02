@@ -6,6 +6,20 @@ namespace JobBoardCreator
 {
     public class TravellerMissionGeneratorService
     {
+        public TravellerMission GenerateTravellerMission()
+        {
+            var ally = AllyOrEnemy(GetRandomNumber());
+            var enemy = AllyOrEnemy(GetRandomNumber());
+            var patron = RandomPatron(GetRandomNumber());
+            var patronQuirk = CharcterQuirks(GetRandomNumber());
+            var target = RandomTarget(GetRandomNumber());
+            var targetQuirk = CharcterQuirks(GetRandomNumber());
+            var opposition = RandomOpposition(GetRandomNumber());
+            var mission = RandomMission(GetRandomNumber());
+
+            return new TravellerMission(ally, enemy, patron, patronQuirk, target, targetQuirk, opposition, mission);
+        }
+
         public string AllyOrEnemy(int number)
             => number switch
             {
@@ -47,7 +61,6 @@ namespace JobBoardCreator
                 66 => "Imperial Agent",
                 _ => ""
             };
-
         public string CharcterQuirks(int number)
             => number switch
             {
@@ -89,7 +102,6 @@ namespace JobBoardCreator
                 66 => "Possesses telepathy or other unusual quality",
                 _ => ""
             };
-
         public string RandomOpposition(int number)
             => number switch
             {
@@ -131,7 +143,6 @@ namespace JobBoardCreator
                 66 => "Hostages",
                 _ => ""
             };
-
         public string RandomPatron(int number)
             => number switch
             {
@@ -173,7 +184,6 @@ namespace JobBoardCreator
                 66 => "Imperial Agent",
                 _ => ""
             };
-
         public string RandomTarget(int number)
             => number switch
             {
@@ -216,9 +226,9 @@ namespace JobBoardCreator
                 _ => ""
             };
 
+        private static Random rand = new Random();
         public int GetRandomNumber()
         {
-            var rand = new Random();
             var tens = rand.Next(1, 7) * 10;
             var ones = rand.Next(1, 7);
             return tens + ones;

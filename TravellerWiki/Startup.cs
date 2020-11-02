@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobBoardCreator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerNameService>();
             services.AddSingleton<TravellerNationsCharacterInfoService>();
             services.AddSingleton<TravellerJobBoardService>();
+            services.AddSingleton<TravellerMissionGeneratorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

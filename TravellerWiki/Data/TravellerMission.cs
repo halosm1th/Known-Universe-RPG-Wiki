@@ -22,5 +22,10 @@
             Opposition = opposition;
             Mission = mission;
         }
+
+        public TravellerMission()
+        {
+
+        }
     }
 }

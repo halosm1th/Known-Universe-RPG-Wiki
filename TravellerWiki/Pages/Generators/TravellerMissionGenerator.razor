@@ -1,0 +1,49 @@
+﻿@page "/Generators/TravellerMissionGenerator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using JobBoardCreator
+@inject TravellerMissionGeneratorService MissionGenerator
+
+<h1>Mission Generator</h1>
+
+<input type="number" @bind="numberOfMissions" />
+<button class="" @onclick="GenerateMissions">Click me to Generate npcs</button>
+
+        @if (missionList != null)
+        {
+            <table style="width: 100%;">
+                <thead style="text-align: center; padding: 5px;">
+                    <tr><th>Mission</th><th>Target</th><th>Target Quirk</th><th>Patron</th><th>Patron Quirk</th><th>Ally</th><th>Enemy</th><th>Opposition</th></tr>
+                </thead>
+                <tbody style="text-align: center; padding: 5px; color: #ffe81F">
+                @foreach (var mission in missionList)
+                {
+                    <tr id="tableInfo">
+                        <td>@mission.Mission</td>
+                        <td>@mission.Target</td>
+                        <td>@mission.TargetQuirk</td>
+                        <td>@mission.Patron</td>
+                        <td>@mission.PatronQuirk</td>
+                        <td>@mission.Ally</td>
+                        <td>@mission.Enemy</td>
+                        <td>@mission.Opposition</td>
+                    </tr>
+
+                }
+                </tbody>
+            </table>
+        }
+@code {
+    private int numberOfMissions = 0;
+    private List<TravellerMission> missionList;
+
+    private void GenerateMissions()
+    {
+        missionList = new List<TravellerMission>();
+        for (int i = 0; i < numberOfMissions; i++)
+        {
+            missionList.Add(MissionGenerator.GenerateTravellerMission());
+        }
+    }
+}
