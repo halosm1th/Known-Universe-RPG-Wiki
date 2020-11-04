@@ -1,0 +1,246 @@
+﻿@page "/Career/"
+@using TravellerWiki.Data
+@model TravellerWiki.CareerModel
+@inject TravellerCareerService CareerService
+@{
+    ViewData["Title"] = "Career";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    @if (Model.Career != null)
+    {
+        var career = @Model.Career;
+        <h1>@career.CareerName</h1>
+        <p>
+            Qualifications:
+            <ul>
+                @foreach (var qual in @career.Qualifications)
+                {
+                    <li>@qual.SkillName:@qual.BeatValue</li>
+                }
+            </ul>
+        </p>
+        //Commission
+        @if (career.Commission != null && career.Commission.HasCommision)
+        {
+            <p>Commission: @career.Commission.CommmsionCheck.ToString()</p>
+        }
+
+        //Assignments, names and descriptions:
+        <h2>Assignments</h2>
+        <ul>
+            @foreach (var assignment in career.Assignments)
+            {
+                <li>@assignment.Name: @assignment.Description</li>
+            }
+        </ul>
+
+        //Career Progress Table
+        <h2>Career Progress</h2>
+        <table>
+            <thead>
+            <tr><th>Assignment</th><th>Survival</th><th>Advancement</th></tr>
+            </thead>
+            <tbody>
+            @foreach (var assignment in career.Assignments)
+            {
+                <tr><td>@assignment.Name:</td><td>@assignment.Survival.ToString()</td><td>@assignment.Advancement.ToString()</td></tr>
+            }
+            </tbody>
+        </table>
+        <h2>Mustering Out and Benefits</h2>
+        //Mustering out benefits table
+        <table>
+            <thead>
+            <tr><th>1D</th><th>Cash</th><th>Benefits</th></tr>
+            </thead>
+            @{
+                int i = 1;
+            }
+            <tbody>
+            @foreach (var benefit in career.MusteringOutBenefits)
+            {
+                <tr><td>@i)</td><td>Cr @benefit.Cash </td><td>@benefit.Benefit</td></tr>
+                i++;
+            }
+            </tbody>
+        </table>
+
+        //Skills tables
+        <h2>Skill Tables</h2>
+        <h3>Personal Development</h3>
+        <h3>Service Skills</h3>
+
+
+        @if (career.Commission?.HasCommision ?? false)
+        {
+            <h3>Commission Skills</h3>
+            <table>
+                <thead>
+                <tr><th>1D</th><th>Commission Skill list</th></tr>
+                </thead>
+                <tbody>
+                @foreach (var skill in career.Commission.CommissionSkillList)
+                {
+                    <tr>
+                        <td>@i)</td>
+                        <td>@skill</td>
+                    </tr>
+                    i++;
+                }
+                </tbody>
+            </table>
+        }
+
+        @if (career.AdvancedEducationSkillList != null)
+        {
+            <h3>Advanced Education Skills</h3>
+            <table>
+                <thead>
+                <tr><th>1D</th><th>Advanced Education Skill list</th></tr>
+                </thead>
+                <tbody>
+                @{ i = 1; }
+                @foreach (var skill in career.AdvancedEducationSkillList)
+                {
+                    <tr>
+                        <td>@i)</td>
+                        <td>@skill</td>
+                    </tr>
+                    i++;
+                }
+                </tbody>
+            </table>
+        }
+
+        @foreach (var assignment in career.Assignments)
+        {
+            <h3>@assignment.Name Skill list</h3>
+            <table>
+                <thead>
+                <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
+                </thead>
+                <tbody>
+                @{ i = 0; }
+                @foreach (var skill in assignment.SkillList)
+                {
+                    <tr>
+                        <td>@i)</td>
+                        <td>@skill</td>
+                    </tr>
+                    i++;
+                }
+                </tbody>
+            </table>
+
+        }
+
+        @foreach (var assignment in career.Assignments)
+        {
+            <h3>@assignment.Name Skill list</h3>
+            <table>
+                <thead>
+                <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
+                </thead>
+                <tbody>
+                @{ i = 1; }
+                @foreach (var skill in assignment.SkillList)
+                {
+                    <tr>
+                        <td>@i)</td>
+                        <td>@skill</td>
+                    </tr>
+                    i++;
+                }
+                </tbody>
+            </table>
+
+        }
+
+                    //Events tables
+        <h3>Events Table</h3>
+            <table>
+            <thead>
+                <tr><th>#</th><th>Events</th></tr>
+            </thead>
+            <tbody>
+            @{ i = 2;}
+            @foreach (var eventText in career.Events)
+            {
+                <tr>
+                    <td>@i)</td>
+                    <td>@eventText</td>
+                </tr>
+                i++;
+            }
+            </tbody>
+        </table>
+
+        //Mishaps Table
+        <h3>Mishaps Table</h3>
+        <table>
+            <thead>
+                <tr><th>#</th><th>Mishap</th></tr>
+            </thead>
+            <tbody>
+            @{i = 1;}
+            @foreach (var mishap in career.Mishaps)
+                {
+                    <tr>
+                        <td>@i)</td>
+                        <td>@mishap</td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+
+        //Ranks bonuses tables
+        <h2>Ranks and Bonuses</h2>
+        @foreach (var assignment in career.Assignments)
+        {
+            i = 0;
+            <h3>@assignment.Name Ranks and Bonuses</h3>
+            <table>
+                <thead>
+                    <tr><th>#</th><th>Title</th><th>Perk</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var rank in assignment.RanksAndBonuses)
+                    {
+                        <tr>
+                            <td>@i)</td>
+                            <td>@rank.title</td>
+                            <td>@rank.perk</td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        }
+    }
+    else
+    {
+        <h1>Careers</h1>
+        <ul>
+            @foreach (var careerNames in CareerService.GetCareers)
+            {
+
+                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName</a></li>
+            }
+        </ul>
+    }
+
+</body>

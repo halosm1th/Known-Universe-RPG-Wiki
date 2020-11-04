@@ -108,5 +108,27 @@
     "TargetQuirk": "Has dangerous secerete",
     "Ally": "Federation Agent",
     "Enemy": "Corporate Executive"
+  },
+  {
+    "jobTitle": "Find. My. Son.",
+    "jobDescription": "My son was 'taken' by some less then reputiable people. These fine gents now have most of the exective board of the Nystol-Hornet company captive. I want my board back. I will pay handsomely to make sure they are returned safely. My son can not be harmed. If he is harmed by anyone. And I mean **ANYONE** I shall personally make you suffer.\tReturn him and I'll make you a Count or something.",
+    "jobPayment": 10000000,
+    "numberOfAccepted": 13,
+    "numberOfActive": 100000,
+    "numberOfMaxAccepts": 12,
+    "visivle": true,
+    "senderName": "Versian Knight Nathaniel Huber",
+    "senderLocation": "4,4:6'4.North Western Islands",
+    "boardOfferedOn": "Travellers Job Board",
+    "expiryDate": "1/10/83390",
+    "IssuingDate": "9/5/83390",
+    "Mission": "Return the target",
+    "Patron": "Night nathaliel Huber",
+    "Target": "Christov Huber",
+    "Opposition": "Other bounty hunters",
+    "PatronQuirk": "he is a versian knight",
+    "TargetQuirk": "Rich prick",
+    "Ally": "The Versian knight",
+    "Enemy": "The players who have him"
   }
 ]

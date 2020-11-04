@@ -1,0 +1,39 @@
+﻿<Window x:Class="CareerCreator.AssignmentDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator"
+        mc:Ignorable="d"
+        Title="Assignment" Height="260" Width="430">
+    <Grid>
+        <Label Content="Assignment name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="AssignmentName" Margin="118,14,0,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="156"/>
+        <Label Content="Assignment Description:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="Description" Margin="148,40,0,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="252" Height="100"/>
+        <Label Content="Survival:" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,0.361"/>
+        <ComboBox HorizontalAlignment="Left" Name="SurvivalStat" SelectedIndex="0" Margin="68,143,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Str"></ComboBoxItem>
+            <ComboBoxItem Content="Dex"></ComboBoxItem>
+            <ComboBoxItem Content="End"></ComboBoxItem>
+            <ComboBoxItem Content="Int"></ComboBoxItem>
+            <ComboBoxItem Content="Edu"></ComboBoxItem>
+            <ComboBoxItem Content="Soc"></ComboBoxItem>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Name="SurvivalValue" Margin="193,145,0,0" Text="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
+        <Label Content="Advance:" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" x:Name="AdvanceStat" SelectedIndex="0" Margin="68,176,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Str"/>
+            <ComboBoxItem Content="Dex"/>
+            <ComboBoxItem Content="End"/>
+            <ComboBoxItem Content="Int"/>
+            <ComboBoxItem Content="Edu"/>
+            <ComboBoxItem Content="Soc"/>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Name="AdvanceValue" Margin="193,178,0,0" Text="8" TextWrapping="NoWrap" VerticalAlignment="Top" Width="31"/>
+        <Button Content="Assignment Skill List" HorizontalAlignment="Left" Margin="234,144,0,0" VerticalAlignment="Top" Width="166" Click="Button_Click"/>
+        <Button Content="Assignment Ranks/Bonuses" HorizontalAlignment="Left" Margin="234,175,0,0" VerticalAlignment="Top" Width="166" Click="Button_Click_1"/>
+        <Button Content="Save Assignment" HorizontalAlignment="Left" Margin="306,200,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
+
+    </Grid>
+</Window>

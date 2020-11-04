@@ -1,0 +1,200 @@
+[
+  {
+    "CareerName": "Army",
+    "Nationality": "United Federation of Earth and her Colonies Among the Stars",
+    "Qualifications": [
+      {
+        "SkillName": "End",
+        "BeatValue": 5
+      }
+    ],
+    "Commission": {
+      "HasCommision": true,
+      "CommissionSkillList": [ "Tactics (military)", "Leadership", "Advocate", "Diplomat", "Electronics", "Admin" ],
+      "RanksAndBonuses": [
+        {
+          "Item1": "Lieutenant",
+          "Item2": "Leadership 1"
+        },
+        {
+          "Item1": "Captain",
+          "Item2": ""
+        },
+        {
+          "Item1": "Major",
+          "Item2": "Tactics (military) 1"
+        },
+        {
+          "Item1": "Lieutenant Colonel",
+          "Item2": ""
+        },
+        {
+          "Item1": "Colonel",
+          "Item2": ""
+        },
+        {
+          "Item1": "General",
+          "Item2": "SOC 10 or SOC +1, whichever is higher"
+        }
+      ],
+      "CommmsionCheck": {
+        "SkillName": "Soc",
+        "BeatValue": 8
+      }
+    },
+    "Assignments": [
+      {
+        "Name": "Support",
+        "Description": "You are an engineer, cook or in some other role behind the front lines.",
+        "Survival": {
+          "SkillName": "End",
+          "BeatValue": 5
+        },
+        "Advancement": {
+          "SkillName": "Edu",
+          "BeatValue": 7
+        },
+        "SkillList": [ "Mechanic", "Drive or Flyer", "Profession", "Explosives", "Electronics (comms)", "Medic" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Private",
+            "Item2": "Gun Combat 1"
+          },
+          {
+            "Item1": "Lance Corporal",
+            "Item2": "Recon 1"
+          },
+          {
+            "Item1": "Corporal",
+            "Item2": ""
+          },
+          {
+            "Item1": "Lance Sergeant",
+            "Item2": "Leadership 1"
+          },
+          {
+            "Item1": "Sergeant",
+            "Item2": ""
+          },
+          {
+            "Item1": "Gunnery Sergeant",
+            "Item2": ""
+          }
+        ]
+      },
+      {
+        "Name": "Infantry",
+        "Description": "You are one of the Poor Bloody Infantry on the ground.",
+        "Survival": {
+          "SkillName": "Str",
+          "BeatValue": 6
+        },
+        "Advancement": {
+          "SkillName": "Edu",
+          "BeatValue": 6
+        },
+        "SkillList": [ "Gun Combat", "Melee", "Heavy Weapons", "Stealth", "Athletics", "Recon" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Private",
+            "Item2": "Gun Combat 1"
+          },
+          {
+            "Item1": "Lance Corporal",
+            "Item2": "Recon 1"
+          },
+          {
+            "Item1": "Corporal",
+            "Item2": ""
+          },
+          {
+            "Item1": "Lance Sergeant",
+            "Item2": "Leadership 1"
+          },
+          {
+            "Item1": "Sergeant",
+            "Item2": ""
+          },
+          {
+            "Item1": "Gunnery Sergeant",
+            "Item2": ""
+          }
+        ]
+      },
+      {
+        "Name": "Cavalry",
+        "Description": "You are one of the crew of a gunship or tank.",
+        "Survival": {
+          "SkillName": "Int",
+          "BeatValue": 7
+        },
+        "Advancement": {
+          "SkillName": "Int",
+          "BeatValue": 5
+        },
+        "SkillList": [ "Mechanic", "Drive", "Flyer", "Recon", "Heavy Weapons (vehicle)", "Electronics (sensors)" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Private",
+            "Item2": "Gun Combat 1"
+          },
+          {
+            "Item1": "Lance Corporal",
+            "Item2": "Recon 1"
+          },
+          {
+            "Item1": "Corporal",
+            "Item2": ""
+          },
+          {
+            "Item1": "Lance Sergeant",
+            "Item2": "Leadership 1"
+          },
+          {
+            "Item1": "Sergeant",
+            "Item2": ""
+          },
+          {
+            "Item1": "Sergeant Major",
+            "Item2": ""
+          }
+        ]
+      }
+    ],
+    "MusteringOutBenefits": [
+      {
+        "Item1": 2000,
+        "Item2": "Combat Implant"
+      },
+      {
+        "Item1": 5000,
+        "Item2": "INT +1"
+      },
+      {
+        "Item1": 10000,
+        "Item2": "EDU +1"
+      },
+      {
+        "Item1": 10000,
+        "Item2": "Weapon"
+      },
+      {
+        "Item1": 10000,
+        "Item2": "Armour"
+      },
+      {
+        "Item1": 20000,
+        "Item2": "END +1 or Combat Implant"
+      },
+      {
+        "Item1": 30000,
+        "Item2": "SOC +1"
+      }
+    ],
+    "PersonalDevelopmentSkillList": [ "STR +1", "DEX +1", "END +1", "Gambler", "Medic", "Melee" ],
+    "ServiceSkillsList": [ "Drive or Vacc Suit", "Athletics", "Gun Combat", "Recon", "Melee", "Heavy Weapons" ],
+    "AdvancedEducationSkillList": [ "Tactics (military)", "Electronics", "Navigation", "Explosives", "Engineer", "Survival" ],
+    "Events": [ "Disaster! Roll on the Mishap Table, but you are not ejected from this career.", "You are assigned to a planet with a hostile or wild environment. Gain one of Vacc Suit 1, Engineer 1, Animals (riding or training) 1 or Recon 1", "You are assigned to an urbanised planet torn by war. Gain one of Stealth 1, Streetwise 1, Persuade 1 or Recon 1.", "You are given a special assignment or duty in your unit. Gain DM+1 to any one Benefit roll.", "You are thrown into a brutal ground war. Roll EDU 8+ to avoid injury; if you succeed, you gain one level in Gun Combat or Leadership", "Life Event. Roll on the Life Events Table.", "You are given advanced training in a specialist field. Roll EDU 8+ to increase any one skill you already have by one level.", "Surrounded and outnumbered by the enemy, you hold out until relief arrives. Gain DM+2 to your next Advancement check. ", "You are assigned to a peacekeeping role. Gain one of Admin 1, Investigate 1, Deception 1 or Recon 1. ", "Your commanding officer takes an interest in your career. Either gain Tactics (military) 1 or DM+4 to your next Advancement roll thanks to their aid. ", "You display heroism in battle. You may gain a promotion or a commission automatically." ],
+    "Mishaps": [ "Severely injured in action (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table and take the lower result.", "Your unit is slaughtered in a disastrous battle, for which you blame your commander. Gain them as an Enemy as they have you removed from the service", "You are sent to a very unpleasant region (jungle, swamp, desert, icecap, urban) to battle against guerrilla fighters and rebels. You are discharged because of stress, injury or because the government wishes to bury the whole incident. Increase Recon or Survival by one level but also gain the rebels as an Enemy.", "You discover that your commanding officer is engaged in some illegal activity, such as weapon smuggling. You can join their ring and gain them as an Ally before the inevitable investigation gets you discharged, or you can co-operate with the military police – the official whitewash gets you discharged anyway but you may keep your Benefit roll from this term of service.", "You are tormented by or quarrel with an officer or fellow soldier. Gain that officer as a Rival as they drive you out of the service", "Injured. Roll on the Injury Table." ]
+  }
+]

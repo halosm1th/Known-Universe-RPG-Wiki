@@ -1,0 +1,64 @@
+﻿<Window x:Class="CareerCreator.RanksAndBonusesDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator"
+        mc:Ignorable="d"
+        Title="RanksAndBonusesDialog"
+        
+        Height="250"
+        Width="300"
+        MinHeight="250"
+        MinWidth="300"
+        ResizeMode="NoResize"
+        ShowInTaskbar="false"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Rank"></Label>
+        <Label Grid.Row="0" Grid.Column="1" Content="Title"></Label>
+        <Label Grid.Row="0" Grid.Column="2" Content="Skill or Bonus"></Label>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="1)"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="2)"></Label>
+        <Label Grid.Row="3" Grid.Column="0" Content="3)"></Label>
+        <Label Grid.Row="4" Grid.Column="0" Content="4)"></Label>
+        <Label Grid.Row="5" Grid.Column="0" Content="5)"></Label>
+        <Label Grid.Row="6" Grid.Column="0" Content="6)"></Label>
+
+        <TextBox Name="Title1" Grid.Row="1" Grid.Column="1"></TextBox>
+        <TextBox Name="Title2" Grid.Row="2" Grid.Column="1"></TextBox>
+        <TextBox Name="Title3" Grid.Row="3" Grid.Column="1"></TextBox>
+        <TextBox Name="Title4" Grid.Row="4" Grid.Column="1"></TextBox>
+        <TextBox Name="Title5" Grid.Row="5" Grid.Column="1"></TextBox>
+        <TextBox Name="Title6" Grid.Row="6" Grid.Column="1"></TextBox>
+
+        <TextBox Name="Skill1" Grid.Row="1" Grid.Column="2"></TextBox>
+        <TextBox Name="Skill2" Grid.Row="2" Grid.Column="2"></TextBox>
+        <TextBox Name="Skill3" Grid.Row="3" Grid.Column="2"></TextBox>
+        <TextBox Name="Skill4" Grid.Row="4" Grid.Column="2"></TextBox>
+        <TextBox Name="Skill5" Grid.Row="5" Grid.Column="2"></TextBox>
+        <TextBox Name="Skill6" Grid.Row="6" Grid.Column="2"></TextBox>
+
+        <Button Grid.Row="7" Grid.Column="2" Content="Save" Click="Button_Click"></Button>
+
+    </Grid>
+</Window>

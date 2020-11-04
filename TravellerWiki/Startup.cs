@@ -36,6 +36,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerNationsCharacterInfoService>();
             services.AddSingleton<TravellerJobBoardService>();
             services.AddSingleton<TravellerMissionGeneratorService>();
+            services.AddSingleton<TravellerCareerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
