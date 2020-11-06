@@ -51,6 +51,8 @@
         </ComboBox>
         <Button Content="Save and Clear" HorizontalAlignment="Left" IsEnabled="false" Margin="10,212,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click_8"/>
         <Button Content="Save and Exit" HorizontalAlignment="Left" Margin="166,212,0,0" VerticalAlignment="Top" Width="153" Click="Button_Click_7"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="CareerDescription" Margin="312,14,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="114"/>
 
     </Grid>
 </Window>

@@ -189,6 +189,7 @@ namespace CareerCreator
                 {
 
                     _career = new TravellerCareer(careerName: name,
+                        CareerDescription.Text,
                         Nationality.Text,
                         qualifications: _qualifications,commission: commission,
                         assignments: _assignments,musteringOutBenefits: _musteringOutBenefits,
@@ -197,7 +198,8 @@ namespace CareerCreator
                 }
                 else
                 {
-                    _career = new TravellerCareer(name, Nationality.Text, _qualifications, _assignments, _musteringOutBenefits,
+                    _career = new TravellerCareer(name, CareerDescription.Text, 
+                        Nationality.Text, _qualifications, _assignments, _musteringOutBenefits,
                         _personelDevelopmentSkills, _serviceSkillList, commission, _events, _mishaps);
                 }
             }
@@ -206,12 +208,14 @@ namespace CareerCreator
                 if (HasAdvancedEducation.IsChecked == true)
                 {
 
-                    _career = new TravellerCareer(name, Nationality.Text, _qualifications, _assignments, _musteringOutBenefits,
+                    _career = new TravellerCareer(name, CareerDescription.Text,
+                        Nationality.Text, _qualifications, _assignments, _musteringOutBenefits,
                         _personelDevelopmentSkills, _serviceSkillList, _AdvancedEducationSkillList, _events, _mishaps);
                 }
                 else
                 {
-                    _career = new TravellerCareer(name, Nationality.Text, _qualifications, _assignments, _musteringOutBenefits,
+                    _career = new TravellerCareer(name, CareerDescription.Text,
+                        Nationality.Text, _qualifications, _assignments, _musteringOutBenefits,
                         _personelDevelopmentSkills, _serviceSkillList, _events, _mishaps);
 
                 }
@@ -224,7 +228,8 @@ namespace CareerCreator
             if (_career != null)
             {
                 var convert = new TravellerCareerJson(
-                    _career.CareerName,_career.Nationality.NationName,_career.Qualifications,
+                    _career.CareerName, CareerDescription.Text, 
+                    _career.Nationality.NationName,_career.Qualifications,
                     _career.Commission, _career.Assignments, _career.MusteringOutBenefits,
                     _career.PersonalDevelopmentSkillList,_career.ServiceSkillsList,
                     _career.AdvancedEducationSkillList,_career.Events,_career.Mishaps);

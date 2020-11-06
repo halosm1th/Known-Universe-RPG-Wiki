@@ -34,6 +34,7 @@ namespace TravellerWiki.Data
     public class TravellerCareerJson
     {
         public string CareerName { get; set; }
+        public string CareerDescription { get; set; }
         public string Nationality { get; set; }
 
         public List<TravellerSkillCheck> Qualifications { get; set; }
@@ -56,9 +57,10 @@ namespace TravellerWiki.Data
         private Dictionary<string, TravellerNationsCharacterInfo> nationService = travellerNationsCharacterInfoService.GetTravellerNationsCharacterInfos();
 
         [JsonConstructor]
-        public TravellerCareerJson(string careerName, string nationality, List<TravellerSkillCheck> qualifications, TravellerCommission commission, List<TravellerAssignment> assignments, List<(int Cash, string Benefit)> musteringOutBenefits, List<string> personalDevelopmentSkillList, List<string> serviceSkillsList, List<string> advancedEducationSkillList, List<string> events, List<string> mishaps)
+        public TravellerCareerJson(string careerName,string description ,string nationality, List<TravellerSkillCheck> qualifications, TravellerCommission commission, List<TravellerAssignment> assignments, List<(int Cash, string Benefit)> musteringOutBenefits, List<string> personalDevelopmentSkillList, List<string> serviceSkillsList, List<string> advancedEducationSkillList, List<string> events, List<string> mishaps)
         {
             CareerName = careerName;
+            CareerDescription = description;
             Nationality = nationality;
             Qualifications = qualifications;
             Commission = commission;
@@ -74,6 +76,7 @@ namespace TravellerWiki.Data
         public TravellerCareer CreateCareerFromJson()
         {
             return new TravellerCareer(careerName: CareerName,
+                CareerDescription,
                 nationality: Nationality,
                 qualifications: Qualifications, commission: Commission, assignments: Assignments,
                 musteringOutBenefits: MusteringOutBenefits,
@@ -86,6 +89,7 @@ namespace TravellerWiki.Data
     public class TravellerCareer
     {
         public string CareerName { get; set; }
+        public string CareerDescription { get; set; }
         public TravellerNationsCharacterInfo Nationality { get; set; }
         public List<TravellerSkillCheck> Qualifications { get; set; }
 
@@ -107,12 +111,13 @@ namespace TravellerWiki.Data
         private Dictionary<string, TravellerNationsCharacterInfo> nationService = travellerNationsCharacterInfoService.GetTravellerNationsCharacterInfos();
 
         //Everything
-        public TravellerCareer(string careerName, string nationality, List<TravellerSkillCheck> qualifications, TravellerCommission commission,
+        public TravellerCareer(string careerName,string description ,string nationality, List<TravellerSkillCheck> qualifications, TravellerCommission commission,
             List<TravellerAssignment> assignments, List<(int Cash, string Benefit)> musteringOutBenefits,
             List<string> personalDevelopmentSkillList, List<string> serviceSkillsList,
             List<string> advancedEducationSkillList, List<string> events, List<string> mishaps)
         {
             CareerName = careerName;
+            CareerDescription = description;
             Qualifications = qualifications;
             Assignments = assignments;
             MusteringOutBenefits = musteringOutBenefits;
@@ -126,11 +131,12 @@ namespace TravellerWiki.Data
         }
 
         //Everything but comission
-        public TravellerCareer(string careerName, string nationality, List<TravellerSkillCheck> qualifications, List<TravellerAssignment> assignments,
+        public TravellerCareer(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications, List<TravellerAssignment> assignments,
             List<(int Cash, string Benefit)> musteringOutBenefits, List<string> personalDevelopmentSkillList, List<string> serviceSkillsList,
             List<string> advancedEducationSkillList, List<string> events, List<string> mishaps)
         {
             CareerName = careerName;
+            CareerDescription = description;
             Qualifications = qualifications;
             Assignments = assignments;
             MusteringOutBenefits = musteringOutBenefits;
@@ -144,11 +150,12 @@ namespace TravellerWiki.Data
 
         //Everything but comission and advanced education
 
-        public TravellerCareer(string careerName, string nationality, List<TravellerSkillCheck> qualifications, List<TravellerAssignment> assignments,
+        public TravellerCareer(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications, List<TravellerAssignment> assignments,
             List<(int Cash, string Benefit)> musteringOutBenefits, List<string> personalDevelopmentSkillList,
             List<string> serviceSkillsList, List<string> events, List<string> mishaps)
         {
             CareerName = careerName;
+            CareerDescription = description;
             Qualifications = qualifications;
             Assignments = assignments;
             MusteringOutBenefits = musteringOutBenefits;
@@ -160,12 +167,13 @@ namespace TravellerWiki.Data
         }
 
         //No advanced education
-        public TravellerCareer(string careerName, string nationality, List<TravellerSkillCheck> qualifications,
+        public TravellerCareer(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications,
             List<TravellerAssignment> assignments, List<(int Cash, string Benefit)> musteringOutBenefits,
             List<string> personalDevelopmentSkillList, List<string> serviceSkillsList,
             TravellerCommission commission, List<string> events, List<string> mishaps)
         {
             CareerName = careerName;
+            CareerDescription = description;
             Qualifications = qualifications;
             Assignments = assignments;
             MusteringOutBenefits = musteringOutBenefits;

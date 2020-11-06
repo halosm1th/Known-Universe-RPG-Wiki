@@ -1,0 +1,20 @@
+@page "/CharacterCreation/Skills"
+@using TravellerWiki.Data
+@inject TravellerSkillDisplayService DisplayService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+</head>
+
+<body>
+    <h1>Traveller Skills</h1>
+    <p>Below is the list of skills within my Traveller game and a brief decription of them. Many are taken from Mongoose Traveller second edition, all credit for those skills and their descriptions goes to Mongoose Publishing.</p>
+    <ul>
+        @foreach (var skill in DisplayService.GetTravellerSkills())
+        {
+        <li>
+            <h4>@skill.SkillName:</h4>
+            <p>@skill.Description</p>
+        </li>
+        }
+    </ul>
+</body>
