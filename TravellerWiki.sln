@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobBoardCreator", "JobBoardCreator\JobBoardCreator.csproj", "{C1CDDA54-3D0B-4711-980F-DCD80BF2E9C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerCreator", "CareerCreator\CareerCreator.csproj", "{3CA54F56-CFF6-4410-8FFD-DC8A7467D715}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCreator", "CareerCreator\CareerCreator.csproj", "{3CA54F56-CFF6-4410-8FFD-DC8A7467D715}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
