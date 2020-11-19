@@ -6,8 +6,6 @@ using Newtonsoft.Json;
 
 namespace TravellerWiki.Data
 {
-
-
     public class TravellerCommission
     {
         public bool HasCommision { get; set; }
@@ -49,15 +47,22 @@ namespace TravellerWiki.Data
 
         public List<string> AdvancedEducationSkillList { get; set; }
 
-        public List<string> Events { get; set; }
-        public List<string> Mishaps { get; set; }
+        public List<TravellerCharacterCreationEvent> Events { get; set; }
+        public List<TravellerCharacterCreationEvent> Mishaps { get; set; }
 
         private static TravellerNationsCharacterInfoService travellerNationsCharacterInfoService = new TravellerNationsCharacterInfoService();
 
         private Dictionary<string, TravellerNationsCharacterInfo> nationService = travellerNationsCharacterInfoService.GetTravellerNationsCharacterInfos();
 
         [JsonConstructor]
-        public TravellerCareerJson(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications, TravellerCommission commission, List<TravellerAssignment> assignments, List<(int Cash, string Benefit)> musteringOutBenefits, List<string> personalDevelopmentSkillList, List<string> serviceSkillsList, List<string> advancedEducationSkillList, List<string> events, List<string> mishaps)
+        public TravellerCareerJson(string careerName, string description, 
+            string nationality, List<TravellerSkillCheck> qualifications,
+            TravellerCommission commission, List<TravellerAssignment> assignments,
+            List<(int Cash, string Benefit)> musteringOutBenefits, 
+            List<string> personalDevelopmentSkillList, List<string> serviceSkillsList, 
+            List<string> advancedEducationSkillList,
+            List<TravellerCharacterCreationEvent> events,
+            List<TravellerCharacterCreationEvent> mishaps)
         {
             CareerName = careerName;
             CareerDescription = description;
@@ -103,8 +108,8 @@ namespace TravellerWiki.Data
 
         public List<string> AdvancedEducationSkillList { get; set; }
 
-        public List<string> Events { get; set; }
-        public List<string> Mishaps { get; set; }
+        public List<TravellerCharacterCreationEvent> Events { get; set; }
+        public List<TravellerCharacterCreationEvent> Mishaps { get; set; }
 
         private static TravellerNationsCharacterInfoService travellerNationsCharacterInfoService = new TravellerNationsCharacterInfoService();
 
@@ -114,7 +119,7 @@ namespace TravellerWiki.Data
         public TravellerCareer(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications, TravellerCommission commission,
             List<TravellerAssignment> assignments, List<(int Cash, string Benefit)> musteringOutBenefits,
             List<string> personalDevelopmentSkillList, List<string> serviceSkillsList,
-            List<string> advancedEducationSkillList, List<string> events, List<string> mishaps)
+            List<string> advancedEducationSkillList, List<TravellerCharacterCreationEvent> events, List<TravellerCharacterCreationEvent> mishaps)
         {
             CareerName = careerName;
             CareerDescription = description;
@@ -133,7 +138,7 @@ namespace TravellerWiki.Data
         //Everything but comission
         public TravellerCareer(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications, List<TravellerAssignment> assignments,
             List<(int Cash, string Benefit)> musteringOutBenefits, List<string> personalDevelopmentSkillList, List<string> serviceSkillsList,
-            List<string> advancedEducationSkillList, List<string> events, List<string> mishaps)
+            List<string> advancedEducationSkillList, List<TravellerCharacterCreationEvent> events, List<TravellerCharacterCreationEvent> mishaps)
         {
             CareerName = careerName;
             CareerDescription = description;
@@ -152,7 +157,7 @@ namespace TravellerWiki.Data
 
         public TravellerCareer(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications, List<TravellerAssignment> assignments,
             List<(int Cash, string Benefit)> musteringOutBenefits, List<string> personalDevelopmentSkillList,
-            List<string> serviceSkillsList, List<string> events, List<string> mishaps)
+            List<string> serviceSkillsList, List<TravellerCharacterCreationEvent> events, List<TravellerCharacterCreationEvent> mishaps)
         {
             CareerName = careerName;
             CareerDescription = description;
@@ -170,7 +175,7 @@ namespace TravellerWiki.Data
         public TravellerCareer(string careerName, string description, string nationality, List<TravellerSkillCheck> qualifications,
             List<TravellerAssignment> assignments, List<(int Cash, string Benefit)> musteringOutBenefits,
             List<string> personalDevelopmentSkillList, List<string> serviceSkillsList,
-            TravellerCommission commission, List<string> events, List<string> mishaps)
+            TravellerCommission commission, List<TravellerCharacterCreationEvent> events, List<TravellerCharacterCreationEvent> mishaps)
         {
             CareerName = careerName;
             CareerDescription = description;
@@ -185,28 +190,6 @@ namespace TravellerWiki.Data
             Nationality = nationService[nationality];
         }
 
-    }
-
-    public class TravellerSkillCheck
-    {
-        public string SkillName { get; set; }
-        public int BeatValue { get; set; }
-
-        public bool PassedCheck(int testValue)
-        {
-            return testValue >= BeatValue;
-        }
-
-        public TravellerSkillCheck(string skillName, int beatValue)
-        {
-            SkillName = skillName;
-            BeatValue = beatValue;
-        }
-
-        public override string ToString()
-        {
-            return $"{SkillName}: {BeatValue}+";
-        }
     }
 
     public class TravellerAssignment

@@ -1,0 +1,27 @@
+﻿<Window x:Class="CareerCreator.CharacterCreationRewardType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator"
+        mc:Ignorable="d"
+        Title="CharacterCreationRewardType" Height="80" Width="400">
+    <Grid>
+      <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Content="Skills" Click="Button_Click"></Button>
+        <Button Grid.Row="0" Grid.Column="1" Content="Items" Click="Button_Click_1"></Button>
+        <Button Grid.Row="0" Grid.Column="2" Content="Job Change" Click="Button_Click_2"></Button>
+        <Button Grid.Row="1" Grid.Column="0" Content="Benefit Increase" Click="Button_Click_3"></Button>
+        <Button Grid.Row="1" Grid.Column="1" Content="Advancement Increase" Click="Button_Click_4"></Button>
+        <Button Grid.Row="1" Grid.Column="2" Content="Commission Increase" Click="Button_Click_5"></Button>
+
+    </Grid>
+</Window>

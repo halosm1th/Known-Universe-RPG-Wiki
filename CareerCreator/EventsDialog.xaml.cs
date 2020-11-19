@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravellerWiki.Data;
 
 namespace CareerCreator
 {
@@ -17,50 +19,103 @@ namespace CareerCreator
     /// </summary>
     public partial class EventsDialog : Window
     {
-        public List<string> Events
+        public List<TravellerCharacterCreationEvent> Events
         {
-            get => _events;
-            set
-            {
-                _events = value;
-                Event2.Text = value[1] ?? "";
-                Event3.Text = value[2] ?? "";
-                Event4.Text = value[3] ?? "";
-                Event5.Text = value[4] ?? "";
-                Event6.Text = value[5] ?? "";
-
-                Event7.Text = value[6] ?? "";
-                Event8.Text = value[7] ?? "";
-                Event9.Text = value[8] ?? "";
-                Event10.Text = value[9] ?? "";
-                Event11.Text = value[10] ?? "";
-                Event12.Text = value[11] ?? "";
-            }
+            get => characterCreationEvents.ToList();
+            set => characterCreationEvents = value.ToArray();
         }
 
-        private List<string> _events;
-
+        private TravellerCharacterCreationEvent[] characterCreationEvents = new TravellerCharacterCreationEvent[11]
+        {
+            new TravellerCharacterCreationTextEvent("Disaster! Roll on the Mishap Table, but you are not ejected from this career."), 
+            new TravellerCharacterCreationEmptyEvent(), 
+            new TravellerCharacterCreationEmptyEvent(), 
+            new TravellerCharacterCreationEmptyEvent(), 
+            new TravellerCharacterCreationEmptyEvent(), 
+            new TravellerCharacterCreationTextEvent("Life Event. Roll on the Life Events Table. "),
+            new TravellerCharacterCreationEmptyEvent(),
+            new TravellerCharacterCreationEmptyEvent(),
+            new TravellerCharacterCreationEmptyEvent(),
+            new TravellerCharacterCreationEmptyEvent(),
+            new TravellerCharacterCreationEmptyEvent(),
+        };
         public EventsDialog()
         {
             InitializeComponent();
+            
+        }
+
+
+        private void EditEvent(int eventID)
+        {
+            if (characterCreationEvents[eventID] != null && 
+                characterCreationEvents
+                    [eventID].GetType() != typeof(TravellerCharacterCreationEmptyEvent))
+            {
+                var dialog = new EventEditingDialog {CharacterCreationEvent = characterCreationEvents[eventID]};
+                if (dialog.ShowDialog() == true)
+                {
+                    characterCreationEvents[eventID] = dialog.CharacterCreationEvent;
+                }
+            }
+            else
+            {
+                var dialog = new EventEditingDialog();
+                if (dialog.ShowDialog() == true)
+                {
+                    characterCreationEvents[eventID] = dialog.CharacterCreationEvent;
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _events = new List<string>();
-            Events.Add(Event2.Text ?? "");
-            Events.Add(Event3.Text ?? "");
-            Events.Add(Event4.Text ?? "");
-            Events.Add(Event5.Text ?? "");
-            Events.Add(Event6.Text ?? "");
-
-            Events.Add(Event7.Text ?? "");
-            Events.Add(Event8.Text ?? "");
-            Events.Add(Event9.Text ?? "");
-            Events.Add(Event10.Text ?? "");
-            Events.Add(Event11.Text ?? "");
-            Events.Add(Event12.Text ?? "");
             DialogResult = true;
         }
+
+        private void Event3_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(1);
+        }
+
+        private void Event4_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(2);
+
+        }
+
+        private void Event5_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(3);
+        }
+
+        private void Event6_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(4);
+        }
+
+        private void Event8_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(6);
+        }
+
+        private void Event9_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(7);
+        }
+        private void Event10_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(8);
+        }
+
+        private void Event11_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(9);
+        }
+        private void Event12_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(10);
+        }
+
     }
 }

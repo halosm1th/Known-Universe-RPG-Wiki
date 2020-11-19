@@ -1,0 +1,23 @@
+﻿<Window x:Class="CareerCreator.ItemRewardCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator"
+        mc:Ignorable="d"
+        Title="ItemRewardCreator" Height="250" Width="450">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Enter the text for your skills, if there are more then 1, separate them by comma"></Label>
+        <TextBox Grid.Row="1" Name="ItemList" Grid.Column="0" ></TextBox>
+        <Button Grid.Row="2" Grid.Column="0" Content="Return" Click="Button_Click"></Button>
+    </Grid>
+</Window>

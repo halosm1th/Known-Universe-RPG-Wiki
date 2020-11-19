@@ -95,7 +95,7 @@ namespace TravellerUniverse
             var sb = new StringBuilder();
             foreach (var system in Worlds())
             {
-                sb.Append(system.GetHTML());
+                //sb.Append(system.GetHTML());
             }
 
             return sb.ToString();

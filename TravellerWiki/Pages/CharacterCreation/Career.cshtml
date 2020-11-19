@@ -23,7 +23,8 @@
     {
         var career = @Model.Career;
         <h1>@career.CareerName</h1>
-        <p>@career.</p>
+        <p>@career.CareerName - @career.CareerDescription</p>
+        <p><a href="/Career/">Head to Careers Page</a></p>
         <p>
             Qualifications:
             <ul>
@@ -52,48 +53,43 @@
         <h2>Career Progress</h2>
         <table>
             <thead>
-            <tr><th>Assignment</th><th>Survival</th><th>Advancement</th></tr>
+                <tr><th>Assignment</th><th>Survival</th><th>Advancement</th></tr>
             </thead>
             <tbody>
-            @foreach (var assignment in career.Assignments)
-            {
-                <tr><td>@assignment.Name:</td><td>@assignment.Survival.ToString()</td><td>@assignment.Advancement.ToString()</td></tr>
-            }
+                @foreach (var assignment in career.Assignments)
+                {
+                    <tr><td>@assignment.Name:</td><td>@assignment.Survival.ToString()</td><td>@assignment.Advancement.ToString()</td></tr>
+                }
             </tbody>
         </table>
         <h2>Mustering Out and Benefits</h2>
         //Mustering out benefits table
         <table>
             <thead>
-            <tr><th>1D</th><th>Cash</th><th>Benefits</th></tr>
+                <tr><th>1D</th><th>Cash</th><th>Benefits</th></tr>
             </thead>
             @{
                 int i = 1;
             }
             <tbody>
-            @foreach (var benefit in career.MusteringOutBenefits)
-            {
-                <tr><td>@i)</td><td>Cr @benefit.Cash </td><td>@benefit.Benefit</td></tr>
-                i++;
-            }
+                @foreach (var benefit in career.MusteringOutBenefits)
+                {
+                    <tr><td>@i)</td><td>Cr @benefit.Cash </td><td>@benefit.Benefit</td></tr>
+                    i++;
+                }
             </tbody>
         </table>
 
         //Skills tables
         <h2>Skill Tables</h2>
         <h3>Personal Development</h3>
-        <h3>Service Skills</h3>
-
-
-        @if (career.Commission?.HasCommision ?? false)
-        {
-            <h3>Commission Skills</h3>
-            <table>
-                <thead>
-                <tr><th>1D</th><th>Commission Skill list</th></tr>
-                </thead>
-                <tbody>
-                @foreach (var skill in career.Commission.CommissionSkillList)
+        <table>
+            <thead>
+                <tr><th>1D</th><th>Personal Development list</th></tr>
+            </thead>
+            <tbody>
+                @{ i = 1; }
+                @foreach (var skill in career.PersonalDevelopmentSkillList)
                 {
                     <tr>
                         <td>@i)</td>
@@ -101,6 +97,44 @@
                     </tr>
                     i++;
                 }
+            </tbody>
+        </table>
+        <h3>Service Skills</h3>
+        <table>
+            <thead>
+                <tr><th>1D</th><th>Service Skill list</th></tr>
+            </thead>
+            <tbody>
+                @{ i = 1; }
+                @foreach (var skill in career.ServiceSkillsList)
+                {
+                    <tr>
+                        <td>@i)</td>
+                        <td>@skill</td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+
+
+        @if (career.Commission?.HasCommision ?? false)
+        {
+            <h3>Commission Skills</h3>
+            <table>
+                <thead>
+                    <tr><th>1D</th><th>Commission Skill list</th></tr>
+                </thead>
+                <tbody>
+                    @{ i = 1; }
+                    @foreach (var skill in career.Commission.CommissionSkillList)
+                    {
+                        <tr>
+                            <td>@i)</td>
+                            <td>@skill</td>
+                        </tr>
+                        i++;
+                    }
                 </tbody>
             </table>
         }
@@ -110,18 +144,18 @@
             <h3>Advanced Education Skills</h3>
             <table>
                 <thead>
-                <tr><th>1D</th><th>Advanced Education Skill list</th></tr>
+                    <tr><th>1D</th><th>Advanced Education Skill list</th></tr>
                 </thead>
                 <tbody>
-                @{ i = 1; }
-                @foreach (var skill in career.AdvancedEducationSkillList)
-                {
-                    <tr>
-                        <td>@i)</td>
-                        <td>@skill</td>
-                    </tr>
-                    i++;
-                }
+                    @{ i = 1; }
+                    @foreach (var skill in career.AdvancedEducationSkillList)
+                    {
+                        <tr>
+                            <td>@i)</td>
+                            <td>@skill</td>
+                        </tr>
+                        i++;
+                    }
                 </tbody>
             </table>
         }
@@ -131,18 +165,18 @@
             <h3>@assignment.Name Skill list</h3>
             <table>
                 <thead>
-                <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
+                    <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
                 </thead>
                 <tbody>
-                @{ i = 0; }
-                @foreach (var skill in assignment.SkillList)
-                {
-                    <tr>
-                        <td>@i)</td>
-                        <td>@skill</td>
-                    </tr>
-                    i++;
-                }
+                    @{ i = 0; }
+                    @foreach (var skill in assignment.SkillList)
+                    {
+                        <tr>
+                            <td>@i)</td>
+                            <td>@skill</td>
+                        </tr>
+                        i++;
+                    }
                 </tbody>
             </table>
 
@@ -153,39 +187,39 @@
             <h3>@assignment.Name Skill list</h3>
             <table>
                 <thead>
-                <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
+                    <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
                 </thead>
                 <tbody>
-                @{ i = 1; }
-                @foreach (var skill in assignment.SkillList)
-                {
-                    <tr>
-                        <td>@i)</td>
-                        <td>@skill</td>
-                    </tr>
-                    i++;
-                }
+                    @{ i = 1; }
+                    @foreach (var skill in assignment.SkillList)
+                    {
+                        <tr>
+                            <td>@i)</td>
+                            <td>@skill</td>
+                        </tr>
+                        i++;
+                    }
                 </tbody>
             </table>
 
         }
 
-                    //Events tables
+        //Events tables
         <h3>Events Table</h3>
-            <table>
+        <table>
             <thead>
                 <tr><th>#</th><th>Events</th></tr>
             </thead>
             <tbody>
-            @{ i = 2;}
-            @foreach (var eventText in career.Events)
-            {
-                <tr>
-                    <td>@i)</td>
-                    <td>@eventText</td>
-                </tr>
-                i++;
-            }
+                @{ i = 2;}
+                @foreach (var eventText in career.Events)
+                {
+                    <tr>
+                        <td>@i)</td>
+                        <td>@eventText.EventText</td>
+                    </tr>
+                    i++;
+                }
             </tbody>
         </table>
 
@@ -196,12 +230,12 @@
                 <tr><th>#</th><th>Mishap</th></tr>
             </thead>
             <tbody>
-            @{i = 1;}
-            @foreach (var mishap in career.Mishaps)
+                @{i = 1;}
+                @foreach (var mishap in career.Mishaps)
                 {
                     <tr>
                         <td>@i)</td>
-                        <td>@mishap</td>
+                        <td>@mishap.EventText</td>
                     </tr>
                     i++;
                 }
@@ -236,12 +270,13 @@
     {
         <h1>Careers</h1>
         <ul>
-            @foreach (var careerNames in CareerService.GetCareers)
+            @foreach (var careerNames in CareerService.GetCareers.OrderBy(career => career.Nationality.NationName))
             {
 
-                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName</a></li>
+                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality.NationName">@careerNames.Nationality.NationName</a></li>
             }
         </ul>
     }
+<h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
 
 </body>
