@@ -1,200 +1,200 @@
 [
+  
   {
-    "CareerName": "Army",
-    "Nationality": "United Federation of Earth and her Colonies Among the Stars",
+    "CareerName": "Inquisitor of Sigmar",
+    "CareerDescription": "You are an agent of Sigmar, a tool to extract justice and divine the heretics from the immoral failures that are non-believers.",
+    "Nationality": "Church of Sigmar",
     "Qualifications": [
       {
-        "SkillName": "End",
-        "BeatValue": 5
-      }
-    ],
-    "Commission": {
-      "HasCommision": true,
-      "CommissionSkillList": [ "Tactics (military)", "Leadership", "Advocate", "Diplomat", "Electronics", "Admin" ],
-      "RanksAndBonuses": [
-        {
-          "Item1": "Lieutenant",
-          "Item2": "Leadership 1"
-        },
-        {
-          "Item1": "Captain",
-          "Item2": ""
-        },
-        {
-          "Item1": "Major",
-          "Item2": "Tactics (military) 1"
-        },
-        {
-          "Item1": "Lieutenant Colonel",
-          "Item2": ""
-        },
-        {
-          "Item1": "Colonel",
-          "Item2": ""
-        },
-        {
-          "Item1": "General",
-          "Item2": "SOC 10 or SOC +1, whichever is higher"
-        }
-      ],
-      "CommmsionCheck": {
-        "SkillName": "Soc",
+        "SkillName": "Psi",
         "BeatValue": 8
       }
-    },
+    ],
+    "Commission": null,
     "Assignments": [
       {
-        "Name": "Support",
-        "Description": "You are an engineer, cook or in some other role behind the front lines.",
+        "Name": "Interrogator",
+        "Description": "Interrogate the heretics of Sigmar",
         "Survival": {
-          "SkillName": "End",
-          "BeatValue": 5
+          "SkillName": "Edu",
+          "BeatValue": 6
         },
         "Advancement": {
-          "SkillName": "Edu",
-          "BeatValue": 7
+          "SkillName": "Psi",
+          "BeatValue": 8
         },
-        "SkillList": [ "Mechanic", "Drive or Flyer", "Profession", "Explosives", "Electronics (comms)", "Medic" ],
+        "SkillList": [ "Sigmars Knowledge", "Advocate", "Sigmars Light", "Luck", "Investigate", "Sigmars Flame" ],
         "RanksAndBonuses": [
           {
-            "Item1": "Private",
-            "Item2": "Gun Combat 1"
+            "Item1": "Jr. Interrogator",
+            "Item2": "Investigate 1"
           },
           {
-            "Item1": "Lance Corporal",
-            "Item2": "Recon 1"
+            "Item1": "Interrogator",
+            "Item2": "Streetwise"
           },
           {
-            "Item1": "Corporal",
-            "Item2": ""
+            "Item1": "Sr. Interrogator",
+            "Item2": "Stealth"
           },
           {
-            "Item1": "Lance Sergeant",
-            "Item2": "Leadership 1"
+            "Item1": "Interrogator Teacher",
+            "Item2": "Leadership"
           },
           {
-            "Item1": "Sergeant",
-            "Item2": ""
+            "Item1": "Interrogator Master",
+            "Item2": "Admin"
           },
           {
-            "Item1": "Gunnery Sergeant",
-            "Item2": ""
+            "Item1": "Interrogator Prime",
+            "Item2": "PSI +2"
           }
         ]
       },
       {
-        "Name": "Infantry",
-        "Description": "You are one of the Poor Bloody Infantry on the ground.",
+        "Name": "Inquisitor",
+        "Description": "The judge of heresy in the Church of Sigmar",
         "Survival": {
+          "SkillName": "Int",
+          "BeatValue": 6
+        },
+        "Advancement": {
           "SkillName": "Str",
-          "BeatValue": 6
+          "BeatValue": 8
         },
-        "Advancement": {
-          "SkillName": "Edu",
-          "BeatValue": 6
-        },
-        "SkillList": [ "Gun Combat", "Melee", "Heavy Weapons", "Stealth", "Athletics", "Recon" ],
+        "SkillList": [ "Sigmars Freeze", "Gun Combat(Slug)", "Sigmars Water", "Leadership", "Luck/Jack Of All Trades", "Sigmars Air" ],
         "RanksAndBonuses": [
           {
-            "Item1": "Private",
-            "Item2": "Gun Combat 1"
+            "Item1": "Jr. Inquisitor",
+            "Item2": "Investigate 1"
           },
           {
-            "Item1": "Lance Corporal",
-            "Item2": "Recon 1"
+            "Item1": "Inquisitor",
+            "Item2": "Persuade"
           },
           {
-            "Item1": "Corporal",
-            "Item2": ""
+            "Item1": "Sr. Inquisitor",
+            "Item2": "Gun Combat(Slug)"
           },
           {
-            "Item1": "Lance Sergeant",
-            "Item2": "Leadership 1"
+            "Item1": "Inquisitor Teacher",
+            "Item2": "Leadership"
           },
           {
-            "Item1": "Sergeant",
-            "Item2": ""
+            "Item1": "Inquisitor Master",
+            "Item2": "Admin"
           },
           {
-            "Item1": "Gunnery Sergeant",
-            "Item2": ""
+            "Item1": "Inquisitor Prime",
+            "Item2": "Psi"
           }
         ]
       },
       {
-        "Name": "Cavalry",
-        "Description": "You are one of the crew of a gunship or tank.",
+        "Name": "Defender",
+        "Description": "The defense of the heretic in the Church of Sigmar",
         "Survival": {
-          "SkillName": "Int",
-          "BeatValue": 7
+          "SkillName": "Soc",
+          "BeatValue": 6
         },
         "Advancement": {
-          "SkillName": "Int",
-          "BeatValue": 5
+          "SkillName": "Str",
+          "BeatValue": 8
         },
-        "SkillList": [ "Mechanic", "Drive", "Flyer", "Recon", "Heavy Weapons (vehicle)", "Electronics (sensors)" ],
+        "SkillList": [ "Sigmars Guidance", "Deception", "Advocate", "Sigmars Hand", "Streetwise", "Sigmars Aid" ],
         "RanksAndBonuses": [
           {
-            "Item1": "Private",
-            "Item2": "Gun Combat 1"
+            "Item1": "Jr. Defender",
+            "Item2": "Investigate 1"
           },
           {
-            "Item1": "Lance Corporal",
-            "Item2": "Recon 1"
+            "Item1": "Defender",
+            "Item2": "Streetwise"
           },
           {
-            "Item1": "Corporal",
-            "Item2": ""
+            "Item1": "Sr. Defender",
+            "Item2": "Deception"
           },
           {
-            "Item1": "Lance Sergeant",
-            "Item2": "Leadership 1"
+            "Item1": "Defender Teacher",
+            "Item2": "Leadership"
           },
           {
-            "Item1": "Sergeant",
-            "Item2": ""
+            "Item1": "Defender Master",
+            "Item2": "Admin"
           },
           {
-            "Item1": "Sergeant Major",
-            "Item2": ""
+            "Item1": "Defender Prime",
+            "Item2": "Psi"
           }
         ]
       }
     ],
     "MusteringOutBenefits": [
       {
-        "Item1": 2000,
-        "Item2": "Combat Implant"
+        "Item1": 1000,
+        "Item2": "Psi"
       },
       {
         "Item1": 5000,
-        "Item2": "INT +1"
+        "Item2": "TAS Membership"
       },
       {
         "Item1": 10000,
-        "Item2": "EDU +1"
+        "Item2": "Void Blade"
       },
       {
-        "Item1": 10000,
+        "Item1": 15000,
         "Item2": "Weapon"
       },
       {
-        "Item1": 10000,
+        "Item1": 20000,
         "Item2": "Armour"
       },
       {
-        "Item1": 20000,
-        "Item2": "END +1 or Combat Implant"
+        "Item1": 30000,
+        "Item2": "Ship Share"
       },
       {
-        "Item1": 30000,
-        "Item2": "SOC +1"
+        "Item1": 50000,
+        "Item2": "Inquisitorial Shuttle"
       }
     ],
-    "PersonalDevelopmentSkillList": [ "STR +1", "DEX +1", "END +1", "Gambler", "Medic", "Melee" ],
-    "ServiceSkillsList": [ "Drive or Vacc Suit", "Athletics", "Gun Combat", "Recon", "Melee", "Heavy Weapons" ],
-    "AdvancedEducationSkillList": [ "Tactics (military)", "Electronics", "Navigation", "Explosives", "Engineer", "Survival" ],
-    "Events": [ "Disaster! Roll on the Mishap Table, but you are not ejected from this career.", "You are assigned to a planet with a hostile or wild environment. Gain one of Vacc Suit 1, Engineer 1, Animals (riding or training) 1 or Recon 1", "You are assigned to an urbanised planet torn by war. Gain one of Stealth 1, Streetwise 1, Persuade 1 or Recon 1.", "You are given a special assignment or duty in your unit. Gain DM+1 to any one Benefit roll.", "You are thrown into a brutal ground war. Roll EDU 8+ to avoid injury; if you succeed, you gain one level in Gun Combat or Leadership", "Life Event. Roll on the Life Events Table.", "You are given advanced training in a specialist field. Roll EDU 8+ to increase any one skill you already have by one level.", "Surrounded and outnumbered by the enemy, you hold out until relief arrives. Gain DM+2 to your next Advancement check. ", "You are assigned to a peacekeeping role. Gain one of Admin 1, Investigate 1, Deception 1 or Recon 1. ", "Your commanding officer takes an interest in your career. Either gain Tactics (military) 1 or DM+4 to your next Advancement roll thanks to their aid. ", "You display heroism in battle. You may gain a promotion or a commission automatically." ],
-    "Mishaps": [ "Severely injured in action (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table and take the lower result.", "Your unit is slaughtered in a disastrous battle, for which you blame your commander. Gain them as an Enemy as they have you removed from the service", "You are sent to a very unpleasant region (jungle, swamp, desert, icecap, urban) to battle against guerrilla fighters and rebels. You are discharged because of stress, injury or because the government wishes to bury the whole incident. Increase Recon or Survival by one level but also gain the rebels as an Enemy.", "You discover that your commanding officer is engaged in some illegal activity, such as weapon smuggling. You can join their ring and gain them as an Ally before the inevitable investigation gets you discharged, or you can co-operate with the military police – the official whitewash gets you discharged anyway but you may keep your Benefit roll from this term of service.", "You are tormented by or quarrel with an officer or fellow soldier. Gain that officer as a Rival as they drive you out of the service", "Injured. Roll on the Injury Table." ]
+    "PersonalDevelopmentSkillList": [ "Psi", "Str", "Soc", "Dex", "Edu", "Int" ],
+    "ServiceSkillsList": [ "Language (Common)", "Persuade", "Melee", "Gun Combat", "Stealth", "Streetwise" ],
+    "AdvancedEducationSkillList": null,
+    "Events": [
+      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+      {
+        "Reward": { "AdvancementAmount": 2 },
+        "EventText": "Find a new planet with a precursor temple. Unveiling new teachings of Sigmar."
+      },
+      { "EventText": "Root out a Lawgar cult and have them punished." },
+      { "EventText": "Spend a term rooting out heresy on a city-world" },
+      { "EventText": "While investigating heresy within the church, you discover a colleague is secretly part of a cult. If you report them, gain an enemy but +2 to an advancement roll. If you do nothing gain a Contact." },
+      { "EventText": "Life Event. Roll on the Life Events Table. " },
+      {
+        "Reward": { "Skilllist": [ "Soc" ] },
+        "EventText": "Have a ballad of your actions written for Sigmar and have it sung on a church world."
+      },
+      { "EventText": "Spend a term rooting out heresy within the Islands." },
+      {
+        "Reward": { "Skilllist": [ "Leadership" ] },
+        "EventText": "Spend a term working on a church world, helping to train new inquisitors."
+      },
+      { "EventText": "Spend a term rooting out heresy on the frontier" },
+      {
+        "Reward": { "NewCareerName": "Deutschland Prisoner" },
+        "EventText": "Condemn the wrong part of the scripture and be sent to prison for your heresy. "
+      }
+    ],
+    "Mishaps": [
+      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result." },
+      { "EventText": "Petty church politics gets you kicked out of the church. Soc 8+ to gain a benefit roll this term." },
+      { "EventText": "Accidentally condemn the wrong planet for heresy and be removed from the Church because of it." },
+      { "EventText": "Accuse the wrong person of heresy, causing the finance minister to refuse to fund any more of your expeditions." },
+      { "EventText": "You offended Sigmar himself with your heresy, and are removed from the church." },
+      { "EventText": "Injured. Roll on the Injury Table." }
+    ]
   }
 ]

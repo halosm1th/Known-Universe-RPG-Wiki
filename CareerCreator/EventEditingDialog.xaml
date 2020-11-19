@@ -1,0 +1,56 @@
+﻿<Window x:Class="CareerCreator.EventEditingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator"
+        mc:Ignorable="d"
+        Title="Event Editing Dialog" Height="200" Width="300">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            
+        </Grid.RowDefinitions>
+
+
+        <Label Grid.Column="0" Grid.Row="0" Content="Event text "></Label>
+        <TextBox Grid.Column="1" Grid.Row="0" Name="EventText"></TextBox>
+
+        <CheckBox Grid.Column="0" Grid.Row="1" Name="HasReward" Content="Reward" Click="RewardClicked"></CheckBox>
+        <Button Grid.Column="1" Grid.Row="1" Content="Edit Reward" Name="RewardText" IsEnabled="false" Click="RewardText_Click"></Button>
+
+        <CheckBox Grid.Column="0" Grid.Row="2" Name="HasSkillCheck" Content="Skill check" Click="SkillsClicked"></CheckBox>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBox Grid.Row="0" Grid.Column="0" Name="SkillName" Text="Skill Name" IsReadOnly="true"></TextBox>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="SkillValue" Text="8" IsReadOnly="true" Width="20"></TextBox>
+        </Grid>
+
+        <Label Grid.Column="0" Grid.Row="3" Content="Success:"></Label>
+        <Button Grid.Column="1" Grid.Row="3" Content="Edit Success" Name="EditSuccess" IsEnabled="false" Click="EditSuccess_Click"></Button>
+        
+        <Label Grid.Column="0" Grid.Row="4" Content="Failure:"></Label>
+        <Button Grid.Column="1" Grid.Row="4" Content="Edit Failure" Name="EditFailure" IsEnabled="false" Click="EditFailure_Click"></Button>
+
+        <Button Grid.Column="1" Grid.Row="5" Content="Finished" Click="Button_Click"></Button>
+    </Grid>
+</Window>

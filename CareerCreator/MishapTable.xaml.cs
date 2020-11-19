@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravellerWiki.Data;
 
 namespace CareerCreator
 {
@@ -17,38 +19,80 @@ namespace CareerCreator
     /// </summary>
     public partial class MishapTable : Window
     {
-        public List<string> Mishaps
+        public List<TravellerCharacterCreationEvent> Mishaps
         {
-            get => _mishaps;
+            get => _mishaps.ToList();
             set
             {
-                _mishaps = value;
-                Mishap1.Text = value[0] ?? "";
-                Mishap2.Text = value[1] ?? "";
-                Mishap3.Text = value[2] ?? "";
-                Mishap4.Text = value[3] ?? "";
-                Mishap5.Text = value[4] ?? "";
-                Mishap6.Text = value[5] ?? "";
+                _mishaps = value.ToArray();
+                Mishap1.Text = value[0].EventText ?? "";
+                Mishap6.Text = value[5].EventText ?? "";
             }
         }
 
-        private List<string> _mishaps;
+        private TravellerCharacterCreationEvent[] _mishaps = new TravellerCharacterCreationEvent[]
+        {
+            new TravellerCharacterCreationTextEvent("Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result"), 
+            new TravellerCharacterCreationEmptyEvent(), 
+            new TravellerCharacterCreationEmptyEvent(), 
+            new TravellerCharacterCreationEmptyEvent(), 
+            new TravellerCharacterCreationEmptyEvent(),
+            new TravellerCharacterCreationTextEvent("Injured. Roll on the Injury Table."), 
+        };
 
         public MishapTable()
         {
             InitializeComponent();
         }
 
+        private void EditEvent(int eventID)
+        {
+            if (_mishaps[eventID] != null &&
+                _mishaps
+                    [eventID].GetType() != typeof(TravellerCharacterCreationEmptyEvent))
+            {
+                var dialog = new EventEditingDialog { CharacterCreationEvent = _mishaps[eventID] };
+                if (dialog.ShowDialog() == true)
+                {
+                    _mishaps[eventID] = dialog.CharacterCreationEvent;
+                }
+            }
+            else
+            {
+                var dialog = new EventEditingDialog();
+                if (dialog.ShowDialog() == true)
+                {
+                    _mishaps[eventID] = dialog.CharacterCreationEvent;
+                }
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _mishaps = new List<string>();
-            Mishaps.Add(Mishap1.Text);
-            Mishaps.Add(Mishap2.Text);
-            Mishaps.Add(Mishap3.Text);
-            Mishaps.Add(Mishap4.Text);
-            Mishaps.Add(Mishap5.Text);
-            Mishaps.Add(Mishap6.Text);
             DialogResult = true;
+        }
+
+        private void Mishap2_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(1);
+        }
+
+        private void Mishap3_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(2);
+
+        }
+
+        private void Mishap4_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(3);
+
+        }
+
+        private void Mishap5_Click(object sender, RoutedEventArgs e)
+        {
+            EditEvent(4);
+
         }
     }
 }
