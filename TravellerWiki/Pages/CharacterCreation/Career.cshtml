@@ -24,6 +24,7 @@
         var career = @Model.Career;
         <h1>@career.CareerName</h1>
         <p>@career.CareerName - @career.CareerDescription</p>
+        <p><a href="/Career/">Head to Careers Page</a></p>
         <p>
             Qualifications:
             <ul>
@@ -269,10 +270,10 @@
     {
         <h1>Careers</h1>
         <ul>
-            @foreach (var careerNames in CareerService.GetCareers)
+            @foreach (var careerNames in CareerService.GetCareers.OrderBy(career => career.Nationality.NationName))
             {
 
-                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName</a></li>
+                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality.NationName">@careerNames.Nationality.NationName</a></li>
             }
         </ul>
     }
