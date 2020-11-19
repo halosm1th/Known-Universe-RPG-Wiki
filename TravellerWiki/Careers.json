@@ -1,5 +1,5 @@
 [
-  
+
   {
     "CareerName": "Inquisitor of Sigmar",
     "CareerDescription": "You are an agent of Sigmar, a tool to extract justice and divine the heretics from the immoral failures that are non-believers.",
@@ -194,6 +194,202 @@
       { "EventText": "Accidentally condemn the wrong planet for heresy and be removed from the Church because of it." },
       { "EventText": "Accuse the wrong person of heresy, causing the finance minister to refuse to fund any more of your expeditions." },
       { "EventText": "You offended Sigmar himself with your heresy, and are removed from the church." },
+      { "EventText": "Injured. Roll on the Injury Table." }
+    ]
+  },
+  {
+    "CareerName": "Federation Nobility",
+    "CareerDescription": "The nobility of the federation. The people who legally own all the land an who have their own fleets. Waging war and messing around are their main passtimes when not playing politics,",
+    "Nationality": "United Federation of Earth and her Colonies Among the Stars",
+    "Qualifications": [
+      {
+        "SkillName": "Soc",
+        "BeatValue": 10
+      }
+    ],
+    "Commission": null,
+    "Assignments": [
+      {
+        "Name": "Seated Noble",
+        "Description": "A noble whose territory is mostly managed by the federation",
+        "Survival": {
+          "SkillName": "Soc",
+          "BeatValue": 6
+        },
+        "Advancement": {
+          "SkillName": "Int",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Admin", "Deception", "Carouse", "Advocate", "Diplomat", "Persuade" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Planetary Noble",
+            "Item2": "Deception"
+          },
+          {
+            "Item1": "Baron",
+            "Item2": "Carouse"
+          },
+          {
+            "Item1": "Viscount",
+            "Item2": "Persuade"
+          },
+          {
+            "Item1": "Count",
+            "Item2": "Diplomat"
+          },
+          {
+            "Item1": "Lord",
+            "Item2": "Leadership"
+          },
+          {
+            "Item1": "Earl",
+            "Item2": "Deception"
+          }
+        ]
+      },
+      {
+        "Name": "Free Noble",
+        "Description": "A noble whos territory has very little control by the Federation",
+        "Survival": {
+          "SkillName": "Int",
+          "BeatValue": 7
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Carouse", "Diplomat", "Broker", "Deception", "Advocate", "Admin" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Planetary Noble",
+            "Item2": " Broker"
+          },
+          {
+            "Item1": "Baron",
+            "Item2": "Leadership"
+          },
+          {
+            "Item1": "Viscount",
+            "Item2": "Deception"
+          },
+          {
+            "Item1": "Count",
+            "Item2": "Carouse"
+          },
+          {
+            "Item1": "Lord",
+            "Item2": "Diplomat"
+          },
+          {
+            "Item1": "Earl",
+            "Item2": "Deception"
+          }
+        ]
+      },
+      {
+        "Name": "Background Noble",
+        "Description": "A noble who really is just in the background, maybe a child of a noble, or a few branches from a truly important noble",
+        "Survival": {
+          "SkillName": "Int",
+          "BeatValue": 6
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 10
+        },
+        "SkillList": [ "Carouse", "Gambler", "Language", "Melee", "Pilot", "Jack-of-All-Trades/Luck" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Nobody",
+            "Item2": "-"
+          },
+          {
+            "Item1": "Local Famous",
+            "Item2": "Carouse"
+          },
+          {
+            "Item1": "Cluster Famous",
+            "Item2": "Persuade"
+          },
+          {
+            "Item1": "Getting Relevant",
+            "Item2": "Deception"
+          },
+          {
+            "Item1": "Kinda Relevant",
+            "Item2": "Noble Title"
+          },
+          {
+            "Item1": "Actually Relevant ",
+            "Item2": "Change Assignment to Free or Seated noble at rank 3"
+          }
+        ]
+      }
+    ],
+    "MusteringOutBenefits": [
+      {
+        "Item1": 25000,
+        "Item2": "TAS Membership"
+      },
+      {
+        "Item1": 50000,
+        "Item2": "Weapon"
+      },
+      {
+        "Item1": 75000,
+        "Item2": "Armour"
+      },
+      {
+        "Item1": 100000,
+        "Item2": "Capital Ship"
+      },
+      {
+        "Item1": 250000,
+        "Item2": "1D100 Ship Shares"
+      },
+      {
+        "Item1": 500000,
+        "Item2": "Augment of your choice"
+      },
+      {
+        "Item1": 750000,
+        "Item2": "Dirt on 1D4 Other nobles"
+      }
+    ],
+    "PersonalDevelopmentSkillList": [ "Soc", "Diplomat", "Carouse", "Int", "Luck/Jack Of All Trades", "Deception" ],
+    "ServiceSkillsList": [ "Broker", "Deception", "Persuade", "Dipomat", "leadership", "Investigate" ],
+    "AdvancedEducationSkillList": null,
+    "Events": [
+      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+      {
+        "SkillCheck": {
+          "SkillName": "Soc",
+          "BeatValue": 6
+        },
+        "OnSuccess": { "AdvancementAmount": 2 },
+        "OnFailure": { "Skilllist": [ "Soc -1" ] },
+        "EventText": "You spend the term playing in your masters court"
+      },
+      {
+        "Reward": null,
+        "EventText": "You discover one of your advisors is corrupt, if you throw them out, gain an Enemy, if you keep them, gain DM+1 to a benefit roll."
+      },
+      { "EventText": "omeone challenges your claim to your title, and you must defend it! Make a Melee(Blade) or Melee(void) 8+ check to defend your title or be ejected from the career, as a disgraced noble. (but you do get a benefit roll for this term)" },
+      { "EventText": "A famine breaks out among your realm. Make a Leadership 6+ check to manage the famine or lose your benefit roll for this term." },
+      { "EventText": "Life Event. Roll on the Life Events Table. " },
+      { "EventText": "Spend the term waging war against a nearby noble for their land. Make a Leadership 8+ check, if successful you win the war, and gain +2 to your advance roll and an enemy. If you fail, gain a rival and -1 to a benefit roll." },
+      { "EventText": "A small revolution breaks out within your domain. Resolve with a Leadership 8+ check. On Success you gain +1 to a benefit roll. On Failure you lose a benefit roll for this term." },
+      { "EventText": "You spend the term indulging in a hobby. Gain a skill of your choice except Jack of All Trades or Luck." },
+      { "EventText": "You discover someone at court has been plotting against you. Make a Carouse or Leadership 8+ check to convince them to gain their ways. Otherwise gain an Enemy." },
+      { "EventText": "Your newest policy is a smashing success! advance one level your highness." }
+    ],
+    "Mishaps": [
+      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+      { "EventText": "Go on a raging bender and wind up stealing one your direct above nobles prized vehicles. You lose your title." },
+      { "EventText": "Your people hold a small revolution. You put it down the wrong way. Firing several of your ministers wasn’t enough. Gain D3 enemies and lose your title." },
+      { "EventText": "After going on a spending spree, you run out of money and are forced to abdicate your title." },
+      { "EventText": "Lose a war against another noble and lose your title" },
       { "EventText": "Injured. Roll on the Injury Table." }
     ]
   }
