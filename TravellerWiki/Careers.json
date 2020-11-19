@@ -392,5 +392,457 @@
       { "EventText": "Lose a war against another noble and lose your title" },
       { "EventText": "Injured. Roll on the Injury Table." }
     ]
+  },
+  {
+    "CareerName": "Lords Military",
+    "CareerDescription": "You chose to serve your Lord, either seeking a title yourself, or maybe just the better pay/benefits or merely the idea of serving in some  kind of war NOW intrigues you. Whatever the reason, you’re here now.",
+    "Nationality": "United Federation of Earth and her Colonies Among the Stars",
+    "Qualifications": [
+      {
+        "SkillName": "Str",
+        "BeatValue": 8
+      },
+      {
+        "SkillName": "Dex",
+        "BeatValue": 8
+      },
+      {
+        "SkillName": "Soc",
+        "BeatValue": 8
+      }
+    ],
+    "Commission": {
+      "HasCommision": true,
+      "CommissionSkillList": [ "Persuade", "Diplomat", "Tactics (Military)", "Admin", "Tactics (Navy)", "Advocate" ],
+      "RanksAndBonuses": [
+        {
+          "Item1": "Royal Lieutenant",
+          "Item2": "Leadership"
+        },
+        {
+          "Item1": "Royal Commander",
+          "Item2": "Void Blade"
+        },
+        {
+          "Item1": "Royal Captain",
+          "Item2": "Personal Shuttle"
+        },
+        {
+          "Item1": "Royal Fleet Captain",
+          "Item2": "Personal Captial Ship"
+        },
+        {
+          "Item1": "Royal Vice Admiral",
+          "Item2": "Minor Noble Title"
+        },
+        {
+          "Item1": "Royal Fleet Admiral",
+          "Item2": "Noble Title"
+        }
+      ],
+      "CommmsionCheck": {
+        "SkillName": "Soc",
+        "BeatValue": 10
+      }
+    },
+    "Assignments": [
+      {
+        "Name": "Lord's Army",
+        "Description": "You choose to serve your Lord by fighting his ground battles, taking new claims and kingdoms for him from the wrongful holders of their titles.",
+        "Survival": {
+          "SkillName": "Str",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Gun Combat(Slug)", "Recon", "Stealth", "Melee(Unarmed)", "Survival", "Melee(Blade)" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Soldier",
+            "Item2": "Gun Combat"
+          },
+          {
+            "Item1": "Sargent",
+            "Item2": "Tactics (Military)"
+          },
+          {
+            "Item1": "Lieutenant",
+            "Item2": "Melee"
+          },
+          {
+            "Item1": "Captain",
+            "Item2": "Leadership"
+          },
+          {
+            "Item1": "Commander",
+            "Item2": "Deception"
+          },
+          {
+            "Item1": "Colonel",
+            "Item2": "Diplomacy"
+          }
+        ]
+      },
+      {
+        "Name": "Lords Navy",
+        "Description": "The defends of the space around the Lords planets. The Lords navies are often more advanced than their federation counterpart, and see much more action.",
+        "Survival": {
+          "SkillName": "Int",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Pilot", "Mechanic", "Engineer", "Computers", "Electronics", "Gunner" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Starman",
+            "Item2": "Gunnery"
+          },
+          {
+            "Item1": "Ensign",
+            "Item2": "Pilot(small Craft)"
+          },
+          {
+            "Item1": "Lieutenant",
+            "Item2": "Pilot(space craft)"
+          },
+          {
+            "Item1": "Commander",
+            "Item2": "leadership"
+          },
+          {
+            "Item1": "Captain",
+            "Item2": "Persuade"
+          },
+          {
+            "Item1": "Sub-Sector Admiral",
+            "Item2": "Deception"
+          }
+        ]
+      },
+      {
+        "Name": "Lords Marines",
+        "Description": "The marines of the lord. Dealing death wherever they are deployed. Most often from the navy to board other lords ships and take them over or disable key systems.",
+        "Survival": {
+          "SkillName": "Dex",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Gun Combat (Slug)", "Recon", "Stealth", "Melee (Unarmed)", "Explosives", "Melee (Blade)" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Starman",
+            "Item2": "Gun Combat (Slug)"
+          },
+          {
+            "Item1": "Petty Officer",
+            "Item2": "Melee"
+          },
+          {
+            "Item1": "Master Chief Petty Officer",
+            "Item2": "Heavy Weapons"
+          },
+          {
+            "Item1": "Ensign",
+            "Item2": "Tactics (Military)"
+          },
+          {
+            "Item1": "Lieutenant",
+            "Item2": "Leadership"
+          },
+          {
+            "Item1": "Captain",
+            "Item2": "Gun Combat (Slug)"
+          }
+        ]
+      }
+    ],
+    "MusteringOutBenefits": [
+      {
+        "Item1": 875,
+        "Item2": "Weapon"
+      },
+      {
+        "Item1": 1750,
+        "Item2": "Int"
+      },
+      {
+        "Item1": 2500,
+        "Item2": "Augment"
+      },
+      {
+        "Item1": 5000,
+        "Item2": "Edu"
+      },
+      {
+        "Item1": 25000,
+        "Item2": "Soc"
+      },
+      {
+        "Item1": 50000,
+        "Item2": "1D10 Ship Shares"
+      },
+      {
+        "Item1": 100000,
+        "Item2": "Weapon"
+      }
+    ],
+    "PersonalDevelopmentSkillList": [ "Str", "Tactics (Military)", "Int", "Tactics (Navy)", "Dex", "Vacc-Suit" ],
+    "ServiceSkillsList": [ "Gun Combat (slug)", "Vacc-Suit", "Medic", "Jack-Of-All-Trades/Luck", "Pilot", "Melee" ],
+    "AdvancedEducationSkillList": null,
+    "Events": [
+      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+      { "EventText": "You are assigned into a meat grinder battlefield, getting a training and a trial by fire. Make a Gun Combat 8+ to gain +1 to your advance roll for this term." },
+      { "EventText": "You are assigned to system defense. Pirates besiege the system. Make a Gunnery 8+ or Gun Combat 8+ check or make a roll on the injury table." },
+      { "EventText": "You are assigned to a horrid space station where seemingly every vice is embraced by the populus. You spend every day working hard to try and make a dent in the crime. You gain Streetwise" },
+      { "EventText": "You are assigned to convoy defense and the pirates can’t seem to stop coming for you. Make either a Gunnery 8+ or Gun Combat 8+ check. On Success gain another level in the used skill. On Failure roll on the injury table." },
+      { "EventText": "Life Event. Roll on the Life Events Table. " },
+      { "EventText": "Your ship spends the term hosting art displays and science exhibits for school and other groups to come and explore. Make a Carouse 6+ check, if successful, you schmooze the guests and gain Soc +1 as well as DM+1 to your advance roll. If you fail, you gain DM-1 on you next advance roll for making an embarrassment of your Lord." },
+      { "EventText": "You are assigned to convoy defense. It is uneventful as pirates seem to forget about you." },
+      { "EventText": "You are assigned to planet defense of a core world. Local and system police deal with all the actual incidents allowing you to learn one skill besides Jack of All Trades or Luck." },
+      { "EventText": "You are assigned to a station for the term, you spend it dealing with minor incidents but nothing too exciting." },
+      { "EventText": "Be assigned to a remote area on border patrol where nothing interesting happens. You get to know your crewmates well and gain  1D3 contacts." }
+    ],
+    "Mishaps": [
+      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+      { "EventText": "Be left behind after a failed siege. Branded dead back home." },
+      { "EventText": "You are part of a particularly bloody offensive, afterwhich the unit you’re serving in was disbanded" },
+      { "EventText": "Your superior officer attempts to convince you to take inappropriate actions. IF you do, gain an ally and a benefit roll this term. If you don’t you leave with your honour in tact but gain an enemy" },
+      { "EventText": "Your unit is wiped out during a rival nobles raid, except you. You are given leave due to PTSD" },
+      { "EventText": "Injured. Roll on the Injury Table." }
+    ]
+  },
+  {
+    "CareerName": "Sigmarine",
+    "CareerDescription": "Sigmarines are the soldiers of the church of Sigmar within the Deutschland. Trained from a young age in the art of warfare, these elite men are closer to beasts of war then men of a civilized age. Their strict adherence to the code of Sigmar makes their loyalty unquestionable.",
+    "Nationality": "Church of Sigmar",
+    "Qualifications": [
+      {
+        "SkillName": "Str",
+        "BeatValue": 8
+      },
+      {
+        "SkillName": "End",
+        "BeatValue": 8
+      },
+      {
+        "SkillName": "Int",
+        "BeatValue": 8
+      }
+    ],
+    "Commission": {
+      "HasCommision": true,
+      "CommissionSkillList": [ "Tactics (military)", "Leadership", "Tactics (naval)", "Persuade", "Admin", "Diplomat" ],
+      "RanksAndBonuses": [
+        {
+          "Item1": "Brother Lieutenant",
+          "Item2": "Gun Combat 2"
+        },
+        {
+          "Item1": "Father Lieutenant",
+          "Item2": "Melee 2"
+        },
+        {
+          "Item1": "Brother Captain",
+          "Item2": "Tactics (Military)"
+        },
+        {
+          "Item1": "Father Captain",
+          "Item2": "Gun Combat 3"
+        },
+        {
+          "Item1": "Father Commander",
+          "Item2": "Melee 3"
+        },
+        {
+          "Item1": "Father master",
+          "Item2": "Jack of all Trades 2"
+        }
+      ],
+      "CommmsionCheck": {
+        "SkillName": "Soc",
+        "BeatValue": 8
+      }
+    },
+    "Assignments": [
+      {
+        "Name": "Trooper",
+        "Description": "Boots on the ground, rifle in hand, blasting the foes of the church with awesome precision.",
+        "Survival": {
+          "SkillName": "End",
+          "BeatValue": 6
+        },
+        "Advancement": {
+          "SkillName": "Str",
+          "BeatValue": 7
+        },
+        "SkillList": [ "Gun combat", "Str", "Melee", "Heavy Weapons", "Dex", "Explosives" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "New Brother",
+            "Item2": "Gun Combat 1"
+          },
+          {
+            "Item1": "Warrior Brother",
+            "Item2": "Melee 1"
+          },
+          {
+            "Item1": "Teacher Brother",
+            "Item2": "Leadership 1"
+          },
+          {
+            "Item1": "Sargeant Brother",
+            "Item2": "Tactics (military) 1"
+          },
+          {
+            "Item1": "Master Sergeant Brother",
+            "Item2": "Explosives 1"
+          },
+          {
+            "Item1": "Sargeant Brother of Arms.",
+            "Item2": "Heavy Weapons"
+          }
+        ]
+      },
+      {
+        "Name": "Intelligence",
+        "Description": "Recon, computers, and all the work of dealing with the civilians that troops would sooner avoid.",
+        "Survival": {
+          "SkillName": "Int",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "Edu",
+          "BeatValue": 6
+        },
+        "SkillList": [ "Soc", "Admin", "Electronics", "Edu", "Engineering", "Int" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "New Brother",
+            "Item2": "Gun Combat 1"
+          },
+          {
+            "Item1": "Warrior Brother",
+            "Item2": "Melee 1"
+          },
+          {
+            "Item1": "Teacher brother",
+            "Item2": "Leadership 1"
+          },
+          {
+            "Item1": "Sargeant Brother",
+            "Item2": "Tactics (Military) 1"
+          },
+          {
+            "Item1": "Master Sergeant Brother",
+            "Item2": "Explosives 1"
+          },
+          {
+            "Item1": "Sargeant Brother of Arms",
+            "Item2": "Heavy Weapons"
+          }
+        ]
+      },
+      {
+        "Name": "Support",
+        "Description": "Bringing the big guns, the big tanks, and the big gunships, support is the calveraly on cocaine.",
+        "Survival": {
+          "SkillName": "Str",
+          "BeatValue": 6
+        },
+        "Advancement": {
+          "SkillName": "Edu",
+          "BeatValue": 6
+        },
+        "SkillList": [ "Heavy Weapons", "Str", "Explosives", "Gunner", "Jack of all Trades/Luck", "Drive" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "New Brother",
+            "Item2": "Gun Combat 1"
+          },
+          {
+            "Item1": "Warrior Brother",
+            "Item2": "Melee 1"
+          },
+          {
+            "Item1": "Teacher Brother",
+            "Item2": "Leadership 1"
+          },
+          {
+            "Item1": "Sargeant Brother",
+            "Item2": "Tactics (Military) 1"
+          },
+          {
+            "Item1": "Master Sargeant Brother",
+            "Item2": "Explosives 1"
+          },
+          {
+            "Item1": "Sargeant Brother of Arms",
+            "Item2": "Heavy Weapons"
+          }
+        ]
+      }
+    ],
+    "MusteringOutBenefits": [
+      {
+        "Item1": 2000,
+        "Item2": "Armour (Any)"
+      },
+      {
+        "Item1": 5000,
+        "Item2": "Soc"
+      },
+      {
+        "Item1": 5000,
+        "Item2": "End or Str "
+      },
+      {
+        "Item1": 10000,
+        "Item2": "TAS Membership"
+      },
+      {
+        "Item1": 20000,
+        "Item2": "Ship Share"
+      },
+      {
+        "Item1": 30000,
+        "Item2": "Weapon (any)"
+      },
+      {
+        "Item1": 40000,
+        "Item2": "Ship"
+      }
+    ],
+    "PersonalDevelopmentSkillList": [ "Str", "End", "Dex", "Int", "Edu", "Soc" ],
+    "ServiceSkillsList": [ "Gun Combat", "Melee", "Heavy Weapons", "Gunner", "Medic", "Tatics (military)" ],
+    "AdvancedEducationSkillList": null,
+    "Events": [
+      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+      { "EventText": "Your planet comes under siege, roll Heavy Weapons 8+ or Gunnery 8+ to defend it. If successful you are promoted for your heroism." },
+      { "EventText": "You are assigned to a planet with a hostile or wild environment. Gain one of Vacc Suit 1, Engineer 1, Animals (riding or training) 1, or Recon 1." },
+      { "EventText": "You are brought into the Order of Sigmoria and placed on a special assignment, gain either Gun Combat or Survival" },
+      { "EventText": "The spirit of Sigmar has chosen to bless you, switch to the psionics career." },
+      { "EventText": "Life Event. Roll on the Life Events Table. " },
+      { "EventText": "You serve on the front lines for a major planetary assault. Gain one of Recon, Gun Combat, Leadership, or Electronics (comms) " },
+      { "EventText": "You are assigned to patrol a holy world. Gain DM+2 to your next advancement roll." },
+      { "EventText": "You discover your commanding officer has joined a cult, if you expose your officer gain soc +1 and an enemy, if you join their cult gain either dex +1 or str +1 and a contact." },
+      { "EventText": "Your battle barge is ambushed by a group of Pirates, make a Gun Combat 8+ or a melee 6+ to repel the boarders. If successful, gain another point in the used skill." },
+      { "EventText": "You display heroism in battle. You may gain a promotion or a commission automatically." }
+    ],
+    "Mishaps": [
+      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+      { "EventText": "During a live fire exercise, your unit is slaughtered, you are blamed for being the sole survivor. Gain an enemy from within the church." },
+      { "EventText": "You miss prayer time and are assumed to be a heretic, thus forcibly removed from service. Gain an enemy." },
+      { "EventText": "During a battle you were key to defending an area, but the area was still taken regardless of your actions. Make a gun Combat 8+ or Melee 8+, if you succeed you get the benefit roll for this term. If you fail gain an enemy" },
+      { "EventText": "Your shuttle is shot down while in transit, make a Dex 6+ or End 6+ roll, if you fail, roll on the Injury Table. If you succeed, you are still discharged, but gain one of Survival, Leadership, Medic, or Navigate. " },
+      { "EventText": "Injured. Roll on the Injury Table." }
+    ]
   }
 ]
