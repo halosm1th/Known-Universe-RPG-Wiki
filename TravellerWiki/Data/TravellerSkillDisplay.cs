@@ -8,7 +8,9 @@ namespace TravellerWiki.Data
     public class TravellerSkillDisplay
     {
         public string SkillName { get; set; }
-        public string Description { get; set; }
+
+        public string Description {
+        get;set;}
 
         public TravellerSkillDisplay(string skillName, string description)
         {

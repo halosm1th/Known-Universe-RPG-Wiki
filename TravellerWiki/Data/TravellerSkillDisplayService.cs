@@ -60,31 +60,31 @@ namespace TravellerWiki.Data
             new TravellerSkillDisplay("Investigate","The Investigate skill incorporates keen observation, forensics, and detailed analysis. Searching a Crime Scene For Clues: Average (8+) Investigate check (1D x 10 minutes, INT).Watching a Bank of Security Monitors in a Starport, Watching for a Specific Criminal: Difficult (10+) Investigate check (1D hours, INT)."),
             new TravellerSkillDisplay("Jack-of-All-Trades","The Jack-of-All-Trades skill works differently to other skills. It reduces the unskilled penalty a Traveller receives for not having the appropriate skill by one for every level of Jack-of-All-Trades. For example, if a Traveller does not have the Pilot skill, he suffers DM-3 to all Pilot checks. If that Traveller has Jack-of-All-Trades 2, then the penalty is reduced by 2 to DM-1. With Jack-of-All-Trades 3, a Traveller can totally negate the penalty for being unskilled.There is no benefit for having Jack-of-All-Trades 0 or Jack-of-All-Trades 4 or more. "),
             
-            new TravellerSkillDisplay("Language(Common)",""),
-            new TravellerSkillDisplay("Language(Federation Common)",""),
-            new TravellerSkillDisplay("Language(Axios Common)",""),
-            new TravellerSkillDisplay("Language(Axios Politcal)",""),
-            new TravellerSkillDisplay("Language(Xiao-Ming)",""),
-            new TravellerSkillDisplay("Language(Traders cant)",""),
-            new TravellerSkillDisplay("Language(Utopian)",""),
+            new TravellerSkillDisplay("Language(Common)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Federation Common)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Axios Common)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Axios Politcal)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Xiao-Ming)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Traders cant)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Utopian)","See Langauges page"),
 
 
-            new TravellerSkillDisplay("Language(High Versian)",""),
-            new TravellerSkillDisplay("Language(Low Versian)",""),
-            new TravellerSkillDisplay("Language(Germushian)",""),
-            new TravellerSkillDisplay("Language(Sigmarian)",""),
-            new TravellerSkillDisplay("Language(Britannian)",""),
-            new TravellerSkillDisplay("Language(Tekka)",""),
+            new TravellerSkillDisplay("Language(High Versian)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Low Versian)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Germushian)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Sigmarian)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Britannian)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Tekka)","See Langauges page"),
 
-            new TravellerSkillDisplay("Language(High Imperial)",""),
-            new TravellerSkillDisplay("Language(Low Imperial)",""),
+            new TravellerSkillDisplay("Language(High Imperial)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Low Imperial)","See Langauges page"),
 
-            new TravellerSkillDisplay("Language(Elder Tongue)",""),
-            new TravellerSkillDisplay("Language(Witcher)",""),
-            new TravellerSkillDisplay("Language(Jed-I)",""),
+            new TravellerSkillDisplay("Language(Elder Tongue)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Witcher)","See Langauges page"),
+            new TravellerSkillDisplay("Language(Jed-I)","See Langauges page"),
 
             new TravellerSkillDisplay("Leadership","The Leadership skill is for directing, inspiring and rallying allies and comrades. A Traveller may make a Leadership action in combat, as detailed on page 72.Shouting an Order: Average (8+) Leadership check (1D seconds, SOC).Rallying Shaken Troops: Difficult (10+) Leadership check (1D seconds, SOC)."),
-            new TravellerSkillDisplay("Luck","See <a href=\"Rules/HouseRules\">House Rules</a> for more information on luck."),
+            new TravellerSkillDisplay("Luck","See House Rules for more information on luck."),
             new TravellerSkillDisplay("Mechanic","The Mechanic skill allows a Traveller to maintain and repair most equipment – some advanced equipment and spacecraft components require the Engineer skill. Unlike the narrower and more focussed Engineer or Science skills, Mechanic does not allow a Traveller to build new devices or alter existing ones – it is purely for repairs and maintenance but covers all types of equipment.Repairing a Damaged System in the Field: Average (8+) Mechanic check (1D minutes, INT or EDU)."),
             new TravellerSkillDisplay("Medic","The Medic skill covers emergency first aid and battlefield triage as well as diagnosis, treatment, surgery and long-term care. See Injury and Recovery on page 47.First Aid: Average (8+) Medic check (1D minutes, EDU). The patient regains lost characteristic points equal to the Effect.Treat Poison or Disease: Average (8+) Medic check (1D hours, EDU).Long-term Care: Average (8+) Medic check (1D hours, EDU)."),
             new TravellerSkillDisplay("Melee(Blade)","Punching, kicking and wrestling; using improvised weapons in a bar brawl."),
@@ -140,8 +140,32 @@ namespace TravellerWiki.Data
             new TravellerSkillDisplay("Tactics(Military)","Co-ordinating the attacks of foot troops or vehicles on the ground."),
             new TravellerSkillDisplay("Tactics(Naval)","Co-ordinating the attacks of a spacecraft or fleet."),
             new TravellerSkillDisplay("Vacc Suit","The Vacc Suit skill allows a Traveller to wear and operate spacesuits and environmental suits. A Traveller will rarely need to make Vacc Suit checks under ordinary circumstances – merely possessing the skill is enough. If the Traveller does not have the requisite Vacc Suit skill for the suit he is wearing, he suffers DM-2 to all skill checks made while wearing a suit for each missing level. This skill also permits the character to operate advanced battle armour. Performing a Systems Check on Battle Dress: Average (8+) Vacc Suit check (1D minutes, EDU)."),
+
+            new TravellerSkillDisplay("Free Form Void","Cast free form spell using Void Energy"),
+            new TravellerSkillDisplay("Free Form Aether","Cast free form spell using Aetherial Energy"),
+            new TravellerSkillDisplay("Free Form Material","Cast free form spell on the Material Plane"),
+            new TravellerSkillDisplay("Free Form Nether","Cast free form spell using Netherial Energy"),
+            new TravellerSkillDisplay("Free Form Abyss","Cast free form spell using Abyssal Energy"),
+
+            //TODO Write in sigmar spell skills
+            new TravellerSkillDisplay("Sigmars Light","Sigmars cleansing holy light is called down by you."),
+            new TravellerSkillDisplay("Sigmars Guidance","Call upon Sigmars infinite wisdom to guide you"),
+            new TravellerSkillDisplay("Sigmars Flame","Call upon Sigmar to create a Fire/Heat for you"),
+            new TravellerSkillDisplay("Sigmars Feeze","Call upon Sigmar to create Cold for you"),
+            new TravellerSkillDisplay("Sigmars Water","Call upon Sigmar to create Water for you"),
+            new TravellerSkillDisplay("Sigmars Air","Call upon Sigmar to create Air for you"),
+            new TravellerSkillDisplay("Sigmars Knowledge","Call upon Sigmar for knowledge"),
+            new TravellerSkillDisplay("Sigmars Hand","Call upon Sigmar for a hand"),
+            new TravellerSkillDisplay("Sigmars Aid","Call upon Sigmar for some other form of aid."),
+            
+            //TODO write other magic system skills.
+            new TravellerSkillDisplay("Circle Void","Cast Circle Magic spells that use Void energy"),
+            new TravellerSkillDisplay("Circle Aether","Cast Circle Magic spells that use Aether energy"),
+            new TravellerSkillDisplay("Circle Material","Cast Circle Magic spells that use Material energy"),
+            new TravellerSkillDisplay("Circle Nether","Cast Circle Magic spells that use Nether energy"),
+            new TravellerSkillDisplay("Circle Abyss","Cast Circle Magic spells that use Abyss energy"),
         };
 
-        public List<TravellerSkillDisplay> GetTravellerSkills() => TravellerSkillLists;
+        public List<TravellerSkillDisplay> GetTravellerSkills() => TravellerSkillLists.OrderBy(skill => skill.SkillName).ToList();
     }
 }
