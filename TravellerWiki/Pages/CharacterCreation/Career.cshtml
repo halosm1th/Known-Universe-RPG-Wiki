@@ -273,7 +273,8 @@
             @foreach (var careerNames in CareerService.GetCareers.OrderBy(career => career.Nationality.NationName))
             {
 
-                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality.NationName">@careerNames.Nationality.NationName</a></li>
+                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality.NationName">@careerNames.Nationality.NationName</a>
+                    <p>@careerNames.CareerDescription</p></li>
             }
         </ul>
     }
