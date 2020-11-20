@@ -147,7 +147,6 @@ namespace TravellerWiki.Data
             new TravellerSkillDisplay("Free Form Nether","Cast free form spell using Netherial Energy"),
             new TravellerSkillDisplay("Free Form Abyss","Cast free form spell using Abyssal Energy"),
 
-            //TODO Write in sigmar spell skills
             new TravellerSkillDisplay("Sigmars Light","Sigmars cleansing holy light is called down by you."),
             new TravellerSkillDisplay("Sigmars Guidance","Call upon Sigmars infinite wisdom to guide you"),
             new TravellerSkillDisplay("Sigmars Flame","Call upon Sigmar to create a Fire/Heat for you"),
@@ -158,7 +157,6 @@ namespace TravellerWiki.Data
             new TravellerSkillDisplay("Sigmars Hand","Call upon Sigmar for a hand"),
             new TravellerSkillDisplay("Sigmars Aid","Call upon Sigmar for some other form of aid."),
             
-            //TODO write other magic system skills.
             new TravellerSkillDisplay("Circle Void","Cast Circle Magic spells that use Void energy"),
             new TravellerSkillDisplay("Circle Aether","Cast Circle Magic spells that use Aether energy"),
             new TravellerSkillDisplay("Circle Material","Cast Circle Magic spells that use Material energy"),
