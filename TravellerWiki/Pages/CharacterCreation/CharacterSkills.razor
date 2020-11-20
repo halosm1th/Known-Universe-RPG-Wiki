@@ -1,4 +1,5 @@
 @page "/CharacterCreation/Skills"
+@using Microsoft.AspNetCore.Html
 @using TravellerWiki.Data
 @inject TravellerSkillDisplayService DisplayService;
 <head>
@@ -13,7 +14,7 @@
         {
         <li>
             <h4>@skill.SkillName:</h4>
-            <p>@skill.Description</p>
+            <p> @(new HtmlString(skill.Description).Value) </p>
         </li>
         }
     </ul>
