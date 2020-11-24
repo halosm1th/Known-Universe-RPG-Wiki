@@ -37,8 +37,8 @@ namespace CareerCreator
         private List<(int Cash, string Benefit)> _musteringOutBenefits;
         private List<TravellerAssignment> _assignments = new List<TravellerAssignment>();
 
-        private List<string> _events;
-        private List<string> _mishaps;
+        private List<TravellerCharacterCreationEvent> _events;
+        private List<TravellerCharacterCreationEvent> _mishaps;
 
         private TravellerCareer _career;
 

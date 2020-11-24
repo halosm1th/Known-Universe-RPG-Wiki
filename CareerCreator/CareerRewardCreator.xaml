@@ -1,0 +1,22 @@
+﻿<Window x:Class="CareerCreator.CareerRewardCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator"
+        mc:Ignorable="d"
+        Title="Career Reward Creator" Height="100" Width="250">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="New Career Name:"></Label>
+        <TextBox Name="CareerName" Grid.Row="0" Grid.Column="1"></TextBox>
+        <Button Content="Finish" Grid.Row="1" Grid.Column="1" Click="Button_Click"></Button>
+    </Grid>
+</Window>
