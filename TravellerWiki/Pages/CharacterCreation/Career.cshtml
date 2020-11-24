@@ -182,28 +182,6 @@
 
         }
 
-        @foreach (var assignment in career.Assignments)
-        {
-            <h3>@assignment.Name Skill list</h3>
-            <table>
-                <thead>
-                    <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
-                </thead>
-                <tbody>
-                    @{ i = 1; }
-                    @foreach (var skill in assignment.SkillList)
-                    {
-                        <tr>
-                            <td>@i)</td>
-                            <td>@skill</td>
-                        </tr>
-                        i++;
-                    }
-                </tbody>
-            </table>
-
-        }
-
         //Events tables
         <h3>Events Table</h3>
         <table>
@@ -258,7 +236,7 @@
                         <tr>
                             <td>@i)</td>
                             <td>@rank.title</td>
-                            <td>@rank.perk</td>
+                            <td>@rank.TravellerCharacterCreationReward</td>
                         </tr>
                         i++;
                     }

@@ -1,0 +1,38 @@
+﻿<Window x:Class="CareerCreator.SkillCheckChoice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator"
+        mc:Ignorable="d"
+        Title="SkillCheckChoice" Height="250" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Check Text:"></Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="Skill Check:"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="Success Reward:"></Label>
+        <Label Grid.Row="3" Grid.Column="0" Content="Success Text:"></Label>
+        <Label Grid.Row="4" Grid.Column="0" Content="Failure Reward:"></Label>
+        <Label Grid.Row="5" Grid.Column="0" Content="Failure Text:"></Label>
+
+        <TextBox Grid.Row="0" Grid.Column="1" Name="CheckText"></TextBox>
+        <Button Grid.Row="1" Grid.Column="1" Content="Edit Skill Check" Click="Button_Click"></Button>
+        <Button Grid.Row="2" Grid.Column="1" Content="Edit Success Reward" Click="Button_Click_2"></Button>
+        <TextBox Grid.Row="3" Grid.Column="1" Name="SuccessText"></TextBox>
+        <Button Grid.Row="4" Grid.Column="1" Content="Edit Failure Reward" Height="26" Grid.RowSpan="2" VerticalAlignment="Top" Click="Button_Click_3"></Button>
+        <TextBox Grid.Row="5" Grid.Column="1" Name="FailureText"></TextBox>
+        <Button Grid.Row="6" Grid.Column="1" Content="Save" Click="Button_Click_1"></Button>
+    </Grid>
+</Window>

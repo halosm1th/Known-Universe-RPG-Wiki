@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace TravellerWiki.Data
 {
+
     public class TravellerCharacterCreationRewardJSON
     {
         public List<string> Skilllist { get; set; }
@@ -67,7 +68,7 @@ namespace TravellerWiki.Data
 
         public override string ToString()
         {
-            return $"Skills: {Skilllist.Aggregate("",(skills,next) => $"{skills} {next}")}";
+            return $"Skills: {Skilllist.Aggregate("", (skills, next) => $"{skills} {next}")}";
         }
     }
 
@@ -145,6 +146,46 @@ namespace TravellerWiki.Data
         }
     }
 
+    public class TravellerLifeEventReward : TravellerCharacterCreationReward
+    {
+        public override string ToString()
+        {
+            return "The traveller is to roll on the life events table";
+        }
+    }
+
+
+    public class TravellerContactReward : TravellerCharacterCreationReward
+    {
+        public string ContactCount { get; }
+        public string ContactType { get; }
+
+        public TravellerContactReward(string contactCount, string contactType)
+        {
+            ContactCount = contactCount;
+            ContactType = contactType;
+        }
+
+        public override string ToString()
+        {
+            return $"Gain {ContactCount} contacts of {ContactType}";
+        }
+    }
+
+    public class TravellerOtherReward : TravellerCharacterCreationReward
+    {
+        public string Rewardtext { get; }
+
+        public TravellerOtherReward(string rewardtext)
+        {
+            Rewardtext = rewardtext;
+        }
+
+        public override string ToString()
+        {
+            return $"Other Reward: {Rewardtext}";
+        }
+    }
 
     public abstract class TravellerCharacterCreationReward
     {

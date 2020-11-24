@@ -51,12 +51,12 @@
         <TextBox Name="Title5" Grid.Row="5" Grid.Column="1"></TextBox>
         <TextBox Name="Title6" Grid.Row="6" Grid.Column="1"></TextBox>
 
-        <TextBox Name="Skill1" Grid.Row="1" Grid.Column="2"></TextBox>
-        <TextBox Name="Skill2" Grid.Row="2" Grid.Column="2"></TextBox>
-        <TextBox Name="Skill3" Grid.Row="3" Grid.Column="2"></TextBox>
-        <TextBox Name="Skill4" Grid.Row="4" Grid.Column="2"></TextBox>
-        <TextBox Name="Skill5" Grid.Row="5" Grid.Column="2"></TextBox>
-        <TextBox Name="Skill6" Grid.Row="6" Grid.Column="2"></TextBox>
+        <Button Content="Edit Skill or Bonus" Grid.Row="1" Grid.Column="2" Click="Button_Click_1"></Button>
+        <Button Content="Edit Skill or Bonus" Grid.Row="2" Grid.Column="2" Click="Button_Click_2"></Button>
+        <Button Content="Edit Skill or Bonus" Grid.Row="3" Grid.Column="2" Click="Button_Click_3"></Button>
+        <Button Content="Edit Skill or Bonus" Grid.Row="4" Grid.Column="2" Click="Button_Click_4"></Button>
+        <Button Content="Edit Skill or Bonus" Grid.Row="5" Grid.Column="2" Click="Button_Click_5"></Button>
+        <Button Content="Edit Skill or Bonus" Grid.Row="6" Grid.Column="2" Click="Button_Click_6"></Button>
 
         <Button Grid.Row="7" Grid.Column="2" Content="Save" Click="Button_Click"></Button>
 

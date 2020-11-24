@@ -1,1233 +1,1318 @@
 [
   {
-    "CareerName": "Inquisitor of Sigmar",
-    "CareerDescription": "You are an agent of Sigmar, a tool to extract justice and divine the heretics from the immoral failures that are non-believers.",
-    "Nationality": "Church of Sigmar",
-    "Qualifications": [
-      {
-        "SkillName": "Psi",
-        "BeatValue": 8
-      }
-    ],
-    "Commission": null,
-    "Assignments": [
-      {
-        "Name": "Interrogator",
-        "Description": "Interrogate the heretics of Sigmar",
-        "Survival": {
-          "SkillName": "Edu",
-          "BeatValue": 6
-        },
-        "Advancement": {
+      "CareerName": "Inquisitor of Sigmar",
+      "CareerDescription": "You are an agent of Sigmar, a tool to extract justice and divine the heretics from the immoral failures that are non-believers.",
+      "Nationality": "Church of Sigmar",
+      "Qualifications": [
+        {
           "SkillName": "Psi",
           "BeatValue": 8
+        }
+      ],
+      "Commission": {
+        "HasCommision": false,
+        "CommissionSkillList": null,
+        "RanksAndBonuses": null,
+        "CommmsionCheck": null
+      },
+      "Assignments": [
+        {
+          "Name": "Interrogator",
+          "Description": "Interrogate the heretics of Sigmar",
+          "Survival": {
+            "SkillName": "Edu",
+            "BeatValue": 6
+          },
+          "Advancement": {
+            "SkillName": "Psi",
+            "BeatValue": 8
+          },
+          "SkillList": [ "Sigmars Knowledge", "Advocate", "Sigmars Light", "Luck", "Investigate", "Sigmars Flame" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Jr. Interrogator",
+              "Item2": { "Skilllist": [ "Investigate 1" ] }
+            },
+            {
+              "Item1": "Interrogator",
+              "Item2": { "Skilllist": [ "Streetwise" ] }
+            },
+            {
+              "Item1": "Sr. Interrogator",
+              "Item2": { "Skilllist": [ "Stealth" ] }
+            },
+            {
+              "Item1": "Interrogator ",
+              "Item2": { "Skilllist": [ "Leadership" ] }
+            },
+            {
+              "Item1": "Interrogator Master",
+              "Item2": { "Skilllist": [ "Admin" ] }
+            },
+            {
+              "Item1": "Interrogator Prime",
+              "Item2": { "Skilllist": [ "PSI +2" ] }
+            }
+          ]
         },
-        "SkillList": [ "Sigmars Knowledge", "Advocate", "Sigmars Light", "Luck", "Investigate", "Sigmars Flame" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Jr. Interrogator",
-            "Item2": "Investigate 1"
+        {
+          "Name": "Inquisitor ",
+          "Description": "The judge of heresy in the Church of Sigmar",
+          "Survival": {
+            "SkillName": "Int",
+            "BeatValue": 6
           },
-          {
-            "Item1": "Interrogator",
-            "Item2": "Streetwise"
+          "Advancement": {
+            "SkillName": "Psi",
+            "BeatValue": 8
           },
-          {
-            "Item1": "Sr. Interrogator",
-            "Item2": "Stealth"
-          },
-          {
-            "Item1": "Interrogator Teacher",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Interrogator Master",
-            "Item2": "Admin"
-          },
-          {
-            "Item1": "Interrogator Prime",
-            "Item2": "PSI +2"
-          }
-        ]
-      },
-      {
-        "Name": "Inquisitor",
-        "Description": "The judge of heresy in the Church of Sigmar",
-        "Survival": {
-          "SkillName": "Int",
-          "BeatValue": 6
+          "SkillList": [
+            "Sigmars Freeze",
+            "Gun Combat(Slug)",
+            "Sigmars Water",
+            "Leadership",
+            "Luck/Jack Of All Trades",
+            "Sigmars Air"
+          ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Jr. Inquisitor",
+              "Item2": { "Skilllist": [ "Investigate 1" ] }
+            },
+            {
+              "Item1": "Inquisitor",
+              "Item2": { "Skilllist": [ "Persuade" ] }
+            },
+            {
+              "Item1": "Sr. Inquisitor",
+              "Item2": { "Skilllist": [ "Gun Combat(Slug)" ] }
+            },
+            {
+              "Item1": "Inquisitor Teacher",
+              "Item2": { "Skilllist": [ "Leadership" ] }
+            },
+            {
+              "Item1": "Inquisitor Master",
+              "Item2": { "Skilllist": [ "Admin" ] }
+            },
+            {
+              "Item1": "Inquisitor Prime",
+              "Item2": { "Skilllist": [ "Psi" ] }
+            }
+          ]
         },
-        "Advancement": {
-          "SkillName": "Str",
-          "BeatValue": 8
+        {
+          "Name": "Defender ",
+          "Description": "The defense of the heretic in the Church of Sigmar",
+          "Survival": {
+            "SkillName": "Str",
+            "BeatValue": 8
+          },
+          "Advancement": {
+            "SkillName": "Psi",
+            "BeatValue": 8
+          },
+          "SkillList": [ "Sigmars Guidance", "Deception", "Advocate", "Sigmars Hand", "Streetwise", "Sigmars Aid" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Jr. Defender",
+              "Item2": { "Skilllist": [ "Investigate 1" ] }
+            },
+            {
+              "Item1": "Defender",
+              "Item2": { "Skilllist": [ "Streetwise" ] }
+            },
+            {
+              "Item1": "Sr. Defender",
+              "Item2": { "Skilllist": [ "Deception" ] }
+            },
+            {
+              "Item1": "Defender Teacher",
+              "Item2": { "Skilllist": [ "Leadership" ] }
+            },
+            {
+              "Item1": "Defender Master",
+              "Item2": { "Skilllist": [ "Admin" ] }
+            },
+            {
+              "Item1": "Defender Prime",
+              "Item2": { "Skilllist": [ "Psi" ] }
+            }
+          ]
+        }
+      ],
+      "MusteringOutBenefits": [
+        {
+          "Item1": 1000,
+          "Item2": { "Skilllist": [ "Psi" ] }
         },
-        "SkillList": [ "Sigmars Freeze", "Gun Combat(Slug)", "Sigmars Water", "Leadership", "Luck/Jack Of All Trades", "Sigmars Air" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Jr. Inquisitor",
-            "Item2": "Investigate 1"
-          },
-          {
-            "Item1": "Inquisitor",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Sr. Inquisitor",
-            "Item2": "Gun Combat(Slug)"
-          },
-          {
-            "Item1": "Inquisitor Teacher",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Inquisitor Master",
-            "Item2": "Admin"
-          },
-          {
-            "Item1": "Inquisitor Prime",
-            "Item2": "Psi"
-          }
-        ]
-      },
-      {
-        "Name": "Defender",
-        "Description": "The defense of the heretic in the Church of Sigmar",
-        "Survival": {
-          "SkillName": "Soc",
-          "BeatValue": 6
+        {
+          "Item1": 5000,
+          "Item2": { "Items": [ "TAS Membership" ] }
         },
-        "Advancement": {
-          "SkillName": "Str",
-          "BeatValue": 8
+        {
+          "Item1": 10000,
+          "Item2": { "Items": [ "Void Blade" ] }
         },
-        "SkillList": [ "Sigmars Guidance", "Deception", "Advocate", "Sigmars Hand", "Streetwise", "Sigmars Aid" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Jr. Defender",
-            "Item2": "Investigate 1"
-          },
-          {
-            "Item1": "Defender",
-            "Item2": "Streetwise"
-          },
-          {
-            "Item1": "Sr. Defender",
-            "Item2": "Deception"
-          },
-          {
-            "Item1": "Defender Teacher",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Defender Master",
-            "Item2": "Admin"
-          },
-          {
-            "Item1": "Defender Prime",
-            "Item2": "Psi"
-          }
-        ]
-      }
-    ],
-    "MusteringOutBenefits": [
-      {
-        "Item1": 1000,
-        "Item2": "Psi"
-      },
-      {
-        "Item1": 5000,
-        "Item2": "TAS Membership"
-      },
-      {
-        "Item1": 10000,
-        "Item2": "Void Blade"
-      },
-      {
-        "Item1": 15000,
-        "Item2": "Weapon"
-      },
-      {
-        "Item1": 20000,
-        "Item2": "Armour"
-      },
-      {
-        "Item1": 30000,
-        "Item2": "Ship Share"
-      },
-      {
-        "Item1": 50000,
-        "Item2": "Inquisitorial Shuttle"
-      }
-    ],
-    "PersonalDevelopmentSkillList": [ "Psi", "Str", "Soc", "Dex", "Edu", "Int" ],
-    "ServiceSkillsList": [ "Language (Common)", "Persuade", "Melee", "Gun Combat", "Stealth", "Streetwise" ],
-    "AdvancedEducationSkillList": null,
-    "Events": [
-      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
-      {
-        "Reward": { "AdvancementAmount": 2 },
-        "EventText": "Find a new planet with a precursor temple. Unveiling new teachings of Sigmar."
-      },
-      { "EventText": "Root out a Lawgar cult and have them punished." },
-      { "EventText": "Spend a term rooting out heresy on a city-world" },
-      { "EventText": "While investigating heresy within the church, you discover a colleague is secretly part of a cult. If you report them, gain an enemy but +2 to an advancement roll. If you do nothing gain a Contact." },
-      { "EventText": "Life Event. Roll on the Life Events Table. " },
-      {
-        "Reward": { "Skilllist": [ "Soc" ] },
-        "EventText": "Have a ballad of your actions written for Sigmar and have it sung on a church world."
-      },
-      { "EventText": "Spend a term rooting out heresy within the Islands." },
-      {
-        "Reward": { "Skilllist": [ "Leadership" ] },
-        "EventText": "Spend a term working on a church world, helping to train new inquisitors."
-      },
-      { "EventText": "Spend a term rooting out heresy on the frontier" },
-      {
-        "Reward": { "NewCareerName": "Deutschland Prisoner" },
-        "EventText": "Condemn the wrong part of the scripture and be sent to prison for your heresy. "
-      }
-    ],
-    "Mishaps": [
-      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result." },
-      { "EventText": "Petty church politics gets you kicked out of the church. Soc 8+ to gain a benefit roll this term." },
-      { "EventText": "Accidentally condemn the wrong planet for heresy and be removed from the Church because of it." },
-      { "EventText": "Accuse the wrong person of heresy, causing the finance minister to refuse to fund any more of your expeditions." },
-      { "EventText": "You offended Sigmar himself with your heresy, and are removed from the church." },
-      { "EventText": "Injured. Roll on the Injury Table." }
-    ]
-  },
-  {
-    "CareerName": "Federation Nobility",
-    "CareerDescription": "The nobility of the federation. The people who legally own all the land an who have their own fleets. Waging war and messing around are their main passtimes when not playing politics,",
-    "Nationality": "United Federation of Earth and her Colonies Among the Stars",
-    "Qualifications": [
-      {
-        "SkillName": "Soc",
-        "BeatValue": 10
-      }
-    ],
-    "Commission": null,
-    "Assignments": [
-      {
-        "Name": "Seated Noble",
-        "Description": "A noble whose territory is mostly managed by the federation",
-        "Survival": {
-          "SkillName": "Soc",
-          "BeatValue": 6
+        {
+          "Item1": 15000,
+          "Item2": { "Items": [ "Weapon" ] }
         },
-        "Advancement": {
-          "SkillName": "Int",
-          "BeatValue": 8
+        {
+          "Item1": 20000,
+          "Item2": { "Items": [ "Armour" ] }
         },
-        "SkillList": [ "Admin", "Deception", "Carouse", "Advocate", "Diplomat", "Persuade" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Planetary Noble",
-            "Item2": "Deception"
-          },
-          {
-            "Item1": "Baron",
-            "Item2": "Carouse"
-          },
-          {
-            "Item1": "Viscount",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Count",
-            "Item2": "Diplomat"
-          },
-          {
-            "Item1": "Lord",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Earl",
-            "Item2": "Deception"
-          }
-        ]
-      },
-      {
-        "Name": "Free Noble",
-        "Description": "A noble whos territory has very little control by the Federation",
-        "Survival": {
-          "SkillName": "Int",
-          "BeatValue": 7
+        {
+          "Item1": 30000,
+          "Item2": { "Items": [ "Ship Share" ] }
         },
-        "Advancement": {
-          "SkillName": "Soc",
-          "BeatValue": 8
+        {
+          "Item1": 50000,
+          "Item2": { "Items": [ "Inquisitorial Shuttle" ] }
+        }
+      ],
+      "PersonalDevelopmentSkillList": [ "Language (Common)", "Persuade", "Melee", "Gun Combat", "Stealth", "Streetwise" ],
+      "ServiceSkillsList": [ "Psi", "Str", "Soc", "Dex", "Edu", "Int" ],
+      "AdvancedEducationSkillList": [],
+      "Events": [
+        {
+          "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career.",
+          "EventSkillChoices": [],
+          "Reward": { "Rewardtext": " Roll on the Mishap Table" }
         },
-        "SkillList": [ "Carouse", "Diplomat", "Broker", "Deception", "Advocate", "Admin" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Planetary Noble",
-            "Item2": " Broker"
-          },
-          {
-            "Item1": "Baron",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Viscount",
-            "Item2": "Deception"
-          },
-          {
-            "Item1": "Count",
-            "Item2": "Carouse"
-          },
-          {
-            "Item1": "Lord",
-            "Item2": "Diplomat"
-          },
-          {
-            "Item1": "Earl",
-            "Item2": "Deception"
-          }
-        ]
-      },
-      {
-        "Name": "Background Noble",
-        "Description": "A noble who really is just in the background, maybe a child of a noble, or a few branches from a truly important noble",
-        "Survival": {
-          "SkillName": "Int",
-          "BeatValue": 6
+        {
+          "EventText": "Find a new planet with a precursor temple. Unveiling new teachings of Sigmar.",
+          "EventSkillChoices": [],
+          "Reward": null
         },
-        "Advancement": {
+        {
+          "EventText": "Root out a Lawgar cult and have them punished.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Spend a term rooting out heresy on a city-world",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "While investigating heresy within the church,you discover a colleague is secretly part of a cult. If you report them, gain an enemy but +2 to an advancement roll. If you do nothing gain a Contact.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Life Event. Roll on the Life Events Table.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Have a ballad of your actions written for Sigmar and have it sung on a church world.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Spend a term rooting out heresy within the Islands.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Spend a term working on a church world, helping to train new inquisitors.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Spend a term rooting out heresy on the frontier",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Condemn the wrong part of the scripture and be sent to prison for your heresy. ",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "",
+          "EventSkillChoices": [],
+          "Reward": null
+        }
+      ],
+      "Mishaps": [
+        {
+          "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table and take the lower result.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Petty church politics gets you kicked out of the church.",
+          "EventSkillChoices": [
+            {
+              "SkillCheck": {
+                "SkillName": "Soc",
+                "BeatValue": 8
+              },
+              "SkillCheckText": "Soc 8+ to gain a benefit roll this term.",
+              "OnSuccess": { "Rewardtext": "gain a benefit roll this term." },
+              "OnSuccessText": "",
+              "OnFailure": null,
+              "OnFailureText": ""
+            }
+          ],
+          "Reward": null
+        },
+        {
+          "EventText": "Accidentally condemn the wrong planet for heresy and be removed from the Church because of it.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Accuse the wrong person of heresy, causing the finance minister to refuse to fund any more of your expeditions.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "You offended Sigmar himself with your heresy, and are removed from the church.",
+          "EventSkillChoices": [],
+          "Reward": null
+        },
+        {
+          "EventText": "Injured. Roll on the Injury Table.",
+          "EventSkillChoices": [],
+          "Reward": null
+        }
+      ]
+    },
+    {
+      "CareerName": "Federation Nobility",
+      "CareerDescription": "The nobility of the federation. The people who legally own all the land an who have their own fleets. Waging war and messing around are their main passtimes when not playing politics,",
+      "Nationality": "United Federation of Earth and her Colonies Among the Stars",
+      "Qualifications": [
+        {
           "SkillName": "Soc",
           "BeatValue": 10
+        }
+      ],
+      "Commission": null,
+      "Assignments": [
+        {
+          "Name": "Seated Noble",
+          "Description": "A noble whose territory is mostly managed by the federation",
+          "Survival": {
+            "SkillName": "Soc",
+            "BeatValue": 6
+          },
+          "Advancement": {
+            "SkillName": "Int",
+            "BeatValue": 8
+          },
+          "SkillList": [ "Admin", "Deception", "Carouse", "Advocate", "Diplomat", "Persuade" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Planetary Noble",
+              "Item2": "Deception"
+            },
+            {
+              "Item1": "Baron",
+              "Item2": "Carouse"
+            },
+            {
+              "Item1": "Viscount",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Count",
+              "Item2": "Diplomat"
+            },
+            {
+              "Item1": "Lord",
+              "Item2": "Leadership"
+            },
+            {
+              "Item1": "Earl",
+              "Item2": "Deception"
+            }
+          ]
         },
-        "SkillList": [ "Carouse", "Gambler", "Language", "Melee", "Pilot", "Jack-of-All-Trades/Luck" ],
+        {
+          "Name": "Free Noble",
+          "Description": "A noble whos territory has very little control by the Federation",
+          "Survival": {
+            "SkillName": "Int",
+            "BeatValue": 7
+          },
+          "Advancement": {
+            "SkillName": "Soc",
+            "BeatValue": 8
+          },
+          "SkillList": [ "Carouse", "Diplomat", "Broker", "Deception", "Advocate", "Admin" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Planetary Noble",
+              "Item2": " Broker"
+            },
+            {
+              "Item1": "Baron",
+              "Item2": "Leadership"
+            },
+            {
+              "Item1": "Viscount",
+              "Item2": "Deception"
+            },
+            {
+              "Item1": "Count",
+              "Item2": "Carouse"
+            },
+            {
+              "Item1": "Lord",
+              "Item2": "Diplomat"
+            },
+            {
+              "Item1": "Earl",
+              "Item2": "Deception"
+            }
+          ]
+        },
+        {
+          "Name": "Background Noble",
+          "Description": "A noble who really is just in the background, maybe a child of a noble, or a few branches from a truly important noble",
+          "Survival": {
+            "SkillName": "Int",
+            "BeatValue": 6
+          },
+          "Advancement": {
+            "SkillName": "Soc",
+            "BeatValue": 10
+          },
+          "SkillList": [ "Carouse", "Gambler", "Language", "Melee", "Pilot", "Jack-of-All-Trades/Luck" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Nobody",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Local Famous",
+              "Item2": "Carouse"
+            },
+            {
+              "Item1": "Cluster Famous",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Getting Relevant",
+              "Item2": "Deception"
+            },
+            {
+              "Item1": "Kinda Relevant",
+              "Item2": "Noble Title"
+            },
+            {
+              "Item1": "Actually Relevant ",
+              "Item2": "Change Assignment to Free or Seated noble at rank 3"
+            }
+          ]
+        }
+      ],
+      "MusteringOutBenefits": [
+        {
+          "Item1": 25000,
+          "Item2": "TAS Membership"
+        },
+        {
+          "Item1": 50000,
+          "Item2": "Weapon"
+        },
+        {
+          "Item1": 75000,
+          "Item2": "Armour"
+        },
+        {
+          "Item1": 100000,
+          "Item2": "Capital Ship"
+        },
+        {
+          "Item1": 250000,
+          "Item2": "1D100 Ship Shares"
+        },
+        {
+          "Item1": 500000,
+          "Item2": "Augment of your choice"
+        },
+        {
+          "Item1": 750000,
+          "Item2": "Dirt on 1D4 Other nobles"
+        }
+      ],
+      "PersonalDevelopmentSkillList": [ "Soc", "Diplomat", "Carouse", "Int", "Luck/Jack Of All Trades", "Deception" ],
+      "ServiceSkillsList": [ "Broker", "Deception", "Persuade", "Dipomat", "leadership", "Investigate" ],
+      "AdvancedEducationSkillList": null,
+      "Events": [
+        { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+        {
+          "SkillCheck": {
+            "SkillName": "Soc",
+            "BeatValue": 6
+          },
+          "OnSuccess": { "AdvancementAmount": 2 },
+          "OnFailure": { "Skilllist": [ "Soc -1" ] },
+          "EventText": "You spend the term playing in your masters court"
+        },
+        {
+          "Reward": null,
+          "EventText": "You discover one of your advisors is corrupt, if you throw them out, gain an Enemy, if you keep them, gain DM+1 to a benefit roll."
+        },
+        { "EventText": "omeone challenges your claim to your title, and you must defend it! Make a Melee(Blade) or Melee(void) 8+ check to defend your title or be ejected from the career, as a disgraced noble. (but you do get a benefit roll for this term)" },
+        { "EventText": "A famine breaks out among your realm. Make a Leadership 6+ check to manage the famine or lose your benefit roll for this term." },
+        { "EventText": "Life Event. Roll on the Life Events Table. " },
+        { "EventText": "Spend the term waging war against a nearby noble for their land. Make a Leadership 8+ check, if successful you win the war, and gain +2 to your advance roll and an enemy. If you fail, gain a rival and -1 to a benefit roll." },
+        { "EventText": "A small revolution breaks out within your domain. Resolve with a Leadership 8+ check. On Success you gain +1 to a benefit roll. On Failure you lose a benefit roll for this term." },
+        { "EventText": "You spend the term indulging in a hobby. Gain a skill of your choice except Jack of All Trades or Luck." },
+        { "EventText": "You discover someone at court has been plotting against you. Make a Carouse or Leadership 8+ check to convince them to gain their ways. Otherwise gain an Enemy." },
+        { "EventText": "Your newest policy is a smashing success! advance one level your highness." }
+      ],
+      "Mishaps": [
+        { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+        { "EventText": "Go on a raging bender and wind up stealing one your direct above nobles prized vehicles. You lose your title." },
+        { "EventText": "Your people hold a small revolution. You put it down the wrong way. Firing several of your ministers wasn’t enough. Gain D3 enemies and lose your title." },
+        { "EventText": "After going on a spending spree, you run out of money and are forced to abdicate your title." },
+        { "EventText": "Lose a war against another noble and lose your title" },
+        { "EventText": "Injured. Roll on the Injury Table." }
+      ]
+    },
+    {
+      "CareerName": "Lords Military",
+      "CareerDescription": "You chose to serve your Lord, either seeking a title yourself, or maybe just the better pay/benefits or merely the idea of serving in some  kind of war NOW intrigues you. Whatever the reason, you’re here now.",
+      "Nationality": "United Federation of Earth and her Colonies Among the Stars",
+      "Qualifications": [
+        {
+          "SkillName": "Str",
+          "BeatValue": 8
+        },
+        {
+          "SkillName": "Dex",
+          "BeatValue": 8
+        },
+        {
+          "SkillName": "Soc",
+          "BeatValue": 8
+        }
+      ],
+      "Commission": {
+        "HasCommision": true,
+        "CommissionSkillList": [ "Persuade", "Diplomat", "Tactics (Military)", "Admin", "Tactics (Navy)", "Advocate" ],
         "RanksAndBonuses": [
           {
-            "Item1": "Nobody",
-            "Item2": "-"
+            "Item1": "Royal Lieutenant",
+            "Item2": "Leadership"
           },
           {
-            "Item1": "Local Famous",
-            "Item2": "Carouse"
+            "Item1": "Royal Commander",
+            "Item2": "Void Blade"
           },
           {
-            "Item1": "Cluster Famous",
-            "Item2": "Persuade"
+            "Item1": "Royal Captain",
+            "Item2": "Personal Shuttle"
           },
           {
-            "Item1": "Getting Relevant",
-            "Item2": "Deception"
+            "Item1": "Royal Fleet Captain",
+            "Item2": "Personal Captial Ship"
           },
           {
-            "Item1": "Kinda Relevant",
+            "Item1": "Royal Vice Admiral",
+            "Item2": "Minor Noble Title"
+          },
+          {
+            "Item1": "Royal Fleet Admiral",
             "Item2": "Noble Title"
+          }
+        ],
+        "CommmsionCheck": {
+          "SkillName": "Soc",
+          "BeatValue": 10
+        }
+      },
+      "Assignments": [
+        {
+          "Name": "Lord's Army",
+          "Description": "You choose to serve your Lord by fighting his ground battles, taking new claims and kingdoms for him from the wrongful holders of their titles.",
+          "Survival": {
+            "SkillName": "Str",
+            "BeatValue": 8
+          },
+          "Advancement": {
+            "SkillName": "Soc",
+            "BeatValue": 8
+          },
+          "SkillList": [ "Gun Combat(Slug)", "Recon", "Stealth", "Melee(Unarmed)", "Survival", "Melee(Blade)" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Soldier",
+              "Item2": "Gun Combat"
+            },
+            {
+              "Item1": "Sargent",
+              "Item2": "Tactics (Military)"
+            },
+            {
+              "Item1": "Lieutenant",
+              "Item2": "Melee"
+            },
+            {
+              "Item1": "Captain",
+              "Item2": "Leadership"
+            },
+            {
+              "Item1": "Commander",
+              "Item2": "Deception"
+            },
+            {
+              "Item1": "Colonel",
+              "Item2": "Diplomacy"
+            }
+          ]
+        },
+        {
+          "Name": "Lords Navy",
+          "Description": "The defends of the space around the Lords planets. The Lords navies are often more advanced than their federation counterpart, and see much more action.",
+          "Survival": {
+            "SkillName": "Int",
+            "BeatValue": 8
+          },
+          "Advancement": {
+            "SkillName": "Soc",
+            "BeatValue": 8
+          },
+          "SkillList": [ "Pilot", "Mechanic", "Engineer", "Computers", "Electronics", "Gunner" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Starman",
+              "Item2": "Gunnery"
+            },
+            {
+              "Item1": "Ensign",
+              "Item2": "Pilot(small Craft)"
+            },
+            {
+              "Item1": "Lieutenant",
+              "Item2": "Pilot(space craft)"
+            },
+            {
+              "Item1": "Commander",
+              "Item2": "leadership"
+            },
+            {
+              "Item1": "Captain",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Sub-Sector Admiral",
+              "Item2": "Deception"
+            }
+          ]
+        },
+        {
+          "Name": "Lords Marines",
+          "Description": "The marines of the lord. Dealing death wherever they are deployed. Most often from the navy to board other lords ships and take them over or disable key systems.",
+          "Survival": {
+            "SkillName": "Dex",
+            "BeatValue": 8
+          },
+          "Advancement": {
+            "SkillName": "Soc",
+            "BeatValue": 8
+          },
+          "SkillList": [ "Gun Combat (Slug)", "Recon", "Stealth", "Melee (Unarmed)", "Explosives", "Melee (Blade)" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Starman",
+              "Item2": "Gun Combat (Slug)"
+            },
+            {
+              "Item1": "Petty Officer",
+              "Item2": "Melee"
+            },
+            {
+              "Item1": "Master Chief Petty Officer",
+              "Item2": "Heavy Weapons"
+            },
+            {
+              "Item1": "Ensign",
+              "Item2": "Tactics (Military)"
+            },
+            {
+              "Item1": "Lieutenant",
+              "Item2": "Leadership"
+            },
+            {
+              "Item1": "Captain",
+              "Item2": "Gun Combat (Slug)"
+            }
+          ]
+        }
+      ],
+      "MusteringOutBenefits": [
+        {
+          "Item1": 875,
+          "Item2": "Weapon"
+        },
+        {
+          "Item1": 1750,
+          "Item2": "Int"
+        },
+        {
+          "Item1": 2500,
+          "Item2": "Augment"
+        },
+        {
+          "Item1": 5000,
+          "Item2": "Edu"
+        },
+        {
+          "Item1": 25000,
+          "Item2": "Soc"
+        },
+        {
+          "Item1": 50000,
+          "Item2": "1D10 Ship Shares"
+        },
+        {
+          "Item1": 100000,
+          "Item2": "Weapon"
+        }
+      ],
+      "PersonalDevelopmentSkillList": [ "Str", "Tactics (Military)", "Int", "Tactics (Navy)", "Dex", "Vacc-Suit" ],
+      "ServiceSkillsList": [ "Gun Combat (slug)", "Vacc-Suit", "Medic", "Jack-Of-All-Trades/Luck", "Pilot", "Melee" ],
+      "AdvancedEducationSkillList": null,
+      "Events": [
+        { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+        { "EventText": "You are assigned into a meat grinder battlefield, getting a training and a trial by fire. Make a Gun Combat 8+ to gain +1 to your advance roll for this term." },
+        { "EventText": "You are assigned to system defense. Pirates besiege the system. Make a Gunnery 8+ or Gun Combat 8+ check or make a roll on the injury table." },
+        { "EventText": "You are assigned to a horrid space station where seemingly every vice is embraced by the populus. You spend every day working hard to try and make a dent in the crime. You gain Streetwise" },
+        { "EventText": "You are assigned to convoy defense and the pirates can’t seem to stop coming for you. Make either a Gunnery 8+ or Gun Combat 8+ check. On Success gain another level in the used skill. On Failure roll on the injury table." },
+        { "EventText": "Life Event. Roll on the Life Events Table. " },
+        { "EventText": "Your ship spends the term hosting art displays and science exhibits for school and other groups to come and explore. Make a Carouse 6+ check, if successful, you schmooze the guests and gain Soc +1 as well as DM+1 to your advance roll. If you fail, you gain DM-1 on you next advance roll for making an embarrassment of your Lord." },
+        { "EventText": "You are assigned to convoy defense. It is uneventful as pirates seem to forget about you." },
+        { "EventText": "You are assigned to planet defense of a core world. Local and system police deal with all the actual incidents allowing you to learn one skill besides Jack of All Trades or Luck." },
+        { "EventText": "You are assigned to a station for the term, you spend it dealing with minor incidents but nothing too exciting." },
+        { "EventText": "Be assigned to a remote area on border patrol where nothing interesting happens. You get to know your crewmates well and gain  1D3 contacts." }
+      ],
+      "Mishaps": [
+        { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+        { "EventText": "Be left behind after a failed siege. Branded dead back home." },
+        { "EventText": "You are part of a particularly bloody offensive, afterwhich the unit you’re serving in was disbanded" },
+        { "EventText": "Your superior officer attempts to convince you to take inappropriate actions. IF you do, gain an ally and a benefit roll this term. If you don’t you leave with your honour in tact but gain an enemy" },
+        { "EventText": "Your unit is wiped out during a rival nobles raid, except you. You are given leave due to PTSD" },
+        { "EventText": "Injured. Roll on the Injury Table." }
+      ]
+    },
+    {
+      "CareerName": "Sigmarine",
+      "CareerDescription": "Sigmarines are the soldiers of the church of Sigmar within the Deutschland. Trained from a young age in the art of warfare, these elite men are closer to beasts of war then men of a civilized age. Their strict adherence to the code of Sigmar makes their loyalty unquestionable.",
+      "Nationality": "Church of Sigmar",
+      "Qualifications": [
+        {
+          "SkillName": "Str",
+          "BeatValue": 8
+        },
+        {
+          "SkillName": "End",
+          "BeatValue": 8
+        },
+        {
+          "SkillName": "Int",
+          "BeatValue": 8
+        }
+      ],
+      "Commission": {
+        "HasCommision": true,
+        "CommissionSkillList": [ "Tactics (military)", "Leadership", "Tactics (naval)", "Persuade", "Admin", "Diplomat" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Brother Lieutenant",
+            "Item2": "Gun Combat 2"
           },
           {
-            "Item1": "Actually Relevant ",
-            "Item2": "Change Assignment to Free or Seated noble at rank 3"
+            "Item1": "Father Lieutenant",
+            "Item2": "Melee 2"
+          },
+          {
+            "Item1": "Brother Captain",
+            "Item2": "Tactics (Military)"
+          },
+          {
+            "Item1": "Father Captain",
+            "Item2": "Gun Combat 3"
+          },
+          {
+            "Item1": "Father Commander",
+            "Item2": "Melee 3"
+          },
+          {
+            "Item1": "Father master",
+            "Item2": "Jack of all Trades 2"
           }
-        ]
-      }
-    ],
-    "MusteringOutBenefits": [
-      {
-        "Item1": 25000,
-        "Item2": "TAS Membership"
-      },
-      {
-        "Item1": 50000,
-        "Item2": "Weapon"
-      },
-      {
-        "Item1": 75000,
-        "Item2": "Armour"
-      },
-      {
-        "Item1": 100000,
-        "Item2": "Capital Ship"
-      },
-      {
-        "Item1": 250000,
-        "Item2": "1D100 Ship Shares"
-      },
-      {
-        "Item1": 500000,
-        "Item2": "Augment of your choice"
-      },
-      {
-        "Item1": 750000,
-        "Item2": "Dirt on 1D4 Other nobles"
-      }
-    ],
-    "PersonalDevelopmentSkillList": [ "Soc", "Diplomat", "Carouse", "Int", "Luck/Jack Of All Trades", "Deception" ],
-    "ServiceSkillsList": [ "Broker", "Deception", "Persuade", "Dipomat", "leadership", "Investigate" ],
-    "AdvancedEducationSkillList": null,
-    "Events": [
-      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
-      {
-        "SkillCheck": {
+        ],
+        "CommmsionCheck": {
           "SkillName": "Soc",
-          "BeatValue": 6
-        },
-        "OnSuccess": { "AdvancementAmount": 2 },
-        "OnFailure": { "Skilllist": [ "Soc -1" ] },
-        "EventText": "You spend the term playing in your masters court"
+          "BeatValue": 8
+        }
       },
-      {
-        "Reward": null,
-        "EventText": "You discover one of your advisors is corrupt, if you throw them out, gain an Enemy, if you keep them, gain DM+1 to a benefit roll."
-      },
-      { "EventText": "omeone challenges your claim to your title, and you must defend it! Make a Melee(Blade) or Melee(void) 8+ check to defend your title or be ejected from the career, as a disgraced noble. (but you do get a benefit roll for this term)" },
-      { "EventText": "A famine breaks out among your realm. Make a Leadership 6+ check to manage the famine or lose your benefit roll for this term." },
-      { "EventText": "Life Event. Roll on the Life Events Table. " },
-      { "EventText": "Spend the term waging war against a nearby noble for their land. Make a Leadership 8+ check, if successful you win the war, and gain +2 to your advance roll and an enemy. If you fail, gain a rival and -1 to a benefit roll." },
-      { "EventText": "A small revolution breaks out within your domain. Resolve with a Leadership 8+ check. On Success you gain +1 to a benefit roll. On Failure you lose a benefit roll for this term." },
-      { "EventText": "You spend the term indulging in a hobby. Gain a skill of your choice except Jack of All Trades or Luck." },
-      { "EventText": "You discover someone at court has been plotting against you. Make a Carouse or Leadership 8+ check to convince them to gain their ways. Otherwise gain an Enemy." },
-      { "EventText": "Your newest policy is a smashing success! advance one level your highness." }
-    ],
-    "Mishaps": [
-      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
-      { "EventText": "Go on a raging bender and wind up stealing one your direct above nobles prized vehicles. You lose your title." },
-      { "EventText": "Your people hold a small revolution. You put it down the wrong way. Firing several of your ministers wasn’t enough. Gain D3 enemies and lose your title." },
-      { "EventText": "After going on a spending spree, you run out of money and are forced to abdicate your title." },
-      { "EventText": "Lose a war against another noble and lose your title" },
-      { "EventText": "Injured. Roll on the Injury Table." }
-    ]
-  },
-  {
-    "CareerName": "Lords Military",
-    "CareerDescription": "You chose to serve your Lord, either seeking a title yourself, or maybe just the better pay/benefits or merely the idea of serving in some  kind of war NOW intrigues you. Whatever the reason, you’re here now.",
-    "Nationality": "United Federation of Earth and her Colonies Among the Stars",
-    "Qualifications": [
-      {
-        "SkillName": "Str",
-        "BeatValue": 8
-      },
-      {
-        "SkillName": "Dex",
-        "BeatValue": 8
-      },
-      {
-        "SkillName": "Soc",
-        "BeatValue": 8
-      }
-    ],
-    "Commission": {
-      "HasCommision": true,
-      "CommissionSkillList": [ "Persuade", "Diplomat", "Tactics (Military)", "Admin", "Tactics (Navy)", "Advocate" ],
-      "RanksAndBonuses": [
+      "Assignments": [
         {
-          "Item1": "Royal Lieutenant",
-          "Item2": "Leadership"
+          "Name": "Trooper",
+          "Description": "Boots on the ground, rifle in hand, blasting the foes of the church with awesome precision.",
+          "Survival": {
+            "SkillName": "End",
+            "BeatValue": 6
+          },
+          "Advancement": {
+            "SkillName": "Str",
+            "BeatValue": 7
+          },
+          "SkillList": [ "Gun combat", "Str", "Melee", "Heavy Weapons", "Dex", "Explosives" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "New Brother",
+              "Item2": "Gun Combat 1"
+            },
+            {
+              "Item1": "Warrior Brother",
+              "Item2": "Melee 1"
+            },
+            {
+              "Item1": "Teacher Brother",
+              "Item2": "Leadership 1"
+            },
+            {
+              "Item1": "Sargeant Brother",
+              "Item2": "Tactics (military) 1"
+            },
+            {
+              "Item1": "Master Sergeant Brother",
+              "Item2": "Explosives 1"
+            },
+            {
+              "Item1": "Sargeant Brother of Arms.",
+              "Item2": "Heavy Weapons"
+            }
+          ]
         },
         {
-          "Item1": "Royal Commander",
-          "Item2": "Void Blade"
+          "Name": "Intelligence",
+          "Description": "Recon, computers, and all the work of dealing with the civilians that troops would sooner avoid.",
+          "Survival": {
+            "SkillName": "Int",
+            "BeatValue": 8
+          },
+          "Advancement": {
+            "SkillName": "Edu",
+            "BeatValue": 6
+          },
+          "SkillList": [ "Soc", "Admin", "Electronics", "Edu", "Engineering", "Int" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "New Brother",
+              "Item2": "Gun Combat 1"
+            },
+            {
+              "Item1": "Warrior Brother",
+              "Item2": "Melee 1"
+            },
+            {
+              "Item1": "Teacher brother",
+              "Item2": "Leadership 1"
+            },
+            {
+              "Item1": "Sargeant Brother",
+              "Item2": "Tactics (Military) 1"
+            },
+            {
+              "Item1": "Master Sergeant Brother",
+              "Item2": "Explosives 1"
+            },
+            {
+              "Item1": "Sargeant Brother of Arms",
+              "Item2": "Heavy Weapons"
+            }
+          ]
         },
         {
-          "Item1": "Royal Captain",
+          "Name": "Support",
+          "Description": "Bringing the big guns, the big tanks, and the big gunships, support is the calveraly on cocaine.",
+          "Survival": {
+            "SkillName": "Str",
+            "BeatValue": 6
+          },
+          "Advancement": {
+            "SkillName": "Edu",
+            "BeatValue": 6
+          },
+          "SkillList": [ "Heavy Weapons", "Str", "Explosives", "Gunner", "Jack of all Trades/Luck", "Drive" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "New Brother",
+              "Item2": "Gun Combat 1"
+            },
+            {
+              "Item1": "Warrior Brother",
+              "Item2": "Melee 1"
+            },
+            {
+              "Item1": "Teacher Brother",
+              "Item2": "Leadership 1"
+            },
+            {
+              "Item1": "Sargeant Brother",
+              "Item2": "Tactics (Military) 1"
+            },
+            {
+              "Item1": "Master Sargeant Brother",
+              "Item2": "Explosives 1"
+            },
+            {
+              "Item1": "Sargeant Brother of Arms",
+              "Item2": "Heavy Weapons"
+            }
+          ]
+        }
+      ],
+      "MusteringOutBenefits": [
+        {
+          "Item1": 2000,
+          "Item2": "Armour (Any)"
+        },
+        {
+          "Item1": 5000,
+          "Item2": "Soc"
+        },
+        {
+          "Item1": 5000,
+          "Item2": "End or Str "
+        },
+        {
+          "Item1": 10000,
+          "Item2": "TAS Membership"
+        },
+        {
+          "Item1": 20000,
+          "Item2": "Ship Share"
+        },
+        {
+          "Item1": 30000,
+          "Item2": "Weapon (any)"
+        },
+        {
+          "Item1": 40000,
+          "Item2": "Ship"
+        }
+      ],
+      "PersonalDevelopmentSkillList": [ "Str", "End", "Dex", "Int", "Edu", "Soc" ],
+      "ServiceSkillsList": [ "Gun Combat", "Melee", "Heavy Weapons", "Gunner", "Medic", "Tatics (military)" ],
+      "AdvancedEducationSkillList": null,
+      "Events": [
+        { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+        { "EventText": "Your planet comes under siege, roll Heavy Weapons 8+ or Gunnery 8+ to defend it. If successful you are promoted for your heroism." },
+        { "EventText": "You are assigned to a planet with a hostile or wild environment. Gain one of Vacc Suit 1, Engineer 1, Animals (riding or training) 1, or Recon 1." },
+        { "EventText": "You are brought into the Order of Sigmoria and placed on a special assignment, gain either Gun Combat or Survival" },
+        { "EventText": "The spirit of Sigmar has chosen to bless you, switch to the psionics career." },
+        { "EventText": "Life Event. Roll on the Life Events Table. " },
+        { "EventText": "You serve on the front lines for a major planetary assault. Gain one of Recon, Gun Combat, Leadership, or Electronics (comms) " },
+        { "EventText": "You are assigned to patrol a holy world. Gain DM+2 to your next advancement roll." },
+        { "EventText": "You discover your commanding officer has joined a cult, if you expose your officer gain soc +1 and an enemy, if you join their cult gain either dex +1 or str +1 and a contact." },
+        { "EventText": "Your battle barge is ambushed by a group of Pirates, make a Gun Combat 8+ or a melee 6+ to repel the boarders. If successful, gain another point in the used skill." },
+        { "EventText": "You display heroism in battle. You may gain a promotion or a commission automatically." }
+      ],
+      "Mishaps": [
+        { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+        { "EventText": "During a live fire exercise, your unit is slaughtered, you are blamed for being the sole survivor. Gain an enemy from within the church." },
+        { "EventText": "You miss prayer time and are assumed to be a heretic, thus forcibly removed from service. Gain an enemy." },
+        { "EventText": "During a battle you were key to defending an area, but the area was still taken regardless of your actions. Make a gun Combat 8+ or Melee 8+, if you succeed you get the benefit roll for this term. If you fail gain an enemy" },
+        { "EventText": "Your shuttle is shot down while in transit, make a Dex 6+ or End 6+ roll, if you fail, roll on the Injury Table. If you succeed, you are still discharged, but gain one of Survival, Leadership, Medic, or Navigate. " },
+        { "EventText": "Injured. Roll on the Injury Table." }
+      ]
+    },
+    {
+      "CareerName": "Versian Prisoner",
+      "CareerDescription": "You are a prisoner within the Vers empire. Whatever your crime, your life now consists of hard labour and serving your lord and whatever happens to be on his mind today.",
+      "Nationality": "Fifth Vers Empire",
+      "Qualifications": [
+        {
+          "SkillName": "Str",
+          "BeatValue": 2
+        },
+        {
+          "SkillName": "Dex",
+          "BeatValue": 2
+        },
+        {
+          "SkillName": "End",
+          "BeatValue": 2
+        }
+      ],
+      "Commission": null,
+      "Assignments": [
+        {
+          "Name": "Political Prisoner",
+          "Description": "You have been arrested for some political misstep, but you’re still valuable to be kept alive for your political knowledge.",
+          "Survival": {
+            "SkillName": "Soc",
+            "BeatValue": 8
+          },
+          "Advancement": {
+            "SkillName": "Soc",
+            "BeatValue": 10
+          },
+          "SkillList": [ "Persuade", "Diplomat", "Deception", "Carouse", "Stealth", "Investigate" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Know Nothing",
+              "Item2": "Investigate"
+            },
+            {
+              "Item1": "Baby Snitch",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Snitch",
+              "Item2": "Broker"
+            },
+            {
+              "Item1": "Master Snitch",
+              "Item2": "Leadership 1"
+            },
+            {
+              "Item1": "Knowledge Holder",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Webmaster",
+              "Item2": "Deception 3"
+            }
+          ]
+        },
+        {
+          "Name": "Work Prisoner",
+          "Description": "You are a normal prisoner, sentenced to labour till death or end of punishment cycle.",
+          "Survival": {
+            "SkillName": "Str",
+            "BeatValue": 6
+          },
+          "Advancement": {
+            "SkillName": "Int",
+            "BeatValue": 10
+          },
+          "SkillList": [ "Profession", "Athletics", "Admin", "Edu", "Steward", "Electronics" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "New Guy",
+              "Item2": "Recon"
+            },
+            {
+              "Item1": "Thug",
+              "Item2": "Investgiate"
+            },
+            {
+              "Item1": "Memeber",
+              "Item2": "Stealth"
+            },
+            {
+              "Item1": "Inner Circle",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Right Hand",
+              "Item2": "Carouse"
+            },
+            {
+              "Item1": "Big Boss",
+              "Item2": "Leadership 2"
+            }
+          ]
+        },
+        {
+          "Name": "Military Prisoner",
+          "Description": "You committed crimes while in the military, or while you were part of the Militorius class",
+          "Survival": {
+            "SkillName": "Dex",
+            "BeatValue": 6
+          },
+          "Advancement": {
+            "SkillName": "Edu",
+            "BeatValue": 10
+          },
+          "SkillList": [ "Athletics (Dex)", "Gun Combat (Slug)", "Athletics (Str)", "Melee (Unarmed)", "Deception", "Melee (Bludgeon)" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "New Guy",
+              "Item2": "Recon"
+            },
+            {
+              "Item1": "Thug",
+              "Item2": "Melee (unarmed)"
+            },
+            {
+              "Item1": "Proper Member",
+              "Item2": "Melee (unarmed)"
+            },
+            {
+              "Item1": "Inner Circle",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Right Hand",
+              "Item2": "Tactics (Military)"
+            },
+            {
+              "Item1": "Big Boss",
+              "Item2": "Leadership"
+            }
+          ]
+        }
+      ],
+      "MusteringOutBenefits": [
+        {
+          "Item1": 5,
+          "Item2": "Contact"
+        },
+        {
+          "Item1": 10,
+          "Item2": "Weapon"
+        },
+        {
+          "Item1": 100,
+          "Item2": "Stealth or Streetwise"
+        },
+        {
+          "Item1": 200,
+          "Item2": "Deception or Diplomacy"
+        },
+        {
+          "Item1": 500,
+          "Item2": "Gun Combat or Melee"
+        },
+        {
+          "Item1": 1000,
+          "Item2": "Science or Profession"
+        },
+        {
+          "Item1": 2500,
+          "Item2": "Luck or Jack of All Trades"
+        }
+      ],
+      "PersonalDevelopmentSkillList": [ "Str", "Athletics", "Profession", "Edu", "Int", "Dex" ],
+      "ServiceSkillsList": [ "Melee (Unarmed)", "Gambler", "Broker", "Jack Of All Trades/Luck", "Stealth", "Melee (Blade)" ],
+      "AdvancedEducationSkillList": null,
+      "Events": [
+        { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+        { "EventText": "You spend the term keeping your head down and not getting into any shit." },
+        { "EventText": "You are accused of stealing on your work detail, make either a Deception 8+ or Persuade 8+ to avoid being locked in solitary confinement. If you fail, Int -1." },
+        { "EventText": "The knight who runs your prison has gone on a bender and wound up broke again, so you’ve been sold to a new owner. Make a SOC 10+ check, if you succeed gain an extra benefit roll. If you fail, DM-1 on your next advancement roll." },
+        { "EventText": "You are being transferred to another prison. During transit to the new world your transport is attacked. If you try to help the pirates, make a Melee 8+ check, on success change your career to the Polanskian Pirate career." },
+        { "EventText": "Life Event. Roll on the Life Events Table. " },
+        { "EventText": "You spend your term getting to know your cell mates, gain D3 contacts." },
+        { "EventText": "You spend your term working in the library or administrator office which is fairly peaceful. Take either Admin or Science" },
+        { "EventText": "You are drafted into military service to your knight, Change Careers to Versian Army Footman." },
+        { "EventText": "A riot breaks out. You can either keep your head down and stay in your cell, or you can join in. If you join in, make a Melee 8+ check, if you succeed you gain your freedom but all future jobs have a DM-4 to enter them. If you fail, roll on the mishaps table." },
+        { "EventText": "You get involved in a territory dispute between rival gangs. Make a Melee 8+ check. If you pass, gain either a Contact or Melee. If you fail, roll on the Injury Table" }
+      ],
+      "Mishaps": [
+        { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+        { "EventText": "Make a deal with the wrong person, someone snitched on you, DM -1 for all benefit rolls for this career and gain an enemy" },
+        { "EventText": "Word of your crimes has reached your home world, and possibly your family." },
+        { "EventText": "A guard has taken a particular liking to causing you suffering." },
+        { "EventText": "Make friends with the wrong person, when they’re accused of doing something wrong you’re dragged in with them. If you sell them out, gain an enemy but keep your benefit roll for this term. If you don’t sell them out, lose your benefit roll but gain an Ally" },
+        { "EventText": "Injured. Roll on the Injury Table." }
+      ]
+    },
+    {
+      "CareerName": "Versian Production Worker",
+      "CareerDescription": "You are a worker of the Versian Empire. You produce goods that keep the heart and soul of the empire strong and expanding. You’re the essential underpinning of Versian Society, even if no one knows it.",
+      "Nationality": "Fifth Vers Empire",
+      "Qualifications": [
+        {
+          "SkillName": "Str",
+          "BeatValue": 4
+        },
+        {
+          "SkillName": "Dex",
+          "BeatValue": 4
+        },
+        {
+          "SkillName": "End",
+          "BeatValue": 4
+        }
+      ],
+      "Commission": null,
+      "Assignments": [
+        {
+          "Name": "Factory Worker",
+          "Description": "You are a worker in the factories that produce the goods that keep your fellow subjects of the Empire and your Lord happy.",
+          "Survival": {
+            "SkillName": "Dex",
+            "BeatValue": 5
+          },
+          "Advancement": {
+            "SkillName": "Edu",
+            "BeatValue": 6
+          },
+          "SkillList": [ "Profession (Construction)", "Athletics (Dexterity)", "Electronics (Remote Ops)", "Profession (Polymers)", "Drive (walker)", "Mechanic" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Worker",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Master Worker",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Line Master",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Room Master",
+              "Item2": "Leadership"
+            },
+            {
+              "Item1": "Floor Master ",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Factory Master",
+              "Item2": "Symbol of your Lord"
+            }
+          ]
+        },
+        {
+          "Name": "Field Worker",
+          "Description": "You work the fields that produce the food for the Empire! You feed the people and the war machine. Without you the people would surely riot while starving.",
+          "Survival": {
+            "SkillName": "End",
+            "BeatValue": 5
+          },
+          "Advancement": {
+            "SkillName": "Soc",
+            "BeatValue": 6
+          },
+          "SkillList": [ "Profession (Biologicals)", "Animals", "Fly", "Athletics (Endurance)", "Drive (Track)", "Profession (Hydroponics)" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Farm Hand",
+              "Item2": "Farm ID"
+            },
+            {
+              "Item1": "Field Worker",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Master Field Worker",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Line Master",
+              "Item2": "Leadership"
+            },
+            {
+              "Item1": "Field Master",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Farm master",
+              "Item2": "Symbol of your Lord"
+            }
+          ]
+        },
+        {
+          "Name": "Dock Worker",
+          "Description": "You manage the docks of the empire. Both liquid and star. You make sure the goods get on the ships that take them where they need to go.",
+          "Survival": {
+            "SkillName": "Str",
+            "BeatValue": 5
+          },
+          "Advancement": {
+            "SkillName": "Int",
+            "BeatValue": 6
+          },
+          "SkillList": [ "Profession (Belter)", "Athletics (Strength)", "Athletics (Endurance)", "Seafarer (Personal)", "Drive (Hovercraft)", "Medic" ],
+          "RanksAndBonuses": [
+            {
+              "Item1": "Fetcher",
+              "Item2": "Dock ID"
+            },
+            {
+              "Item1": "Hauler",
+              "Item2": "Vacc Suit"
+            },
+            {
+              "Item1": "Ship Master",
+              "Item2": "-"
+            },
+            {
+              "Item1": "Warehouse Master",
+              "Item2": "Leadership"
+            },
+            {
+              "Item1": "Dock Master",
+              "Item2": "Persuade"
+            },
+            {
+              "Item1": "Yard Master",
+              "Item2": "Symbol of your Lord"
+            }
+          ]
+        }
+      ],
+      "MusteringOutBenefits": [
+        {
+          "Item1": 5000,
+          "Item2": "Ship Share"
+        },
+        {
+          "Item1": 7500,
+          "Item2": "Contact"
+        },
+        {
+          "Item1": 10000,
+          "Item2": "Str or Dex"
+        },
+        {
+          "Item1": 12500,
+          "Item2": "Small Vehicle"
+        },
+        {
+          "Item1": 15000,
+          "Item2": "Ally"
+        },
+        {
+          "Item1": 20000,
+          "Item2": "Two Ship Shares"
+        },
+        {
+          "Item1": 30000,
           "Item2": "Personal Shuttle"
-        },
-        {
-          "Item1": "Royal Fleet Captain",
-          "Item2": "Personal Captial Ship"
-        },
-        {
-          "Item1": "Royal Vice Admiral",
-          "Item2": "Minor Noble Title"
-        },
-        {
-          "Item1": "Royal Fleet Admiral",
-          "Item2": "Noble Title"
         }
       ],
-      "CommmsionCheck": {
-        "SkillName": "Soc",
-        "BeatValue": 10
-      }
-    },
-    "Assignments": [
-      {
-        "Name": "Lord's Army",
-        "Description": "You choose to serve your Lord by fighting his ground battles, taking new claims and kingdoms for him from the wrongful holders of their titles.",
-        "Survival": {
-          "SkillName": "Str",
-          "BeatValue": 8
-        },
-        "Advancement": {
-          "SkillName": "Soc",
-          "BeatValue": 8
-        },
-        "SkillList": [ "Gun Combat(Slug)", "Recon", "Stealth", "Melee(Unarmed)", "Survival", "Melee(Blade)" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Soldier",
-            "Item2": "Gun Combat"
-          },
-          {
-            "Item1": "Sargent",
-            "Item2": "Tactics (Military)"
-          },
-          {
-            "Item1": "Lieutenant",
-            "Item2": "Melee"
-          },
-          {
-            "Item1": "Captain",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Commander",
-            "Item2": "Deception"
-          },
-          {
-            "Item1": "Colonel",
-            "Item2": "Diplomacy"
-          }
-        ]
-      },
-      {
-        "Name": "Lords Navy",
-        "Description": "The defends of the space around the Lords planets. The Lords navies are often more advanced than their federation counterpart, and see much more action.",
-        "Survival": {
-          "SkillName": "Int",
-          "BeatValue": 8
-        },
-        "Advancement": {
-          "SkillName": "Soc",
-          "BeatValue": 8
-        },
-        "SkillList": [ "Pilot", "Mechanic", "Engineer", "Computers", "Electronics", "Gunner" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Starman",
-            "Item2": "Gunnery"
-          },
-          {
-            "Item1": "Ensign",
-            "Item2": "Pilot(small Craft)"
-          },
-          {
-            "Item1": "Lieutenant",
-            "Item2": "Pilot(space craft)"
-          },
-          {
-            "Item1": "Commander",
-            "Item2": "leadership"
-          },
-          {
-            "Item1": "Captain",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Sub-Sector Admiral",
-            "Item2": "Deception"
-          }
-        ]
-      },
-      {
-        "Name": "Lords Marines",
-        "Description": "The marines of the lord. Dealing death wherever they are deployed. Most often from the navy to board other lords ships and take them over or disable key systems.",
-        "Survival": {
-          "SkillName": "Dex",
-          "BeatValue": 8
-        },
-        "Advancement": {
-          "SkillName": "Soc",
-          "BeatValue": 8
-        },
-        "SkillList": [ "Gun Combat (Slug)", "Recon", "Stealth", "Melee (Unarmed)", "Explosives", "Melee (Blade)" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Starman",
-            "Item2": "Gun Combat (Slug)"
-          },
-          {
-            "Item1": "Petty Officer",
-            "Item2": "Melee"
-          },
-          {
-            "Item1": "Master Chief Petty Officer",
-            "Item2": "Heavy Weapons"
-          },
-          {
-            "Item1": "Ensign",
-            "Item2": "Tactics (Military)"
-          },
-          {
-            "Item1": "Lieutenant",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Captain",
-            "Item2": "Gun Combat (Slug)"
-          }
-        ]
-      }
-    ],
-    "MusteringOutBenefits": [
-      {
-        "Item1": 875,
-        "Item2": "Weapon"
-      },
-      {
-        "Item1": 1750,
-        "Item2": "Int"
-      },
-      {
-        "Item1": 2500,
-        "Item2": "Augment"
-      },
-      {
-        "Item1": 5000,
-        "Item2": "Edu"
-      },
-      {
-        "Item1": 25000,
-        "Item2": "Soc"
-      },
-      {
-        "Item1": 50000,
-        "Item2": "1D10 Ship Shares"
-      },
-      {
-        "Item1": 100000,
-        "Item2": "Weapon"
-      }
-    ],
-    "PersonalDevelopmentSkillList": [ "Str", "Tactics (Military)", "Int", "Tactics (Navy)", "Dex", "Vacc-Suit" ],
-    "ServiceSkillsList": [ "Gun Combat (slug)", "Vacc-Suit", "Medic", "Jack-Of-All-Trades/Luck", "Pilot", "Melee" ],
-    "AdvancedEducationSkillList": null,
-    "Events": [
-      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
-      { "EventText": "You are assigned into a meat grinder battlefield, getting a training and a trial by fire. Make a Gun Combat 8+ to gain +1 to your advance roll for this term." },
-      { "EventText": "You are assigned to system defense. Pirates besiege the system. Make a Gunnery 8+ or Gun Combat 8+ check or make a roll on the injury table." },
-      { "EventText": "You are assigned to a horrid space station where seemingly every vice is embraced by the populus. You spend every day working hard to try and make a dent in the crime. You gain Streetwise" },
-      { "EventText": "You are assigned to convoy defense and the pirates can’t seem to stop coming for you. Make either a Gunnery 8+ or Gun Combat 8+ check. On Success gain another level in the used skill. On Failure roll on the injury table." },
-      { "EventText": "Life Event. Roll on the Life Events Table. " },
-      { "EventText": "Your ship spends the term hosting art displays and science exhibits for school and other groups to come and explore. Make a Carouse 6+ check, if successful, you schmooze the guests and gain Soc +1 as well as DM+1 to your advance roll. If you fail, you gain DM-1 on you next advance roll for making an embarrassment of your Lord." },
-      { "EventText": "You are assigned to convoy defense. It is uneventful as pirates seem to forget about you." },
-      { "EventText": "You are assigned to planet defense of a core world. Local and system police deal with all the actual incidents allowing you to learn one skill besides Jack of All Trades or Luck." },
-      { "EventText": "You are assigned to a station for the term, you spend it dealing with minor incidents but nothing too exciting." },
-      { "EventText": "Be assigned to a remote area on border patrol where nothing interesting happens. You get to know your crewmates well and gain  1D3 contacts." }
-    ],
-    "Mishaps": [
-      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
-      { "EventText": "Be left behind after a failed siege. Branded dead back home." },
-      { "EventText": "You are part of a particularly bloody offensive, afterwhich the unit you’re serving in was disbanded" },
-      { "EventText": "Your superior officer attempts to convince you to take inappropriate actions. IF you do, gain an ally and a benefit roll this term. If you don’t you leave with your honour in tact but gain an enemy" },
-      { "EventText": "Your unit is wiped out during a rival nobles raid, except you. You are given leave due to PTSD" },
-      { "EventText": "Injured. Roll on the Injury Table." }
-    ]
-  },
-  {
-    "CareerName": "Sigmarine",
-    "CareerDescription": "Sigmarines are the soldiers of the church of Sigmar within the Deutschland. Trained from a young age in the art of warfare, these elite men are closer to beasts of war then men of a civilized age. Their strict adherence to the code of Sigmar makes their loyalty unquestionable.",
-    "Nationality": "Church of Sigmar",
-    "Qualifications": [
-      {
-        "SkillName": "Str",
-        "BeatValue": 8
-      },
-      {
-        "SkillName": "End",
-        "BeatValue": 8
-      },
-      {
-        "SkillName": "Int",
-        "BeatValue": 8
-      }
-    ],
-    "Commission": {
-      "HasCommision": true,
-      "CommissionSkillList": [ "Tactics (military)", "Leadership", "Tactics (naval)", "Persuade", "Admin", "Diplomat" ],
-      "RanksAndBonuses": [
-        {
-          "Item1": "Brother Lieutenant",
-          "Item2": "Gun Combat 2"
-        },
-        {
-          "Item1": "Father Lieutenant",
-          "Item2": "Melee 2"
-        },
-        {
-          "Item1": "Brother Captain",
-          "Item2": "Tactics (Military)"
-        },
-        {
-          "Item1": "Father Captain",
-          "Item2": "Gun Combat 3"
-        },
-        {
-          "Item1": "Father Commander",
-          "Item2": "Melee 3"
-        },
-        {
-          "Item1": "Father master",
-          "Item2": "Jack of all Trades 2"
-        }
+      "PersonalDevelopmentSkillList": [ "Drive", "Mehanic", "Gambler", "Athletics", "Streetwise", "Profession" ],
+      "ServiceSkillsList": [ "Vacc Suit", "Profession", "Pilot (Small Craft)", "Athletics", "Engineer (Power)", "Electronics (Computers)" ],
+      "AdvancedEducationSkillList": null,
+      "Events": [
+        { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+        { "EventText": "Some workers formed a union together and were then let go. You avoided joining for whatever reason. You may try to suck up the factory owner and make a Soc 8+ check. If you succeed, you advance one rank. If you fail DM-1 to your next advancement check." },
+        { "EventText": "You come up with a good idea on how to improve productivity, DM+1 to your next advancement roll." },
+        { "EventText": "Your knight is called into war and must raise an army. If you chose to join, change Careers to Versian Army or Navy. if do not wish to join, make a Soc 6+ check. IF you fail you are drafted into your Lords Army, change careers to Versian Army Footman." },
+        { "EventText": "There was a murder at your work, and everyone is being interrogated about it. Make either a Deception 8+ (if you did it) or Soc 6+ (if you’re innocent). If you fail, you must switch careers to Versian Prisoner." },
+        { "EventText": "Life Event. Roll on the Life Events Table. " },
+        { "EventText": "You spend much of your term learning to drive one of the vehicles at your work. Gain any Drive of your choice at level 1" },
+        { "EventText": "You find out one of your coworkers is stealing, if you report them DM+1 to your next advancement roll, if you keep their secret gain a Contact." },
+        { "EventText": "The Economy tanks this term, make a Soc 8+ check, if you fail DM-1 to your benefit roll  this term." },
+        { "EventText": "The economy boomed this term, DM+1 to a benefit roll." },
+        { "EventText": "Some members have been talking about forming a union. If you join, make a Stealth 6+ check to keep it a secret from your employer. If you fail, the scheme is discovered and you must leave this career, but you do get a benefit roll this term. If you succeed, you gain an extra benefit roll." }
       ],
-      "CommmsionCheck": {
-        "SkillName": "Soc",
-        "BeatValue": 8
-      }
-    },
-    "Assignments": [
-      {
-        "Name": "Trooper",
-        "Description": "Boots on the ground, rifle in hand, blasting the foes of the church with awesome precision.",
-        "Survival": {
-          "SkillName": "End",
-          "BeatValue": 6
-        },
-        "Advancement": {
-          "SkillName": "Str",
-          "BeatValue": 7
-        },
-        "SkillList": [ "Gun combat", "Str", "Melee", "Heavy Weapons", "Dex", "Explosives" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "New Brother",
-            "Item2": "Gun Combat 1"
-          },
-          {
-            "Item1": "Warrior Brother",
-            "Item2": "Melee 1"
-          },
-          {
-            "Item1": "Teacher Brother",
-            "Item2": "Leadership 1"
-          },
-          {
-            "Item1": "Sargeant Brother",
-            "Item2": "Tactics (military) 1"
-          },
-          {
-            "Item1": "Master Sergeant Brother",
-            "Item2": "Explosives 1"
-          },
-          {
-            "Item1": "Sargeant Brother of Arms.",
-            "Item2": "Heavy Weapons"
-          }
-        ]
-      },
-      {
-        "Name": "Intelligence",
-        "Description": "Recon, computers, and all the work of dealing with the civilians that troops would sooner avoid.",
-        "Survival": {
-          "SkillName": "Int",
-          "BeatValue": 8
-        },
-        "Advancement": {
-          "SkillName": "Edu",
-          "BeatValue": 6
-        },
-        "SkillList": [ "Soc", "Admin", "Electronics", "Edu", "Engineering", "Int" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "New Brother",
-            "Item2": "Gun Combat 1"
-          },
-          {
-            "Item1": "Warrior Brother",
-            "Item2": "Melee 1"
-          },
-          {
-            "Item1": "Teacher brother",
-            "Item2": "Leadership 1"
-          },
-          {
-            "Item1": "Sargeant Brother",
-            "Item2": "Tactics (Military) 1"
-          },
-          {
-            "Item1": "Master Sergeant Brother",
-            "Item2": "Explosives 1"
-          },
-          {
-            "Item1": "Sargeant Brother of Arms",
-            "Item2": "Heavy Weapons"
-          }
-        ]
-      },
-      {
-        "Name": "Support",
-        "Description": "Bringing the big guns, the big tanks, and the big gunships, support is the calveraly on cocaine.",
-        "Survival": {
-          "SkillName": "Str",
-          "BeatValue": 6
-        },
-        "Advancement": {
-          "SkillName": "Edu",
-          "BeatValue": 6
-        },
-        "SkillList": [ "Heavy Weapons", "Str", "Explosives", "Gunner", "Jack of all Trades/Luck", "Drive" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "New Brother",
-            "Item2": "Gun Combat 1"
-          },
-          {
-            "Item1": "Warrior Brother",
-            "Item2": "Melee 1"
-          },
-          {
-            "Item1": "Teacher Brother",
-            "Item2": "Leadership 1"
-          },
-          {
-            "Item1": "Sargeant Brother",
-            "Item2": "Tactics (Military) 1"
-          },
-          {
-            "Item1": "Master Sargeant Brother",
-            "Item2": "Explosives 1"
-          },
-          {
-            "Item1": "Sargeant Brother of Arms",
-            "Item2": "Heavy Weapons"
-          }
-        ]
-      }
-    ],
-    "MusteringOutBenefits": [
-      {
-        "Item1": 2000,
-        "Item2": "Armour (Any)"
-      },
-      {
-        "Item1": 5000,
-        "Item2": "Soc"
-      },
-      {
-        "Item1": 5000,
-        "Item2": "End or Str "
-      },
-      {
-        "Item1": 10000,
-        "Item2": "TAS Membership"
-      },
-      {
-        "Item1": 20000,
-        "Item2": "Ship Share"
-      },
-      {
-        "Item1": 30000,
-        "Item2": "Weapon (any)"
-      },
-      {
-        "Item1": 40000,
-        "Item2": "Ship"
-      }
-    ],
-    "PersonalDevelopmentSkillList": [ "Str", "End", "Dex", "Int", "Edu", "Soc" ],
-    "ServiceSkillsList": [ "Gun Combat", "Melee", "Heavy Weapons", "Gunner", "Medic", "Tatics (military)" ],
-    "AdvancedEducationSkillList": null,
-    "Events": [
-      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
-      { "EventText": "Your planet comes under siege, roll Heavy Weapons 8+ or Gunnery 8+ to defend it. If successful you are promoted for your heroism." },
-      { "EventText": "You are assigned to a planet with a hostile or wild environment. Gain one of Vacc Suit 1, Engineer 1, Animals (riding or training) 1, or Recon 1." },
-      { "EventText": "You are brought into the Order of Sigmoria and placed on a special assignment, gain either Gun Combat or Survival" },
-      { "EventText": "The spirit of Sigmar has chosen to bless you, switch to the psionics career." },
-      { "EventText": "Life Event. Roll on the Life Events Table. " },
-      { "EventText": "You serve on the front lines for a major planetary assault. Gain one of Recon, Gun Combat, Leadership, or Electronics (comms) " },
-      { "EventText": "You are assigned to patrol a holy world. Gain DM+2 to your next advancement roll." },
-      { "EventText": "You discover your commanding officer has joined a cult, if you expose your officer gain soc +1 and an enemy, if you join their cult gain either dex +1 or str +1 and a contact." },
-      { "EventText": "Your battle barge is ambushed by a group of Pirates, make a Gun Combat 8+ or a melee 6+ to repel the boarders. If successful, gain another point in the used skill." },
-      { "EventText": "You display heroism in battle. You may gain a promotion or a commission automatically." }
-    ],
-    "Mishaps": [
-      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
-      { "EventText": "During a live fire exercise, your unit is slaughtered, you are blamed for being the sole survivor. Gain an enemy from within the church." },
-      { "EventText": "You miss prayer time and are assumed to be a heretic, thus forcibly removed from service. Gain an enemy." },
-      { "EventText": "During a battle you were key to defending an area, but the area was still taken regardless of your actions. Make a gun Combat 8+ or Melee 8+, if you succeed you get the benefit roll for this term. If you fail gain an enemy" },
-      { "EventText": "Your shuttle is shot down while in transit, make a Dex 6+ or End 6+ roll, if you fail, roll on the Injury Table. If you succeed, you are still discharged, but gain one of Survival, Leadership, Medic, or Navigate. " },
-      { "EventText": "Injured. Roll on the Injury Table." }
-    ]
-  },
-  {
-    "CareerName": "Versian Prisoner",
-    "CareerDescription": "You are a prisoner within the Vers empire. Whatever your crime, your life now consists of hard labour and serving your lord and whatever happens to be on his mind today.",
-    "Nationality": "Fifth Vers Empire",
-    "Qualifications": [
-      {
-        "SkillName": "Str",
-        "BeatValue": 2
-      },
-      {
-        "SkillName": "Dex",
-        "BeatValue": 2
-      },
-      {
-        "SkillName": "End",
-        "BeatValue": 2
-      }
-    ],
-    "Commission": null,
-    "Assignments": [
-      {
-        "Name": "Political Prisoner",
-        "Description": "You have been arrested for some political misstep, but you’re still valuable to be kept alive for your political knowledge.",
-        "Survival": {
-          "SkillName": "Soc",
-          "BeatValue": 8
-        },
-        "Advancement": {
-          "SkillName": "Soc",
-          "BeatValue": 10
-        },
-        "SkillList": [ "Persuade", "Diplomat", "Deception", "Carouse", "Stealth", "Investigate" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Know Nothing",
-            "Item2": "Investigate"
-          },
-          {
-            "Item1": "Baby Snitch",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Snitch",
-            "Item2": "Broker"
-          },
-          {
-            "Item1": "Master Snitch",
-            "Item2": "Leadership 1"
-          },
-          {
-            "Item1": "Knowledge Holder",
-            "Item2": "-"
-          },
-          {
-            "Item1": "Webmaster",
-            "Item2": "Deception 3"
-          }
-        ]
-      },
-      {
-        "Name": "Work Prisoner",
-        "Description": "You are a normal prisoner, sentenced to labour till death or end of punishment cycle.",
-        "Survival": {
-          "SkillName": "Str",
-          "BeatValue": 6
-        },
-        "Advancement": {
-          "SkillName": "Int",
-          "BeatValue": 10
-        },
-        "SkillList": [ "Profession", "Athletics", "Admin", "Edu", "Steward", "Electronics" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "New Guy",
-            "Item2": "Recon"
-          },
-          {
-            "Item1": "Thug",
-            "Item2": "Investgiate"
-          },
-          {
-            "Item1": "Memeber",
-            "Item2": "Stealth"
-          },
-          {
-            "Item1": "Inner Circle",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Right Hand",
-            "Item2": "Carouse"
-          },
-          {
-            "Item1": "Big Boss",
-            "Item2": "Leadership 2"
-          }
-        ]
-      },
-      {
-        "Name": "Military Prisoner",
-        "Description": "You committed crimes while in the military, or while you were part of the Militorius class",
-        "Survival": {
-          "SkillName": "Dex",
-          "BeatValue": 6
-        },
-        "Advancement": {
-          "SkillName": "Edu",
-          "BeatValue": 10
-        },
-        "SkillList": [ "Athletics (Dex)", "Gun Combat (Slug)", "Athletics (Str)", "Melee (Unarmed)", "Deception", "Melee (Bludgeon)" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "New Guy",
-            "Item2": "Recon"
-          },
-          {
-            "Item1": "Thug",
-            "Item2": "Melee (unarmed)"
-          },
-          {
-            "Item1": "Proper Member",
-            "Item2": "Melee (unarmed)"
-          },
-          {
-            "Item1": "Inner Circle",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Right Hand",
-            "Item2": "Tactics (Military)"
-          },
-          {
-            "Item1": "Big Boss",
-            "Item2": "Leadership"
-          }
-        ]
-      }
-    ],
-    "MusteringOutBenefits": [
-      {
-        "Item1": 5,
-        "Item2": "Contact"
-      },
-      {
-        "Item1": 10,
-        "Item2": "Weapon"
-      },
-      {
-        "Item1": 100,
-        "Item2": "Stealth or Streetwise"
-      },
-      {
-        "Item1": 200,
-        "Item2": "Deception or Diplomacy"
-      },
-      {
-        "Item1": 500,
-        "Item2": "Gun Combat or Melee"
-      },
-      {
-        "Item1": 1000,
-        "Item2": "Science or Profession"
-      },
-      {
-        "Item1": 2500,
-        "Item2": "Luck or Jack of All Trades"
-      }
-    ],
-    "PersonalDevelopmentSkillList": [ "Str", "Athletics", "Profession", "Edu", "Int", "Dex" ],
-    "ServiceSkillsList": [ "Melee (Unarmed)", "Gambler", "Broker", "Jack Of All Trades/Luck", "Stealth", "Melee (Blade)" ],
-    "AdvancedEducationSkillList": null,
-    "Events": [
-      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
-      { "EventText": "You spend the term keeping your head down and not getting into any shit." },
-      { "EventText": "You are accused of stealing on your work detail, make either a Deception 8+ or Persuade 8+ to avoid being locked in solitary confinement. If you fail, Int -1." },
-      { "EventText": "The knight who runs your prison has gone on a bender and wound up broke again, so you’ve been sold to a new owner. Make a SOC 10+ check, if you succeed gain an extra benefit roll. If you fail, DM-1 on your next advancement roll." },
-      { "EventText": "You are being transferred to another prison. During transit to the new world your transport is attacked. If you try to help the pirates, make a Melee 8+ check, on success change your career to the Polanskian Pirate career." },
-      { "EventText": "Life Event. Roll on the Life Events Table. " },
-      { "EventText": "You spend your term getting to know your cell mates, gain D3 contacts." },
-      { "EventText": "You spend your term working in the library or administrator office which is fairly peaceful. Take either Admin or Science" },
-      { "EventText": "You are drafted into military service to your knight, Change Careers to Versian Army Footman." },
-      { "EventText": "A riot breaks out. You can either keep your head down and stay in your cell, or you can join in. If you join in, make a Melee 8+ check, if you succeed you gain your freedom but all future jobs have a DM-4 to enter them. If you fail, roll on the mishaps table." },
-      { "EventText": "You get involved in a territory dispute between rival gangs. Make a Melee 8+ check. If you pass, gain either a Contact or Melee. If you fail, roll on the Injury Table" }
-    ],
-    "Mishaps": [
-      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
-      { "EventText": "Make a deal with the wrong person, someone snitched on you, DM -1 for all benefit rolls for this career and gain an enemy" },
-      { "EventText": "Word of your crimes has reached your home world, and possibly your family." },
-      { "EventText": "A guard has taken a particular liking to causing you suffering." },
-      { "EventText": "Make friends with the wrong person, when they’re accused of doing something wrong you’re dragged in with them. If you sell them out, gain an enemy but keep your benefit roll for this term. If you don’t sell them out, lose your benefit roll but gain an Ally" },
-      { "EventText": "Injured. Roll on the Injury Table." }
-    ]
-  },
-  {
-    "CareerName": "Versian Production Worker",
-    "CareerDescription": "You are a worker of the Versian Empire. You produce goods that keep the heart and soul of the empire strong and expanding. You’re the essential underpinning of Versian Society, even if no one knows it.",
-    "Nationality": "Fifth Vers Empire",
-    "Qualifications": [
-      {
-        "SkillName": "Str",
-        "BeatValue": 4
-      },
-      {
-        "SkillName": "Dex",
-        "BeatValue": 4
-      },
-      {
-        "SkillName": "End",
-        "BeatValue": 4
-      }
-    ],
-    "Commission": null,
-    "Assignments": [
-      {
-        "Name": "Factory Worker",
-        "Description": "You are a worker in the factories that produce the goods that keep your fellow subjects of the Empire and your Lord happy.",
-        "Survival": {
-          "SkillName": "Dex",
-          "BeatValue": 5
-        },
-        "Advancement": {
-          "SkillName": "Edu",
-          "BeatValue": 6
-        },
-        "SkillList": [ "Profession (Construction)", "Athletics (Dexterity)", "Electronics (Remote Ops)", "Profession (Polymers)", "Drive (walker)", "Mechanic" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Worker",
-            "Item2": "-"
-          },
-          {
-            "Item1": "Master Worker",
-            "Item2": "-"
-          },
-          {
-            "Item1": "Line Master",
-            "Item2": "-"
-          },
-          {
-            "Item1": "Room Master",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Floor Master ",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Factory Master",
-            "Item2": "Symbol of your Lord"
-          }
-        ]
-      },
-      {
-        "Name": "Field Worker",
-        "Description": "You work the fields that produce the food for the Empire! You feed the people and the war machine. Without you the people would surely riot while starving.",
-        "Survival": {
-          "SkillName": "End",
-          "BeatValue": 5
-        },
-        "Advancement": {
-          "SkillName": "Soc",
-          "BeatValue": 6
-        },
-        "SkillList": [ "Profession (Biologicals)", "Animals", "Fly", "Athletics (Endurance)", "Drive (Track)", "Profession (Hydroponics)" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Farm Hand",
-            "Item2": "Farm ID"
-          },
-          {
-            "Item1": "Field Worker",
-            "Item2": "-"
-          },
-          {
-            "Item1": "Master Field Worker",
-            "Item2": "-"
-          },
-          {
-            "Item1": "Line Master",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Field Master",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Farm master",
-            "Item2": "Symbol of your Lord"
-          }
-        ]
-      },
-      {
-        "Name": "Dock Worker",
-        "Description": "You manage the docks of the empire. Both liquid and star. You make sure the goods get on the ships that take them where they need to go.",
-        "Survival": {
-          "SkillName": "Str",
-          "BeatValue": 5
-        },
-        "Advancement": {
-          "SkillName": "Int",
-          "BeatValue": 6
-        },
-        "SkillList": [ "Profession (Belter)", "Athletics (Strength)", "Athletics (Endurance)", "Seafarer (Personal)", "Drive (Hovercraft)", "Medic" ],
-        "RanksAndBonuses": [
-          {
-            "Item1": "Fetcher",
-            "Item2": "Dock ID"
-          },
-          {
-            "Item1": "Hauler",
-            "Item2": "Vacc Suit"
-          },
-          {
-            "Item1": "Ship Master",
-            "Item2": "-"
-          },
-          {
-            "Item1": "Warehouse Master",
-            "Item2": "Leadership"
-          },
-          {
-            "Item1": "Dock Master",
-            "Item2": "Persuade"
-          },
-          {
-            "Item1": "Yard Master",
-            "Item2": "Symbol of your Lord"
-          }
-        ]
-      }
-    ],
-    "MusteringOutBenefits": [
-      {
-        "Item1": 5000,
-        "Item2": "Ship Share"
-      },
-      {
-        "Item1": 7500,
-        "Item2": "Contact"
-      },
-      {
-        "Item1": 10000,
-        "Item2": "Str or Dex"
-      },
-      {
-        "Item1": 12500,
-        "Item2": "Small Vehicle"
-      },
-      {
-        "Item1": 15000,
-        "Item2": "Ally"
-      },
-      {
-        "Item1": 20000,
-        "Item2": "Two Ship Shares"
-      },
-      {
-        "Item1": 30000,
-        "Item2": "Personal Shuttle"
-      }
-    ],
-    "PersonalDevelopmentSkillList": [ "Drive", "Mehanic", "Gambler", "Athletics", "Streetwise", "Profession" ],
-    "ServiceSkillsList": [ "Vacc Suit", "Profession", "Pilot (Small Craft)", "Athletics", "Engineer (Power)", "Electronics (Computers)" ],
-    "AdvancedEducationSkillList": null,
-    "Events": [
-      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
-      { "EventText": "Some workers formed a union together and were then let go. You avoided joining for whatever reason. You may try to suck up the factory owner and make a Soc 8+ check. If you succeed, you advance one rank. If you fail DM-1 to your next advancement check." },
-      { "EventText": "You come up with a good idea on how to improve productivity, DM+1 to your next advancement roll." },
-      { "EventText": "Your knight is called into war and must raise an army. If you chose to join, change Careers to Versian Army or Navy. if do not wish to join, make a Soc 6+ check. IF you fail you are drafted into your Lords Army, change careers to Versian Army Footman." },
-      { "EventText": "There was a murder at your work, and everyone is being interrogated about it. Make either a Deception 8+ (if you did it) or Soc 6+ (if you’re innocent). If you fail, you must switch careers to Versian Prisoner." },
-      { "EventText": "Life Event. Roll on the Life Events Table. " },
-      { "EventText": "You spend much of your term learning to drive one of the vehicles at your work. Gain any Drive of your choice at level 1" },
-      { "EventText": "You find out one of your coworkers is stealing, if you report them DM+1 to your next advancement roll, if you keep their secret gain a Contact." },
-      { "EventText": "The Economy tanks this term, make a Soc 8+ check, if you fail DM-1 to your benefit roll  this term." },
-      { "EventText": "The economy boomed this term, DM+1 to a benefit roll." },
-      { "EventText": "Some members have been talking about forming a union. If you join, make a Stealth 6+ check to keep it a secret from your employer. If you fail, the scheme is discovered and you must leave this career, but you do get a benefit roll this term. If you succeed, you gain an extra benefit roll." }
-    ],
-    "Mishaps": [
-      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
-      { "EventText": "Having spent the better part of your career quietly skimming off the top, you finally got caught. Make a deception 8+ check, if you fail, you get DM+1 to your benefit roll, but must enter the Versian Prisoner career next term. If you pass, you get an extra benefit roll, and DM+2 to one benefit roll." },
-      { "EventText": "Thinking that you and your fellow workers deserve better pay, you begin to investigate collective bargaining. At the first whiff of this, the owner decides to lay off all the staff." },
-      { "EventText": "You’re caught slacking off after a recent fall in output, your boss decides to make an example and lets you go." },
-      { "EventText": "Get caught fraternizing with the bosses favorite child. Gain a Contact (the child) and an Enemy (your ex boss)" },
-      { "EventText": "Injured. Roll on the Injury Table." }
-    ]
-  }
+      "Mishaps": [
+        { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+        { "EventText": "Having spent the better part of your career quietly skimming off the top, you finally got caught. Make a deception 8+ check, if you fail, you get DM+1 to your benefit roll, but must enter the Versian Prisoner career next term. If you pass, you get an extra benefit roll, and DM+2 to one benefit roll." },
+        { "EventText": "Thinking that you and your fellow workers deserve better pay, you begin to investigate collective bargaining. At the first whiff of this, the owner decides to lay off all the staff." },
+        { "EventText": "You’re caught slacking off after a recent fall in output, your boss decides to make an example and lets you go." },
+        { "EventText": "Get caught fraternizing with the bosses favorite child. Gain a Contact (the child) and an Enemy (your ex boss)" },
+        { "EventText": "Injured. Roll on the Injury Table." }
+      ]
+    }
 ]

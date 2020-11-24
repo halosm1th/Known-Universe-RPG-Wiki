@@ -40,7 +40,7 @@ namespace CareerCreator
         }
         private TravellerAssignment _assignment;
         private List<string> _assignmentSkills;
-        private List<(string Title, string Perk)> _ranksAndBonuses;
+        private List<(string Title, TravellerCharacterCreationReward Perk)> _ranksAndBonuses;
         public AssignmentDialog()
         {
             InitializeComponent();

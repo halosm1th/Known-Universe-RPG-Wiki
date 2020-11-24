@@ -1,135 +1,56 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 
 namespace TravellerWiki.Data
 {
 
-    public class TravellerCharacterCreationEventJSON
+    public class TravellerCharacterCreationEvent
     {
         public string EventText { get; set; }
-        public TravellerSkillCheck SkillCheck { get; set; }
-        public TravellerCharacterCreationRewardJSON OnSuccess { get; set; }
-        public TravellerCharacterCreationRewardJSON OnFailure { get; set; }
-        public TravellerCharacterCreationRewardJSON Reward { get; set; }
-        public TravellerCharacterCreationEventJSON(string eventText)
+
+        public List<TravellerCharacterCreationEventSkillChoice> EventSkillChoices { get; set; }
+
+        public TravellerCharacterCreationReward Reward { get; set; }
+
+        public TravellerCharacterCreationEvent()
         {
-            EventText = eventText;
+            EventText = "";
+            EventSkillChoices = new List<TravellerCharacterCreationEventSkillChoice>();
+            Reward = null;
+
         }
 
-        public TravellerCharacterCreationEvent GetEvent()
-        {
-            TravellerCharacterCreationEvent travellerEvent;
-
-            if (SkillCheck != null)
-            {
-                travellerEvent = 
-                    new TravellerCharacterCreationTextEventWithSkillCheck(
-                        EventText,SkillCheck,OnSuccess.GetReward(),OnFailure.GetReward());
-            }
-            else if (Reward != null)
-            {
-                travellerEvent =
-                    new TravellerCharacterCreationTextEventWithReward(
-                        EventText, Reward.GetReward());
-            }
-            else
-            {
-                travellerEvent = new TravellerCharacterCreationTextEvent(EventText);
-            }
-
-            return travellerEvent;
-        }
-    }
-
-    public abstract class TravellerCharacterCreationEvent
-    {
-        public string EventText { get; protected set; }
         public TravellerCharacterCreationEvent(string eventText)
         {
             EventText = eventText;
-        }
-    }
-
-    public abstract class TravellerCharaceterCreationEventSkillCheck : TravellerCharacterCreationEvent
-    {
-        public TravellerSkillCheck SkillCheck { get; }
-        public TravellerCharacterCreationReward OnSuccess { get; }
-        public TravellerCharacterCreationReward OnFailure { get; }
-
-        public TravellerCharaceterCreationEventSkillCheck(string eventText, TravellerSkillCheck skillCheck, TravellerCharacterCreationReward onSuccess, TravellerCharacterCreationReward onFailure) : base(eventText)
-        {
-            SkillCheck = skillCheck;
-            OnSuccess = onSuccess;
-            OnFailure = onFailure;
-        }
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append(EventText);
-            sb.Append(". With a skill check: ");
-            sb.Append(SkillCheck.ToString());
-            if (OnSuccess != null)
-            {
-                sb.Append("On Success:");
-                sb.Append(OnSuccess.ToString());
-            }
-            if (OnFailure != null)
-            {
-                sb.Append("On Failure:");
-                sb.Append(OnFailure.ToString());
-            }
-            return sb.ToString();
-        }
-    }
-
-    public class TravellerCharacterCreationEmptyEvent : TravellerCharacterCreationEvent
-    {
-        public TravellerCharacterCreationEmptyEvent() : base("Empty Event")
-        {
-        }
-        public override string ToString()
-        {
-            return $"{EventText}";
-        }
-    }
-
-    public class TravellerCharacterCreationTextEvent : TravellerCharacterCreationEvent
-    {
-        public TravellerCharacterCreationTextEvent(string eventText) : base(eventText)
-        {
-        }
-        public override string ToString()
-        {
-            return $"{EventText}";
-        }
-    }
-
-    public class TravellerCharacterCreationTextEventWithSkillCheck : TravellerCharaceterCreationEventSkillCheck
-    {
-        public TravellerCharacterCreationTextEventWithSkillCheck(string eventText, TravellerSkillCheck skillCheck,
-            TravellerCharacterCreationReward onSuccess, TravellerCharacterCreationReward onFailure) : base(eventText,
-            skillCheck, onSuccess, onFailure)
-        {
+            EventSkillChoices = new List<TravellerCharacterCreationEventSkillChoice>();
+            Reward = null;
         }
 
-        public override string ToString()
+        public TravellerCharacterCreationEvent(string eventText, List<TravellerCharacterCreationEventSkillChoice> eventSkillChoices, TravellerCharacterCreationReward reward)
         {
-            return $"{EventText}";
-        }
-    }
-
-    public class TravellerCharacterCreationTextEventWithReward : TravellerCharacterCreationEvent
-    {
-
-        public TravellerCharacterCreationReward Reward { get; }
-        public TravellerCharacterCreationTextEventWithReward(string eventText, TravellerCharacterCreationReward reward) : base(eventText)
-        {
+            EventText = eventText;
+            EventSkillChoices = eventSkillChoices;
             Reward = reward;
         }
+    }
 
-        public override string ToString()
+    public class TravellerCharacterCreationEventSkillChoice
+    {
+        public TravellerSkillCheck SkillCheck { get; }
+        public string SkillCheckText { get; set; }
+        public TravellerCharacterCreationReward OnSuccess { get; set; }
+        public string OnSuccessText { get; set; }
+        public TravellerCharacterCreationReward OnFailure { get; set; }
+        public string OnFailureText { get; set; }
+
+        public TravellerCharacterCreationEventSkillChoice(TravellerSkillCheck skillCheck, string skillCheckText, TravellerCharacterCreationReward onSuccess, string onSuccessText, TravellerCharacterCreationReward onFailure, string onFailureText)
         {
-            return $"{EventText}. You get: {Reward} as a reward";
+            SkillCheck = skillCheck;
+            SkillCheckText = skillCheckText;
+            OnSuccess = onSuccess;
+            OnSuccessText = onSuccessText;
+            OnFailure = onFailure;
+            OnFailureText = onFailureText;
         }
     }
 }

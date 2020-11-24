@@ -18,7 +18,7 @@ namespace CareerCreator
     /// </summary>
     public partial class NewQualificationDialog : Window
     {
-        public TravellerSkillCheck NewQualification { get; private set; }
+        public TravellerSkillCheck NewQualification { get;  set; }
         public NewQualificationDialog()
         {
             InitializeComponent();

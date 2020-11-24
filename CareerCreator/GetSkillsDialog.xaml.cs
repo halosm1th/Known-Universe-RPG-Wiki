@@ -22,6 +22,7 @@ namespace CareerCreator
             get => _skills;
             set
             {
+                if(value.Count == 6) { 
                 _skills = value;
                 Skill1.Text = value[0] ?? "";
                 Skill2.Text = value[1] ?? "";
@@ -29,6 +30,7 @@ namespace CareerCreator
                 Skill4.Text = value[3] ?? "";
                 Skill5.Text = value[4] ?? "";
                 Skill6.Text = value[5] ?? "";
+                }
             }
         }
 

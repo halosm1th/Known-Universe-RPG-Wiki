@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravellerWiki.Data;
 
 namespace CareerCreator
 {
@@ -17,7 +18,7 @@ namespace CareerCreator
     /// </summary>
     public partial class RanksAndBonusesDialog : Window
     {
-        public List<(string Title, string Benefit)> RanksAndBonuses { get; set; }
+        public List<(string Title, TravellerCharacterCreationReward Benefit)> RanksAndBonuses { get; set; }
         public RanksAndBonusesDialog()
         {
             InitializeComponent();
@@ -26,15 +27,76 @@ namespace CareerCreator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            RanksAndBonuses = new List<(string, string)>();
-
-            RanksAndBonuses.Add((Title1.Text ?? "", Skill1.Text ?? ""));
-            RanksAndBonuses.Add((Title2.Text ?? "", Skill2.Text ?? ""));
-            RanksAndBonuses.Add((Title3.Text ?? "", Skill3.Text ?? ""));
-            RanksAndBonuses.Add((Title4.Text ?? "", Skill4.Text ?? ""));
-            RanksAndBonuses.Add((Title5.Text ?? "", Skill5.Text ?? ""));
-            RanksAndBonuses.Add((Title6.Text ?? "", Skill6.Text ?? ""));
+            RanksAndBonuses = new List<(string Title, TravellerCharacterCreationReward Benefit)>
+            {
+                (Title1.Text,Bonus1),
+                (Title2.Text,Bonus2),
+                (Title3.Text,Bonus3),
+                (Title4.Text,Bonus4),
+                (Title5.Text,Bonus5),
+                (Title6.Text,Bonus6),
+            };
             this.DialogResult = true;
+        }
+
+        private TravellerCharacterCreationReward Bonus1;
+        private TravellerCharacterCreationReward Bonus2;
+        private TravellerCharacterCreationReward Bonus3;
+        private TravellerCharacterCreationReward Bonus4;
+        private TravellerCharacterCreationReward Bonus5;
+        private TravellerCharacterCreationReward Bonus6;
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var rewardType = new CharacterCreationRewardType();
+            if (rewardType.ShowDialog() == true)
+            {
+                Bonus1 = rewardType.Reward;
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var rewardType = new CharacterCreationRewardType();
+            if (rewardType.ShowDialog() == true)
+            {
+                Bonus2 = rewardType.Reward;
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            var rewardType = new CharacterCreationRewardType();
+            if (rewardType.ShowDialog() == true)
+            {
+                Bonus3 = rewardType.Reward;
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            var rewardType = new CharacterCreationRewardType();
+            if (rewardType.ShowDialog() == true)
+            {
+                Bonus4 = rewardType.Reward;
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            var rewardType = new CharacterCreationRewardType();
+            if (rewardType.ShowDialog() == true)
+            {
+                Bonus5 = rewardType.Reward;
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            var rewardType = new CharacterCreationRewardType();
+            if (rewardType.ShowDialog() == true)
+            {
+                Bonus6 = rewardType.Reward;
+            }
         }
     }
 }
