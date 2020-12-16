@@ -1,0 +1,460 @@
+﻿<Window x:Class="SubsectorJsonGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SubsectorJsonGenerator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Name:"></Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Name="Name"></TextBox>
+
+        <Label Grid.Row="0" Grid.Column="2" Content="Outer Gov:"></Label>
+        <ComboBox Grid.Row="0" Grid.Column="3" Name="CurrentGovernment" SelectedIndex="0">
+            <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
+            <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Kotlik Tribunal"></ComboBoxItem>
+            <ComboBoxItem Content="Tilova Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Spiritwood Senate"></ComboBoxItem>
+            <ComboBoxItem Content="New Colchis Business Board"></ComboBoxItem>
+            <ComboBoxItem Content="Mainhair Military Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Western Islands Trade Federation"></ComboBoxItem>
+            <ComboBoxItem Content="South-Western Islands Trade  Consortium"></ComboBoxItem>
+            <ComboBoxItem Content="Olitar Protectorate"></ComboBoxItem>
+            <ComboBoxItem Content="Neubayern Topas Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Supremius"></ComboBoxItem>
+            <ComboBoxItem Content="Venhut Dominate States"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Of the Imperial Faith"></ComboBoxItem>
+            <ComboBoxItem Content="Old Islands Defense League"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Ostrovski"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Server"></ComboBoxItem>
+            <ComboBoxItem Content="Esperanza"></ComboBoxItem>
+            <ComboBoxItem Content="Coila Military Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Gunipped Setllar Empire"></ComboBoxItem>
+            <ComboBoxItem Content="No God Land"></ComboBoxItem>
+            <ComboBoxItem Content="Wilsville Trade Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Baronies"></ComboBoxItem>
+            <ComboBoxItem Content="Sar-Tan Confederacy"></ComboBoxItem>
+            <ComboBoxItem Content="Red Rock Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Essia Kitarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="X:"></Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="WorldX"></TextBox>
+        <Label Grid.Row="1" Grid.Column="2" Content="Y:"></Label>
+        <TextBox Grid.Row="1" Grid.Column="3" Name="WorldY"></TextBox>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Starport Quality:"></Label>
+        <ComboBox Grid.Row="2" Grid.Column="1" Name="StarportQuality" SelectedIndex="0">
+            <ComboBoxItem Content="Excellent"></ComboBoxItem>
+            <ComboBoxItem Content="Good"></ComboBoxItem>
+            <ComboBoxItem Content="Routine"></ComboBoxItem>
+            <ComboBoxItem Content="Poor"></ComboBoxItem>
+            <ComboBoxItem Content="Frontier"></ComboBoxItem>
+            <ComboBoxItem Content="None"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="2" Grid.Column="2" Content="World Size:"></Label>
+        <ComboBox Grid.Row="2" Grid.Column="3" Name="WorldSize" SelectedIndex="0">
+            <ComboBoxItem Content="&lt;1000KM"></ComboBoxItem>
+            <ComboBoxItem Content="~1,6000KM"></ComboBoxItem>
+            <ComboBoxItem Content="~3,200KM"></ComboBoxItem>
+            <ComboBoxItem Content="~4,800KM"></ComboBoxItem>
+            <ComboBoxItem Content="~6,400KM"></ComboBoxItem>
+            <ComboBoxItem Content="~8,000KM"></ComboBoxItem>
+            <ComboBoxItem Content="~9,600KM"></ComboBoxItem>
+            <ComboBoxItem Content="~11,200KM"></ComboBoxItem>
+            <ComboBoxItem Content="~12,800KM"></ComboBoxItem>
+            <ComboBoxItem Content="~14,400KM"></ComboBoxItem>
+            <ComboBoxItem Content="~16,000KM"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Atmosphere:"></Label>
+        <ComboBox Grid.Row="4" Grid.Column="1" Name="WorldAtmosphere" SelectedIndex="0">
+            <ComboBoxItem Content="None"></ComboBoxItem>
+            <ComboBoxItem Content="Trace"></ComboBoxItem>
+            <ComboBoxItem Content="Very Thin, Tainted"></ComboBoxItem>
+            <ComboBoxItem Content="Very Thin"></ComboBoxItem>
+            <ComboBoxItem Content="Thin, Tainted"></ComboBoxItem>
+            <ComboBoxItem Content="Thin"></ComboBoxItem>
+            <ComboBoxItem Content="Standard"></ComboBoxItem>
+            <ComboBoxItem Content="Standard, Tainted"></ComboBoxItem>
+            <ComboBoxItem Content="Dense, Tainted"></ComboBoxItem>
+            <ComboBoxItem Content="Dense"></ComboBoxItem>
+            <ComboBoxItem Content="Exotic"></ComboBoxItem>
+            <ComboBoxItem Content="Corrosive"></ComboBoxItem>
+            <ComboBoxItem Content="Insidious"></ComboBoxItem>
+            <ComboBoxItem Content="Very Dense"></ComboBoxItem>
+            <ComboBoxItem Content="Low"></ComboBoxItem>
+            <ComboBoxItem Content="Usual"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="4" Grid.Column="2" Content="Hydrographics:"></Label>
+        <ComboBox Grid.Row="4" Grid.Column="3" Name="WorldHydrographics" SelectedIndex="0">
+            <ComboBoxItem Content="0-5%"></ComboBoxItem>
+            <ComboBoxItem Content="6-15%"></ComboBoxItem>
+            <ComboBoxItem Content="16-25%"></ComboBoxItem>
+            <ComboBoxItem Content="26-35%"></ComboBoxItem>
+            <ComboBoxItem Content="36-45%"></ComboBoxItem>
+            <ComboBoxItem Content="46-55%"></ComboBoxItem>
+            <ComboBoxItem Content="56-65%"></ComboBoxItem>
+            <ComboBoxItem Content="66-75%"></ComboBoxItem>
+            <ComboBoxItem Content="76-85%"></ComboBoxItem>
+            <ComboBoxItem Content="85-95%"></ComboBoxItem>
+            <ComboBoxItem Content="96-100%"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Popuation (UWP):"></Label>
+        <ComboBox Grid.Row="5" Grid.Column="1" Name="WorldPopulation" SelectedIndex="0">
+            <ComboBoxItem Content="0"></ComboBoxItem>
+            <ComboBoxItem Content="1"></ComboBoxItem>
+            <ComboBoxItem Content="2"></ComboBoxItem>
+            <ComboBoxItem Content="3"></ComboBoxItem>
+            <ComboBoxItem Content="4"></ComboBoxItem>
+            <ComboBoxItem Content="5"></ComboBoxItem>
+            <ComboBoxItem Content="6"></ComboBoxItem>
+            <ComboBoxItem Content="7"></ComboBoxItem>
+            <ComboBoxItem Content="8"></ComboBoxItem>
+            <ComboBoxItem Content="9"></ComboBoxItem>
+            <ComboBoxItem Content="A"></ComboBoxItem>
+            <ComboBoxItem Content="B"></ComboBoxItem>
+            <ComboBoxItem Content="C"></ComboBoxItem>
+            <ComboBoxItem Content="D"></ComboBoxItem>
+            <ComboBoxItem Content="E"></ComboBoxItem>
+            <ComboBoxItem Content="F"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="5" Grid.Column="2" Content="Population:"></Label>
+        <TextBox Grid.Row="5" Grid.Column="3" Name="PopulationExact"></TextBox>
+
+        <Label Grid.Row="6" Grid.Column="0" Content="Ruling Gov Type:"></Label>
+        <ComboBox Grid.Row="6" Grid.Column="1" Name="WorldPrimaryGov" SelectedIndex="0">
+            <ComboBoxItem Content="None"></ComboBoxItem>
+            <ComboBoxItem Content="Company/Corporation"></ComboBoxItem>
+            <ComboBoxItem Content="Participating Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Self-Perpetuating Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Representative Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Feudal Technocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Captive Government"></ComboBoxItem>
+            <ComboBoxItem Content="Balkanisation"></ComboBoxItem>
+            <ComboBoxItem Content="Civil Service Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Impersonal Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Dictator"></ComboBoxItem>
+            <ComboBoxItem Content="Non-Charismatic Leader"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Dictatorship"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Autocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Totalitarian Oligarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="6" Grid.Column="2" Content="Law Level:"></Label>
+        <ComboBox Grid.Row="6" Grid.Column="3" Name="WorldLawLevel" SelectedIndex="0">
+            <ComboBoxItem Content="0"></ComboBoxItem>
+            <ComboBoxItem Content="1"></ComboBoxItem>
+            <ComboBoxItem Content="2"></ComboBoxItem>
+            <ComboBoxItem Content="3"></ComboBoxItem>
+            <ComboBoxItem Content="4"></ComboBoxItem>
+            <ComboBoxItem Content="5"></ComboBoxItem>
+            <ComboBoxItem Content="6"></ComboBoxItem>
+            <ComboBoxItem Content="7"></ComboBoxItem>
+            <ComboBoxItem Content="8"></ComboBoxItem>
+            <ComboBoxItem Content="9"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="7" Grid.Column="0" Content="Temperature:"></Label>
+        <ComboBox Grid.Row="7" Grid.Column="1" Name="WorldTemperature" SelectedIndex="0">
+            <ComboBoxItem Content="Frozen"></ComboBoxItem>
+            <ComboBoxItem Content="Cold"></ComboBoxItem>
+            <ComboBoxItem Content="Temperate"></ComboBoxItem>
+            <ComboBoxItem Content="Hot"></ComboBoxItem>
+            <ComboBoxItem Content="Boiling"></ComboBoxItem>
+            <ComboBoxItem Content="Error"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="7" Grid.Column="2" Content="Quirk:"></Label>
+        <ComboBox Grid.Row="7" Grid.Column="3" Name="WorldQuirk" SelectedIndex="0">
+            <ComboBoxItem Content="Sexist"></ComboBoxItem>
+            <ComboBoxItem Content="Religous"></ComboBoxItem>
+            <ComboBoxItem Content="Artistic"></ComboBoxItem>
+            <ComboBoxItem Content="Ritualised"></ComboBoxItem>
+            <ComboBoxItem Content="Conservative"></ComboBoxItem>
+            <ComboBoxItem Content="Xenophobic"></ComboBoxItem>
+
+            <ComboBoxItem Content="Taboo"></ComboBoxItem>
+            <ComboBoxItem Content="Deceptive"></ComboBoxItem>
+            <ComboBoxItem Content="Liberal"></ComboBoxItem>
+            <ComboBoxItem Content="Honourable"></ComboBoxItem>
+            <ComboBoxItem Content="Influenced"></ComboBoxItem>
+            <ComboBoxItem Content="Fusion"></ComboBoxItem>
+
+            <ComboBoxItem Content="Barbaric"></ComboBoxItem>
+            <ComboBoxItem Content="Remnant"></ComboBoxItem>
+            <ComboBoxItem Content="Degenerate"></ComboBoxItem>
+            <ComboBoxItem Content="Progressive"></ComboBoxItem>
+            <ComboBoxItem Content="Recovering"></ComboBoxItem>
+            <ComboBoxItem Content="Nexus"></ComboBoxItem>
+
+            <ComboBoxItem Content="Tourist Attraction"></ComboBoxItem>
+            <ComboBoxItem Content="Violent"></ComboBoxItem>
+            <ComboBoxItem Content="Peaceful"></ComboBoxItem>
+            <ComboBoxItem Content="Obsessed"></ComboBoxItem>
+            <ComboBoxItem Content="Fashion"></ComboBoxItem>
+            <ComboBoxItem Content="At War"></ComboBoxItem>
+
+            <ComboBoxItem Content="Offworlders"></ComboBoxItem>
+            <ComboBoxItem Content="Starport"></ComboBoxItem>
+            <ComboBoxItem Content="Media"></ComboBoxItem>
+            <ComboBoxItem Content="Technology"></ComboBoxItem>
+            <ComboBoxItem Content="Lifecycle"></ComboBoxItem>
+            <ComboBoxItem Content="Social Standings"></ComboBoxItem>
+
+            <ComboBoxItem Content="Trade"></ComboBoxItem>
+            <ComboBoxItem Content="Nobility"></ComboBoxItem>
+            <ComboBoxItem Content="Sex"></ComboBoxItem>
+            <ComboBoxItem Content="Eating"></ComboBoxItem>
+            <ComboBoxItem Content="Travel"></ComboBoxItem>
+            <ComboBoxItem Content="Conspiracy"></ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="8" Grid.Column="0" Content="Tech Level"></Label>
+        <ComboBox Grid.Row="8" Grid.Column="1" Name="WorldTechLevel" SelectedIndex="0">
+            <ComboBoxItem Content="0"></ComboBoxItem>
+            <ComboBoxItem Content="1"></ComboBoxItem>
+            <ComboBoxItem Content="2"></ComboBoxItem>
+            <ComboBoxItem Content="3"></ComboBoxItem>
+            <ComboBoxItem Content="4"></ComboBoxItem>
+            <ComboBoxItem Content="5"></ComboBoxItem>
+            <ComboBoxItem Content="6"></ComboBoxItem>
+            <ComboBoxItem Content="7"></ComboBoxItem>
+            <ComboBoxItem Content="8"></ComboBoxItem>
+            <ComboBoxItem Content="9"></ComboBoxItem>
+            <ComboBoxItem Content="A"></ComboBoxItem>
+            <ComboBoxItem Content="B"></ComboBoxItem>
+            <ComboBoxItem Content="C"></ComboBoxItem>
+            <ComboBoxItem Content="D"></ComboBoxItem>
+            <ComboBoxItem Content="E"></ComboBoxItem>
+            <ComboBoxItem Content="F"></ComboBoxItem>
+        </ComboBox>
+
+
+        <Label Grid.Row="9" Grid.Column="0" Content="Has Group"></Label>
+        <Label Grid.Row="9" Grid.Column="1" Content="Group Type"></Label>
+        <Label Grid.Row="9" Grid.Column="2" Content="Group Size"></Label>
+        <Label Grid.Row="9" Grid.Column="3" Content="Backed by"></Label>
+
+        <CheckBox Grid.Row="10" Grid.Column="0" Content="Has Group" Name="HasGroup1" Click="Enable1"></CheckBox>
+        <ComboBox Grid.Row="10" Grid.Column="1" Name="Group1Type" SelectedIndex="0" IsEnabled="false">
+            <ComboBoxItem Content="None"></ComboBoxItem>
+            <ComboBoxItem Content="Company/Corporation"></ComboBoxItem>
+            <ComboBoxItem Content="Participating Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Self-Perpetuating Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Representative Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Feudal Technocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Captive Government"></ComboBoxItem>
+            <ComboBoxItem Content="Balkanisation"></ComboBoxItem>
+            <ComboBoxItem Content="Civil Service Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Impersonal Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Dictator"></ComboBoxItem>
+            <ComboBoxItem Content="Non-Charismatic Leader"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Dictatorship"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Autocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Totalitarian Oligarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Grid.Row="10" Grid.Column="2" SelectedIndex="0" Name="Group1Size" IsEnabled="false">
+            <ComboBoxItem Content="Obscure Group"></ComboBoxItem>
+            <ComboBoxItem Content="Fringe Group"></ComboBoxItem>
+            <ComboBoxItem Content="Minor Group"></ComboBoxItem>
+            <ComboBoxItem Content="Notable Group"></ComboBoxItem>
+            <ComboBoxItem Content="Significant"></ComboBoxItem>
+            <ComboBoxItem Content="Overwhelming popular support"></ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Grid.Row="10" Grid.Column="3" SelectedIndex="0" Name="Group1Backer"  IsEnabled="false">
+            <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
+            <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Kotlik Tribunal"></ComboBoxItem>
+            <ComboBoxItem Content="Tilova Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Spiritwood Senate"></ComboBoxItem>
+            <ComboBoxItem Content="New Colchis Business Board"></ComboBoxItem>
+            <ComboBoxItem Content="Mainhair Military Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Western Islands Trade Federation"></ComboBoxItem>
+            <ComboBoxItem Content="South-Western Islands Trade  Consortium"></ComboBoxItem>
+            <ComboBoxItem Content="Olitar Protectorate"></ComboBoxItem>
+            <ComboBoxItem Content="Neubayern Topas Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Supremius"></ComboBoxItem>
+            <ComboBoxItem Content="Venhut Dominate States"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Of the Imperial Faith"></ComboBoxItem>
+            <ComboBoxItem Content="Old Islands Defense League"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Ostrovski"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Server"></ComboBoxItem>
+            <ComboBoxItem Content="Esperanza"></ComboBoxItem>
+            <ComboBoxItem Content="Coila Military Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Gunipped Setllar Empire"></ComboBoxItem>
+            <ComboBoxItem Content="No God Land"></ComboBoxItem>
+            <ComboBoxItem Content="Wilsville Trade Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Baronies"></ComboBoxItem>
+            <ComboBoxItem Content="Sar-Tan Confederacy"></ComboBoxItem>
+            <ComboBoxItem Content="Red Rock Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Essia Kitarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <CheckBox Grid.Row="11" Grid.Column="0" Content="Has Group" Name="HasGroup2" Click="Enable2"></CheckBox>
+        <ComboBox Grid.Row="11" Grid.Column="1" Name="Group2Type" SelectedIndex="0"  IsEnabled="false">
+            <ComboBoxItem Content="None"></ComboBoxItem>
+            <ComboBoxItem Content="Company/Corporation"></ComboBoxItem>
+            <ComboBoxItem Content="Participating Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Self-Perpetuating Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Representative Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Feudal Technocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Captive Government"></ComboBoxItem>
+            <ComboBoxItem Content="Balkanisation"></ComboBoxItem>
+            <ComboBoxItem Content="Civil Service Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Impersonal Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Dictator"></ComboBoxItem>
+            <ComboBoxItem Content="Non-Charismatic Leader"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Dictatorship"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Autocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Totalitarian Oligarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Grid.Row="11" Grid.Column="2" SelectedIndex="0" Name="Group2Size" IsEnabled="false">
+            <ComboBoxItem Content="Obscure Group"></ComboBoxItem>
+            <ComboBoxItem Content="Fringe Group"></ComboBoxItem>
+            <ComboBoxItem Content="Minor Group"></ComboBoxItem>
+            <ComboBoxItem Content="Notable Group"></ComboBoxItem>
+            <ComboBoxItem Content="Significant"></ComboBoxItem>
+            <ComboBoxItem Content="Overwhelming popular support"></ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Grid.Row="11" Grid.Column="3" SelectedIndex="0" Name="Group2Backer" IsEnabled="false">
+            <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
+            <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Kotlik Tribunal"></ComboBoxItem>
+            <ComboBoxItem Content="Tilova Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Spiritwood Senate"></ComboBoxItem>
+            <ComboBoxItem Content="New Colchis Business Board"></ComboBoxItem>
+            <ComboBoxItem Content="Mainhair Military Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Western Islands Trade Federation"></ComboBoxItem>
+            <ComboBoxItem Content="South-Western Islands Trade  Consortium"></ComboBoxItem>
+            <ComboBoxItem Content="Olitar Protectorate"></ComboBoxItem>
+            <ComboBoxItem Content="Neubayern Topas Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Supremius"></ComboBoxItem>
+            <ComboBoxItem Content="Venhut Dominate States"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Of the Imperial Faith"></ComboBoxItem>
+            <ComboBoxItem Content="Old Islands Defense League"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Ostrovski"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Server"></ComboBoxItem>
+            <ComboBoxItem Content="Esperanza"></ComboBoxItem>
+            <ComboBoxItem Content="Coila Military Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Gunipped Setllar Empire"></ComboBoxItem>
+            <ComboBoxItem Content="No God Land"></ComboBoxItem>
+            <ComboBoxItem Content="Wilsville Trade Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Baronies"></ComboBoxItem>
+            <ComboBoxItem Content="Sar-Tan Confederacy"></ComboBoxItem>
+            <ComboBoxItem Content="Red Rock Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Essia Kitarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <CheckBox Grid.Row="12" Grid.Column="0" Content="Has Group" Name="HasGroup3" Click="Enable3"></CheckBox>
+        <ComboBox Grid.Row="12" Grid.Column="1" Name="Group3Type" SelectedIndex="0" IsEnabled="false">
+            <ComboBoxItem Content="None"></ComboBoxItem>
+            <ComboBoxItem Content="Company/Corporation"></ComboBoxItem>
+            <ComboBoxItem Content="Participating Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Self-Perpetuating Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Representative Democracy"></ComboBoxItem>
+            <ComboBoxItem Content="Feudal Technocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Captive Government"></ComboBoxItem>
+            <ComboBoxItem Content="Balkanisation"></ComboBoxItem>
+            <ComboBoxItem Content="Civil Service Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Impersonal Bureaucracy"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Dictator"></ComboBoxItem>
+            <ComboBoxItem Content="Non-Charismatic Leader"></ComboBoxItem>
+            <ComboBoxItem Content="Charismatic Oligarchy"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Dictatorship"></ComboBoxItem>
+            <ComboBoxItem Content="Religious Autocracy"></ComboBoxItem>
+            <ComboBoxItem Content="Totalitarian Oligarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Grid.Row="12" Grid.Column="2" SelectedIndex="0" Name="Group3Size" IsEnabled="false">
+            <ComboBoxItem Content="Obscure Group"></ComboBoxItem>
+            <ComboBoxItem Content="Fringe Group"></ComboBoxItem>
+            <ComboBoxItem Content="Minor Group"></ComboBoxItem>
+            <ComboBoxItem Content="Notable Group"></ComboBoxItem>
+            <ComboBoxItem Content="Significant"></ComboBoxItem>
+            <ComboBoxItem Content="Overwhelming popular support"></ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Grid.Row="12" Grid.Column="3" SelectedIndex="0" Name="Group3Backer" IsEnabled="false">
+            <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
+            <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Kotlik Tribunal"></ComboBoxItem>
+            <ComboBoxItem Content="Tilova Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Spiritwood Senate"></ComboBoxItem>
+            <ComboBoxItem Content="New Colchis Business Board"></ComboBoxItem>
+            <ComboBoxItem Content="Mainhair Military Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Western Islands Trade Federation"></ComboBoxItem>
+            <ComboBoxItem Content="South-Western Islands Trade  Consortium"></ComboBoxItem>
+            <ComboBoxItem Content="Olitar Protectorate"></ComboBoxItem>
+            <ComboBoxItem Content="Neubayern Topas Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Supremius"></ComboBoxItem>
+            <ComboBoxItem Content="Venhut Dominate States"></ComboBoxItem>
+            <ComboBoxItem Content="Dominate Of the Imperial Faith"></ComboBoxItem>
+            <ComboBoxItem Content="Old Islands Defense League"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Ostrovski"></ComboBoxItem>
+            <ComboBoxItem Content="Rex van der Server"></ComboBoxItem>
+            <ComboBoxItem Content="Esperanza"></ComboBoxItem>
+            <ComboBoxItem Content="Coila Military Alliance"></ComboBoxItem>
+            <ComboBoxItem Content="Gunipped Setllar Empire"></ComboBoxItem>
+            <ComboBoxItem Content="No God Land"></ComboBoxItem>
+            <ComboBoxItem Content="Wilsville Trade Pact"></ComboBoxItem>
+            <ComboBoxItem Content="Independent Baronies"></ComboBoxItem>
+            <ComboBoxItem Content="Sar-Tan Confederacy"></ComboBoxItem>
+            <ComboBoxItem Content="Red Rock Republic"></ComboBoxItem>
+            <ComboBoxItem Content="Essia Kitarchy"></ComboBoxItem>
+        </ComboBox>
+
+        <CheckBox Grid.Row="13" Grid.Column="0" Content="Fuel Depo" Name="HasFuelDepo"></CheckBox>
+        <CheckBox Grid.Row="13" Grid.Column="1" Content="Military Base" Name="HasMilitaryBase"></CheckBox>
+        <CheckBox Grid.Row="13" Grid.Column="2" Content="Other Base" Name="HasOtherBase"></CheckBox>
+
+        <Button Grid.Row="13" Grid.Column="3" Content="Save Planet To Subsector list and reset" Click="Button_Click"></Button>
+        <Label Grid.Row="14" Grid.Column="0" Content=" "></Label>
+        <Button Grid.Row="15" Grid.Column="3" Content="Save Subsector List and Exit" Click="Button_Click_1"></Button>
+    </Grid>
+</Window>

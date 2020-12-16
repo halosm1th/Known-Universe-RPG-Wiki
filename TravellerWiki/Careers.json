@@ -1,5 +1,5 @@
 [
-  
+
   {
     "CareerName": "Inquisitor of Sigmar",
     "CareerDescription": "You are an agent of Sigmar, a tool to extract justice and divine the heretics from the immoral failures that are non-believers.",
@@ -194,6 +194,206 @@
       { "EventText": "Accidentally condemn the wrong planet for heresy and be removed from the Church because of it." },
       { "EventText": "Accuse the wrong person of heresy, causing the finance minister to refuse to fund any more of your expeditions." },
       { "EventText": "You offended Sigmar himself with your heresy, and are removed from the church." },
+      { "EventText": "Injured. Roll on the Injury Table." }
+    ]
+  },
+  {
+    "CareerName": "Witcher",
+    "CareerDescription": "Be a Witcher, the magic wielding monster hunters and intergalatic law enforcement.",
+    "Nationality": "Witcher",
+    "Qualifications": [
+      {
+        "SkillName": "Psi",
+        "BeatValue": 10
+      }
+    ],
+    "Commission": null,
+    "Assignments": [
+      {
+        "Name": "Witcher Hunter",
+        "Description": "The hunters are those in the wticher whos job it is to go out and fufil contracts, hunting down beasts and people alike. Witchers are expected to fufil at least 5 void contacts a year.",
+        "Survival": {
+          "SkillName": "End",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 10
+        },
+        "SkillList": [ "Aether Ring", "Stealth", "Jack of All Trade/Luck", "Material Ring", "Melee (Void)", "Survival" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Untrained Witcher",
+            "Item2": "Melee (Void) or Gun Combat (slug)"
+          },
+          {
+            "Item1": "Apprentice Witcher",
+            "Item2": "Stealth or Recon"
+          },
+          {
+            "Item1": "Witcher",
+            "Item2": "Carouse or Street Wise"
+          },
+          {
+            "Item1": "Master Witcher",
+            "Item2": "Deception or Diplomat"
+          },
+          {
+            "Item1": "Grand Master Witcher",
+            "Item2": "Presuade or Advocate"
+          },
+          {
+            "Item1": "ShipmMaster Witcher",
+            "Item2": "Jack of all trades or luck"
+          }
+        ]
+      },
+      {
+        "Name": "Witcher Crewmmeber",
+        "Description": "You are the heart and soul of the witcher worldship. You keep it running and functional, without you the ship goes no where. Of course, a ship this large has contrcts of its own and sometimes you fufil those yourself as well",
+        "Survival": {
+          "SkillName": "Int",
+          "BeatValue": 6
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Abyss Ring", "Profession", "Void Ring", "Science", "Admin", "Material Ring" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "New Crew Witcher",
+            "Item2": "Melee (Void)"
+          },
+          {
+            "Item1": "Untrained Crew Witcher",
+            "Item2": "Gun Combat (slug)"
+          },
+          {
+            "Item1": "Crew Witcher",
+            "Item2": "Profession"
+          },
+          {
+            "Item1": "Officer Witcher",
+            "Item2": "Science"
+          },
+          {
+            "Item1": "Admin Witcher",
+            "Item2": "Admin"
+          },
+          {
+            "Item1": "ShipMaster Witcher",
+            "Item2": "Jack of all Trade or Luck"
+          }
+        ]
+      },
+      {
+        "Name": "Witcher Library Worker",
+        "Description": "You work in one of the great libraries aboard a worldship, maintaing the ships ancient texts and studying their secertes. You may know may dark seceretes that others do not, but it is also your job to recover these texts when they are discovered",
+        "Survival": {
+          "SkillName": "Edu",
+          "BeatValue": 12
+        },
+        "Advancement": {
+          "SkillName": "Soc",
+          "BeatValue": 14
+        },
+        "SkillList": [ "Nether Ring", "History", "Art", "Aethe Ring", "Language", "Jack of All Trades / Luck" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Desk Clerk Witcher",
+            "Item2": "Melee (Void)"
+          },
+          {
+            "Item1": "Reshelfer Witcher",
+            "Item2": "Gun Combat (Slug)"
+          },
+          {
+            "Item1": "LIbrarian Witcher",
+            "Item2": "Science"
+          },
+          {
+            "Item1": "Librarian Master Witcher",
+            "Item2": "Profession"
+          },
+          {
+            "Item1": "Librarian Keeper Witcher",
+            "Item2": "The known Scertes"
+          },
+          {
+            "Item1": "Bookmaster Witcher",
+            "Item2": "The unknown secretes"
+          }
+        ]
+      }
+    ],
+    "MusteringOutBenefits": [
+      {
+        "Item1": 10000,
+        "Item2": "Soc"
+      },
+      {
+        "Item1": 25000,
+        "Item2": "Circle"
+      },
+      {
+        "Item1": 50000,
+        "Item2": "Persude or Streetwise"
+      },
+      {
+        "Item1": 100000,
+        "Item2": "Diplomat or Deception"
+      },
+      {
+        "Item1": 200000,
+        "Item2": "Void Blade"
+      },
+      {
+        "Item1": 400000,
+        "Item2": "Ship"
+      },
+      {
+        "Item1": 800000,
+        "Item2": "TAS Membership"
+      }
+    ],
+    "PersonalDevelopmentSkillList": [ "Psi", "Gun Combat (slug)", "Str", "Soc", "Melee (void)", "Stealth" ],
+    "ServiceSkillsList": [ "Void Ring", "Aether Ring", "Material Ring", "Nether Ring", "Abyssal Ring", "Psi" ],
+    "AdvancedEducationSkillList": null,
+    "Events": [
+      { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
+      { "EventText": "Spend a term improving a ring of choice. Make Psi 10+ check, if you succeed increase the ring by 1" },
+      {
+        "Reward": { "Skilllist": [ "Astrogation", " Pilot (small Craft)", " Engineer (J-Drive)", " Mechanic" ] },
+        "EventText": "You spend a term away from the worlds"
+      },
+      { "EventText": "You spend a term on the Kaer-ship, honing your craft. Roll you Assignments Advancement roll, if you pass you may roll another survival roll." },
+      { "EventText": "Spend a term on contact working with some nobility, gaining 1D Political contacts." },
+      { "EventText": "Life Event. Roll on the Life Events Table. " },
+      { "EventText": " Spend a term on on the Kaer-World, learning from one of the masters. Make an Edu 8+ check, if you succeed, improve one ring chosen by rolling 1D (6 means reroll, 1-Void, 2-Aether,3-Material,4-Nether,5-Abyss) by 2." },
+      {
+        "Reward": { "Skilllist": [ "either Streetwise", " Diplomat", " Investigate", " Recon", " or Survival" ] },
+        "EventText": " You spend a term out on a contract"
+      },
+      { "EventText": "Spend a term on contract in a city, gaining 1D underground contacts" },
+      { "EventText": "11. Spend a term on contract out in rural areas, gaining 1D Rural contacts." },
+      {
+        "Reward": { "Skilllist": [ "History" ] },
+        "EventText": "Spend a term in the library reviewing the works of Gerald and other great thinkers"
+      }
+    ],
+    "Mishaps": [
+      { "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result" },
+      { "EventText": "You violate the witcher code and are banished for it." },
+      {
+        "Reward": { "Skilllist": [ "SOC -1D" ] },
+        "EventText": "You take the wrong job for the wrong person, they get you thrown out of the order."
+      },
+      {
+        "Reward": { "NewCareerName": "Any" },
+        "EventText": "After a very bad encounter you are nearly killed. After recovering. You may enter a different assignment but have amnesia. Your significant other may be able to help you recover your memories."
+      },
+      { "EventText": "You fail to cast a spell and the results are disastrous, an entire planet is slaughtered because of you. You are banished from the order and lose your title of witcher and your void blade." },
       { "EventText": "Injured. Roll on the Injury Table." }
     ]
   }
