@@ -19,6 +19,7 @@
             <ComboBoxItem Content="Int"></ComboBoxItem>
             <ComboBoxItem Content="Edu"></ComboBoxItem>
             <ComboBoxItem Content="Soc"></ComboBoxItem>
+            <ComboBoxItem Content="Psi"></ComboBoxItem>
         </ComboBox>
         <TextBox HorizontalAlignment="Left" Name="SurvivalValue" Margin="193,145,0,0" Text="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
         <Label Content="Advance:" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top"/>
@@ -29,6 +30,8 @@
             <ComboBoxItem Content="Int"/>
             <ComboBoxItem Content="Edu"/>
             <ComboBoxItem Content="Soc"/>
+            <ComboBoxItem Content="Psi"></ComboBoxItem>
+
         </ComboBox>
         <TextBox HorizontalAlignment="Left" Name="AdvanceValue" Margin="193,178,0,0" Text="8" TextWrapping="NoWrap" VerticalAlignment="Top" Width="31"/>
         <Button Content="Assignment Skill List" HorizontalAlignment="Left" Margin="234,144,0,0" VerticalAlignment="Top" Width="166" Click="Button_Click"/>

@@ -18,7 +18,8 @@ namespace TravellerWiki
         {
             if (!string.IsNullOrEmpty(career))
             {
-                Career = careerService.GetCareers.First(x => x.CareerName == career);
+                var careers = careerService.GetCareers;
+                Career = careers.First(x => x.CareerName == career);
             }
         }
     }
