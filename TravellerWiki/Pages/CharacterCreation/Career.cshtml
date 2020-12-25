@@ -82,41 +82,45 @@
 
         //Skills tables
         <h2>Skill Tables</h2>
-        <h3>Personal Development</h3>
+        <h3>Personal Development/Service Skills</h3>
         <table>
             <thead>
-                <tr><th>1D</th><th>Personal Development list</th></tr>
+                <tr><th>1D</th><th>Personal Development Skills</th><th>Service Skills</th></tr>
             </thead>
             <tbody>
-                @{ i = 1; }
-                @foreach (var skill in career.PersonalDevelopmentSkillList)
+                @for (i = 0; i < career.PersonalDevelopmentSkillList.Count; i++)
                 {
+                    var personalSkill = career.PersonalDevelopmentSkillList[i];
+                    var serviceSkill = career.ServiceSkillsList[i];
                     <tr>
-                        <td>@i)</td>
-                        <td>@skill</td>
+                        <td style="border: 2px;border-style: solid">@i)</td>
+                        <td style="border: 2px;border-style: solid">@personalSkill</td>
+                        <td style="border: 2px;border-style: solid">@serviceSkill</td>
                     </tr>
-                    i++;
-                }
-            </tbody>
-        </table>
-        <h3>Service Skills</h3>
-        <table>
-            <thead>
-                <tr><th>1D</th><th>Service Skill list</th></tr>
-            </thead>
-            <tbody>
-                @{ i = 1; }
-                @foreach (var skill in career.ServiceSkillsList)
-                {
-                    <tr>
-                        <td>@i)</td>
-                        <td>@skill</td>
-                    </tr>
-                    i++;
                 }
             </tbody>
         </table>
 
+        <h3>Assignment Skill Tables</h3>
+        <table>
+            <thead>
+                <tr><th>1D</th><th>@career.Assignments[0].Name</th><th>@career.Assignments[1].Name</th><th>@career.Assignments[2].Name</th></tr>
+            </thead>
+            <tbody>
+                @for (i = 0; i < @career.Assignments[0].SkillList.Count; i++)
+                {
+                    var assignment1 = career.Assignments[0].SkillList[i];
+                    var assignment2 = career.Assignments[0].SkillList[i];
+                    var assignment3 = career.Assignments[0].SkillList[i];
+                    <tr>
+                        <td style="margin: 2px;border-style: solid">@i)</td>
+                        <td style="margin: 2px;border-style: solid">@assignment1</td>
+                        <td style="margin: 2px;border-style: solid">@assignment2</td>
+                        <td style="margin: 2px;border-style: solid">@assignment3</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
         @if (career.Commission?.HasCommision ?? false)
         {
@@ -138,7 +142,6 @@
                 </tbody>
             </table>
         }
-
         @if (career.AdvancedEducationSkillList != null)
         {
             <h3>Advanced Education Skills</h3>
@@ -160,49 +163,6 @@
             </table>
         }
 
-        @foreach (var assignment in career.Assignments)
-        {
-            <h3>@assignment.Name Skill list</h3>
-            <table>
-                <thead>
-                    <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
-                </thead>
-                <tbody>
-                    @{ i = 0; }
-                    @foreach (var skill in assignment.SkillList)
-                    {
-                        <tr>
-                            <td>@i)</td>
-                            <td>@skill</td>
-                        </tr>
-                        i++;
-                    }
-                </tbody>
-            </table>
-
-        }
-
-        @foreach (var assignment in career.Assignments)
-        {
-            <h3>@assignment.Name Skill list</h3>
-            <table>
-                <thead>
-                    <tr><th>1D</th><th>@assignment.Name Skill list</th></tr>
-                </thead>
-                <tbody>
-                    @{ i = 1; }
-                    @foreach (var skill in assignment.SkillList)
-                    {
-                        <tr>
-                            <td>@i)</td>
-                            <td>@skill</td>
-                        </tr>
-                        i++;
-                    }
-                </tbody>
-            </table>
-
-        }
 
         //Events tables
         <h3>Events Table</h3>
@@ -273,11 +233,13 @@
             @foreach (var careerNames in CareerService.GetCareers.OrderBy(career => career.Nationality.NationName))
             {
 
-                <li><a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality.NationName">@careerNames.Nationality.NationName</a>
-                    <p>@careerNames.CareerDescription</p></li>
+                <li>
+                    <a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality.NationName">@careerNames.Nationality.NationName</a>
+                    <p>@careerNames.CareerDescription</p>
+                </li>
             }
         </ul>
     }
-<h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
+    <h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
 
 </body>
