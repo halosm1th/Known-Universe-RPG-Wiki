@@ -74,7 +74,7 @@
             <tbody>
                 @foreach (var benefit in career.MusteringOutBenefits)
                 {
-                    <tr><td>@i)</td><td>Cr @benefit.Cash </td><td>@benefit.Benefit</td></tr>
+                    <tr><td>@i+1)</td><td>Cr @benefit.Cash </td><td>@benefit.Benefit</td></tr>
                     i++;
                 }
             </tbody>
@@ -107,13 +107,13 @@
                 <tr><th>1D</th><th>@career.Assignments[0].Name</th><th>@career.Assignments[1].Name</th><th>@career.Assignments[2].Name</th></tr>
             </thead>
             <tbody>
-                @for (i = 1; i < @career.Assignments[0].SkillList.Count+1; i++)
+                @for (i = 0; i < @career.Assignments[0].SkillList.Count; i++)
                 {
                     var assignment1 = career.Assignments[0].SkillList[i];
                     var assignment2 = career.Assignments[0].SkillList[i];
                     var assignment3 = career.Assignments[0].SkillList[i];
                     <tr>
-                        <td style="margin: 2px;border-style: solid">@i)</td>
+                        <td style="margin: 2px;border-style: solid">@(i+1))</td>
                         <td style="margin: 2px;border-style: solid">@assignment1</td>
                         <td style="margin: 2px;border-style: solid">@assignment2</td>
                         <td style="margin: 2px;border-style: solid">@assignment3</td>
