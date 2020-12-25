@@ -107,7 +107,7 @@
                 <tr><th>1D</th><th>@career.Assignments[0].Name</th><th>@career.Assignments[1].Name</th><th>@career.Assignments[2].Name</th></tr>
             </thead>
             <tbody>
-                @for (i = 0; i < @career.Assignments[0].SkillList.Count; i++)
+                @for (i = 1; i < @career.Assignments[0].SkillList.Count+1; i++)
                 {
                     var assignment1 = career.Assignments[0].SkillList[i];
                     var assignment2 = career.Assignments[0].SkillList[i];
