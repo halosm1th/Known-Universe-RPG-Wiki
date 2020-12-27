@@ -2,57 +2,55 @@
 
 namespace TravellerWiki.Data
 {
-    public abstract class TravellerCharacterCreationEvent
+
+    public class TravellerCharacterCreationEvent
     {
-        public string EventText { get; protected set; }
+        public string EventText { get; set; }
+
+        public List<TravellerCharacterCreationEventSkillChoice> EventSkillChoices { get; set; }
+
+        public TravellerCharacterCreationReward Reward { get; set; }
+
+        public TravellerCharacterCreationEvent()
+        {
+            EventText = "";
+            EventSkillChoices = new List<TravellerCharacterCreationEventSkillChoice>();
+            Reward = null;
+
+        }
+
         public TravellerCharacterCreationEvent(string eventText)
         {
             EventText = eventText;
+            EventSkillChoices = new List<TravellerCharacterCreationEventSkillChoice>();
+            Reward = null;
+        }
+
+        public TravellerCharacterCreationEvent(string eventText, List<TravellerCharacterCreationEventSkillChoice> eventSkillChoices, TravellerCharacterCreationReward reward)
+        {
+            EventText = eventText;
+            EventSkillChoices = eventSkillChoices;
+            Reward = reward;
         }
     }
 
-    public abstract class TravellerCharaceterCreationEventSkillCheck : TravellerCharacterCreationEvent
+    public class TravellerCharacterCreationEventSkillChoice
     {
         public TravellerSkillCheck SkillCheck { get; }
-        public TravellerCharacterCreationReward OnSuccess { get; }
-        public TravellerCharacterCreationReward OnFailure { get; }
+        public string SkillCheckText { get; set; }
+        public TravellerCharacterCreationReward OnSuccess { get; set; }
+        public string OnSuccessText { get; set; }
+        public TravellerCharacterCreationReward OnFailure { get; set; }
+        public string OnFailureText { get; set; }
 
-        public TravellerCharaceterCreationEventSkillCheck(string eventText, TravellerSkillCheck skillCheck, TravellerCharacterCreationReward onSuccess, TravellerCharacterCreationReward onFailure) : base(eventText)
+        public TravellerCharacterCreationEventSkillChoice(TravellerSkillCheck skillCheck, string skillCheckText, TravellerCharacterCreationReward onSuccess, string onSuccessText, TravellerCharacterCreationReward onFailure, string onFailureText)
         {
             SkillCheck = skillCheck;
+            SkillCheckText = skillCheckText;
             OnSuccess = onSuccess;
+            OnSuccessText = onSuccessText;
             OnFailure = onFailure;
-        }
-    }
-
-    public class TravellerCharacterCreationEmptyEvent : TravellerCharacterCreationEvent
-    {
-        public TravellerCharacterCreationEmptyEvent() : base("Empty Event")
-        {
-        }
-    }
-
-    public class TravellerCharacterCreationTextEvent : TravellerCharacterCreationEvent
-    {
-        public TravellerCharacterCreationTextEvent(string eventText) : base(eventText)
-        {
-        }
-    }
-
-    public class TravellerCharacterCreationTextEventWithSkillCheck : TravellerCharaceterCreationEventSkillCheck
-    {
-        public TravellerCharacterCreationTextEventWithSkillCheck(string eventText, TravellerSkillCheck skillCheck, TravellerCharacterCreationReward onSuccess, TravellerCharacterCreationReward onFailure) : base(eventText, skillCheck, onSuccess, onFailure)
-        {
-        }
-    }
-
-    public class TravellerCharacterCreationTextEventWithReward : TravellerCharacterCreationEvent
-    {
-
-        public TravellerCharacterCreationReward Reward { get; }
-        public TravellerCharacterCreationTextEventWithReward(string eventText, TravellerCharacterCreationReward reward) : base(eventText)
-        {
-            Reward = reward;
+            OnFailureText = onFailureText;
         }
     }
 }

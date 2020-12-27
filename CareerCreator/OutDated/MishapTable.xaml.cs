@@ -32,12 +32,12 @@ namespace CareerCreator
 
         private TravellerCharacterCreationEvent[] _mishaps = new TravellerCharacterCreationEvent[]
         {
-            new TravellerCharacterCreationTextEvent("Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result"), 
-            new TravellerCharacterCreationEmptyEvent(), 
-            new TravellerCharacterCreationEmptyEvent(), 
-            new TravellerCharacterCreationEmptyEvent(), 
-            new TravellerCharacterCreationEmptyEvent(),
-            new TravellerCharacterCreationTextEvent("Injured. Roll on the Injury Table."), 
+            new TravellerCharacterCreationEvent("Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table  and take the lower result"), 
+            new TravellerCharacterCreationEvent(), 
+            new TravellerCharacterCreationEvent(), 
+            new TravellerCharacterCreationEvent(), 
+            new TravellerCharacterCreationEvent(),
+            new TravellerCharacterCreationEvent("Injured. Roll on the Injury Table."), 
         };
 
         public MishapTable()
@@ -47,9 +47,7 @@ namespace CareerCreator
 
         private void EditEvent(int eventID)
         {
-            if (_mishaps[eventID] != null &&
-                _mishaps
-                    [eventID].GetType() != typeof(TravellerCharacterCreationEmptyEvent))
+            if (_mishaps[eventID] != null)
             {
                 var dialog = new EventEditingDialog { CharacterCreationEvent = _mishaps[eventID] };
                 if (dialog.ShowDialog() == true)

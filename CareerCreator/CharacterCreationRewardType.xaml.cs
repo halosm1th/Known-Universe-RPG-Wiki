@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CareerCreator.Rewards;
+using TravellerWiki.Data;
 
 namespace CareerCreator
 {
@@ -17,16 +19,10 @@ namespace CareerCreator
     /// </summary>
     /// 
 
-    public enum CharacterCreationRewardTypes
-    {
-        Skill, Item, Career, Benefit, Advancement, Commission, None
-    }
-
     public partial class CharacterCreationRewardType : Window
     {
+        public TravellerCharacterCreationReward Reward;
 
-
-        public CharacterCreationRewardTypes CreateRewardType;
         public CharacterCreationRewardType()
         {
             InitializeComponent();
@@ -34,37 +30,87 @@ namespace CareerCreator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateRewardType = CharacterCreationRewardTypes.Skill;
+            var skillReward=  new SkillRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
             DialogResult = true;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            CreateRewardType = CharacterCreationRewardTypes.Item;
+            var skillReward = new ItemRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
             DialogResult = true;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            CreateRewardType = CharacterCreationRewardTypes.Career;
+            var skillReward = new CareerRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
             DialogResult = true;
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            CreateRewardType = CharacterCreationRewardTypes.Benefit;
+            var skillReward = new BenefitRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
             DialogResult = true;
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            CreateRewardType = CharacterCreationRewardTypes.Advancement;
+            var skillReward = new AdvancementRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
             DialogResult = true;
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            CreateRewardType = CharacterCreationRewardTypes.Commission;
+            var skillReward = new CommissionRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
+            DialogResult = true;
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            Reward = new TravellerLifeEventReward();
+            DialogResult = true;
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            var skillReward = new ContactsRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
+            DialogResult = true;
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            var skillReward = new OtherRewardCreator();
+            if (skillReward.ShowDialog() == true)
+            {
+                Reward = skillReward.Reward;
+            }
             DialogResult = true;
         }
     }

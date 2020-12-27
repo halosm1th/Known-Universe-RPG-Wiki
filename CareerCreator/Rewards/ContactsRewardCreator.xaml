@@ -1,0 +1,26 @@
+﻿<Window x:Class="CareerCreator.Rewards.ContactsRewardCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CareerCreator.Rewards"
+        mc:Ignorable="d"
+        Title="ContactsRewardCreator" Height="120" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Number of Contacts: "></Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="Type of Contact: "></Label>
+
+        <TextBox Name="ContactNumber" Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox Name="ContactType" Grid.Row="1" Grid.Column="1"></TextBox>
+        <Button Grid.Row="2" Grid.Column="1" Content="Save Reward" Click="Button_Click"></Button>
+    </Grid>
+</Window>

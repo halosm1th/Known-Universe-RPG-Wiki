@@ -27,157 +27,56 @@ namespace CareerCreator
             {
                 characterCreationEvent = value;
                 EventText.Text = value.EventText;
-
-                if (value.GetType() == typeof(TravellerCharacterCreationTextEventWithReward))
-                {
-                    HasReward.IsChecked = true;
-                    reward = ((TravellerCharacterCreationTextEventWithReward) value).Reward;
-                }
-
-                if (value.GetType() == typeof(TravellerCharacterCreationTextEventWithSkillCheck))
-                {
-                    onSuccess = ((TravellerCharacterCreationTextEventWithSkillCheck) value).OnSuccess;
-                    onFailure = ((TravellerCharacterCreationTextEventWithSkillCheck) value).OnFailure;
-                    var skill = ((TravellerCharacterCreationTextEventWithSkillCheck) value).SkillCheck;
-                    SkillName.Text = skill.SkillName;
-                    SkillValue.Text = Convert.ToString(skill.BeatValue);
-
-                }
             }
         }
 
         private TravellerCharacterCreationEvent characterCreationEvent;
 
-        private TravellerCharacterCreationReward onSuccess;
-        private TravellerCharacterCreationReward onFailure;
-        private TravellerCharacterCreationReward reward;
-        
+        private List<TravellerCharacterCreationReward> onSuccess;
+        private List<TravellerCharacterCreationReward> onFailure;
+
+        private List<TravellerCharacterCreationEventSkillChoice> skillChoices = new List<TravellerCharacterCreationEventSkillChoice>();
         public EventEditingDialog()
         {
             InitializeComponent();
         }
 
-        private TravellerCharacterCreationReward GetReward()
-        {
-            var characterCreationRewardType = new CharacterCreationRewardType();
-            TravellerCharacterCreationReward reward = null;
-            if (characterCreationRewardType.ShowDialog() == true)
-            {
-                var rewardType = characterCreationRewardType.CreateRewardType;
-                switch (rewardType)
-                {
-                    case CharacterCreationRewardTypes.Skill:
-                        var skillcreator = new SkillRewardCreator();
-                        if (skillcreator.ShowDialog() == true)
-                        {
-                            reward = skillcreator.Reward;
-                        }
-                        break;
-                    case CharacterCreationRewardTypes.Item:
-                        var itemCreator = new ItemRewardCreator();
-                        if(itemCreator.ShowDialog() == true)
-                        {
-                            reward = itemCreator.Reward;
-                        }
-                        break;
-                    case CharacterCreationRewardTypes.Career:
-                        var job = new CareerRewardCreator();
-                        if (job.ShowDialog() == true)
-                        {
-                            reward = job.Reward;
-                        }
-                        break;
-                    case CharacterCreationRewardTypes.Benefit:
-                        var benefit = new BenefitRewardCreator();
-                        if (benefit.ShowDialog() == true)
-                        {
-                            reward = benefit.Reward;
-                        }
-                        break;
-                    case CharacterCreationRewardTypes.Advancement:
-                        var advancement= new AdvancementRewardCreator();
-                        if (advancement.ShowDialog() == true)
-                        {
-                            reward = advancement.Reward;
-                        }
-                        break;
-                    case CharacterCreationRewardTypes.Commission:
-                        var commission = new CommissionRewardCreator();
-                        if (commission.ShowDialog() == true)
-                        {
-                            reward = commission.Reward;
-                        }
-                        break;
-                    case CharacterCreationRewardTypes.None:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
+        //Add things to the event
+        //Types of thigns to add:
+        //1) Skill Check (str 8+, onSuccessReward, onFailReward)
+        //2) Reward
 
-            return reward;
-        }
-
-        public void RewardClicked(object sender, RoutedEventArgs e)
-        {
-            RewardText.IsEnabled = HasReward.IsChecked ?? false;
-        }
-
-        public void SkillsClicked(object sender, RoutedEventArgs e)
-        {
-            //Textboxes
-            SkillName.IsReadOnly = !HasReward.IsChecked ?? true;
-            SkillValue.IsReadOnly = !HasReward.IsChecked ?? true;
-            //Buttons
-            EditSuccess.IsEnabled= HasReward.IsChecked ?? false;
-            EditFailure.IsEnabled= HasReward.IsChecked ?? false;
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var eventText = EventText.Text;
-            if (HasSkillCheck.IsChecked ?? false)
+            var skill = new SkillCheckChoice();
+            if (skill.ShowDialog() == true)
             {
-                if (onSuccess == null || onFailure == null)
-                {
-                    MessageBox.Show("Error, no success or failure result!");
-                }
-                else
-                {
-                    CharacterCreationEvent =
-                        new TravellerCharacterCreationTextEventWithSkillCheck(eventText,
-                            new TravellerSkillCheck(SkillName.Text, Convert.ToInt32(SkillValue.Text)),
-                        onSuccess,onFailure);
-                   DialogResult = true;
-                }
+                skillChoices.Add(skill.Reward);
+                EventChoices.Items.Add(skill.Reward);
             }
-            else if (HasReward.IsChecked ?? false)
-            {
-                CharacterCreationEvent = 
-                    new TravellerCharacterCreationTextEventWithReward(eventText, reward);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            characterCreationEvent = 
+                new TravellerCharacterCreationEvent(
+                    EventText.Text,skillChoices,reward);
             DialogResult = true;
-            }
-            else
+        }
+
+        private TravellerCharacterCreationReward reward;
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var eventReward = new CharacterCreationRewardType();
+            if (eventReward.ShowDialog() == true)
             {
-                CharacterCreationEvent = new TravellerCharacterCreationTextEvent(eventText);
-            DialogResult = true;
+                reward = eventReward.Reward;
             }
 
         }
 
-        private void RewardText_Click(object sender, RoutedEventArgs e)
-        {
-            reward= GetReward();
-        }
 
-        private void EditSuccess_Click(object sender, RoutedEventArgs e)
-        {
-            onSuccess = GetReward();
-        }
-
-        private void EditFailure_Click(object sender, RoutedEventArgs e)
-        {
-            onFailure = GetReward();
-        }
     }
 }

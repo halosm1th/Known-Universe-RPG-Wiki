@@ -27,17 +27,20 @@ namespace CareerCreator
 
         private TravellerCharacterCreationEvent[] characterCreationEvents = new TravellerCharacterCreationEvent[11]
         {
-            new TravellerCharacterCreationTextEvent("Disaster! Roll on the Mishap Table, but you are not ejected from this career."), 
-            new TravellerCharacterCreationEmptyEvent(), 
-            new TravellerCharacterCreationEmptyEvent(), 
-            new TravellerCharacterCreationEmptyEvent(), 
-            new TravellerCharacterCreationEmptyEvent(), 
-            new TravellerCharacterCreationTextEvent("Life Event. Roll on the Life Events Table. "),
-            new TravellerCharacterCreationEmptyEvent(),
-            new TravellerCharacterCreationEmptyEvent(),
-            new TravellerCharacterCreationEmptyEvent(),
-            new TravellerCharacterCreationEmptyEvent(),
-            new TravellerCharacterCreationEmptyEvent(),
+            new TravellerCharacterCreationEvent
+            {
+                EventText = "Disaster! Roll on the Mishap Table, but you are not ejected from this career."
+            }, 
+            new TravellerCharacterCreationEvent(), 
+            new TravellerCharacterCreationEvent(), 
+            new TravellerCharacterCreationEvent(), 
+            new TravellerCharacterCreationEvent(), 
+            new TravellerCharacterCreationEvent("Life Event. Roll on the Life Events Table. "),
+            new TravellerCharacterCreationEvent(),
+            new TravellerCharacterCreationEvent(),
+            new TravellerCharacterCreationEvent(),
+            new TravellerCharacterCreationEvent(),
+            new TravellerCharacterCreationEvent(),
         };
         public EventsDialog()
         {
@@ -48,9 +51,7 @@ namespace CareerCreator
 
         private void EditEvent(int eventID)
         {
-            if (characterCreationEvents[eventID] != null && 
-                characterCreationEvents
-                    [eventID].GetType() != typeof(TravellerCharacterCreationEmptyEvent))
+            if (characterCreationEvents[eventID] != null)
             {
                 var dialog = new EventEditingDialog {CharacterCreationEvent = characterCreationEvents[eventID]};
                 if (dialog.ShowDialog() == true)
