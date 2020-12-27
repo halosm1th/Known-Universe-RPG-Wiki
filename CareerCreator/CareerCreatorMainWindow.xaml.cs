@@ -354,6 +354,26 @@ namespace CareerCreator
             var commission = new TravellerCommission();
             GetCommission(commission);
 
+            assignments = assignments.Select(assignment =>
+            {
+                assignment.RanksAndBonuses = assignment.RanksAndBonuses.Select(rab =>
+                {
+                    if (rab.title == null)
+                    {
+                        rab.title = "";
+                    }
+
+                    if (rab.TravellerCharacterCreationReward == null)
+                    {
+                        rab.TravellerCharacterCreationReward = new TravellerOtherReward("");
+                    }
+
+                    return rab;
+                }).ToList();
+
+                return assignment;
+            }).ToList();
+
             var travCareer = new TravellerCareerJson(
                 CareerName.Text,CareerDescription.Text,((string) Nationality.SelectionBoxItem),
                 _qualifications, commission,

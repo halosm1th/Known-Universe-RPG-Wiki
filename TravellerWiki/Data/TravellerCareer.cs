@@ -20,7 +20,7 @@ namespace TravellerWiki.Data
         }
 
         [JsonConstructor]
-        public TravellerCommission(bool hasCommision,
+        public TravellerCommission(bool hasCommision, 
             List<string> commissionSkillList,
             List<(string Title, TravellerCharacterCreationReward Perk)> ranksAndBonuses,
             TravellerSkillCheck commmsionCheck)
@@ -41,9 +41,9 @@ namespace TravellerWiki.Data
         public List<TravellerSkillCheck> Qualifications { get; set; }
 
         public TravellerCommission Commission { get; set; }
-        public List<TravellerAssignment> Assignments { get; set; }
+        public List<TravellerAssignmentJSON> Assignments { get; set; }
 
-        public List<(int Cash, TravellerCharacterCreationReward Benefit)> MusteringOutBenefits { get; set; }
+        public List<(int Cash, TravellerCharacterCreationRewardJSON Benefit)> MusteringOutBenefits { get; set; }
 
         public List<string> PersonalDevelopmentSkillList { get; set; }
         public List<string> ServiceSkillsList { get; set; }
@@ -58,11 +58,11 @@ namespace TravellerWiki.Data
         private Dictionary<string, TravellerNationsCharacterInfo> nationService = travellerNationsCharacterInfoService.GetTravellerNationsCharacterInfos();
 
         [JsonConstructor]
-        public TravellerCareerJson(string careerName, string description,
+        public TravellerCareerJson(string careerName, string description, 
             string nationality, List<TravellerSkillCheck> qualifications,
-            TravellerCommission commission, List<TravellerAssignment> assignments,
-            List<(int Cash, TravellerCharacterCreationReward Benefit)> musteringOutBenefits,
-            List<string> personalDevelopmentSkillList, List<string> serviceSkillsList,
+            TravellerCommission commission, List<TravellerAssignmentJSON> assignments,
+            List<(int Cash, TravellerCharacterCreationRewardJSON Benefit)> musteringOutBenefits, 
+            List<string> personalDevelopmentSkillList, List<string> serviceSkillsList, 
             List<string> advancedEducationSkillList,
             List<TravellerCharacterCreationEvent> events,
             List<TravellerCharacterCreationEvent> mishaps)
@@ -86,8 +86,8 @@ namespace TravellerWiki.Data
             return new TravellerCareer(careerName: CareerName,
                 CareerDescription,
                 nationality: Nationality,
-                qualifications: Qualifications, commission: Commission, assignments: Assignments,
-                musteringOutBenefits: MusteringOutBenefits,
+                qualifications: Qualifications, commission: Commission, assignments: Assignments.Select(x => x.ConvertToAssignment()).ToList(),
+                musteringOutBenefits: MusteringOutBenefits.Select(benefit => (benefit.Cash, benefit.Benefit.GetReward())).ToList(),
                 personalDevelopmentSkillList: PersonalDevelopmentSkillList,
                 serviceSkillsList: ServiceSkillsList,
                 advancedEducationSkillList: AdvancedEducationSkillList, events: Events, mishaps: Mishaps);
@@ -193,6 +193,38 @@ namespace TravellerWiki.Data
             Nationality = nationService[nationality];
         }
 
+    }
+
+    public class TravellerAssignmentJSON
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public TravellerSkillCheck Survival { get; set; }
+        public TravellerSkillCheck Advancement { get; set; }
+
+        public List<string> SkillList { get; set; }
+        public List<(string title, TravellerCharacterCreationRewardJSON TravellerCharacterCreationReward)> RanksAndBonuses { get; set; }
+
+        public TravellerAssignmentJSON(string name, string description, TravellerSkillCheck survival, TravellerSkillCheck advancement, List<string> skillList, List<(string title, TravellerCharacterCreationRewardJSON perk)> ranksAndBonuses)
+        {
+            Name = name;
+            Description = description;
+            Survival = survival;
+            Advancement = advancement;
+            SkillList = skillList;
+            RanksAndBonuses = ranksAndBonuses;
+        }
+
+        public TravellerAssignment ConvertToAssignment()
+        {
+            var name = Name;
+            var desc = Description;
+            var sur = Survival;
+            var adv = Advancement;
+            var skl = SkillList;
+            var rab = RanksAndBonuses.Select(x => (x.title ?? "", x.TravellerCharacterCreationReward.GetReward())).ToList();
+            return new TravellerAssignment(name,desc,sur,adv,skl,rab);
+        }
     }
 
     public class TravellerAssignment
