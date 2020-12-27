@@ -1,4 +1,5 @@
 ﻿@page
+@using TravellerWiki.Data
 @model TravellerWiki.NationInfoPageModel
 @{
     ViewData["Title"] = @Model.NationName;
@@ -17,37 +18,53 @@
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
-<h1>@Model.NationName</h1>
-<p style="font-size: xx-small">Brackets represent an optional choice, a '|' or separation means OR as in: A | B == A OR B</p>
-<a href="/CharacterCreation/">Back to Character Creation</a>
+    <h1>@Model.NationName</h1>
+
 <h2>Background</h2>
     <p>@Model.CharacterInfo.BackgroundText</p>
-    <h3>Entry Requirements</h3>
-    <p>@Model.CharacterInfo.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core,", ",addition))</p>
-    <h3>Stat Changes</h3>
-    <ol>
+    <a href="/CharacterCreation/">Back to Character Creation</a>
+    <p style="font-size: xx-small">Brackets represent an optional choice, a '|' or separation means OR as in: A | B == A OR B</p>
+
+<h3>Entry Requirements</h3>
+    <p>@Model.CharacterInfo.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core, ", ", addition)).Remove(0, 1)</p>
+
+<h3>Stat Changes & Perks</h3>
+    <p>
+    <ul>
+        Stat Changes:
+
         @{
             foreach (var statChange in Model.CharacterInfo.StatChanges)
             {
                 <li>@statChange.Stat: @statChange.ChangeBy</li>
             }
         }
-    </ol>
-    <h3>Perks</h3>
-    <ol>
-        @{
-            foreach (var perks in Model.CharacterInfo.Perks)
-            {
-                <li>@perks</li>
-            }
-        }
-    </ol>
-    <h3>Background Skills</h3>
-    <ul>
-        @foreach (var skill in Model.CharacterInfo.BackgroundSkills)
+    </ul>
+        @if (Model.CharacterInfo.Perks.Count > 0)
         {
-            <li>@skill</li>
+            <text>Perks</text>
+            Model.CharacterInfo.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
         }
+</p>
+    }
+    <h3>Background Skills</h3>
 
-</ul>
+    @{
+        var skills = Model.CharacterInfo.BackgroundSkills.Aggregate("", (s, n) => s + ", " + n).Remove(0, 1);
+    }
+    <p>
+        @skills
+
+    </p>
+    <h3>National Career Options</h3>
+    <ul>
+        @foreach (var career in TravellerCareerService.ListOfCareers.Where(career => career.Nationality.NationName == Model.NationName))
+        {
+            <li>
+                <p>
+                    <a href="/Career?career=@career.CareerName">@career.CareerName </a> - @career.CareerDescription
+                </p>
+            </li>
+        }
+    </ul>
 </body>

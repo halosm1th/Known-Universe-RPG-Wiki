@@ -23,10 +23,19 @@
     {
         var career = @Model.Career;
         <h1>@career.CareerName</h1>
-        <p>@career.CareerName - @career.CareerDescription</p>
-        <p><a href="/Career/">Head to Careers Page</a></p>
-        <p>
-            Qualifications:
+        <p>@career.CareerName - @career.CareerDescription.
+            <br/>
+            
+            <a href="/Career/">Go back to the Careers Page</a>
+            <br/>
+
+            Nationality: <a href="/CharacterCreation/NationInfoPage?nationName=@career.Nationality.NationName.Replace(" ", "_")">
+                @career.Nationality
+            </a>
+            <br/>
+            <h4>
+                Qualifications
+            </h4>
             <ul>
                 @foreach (var qual in @career.Qualifications)
                 {

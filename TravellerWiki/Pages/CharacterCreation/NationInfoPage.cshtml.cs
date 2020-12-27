@@ -18,8 +18,11 @@ namespace TravellerWiki
         [HttpGet("{nationName}")]
         public async Task<IActionResult> OnGetAsync(string nationName)
         {
-            NationName = nationName.Replace('_',' ');
-            CharacterInfo = characterInfos[NationName];
+            NationName = nationName.Replace('_', ' ');
+            if (characterInfos.ContainsKey(NationName))
+            {
+                CharacterInfo = characterInfos[NationName];
+            }
             return Page();
         }
     }
