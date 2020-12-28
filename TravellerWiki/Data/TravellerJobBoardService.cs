@@ -69,7 +69,7 @@ namespace TravellerWiki.Data
                         ExpiryDate = GetDate(35,rand),
                         IssuedOnDate = GetDate(5,rand),
                         JobBoardOfferedOn = "Word of Mouth",
-                        JobDescription = "Given on Acceptance",
+                        JobDescription = rand.Next(1000,9999).ToString(),
                         JobPayment = rand.Next(2000, 250001),
                         JobTitle = title,
                         MaxAccepts = rand.Next(10, 1001),
@@ -110,14 +110,22 @@ namespace TravellerWiki.Data
 
         public List<TravellerJobBoardJob> GetNonTASJobs(int count)
         {
-            var retJobs = new List<TravellerJobBoardJob>();
-            var random = new Random();
-            for (int i = 0; i < count; i++)
+            if (count == -1)
             {
-                retJobs.Add(_NonTASJobs.ElementAt(random.Next(0,_NonTASJobs.Count)));
+                return ListOfNonTASJobs;
             }
+            else
+            {
+                var retJobs = new List<TravellerJobBoardJob>();
+                var random = new Random();
+                for (int i = 0; i < count; i++)
+                {
+                    var job = ListOfNonTASJobs.ElementAt(random.Next(0, ListOfNonTASJobs.Count));
+                    retJobs.Add(job);
+                }
 
-            return retJobs;
+                return retJobs;
+            }
         }
 
         public List<TravellerJobBoardJob> GetJobBoardJobs => ListOfJobs;

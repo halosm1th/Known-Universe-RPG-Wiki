@@ -30,29 +30,66 @@
             </p>
         </form>
         <p>Non-TAS Jobs</p>
-        <table style="width:100%;">
-            <thead style="text-align: center; padding: 5px;">
-            <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Description</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th></tr>
-            </thead>
-            <tbody style="text-align: center; padding: 5px;color:#ffe81F">
-            @foreach (var job in JobBoardService.GetNonTASJobs(15))
+        <form method="get" asp-action="GetSpecificJob">
+            <p>Job ID:</p> <input type="number" name="JobID" value="" />
+            <button>Search</button>
+        </form>
+        <br />
+        @if (@Model.JobID != null && JobBoardService.GetNonTASJobs(-1).Where(job => job.JobDescription == Model.JobID.ToString()).ToList().Count > 0)
+        {
+            <table style="width: 100%;font-size: large">
+                <thead style="text-align: center; padding: 5px;">
+                    <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Job ID</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th></tr>
+                </thead>
+                <tbody style="text-align: center; padding: 5px; color: #ffe81F">
+                    <tr id="tableInfo">
+                        @{ var job = JobBoardService.GetNonTASJobs(-1).First(job => job.JobDescription == Model.JobID.ToString()); }
+                        <td style="border-style: solid">@job.JobTitle</td>
+                        <td style="border-style: solid">@job.JobDescription</td>
+                        <td style="border-style: solid">Cr @job.JobPayment</td>
+                        <td style="border-style: solid">@job.NumberOfAccepted</td>
+                        <td style="border-style: solid">@job.SenderName - @job.Patron - @job.PatronQuirk</td>
+                        <td style="border-style: solid">@job.SenderLocation</td>
+                        <td style="border-style: solid">@job.IssuedOnDate</td>
+                        <td style="border-style: solid">@job.Ally</td>
+                        <td style="border-style: solid">@job.Enemy</td>
+                        <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
+                        <td style="border-style: solid">@job.Opposition</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+        else
+        {
+            if (@Model.JobID != null)
             {
-                <tr id="tableInfo">
-                    <td style="border-style: solid">@job.JobTitle</td>
-                    <td style="border-style: solid">@job.JobDescription</td>
-                    <td style="border-style: solid">Cr @job.JobPayment</td>
-                    <td style="border-style: solid">@job.NumberOfAccepted</td>
-                    <td style="border-style: solid">@job.SenderName - @job.Patron - @job.PatronQuirk</td>
-                    <td style="border-style: solid">@job.SenderLocation</td>
-                    <td style="border-style: solid">@job.IssuedOnDate</td>
-                    <td style="border-style: solid">@job.Ally</td>
-                    <td style="border-style: solid">@job.Enemy</td>
-                    <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
-                    <td style="border-style: solid">@job.Opposition</td>
-                </tr>
+            <p style="color: black; text-align: center; font-size: xx-large; background-color: red; padding: 5px">Error no job with the ID: @Model.JobID</p>
             }
-            </tbody>
-        </table>
+
+            <table style="width: 100%">
+                <thead style="text-align: center; padding: 5px;">
+                    <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Job ID</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th></tr>
+                </thead>
+                <tbody style="text-align: center; padding: 5px; color: #ffe81F">
+                    @foreach (var job in JobBoardService.GetNonTASJobs(Model.JobID==null? 15 : -1).OrderBy(job => Convert.ToInt32(job.JobDescription)))
+                    {
+                        <tr id="tableInfo">
+                            <td style="border-style: solid">@job.JobTitle</td>
+                            <td style="border-style: solid">@job.JobDescription</td>
+                            <td style="border-style: solid">Cr @job.JobPayment</td>
+                            <td style="border-style: solid">@job.NumberOfAccepted</td>
+                            <td style="border-style: solid">@job.SenderName - @job.Patron - @job.PatronQuirk</td>
+                            <td style="border-style: solid">@job.SenderLocation</td>
+                            <td style="border-style: solid">@job.IssuedOnDate</td>
+                            <td style="border-style: solid">@job.Ally</td>
+                            <td style="border-style: solid">@job.Enemy</td>
+                            <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
+                            <td style="border-style: solid">@job.Opposition</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     }
 
     @if (!Model.CanViewBoard && Model.InvalidID)

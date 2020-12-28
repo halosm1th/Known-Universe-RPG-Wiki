@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using TravellerWiki.Data;
 using ValidationResult = System.Printing.ValidationResult;
@@ -131,7 +132,7 @@ namespace JobBoardCreator
             NumberActive.Text = "";
             MaximumAccepted.Text = "";
             JobVisible.IsChecked = true;
-            SenderName.Text = "";
+            SenderName.Text = "Mr. Who";
             SenderPlanetX.Text = "";
             SenderPlanetY.Text = "";
             SenderSubsectorX.Text = "";
@@ -367,7 +368,7 @@ namespace JobBoardCreator
         private void GeneratePayment()
         {
             var payment = new Random();
-            Payment.Text = $"{payment.Next(1000,1000000000)}Cr";
+            Payment.Text = $"{payment.Next(1000,5000001)}";
         }
 
         private void GenerateCurrentActives(int numberAccepted)

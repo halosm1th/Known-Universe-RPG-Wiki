@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using JobBoardCreator;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TravellerWiki.Data;
 
 namespace TravellerWiki
 {
@@ -15,6 +16,7 @@ namespace TravellerWiki
 
         [BindProperty(SupportsGet = true)] public bool CanViewBoard { get; set; }
         [BindProperty(SupportsGet = true)] public bool InvalidID { get; set; }
+        [BindProperty(SupportsGet = true)] public int? JobID { get; set; }
         public void OnGet()
         {
         }
@@ -29,7 +31,7 @@ namespace TravellerWiki
            }
          *
          */
-        [HttpGet("{TASID}")]
+        [HttpPost("{TASID}")]
         public void OnPost(string TASID)
         {
             CanViewBoard = ValidTASMembershipIDs.Contains(TASID);
@@ -37,6 +39,11 @@ namespace TravellerWiki
             {
                 InvalidID = InvalidTASMembershipIDs.Contains(TASID);
             }
+        }
+
+        [HttpGet("{JobID}")]
+        public void GetSpecificJob(int JobID)
+        {
         }
     }
 }

@@ -29,7 +29,7 @@
         <CheckBox Content="&lt;- Job Visible" Name="JobVisible" TabIndex="20" IsChecked="True" HorizontalAlignment="Left" Margin="595,89,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Sender Name:" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="SenderName" TabIndex="3" Margin="100,134,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Name="SenderName" TabIndex="3" Margin="100,134,0,0" Text="Mr. Who" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Sender Planet X:" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Name="SenderPlanetX" TabIndex="4" Margin="106,164,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"/>
