@@ -44,7 +44,7 @@ namespace TravellerWiki.Data
                 var sb = new StringBuilder();
 
                 _NonTASJobs = new List<TravellerJobBoardJob>();
-                for (int i = 0; i < 4000; i++)
+                for (int i = 0; i < 100; i++)
                 {
                     var mission = missionGenerator.GenerateTravellerMission();
                     sb.Append(rand.Next(1, 9));
@@ -57,7 +57,10 @@ namespace TravellerWiki.Data
                     var senderLoc = sb.ToString();
                     sb.Clear();
 
-                    
+                    sb.Append("A Job - ");
+                    sb.Append(mission.Mission);
+                    var title = sb.ToString();
+                    sb.Clear();
 
                     _NonTASJobs.Add(new TravellerJobBoardJob()
                     {
@@ -68,7 +71,7 @@ namespace TravellerWiki.Data
                         JobBoardOfferedOn = "Word of Mouth",
                         JobDescription = "Given on Acceptance",
                         JobPayment = rand.Next(2000, 250001),
-                        JobTitle = "A Job",
+                        JobTitle = title,
                         MaxAccepts = rand.Next(10, 1001),
                         NumberOfAccepted = rand.Next(1, 11),
                         NumberOfActive = rand.Next(0, 6),

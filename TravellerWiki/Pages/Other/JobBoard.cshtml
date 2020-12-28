@@ -32,7 +32,7 @@
         <p>Non-TAS Jobs</p>
         <table style="width:100%;">
             <thead style="text-align: center; padding: 5px;">
-            <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Description</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th><th>Mission</th></tr>
+            <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Description</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th></tr>
             </thead>
             <tbody style="text-align: center; padding: 5px;color:#ffe81F">
             @foreach (var job in JobBoardService.GetNonTASJobs(15))
@@ -49,7 +49,6 @@
                     <td style="border-style: solid">@job.Enemy</td>
                     <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
                     <td style="border-style: solid">@job.Opposition</td>
-                    <td style="border-style: solid">@job.Mission</td>
                 </tr>
             }
             </tbody>
