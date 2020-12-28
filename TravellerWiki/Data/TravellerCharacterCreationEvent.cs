@@ -2,7 +2,6 @@
 
 namespace TravellerWiki.Data
 {
-
     public class TravellerCharacterCreationEvent
     {
         public string EventText { get; set; }

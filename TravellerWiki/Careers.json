@@ -26,27 +26,37 @@
         "RanksAndBonuses": [
           {
             "Item1": "Jr. Interrogator",
-            "Item2": "Investigate 1"
+            "Item2":{ "Skilllist": [ "Investigate 1" ] } 
           },
           {
             "Item1": "Interrogator",
-            "Item2": "Streetwise"
+            "Item2":{
+              "Skilllist": ["Streetwise"]
+            }
           },
           {
             "Item1": "Sr. Interrogator",
-            "Item2": "Stealth"
+            "Item2":{
+              "Skilllist": ["Stealth"]
+            }
           },
           {
             "Item1": "Interrogator Teacher",
-            "Item2": "Leadership"
+            "Item2":{
+              "Skilllist": ["Leadership"]
+            }
           },
           {
             "Item1": "Interrogator Master",
-            "Item2": "Admin"
+            "Item2":{
+              "Skilllist": ["Admin"]
+            }
           },
           {
             "Item1": "Interrogator Prime",
-            "Item2": "PSI +2"
+            "Item2":{
+              "Skilllist": ["PSI +2"]
+            }
           }
         ]
       },
@@ -65,27 +75,39 @@
         "RanksAndBonuses": [
           {
             "Item1": "Jr. Inquisitor",
-            "Item2": "Investigate 1"
+            "Item2":{
+              "Skilllist": ["Investigate 1"]
+            }
           },
           {
             "Item1": "Inquisitor",
-            "Item2": "Persuade"
+            "Item2":{
+              "Skilllist": ["Persuade"]
+            }
           },
           {
             "Item1": "Sr. Inquisitor",
-            "Item2": "Gun Combat(Slug)"
+            "Item2":{
+              "Skilllist": ["Gun Combat(Slug)"]
+            }
           },
           {
             "Item1": "Inquisitor Teacher",
-            "Item2": "Leadership"
+            "Item2":{
+              "Skilllist": ["Leadership"]
+            }
           },
           {
             "Item1": "Inquisitor Master",
-            "Item2": "Admin"
+            "Item2":{
+              "Skilllist": ["Admin"]
+            }
           },
           {
             "Item1": "Inquisitor Prime",
-            "Item2": "Psi"
+            "Item2":{
+              "Skilllist": ["Psi"]
+            }
           }
         ]
       },
@@ -104,27 +126,39 @@
         "RanksAndBonuses": [
           {
             "Item1": "Jr. Defender",
-            "Item2": "Investigate 1"
+            "Item2":{
+              "Skilllist": ["Investigate 1"]
+            }
           },
           {
             "Item1": "Defender",
-            "Item2": "Streetwise"
+            "Item2":{
+              "Skilllist": ["Streetwise"]
+            }
           },
           {
             "Item1": "Sr. Defender",
-            "Item2": "Deception"
+            "Item2":{
+              "Skilllist": ["Deception"]
+            }
           },
           {
             "Item1": "Defender Teacher",
-            "Item2": "Leadership"
+            "Item2":{
+              "Skilllist": ["Leadership"]
+            }
           },
           {
             "Item1": "Defender Master",
-            "Item2": "Admin"
+            "Item2":{
+              "Skilllist": ["Admin"]
+            }
           },
           {
             "Item1": "Defender Prime",
-            "Item2": "Psi"
+            "Item2":{
+              "Skilllist": ["Psi"]
+            }
           }
         ]
       }
@@ -132,31 +166,45 @@
     "MusteringOutBenefits": [
       {
         "Item1": 1000,
-        "Item2": "Psi"
+        "Item2":{
+          "Skilllist": ["Psi"]
+        }
       },
       {
         "Item1": 5000,
-        "Item2": "TAS Membership"
+        "Item2":{
+          "Skilllist": ["TAS Membership"]
+        }
       },
       {
         "Item1": 10000,
-        "Item2": "Void Blade"
+        "Item2":{
+          "Skilllist": ["Void Blade"]
+        }
       },
       {
         "Item1": 15000,
-        "Item2": "Weapon"
+        "Item2":{
+          "Skilllist": ["Weapon"]
+        }
       },
       {
         "Item1": 20000,
-        "Item2": "Armour"
+        "Item2":{
+          "Skilllist": ["Armour"]
+        }
       },
       {
         "Item1": 30000,
-        "Item2": "Ship Share"
+        "Item2":{
+          "Skilllist": ["Ship Share"]
+        }
       },
       {
         "Item1": 50000,
-        "Item2": "Inquisitorial Shuttle"
+        "Item2":{
+          "Skilllist": ["Inquisitorial Shuttle"]
+        }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Psi", "Str", "Soc", "Dex", "Edu", "Int" ],
@@ -165,8 +213,7 @@
     "Events": [
       { "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career." },
       {
-        "Reward": { "AdvancementAmount": 2 },
-        "EventText": "Find a new planet with a precursor temple. Unveiling new teachings of Sigmar."
+        "EventText": "Find a new planet with a precursor temple. Unveiling new teachings of Sigmar. Add +2 to your next advancement check"
       },
       { "EventText": "Root out a Lawgar cult and have them punished." },
       { "EventText": "Spend a term rooting out heresy on a city-world" },
@@ -223,27 +270,39 @@
         "RanksAndBonuses": [
           {
             "Item1": "Planetary Noble",
-            "Item2": "Deception"
+            "Item2":{
+              "Skilllist": ["Deception"]
+            }
           },
           {
             "Item1": "Baron",
-            "Item2": "Carouse"
+            "Item2":{
+              "Skilllist": ["Carouse"]
+            }
           },
           {
             "Item1": "Viscount",
-            "Item2": "Persuade"
+            "Item2":{
+              "Skilllist": ["Persuade"]
+            }
           },
           {
             "Item1": "Count",
-            "Item2": "Diplomat"
+            "Item2":{
+              "Skilllist": ["Diplomat"]
+            }
           },
           {
             "Item1": "Lord",
-            "Item2": "Leadership"
+            "Item2":{
+              "Skilllist": ["Leadership"]
+            }
           },
           {
             "Item1": "Earl",
-            "Item2": "Deception"
+            "Item2":{
+              "Skilllist": ["Deception"]
+            }
           }
         ]
       },
@@ -262,27 +321,39 @@
         "RanksAndBonuses": [
           {
             "Item1": "Planetary Noble",
-            "Item2": " Broker"
+            "Item2":{
+              "Skilllist": ["Broker"]
+            }
           },
           {
             "Item1": "Baron",
-            "Item2": "Leadership"
+            "Item2":{
+              "Skilllist": ["Leadership"]
+            }
           },
           {
             "Item1": "Viscount",
-            "Item2": "Deception"
+            "Item2":{
+              "Skilllist": ["Deception"]
+            }
           },
           {
             "Item1": "Count",
-            "Item2": "Carouse"
+            "Item2":{
+              "Skilllist": ["Carouse"]
+            }
           },
           {
             "Item1": "Lord",
-            "Item2": "Diplomat"
+            "Item2":{
+              "Skilllist": ["Diplomat"]
+            }
           },
           {
             "Item1": "Earl",
-            "Item2": "Deception"
+            "Item2":{
+              "Skilllist": ["Deception"]
+            }
           }
         ]
       },
@@ -301,27 +372,39 @@
         "RanksAndBonuses": [
           {
             "Item1": "Nobody",
-            "Item2": "-"
+            "Item2":{
+              "Skilllist": ["-"]
+            }
           },
           {
             "Item1": "Local Famous",
-            "Item2": "Carouse"
+            "Item2":{
+              "Skilllist": ["Carouse"]
+            }
           },
           {
             "Item1": "Cluster Famous",
-            "Item2": "Persuade"
+            "Item2":{
+              "Skilllist": ["Persuade"]
+            }
           },
           {
             "Item1": "Getting Relevant",
-            "Item2": "Deception"
+            "Item2":{
+              "Skilllist": ["Deception"]
+            }
           },
           {
             "Item1": "Kinda Relevant",
-            "Item2": "Noble Title"
+            "Item2":{
+              "Skilllist": ["Noble Title"]
+            }
           },
           {
             "Item1": "Actually Relevant ",
-            "Item2": "Change Assignment to Free or Seated noble at rank 3"
+            "Item2":{
+              "Skilllist": ["Change Assignment to Free or Seated noble at rank 3"]
+            }
           }
         ]
       }
@@ -329,31 +412,44 @@
     "MusteringOutBenefits": [
       {
         "Item1": 25000,
-        "Item2": "TAS Membership"
+        "Item2":{
+          "Skilllist": ["TAS Membership"]
+        }
       },
       {
         "Item1": 50000,
-        "Item2": "Weapon"
+        "Item2":{
+          "Skilllist": ["Weapon"]
+        }
       },
       {
         "Item1": 75000,
-        "Item2": "Armour"
+        "Item2":{
+          "Skilllist": ["Armour"]
+        }
       },
       {
         "Item1": 100000,
-        "Item2": "Capital Ship"
+        "Item2":{
+          "Skilllist": ["Capital Ship"]
+        }
       },
       {
         "Item1": 250000,
-        "Item2": "1D100 Ship Shares"
+        "Item2":{
+          "Skilllist": ["1D100 Ship Shares"]
+        }
       },
       {
         "Item1": 500000,
-        "Item2": "Augment of your choice"
+        "Item2":{
+          "Skilllist": ["Augment of your choice"]
+        }
       },
       {
         "Item1": 750000,
-        "Item2": "Dirt on 1D4 Other nobles"
+        "Item2":{"Skilllist": ["Dirt on 1D4 Other nobles"]
+        }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Soc", "Diplomat", "Carouse", "Int", "Luck/Jack Of All Trades", "Deception" ],
@@ -416,27 +512,39 @@
       "RanksAndBonuses": [
         {
           "Item1": "Royal Lieutenant",
-          "Item2": "Leadership"
+          "Item2":{
+            "Skilllist": ["Leadership"]
+          }
         },
         {
           "Item1": "Royal Commander",
-          "Item2": "Void Blade"
+          "Item2":{
+            "Skilllist": [ "Void Blade" ]
+          }
         },
         {
           "Item1": "Royal Captain",
-          "Item2": "Personal Shuttle"
+          "Item2":{
+            "Skilllist": [ "Personal Shuttle" ]
+          }
         },
         {
           "Item1": "Royal Fleet Captain",
-          "Item2": "Personal Captial Ship"
+          "Item2":{
+            "Skilllist": [ "Personal Captial Ship" ]
+          }
         },
         {
           "Item1": "Royal Vice Admiral",
-          "Item2": "Minor Noble Title"
+          "Item2":{
+            "Skilllist": [ "Minor Noble Title" ]
+          }
         },
         {
           "Item1": "Royal Fleet Admiral",
-          "Item2": "Noble Title"
+          "Item2":{
+            "Skilllist": [ "Noble Title" ]
+          }
         }
       ],
       "CommmsionCheck": {
@@ -460,27 +568,28 @@
         "RanksAndBonuses": [
           {
             "Item1": "Soldier",
-            "Item2": "Gun Combat"
+            "Item2":{
+              "Skilllist": ["Gun Combat"]}
           },
           {
             "Item1": "Sargent",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Lieutenant",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Captain",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Commander",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "Colonel",
-            "Item2": "Diplomacy"
+            "Item2": { "Skilllist": [ "Diplomacy" ] }
           }
         ]
       },
@@ -499,27 +608,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Starman",
-            "Item2": "Gunnery"
+            "Item2": { "Skilllist": [ "Gunnery" ] }
           },
           {
             "Item1": "Ensign",
-            "Item2": "Pilot(small Craft)"
+            "Item2": { "Skilllist": [ "Pilot(small Craft)" ] }
           },
           {
             "Item1": "Lieutenant",
-            "Item2": "Pilot(space craft)"
+            "Item2": { "Skilllist": [ "Pilot(space craft)" ] }
           },
           {
             "Item1": "Commander",
-            "Item2": "leadership"
+            "Item2": { "Skilllist": [ "leadership" ] }
           },
           {
             "Item1": "Captain",
-            "Item2": "Persuade"
+            "Item2": { "Skilllist": [ "Persuade" ] }
           },
           {
             "Item1": "Sub-Sector Admiral",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           }
         ]
       },
@@ -538,27 +647,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Starman",
-            "Item2": "Gun Combat (Slug)"
+            "Item2": { "Skilllist": [ "Gun Combat (Slug)" ] }
           },
           {
             "Item1": "Petty Officer",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Master Chief Petty Officer",
-            "Item2": "Heavy Weapons"
+            "Item2": { "Skilllist": [ "Heavy Weapons" ] }
           },
           {
             "Item1": "Ensign",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Lieutenant",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Captain",
-            "Item2": "Gun Combat (Slug)"
+            "Item2": { "Skilllist": [ "Gun Combat (Slug)" ] }
           }
         ]
       }
@@ -566,31 +675,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 875,
-        "Item2": "Weapon"
+        "Item2": { "Skilllist": [ "Weapon" ] }
       },
       {
         "Item1": 1750,
-        "Item2": "Int"
+        "Item2": { "Skilllist": [ "Int" ] }
       },
       {
         "Item1": 2500,
-        "Item2": "Augment"
+        "Item2": { "Skilllist": [ "Augment" ] }
       },
       {
         "Item1": 5000,
-        "Item2": "Edu"
+        "Item2": { "Skilllist": [ "Edu" ] }
       },
       {
         "Item1": 25000,
-        "Item2": "Soc"
+        "Item2": { "Skilllist": [ "Soc" ] }
       },
       {
         "Item1": 50000,
-        "Item2": "1D10 Ship Shares"
+        "Item2": { "Skilllist": [ "1D10 Ship Shares" ] }
       },
       {
         "Item1": 100000,
-        "Item2": "Weapon"
+        "Item2": { "Skilllist": [ "Weapon" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Str", "Tactics (Military)", "Int", "Tactics (Navy)", "Dex", "Vacc-Suit" ],
@@ -642,27 +751,27 @@
       "RanksAndBonuses": [
         {
           "Item1": "Brother Lieutenant",
-          "Item2": "Gun Combat 2"
+          "Item2": { "Skilllist": [ "Gun Combat 2" ] }
         },
         {
           "Item1": "Father Lieutenant",
-          "Item2": "Melee 2"
+          "Item2": { "Skilllist": [ "Melee 2" ] }
         },
         {
           "Item1": "Brother Captain",
-          "Item2": "Tactics (Military)"
+          "Item2": { "Skilllist": [ "Tactics (Military)" ] }
         },
         {
           "Item1": "Father Captain",
-          "Item2": "Gun Combat 3"
+          "Item2": { "Skilllist": [ "Gun Combat 3" ] }
         },
         {
           "Item1": "Father Commander",
-          "Item2": "Melee 3"
+          "Item2": { "Skilllist": [ "Melee 3" ] }
         },
         {
           "Item1": "Father master",
-          "Item2": "Jack of all Trades 2"
+          "Item2": { "Skilllist": [ "Jack of all Trades 2" ] }
         }
       ],
       "CommmsionCheck": {
@@ -686,27 +795,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "New Brother",
-            "Item2": "Gun Combat 1"
+            "Item2": { "Skilllist": [ "Gun Combat 1" ] }
           },
           {
             "Item1": "Warrior Brother",
-            "Item2": "Melee 1"
+            "Item2": { "Skilllist": [ "Melee 1" ] }
           },
           {
             "Item1": "Teacher Brother",
-            "Item2": "Leadership 1"
+            "Item2": { "Skilllist": [ "Leadership 1" ] }
           },
           {
             "Item1": "Sargeant Brother",
-            "Item2": "Tactics (military) 1"
+            "Item2": { "Skilllist": [ "Tactics (military) 1" ] }
           },
           {
             "Item1": "Master Sergeant Brother",
-            "Item2": "Explosives 1"
+            "Item2": { "Skilllist": [ "Explosives 1" ] }
           },
           {
             "Item1": "Sargeant Brother of Arms.",
-            "Item2": "Heavy Weapons"
+            "Item2": { "Skilllist": [ "Heavy Weapons" ] }
           }
         ]
       },
@@ -725,27 +834,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "New Brother",
-            "Item2": "Gun Combat 1"
+            "Item2": { "Skilllist": [ "Gun Combat 1" ] }
           },
           {
             "Item1": "Warrior Brother",
-            "Item2": "Melee 1"
+            "Item2": { "Skilllist": [ "Melee 1" ] }
           },
           {
             "Item1": "Teacher brother",
-            "Item2": "Leadership 1"
+            "Item2": { "Skilllist": [ "Leadership 1" ] }
           },
           {
             "Item1": "Sargeant Brother",
-            "Item2": "Tactics (Military) 1"
+            "Item2": { "Skilllist": [ "Tactics (Military) 1" ] }
           },
           {
             "Item1": "Master Sergeant Brother",
-            "Item2": "Explosives 1"
+            "Item2": { "Skilllist": [ "Explosives 1" ] }
           },
           {
             "Item1": "Sargeant Brother of Arms",
-            "Item2": "Heavy Weapons"
+            "Item2": { "Skilllist": [ "Heavy Weapons" ] }
           }
         ]
       },
@@ -764,27 +873,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "New Brother",
-            "Item2": "Gun Combat 1"
+            "Item2": { "Skilllist": [ "Gun Combat 1" ] }
           },
           {
             "Item1": "Warrior Brother",
-            "Item2": "Melee 1"
+            "Item2": { "Skilllist": [ "Melee 1" ] }
           },
           {
             "Item1": "Teacher Brother",
-            "Item2": "Leadership 1"
+            "Item2": { "Skilllist": [ "Leadership 1" ] }
           },
           {
             "Item1": "Sargeant Brother",
-            "Item2": "Tactics (Military) 1"
+            "Item2": { "Skilllist": [ "Tactics (Military) 1" ] }
           },
           {
             "Item1": "Master Sargeant Brother",
-            "Item2": "Explosives 1"
+            "Item2": { "Skilllist": [ "Explosives 1" ] }
           },
           {
             "Item1": "Sargeant Brother of Arms",
-            "Item2": "Heavy Weapons"
+            "Item2": { "Skilllist": [ "Heavy Weapons" ] }
           }
         ]
       }
@@ -792,31 +901,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 2000,
-        "Item2": "Armour (Any)"
+        "Item2": { "Skilllist": [ "Armour (Any)" ] }
       },
       {
         "Item1": 5000,
-        "Item2": "Soc"
+        "Item2": { "Skilllist": [ "Soc" ] }
       },
       {
         "Item1": 5000,
-        "Item2": "End or Str "
+        "Item2": { "Skilllist": [ "End or Str " ] }
       },
       {
         "Item1": 10000,
-        "Item2": "TAS Membership"
+        "Item2": { "Skilllist": [ "TAS Membership" ] }
       },
       {
         "Item1": 20000,
-        "Item2": "Ship Share"
+        "Item2": { "Skilllist": [ "Ship Share" ] }
       },
       {
         "Item1": 30000,
-        "Item2": "Weapon (any)"
+        "Item2": { "Skilllist": [ "Weapon (any)" ] }
       },
       {
         "Item1": 40000,
-        "Item2": "Ship"
+        "Item2": { "Skilllist": [ "Ship" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Str", "End", "Dex", "Int", "Edu", "Soc" ],
@@ -879,27 +988,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Know Nothing",
-            "Item2": "Investigate"
+            "Item2": { "Skilllist": [ "Investigate" ] }
           },
           {
             "Item1": "Baby Snitch",
-            "Item2": "Persuade"
+            "Item2": { "Skilllist": [ "Persuade" ] }
           },
           {
             "Item1": "Snitch",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Master Snitch",
-            "Item2": "Leadership 1"
+            "Item2": { "Skilllist": [ "Leadership 1" ] }
           },
           {
             "Item1": "Knowledge Holder",
-            "Item2": "-"
+            "Item2": { "Skilllist": [ "-" ] }
           },
           {
             "Item1": "Webmaster",
-            "Item2": "Deception 3"
+            "Item2": { "Skilllist": [ "Deception 3" ] }
           }
         ]
       },
@@ -918,27 +1027,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "New Guy",
-            "Item2": "Recon"
+            "Item2": { "Skilllist": [ "Recon" ] }
           },
           {
             "Item1": "Thug",
-            "Item2": "Investgiate"
+            "Item2": { "Skilllist": [ "Investgiate" ] }
           },
           {
             "Item1": "Memeber",
-            "Item2": "Stealth"
+            "Item2": { "Skilllist": [ "Stealth" ] }
           },
           {
             "Item1": "Inner Circle",
-            "Item2": "Persuade"
+            "Item2": { "Skilllist": [ "Persuade" ] }
           },
           {
             "Item1": "Right Hand",
-            "Item2": "Carouse"
+            "Item2": { "Skilllist": [ "Carouse" ] }
           },
           {
             "Item1": "Big Boss",
-            "Item2": "Leadership 2"
+            "Item2": { "Skilllist": [ "Leadership 2" ] }
           }
         ]
       },
@@ -957,27 +1066,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "New Guy",
-            "Item2": "Recon"
+            "Item2": { "Skilllist": [ "Recon" ] }
           },
           {
             "Item1": "Thug",
-            "Item2": "Melee (unarmed)"
+            "Item2": { "Skilllist": [ "Melee (unarmed)" ] }
           },
           {
             "Item1": "Proper Member",
-            "Item2": "Melee (unarmed)"
+            "Item2": { "Skilllist": [ "Melee (unarmed)" ] }
           },
           {
             "Item1": "Inner Circle",
-            "Item2": "Persuade"
+            "Item2": { "Skilllist": [ "Persuade" ] }
           },
           {
             "Item1": "Right Hand",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Big Boss",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       }
@@ -985,31 +1094,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 5,
-        "Item2": "Contact"
+        "Item2": { "Skilllist": [ "Contact" ] }
       },
       {
         "Item1": 10,
-        "Item2": "Weapon"
+        "Item2": { "Skilllist": [ "Weapon" ] }
       },
       {
         "Item1": 100,
-        "Item2": "Stealth or Streetwise"
+        "Item2": { "Skilllist": [ "Stealth or Streetwise" ] }
       },
       {
         "Item1": 200,
-        "Item2": "Deception or Diplomacy"
+        "Item2": { "Skilllist": [ "Deception or Diplomacy" ] }
       },
       {
         "Item1": 500,
-        "Item2": "Gun Combat or Melee"
+        "Item2": { "Skilllist": [ "Gun Combat or Melee" ] }
       },
       {
         "Item1": 1000,
-        "Item2": "Science or Profession"
+        "Item2": { "Skilllist": [ "Science or Profession" ] }
       },
       {
         "Item1": 2500,
-        "Item2": "Luck or Jack of All Trades"
+        "Item2": { "Skilllist": [ "Luck or Jack of All Trades" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Str", "Athletics", "Profession", "Edu", "Int", "Dex" ],
@@ -1072,27 +1181,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Worker",
-            "Item2": "-"
+            "Item2": { "Skilllist": [ "-" ] }
           },
           {
             "Item1": "Master Worker",
-            "Item2": "-"
+            "Item2": { "Skilllist": [ "-" ] }
           },
           {
             "Item1": "Line Master",
-            "Item2": "-"
+            "Item2": { "Skilllist": [ "-" ] }
           },
           {
             "Item1": "Room Master",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Floor Master ",
-            "Item2": "Persuade"
+            "Item2": { "Skilllist": [ "Persuade" ] }
           },
           {
             "Item1": "Factory Master",
-            "Item2": "Symbol of your Lord"
+            "Item2": { "Skilllist": [ "Symbol of your Lord" ] }
           }
         ]
       },
@@ -1111,27 +1220,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Farm Hand",
-            "Item2": "Farm ID"
+            "Item2": { "Skilllist": [ "Farm ID" ] }
           },
           {
             "Item1": "Field Worker",
-            "Item2": "-"
+            "Item2": { "Skilllist": [ "-" ] }
           },
           {
             "Item1": "Master Field Worker",
-            "Item2": "-"
+            "Item2": { "Skilllist": [ "-" ] }
           },
           {
             "Item1": "Line Master",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Field Master",
-            "Item2": "Persuade"
+            "Item2": { "Skilllist": [ "Persuade" ] }
           },
           {
             "Item1": "Farm master",
-            "Item2": "Symbol of your Lord"
+            "Item2": { "Skilllist": [ "Symbol of your Lord" ] }
           }
         ]
       },
@@ -1150,27 +1259,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Fetcher",
-            "Item2": "Dock ID"
+            "Item2": { "Skilllist": [ "Dock ID" ] }
           },
           {
             "Item1": "Hauler",
-            "Item2": "Vacc Suit"
+            "Item2": { "Skilllist": [ "Vacc Suit" ] }
           },
           {
             "Item1": "Ship Master",
-            "Item2": "-"
+            "Item2": { "Skilllist": [ "-" ] }
           },
           {
             "Item1": "Warehouse Master",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Dock Master",
-            "Item2": "Persuade"
+            "Item2": { "Skilllist": [ "Persuade" ] }
           },
           {
             "Item1": "Yard Master",
-            "Item2": "Symbol of your Lord"
+            "Item2": { "Skilllist": [ "Symbol of your Lord" ] }
           }
         ]
       }
@@ -1178,31 +1287,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 5000,
-        "Item2": "Ship Share"
+        "Item2": { "Skilllist": [ "Ship Share" ] }
       },
       {
         "Item1": 7500,
-        "Item2": "Contact"
+        "Item2": { "Skilllist": [ "Contact" ] }
       },
       {
         "Item1": 10000,
-        "Item2": "Str or Dex"
+        "Item2": { "Skilllist": [ "Str or Dex" ] }
       },
       {
         "Item1": 12500,
-        "Item2": "Small Vehicle"
+        "Item2": { "Skilllist": [ "Small Vehicle" ] }
       },
       {
         "Item1": 15000,
-        "Item2": "Ally"
+        "Item2": { "Skilllist": [ "Ally" ] }
       },
       {
         "Item1": 20000,
-        "Item2": "Two Ship Shares"
+        "Item2": { "Skilllist": [ "Two Ship Shares" ] }
       },
       {
         "Item1": 30000,
-        "Item2": "Personal Shuttle"
+        "Item2": { "Skilllist": [ "Personal Shuttle" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Drive", "Mehanic", "Gambler", "Athletics", "Streetwise", "Profession" ],
@@ -1257,27 +1366,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Untrained Witcher",
-            "Item2": "Melee (Void) or Gun Combat (slug)"
+            "Item2": { "Skilllist": [ "Melee (Void) or Gun Combat (slug)" ] }
           },
           {
             "Item1": "Apprentice Witcher",
-            "Item2": "Stealth or Recon"
+            "Item2": { "Skilllist": [ "Stealth or Recon" ] }
           },
           {
             "Item1": "Witcher",
-            "Item2": "Carouse or Street Wise"
+            "Item2": { "Skilllist": [ "Carouse or Street Wise" ] }
           },
           {
             "Item1": "Master Witcher",
-            "Item2": "Deception or Diplomat"
+            "Item2": { "Skilllist": [ "Deception or Diplomat" ] }
           },
           {
             "Item1": "Grand Master Witcher",
-            "Item2": "Presuade or Advocate"
+            "Item2": { "Skilllist": [ "Presuade or Advocate" ] }
           },
           {
             "Item1": "ShipmMaster Witcher",
-            "Item2": "Jack of all trades or luck"
+            "Item2": { "Skilllist": [ "Jack of all trades or luck" ] }
           }
         ]
       },
@@ -1296,27 +1405,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "New Crew Witcher",
-            "Item2": "Melee (Void)"
+            "Item2": { "Skilllist": [ "Melee (Void)" ] }
           },
           {
             "Item1": "Untrained Crew Witcher",
-            "Item2": "Gun Combat (slug)"
+            "Item2": { "Skilllist": [ "Gun Combat (slug)" ] }
           },
           {
             "Item1": "Crew Witcher",
-            "Item2": "Profession"
+            "Item2": { "Skilllist": [ "Profession" ] }
           },
           {
             "Item1": "Officer Witcher",
-            "Item2": "Science"
+            "Item2": { "Skilllist": [ "Science" ] }
           },
           {
             "Item1": "Admin Witcher",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "ShipMaster Witcher",
-            "Item2": "Jack of all Trade or Luck"
+            "Item2": { "Skilllist": [ "Jack of all Trade or Luck" ] }
           }
         ]
       },
@@ -1335,27 +1444,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Desk Clerk Witcher",
-            "Item2": "Melee (Void)"
+            "Item2": { "Skilllist": [ "Melee (Void)" ] }
           },
           {
             "Item1": "Reshelfer Witcher",
-            "Item2": "Gun Combat (Slug)"
+            "Item2": { "Skilllist": [ "Gun Combat (Slug)" ] }
           },
           {
             "Item1": "LIbrarian Witcher",
-            "Item2": "Science"
+            "Item2": { "Skilllist": [ "Science" ] }
           },
           {
             "Item1": "Librarian Master Witcher",
-            "Item2": "Profession"
+            "Item2": { "Skilllist": [ "Profession" ] }
           },
           {
             "Item1": "Librarian Keeper Witcher",
-            "Item2": "The known Scertes"
+            "Item2": { "Skilllist": [ "The known Scertes" ] }
           },
           {
             "Item1": "Bookmaster Witcher",
-            "Item2": "The unknown secretes"
+            "Item2": { "Skilllist": [ "The unknown secretes" ] }
           }
         ]
       }
@@ -1363,31 +1472,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 10000,
-        "Item2": "Soc"
+        "Item2": { "Skilllist": [ "Soc" ] }
       },
       {
         "Item1": 25000,
-        "Item2": "Circle"
+        "Item2": { "Skilllist": [ "Circle" ] }
       },
       {
         "Item1": 50000,
-        "Item2": "Persude or Streetwise"
+        "Item2": { "Skilllist": [ "Persude or Streetwise" ] }
       },
       {
         "Item1": 100000,
-        "Item2": "Diplomat or Deception"
+        "Item2": { "Skilllist": [ "Diplomat or Deception" ] }
       },
       {
         "Item1": 200000,
-        "Item2": "Void Blade"
+        "Item2": { "Skilllist": [ "Void Blade" ] }
       },
       {
         "Item1": 400000,
-        "Item2": "Ship"
+        "Item2": { "Skilllist": [ "Ship" ] }
       },
       {
         "Item1": 800000,
-        "Item2": "TAS Membership"
+        "Item2": { "Skilllist": [ "TAS Membership" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Psi", "Gun Combat (slug)", "Str", "Soc", "Melee (void)", "Stealth" ],
@@ -1457,27 +1566,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Kid Dealer",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Building Dealer",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Corner Dealer",
-            "Item2": "Gun Combat"
+            "Item2": { "Skilllist": [ "Gun Combat" ] }
           },
           {
             "Item1": "Street Dealer",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "City Dealer",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Planet Dealer",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           }
         ]
       },
@@ -1496,27 +1605,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Assistant",
-            "Item2": "Science (Chemisty)"
+            "Item2": { "Skilllist": [ "Science (Chemisty)" ] }
           },
           {
             "Item1": "Su Chef",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Line Cook",
-            "Item2": "Medic"
+            "Item2": { "Skilllist": [ "Medic" ] }
           },
           {
             "Item1": "Main Cook",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Master Chef",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Head Chef",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           }
         ]
       },
@@ -1535,27 +1644,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Strong Arm",
-            "Item2": "Gun Combat"
+            "Item2": { "Skilllist": [ "Gun Combat" ] }
           },
           {
             "Item1": "Strong Leg",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Strong Body",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "Strong Person",
-            "Item2": "Str"
+            "Item2": { "Skilllist": [ "Str" ] }
           },
           {
             "Item1": "Brute",
-            "Item2": "Dex"
+            "Item2": { "Skilllist": [ "Dex" ] }
           },
           {
             "Item1": "Confidant",
-            "Item2": "Stealth 1"
+            "Item2": { "Skilllist": [ "Stealth 1" ] }
           }
         ]
       }
@@ -1563,31 +1672,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 500,
-        "Item2": "Streetwise"
+        "Item2": { "Skilllist": [ "Streetwise" ] }
       },
       {
         "Item1": 700,
-        "Item2": "Gun"
+        "Item2": { "Skilllist": [ "Gun" ] }
       },
       {
         "Item1": 800,
-        "Item2": "Augment"
+        "Item2": { "Skilllist": [ "Augment" ] }
       },
       {
         "Item1": 1000,
-        "Item2": "Melee Weapon"
+        "Item2": { "Skilllist": [ "Melee Weapon" ] }
       },
       {
         "Item1": 2500,
-        "Item2": "1D8 Ship Shares"
+        "Item2": { "Skilllist": [ "1D8 Ship Shares" ] }
       },
       {
         "Item1": 5000,
-        "Item2": "Armour"
+        "Item2": { "Skilllist": [ "Armour" ] }
       },
       {
         "Item1": 10000,
-        "Item2": "Shuttle"
+        "Item2": { "Skilllist": [ "Shuttle" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Streetwise", "Athletics", "Str", "Dex", "End", "Soc" ],
@@ -1646,27 +1755,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Seaman",
-            "Item2": "Pilot"
+            "Item2": { "Skilllist": [ "Pilot" ] }
           },
           {
             "Item1": "Quatermaster",
-            "Item2": "Astrogation"
+            "Item2": { "Skilllist": [ "Astrogation" ] }
           },
           {
             "Item1": "Midshipman",
-            "Item2": "Navigation"
+            "Item2": { "Skilllist": [ "Navigation" ] }
           },
           {
             "Item1": "Warrant Officer",
-            "Item2": "Pilot"
+            "Item2": { "Skilllist": [ "Pilot" ] }
           },
           {
             "Item1": "Lieutenant",
-            "Item2": "Drive"
+            "Item2": { "Skilllist": [ "Drive" ] }
           },
           {
             "Item1": "Captain",
-            "Item2": "Pilot"
+            "Item2": { "Skilllist": [ "Pilot" ] }
           }
         ]
       },
@@ -1685,27 +1794,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Seaman",
-            "Item2": "Pilot"
+            "Item2": { "Skilllist": [ "Pilot" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Engineer"
+            "Item2": { "Skilllist": [ "Engineer" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Gunner"
+            "Item2": { "Skilllist": [ "Gunner" ] }
           },
           {
             "Item1": "Lieutenant",
-            "Item2": "Astrogation"
+            "Item2": { "Skilllist": [ "Astrogation" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Captain",
-            "Item2": "Pilot"
+            "Item2": { "Skilllist": [ "Pilot" ] }
           }
         ]
       },
@@ -1724,27 +1833,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Dockhand",
-            "Item2": "Gambling"
+            "Item2": { "Skilllist": [ "Gambling" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Worker",
-            "Item2": "Vacc Suit"
+            "Item2": { "Skilllist": [ "Vacc Suit" ] }
           },
           {
             "Item1": "Specialty Operator",
-            "Item2": "Str"
+            "Item2": { "Skilllist": [ "Str" ] }
           },
           {
             "Item1": "Yard Master",
-            "Item2": "Dex"
+            "Item2": { "Skilllist": [ "Dex" ] }
           },
           {
             "Item1": "Dock Master",
-            "Item2": "End"
+            "Item2": { "Skilllist": [ "End" ] }
           }
         ]
       }
@@ -1752,31 +1861,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 600,
-        "Item2": "1D Ship Shares"
+        "Item2": { "Skilllist": [ "1D Ship Shares" ] }
       },
       {
         "Item1": 800,
-        "Item2": "Weapon"
+        "Item2": { "Skilllist": [ "Weapon" ] }
       },
       {
         "Item1": 1000,
-        "Item2": "1D8 Ship Shares"
+        "Item2": { "Skilllist": [ "1D8 Ship Shares" ] }
       },
       {
         "Item1": 8000,
-        "Item2": "Armour"
+        "Item2": { "Skilllist": [ "Armour" ] }
       },
       {
         "Item1": 16000,
-        "Item2": "1D6 Trade Contacts"
+        "Item2": { "Skilllist": [ "1D6 Trade Contacts" ] }
       },
       {
         "Item1": 320000,
-        "Item2": "1D12 Ship Shares"
+        "Item2": { "Skilllist": [ "1D12 Ship Shares" ] }
       },
       {
         "Item1": 640000,
-        "Item2": "Trade Ship"
+        "Item2": { "Skilllist": [ "Trade Ship" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Vacc Suit", "Pilot", "Engineer", "Drive", "Carouse", "Gambler" ],
@@ -1835,27 +1944,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Copy-Writer",
-            "Item2": "Art (write)"
+            "Item2": { "Skilllist": [ "Art (write)" ] }
           },
           {
             "Item1": "Market Innovator",
-            "Item2": "Int"
+            "Item2": { "Skilllist": [ "Int" ] }
           },
           {
             "Item1": "Marketeer",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Head of Marketeering ",
-            "Item2": "Soc"
+            "Item2": { "Skilllist": [ "Soc" ] }
           },
           {
             "Item1": "Vice-President of Marketing",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "President of Marketing",
-            "Item2": "Diplomat"
+            "Item2": { "Skilllist": [ "Diplomat" ] }
           }
         ]
       },
@@ -1874,27 +1983,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Clerk Desk Support Worker",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "Comm Support Worker",
-            "Item2": "Electronics(Comms)"
+            "Item2": { "Skilllist": [ "Electronics(Comms)" ] }
           },
           {
             "Item1": "Survey Reader",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Survey Writer",
-            "Item2": "Art (writing)"
+            "Item2": { "Skilllist": [ "Art (writing)" ] }
           },
           {
             "Item1": "VP Of Post Market Verification",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "President of Post Market Verification",
-            "Item2": "TAS Membership"
+            "Item2": { "Skilllist": [ "TAS Membership" ] }
           }
         ]
       },
@@ -1913,27 +2022,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Intern",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Analyst",
-            "Item2": "Advocate"
+            "Item2": { "Skilllist": [ "Advocate" ] }
           },
           {
             "Item1": "Researcher",
-            "Item2": "Science (any)"
+            "Item2": { "Skilllist": [ "Science (any)" ] }
           },
           {
             "Item1": "Interpreter",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "VP of Market Researc",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "President of Market Research",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           }
         ]
       }
@@ -1941,31 +2050,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 25000,
-        "Item2": "Ship Share"
+        "Item2": { "Skilllist": [ "Ship Share" ] }
       },
       {
         "Item1": 50000,
-        "Item2": "Corporate Information"
+        "Item2": { "Skilllist": [ "Corporate Information" ] }
       },
       {
         "Item1": 75000,
-        "Item2": "False Idenity Creator"
+        "Item2": { "Skilllist": [ "False Idenity Creator" ] }
       },
       {
         "Item1": 90000,
-        "Item2": "1D4 Contacts"
+        "Item2": { "Skilllist": [ "1D4 Contacts" ] }
       },
       {
         "Item1": 100000,
-        "Item2": "Ship"
+        "Item2": { "Skilllist": [ "Ship" ] }
       },
       {
         "Item1": 500000,
-        "Item2": "1D Ship Shares"
+        "Item2": { "Skilllist": [ "1D Ship Shares" ] }
       },
       {
         "Item1": 1000000,
-        "Item2": "High Value Corporate Information"
+        "Item2": { "Skilllist": [ "High Value Corporate Information" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Language", "Soc", "Int", "Edu", "Admin", "Deception" ],
@@ -2020,27 +2129,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Crazy homeless person",
-            "Item2": "A stick"
+            "Item2": { "Skilllist": [ "A stick" ] }
           },
           {
             "Item1": "Shack in the woods",
-            "Item2": "A *big* stick"
+            "Item2": { "Skilllist": [ "A *big* stick" ] }
           },
           {
             "Item1": "Underground apartment",
-            "Item2": "Metal pipe"
+            "Item2": { "Skilllist": [ "Metal pipe" ] }
           },
           {
             "Item1": "Backwater town",
-            "Item2": "Weapon"
+            "Item2": { "Skilllist": [ "Weapon" ] }
           },
           {
             "Item1": "Preper",
-            "Item2": "Prep Bunker"
+            "Item2": { "Skilllist": [ "Prep Bunker" ] }
           },
           {
             "Item1": "Planet owning Preper",
-            "Item2": "Planet"
+            "Item2": { "Skilllist": [ "Planet" ] }
           }
         ]
       },
@@ -2059,27 +2168,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Talking Head",
-            "Item2": "D3 Contact"
+            "Item2": { "Skilllist": [ "D3 Contact" ] }
           },
           {
             "Item1": "Bobble Head",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Famous Head",
-            "Item2": "Soc"
+            "Item2": { "Skilllist": [ "Soc" ] }
           },
           {
             "Item1": "Party Affiliate",
-            "Item2": "Contact"
+            "Item2": { "Skilllist": [ "Contact" ] }
           },
           {
             "Item1": "Political Pundit",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Politician",
-            "Item2": "Diplmoat"
+            "Item2": { "Skilllist": [ "Diplmoat" ] }
           }
         ]
       },
@@ -2098,27 +2207,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "-",
-            "Item2": "Stealth 3"
+            "Item2": { "Skilllist": [ "Stealth 3" ] }
           }
         ]
       }
@@ -2126,31 +2235,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 700,
-        "Item2": "Xiao-Ming ID"
+        "Item2": { "Skilllist": [ "Xiao-Ming ID" ] }
       },
       {
         "Item1": 1400,
-        "Item2": "Stealth Suit"
+        "Item2": { "Skilllist": [ "Stealth Suit" ] }
       },
       {
         "Item1": 2800,
-        "Item2": "1D Smuggler Contacts"
+        "Item2": { "Skilllist": [ "1D Smuggler Contacts" ] }
       },
       {
         "Item1": 4000,
-        "Item2": "Stealth Weapon"
+        "Item2": { "Skilllist": [ "Stealth Weapon" ] }
       },
       {
         "Item1": 8000,
-        "Item2": "Stealth Augment"
+        "Item2": { "Skilllist": [ "Stealth Augment" ] }
       },
       {
         "Item1": 16000,
-        "Item2": "1d10 KG's of drugs"
+        "Item2": { "Skilllist": [ "1d10 KG's of drugs" ] }
       },
       {
         "Item1": 32000,
-        "Item2": "Letter to buy familial debts from  the Corporation"
+        "Item2": { "Skilllist": [ "Letter to buy familial debts from  the Corporation" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Language (Xiao-Ming)", "Persuade", "Stealth", "Recon", "Streetwise", "Language (Axios Common)" ],
@@ -2205,27 +2314,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Intern",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Low Level Staffer",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "Senior Staffer",
-            "Item2": "Advocate"
+            "Item2": { "Skilllist": [ "Advocate" ] }
           },
           {
             "Item1": "Inner Circle",
-            "Item2": "Diplomat"
+            "Item2": { "Skilllist": [ "Diplomat" ] }
           },
           {
             "Item1": "Candidate",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Party Leader",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           }
         ]
       },
@@ -2244,27 +2353,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Intern",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Low Level Staffer",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "Senior Staffer",
-            "Item2": "Advocate"
+            "Item2": { "Skilllist": [ "Advocate" ] }
           },
           {
             "Item1": "Inner Circle",
-            "Item2": "Diplomat"
+            "Item2": { "Skilllist": [ "Diplomat" ] }
           },
           {
             "Item1": "Candidate",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Party Leader",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           }
         ]
       },
@@ -2283,27 +2392,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Intern",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Low Level Staffer",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "Senior Staffer",
-            "Item2": "Advocate"
+            "Item2": { "Skilllist": [ "Advocate" ] }
           },
           {
             "Item1": "Inner Circle",
-            "Item2": "Diplomat"
+            "Item2": { "Skilllist": [ "Diplomat" ] }
           },
           {
             "Item1": "Candidate",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Party Leader",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           }
         ]
       }
@@ -2311,31 +2420,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 800,
-        "Item2": "1D Imperial Contacts"
+        "Item2": { "Skilllist": [ "1D Imperial Contacts" ] }
       },
       {
         "Item1": 3000,
-        "Item2": "TAS Membership"
+        "Item2": { "Skilllist": [ "TAS Membership" ] }
       },
       {
         "Item1": 5000,
-        "Item2": "1D Versian Contacts"
+        "Item2": { "Skilllist": [ "1D Versian Contacts" ] }
       },
       {
         "Item1": 7000,
-        "Item2": "Political Secretes"
+        "Item2": { "Skilllist": [ "Political Secretes" ] }
       },
       {
         "Item1": 9000,
-        "Item2": "1D Britannian Contacts"
+        "Item2": { "Skilllist": [ "1D Britannian Contacts" ] }
       },
       {
         "Item1": 20000,
-        "Item2": "2 Ship Shares"
+        "Item2": { "Skilllist": [ "2 Ship Shares" ] }
       },
       {
         "Item1": 45000,
-        "Item2": "Personal Servant Robot"
+        "Item2": { "Skilllist": [ "Personal Servant Robot" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Language (Low Imperial)", "Persuade", "Language (Britannian)", "Streetwise", "Advocate", "Language (High Imperial)" ],
@@ -2394,27 +2503,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Associate",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Soldier",
-            "Item2": "Gun Combat"
+            "Item2": { "Skilllist": [ "Gun Combat" ] }
           },
           {
             "Item1": "Caporegime",
-            "Item2": "Stealth"
+            "Item2": { "Skilllist": [ "Stealth" ] }
           },
           {
             "Item1": "Consigliere",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "Underboss",
-            "Item2": "Gambler"
+            "Item2": { "Skilllist": [ "Gambler" ] }
           },
           {
             "Item1": "Boss",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -2433,27 +2542,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Associate",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Soldier",
-            "Item2": "Gun Combat"
+            "Item2": { "Skilllist": [ "Gun Combat" ] }
           },
           {
             "Item1": "Caporegime",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "Consigliere",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Underboss",
-            "Item2": "Gambler"
+            "Item2": { "Skilllist": [ "Gambler" ] }
           },
           {
             "Item1": "Boss",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -2472,27 +2581,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Associate ",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Soldier",
-            "Item2": "Gun Combat"
+            "Item2": { "Skilllist": [ "Gun Combat" ] }
           },
           {
             "Item1": "Caporegime",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "Consigliere",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Underboss",
-            "Item2": "Gamber"
+            "Item2": { "Skilllist": [ "Gamber" ] }
           },
           {
             "Item1": "Boss",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       }
@@ -2500,31 +2609,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 600,
-        "Item2": "Weapon"
+        "Item2": { "Skilllist": [ "Weapon" ] }
       },
       {
         "Item1": 2000,
-        "Item2": "Imperial Shuttle"
+        "Item2": { "Skilllist": [ "Imperial Shuttle" ] }
       },
       {
         "Item1": 4000,
-        "Item2": "Armour"
+        "Item2": { "Skilllist": [ "Armour" ] }
       },
       {
         "Item1": 20000,
-        "Item2": "1D High Ranking Imperial Contacts"
+        "Item2": { "Skilllist": [ "1D High Ranking Imperial Contacts" ] }
       },
       {
         "Item1": 25000,
-        "Item2": "Fake TAS Membership"
+        "Item2": { "Skilllist": [ "Fake TAS Membership" ] }
       },
       {
         "Item1": 30000,
-        "Item2": "Fake ID for any other nation"
+        "Item2": { "Skilllist": [ "Fake ID for any other nation" ] }
       },
       {
         "Item1": 40000,
-        "Item2": "TAS Membership"
+        "Item2": { "Skilllist": [ "TAS Membership" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Streetwise", "Str", "Dex", "Deception", "Soc", "Stealth" ],
@@ -2579,27 +2688,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Farm Worker",
-            "Item2": "Animals"
+            "Item2": { "Skilllist": [ "Animals" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Jr Farm Hand",
-            "Item2": "Mechanic"
+            "Item2": { "Skilllist": [ "Mechanic" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Sr Farm Hand",
-            "Item2": "Animals"
+            "Item2": { "Skilllist": [ "Animals" ] }
           },
           {
             "Item1": "Field Master",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -2618,27 +2727,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Stockworker",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Employee",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Manager",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Store Owner",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Senior Merchant",
-            "Item2": "Persadue"
+            "Item2": { "Skilllist": [ "Persadue" ] }
           },
           {
             "Item1": "Master Merchant",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -2657,27 +2766,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Re-Copier",
-            "Item2": "Art (Writing)"
+            "Item2": { "Skilllist": [ "Art (Writing)" ] }
           },
           {
             "Item1": "First Copier",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Translator",
-            "Item2": "Language"
+            "Item2": { "Skilllist": [ "Language" ] }
           },
           {
             "Item1": "Jr. Drafter",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Sr. Drafter",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Master Drafter",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       }
@@ -2685,31 +2794,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 2,
-        "Item2": "Car"
+        "Item2": { "Skilllist": [ "Car" ] }
       },
       {
         "Item1": 25,
-        "Item2": "1D4 Contacts"
+        "Item2": { "Skilllist": [ "1D4 Contacts" ] }
       },
       {
         "Item1": 250,
-        "Item2": "House"
+        "Item2": { "Skilllist": [ "House" ] }
       },
       {
         "Item1": 2500,
-        "Item2": "1D6 Contacts"
+        "Item2": { "Skilllist": [ "1D6 Contacts" ] }
       },
       {
         "Item1": 25000,
-        "Item2": "Small Business "
+        "Item2": { "Skilllist": [ "Small Business" ] }
       },
       {
         "Item1": 50000,
-        "Item2": "1D12 Ship Shares"
+        "Item2": { "Skilllist": [ "1D12 Ship Shares" ] }
       },
       {
         "Item1": 100000,
-        "Item2": "500Cr/Month Pension"
+        "Item2": { "Skilllist": [ "500Cr/Month Pension" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Language (Common)", "Str", "Edu", "Soc", "Language (High Imperial)", "Dex" ],
@@ -2768,27 +2877,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Guild Recruit",
-            "Item2": "Gun Combat (Void)"
+            "Item2": { "Skilllist": [ "Gun Combat (Void)" ] }
           },
           {
             "Item1": "Guild Member",
-            "Item2": "Melee (Void)"
+            "Item2": { "Skilllist": [ "Melee (Void)" ] }
           },
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "Guild Leader",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Guild Master",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -2807,27 +2916,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Guild Recruit",
-            "Item2": "Pilot"
+            "Item2": { "Skilllist": [ "Pilot" ] }
           },
           {
             "Item1": "Guild Member",
-            "Item2": "Astrogation"
+            "Item2": { "Skilllist": [ "Astrogation" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Guild Leader",
-            "Item2": "Tactics (Navy)"
+            "Item2": { "Skilllist": [ "Tactics (Navy)" ] }
           },
           {
             "Item1": "Guild Master",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -2846,27 +2955,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Guild Recruit",
-            "Item2": "Guild Magic"
+            "Item2": { "Skilllist": [ "Guild Magic" ] }
           },
           {
             "Item1": "Guild Member",
-            "Item2": "Psi"
+            "Item2": { "Skilllist": [ "Psi" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "-",
-            "Item2": ""
+            "Item2": { "Skilllist": [ "" ] }
           },
           {
             "Item1": "Guild Leader",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Guild Master",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       }
@@ -2874,31 +2983,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 3200,
-        "Item2": "Guild-Robes"
+        "Item2": { "Skilllist": [ "Guild-Robes" ] }
       },
       {
         "Item1": 6400,
-        "Item2": "Guild-Weapon"
+        "Item2": { "Skilllist": [ "Guild-Weapon" ] }
       },
       {
         "Item1": 12800,
-        "Item2": "Guild-ID"
+        "Item2": { "Skilllist": [ "Guild-ID" ] }
       },
       {
         "Item1": 25600,
-        "Item2": "Guild-Armour"
+        "Item2": { "Skilllist": [ "Guild-Armour" ] }
       },
       {
         "Item1": 512000,
-        "Item2": "Guild-Ship"
+        "Item2": { "Skilllist": [ "Guild-Ship" ] }
       },
       {
         "Item1": 1024000,
-        "Item2": "Guild-Key"
+        "Item2": { "Skilllist": [ "Guild-Key" ] }
       },
       {
         "Item1": 2048000,
-        "Item2": "TAS Membership"
+        "Item2": { "Skilllist": [ "TAS Membership" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Guild Magic", "Soc", "Mechanic", "Language(Tekka)", "Melee (Void)", "Guild Magic" ],
@@ -2953,27 +3062,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Jr. Starman",
-            "Item2": "PIlot"
+            "Item2": { "Skilllist": [ "PIlot" ] }
           },
           {
             "Item1": "Sr. Starman",
-            "Item2": "Gunner"
+            "Item2": { "Skilllist": [ "Gunner" ] }
           },
           {
             "Item1": "Ensign",
-            "Item2": "Engineer"
+            "Item2": { "Skilllist": [ "Engineer" ] }
           },
           {
             "Item1": "Lieutenant",
-            "Item2": "Tactics (Navy)"
+            "Item2": { "Skilllist": [ "Tactics (Navy)" ] }
           },
           {
             "Item1": "Commander",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "Captain",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -2992,27 +3101,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Pilot",
-            "Item2": "Pilot (Small Craft)"
+            "Item2": { "Skilllist": [ "Pilot (Small Craft)" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Gunner"
+            "Item2": { "Skilllist": [ "Gunner" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Gunner"
+            "Item2": { "Skilllist": [ "Gunner" ] }
           },
           {
             "Item1": "Wing Commander",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "Flight Captain",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Flight Commander",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           }
         ]
       },
@@ -3031,27 +3140,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Ensign",
-            "Item2": "Gun Combat (Energy)"
+            "Item2": { "Skilllist": [ "Gun Combat (Energy)" ] }
           },
           {
             "Item1": "Sargent",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Master Sergeant",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Lieutenant",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "Captain",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "Commander",
-            "Item2": "Diplomat"
+            "Item2": { "Skilllist": [ "Diplomat" ] }
           }
         ]
       }
@@ -3059,31 +3168,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 2500,
-        "Item2": "Int +1"
+        "Item2": { "Skilllist": [ "Int +1" ] }
       },
       {
         "Item1": 3000,
-        "Item2": "Gun"
+        "Item2": { "Skilllist": [ "Gun" ] }
       },
       {
         "Item1": 5000,
-        "Item2": "Augment"
+        "Item2": { "Skilllist": [ "Augment" ] }
       },
       {
         "Item1": 10000,
-        "Item2": "Dex +1"
+        "Item2": { "Skilllist": [ "Dex +1" ] }
       },
       {
         "Item1": 20000,
-        "Item2": "1D10 Ship Shares"
+        "Item2": { "Skilllist": [ "1D10 Ship Shares" ] }
       },
       {
         "Item1": 40000,
-        "Item2": "TAS Membership"
+        "Item2": { "Skilllist": [ "TAS Membership" ] }
       },
       {
         "Item1": 80000,
-        "Item2": "First Order Armour"
+        "Item2": { "Skilllist": [ "First Order Armour" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Tactics", "End", "Str", "Dex", "Gun Combat (Energy)", "Jack-Of-All-Trades/Luck" ],
@@ -3142,27 +3251,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Understudy",
-            "Item2": "Art (Performance)"
+            "Item2": { "Skilllist": [ "Art (Performance)" ] }
           },
           {
             "Item1": "Actor",
-            "Item2": "Persadue"
+            "Item2": { "Skilllist": [ "Persadue" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Art (performance)"
+            "Item2": { "Skilllist": [ "Art (performance)" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           },
           {
             "Item1": "Major Actor",
-            "Item2": "Deception"
+            "Item2": { "Skilllist": [ "Deception" ] }
           },
           {
             "Item1": "Famous Actor",
-            "Item2": "Soc +2"
+            "Item2": { "Skilllist": [ "Soc +2" ] }
           }
         ]
       },
@@ -3181,27 +3290,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Nobody",
-            "Item2": "Art (wrtier)"
+            "Item2": { "Skilllist": [ "Art (wrtier)" ] }
           },
           {
             "Item1": "Somebody",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Admin"
+            "Item2": { "Skilllist": [ "Admin" ] }
           },
           {
             "Item1": "-",
-            "Item2": "Art (Writer)"
+            "Item2": { "Skilllist": [ "Art (Writer)" ] }
           },
           {
             "Item1": "Writer",
-            "Item2": "Soc +2"
+            "Item2": { "Skilllist": [ "Soc +2" ] }
           },
           {
             "Item1": "Famous Writer",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           }
         ]
       },
@@ -3220,27 +3329,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Nobody",
-            "Item2": "Art"
+            "Item2": { "Skilllist": [ "Art" ] }
           },
           {
             "Item1": "Somebody",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           },
           {
             "Item1": "-",
-            "Item2": " "
+            "Item2": { "Skilllist": [ " " ] }
           },
           {
             "Item1": "-",
-            "Item2": "Art"
+            "Item2": { "Skilllist": [ "Art" ] }
           },
           {
             "Item1": "Artist",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           },
           {
             "Item1": "Famous Artist",
-            "Item2": "Soc +2"
+            "Item2": { "Skilllist": [ "Soc +2" ] }
           }
         ]
       }
@@ -3248,31 +3357,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 0,
-        "Item2": "1D4 Art Contacts"
+        "Item2": { "Skilllist": [ "1D4 Art Contacts" ] }
       },
       {
         "Item1": 25,
-        "Item2": "Soc +1"
+        "Item2": { "Skilllist": [ "Soc +1" ] }
       },
       {
         "Item1": 50,
-        "Item2": "1D4 Political Contacts"
+        "Item2": { "Skilllist": [ "1D4 Political Contacts" ] }
       },
       {
         "Item1": 1000,
-        "Item2": "Edu +1"
+        "Item2": { "Skilllist": [ "Edu +1" ] }
       },
       {
         "Item1": 50000,
-        "Item2": "Published/shown in major outlet"
+        "Item2": { "Skilllist": [ "Published/shown in major outlet" ] }
       },
       {
         "Item1": 100000,
-        "Item2": "Soc +1"
+        "Item2": { "Skilllist": [ "Soc +1" ] }
       },
       {
         "Item1": 250000,
-        "Item2": "Dex +1"
+        "Item2": { "Skilllist": [ "Dex +1" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Art", "Dex", "Int", "Language", "Electronics", "Jack-Of-All-Trades/Luck" ],
@@ -3331,27 +3440,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Intern ",
-            "Item2": "Steward"
+            "Item2": { "Skilllist": [ "Steward" ] }
           },
           {
             "Item1": "Sales Associate",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Master Seller",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Head of Sales",
-            "Item2": "Carouse"
+            "Item2": { "Skilllist": [ "Carouse" ] }
           },
           {
             "Item1": "Vice President of Interdepartmental Sales",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "President of Interdepartmental Sales",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           }
         ]
       },
@@ -3370,27 +3479,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Intern",
-            "Item2": "Steward"
+            "Item2": { "Skilllist": [ "Steward" ] }
           },
           {
             "Item1": "Sales Associate",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Master Seller",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Head of Sales",
-            "Item2": "Carouse"
+            "Item2": { "Skilllist": [ "Carouse" ] }
           },
           {
             "Item1": "Vice President of International Sales",
-            "Item2": "Leadereship"
+            "Item2": { "Skilllist": [ "Leadereship" ] }
           },
           {
             "Item1": "President of International Sales",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           }
         ]
       },
@@ -3409,27 +3518,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Intern",
-            "Item2": "Steward"
+            "Item2": { "Skilllist": [ "Steward" ] }
           },
           {
             "Item1": "Sales Associate",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Master Seller",
-            "Item2": "Broker"
+            "Item2": { "Skilllist": [ "Broker" ] }
           },
           {
             "Item1": "Head of Sales",
-            "Item2": "Carouse"
+            "Item2": { "Skilllist": [ "Carouse" ] }
           },
           {
             "Item1": "Vice President of Local Sales",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           },
           {
             "Item1": "President of Local Sales",
-            "Item2": "Soc +1"
+            "Item2": { "Skilllist": [ "Soc +1" ] }
           }
         ]
       }
@@ -3437,31 +3546,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 50000,
-        "Item2": "TAS Membership"
+        "Item2": { "Skilllist": [ "TAS Membership" ] }
       },
       {
         "Item1": 100000,
-        "Item2": "Ship"
+        "Item2": { "Skilllist": [ "Ship" ] }
       },
       {
         "Item1": 200000,
-        "Item2": "1D12 Ship Shares"
+        "Item2": { "Skilllist": [ "1D12 Ship Shares" ] }
       },
       {
         "Item1": 400000,
-        "Item2": "Shuttle"
+        "Item2": { "Skilllist": [ "Shuttle" ] }
       },
       {
         "Item1": 800000,
-        "Item2": "Stolen Corporate Credit Card"
+        "Item2": { "Skilllist": [ "Stolen Corporate Credit Card" ] }
       },
       {
         "Item1": 1600000,
-        "Item2": "1D10 Soc 10+ Business Contacts"
+        "Item2": { "Skilllist": [ "1D10 Soc 10+ Business Contacts" ] }
       },
       {
         "Item1": 3200000,
-        "Item2": "Xiao-Ming Executive Passport"
+        "Item2": { "Skilllist": [ "Xiao-Ming Executive Passport" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Soc", "Carouse", "Int", "Gambler", "Broker", "Deception" ],
@@ -3516,27 +3625,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Stick Sharpener",
-            "Item2": "Melee"
+            "Item2": { "Skilllist": [ "Melee" ] }
           },
           {
             "Item1": "Stick User",
-            "Item2": "Streetwise"
+            "Item2": { "Skilllist": [ "Streetwise" ] }
           },
           {
             "Item1": "People Watcher",
-            "Item2": "Recon"
+            "Item2": { "Skilllist": [ "Recon" ] }
           },
           {
             "Item1": "Gun Getter",
-            "Item2": "Gun Combat (Archaic)"
+            "Item2": { "Skilllist": [ "Gun Combat (Archaic)" ] }
           },
           {
             "Item1": "Group Leader",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Group Leader - Tactics (Military)",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -3555,27 +3664,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Stabber",
-            "Item2": "Melee (Bludgeon)"
+            "Item2": { "Skilllist": [ "Melee (Bludgeon)" ] }
           },
           {
             "Item1": "Sr. Stabber",
-            "Item2": "Melee (Blade)"
+            "Item2": { "Skilllist": [ "Melee (Blade)" ] }
           },
           {
             "Item1": "Gunny",
-            "Item2": "Gun Combat"
+            "Item2": { "Skilllist": [ "Gun Combat" ] }
           },
           {
             "Item1": "Sr. Gunny",
-            "Item2": "Heavy Weapons"
+            "Item2": { "Skilllist": [ "Heavy Weapons" ] }
           },
           {
             "Item1": "Tellguy",
-            "Item2": "Tactics (Military)"
+            "Item2": { "Skilllist": [ "Tactics (Military)" ] }
           },
           {
             "Item1": "Bossman",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       },
@@ -3594,27 +3703,27 @@
         "RanksAndBonuses": [
           {
             "Item1": "Shipboy",
-            "Item2": "Engineer"
+            "Item2": { "Skilllist": [ "Engineer" ] }
           },
           {
             "Item1": "Shipman",
-            "Item2": "Pilot"
+            "Item2": { "Skilllist": [ "Pilot" ] }
           },
           {
             "Item1": "Runner",
-            "Item2": "Astrogation"
+            "Item2": { "Skilllist": [ "Astrogation" ] }
           },
           {
             "Item1": "Gunner",
-            "Item2": "Gunner"
+            "Item2": { "Skilllist": [ "Gunner" ] }
           },
           {
             "Item1": "Teller",
-            "Item2": "Tactics (Navy)"
+            "Item2": { "Skilllist": [ "Tactics (Navy)" ] }
           },
           {
             "Item1": "Cap-E-tan ",
-            "Item2": "Leadership"
+            "Item2": { "Skilllist": [ "Leadership" ] }
           }
         ]
       }
@@ -3622,31 +3731,31 @@
     "MusteringOutBenefits": [
       {
         "Item1": 5,
-        "Item2": "Fake ID"
+        "Item2": { "Skilllist": [ "Fake ID" ] }
       },
       {
         "Item1": 10,
-        "Item2": "Fake TAS Membership"
+        "Item2": { "Skilllist": [ "Fake TAS Membership" ] }
       },
       {
         "Item1": 100,
-        "Item2": "Gun"
+        "Item2": { "Skilllist": [ "Gun" ] }
       },
       {
         "Item1": 250,
-        "Item2": "Melee Weapon"
+        "Item2": { "Skilllist": [ "Melee Weapon" ] }
       },
       {
         "Item1": 500,
-        "Item2": "Armour"
+        "Item2": { "Skilllist": [ "Armour" ] }
       },
       {
         "Item1": 1000,
-        "Item2": "1D6 Ship Shares"
+        "Item2": { "Skilllist": [ "1D6 Ship Shares" ] }
       },
       {
         "Item1": 10000,
-        "Item2": "Stolen Ship"
+        "Item2": { "Skilllist": [ "Stolen Ship" ] }
       }
     ],
     "PersonalDevelopmentSkillList": [ "Str", "Gun Combat(Archaic)", "Dex", "Melee", "End", "Pilot" ],
