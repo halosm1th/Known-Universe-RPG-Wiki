@@ -63,7 +63,7 @@
         {
             if (@Model.JobID != null)
             {
-            <p style="color: black; text-align: center; font-size: xx-large; background-color: red; padding: 5px">Error no job with the ID: @Model.JobID</p>
+                <p style="color: black; text-align: center; font-size: xx-large; background-color: red; padding: 5px">Error no job with the ID: @Model.JobID</p>
             }
 
             <table style="width: 100%">
@@ -71,7 +71,7 @@
                     <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Job ID</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th></tr>
                 </thead>
                 <tbody style="text-align: center; padding: 5px; color: #ffe81F">
-                    @foreach (var job in JobBoardService.GetNonTASJobs(Model.JobID==null? 15 : -1).OrderBy(job => Convert.ToInt32(job.JobDescription)))
+                    @foreach (var job in JobBoardService.GetNonTASJobs(Model.JobID == null ? 15 : -1).OrderBy(job => Convert.ToInt32(job.JobDescription)))
                     {
                         <tr id="tableInfo">
                             <td style="border-style: solid">@job.JobTitle</td>
@@ -126,5 +126,6 @@
                 }
             </tbody>
         </table>
-    }
+    }   <h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
+
 </body>
