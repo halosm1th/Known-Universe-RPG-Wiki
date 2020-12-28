@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobBoardCreator;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -16,7 +17,6 @@ namespace TravellerWiki
         [BindProperty(SupportsGet = true)] public bool InvalidID { get; set; }
         public void OnGet()
         {
-
         }
 
         /*
