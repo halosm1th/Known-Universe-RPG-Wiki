@@ -52,19 +52,19 @@ else
             <tbody style="color:#ffe81F">
                 <tr>
                     <td style="padding: 10px;border-style: solid">@npc.Name.Replace("_", " ")</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Modifier(npc.Strength) [@npc.Strength]</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Modifier(npc.Dexterity) [@npc.Dexterity]</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Modifier(npc.Endurance) [@npc.Endurance]</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Modifier(npc.Intelligence) [@npc.Intelligence]</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Modifier(npc.Education) [@npc.Education]</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Modifier(npc.Social) [@npc.Social]</td>
+                    <td style="padding: 10px;border-style: solid">@npc.Strength.ToString()</td>
+                    <td style="padding: 10px;border-style: solid">@npc.Dexterity.ToString()</td>
+                    <td style="padding: 10px;border-style: solid">@npc.Endurance.ToString()</td>
+                    <td style="padding: 10px;border-style: solid">@npc.Intelligence.ToString()</td>
+                    <td style="padding: 10px;border-style: solid">@npc.Education.ToString()</td>
+                    <td style="padding: 10px;border-style: solid">@npc.Social.ToString()</td>
                     <td style="padding: 10px;border-style: solid">
                         @{
-                            var skills = npc.SkillDictionary
+                            var skills = npc.SkillList
                                 .Where(skill
-                                    => !BadSkills.Contains(skill.Key))
+                                    => !BadSkills.Contains(skill.SkillName))
                                 .Select(skills
-                                    => $"{skills.Key}:{skills.Value}")
+                                    => $"{skills.SkillName}:{skills.SkillValue}")
                                 .ToArray();
 
                             foreach (var skill in skills)

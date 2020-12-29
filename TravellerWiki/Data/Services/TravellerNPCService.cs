@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
+using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
@@ -506,7 +508,8 @@ namespace TravellerWiki.Data
             var background = rand.Next(0, 8);
             var career = rand.Next(0, 16);
 
-            var skillDictionary = SkillDictionary(background, career, rand);
+            var skillList = SkillList(background, career, rand);
+            var attributeList = AttributeList(skillList,rand);
 
             var name = await GetName(nationNameList);
             var backgroundName = GetBackgroundName(background);
@@ -517,7 +520,8 @@ namespace TravellerWiki.Data
 
             var npc = new TravellerNPC
             {
-                SkillDictionary = skillDictionary,
+                SkillList = skillList,
+                AttributeList = attributeList,
                 Name = name,
                 Background = backgroundName,
                 Career = careerName,
@@ -527,37 +531,85 @@ namespace TravellerWiki.Data
             return npc;
         }
 
-        private Dictionary<string, int> SkillDictionary(int background, int career, Random rng)
+        private List<TravellerAttribute> AttributeList(List<TravellerSkill> skills, Random rng)
+        {
+            var attributes = new List<TravellerAttribute>();
+
+            attributes.Add(GenerateAttributeFromSkills("Str",skills, rng));
+            attributes.Add(GenerateAttributeFromSkills("Dex",skills, rng));
+            attributes.Add(GenerateAttributeFromSkills("End",skills, rng));
+            attributes.Add(GenerateAttributeFromSkills("Int",skills, rng));
+            attributes.Add(GenerateAttributeFromSkills("Edu",skills, rng));
+            attributes.Add(GenerateAttributeFromSkills("Soc",skills, rng));
+
+
+            return attributes;
+        }
+
+        private TravellerAttribute GenerateAttributeFromSkills(string attributeName, List<TravellerSkill> skills, Random rng)
+        {
+            int attMod = 0;
+            if (skills.Any(skill => skill.SkillName == attributeName))
+            {
+                attMod = skills.Where(skill => skill.SkillName == attributeName)
+                    .Select(skill => skill.SkillValue).Aggregate(0, (h, t) => h + t);
+            }
+
+            var attribute = GetAttribute(attributeName);
+
+            return new TravellerAttribute(attribute, rng.Next(2, 13) + attMod);
+        }
+
+        private TravellerAttributes GetAttribute(string shortHand)
+         {
+             switch (shortHand)
+             {
+                case "Dex":
+                    return TravellerAttributes.Dexterity;
+                    
+                case "End":
+                    return TravellerAttributes.Endurance;
+                case "Int":
+                    return TravellerAttributes.Intelligence;
+                case "Edu":
+                    return TravellerAttributes.Education;
+                case "Soc":
+                    return TravellerAttributes.Social;
+                case "Psi":
+                    return TravellerAttributes.Psionics;
+                case "San":
+                    return TravellerAttributes.Sanity;
+                case "Str":
+                default:
+                    return TravellerAttributes.Strength;
+            }
+         }
+
+        private List<TravellerSkill> SkillList(int background, int career, Random rng)
         {
             var backgroundStats = GetBackgroundSkillsAsync(background);
             var careerStats = GetCareerSkillsAsync(career);
 
-            var skillDictionary = new Dictionary<string, int>();
+            var skillList = new List<TravellerSkill>();
 
             foreach (var skill in backgroundStats)
             {
-                skillDictionary.Add(skill.Key, skill.Value);
+                skillList.Add(new TravellerSkill(skill.Key, skill.Value));
             }
 
             foreach (var skill in careerStats)
             {
-                if (skillDictionary.ContainsKey(skill.Key))
+                if (skillList.Any(listSkill => listSkill.SkillName == skill.Key))
                 {
-                    skillDictionary[skill.Key] += skill.Value == 0 ? 1 : skill.Value;
+                    skillList.First(listSkill => listSkill.SkillName == skill.Key).SkillValue += skill.Value == 0 ? 1 : skill.Value;
                 }
                 else
                 {
-                    skillDictionary[skill.Key] = skill.Value;
+                    skillList.Add(new TravellerSkill(skill.Key,skill.Value));
                 }
             }
 
-            skillDictionary["Str"] = rng.Next(2, 13);
-            skillDictionary["Dex"] = rng.Next(2, 13);
-            skillDictionary["End"] = rng.Next(2, 13);
-            skillDictionary["Int"] = rng.Next(2, 13);
-            skillDictionary["Edu"] = rng.Next(2, 13);
-            skillDictionary["Soc"] = rng.Next(2, 13);
-            return skillDictionary;
+            return skillList;
         }
     }
 }

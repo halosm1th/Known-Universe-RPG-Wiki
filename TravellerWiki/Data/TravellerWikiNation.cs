@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TravellerWiki.Data
 {
-    public class WikiNation
+    public class TravellerWikiNation
     {
         public enum Relationship
         {
@@ -14,10 +14,12 @@ namespace TravellerWiki.Data
 
         public string Name { get; }
         
+        public TravellerNationsCharacterInfo PatronNationInfo { get; set; }
+
         public Dictionary<(string Name, string URL), Relationship> Relationships { get; set; }
         
         //World, Text
         public Dictionary<string,string> WorldsControlled { get; set; }
-
+        
     }
 }
