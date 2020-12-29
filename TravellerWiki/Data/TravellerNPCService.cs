@@ -496,7 +496,6 @@ namespace TravellerWiki.Data
             }
             catch (Exception e)
                 {
-                    var x = 1 + 2;
                     Console.WriteLine(e);
                 }
             return npcList;

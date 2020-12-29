@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace TravellerWiki.Data
 {
+#nullable enable
     public class TravellerCharacterCreationRewardJSON
     {
         public List<string> Skilllist { get; set; }
