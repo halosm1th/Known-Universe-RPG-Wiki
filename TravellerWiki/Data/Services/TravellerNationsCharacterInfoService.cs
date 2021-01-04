@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
@@ -13,16 +14,18 @@ namespace TravellerWiki.Data
                 "Universalis Confederation",
                 new TravellerNationsCharacterInfo("Universalis Confederation",
                     backgroundText: "The Universalis Confederation exists as both a government and a forum for the major nations to conduct peace negotiations and try and prevent war. While 90%+ of the population who legally are with the Universalis Confederation are also Witchers, the remaining people are mostly those who happened to work within the Confederation or their children.",
-                    statChanges: new List<(string Stat, int ChangeBy)>
+                    statChanges: new List<TravellerAttribute>
                     {
-                        ("Edu",2),("Soc",1),("End",-2)
+                        new TravellerAttribute(TravellerAttributes.Education,2),
+                        new TravellerAttribute(TravellerAttributes.Social,1),
+                        new TravellerAttribute(TravellerAttributes.Endurance,-2),
                     },
                     perks:new List<string>
                     {
                         "UC Passport",
                         "TAS Membership"
                     },
-                    backgroundSkills:new List<string>
+                    backgroundSkills:new List<TravellerSkill>
                     {
                         "Admin",
                         "Animals",
