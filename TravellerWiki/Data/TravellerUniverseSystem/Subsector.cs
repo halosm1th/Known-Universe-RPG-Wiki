@@ -6,88 +6,42 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace TravellerUniverse
 {
-    class Subsector
+    public class Subsector
     {
+        [JsonProperty]
         public World[,] Systems;
-        public long WorldCount => (long) Systems.Cast<World>().Count( system => system.HasWorld);
-
+        public long WorldCount => (long)Systems.Cast<World>().Count(system => system.HasWorld);
+        [JsonProperty]
         public string Name;
-        private static List<string> names = File.ReadAllLines(Directory.GetCurrentDirectory() + "/placeName.txt").ToList();
-       // private static List<string> usedNames = new List<string>();
 
-        private static Random random = new Random();
-        private Sector _sector;
-        public Subsector(int x,int y, Sector sector)
+        public Subsector(string name, List<World> worlds)
         {
-            Name = GenerateName() + $" subsector {x},{y}";
-            Systems = new World[10, 8];
-            _sector = sector;
-        }
-
-        public Subsector(List<string> worlds,string name, Sector sector)
-        {
+            Systems = EmptySubsector();
             Name = name;
-            _sector = sector;
-                Systems = new World[10,8];
 
-            foreach (var worldText in worlds)
+            foreach (var world in worlds)
             {
-
-                var world = new World(worldText);
-                Systems[world.Y-1,world.X-1] = world;
-            }
-
-            for (int y = 0; y < Systems.GetLength(0); y++)
-            {
-                for (int x = 0; x < Systems.GetLength(1); x++)
-                {
-                    if (Systems[y, x] == null)
-                    {
-                        Systems[y, x] = new World(x, y,this);
-                    }
-                }
+                Systems[world.Y, world.X] = world;
             }
         }
 
-        public Subsector(List<string> worlds, Sector sector)
+        private World[,] EmptySubsector()
         {
-            //Get the name
-            Name = worlds[0];
-            worlds.RemoveAt(0);
-            //Remove the na,
-
-            _sector = sector;
-            Systems = new World[10, 8];
-
-            foreach (var worldText in worlds)
+            var worlds = new World[10, 8];
+            for (int y = 0; y < worlds.GetLength(0); y++)
             {
-
-                var world = new World(worldText);
-                Systems[world.Y - 1, world.X - 1] = world;
-            }
-
-            for (int y = 0; y < Systems.GetLength(0); y++)
-            {
-                for (int x = 0; x < Systems.GetLength(1); x++)
+                for (int x = 0; x < worlds.GetLength(1); x++)
                 {
-                    if (Systems[y, x] == null)
-                    {
-                        Systems[y, x] = new World(x, y, this);
-                    }
+                    worlds[y, x] = new World(x, y,this);
                 }
             }
-        }
-        public static string GenerateName()
-        {
 
-            var name = names[random.Next(0, names.Count)];
-
-            //names.Remove(name);
-            //usedNames.Add(name);
-            return name;
+            return worlds;
         }
 
         private string GetPlanets()
@@ -101,24 +55,6 @@ namespace TravellerUniverse
             return sb.ToString();
         }
 
-        public void GenerateSubsector(int worldOdds = 50)
-        {
-            
-                for (int y = 0; y < Systems.GetLength(0); y++)
-                {
-                    for (int x = 0; x < Systems.GetLength(1); x++)
-                    {
-                        if (random.Next(0, 101) <= worldOdds)
-                        {
-                            Systems[y, x] = new World(x, y, GenerateName(),this);
-                        }
-                        else
-                        {
-                            Systems[y, x] = new World(x, y,this);
-                        }
-                    }
-                }
-        }
 
         public List<World> Worlds()
         {

@@ -6,28 +6,42 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace TravellerUniverse
 {
-    class Subsector
+    public class Subsector
     {
+        [JsonProperty]
         public World[,] Systems;
         public long WorldCount => (long) Systems.Cast<World>().Count( system => system.HasWorld);
-
+        [JsonProperty]
         public string Name;
-        private static List<string> names = File.ReadAllLines(Directory.GetCurrentDirectory() + "/placeName.txt").ToList();
-       // private static List<string> usedNames = new List<string>();
 
-        private static Random random = new Random();
-        
-        public static string GenerateName()
+        public Subsector(string name, List<World> worlds)
         {
+            Systems = EmptySubsector();
+            Name = name;
+            
+            foreach (var world in worlds)
+            {
+                Systems[world.Y-1, world.X-1] = world;
+            }
+        }
 
-            var name = names[random.Next(0, names.Count)];
+        private World[,] EmptySubsector()
+        {
+            var worlds = new World[10, 8];
+            for (int y = 0; y < worlds.GetLength(0); y++)
+            {
+                for (int x = 0; x < worlds.GetLength(1); x++)
+                {
+                    worlds[y, x] = new World(x, y);
+                }
+            }
 
-            //names.Remove(name);
-            //usedNames.Add(name);
-            return name;
+            return worlds;
         }
 
         private string GetPlanets()

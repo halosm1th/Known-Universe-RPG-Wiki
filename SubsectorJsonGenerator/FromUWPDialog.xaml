@@ -1,0 +1,26 @@
+﻿<Window x:Class="SubsectorJsonGenerator.FromUWPDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SubsectorJsonGenerator"
+        mc:Ignorable="d"
+        Title="UWP DIalog" Height="120" Width="200" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStartupLocation="CenterOwner" WindowState="Normal">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="NAME 1234ABC-D X Y"></Label>
+        <TextBox Grid.Row="1" Grid.Column="0" Name="UPP"></TextBox>
+        <Label Grid.Row="2" Grid.Column="0"></Label>
+        <Button Grid.Row="3" Grid.Column="0" Content="Confirm UPP" Click="Button_Click"></Button>
+    </Grid>
+</Window>

@@ -42,11 +42,11 @@ namespace SubsectorJsonGenerator
             var hydrographics = WorldHydrographics.SelectedIndex;
             var controllingGovernmentType = WorldPrimaryGov.SelectedIndex;
             var population = WorldPopulation.SelectedIndex;
-            var exactPop = PopulationExact.Text;
             var lawLevel = WorldLawLevel.SelectedIndex;
             var techLevel = WorldTechLevel.SelectedIndex;
 
             var temperature = WorldTemperature.Text;
+            var exactPop = PopulationExact.Text;
             var quirk = WorldQuirk.Text;
             var controllingGov = CurrentGovernment.Text;
 
@@ -73,6 +73,9 @@ namespace SubsectorJsonGenerator
             WorldPrimaryGov.SelectedIndex = 0;
             WorldLawLevel.SelectedIndex = 0;
             WorldTechLevel.SelectedIndex = 0;
+
+            WorldPopulation.SelectedIndex = 0;
+            PopulationExact.Text = "";
 
             WorldTemperature.SelectedIndex = 0;
             WorldQuirk.SelectedIndex = 0;
@@ -129,6 +132,26 @@ namespace SubsectorJsonGenerator
             return factions;
         }
 
+        private void GenreateFromButton(object sender, RoutedEventArgs e)
+        {
+            var UWPdialog = new FromUWPDialog();
+            if (UWPdialog.ShowDialog() == true)
+            {
+                Name.Text = UWPdialog.Name;
+                WorldX.Text = UWPdialog.X;
+                WorldY.Text = UWPdialog.Y;
+
+                StarportQuality.SelectedIndex = UWPdialog.Starport;
+                WorldSize.SelectedIndex = UWPdialog.Size;
+                WorldAtmosphere.SelectedIndex = UWPdialog.Atmo;
+                WorldHydrographics.SelectedIndex = UWPdialog.Hydro;
+                WorldPopulation.SelectedIndex = UWPdialog.Pop;
+                WorldPrimaryGov.SelectedIndex = UWPdialog.Gov;
+                WorldLawLevel.SelectedIndex = UWPdialog.Law;
+                WorldTechLevel.SelectedIndex = UWPdialog.Tech;
+            }
+        }
+
         private void Enable1(object sender, RoutedEventArgs e)
         {
             Group1Backer.IsEnabled = HasGroup1.IsChecked ?? false;
@@ -150,7 +173,6 @@ namespace SubsectorJsonGenerator
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var json = JsonConvert.SerializeObject(worlds);
             var dialog = new Microsoft.Win32.SaveFileDialog();
             dialog.FileName = "";
             dialog.DefaultExt = ".json";
@@ -160,10 +182,13 @@ namespace SubsectorJsonGenerator
             if (result == true)
             {
                 var fn = dialog.FileName;
+                var subsector = new Subsector(fn.Remove(fn.IndexOf(".json", StringComparison.Ordinal)), worlds);
+
+                var json = JsonConvert.SerializeObject(subsector); 
                 File.WriteAllText(fn, json);
+                Environment.Exit(0);
             }
 
-            Environment.Exit(0);
         }
     }
 }

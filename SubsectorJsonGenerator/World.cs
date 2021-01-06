@@ -11,12 +11,12 @@ using Newtonsoft.Json;
 namespace TravellerUniverse
 {
     #region Enums!
-    enum StarportQuality
+    public enum StarportQuality
     {
         A=0,B,C,D,E,X
     }
 
-    enum WorldSize
+    public enum WorldSize
     {
         Statation,
         TinyMoon,
@@ -30,7 +30,7 @@ namespace TravellerUniverse
         HugeWorld,
         MassiveWorld
     }
-    enum WorldAtmosphere
+    public enum WorldAtmosphere
     {
         None,
         Trace,
@@ -51,7 +51,7 @@ namespace TravellerUniverse
     }
     #endregion
 
-    class World
+    public class World
     {
         #region Variables
 
@@ -133,6 +133,13 @@ namespace TravellerUniverse
         }
         #endregion Variables
         #region Constructors
+
+        public World(int x, int y, bool hasWorld = false)
+        {
+            HasWorld = hasWorld;
+            X = x;
+            Y = y;
+        }
 
         public World(string name, int x, int y, 
             StarportQuality starportQuality, WorldSize worldSize, WorldAtmosphere worldAtmosphere, 
