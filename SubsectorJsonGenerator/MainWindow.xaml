@@ -357,7 +357,7 @@
             <ComboBoxItem Content="Totalitarian Oligarchy"></ComboBoxItem>
         </ComboBox>
 
-        <ComboBox Grid.Row="11" Grid.Column="2" SelectedIndex="0" Name="Group2Size" IsEnabled="false">
+        <ComboBox Grid.Row="12" Grid.Column="2" SelectedIndex="0" Name="Group2Size" IsEnabled="false">
             <ComboBoxItem Content="Obscure Group"></ComboBoxItem>
             <ComboBoxItem Content="Fringe Group"></ComboBoxItem>
             <ComboBoxItem Content="Minor Group"></ComboBoxItem>
@@ -459,8 +459,16 @@
         <CheckBox Grid.Row="14" Grid.Column="1" Content="Military Base" Name="HasMilitaryBase"></CheckBox>
         <CheckBox Grid.Row="14" Grid.Column="2" Content="Other Base" Name="HasOtherBase"></CheckBox>
 
-        <Button Grid.Row="14" Grid.Column="3" Content="Save Planet To Subsector list and reset" Click="Button_Click"></Button>
+        <Button Grid.Row="14" Grid.Column="3" Name="AddButton" Content="Save Planet To Subsector list and reset" Click="Button_Click"></Button>
         <Label Grid.Row="15" Grid.Column="0" Content=" "></Label>
+        <Button Grid.Row="15" Grid.Column="2" Content="Delete" Click="DeleteEntry_OnClick"></Button>
+        
+        <ComboBox Grid.Row="15" Grid.Column="3" Name="WorldsDropdown" 
+                  SelectedIndex="0"
+                  SelectionChanged="WorldsDropdown_OnSelectionChanged">
+            <ComboBoxItem Content="New World"></ComboBoxItem>
+        </ComboBox>
+
         <Button Grid.Row="16" Grid.Column="3" Content="Save Subsector List and Exit" Click="Button_Click_1"></Button>
     </Grid>
 </Window>

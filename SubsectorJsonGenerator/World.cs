@@ -49,43 +49,102 @@ namespace TravellerUniverse
         Low,
         Unusual
     }
+
+
+    public enum Quirks
+    {
+    Sexist,
+    Religous,
+    Artistic,
+    Ritualised,
+    Conservative,
+    Xenophobic,
+
+    Taboo,
+    Deceptive,
+    Liberal,
+    Honourable,
+    Influenced,
+    Fusion,
+
+    Barbaric,
+    Remnant,
+    Degenerate,
+    Progressive,
+    Recovering,
+    Nexus,
+
+    TouristAttraction,
+    Violent,
+    Peaceful,
+    Obsessed,
+    Fashion,
+    AtWar,
+
+    Offworlders,
+    Starport,
+    Media,
+    Technology,
+    Lifecycle,
+    SocialStandings,
+
+    Trade,
+    Nobility,
+    Sex,
+    Eating,
+    Travel,
+    Conspiracy,
+}
+
+    public enum Temperatures
+    {
+        Frozen,
+            Cold,
+            Temperate,
+            Hot,
+            Boiling,
+            Error
+    }
+
+    public enum FactionSize
+    {
+        ObscureGroup,
+        FringeGroup,
+        MinorGroup,
+        NotableGroup,
+        SignificantGroup,
+        OverwhealmingPopularSupport
+    }
+
+
     #endregion
 
     public class World
     {
         #region Variables
 
-        [JsonProperty("HasWorld")]
-        public bool HasWorld { get; set; } = false;
-        [JsonProperty("WorldX")]
-        public int X { get; set; }
-        [JsonProperty("WorldY")]
-        public int Y { get; set; }
-        [JsonProperty("WorldName")]
-        public string Name { get; set; }
+        [JsonProperty("HasWorld")] public bool HasWorld { get; set; } = false;
+        [JsonProperty("WorldX")] public int X { get; set; }
+        [JsonProperty("WorldY")] public int Y { get; set; }
+        [JsonProperty("WorldName")] public string Name { get; set; }
+
         [JsonProperty("WorldControllingFaction")]
         public string ControllingFaction { get; set; }
-        [JsonProperty("WorldStarportQuality")]
-        public StarportQuality StarportQuality { get; set; }
-        [JsonProperty("WorldSize")]
-        public WorldSize WorldSize;
-        [JsonProperty("WorldAtmosphere")]
-        public WorldAtmosphere WorldAtmosphere { get; set; }
-        [JsonProperty("WorldHydrographics")]
-        public int WorldHydrographics { get; set; }
 
-        [JsonProperty("WorldPopulation")]
-        public int PopulationStat { get; set; }
-        [JsonProperty("WorldFactionCount")]
-        public int FactionCount => Factions.Count;
+        [JsonProperty("WorldStarportQuality")] public StarportQuality StarportQuality { get; set; }
+        [JsonProperty("WorldSize")] public WorldSize WorldSize;
+        [JsonProperty("WorldAtmosphere")] public WorldAtmosphere WorldAtmosphere { get; set; }
+        [JsonProperty("WorldHydrographics")] public int WorldHydrographics { get; set; }
 
-        [JsonProperty("WorldQuirk")]
-        public string Quirk { get; set; }
+        [JsonProperty("WorldPopulation")] public int PopulationStat { get; set; }
+        [JsonProperty("WorldFactionCount")] public int FactionCount => Factions.Count;
+
+        [JsonProperty("WorldQuirk")] public Quirks Quirk { get; set; }
 
         [JsonProperty("WorldTemperature")]
-        public string Temperature { get; set; }
+        public Temperatures Temperature { get; set; }
         [JsonProperty("")]
-        public List<(string GovernmentType, string Strength, string Backer)> Factions { get; set; }
+        public List<(int GovernmentType, FactionSize Strength, string Backer)> Factions { get; set; }
 
         public string Population => _population;
         public int GovernmentType { get; set; }
@@ -144,8 +203,8 @@ namespace TravellerUniverse
         public World(string name, int x, int y, 
             StarportQuality starportQuality, WorldSize worldSize, WorldAtmosphere worldAtmosphere, 
             int worldHydrographics, int governmentType,int population ,int lawLevel, int techLevel,
-            string controllingFaction, string quirk, string temperature,
-            List<(string GovernmentType, string Strength, string Backer)> factions, 
+            string controllingFaction, Quirks quirk, Temperatures temperature,
+            List<(int GovernmentType, FactionSize Strength, string Backer)> factions, 
              bool militaryBase, bool gasGiant, bool otherBase, string ExactPop )
         {
             WorldSize = worldSize;
@@ -565,9 +624,14 @@ namespace TravellerUniverse
             Factions = GenerateFactions();
         }
 
-        private string GenerateQuirk()
+        private Quirks GenerateQuirk()
         {
-            var number = Convert.ToInt32($"{die.Next(1, 7)}{die.Next(1, 7)}");
+            var quirks = Enum.GetValues(typeof(Quirks));
+            return (Quirks) die.Next(0, quirks.Length);
+        }
+
+        private string QuirkText(int number)
+        {
             switch (number)
             {
                 case 11:
@@ -652,34 +716,58 @@ namespace TravellerUniverse
             return "";
         }
 
-        private string GenerateTemperature(int number)
+        public string GetTemperatureText(Temperatures temp)
+        {
+            switch (temp)
+            {
+                case Temperatures.Frozen:
+                    return
+                        "Frozen | Average Temperate <-51 | Frozen World. No liquid water, very dry atmosphere";
+                case Temperatures.Cold:
+                    return
+                        "Cold | Average Temperature -51 - 0| Icy World. Little liquid water, extensive ice caps, few clouds";
+                case Temperatures.Temperate:
+                    return
+                        "Temperate | Average Temperature 0-30 | Temperate world. Earth-Like. Liquid & vaporised water are common. Moderate icecaps";
+                case Temperatures.Hot:
+                    return
+                        "Hot | Average Temperature 31-80 | Hot world. Small or no ice caps, little liquid water. most water in hte form of clouds.";
+                case Temperatures.Boiling:
+                    return "Boiling | Average Temperature 81+ | Boiling world. No ice caps, little liquid water";
+                case Temperatures.Error:
+                    return
+                        "There is an error in the TAS records for this planet. Consult your referee for more information";
+            }
+
+            return "Error in temperature code.";
+        }
+
+        private Temperatures GenerateTemperature(int number)
         {
             switch (number)
             {
                 case 0:
                 case 1:
                 case 2:
-                    return "Frozen | Average Temperate <-51 | Frozen World. No liquid water, very dry atmosphere";
+                    return Temperatures.Frozen;
                 case 3:
                 case 4:
-                    return
-                        "Cold | Average Temperature -51 - 0| Icy World. Little liquid water, extensive ice caps, few clouds";
+                    return Temperatures.Cold;
                 case 5:
                 case 6:
                 case 7:
                 case 8:
                 case 9:
-                    return
-                        "Temperate | Average Temperature 0-30 | Temperate world. Earth-Like. Liquid & vaporised water are common. Moderate icecaps";
+                    return Temperatures.Temperate;
                 case 10:
                 case 11:
                     return
-                        "Hot | Average Temperature 31-80 | Hot world. Small or no ice caps, little liquid water. most water in hte form of clouds.";
+                        Temperatures.Hot;
                 case 12:
-                    return "Boiling | Average Temperature 81+ | Boiling world. No ice caps, little liquid water";
+                    return Temperatures.Boiling;
             }
 
-            return "Error";
+            return Temperatures.Error;
         }
 
         private int _factionCount = 0;
@@ -691,16 +779,31 @@ namespace TravellerUniverse
             else if (GovernmentType == 10) _factionCount--;
         }
 
-        private List<(string, string, string)> GenerateFactions()
+        private List<(int, FactionSize, string)> GenerateFactions()
         {
-            var factions = new List<(string, string,string)>();
+            var factions = new List<(int, FactionSize, string)>();
             GenerateInitialFactionCount();
             for (int i = 0; i < _factionCount; i++)
             {
-                factions.Add((GovernmentTypeDescrption(Roll2D6()), GetFactionStrengthText(Roll2D6()),""));
+                factions.Add((Roll2D6(), GetFactionStrengthFromNumber(die.Next(0,6)),""));
             }
 
             return factions;
+        }
+
+        private FactionSize GetFactionStrengthFromNumber(int number)
+        {
+            switch (number)
+            {
+                case 0: return FactionSize.ObscureGroup;
+                case 1: return FactionSize.FringeGroup ;
+                case 2: return FactionSize.MinorGroup ;
+                case 3: return FactionSize.NotableGroup ;
+                case 4: return FactionSize.SignificantGroup ;
+                case 5:return FactionSize.OverwhealmingPopularSupport ;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private string GetFactionStrengthText(int number)

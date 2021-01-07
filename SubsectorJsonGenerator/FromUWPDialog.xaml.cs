@@ -47,24 +47,25 @@ namespace SubsectorJsonGenerator
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var regex = new Regex(
-                @"(\w+)\s([0-9A-F])([0-9A-F])([0-9A-F])([0-9A-F])([0-9A-F])([0-9A-F])([0-9A-F])-([0-9A-F])\s([1-8])\s(\d)+");
+                @"(\w+)\s([1-8]):(\d+)\s([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])-([0-9a-fA-F])");
             if (regex.IsMatch(UPP.Text))
             {
                 var parts = regex.Split(UPP.Text);
                 //Start counting at one beacuse for some reason the regex counts empty space as a first valid match
                 Name = parts[1];
 
-                Starport = Int32.Parse(parts[2], NumberStyles.HexNumber);
-                Size = Int32.Parse(parts[3], NumberStyles.HexNumber);
-                Atmo= Int32.Parse(parts[4], NumberStyles.HexNumber);
-                Hydro= Int32.Parse(parts[5], NumberStyles.HexNumber);
-                Pop = Int32.Parse(parts[6], NumberStyles.HexNumber);
-                Gov= Int32.Parse(parts[7], NumberStyles.HexNumber);
-                Law= Int32.Parse(parts[8], NumberStyles.HexNumber);
-                Tech= Int32.Parse(parts[9], NumberStyles.HexNumber);
+                X = parts[2];
+                Y = parts[3];
 
-                X = parts[10];
-                Y = parts[11];
+                Starport = Int32.Parse(parts[4], NumberStyles.HexNumber);
+                Size = Int32.Parse(parts[5], NumberStyles.HexNumber);
+                Atmo= Int32.Parse(parts[6], NumberStyles.HexNumber);
+                Hydro= Int32.Parse(parts[7], NumberStyles.HexNumber);
+                Pop = Int32.Parse(parts[8], NumberStyles.HexNumber);
+                Gov= Int32.Parse(parts[9], NumberStyles.HexNumber);
+                Law= Int32.Parse(parts[10], NumberStyles.HexNumber);
+                Tech= Int32.Parse(parts[11], NumberStyles.HexNumber);
+
                 DialogResult = true;
             }
             else

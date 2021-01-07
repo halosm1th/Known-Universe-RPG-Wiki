@@ -13,7 +13,7 @@ namespace TravellerUniverse
     #region Enums!
     public enum StarportQuality
     {
-        A,B,C,D,E,X
+        A = 0, B, C, D, E, X
     }
 
     public enum WorldSize
@@ -49,73 +49,104 @@ namespace TravellerUniverse
         Low,
         Unusual
     }
+
+
+    public enum Quirks
+    {
+        Sexist,
+        Religous,
+        Artistic,
+        Ritualised,
+        Conservative,
+        Xenophobic,
+
+        Taboo,
+        Deceptive,
+        Liberal,
+        Honourable,
+        Influenced,
+        Fusion,
+
+        Barbaric,
+        Remnant,
+        Degenerate,
+        Progressive,
+        Recovering,
+        Nexus,
+
+        TouristAttraction,
+        Violent,
+        Peaceful,
+        Obsessed,
+        Fashion,
+        AtWar,
+
+        Offworlders,
+        Starport,
+        Media,
+        Technology,
+        Lifecycle,
+        SocialStandings,
+
+        Trade,
+        Nobility,
+        Sex,
+        Eating,
+        Travel,
+        Conspiracy,
+    }
+
+    public enum Temperatures
+    {
+        Frozen,
+        Cold,
+        Temperate,
+        Hot,
+        Boiling,
+        Error
+    }
+
+    public enum FactionSize
+    {
+        ObscureGroup,
+        FringeGroup,
+        MinorGroup,
+        NotableGroup,
+        SignificantGroup,
+        OverwhealmingPopularSupport
+    }
+
+
     #endregion
 
     public class World
     {
         #region Variables
 
-        [JsonProperty("HasWorld")]
-        public bool HasWorld { get; set; } = false;
-        [JsonProperty("WorldX")]
-        public int X { get; set; }
-        [JsonProperty("WorldY")]
-        public int Y { get; set; }
-        [JsonProperty("WorldName")]
-        public string Name { get; set; }
+        [JsonProperty("HasWorld")] public bool HasWorld { get; set; } = false;
+        [JsonProperty("WorldX")] public int X { get; set; }
+        [JsonProperty("WorldY")] public int Y { get; set; }
+        [JsonProperty("WorldName")] public string Name { get; set; }
+
         [JsonProperty("WorldControllingFaction")]
         public string ControllingFaction { get; set; }
-        [JsonProperty("WorldStarportQuality")]
-        public StarportQuality StarportQuality { get; set; }
-        [JsonProperty("WorldSize")]
-        public WorldSize WorldSize;
-        [JsonProperty("WorldAtmosphere")]
-        public WorldAtmosphere WorldAtmosphere { get; set; }
-        [JsonProperty("WorldHydrographics")]
-        public int WorldHydrographics { get; set; }
 
-        [JsonProperty("WorldPopulation")]
-        public int PopulationStat
-        {
-            get => Convert.ToInt32(_population);
-            set => _population = Convert.ToString(value);
-        }
-        [JsonProperty("WorldFactionCount")]
-        public int FactionCount { get; set; }
+        [JsonProperty("WorldStarportQuality")] public StarportQuality StarportQuality { get; set; }
+        [JsonProperty("WorldSize")] public WorldSize WorldSize;
+        [JsonProperty("WorldAtmosphere")] public WorldAtmosphere WorldAtmosphere { get; set; }
+        [JsonProperty("WorldHydrographics")] public int WorldHydrographics { get; set; }
 
-        [JsonProperty("WorldQuirk")]
-        public string Quirk { get; set; }
+        [JsonProperty("WorldPopulation")] public int PopulationStat { get; set; }
+        [JsonProperty("WorldFactionCount")] public int FactionCount => Factions.Count;
+
+        [JsonProperty("WorldQuirk")] public Quirks Quirk { get; set; }
 
         [JsonProperty("WorldTemperature")]
-        public string Temperature { get; set; }
+        public Temperatures Temperature { get; set; }
         [JsonProperty("")]
-        public List<(string GovernmentType, string Strength)> Factions { get; set; }
+        public List<(int GovernmentType, FactionSize Strength, string Backer)> Factions { get; set; }
 
-        public string Population
-        {
-            get
-            {
-                if (_population == default)
-                {
-                    var pop = "";
-                    try
-                    {
-                        pop = string.Intern(PopulationDescription());
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
-
-                    _population = pop;
-                }
-                return _population;
-            }
-            set
-            {
-                _population = value;
-            }
-        }
+        public string Population => _population;
         public int GovernmentType { get; set; }
         public int LawLevel { get; set; }
         public int TechLevel { get; set; }
@@ -140,9 +171,9 @@ namespace TravellerUniverse
                 var law = LawLevel.ToString("X");
                 var tech = TechLevel.ToString("X");
 
-                retString= String.Format(new NumberFormatInfo(),
+                retString = String.Format(new NumberFormatInfo(),
                     "{0}{1:X}{2:X}{3:X}{4:X}{5:X}{6:X}-{7:X}",
-                    qal,size,atmo,hydo,pop,gov,law,tech);
+                    qal, size, atmo, hydo, pop, gov, law, tech);
 
                 return retString.ToUpper();
             }
@@ -159,181 +190,45 @@ namespace TravellerUniverse
                 return $"{other} {gas} {military}";
             }
         }
-        private Subsector _subsector;
         #endregion Variables
         #region Constructors
-        public World(string name, string code, Subsector subsector)
+
+        public World(int x, int y, bool hasWorld = false)
         {
-            Name = name;
-            _subsector = subsector;
-
-            for (int i = 0; i < code.Length; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        if (code[i] == 'x' || code[i] == 'X')
-                        {
-                            StarportQuality = (StarportQuality) 15;
-                        }
-                        else
-                        {
-                            StarportQuality = (StarportQuality)int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        }
-                        break;
-                    case 1:
-                        WorldSize = (WorldSize)int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 2:
-                        WorldAtmosphere = (WorldAtmosphere)int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 3:
-                        WorldHydrographics = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 4:
-                        PopulationStat = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 5:
-                        GovernmentType = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 6:
-                        LawLevel = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 8:
-                        var letter = code[i].ToString();
-                        TechLevel = int.Parse(letter, NumberStyles.HexNumber);
-                        break;
-                }
-
-            }
-
-            HasWorld = true;
-        }
-
-        public World(string worldText)
-        {
-            //Example:Longleaf 1:2 a36b3f4 - e YNY [WIA faction]
-            var parts = worldText.Split(' ');
-            if (parts.Length < 4)
-            {
-                throw new ArgumentException("not enough args");
-            }
-
-            var name = parts[0];
-            var location = parts[1];
-            var code = parts[2];
-            var stations = parts[3];
-            var factionCode = parts[4];
-
-            var loc = location.Split(':');
-
-            Name = name;
-            X = Convert.ToByte(loc[0]);
-            Y = Convert.ToByte(loc[1]);
-
-            if (stations[0] == 'Y') GasGiant = true;
-            if (stations[1] == 'Y') MilitaryBase = true;
-            if (stations[2] == 'Y') OtherBase = true;
-
-            for (int i = 0; i < code.Length; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        var starportLetter = code[i].ToString().ToLower();
-                        if (code[i] == 'x' || code[i] == 'X')
-                        {
-                            StarportQuality = StarportQuality.X;
-                        }
-
-                        else if (starportLetter == "a") StarportQuality = StarportQuality.A;
-                        else if (starportLetter == "b") StarportQuality = StarportQuality.B;
-                        else if (starportLetter == "c") StarportQuality = StarportQuality.C;
-                        else if (starportLetter == "d") StarportQuality = StarportQuality.D;
-                        else if (starportLetter == "e") StarportQuality = StarportQuality.E;
-                        break;
-                    case 1:
-                        WorldSize = (WorldSize) int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 2:
-                        WorldAtmosphere = (WorldAtmosphere) int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 3:
-                        WorldHydrographics = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 4:
-                        PopulationStat = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 5:
-                        GovernmentType = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 6:
-                        LawLevel = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 8:
-                        var letter = code[i].ToString();
-                        TechLevel = int.Parse(letter, NumberStyles.HexNumber);
-                        break;
-                }
-
-            }
-
-            ControllingFaction = DecodeFaction(factionCode);
-
-            HasWorld = true;
-        }
-
-        private string DecodeFaction(string factionShort) =>
-            factionShort switch
-            {
-                "WIA" => $"<a href=\"wia.html\"> Western Islands Alliance</a>",
-                "OILD" =>$"<a href=\"oild.html\"> Old Island Defense League</a>",
-                "UB" => $"<a href=\"ub.html\"> United Baronies</a>",
-                "WITC" => $"<a href=\"witc.html\"> Western Islands Trade Consortium</a>",
-                "DS" => $"<a href=\"ds.html\"> Dominate Supremius</a>",
-                "WIC" => $"<a href=\"wic.html\"> Western Islands Commune</a>",
-                "RO" => $"<a href=\"ro.html\"> Rex Van Der Ostrovki</a>",
-                "IDF" => $"<a href=\"idf.html\"> Independent Defense Federation</a>",
-                "SCA" => $"<a href=\"sca.html\"> Starcan Alliance</a>",
-                "KT" => $"<a href=\"kt.html\"> Kotlik Tribunal</a>",
-                "TP" => $"<a href=\"tp.html\"> Tilova Pact</a>",
-                "SS" => $"<a href=\"ss.html\"> Spiritwood Senate</a>",
-                "NCBB" => $"<a href=\"ncbb.html\"> New Colchis Business Board</a>",
-                "MMR" => $"<a href=\"mmr.html\"> Mainhair Military Republic</a>",
-                "ISTC" => $"<a href=\"istc.html\"> Intercourse Subsector Trade Consortium</a>",
-                "CSTC" => $"<a href=\"cstc.html\"> Cirta Subsector Trade Consortium</a>",
-                "VDS" => $"<a href=\"vds.html\"> Venhut Dominate State</a>",
-                "NTA" => $"<a href=\"nta.html\"> Neubayern-Topas Alliance</a>",
-                "OP" => $"<a href=\"op.html\"> Olitar Protectorate</a>",
-                "JKTP" => $"<a href=\"jktp.html\"> Jeffers-Kosse Trade Pact</a>",
-                "HSPTP" => $"<a href=\"hsptp.html\"> Harwichport-Simla-Parcol Trade Pact</a>",
-                "IWTP" => $"<a href=\"iwtp.html\"> Ionia-Waskish Trade Pact</a>",
-                "EPG" => $"<a href=\"epg.html\"> Esperanza Planetary Government</a>",
-                "CMA" => $"<a href=\"cma.html\"> Coila Military Alliance</a>",
-                "GSE" => $"<a href=\"gse.html\"> Gunripped Stellar Empire</a>",
-                "STC" => $"<a href=\"stc.html\"> Sar-tan Confederacy</a>",
-                "RRR" => $"<a href=\"rrr.html\"> Red Rock Republic</a>",
-                "EK" => $"<a href=\"ek.html\"> Essia Kritarchy</a>",
-                _ => $"<a href=\"ufe.html\"> United Federation of Earth</a>"
-            };
-
-        public World(int x, int y, Subsector subsector)
-        {
+            HasWorld = hasWorld;
             X = x;
             Y = y;
-            HasWorld = false;
-            _subsector = subsector;
         }
 
-        public World(int x, int y, string name, Subsector subsector)
+        public World(string name, int x, int y,
+            StarportQuality starportQuality, WorldSize worldSize, WorldAtmosphere worldAtmosphere,
+            int worldHydrographics, int governmentType, int population, int lawLevel, int techLevel,
+            string controllingFaction, Quirks quirk, Temperatures temperature,
+            List<(int GovernmentType, FactionSize Strength, string Backer)> factions,
+             bool militaryBase, bool gasGiant, bool otherBase, string ExactPop)
         {
+            WorldSize = worldSize;
             X = x;
             Y = y;
             Name = name;
+            ControllingFaction = controllingFaction;
+            StarportQuality = starportQuality;
+            WorldAtmosphere = worldAtmosphere;
+            WorldHydrographics = worldHydrographics;
+            Quirk = quirk;
+            Temperature = temperature;
+            Factions = factions;
+            GovernmentType = governmentType;
+            PopulationStat = population;
+            LawLevel = lawLevel;
+            TechLevel = techLevel;
+            MilitaryBase = militaryBase;
+            GasGiant = gasGiant;
+            OtherBase = otherBase;
+            _population = ExactPop;
             HasWorld = true;
-            _subsector = subsector;
-            GenerateWorld();
         }
+
         #endregion
         #region Description
         public string StarportDescrption()
@@ -361,7 +256,7 @@ namespace TravellerUniverse
                 WorldSize.HugeWorld => "Size of Roughly 14,400KM. | No Listed examples. | 1.25 Gravity",
                 WorldSize.MassiveWorld => "Size of Roughly 16,000KM. | No Listed examples. | 1.4 Gravity",
                 _ => "Error"
-                };
+            };
         public string WorldAtmosphereDescrpition()
             => WorldAtmosphere switch
             {
@@ -383,7 +278,6 @@ namespace TravellerUniverse
                 WorldAtmosphere.Unusual => "Compostion: Unusual. | Example None. | Pressure Varies. | Survival Gear Required Varies",
                 _ => "Error"
             };
-
         public string WorldHydrographicsDescription()
             => WorldHydrographics switch
             {
@@ -402,10 +296,7 @@ namespace TravellerUniverse
             };
 
         //Give us an actual size stat
-        public string PopulationDescription()
-        {
-           return (DateTime.UtcNow.Ticks * die.Next(1, 10)).ToString().Substring(0, PopulationStat);
-        }
+        public string PopulationDescription() => Population;
 
         public string GovernmentTypeDescrption() => GovernmentType switch
         {
@@ -481,7 +372,7 @@ namespace TravellerUniverse
             14 => "(Average Stellar): Fusion weapons become man-portable. Flying cities appear. Jump 5 travel.",
             15 => " (High Stellar): Black globe generators suggest a new direction for defensive technologies, while the development of synthetic anagathics means that the human lifespan is now vastly increased. Jump 6 travel.",
             _ => "I didn't code this far"
-    };
+        };
         #endregion
         #region OtherDataFunctions
         public string WorldData()
@@ -514,8 +405,8 @@ namespace TravellerUniverse
                         && (WorldHydrographics > 3 && WorldHydrographics < 9)
                         && (PopulationStat > 4 && PopulationStat < 8))? "(Ag)riculture: Dedicated to farming and food production. Often, they are divided into vast semi-feudal estates." : "";
                 },
-                () => 
-                { return 
+                () =>
+                { return
                     (WorldAtmosphere == 0 && WorldAtmosphere == 0 && WorldHydrographics == 0)? "(As)teroids: Usually mining colonies, but can also be orbital factories or colonies." : ""; },
                 () => { return (PopulationStat == 0 && GovernmentType == 0 && LawLevel == 0)? "(Ba)rren: Uncolonised and empty." : ""; },
                 () => { return ((int)WorldAtmosphere >= 2 && WorldHydrographics == 0)? "(De)sert: Dry and barely habitable" : ""; },
@@ -553,7 +444,7 @@ namespace TravellerUniverse
             foreach (var trade in tradeCodes)
             {
                 var result = trade();
-                if(result != "") tradeCode.Append(trade() + "\n");
+                if (result != "") tradeCode.Append(trade() + "\n");
             }
 
             return tradeCode.ToString();
@@ -601,7 +492,7 @@ namespace TravellerUniverse
             else if (result == 9 || result == 4) rVal = 11;
             else rVal = 10;
 
-            return (StarportQuality) rVal;
+            return (StarportQuality)rVal;
         }
         private int GetTechModifiers()
         {
@@ -710,22 +601,22 @@ namespace TravellerUniverse
                     break;
             }
 
-            return 0-modifier;
+            return 0 - modifier;
         }
         private void GenerateWorld()
         {
-            WorldSize = (WorldSize) Math.Max(0,Roll2D6(2));
-            WorldAtmosphere = (WorldAtmosphere) Math.Max(0, WorldSize <= 0 ? 0 : Roll2D6((int)WorldSize - 7));
+            WorldSize = (WorldSize)Math.Max(0, Roll2D6(2));
+            WorldAtmosphere = (WorldAtmosphere)Math.Max(0, WorldSize <= 0 ? 0 : Roll2D6((int)WorldSize - 7));
             WorldHydrographics = Math.Max(0, WorldAtmosphere <= 0 ? 0 : Roll2D6((int)WorldAtmosphere - 7));
 
             PopulationStat = Math.Max(0, Roll2D6(2));
             GovernmentType = Math.Max(0, Roll2D6(PopulationStat - 7));
             LawLevel = Math.Max(0, Roll2D6(GovernmentType - 7));
 
-            StarportQuality =  CalculateStarport();
+            StarportQuality = CalculateStarport();
             TechLevel = Math.Max(0, Roll2D6(GetTechModifiers(), 1, 7));
 
-            GasGiant = Roll2D6()  <=  10;
+            GasGiant = Roll2D6() <= 10;
             MilitaryBase = Roll2D6() >= 8;
             OtherBase = Roll2D6() >= 8;
             Quirk = GenerateQuirk();
@@ -733,10 +624,14 @@ namespace TravellerUniverse
             Factions = GenerateFactions();
         }
 
-
-        private string GenerateQuirk()
+        private Quirks GenerateQuirk()
         {
-            var number = Convert.ToInt32($"{die.Next(1, 7)}{die.Next(1, 7)}");
+            var quirks = Enum.GetValues(typeof(Quirks));
+            return (Quirks)die.Next(0, quirks.Length);
+        }
+
+        private string QuirkText(int number)
+        {
             switch (number)
             {
                 case 11:
@@ -821,53 +716,94 @@ namespace TravellerUniverse
             return "";
         }
 
-        private string GenerateTemperature(int number)
+        public string GetTemperatureText(Temperatures temp)
+        {
+            switch (temp)
+            {
+                case Temperatures.Frozen:
+                    return
+                        "Frozen | Average Temperate <-51 | Frozen World. No liquid water, very dry atmosphere";
+                case Temperatures.Cold:
+                    return
+                        "Cold | Average Temperature -51 - 0| Icy World. Little liquid water, extensive ice caps, few clouds";
+                case Temperatures.Temperate:
+                    return
+                        "Temperate | Average Temperature 0-30 | Temperate world. Earth-Like. Liquid & vaporised water are common. Moderate icecaps";
+                case Temperatures.Hot:
+                    return
+                        "Hot | Average Temperature 31-80 | Hot world. Small or no ice caps, little liquid water. most water in hte form of clouds.";
+                case Temperatures.Boiling:
+                    return "Boiling | Average Temperature 81+ | Boiling world. No ice caps, little liquid water";
+                case Temperatures.Error:
+                    return
+                        "There is an error in the TAS records for this planet. Consult your referee for more information";
+            }
+
+            return "Error in temperature code.";
+        }
+
+        private Temperatures GenerateTemperature(int number)
         {
             switch (number)
             {
                 case 0:
                 case 1:
                 case 2:
-                    return "Frozen | Average Temperate <-51 | Frozen World. No liquid water, very dry atmosphere";
+                    return Temperatures.Frozen;
                 case 3:
                 case 4:
-                    return
-                        "Cold | Average Temperature -51 - 0| Icy World. Little liquid water, extensive ice caps, few clouds";
+                    return Temperatures.Cold;
                 case 5:
                 case 6:
                 case 7:
                 case 8:
                 case 9:
-                    return
-                        "Temperate | Average Temperature 0-30 | Temperate world. Earth-Like. Liquid & vaporised water are common. Moderate icecaps";
+                    return Temperatures.Temperate;
                 case 10:
                 case 11:
                     return
-                        "Hot | Average Temperature 31-80 | Hot world. Small or no ice caps, little liquid water. most water in hte form of clouds.";
+                        Temperatures.Hot;
                 case 12:
-                    return "Boiling | Average Temperature 81+ | Boiling world. No ice caps, little liquid water";
+                    return Temperatures.Boiling;
             }
 
-            return "Error";
+            return Temperatures.Error;
         }
+
+        private int _factionCount = 0;
         private void GenerateInitialFactionCount()
         {
             var rand = die;
-            FactionCount = rand.Next(1, 4);
-            if (GovernmentType == 0 || GovernmentType == 7) FactionCount++;
-            else if (GovernmentType == 10) FactionCount--;
+            _factionCount = rand.Next(1, 4);
+            if (GovernmentType == 0 || GovernmentType == 7) _factionCount++;
+            else if (GovernmentType == 10) _factionCount--;
         }
 
-        private List<(string, string)> GenerateFactions()
+        private List<(int, FactionSize, string)> GenerateFactions()
         {
-            var factions = new List<(string, string)>();
+            var factions = new List<(int, FactionSize, string)>();
             GenerateInitialFactionCount();
-            for (int i = 0; i < FactionCount; i++)
+            for (int i = 0; i < _factionCount; i++)
             {
-                factions.Add((GovernmentTypeDescrption(Roll2D6()), GetFactionStrengthText(Roll2D6())));
+                factions.Add((Roll2D6(), GetFactionStrengthFromNumber(die.Next(0, 6)), ""));
             }
 
             return factions;
+        }
+
+        private FactionSize GetFactionStrengthFromNumber(int number)
+        {
+            switch (number)
+            {
+                case 0: return FactionSize.ObscureGroup;
+                case 1: return FactionSize.FringeGroup;
+                case 2: return FactionSize.MinorGroup;
+                case 3: return FactionSize.NotableGroup;
+                case 4: return FactionSize.SignificantGroup;
+                case 5: return FactionSize.OverwhealmingPopularSupport;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private string GetFactionStrengthText(int number)
@@ -930,7 +866,7 @@ namespace TravellerUniverse
             var oth = OtherBase ? 'Y' : 'N';
             var sq = StarportQuality.ToString("x");
             var ws = WorldSize.ToString("x");
-            return $"{Name} {X+1} {Y+1}: {UWP} " +
+            return $"{Name} {X + 1} {Y + 1}: {UWP} " +
                    $"Gas: {gas} Military: {mil} Other: {oth}";
         }
     }
