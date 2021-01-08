@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -13,7 +14,7 @@ namespace TravellerUniverse
     #region Enums!
     public enum StarportQuality
     {
-        A = 0, B, C, D, E, X
+        A = 10, B=11, C=12, D=13, E=14, X=15
     }
 
     public enum WorldSize
@@ -106,14 +107,15 @@ namespace TravellerUniverse
         Error
     }
 
+
     public enum FactionSize
     {
-        ObscureGroup,
-        FringeGroup,
-        MinorGroup,
-        NotableGroup,
-        SignificantGroup,
-        OverwhealmingPopularSupport
+        Obscure_Group,
+        Fringe_Group,
+        Minor_Group,
+        Notable_Group,
+        Significant_Group,
+        Overwhealming_Popular_Support
     }
 
 
@@ -143,10 +145,16 @@ namespace TravellerUniverse
 
         [JsonProperty("WorldTemperature")]
         public Temperatures Temperature { get; set; }
-        [JsonProperty("")]
+        [JsonProperty("Factions")]
         public List<(int GovernmentType, FactionSize Strength, string Backer)> Factions { get; set; }
 
-        public string Population => _population;
+        [JsonProperty("Population")]
+        public string Population
+        {
+            get => _population;
+            set => _population = value;
+        }
+
         public int GovernmentType { get; set; }
         public int LawLevel { get; set; }
         public int TechLevel { get; set; }
@@ -200,6 +208,13 @@ namespace TravellerUniverse
             Y = y;
         }
 
+        public World()
+        {
+            X = 0;
+            Y = 0;
+            HasWorld = false;
+        }
+
         public World(string name, int x, int y,
             StarportQuality starportQuality, WorldSize worldSize, WorldAtmosphere worldAtmosphere,
             int worldHydrographics, int governmentType, int population, int lawLevel, int techLevel,
@@ -231,7 +246,7 @@ namespace TravellerUniverse
 
         #endregion
         #region Description
-        public string StarportDescrption()
+        public string StarportDescription()
             => StarportQuality switch
             {
                 StarportQuality.A => "Excellent Starport. 1D x Cr1000 to Berth. | Refined Fuel. | Shipyard(all) Repair Facilities. Check sheet for bases",
@@ -382,7 +397,7 @@ namespace TravellerUniverse
                 $"Name: {Name}\n" +
                 $"UWP: {UWP}\n" +
                 $"------------------------\n" +
-                $"Starport: {StarportDescrption()}\n" +
+                $"Starport: {StarportDescription()}\n" +
                 $"World Size: {WorldSizeDescription()}\n" +
                 $"World atmosphere: {WorldAtmosphereDescrpition()}\n" +
                 $"World hydrographics: {WorldHydrographicsDescription()}\n" +
@@ -392,10 +407,16 @@ namespace TravellerUniverse
                 $"Tech Level: {TechLevelDescription() }\n" +
                 $"------------------------\n" +
                 $"Travel Warning: {TravelWarning()}\n" +
-                $"Trade Codes:\n{GetTradeCodes()}\n```"
-                ;
+                $@"Trade Codes:
+{GetTradeCodes().Aggregate("",((h, t) =>
+                {
+                var sb = new StringBuilder(); sb.Append(h);
+                    sb.Append(" ");
+                    sb.Append(t);
+                    return sb.ToString();
+                }))}";
         }
-        private string GetTradeCodes()
+        public List<string> GetTradeCodes()
         {
             var tradeCodes = new List<Func<string>>()
             {
@@ -440,14 +461,14 @@ namespace TravellerUniverse
                 () => { return (WorldHydrographics >= 10)? "(Wa)ter World: Almost entirely water-ocean across their surface." : ""; },
             };
 
-            var tradeCode = new StringBuilder();
+            var tradeCode = new List<string>();
             foreach (var trade in tradeCodes)
             {
                 var result = trade();
-                if (result != "") tradeCode.Append(trade() + "\n");
+                if (result != "") tradeCode.Add(trade());
             }
 
-            return tradeCode.ToString();
+            return tradeCode;
         }
         private bool TravelWarning()
         {
@@ -630,93 +651,102 @@ namespace TravellerUniverse
             return (Quirks)die.Next(0, quirks.Length);
         }
 
-        private string QuirkText(int number)
+        public string QuirkDescription()
         {
-            switch (number)
+            return QuirkText(Quirk);
+        }
+        private string QuirkText(Quirks quirk)
+        {
+            switch (quirk)
             {
-                case 11:
+                case Quirks.Sexist:
                     return "Sexist - one gender is considered subservient or inferior to the other.";
-                case 12:
+                case Quirks.Religous:
                     return "Religious - culture is heavily influenced by a religion or belief systems, possibly one unique to this world.";
-                case 13:
+                case Quirks.Artistic:
                     return "Artistic - art and culture are highly prized. Aesthetic design is important in all artefacts produced on world.";
-                case 14:
+                case Quirks.Ritualised:
                     return "Ritualised - social interaction and trade is highly formalised. Politeness and adherence to traditional forms is considered very important.";
-                case 15:
+                case Quirks.Conservative:
                     return "Conservative - the culture resists change and outside influences. ";
-                case 16:
+                case Quirks.Xenophobic:
                     return "Xenophobic - the culture distrusts outsiders and alien influences. Offworlders will face considerable prejudice.";
 
-                case 21:
+                case Quirks.Taboo:
                     return "Taboo - a particular topic is forbidden and cannot be discussed. Travellers who unwittingly mention this topic will be ostracised.";
-                case 22:
+                case Quirks.Deceptive:
                     return "Deceptive - trickery and equivocation are considered acceptable. Honesty is a sign of weakness.";
-                case 23:
+                case Quirks.Liberal:
                     return "Liberal - the culture welcomes change and offworld influence. Travellers who bring new and strange ideas will be welcomed.";
-                case 24:
+                case Quirks.Honourable:
                     return "Honourable - one’s word is one’s bond in the culture. Lying is both rare and despised.";
-                case 25:
+                case Quirks.Influenced:
                     return "Influenced - the culture is heavily influenced by another, neighbouring world. Roll again for a cultural quirk that has been inherited from the culture.";
-                case 26:
+                case Quirks.Fusion:
                     return "Fusion - the culture is a merger of two distinct cultures. Roll again twice to determine the quirks inherited from these cultures. If the quirks are incompatible, then the culture is likely divided.";
 
-                case 31:
+                case Quirks.Barbaric:
                     return "Barbaric - physical strength and combat prowess are highly valued in the culture. Travellers may be challenged to a fight, or dismissed if they seem incapable of defending themselves. Sports tend towards the bloody and violent.";
-                case 32:
+                case Quirks.Remnant:
                     return "Remnant - the culture is a surviving remnant of a once-great and vibrant civilisation, clinging to its former glory. The world is filled with crumbling ruins, and every story revolves around the good old days.";
-                case 33:
+                case Quirks.Degenerate:
                     return "Degenerate - the culture is falling apart and is on the brink of war or economic collapse. Violent protests are common, and the social order is decaying. ";
-                case 34:
+                case Quirks.Progressive:
                     return "Progressive - the culture is expanding and vibrant. Fortunes are being made in trade; science is forging bravely ahead.";
-                case 35:
+                case Quirks.Recovering:
                     return "Recovering - a recent trauma, such as a plague, war, disaster or despotic regime has left scars on the culture.";
-                case 36:
+                case Quirks.Nexus:
                     return "Nexus - members of many different cultures and species visit here.";
 
-                case 41:
+                case Quirks.TouristAttraction:
                     return "Tourist Attraction - some aspect of the culture or the planet draws visitors from all over charted space. ";
-                case 42:
+                case Quirks.Violent:
                     return "Violent - physical conflict is common, taking the form of duels, brawls or other contests. Trial by combat is a part of their judicial system.";
-                case 43:
+                case Quirks.Peaceful:
                     return "Peaceful - physical conflict is almost unheard-of. The culture produces few soldiers, and diplomacy reigns supreme. Forceful Travellers will be ostracised.";
-                case 44:
+                case Quirks.Obsessed:
                     return "Obsessed - everyone is obsessed with or addicted to a substance, personality, act or item. This monomania pervades every aspect of the culture.";
-                case 45:
+                case Quirks.Fashion:
                     return "Fashion - fine clothing and decoration are considered vitally important in the culture. Underdressed Travellers have no standing here.";
-                case 46:
+                case Quirks.AtWar:
                     return "At war - the culture is at war, either with another planet or polity, or is troubled by terrorists or rebels.";
 
-                case 51:
+                case Quirks.Offworlders:
                     return "Unusual Custom: Offworlders - space travellers hold a unique position in the culture’s mythology or beliefs, and travellers will be expected to live up to these myths.";
-                case 52:
+                case Quirks.Starport:
                     return "Unusual Custom:  Starport - the planet’s starport is more than a commercial centre; it might be a religious temple, or be seen as highly controversial and surrounded by protestors.";
-                case 53:
+                case Quirks.Media:
                     return "Unusual Custom: Media - news agencies and telecommunications channels are especially strange here. Getting accurate information may be difficult.";
-                case 54:
+                case Quirks.Technology:
                     return "Unusual Customs: Technology - the culture interacts with technology in an unusual way. Telecommunications might be banned, robots might have civil rights, or cyborgs might be property.";
-                case 55:
+                case Quirks.Lifecycle:
                     return "Unusual Customs: Lifecycle - there might be a mandatory age of termination, or anagathics might be widely used. Family units might be different, with children being raised by the state or banned in favour of cloning.";
-                case 56:
+                case Quirks.SocialStandings:
                     return "Unusual Customs: Social Standings - the culture has a distinct caste system. Travellers of a low social standing who do not behave appropriately will face punishment.";
 
-                case 61:
+                case Quirks.Trade:
                     return "Unusual Customs: Trade - the culture has an odd attitude towards some aspect of commerce, which may interfere with trade at the spaceport. For example, merchants might expect a gift as part of a deal, or some goods may only be handled by certain families.";
-                case 62:
+                case Quirks.Nobility:
                     return "Unusual Customs: Nobility - those of high social standing have a strange custom associated with them; perhaps nobles are blinded, or must live in gilded cages, or only serve for a single year before being exiled.";
-                case 63:
+                case Quirks.Sex:
                     return "Unusual Customs: Sex - the culture has an unusual attitude towards intercourse and reproduction. Perhaps cloning is used instead, or sex is used to seal commercial deals.";
-                case 64:
+                case Quirks.Eating:
                     return "Unusual Customs: Eating - food and drink occupies an unusual place in the culture. Perhaps eating is a private affair, or banquets and formal dinners are seen as the highest form of politeness.";
-                case 65:
+                case Quirks.Travel:
                     return "Unusual Customs: Travel - travellers may be distrusted or feted, or perhaps the culture frowns on those who leave their homes. ";
-                case 66:
+                case Quirks.Conspiracy:
                     return "Unusual Custom: Conspiracy - something strange is going on. The government is being subverted by another group or agency.";
 
             }
             return "";
         }
 
-        public string GetTemperatureText(Temperatures temp)
+        public string GetTemperatureDescription()
+        {
+            return GetTemperatureText(Temperature);
+        }
+
+        private string GetTemperatureText(Temperatures temp)
         {
             switch (temp)
             {
@@ -795,12 +825,12 @@ namespace TravellerUniverse
         {
             switch (number)
             {
-                case 0: return FactionSize.ObscureGroup;
-                case 1: return FactionSize.FringeGroup;
-                case 2: return FactionSize.MinorGroup;
-                case 3: return FactionSize.NotableGroup;
-                case 4: return FactionSize.SignificantGroup;
-                case 5: return FactionSize.OverwhealmingPopularSupport;
+                case 0: return FactionSize.Obscure_Group;
+                case 1: return FactionSize.Fringe_Group;
+                case 2: return FactionSize.Minor_Group;
+                case 3: return FactionSize.Notable_Group;
+                case 4: return FactionSize.Significant_Group;
+                case 5: return FactionSize.Overwhealming_Popular_Support;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

@@ -19,12 +19,23 @@ namespace TravellerUniverse
         [JsonProperty]
         public string Name;
 
-        public Subsector(string name, List<World> worlds)
+        public Subsector()
+        {
+            Name = "";
+            Systems = EmptySubsector();
+        }
+
+        public Subsector(string name, World[,] systems)
+        {
+            Systems = systems;
+            Name = name;
+        }
+        public Subsector(string name, List<World> systems)
         {
             Systems = EmptySubsector();
             Name = name;
 
-            foreach (var world in worlds)
+            foreach (var world in systems)
             {
                 Systems[world.Y, world.X] = world;
             }
@@ -37,7 +48,7 @@ namespace TravellerUniverse
             {
                 for (int x = 0; x < worlds.GetLength(1); x++)
                 {
-                    worlds[y, x] = new World(x, y,this);
+                    worlds[y, x] = new World(x, y,false);
                 }
             }
 

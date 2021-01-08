@@ -48,7 +48,7 @@ namespace SubsectorJsonGenerator
             var x = Convert.ToInt32(WorldX.Text ?? "0");
             var y = Convert.ToInt32(WorldY.Text ?? "0");
 
-            var starportQuality = ((StarportQuality) StarportQuality.SelectedIndex);
+            var starportQuality = ((StarportQuality) StarportQuality.SelectedIndex+10);
             var worldSize = ((WorldSize) WorldSize.SelectedIndex);
             var atmosphere = ((WorldAtmosphere) WorldAtmosphere.SelectedIndex);
             var hydrographics = WorldHydrographics.SelectedIndex;
@@ -95,7 +95,7 @@ namespace SubsectorJsonGenerator
             WorldX.Text = world.X.ToString();
             WorldY.Text = world.Y.ToString();
 
-            StarportQuality.SelectedIndex = (int) world.StarportQuality;
+            StarportQuality.SelectedIndex = ((int) world.StarportQuality)-10;
             WorldSize.SelectedIndex = (int) world.WorldSize;
             WorldAtmosphere.SelectedIndex = (int) world.WorldAtmosphere;
             WorldHydrographics.SelectedIndex = world.WorldHydrographics;
@@ -249,7 +249,7 @@ namespace SubsectorJsonGenerator
                 WorldX.Text = UWPdialog.X;
                 WorldY.Text = UWPdialog.Y;
 
-                StarportQuality.SelectedIndex = UWPdialog.Starport;
+                StarportQuality.SelectedIndex = UWPdialog.Starport-10;
                 WorldSize.SelectedIndex = UWPdialog.Size;
                 WorldAtmosphere.SelectedIndex = UWPdialog.Atmo;
                 WorldHydrographics.SelectedIndex = UWPdialog.Hydro;
@@ -279,7 +279,14 @@ namespace SubsectorJsonGenerator
             Group3Type.IsEnabled = HasGroup3.IsChecked ?? false;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SavedFile())
+                MessageBox.Show("File Save successfully", "Saved Successfully", MessageBoxButton.OK,
+                    MessageBoxImage.Exclamation);
+        }
+
+        private bool SavedFile()
         {
             var dialog = new Microsoft.Win32.SaveFileDialog();
             dialog.FileName = "";
@@ -290,13 +297,19 @@ namespace SubsectorJsonGenerator
             if (result == true)
             {
                 var fn = dialog.FileName;
-                var subsector = new Subsector(fn.Remove(fn.IndexOf(".json", StringComparison.Ordinal)), worlds);
+                var subName = dialog.SafeFileName;
+                var subsector = new Subsector(subName.Remove(subName.IndexOf(".json", StringComparison.Ordinal)), worlds);
 
-                var json = JsonConvert.SerializeObject(subsector); 
+                var json = JsonConvert.SerializeObject(subsector);
                 File.WriteAllText(fn, json);
-                Environment.Exit(0);
+                return true;
             }
 
+            return false;
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(SavedFile()) Environment.Exit(0);
         }
 
         private void WorldsDropdown_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

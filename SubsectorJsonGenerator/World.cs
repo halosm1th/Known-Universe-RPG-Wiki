@@ -13,7 +13,7 @@ namespace TravellerUniverse
     #region Enums!
     public enum StarportQuality
     {
-        A=0,B,C,D,E,X
+        A = 10, B = 11, C = 12, D = 13, E = 14, X = 15
     }
 
     public enum WorldSize
@@ -108,12 +108,12 @@ namespace TravellerUniverse
 
     public enum FactionSize
     {
-        ObscureGroup,
-        FringeGroup,
-        MinorGroup,
-        NotableGroup,
-        SignificantGroup,
-        OverwhealmingPopularSupport
+        Obscure_Group,
+        Fringe_Group,
+        Minor_Group,
+        Notable_Group,
+        Significant_Group,
+        Overwhealming_Popular_Support
     }
 
 
@@ -137,13 +137,12 @@ namespace TravellerUniverse
         [JsonProperty("WorldHydrographics")] public int WorldHydrographics { get; set; }
 
         [JsonProperty("WorldPopulation")] public int PopulationStat { get; set; }
-        [JsonProperty("WorldFactionCount")] public int FactionCount => Factions.Count;
 
         [JsonProperty("WorldQuirk")] public Quirks Quirk { get; set; }
 
         [JsonProperty("WorldTemperature")]
         public Temperatures Temperature { get; set; }
-        [JsonProperty("")]
+        [JsonProperty("Factions")]
         public List<(int GovernmentType, FactionSize Strength, string Backer)> Factions { get; set; }
 
         public string Population => _population;
