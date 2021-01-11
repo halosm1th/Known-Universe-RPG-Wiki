@@ -81,7 +81,8 @@ namespace TravellerWiki.Data
 
             var npc = new TravellerSpecialNPC()
             {
-                SkillDictionary = baseNPC.SkillDictionary,
+                SkillList = baseNPC.SkillList,
+                AttributeList = baseNPC.AttributeList,
                 Name = baseNPC.Name,
                 Background = baseNPC.Background,
                 Career = baseNPC.Career,
