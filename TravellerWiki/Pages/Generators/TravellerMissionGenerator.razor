@@ -2,8 +2,10 @@
 
 @using TravellerWiki.Data
 @using System.Linq;
+@using System.Text
 @using JobBoardCreator
 @inject TravellerMissionGeneratorService MissionGenerator
+@inject TravellerSpecialNPCService NPCService
 
 <h1>Mission Generator</h1>
 
@@ -14,20 +16,60 @@
         {
             <table style="width: 100%;">
                 <thead style="text-align: center; padding: 5px;">
-                    <tr><th>Mission</th><th>Target</th><th>Target Quirk</th><th>Patron</th><th>Patron Quirk</th><th>Ally</th><th>Enemy</th><th>Opposition</th></tr>
+                    <tr><th>Mission</th><th>Target</th><th>Patron</th><th>Ally</th><th>Enemy</th><th>Opposition</th><th>copy</th></tr>
                 </thead>
                 <tbody style="text-align: center; padding: 5px; color: #ffe81F">
                 @foreach (var mission in missionList)
                 {
+                    var npcs = NPCService.GetNPC(5, TravellerNameService.NationNameList.Any);
                     <tr id="tableInfo">
                         <td>@mission.Mission</td>
-                        <td>@mission.Target</td>
-                        <td>@mission.TargetQuirk</td>
-                        <td>@mission.Patron</td>
-                        <td>@mission.PatronQuirk</td>
-                        <td>@mission.Ally</td>
-                        <td>@mission.Enemy</td>
-                        <td>@mission.Opposition</td>
+                        <td>@mission.Target - @npcs[0]</td>
+                        <td>@mission.Patron - @npcs[1]</td>
+                        <td>@mission.Ally - @npcs[2]</td>
+                        <td>@mission.Enemy - @npcs[3]</td>
+                        <td>@mission.Opposition - @npcs[4]</td>
+                        <td>
+                                @{
+                                    var sb = new StringBuilder();
+                                    sb.Append(@"Mission: ");
+                                    sb.Append(mission.Mission);
+
+                                    sb.Append(@"\nTarget: ");
+                                    sb.Append(mission.Target);
+                                    sb.Append(" - ");
+                                    sb.Append(npcs[0]);
+
+                                    sb.Append(@"\nPatron: ");
+                                    sb.Append(mission.Patron);
+                                    sb.Append(" - ");
+                                    sb.Append(npcs[1]);
+
+                                    sb.Append(@"\nAlly: ");
+                                    sb.Append(mission.Ally);
+                                    sb.Append(" - ");
+                                    sb.Append(npcs[2]);
+
+                                    sb.Append(@"\nEnemy: ");
+                                    sb.Append(mission.Enemy);
+                                    sb.Append(" - ");
+                                    sb.Append(npcs[3]);
+
+                                    sb.Append(@"\nOpposition: ");
+                                    sb.Append(mission.Opposition);
+                                    sb.Append(" - ");
+                                    sb.Append(npcs[4]);
+
+                                    var s = sb.ToString(); }
+                            <div style="display: none;"> @s</div>
+                            <input type="button" 
+                                   id="btnCopy" 
+                                   onClick="
+    navigator.clipboard.writeText('@s').then(function() {
+                            /* clipboard successfully set */
+    }, function () {
+            alert('Umm, there was an error!'); }) "  value="Copy"/>
+                        </td>
                     </tr>
 
                 }

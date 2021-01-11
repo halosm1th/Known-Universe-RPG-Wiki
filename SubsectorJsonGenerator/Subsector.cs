@@ -15,29 +15,18 @@ namespace TravellerUniverse
     {
         [JsonProperty]
         public World[,] Systems;
-        public long WorldCount => (long)Systems.Cast<World>().Count(system => system.HasWorld);
+        public long WorldCount => (long) Systems.Cast<World>().Count( system => system.HasWorld);
         [JsonProperty]
         public string Name;
 
-        public Subsector()
-        {
-            Name = "";
-            Systems = EmptySubsector();
-        }
-
-        public Subsector(string name, World[,] systems)
-        {
-            Systems = systems;
-            Name = name;
-        }
-        public Subsector(string name, List<World> systems)
+        public Subsector(string name, List<World> worlds)
         {
             Systems = EmptySubsector();
             Name = name;
-
-            foreach (var world in systems)
+            
+            foreach (var world in worlds)
             {
-                Systems[world.Y, world.X] = world;
+                Systems[world.Y-1, world.X-1] = world;
             }
         }
 
@@ -48,7 +37,7 @@ namespace TravellerUniverse
             {
                 for (int x = 0; x < worlds.GetLength(1); x++)
                 {
-                    worlds[y, x] = new World(x, y,false);
+                    worlds[y, x] = new World(x, y);
                 }
             }
 

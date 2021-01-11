@@ -5,62 +5,43 @@ body {
     background-color: #000;
     padding: 0;
 }
-
-.hexagonPlanet {
-    position: relative;
-    width: 300px;
-    height: 173.21px;
-    background-color: #000000;
-    margin: 86.60px 0;
+.hex {
+    float: left;
+    margin-right: -26px;
+    margin-bottom: -50px;
 }
 
-    .hexagonPlanet:before,
-    .hexagonPlanet:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        border-left: 150px solid transparent;
-        border-right: 150px solid transparent;
-    }
-
-    .hexagonPlanet:before {
-        bottom: 100%;
-        border-bottom: 86.60px solid #000000;
-    }
-
-    .hexagonPlanet:after {
-        top: 100%;
-        width: 0;
-        border-top: 86.60px solid #000000;
-    }
-
-.hexagonSpace {
-    position: relative;
-    width: 300px;
-    height: 173.21px;
-    background-color: #000000;
-    margin: 86.60px 0;
-}
-
-.hexagonSpace:before,
-.hexagonSpace:after {
-    content: "";
-    position: absolute;
+.hex .left {
+    float: left;
     width: 0;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
+    border-right: 60px solid #6C6;
+    border-top: 104px solid transparent;
+    border-bottom: 104px solid transparent;
 }
 
-.hexagonSpace:before {
-    bottom: 100%;
-    border-bottom: 86.60px solid #000000;
+.hex .middle {
+    float: left;
+    width: 120px;
+    height: 208px;
+    background: #6C6;
 }
 
-.hexagonSpace:after {
-    top: 100%;
+.hex .right {
+    float: left;
     width: 0;
-    border-top: 86.60px solid #000000;
+    border-left: 60px solid #6C6;
+    border-top: 104px solid transparent;
+    border-bottom: 104px solid transparent;
 }
+
+.hex-row {
+    clear: left;
+}
+
+.hex.even {
+    margin-top: 106px;
+}
+
 
 .components-reconnect-show, .components-reconnect-failed, .components-reconnect-rejected {
     display: none;

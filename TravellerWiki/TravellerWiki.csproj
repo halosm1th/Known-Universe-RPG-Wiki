@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,7 +69,7 @@
     <Content Update="Pages\Other\LanguageFamilies.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\RO.razor">
+    <Content Update="Pages\Nations\RO.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Rules\CircleMagic.razor">
@@ -107,13 +108,13 @@
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid2.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\WITC.razor">
+    <Content Update="Pages\Nations\WITC.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\WIC.razor">
+    <Content Update="Pages\Nations\WIC.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\UB.razor">
+    <Content Update="Pages\Nations\UB.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Other\ScaleOfTime.razor">
@@ -140,7 +141,7 @@
     <Content Update="Pages\Error.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\IDF.razor">
+    <Content Update="Pages\Nations\IDF.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Index.razor">
@@ -152,31 +153,31 @@
     <Content Update="Pages\IVFT.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\KT.razor">
+    <Content Update="Pages\Nations\KT.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\MMR.razor">
+    <Content Update="Pages\Nations\MMR.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\NCBB.razor">
+    <Content Update="Pages\Nations\NCBB.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\DS.razor">
+    <Content Update="Pages\Nations\DS.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\OIDL.razor">
+    <Content Update="Pages\Nations\OIDL.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\OP.razor">
+    <Content Update="Pages\Nations\OP.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\SCA.razor">
+    <Content Update="Pages\Nations\SCA.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Other\StarshipRegistrationInformation.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\STC.razor">
+    <Content Update="Pages\Nations\STC.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Subsector_Citra.razor">
@@ -236,7 +237,7 @@
     <Content Update="Pages\UFE.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VDS.razor">
+    <Content Update="Pages\Nations\VDS.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Vers.razor">
@@ -248,7 +249,7 @@
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid1.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\WIA.razor">
+    <Content Update="Pages\Nations\WIA.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\_Host.cshtml">

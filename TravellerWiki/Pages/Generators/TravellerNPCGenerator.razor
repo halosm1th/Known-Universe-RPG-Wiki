@@ -25,6 +25,7 @@
     </select>
     <button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
 
+<button class="">Click me to download NPCs</button>
 @if (npcs == null)
 {
     <p>Generating npcs</p>
@@ -102,4 +103,6 @@ else
     {
         npcs = await NPCService.GetNPCAsync(NPCCount,NationNameList);
     }
+
+
 }

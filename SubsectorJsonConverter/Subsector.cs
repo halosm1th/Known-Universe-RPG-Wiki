@@ -6,53 +6,40 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace TravellerUniverse
 {
-    public class Subsector
+    class Subsector
     {
-        [JsonProperty]
+
         public World[,] Systems;
-        public long WorldCount => (long)Systems.Cast<World>().Count(system => system.HasWorld);
-        [JsonProperty]
+        public long WorldCount => (long) Systems.Cast<World>().Count( system => system.HasWorld);
+
         public string Name;
 
-        public Subsector()
+        public Subsector(string[] WebText, string name)
         {
-            Name = "";
-            Systems = EmptySubsector();
-        }
-
-        public Subsector(string name, World[,] systems)
-        {
-            Systems = systems;
             Name = name;
-        }
-        public Subsector(string name, List<World> systems)
-        {
-            Systems = EmptySubsector();
-            Name = name;
-
-            foreach (var world in systems)
-            {
-                Systems[world.Y, world.X] = world;
-            }
+            Systems = ParseWorlds(WebText);
         }
 
-        private World[,] EmptySubsector()
+        private World[,] ParseWorlds(string[] worldText)
         {
-            var worlds = new World[10, 8];
-            for (int y = 0; y < worlds.GetLength(0); y++)
+            var systems = new World[8, 10];
+            var index = 0;
+
+            var worldName = "";
+            var starportQuality = "";
+
+            while (index < worldText.Length)
             {
-                for (int x = 0; x < worlds.GetLength(1); x++)
-                {
-                    worlds[y, x] = new World(x, y,false);
-                }
+
+
+
+                index++;
             }
 
-            return worlds;
+            return systems;
         }
 
         private string GetPlanets()
@@ -65,7 +52,6 @@ namespace TravellerUniverse
 
             return sb.ToString();
         }
-
 
         public List<World> Worlds()
         {

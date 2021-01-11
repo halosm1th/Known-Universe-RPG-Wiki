@@ -16,8 +16,9 @@ namespace JobBoardCreator
             var targetQuirk = CharcterQuirks(GetRandomNumber());
             var opposition = RandomOpposition(GetRandomNumber());
             var mission = RandomMission(GetRandomNumber());
+            var ID = rand.Next(1001,10001);
 
-            return new TravellerMission(ally, enemy, patron, patronQuirk, target, targetQuirk, opposition, mission);
+            return new TravellerMission(ally, enemy, patron, patronQuirk, target, targetQuirk, opposition, mission, ID);
         }
 
         public string AllyOrEnemy(int number)

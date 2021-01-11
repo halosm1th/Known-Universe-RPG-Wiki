@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,12 +11,12 @@ using Newtonsoft.Json;
 namespace TravellerUniverse
 {
     #region Enums!
-    public enum StarportQuality
+    enum StarportQuality
     {
-        A = 10, B=11, C=12, D=13, E=14, X=15
+        A,B,C,D,E,X
     }
 
-    public enum WorldSize
+    enum WorldSize
     {
         Statation,
         TinyMoon,
@@ -31,7 +30,7 @@ namespace TravellerUniverse
         HugeWorld,
         MassiveWorld
     }
-    public enum WorldAtmosphere
+    enum WorldAtmosphere
     {
         None,
         Trace,
@@ -50,111 +49,82 @@ namespace TravellerUniverse
         Low,
         Unusual
     }
-
-
-    public enum Quirks
-    {
-        Sexist,
-        Religous,
-        Artistic,
-        Ritualised,
-        Conservative,
-        Xenophobic,
-
-        Taboo,
-        Deceptive,
-        Liberal,
-        Honourable,
-        Influenced,
-        Fusion,
-
-        Barbaric,
-        Remnant,
-        Degenerate,
-        Progressive,
-        Recovering,
-        Nexus,
-
-        TouristAttraction,
-        Violent,
-        Peaceful,
-        Obsessed,
-        Fashion,
-        AtWar,
-
-        Offworlders,
-        Starport,
-        Media,
-        Technology,
-        Lifecycle,
-        SocialStandings,
-
-        Trade,
-        Nobility,
-        Sex,
-        Eating,
-        Travel,
-        Conspiracy,
-    }
-
-    public enum Temperatures
-    {
-        Frozen,
-        Cold,
-        Temperate,
-        Hot,
-        Boiling,
-        Error
-    }
-
-
-    public enum FactionSize
-    {
-        Obscure_Group,
-        Fringe_Group,
-        Minor_Group,
-        Notable_Group,
-        Significant_Group,
-        Overwhealming_Popular_Support
-    }
-
-
     #endregion
 
-    public class World
+    abstract class Cell
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public Cell(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+    }
+
+    class World : Cell
     {
         #region Variables
 
-        [JsonProperty("HasWorld")] public bool HasWorld { get; set; } = false;
-        [JsonProperty("WorldX")] public int X { get; set; }
-        [JsonProperty("WorldY")] public int Y { get; set; }
-        [JsonProperty("WorldName")] public string Name { get; set; }
+        [JsonProperty("HasWorld")]
+        public bool HasWorld { get; set; } = false;
 
+        [JsonProperty("WorldName")]
+        public string Name { get; set; }
         [JsonProperty("WorldControllingFaction")]
         public string ControllingFaction { get; set; }
+        [JsonProperty("WorldStarportQuality")]
+        public StarportQuality StarportQuality { get; set; }
+        [JsonProperty("WorldSize")]
+        public WorldSize WorldSize;
+        [JsonProperty("WorldAtmosphere")]
+        public WorldAtmosphere WorldAtmosphere { get; set; }
+        [JsonProperty("WorldHydrographics")]
+        public int WorldHydrographics { get; set; }
 
-        [JsonProperty("WorldStarportQuality")] public StarportQuality StarportQuality { get; set; }
-        [JsonProperty("WorldSize")] public WorldSize WorldSize;
-        [JsonProperty("WorldAtmosphere")] public WorldAtmosphere WorldAtmosphere { get; set; }
-        [JsonProperty("WorldHydrographics")] public int WorldHydrographics { get; set; }
+        [JsonProperty("WorldPopulation")]
+        public int PopulationStat
+        {
+            get => Convert.ToInt32(_population);
+            set => _population = Convert.ToString(value);
+        }
+        [JsonProperty("WorldFactionCount")]
+        public int FactionCount { get; set; }
 
-        [JsonProperty("WorldPopulation")] public int PopulationStat { get; set; }
-        [JsonProperty("WorldFactionCount")] public int FactionCount => Factions.Count;
-
-        [JsonProperty("WorldQuirk")] public Quirks Quirk { get; set; }
+        [JsonProperty("WorldQuirk")]
+        public string Quirk { get; set; }
 
         [JsonProperty("WorldTemperature")]
-        public Temperatures Temperature { get; set; }
+        public string Temperature { get; set; }
         [JsonProperty("Factions")]
-        public List<(int GovernmentType, FactionSize Strength, string Backer)> Factions { get; set; }
+        public List<(string GovernmentType, string Strength)> Factions { get; set; }
 
-        [JsonProperty("Population")]
         public string Population
         {
-            get => _population;
-            set => _population = value;
-        }
+            get
+            {
+                if (_population == default)
+                {
+                    var pop = "";
+                    try
+                    {
+                        pop = string.Intern(PopulationDescription());
+                    }
+                    catch
+                    {
+                        // ignored
+                    }
 
+                    _population = pop;
+                }
+                return _population;
+            }
+            set
+            {
+                _population = value;
+            }
+        }
         public int GovernmentType { get; set; }
         public int LawLevel { get; set; }
         public int TechLevel { get; set; }
@@ -179,9 +149,9 @@ namespace TravellerUniverse
                 var law = LawLevel.ToString("X");
                 var tech = TechLevel.ToString("X");
 
-                retString = String.Format(new NumberFormatInfo(),
+                retString= String.Format(new NumberFormatInfo(),
                     "{0}{1:X}{2:X}{3:X}{4:X}{5:X}{6:X}-{7:X}",
-                    qal, size, atmo, hydo, pop, gov, law, tech);
+                    qal,size,atmo,hydo,pop,gov,law,tech);
 
                 return retString.ToUpper();
             }
@@ -198,55 +168,182 @@ namespace TravellerUniverse
                 return $"{other} {gas} {military}";
             }
         }
+        private Subsector _subsector;
         #endregion Variables
         #region Constructors
-
-        public World(int x, int y, bool hasWorld = false)
+        public World(string name, string code, Subsector subsector) : base(0,0)
         {
-            HasWorld = hasWorld;
-            X = x;
-            Y = y;
-        }
-
-        public World()
-        {
-            X = 0;
-            Y = 0;
-            HasWorld = false;
-        }
-
-        public World(string name, int x, int y,
-            StarportQuality starportQuality, WorldSize worldSize, WorldAtmosphere worldAtmosphere,
-            int worldHydrographics, int governmentType, int population, int lawLevel, int techLevel,
-            string controllingFaction, Quirks quirk, Temperatures temperature,
-            List<(int GovernmentType, FactionSize Strength, string Backer)> factions,
-             bool militaryBase, bool gasGiant, bool otherBase, string ExactPop)
-        {
-            WorldSize = worldSize;
-            X = x;
-            Y = y;
             Name = name;
-            ControllingFaction = controllingFaction;
-            StarportQuality = starportQuality;
-            WorldAtmosphere = worldAtmosphere;
-            WorldHydrographics = worldHydrographics;
-            Quirk = quirk;
-            Temperature = temperature;
-            Factions = factions;
-            GovernmentType = governmentType;
-            PopulationStat = population;
-            LawLevel = lawLevel;
-            TechLevel = techLevel;
-            MilitaryBase = militaryBase;
-            GasGiant = gasGiant;
-            OtherBase = otherBase;
-            _population = ExactPop;
+            _subsector = subsector;
+
+            for (int i = 0; i < code.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        if (code[i] == 'x' || code[i] == 'X')
+                        {
+                            StarportQuality = (StarportQuality) 15;
+                        }
+                        else
+                        {
+                            StarportQuality = (StarportQuality)int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        }
+                        break;
+                    case 1:
+                        WorldSize = (WorldSize)int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 2:
+                        WorldAtmosphere = (WorldAtmosphere)int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 3:
+                        WorldHydrographics = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 4:
+                        PopulationStat = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 5:
+                        GovernmentType = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 6:
+                        LawLevel = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 8:
+                        var letter = code[i].ToString();
+                        TechLevel = int.Parse(letter, NumberStyles.HexNumber);
+                        break;
+                }
+
+            }
+
             HasWorld = true;
         }
 
+        public World(string worldText) : base(0,0)
+        {
+            //Example:Longleaf 1:2 a36b3f4 - e YNY [WIA faction]
+            var parts = worldText.Split(' ');
+            if (parts.Length < 4)
+            {
+                throw new ArgumentException("not enough args");
+            }
+
+            var name = parts[0];
+            var location = parts[1];
+            var code = parts[2];
+            var stations = parts[3];
+            var factionCode = parts[4];
+
+            var loc = location.Split(':');
+
+            Name = name;
+            X = Convert.ToByte(loc[0]);
+            Y = Convert.ToByte(loc[1]);
+
+            if (stations[0] == 'Y') GasGiant = true;
+            if (stations[1] == 'Y') MilitaryBase = true;
+            if (stations[2] == 'Y') OtherBase = true;
+
+            for (int i = 0; i < code.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        var starportLetter = code[i].ToString().ToLower();
+                        if (code[i] == 'x' || code[i] == 'X')
+                        {
+                            StarportQuality = StarportQuality.X;
+                        }
+
+                        else if (starportLetter == "a") StarportQuality = StarportQuality.A;
+                        else if (starportLetter == "b") StarportQuality = StarportQuality.B;
+                        else if (starportLetter == "c") StarportQuality = StarportQuality.C;
+                        else if (starportLetter == "d") StarportQuality = StarportQuality.D;
+                        else if (starportLetter == "e") StarportQuality = StarportQuality.E;
+                        break;
+                    case 1:
+                        WorldSize = (WorldSize) int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 2:
+                        WorldAtmosphere = (WorldAtmosphere) int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 3:
+                        WorldHydrographics = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 4:
+                        PopulationStat = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 5:
+                        GovernmentType = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 6:
+                        LawLevel = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                        break;
+                    case 8:
+                        var letter = code[i].ToString();
+                        TechLevel = int.Parse(letter, NumberStyles.HexNumber);
+                        break;
+                }
+
+            }
+
+            ControllingFaction = DecodeFaction(factionCode);
+
+            HasWorld = true;
+        }
+
+        private string DecodeFaction(string factionShort) =>
+            factionShort switch
+            {
+                "WIA" => $"<a href=\"wia.html\"> Western Islands Alliance</a>",
+                "OILD" =>$"<a href=\"oild.html\"> Old Island Defense League</a>",
+                "UB" => $"<a href=\"ub.html\"> United Baronies</a>",
+                "WITC" => $"<a href=\"witc.html\"> Western Islands Trade Consortium</a>",
+                "DS" => $"<a href=\"ds.html\"> Dominate Supremius</a>",
+                "WIC" => $"<a href=\"wic.html\"> Western Islands Commune</a>",
+                "RO" => $"<a href=\"ro.html\"> Rex Van Der Ostrovki</a>",
+                "IDF" => $"<a href=\"idf.html\"> Independent Defense Federation</a>",
+                "SCA" => $"<a href=\"sca.html\"> Starcan Alliance</a>",
+                "KT" => $"<a href=\"kt.html\"> Kotlik Tribunal</a>",
+                "TP" => $"<a href=\"tp.html\"> Tilova Pact</a>",
+                "SS" => $"<a href=\"ss.html\"> Spiritwood Senate</a>",
+                "NCBB" => $"<a href=\"ncbb.html\"> New Colchis Business Board</a>",
+                "MMR" => $"<a href=\"mmr.html\"> Mainhair Military Republic</a>",
+                "ISTC" => $"<a href=\"istc.html\"> Intercourse Subsector Trade Consortium</a>",
+                "CSTC" => $"<a href=\"cstc.html\"> Cirta Subsector Trade Consortium</a>",
+                "VDS" => $"<a href=\"vds.html\"> Venhut Dominate State</a>",
+                "NTA" => $"<a href=\"nta.html\"> Neubayern-Topas Alliance</a>",
+                "OP" => $"<a href=\"op.html\"> Olitar Protectorate</a>",
+                "JKTP" => $"<a href=\"jktp.html\"> Jeffers-Kosse Trade Pact</a>",
+                "HSPTP" => $"<a href=\"hsptp.html\"> Harwichport-Simla-Parcol Trade Pact</a>",
+                "IWTP" => $"<a href=\"iwtp.html\"> Ionia-Waskish Trade Pact</a>",
+                "EPG" => $"<a href=\"epg.html\"> Esperanza Planetary Government</a>",
+                "CMA" => $"<a href=\"cma.html\"> Coila Military Alliance</a>",
+                "GSE" => $"<a href=\"gse.html\"> Gunripped Stellar Empire</a>",
+                "STC" => $"<a href=\"stc.html\"> Sar-tan Confederacy</a>",
+                "RRR" => $"<a href=\"rrr.html\"> Red Rock Republic</a>",
+                "EK" => $"<a href=\"ek.html\"> Essia Kritarchy</a>",
+                _ => $"<a href=\"ufe.html\"> United Federation of Earth</a>"
+            };
+
+        public World(int x, int y, Subsector subsector) : base(x,y)
+        {
+            HasWorld = false;
+            _subsector = subsector;
+        }
+
+        public World(int x, int y, string name, Subsector subsector) : base(x,y)
+        {
+            X = (byte)x;
+            Y = (byte)y;
+            Name = name;
+            HasWorld = true;
+            _subsector = subsector;
+            GenerateWorld();
+        }
         #endregion
         #region Description
-        public string StarportDescription()
+        public string StarportDescrption()
             => StarportQuality switch
             {
                 StarportQuality.A => "Excellent Starport. 1D x Cr1000 to Berth. | Refined Fuel. | Shipyard(all) Repair Facilities. Check sheet for bases",
@@ -271,7 +368,7 @@ namespace TravellerUniverse
                 WorldSize.HugeWorld => "Size of Roughly 14,400KM. | No Listed examples. | 1.25 Gravity",
                 WorldSize.MassiveWorld => "Size of Roughly 16,000KM. | No Listed examples. | 1.4 Gravity",
                 _ => "Error"
-            };
+                };
         public string WorldAtmosphereDescrpition()
             => WorldAtmosphere switch
             {
@@ -293,6 +390,7 @@ namespace TravellerUniverse
                 WorldAtmosphere.Unusual => "Compostion: Unusual. | Example None. | Pressure Varies. | Survival Gear Required Varies",
                 _ => "Error"
             };
+
         public string WorldHydrographicsDescription()
             => WorldHydrographics switch
             {
@@ -311,7 +409,10 @@ namespace TravellerUniverse
             };
 
         //Give us an actual size stat
-        public string PopulationDescription() => Population;
+        public string PopulationDescription()
+        {
+           return (DateTime.UtcNow.Ticks * die.Next(1, 10)).ToString().Substring(0, PopulationStat);
+        }
 
         public string GovernmentTypeDescrption() => GovernmentType switch
         {
@@ -387,7 +488,7 @@ namespace TravellerUniverse
             14 => "(Average Stellar): Fusion weapons become man-portable. Flying cities appear. Jump 5 travel.",
             15 => " (High Stellar): Black globe generators suggest a new direction for defensive technologies, while the development of synthetic anagathics means that the human lifespan is now vastly increased. Jump 6 travel.",
             _ => "I didn't code this far"
-        };
+    };
         #endregion
         #region OtherDataFunctions
         public string WorldData()
@@ -397,7 +498,7 @@ namespace TravellerUniverse
                 $"Name: {Name}\n" +
                 $"UWP: {UWP}\n" +
                 $"------------------------\n" +
-                $"Starport: {StarportDescription()}\n" +
+                $"Starport: {StarportDescrption()}\n" +
                 $"World Size: {WorldSizeDescription()}\n" +
                 $"World atmosphere: {WorldAtmosphereDescrpition()}\n" +
                 $"World hydrographics: {WorldHydrographicsDescription()}\n" +
@@ -407,16 +508,10 @@ namespace TravellerUniverse
                 $"Tech Level: {TechLevelDescription() }\n" +
                 $"------------------------\n" +
                 $"Travel Warning: {TravelWarning()}\n" +
-                $@"Trade Codes:
-{GetTradeCodes().Aggregate("",((h, t) =>
-                {
-                var sb = new StringBuilder(); sb.Append(h);
-                    sb.Append(" ");
-                    sb.Append(t);
-                    return sb.ToString();
-                }))}";
+                $"Trade Codes:\n{GetTradeCodes()}\n```"
+                ;
         }
-        public List<string> GetTradeCodes()
+        private string GetTradeCodes()
         {
             var tradeCodes = new List<Func<string>>()
             {
@@ -426,8 +521,8 @@ namespace TravellerUniverse
                         && (WorldHydrographics > 3 && WorldHydrographics < 9)
                         && (PopulationStat > 4 && PopulationStat < 8))? "(Ag)riculture: Dedicated to farming and food production. Often, they are divided into vast semi-feudal estates." : "";
                 },
-                () =>
-                { return
+                () => 
+                { return 
                     (WorldAtmosphere == 0 && WorldAtmosphere == 0 && WorldHydrographics == 0)? "(As)teroids: Usually mining colonies, but can also be orbital factories or colonies." : ""; },
                 () => { return (PopulationStat == 0 && GovernmentType == 0 && LawLevel == 0)? "(Ba)rren: Uncolonised and empty." : ""; },
                 () => { return ((int)WorldAtmosphere >= 2 && WorldHydrographics == 0)? "(De)sert: Dry and barely habitable" : ""; },
@@ -461,14 +556,14 @@ namespace TravellerUniverse
                 () => { return (WorldHydrographics >= 10)? "(Wa)ter World: Almost entirely water-ocean across their surface." : ""; },
             };
 
-            var tradeCode = new List<string>();
+            var tradeCode = new StringBuilder();
             foreach (var trade in tradeCodes)
             {
                 var result = trade();
-                if (result != "") tradeCode.Add(trade());
+                if(result != "") tradeCode.Append(trade() + "\n");
             }
 
-            return tradeCode;
+            return tradeCode.ToString();
         }
         private bool TravelWarning()
         {
@@ -513,7 +608,7 @@ namespace TravellerUniverse
             else if (result == 9 || result == 4) rVal = 11;
             else rVal = 10;
 
-            return (StarportQuality)rVal;
+            return (StarportQuality) rVal;
         }
         private int GetTechModifiers()
         {
@@ -622,22 +717,22 @@ namespace TravellerUniverse
                     break;
             }
 
-            return 0 - modifier;
+            return 0-modifier;
         }
         private void GenerateWorld()
         {
-            WorldSize = (WorldSize)Math.Max(0, Roll2D6(2));
-            WorldAtmosphere = (WorldAtmosphere)Math.Max(0, WorldSize <= 0 ? 0 : Roll2D6((int)WorldSize - 7));
+            WorldSize = (WorldSize) Math.Max(0,Roll2D6(2));
+            WorldAtmosphere = (WorldAtmosphere) Math.Max(0, WorldSize <= 0 ? 0 : Roll2D6((int)WorldSize - 7));
             WorldHydrographics = Math.Max(0, WorldAtmosphere <= 0 ? 0 : Roll2D6((int)WorldAtmosphere - 7));
 
             PopulationStat = Math.Max(0, Roll2D6(2));
             GovernmentType = Math.Max(0, Roll2D6(PopulationStat - 7));
             LawLevel = Math.Max(0, Roll2D6(GovernmentType - 7));
 
-            StarportQuality = CalculateStarport();
+            StarportQuality =  CalculateStarport();
             TechLevel = Math.Max(0, Roll2D6(GetTechModifiers(), 1, 7));
 
-            GasGiant = Roll2D6() <= 10;
+            GasGiant = Roll2D6()  <=  10;
             MilitaryBase = Roll2D6() >= 8;
             OtherBase = Roll2D6() >= 8;
             Quirk = GenerateQuirk();
@@ -645,195 +740,141 @@ namespace TravellerUniverse
             Factions = GenerateFactions();
         }
 
-        private Quirks GenerateQuirk()
-        {
-            var quirks = Enum.GetValues(typeof(Quirks));
-            return (Quirks)die.Next(0, quirks.Length);
-        }
 
-        public string QuirkDescription()
+        private string GenerateQuirk()
         {
-            return QuirkText(Quirk);
-        }
-        private string QuirkText(Quirks quirk)
-        {
-            switch (quirk)
+            var number = Convert.ToInt32($"{die.Next(1, 7)}{die.Next(1, 7)}");
+            switch (number)
             {
-                case Quirks.Sexist:
+                case 11:
                     return "Sexist - one gender is considered subservient or inferior to the other.";
-                case Quirks.Religous:
+                case 12:
                     return "Religious - culture is heavily influenced by a religion or belief systems, possibly one unique to this world.";
-                case Quirks.Artistic:
+                case 13:
                     return "Artistic - art and culture are highly prized. Aesthetic design is important in all artefacts produced on world.";
-                case Quirks.Ritualised:
+                case 14:
                     return "Ritualised - social interaction and trade is highly formalised. Politeness and adherence to traditional forms is considered very important.";
-                case Quirks.Conservative:
+                case 15:
                     return "Conservative - the culture resists change and outside influences. ";
-                case Quirks.Xenophobic:
+                case 16:
                     return "Xenophobic - the culture distrusts outsiders and alien influences. Offworlders will face considerable prejudice.";
 
-                case Quirks.Taboo:
+                case 21:
                     return "Taboo - a particular topic is forbidden and cannot be discussed. Travellers who unwittingly mention this topic will be ostracised.";
-                case Quirks.Deceptive:
+                case 22:
                     return "Deceptive - trickery and equivocation are considered acceptable. Honesty is a sign of weakness.";
-                case Quirks.Liberal:
+                case 23:
                     return "Liberal - the culture welcomes change and offworld influence. Travellers who bring new and strange ideas will be welcomed.";
-                case Quirks.Honourable:
+                case 24:
                     return "Honourable - one’s word is one’s bond in the culture. Lying is both rare and despised.";
-                case Quirks.Influenced:
+                case 25:
                     return "Influenced - the culture is heavily influenced by another, neighbouring world. Roll again for a cultural quirk that has been inherited from the culture.";
-                case Quirks.Fusion:
+                case 26:
                     return "Fusion - the culture is a merger of two distinct cultures. Roll again twice to determine the quirks inherited from these cultures. If the quirks are incompatible, then the culture is likely divided.";
 
-                case Quirks.Barbaric:
+                case 31:
                     return "Barbaric - physical strength and combat prowess are highly valued in the culture. Travellers may be challenged to a fight, or dismissed if they seem incapable of defending themselves. Sports tend towards the bloody and violent.";
-                case Quirks.Remnant:
+                case 32:
                     return "Remnant - the culture is a surviving remnant of a once-great and vibrant civilisation, clinging to its former glory. The world is filled with crumbling ruins, and every story revolves around the good old days.";
-                case Quirks.Degenerate:
+                case 33:
                     return "Degenerate - the culture is falling apart and is on the brink of war or economic collapse. Violent protests are common, and the social order is decaying. ";
-                case Quirks.Progressive:
+                case 34:
                     return "Progressive - the culture is expanding and vibrant. Fortunes are being made in trade; science is forging bravely ahead.";
-                case Quirks.Recovering:
+                case 35:
                     return "Recovering - a recent trauma, such as a plague, war, disaster or despotic regime has left scars on the culture.";
-                case Quirks.Nexus:
+                case 36:
                     return "Nexus - members of many different cultures and species visit here.";
 
-                case Quirks.TouristAttraction:
+                case 41:
                     return "Tourist Attraction - some aspect of the culture or the planet draws visitors from all over charted space. ";
-                case Quirks.Violent:
+                case 42:
                     return "Violent - physical conflict is common, taking the form of duels, brawls or other contests. Trial by combat is a part of their judicial system.";
-                case Quirks.Peaceful:
+                case 43:
                     return "Peaceful - physical conflict is almost unheard-of. The culture produces few soldiers, and diplomacy reigns supreme. Forceful Travellers will be ostracised.";
-                case Quirks.Obsessed:
+                case 44:
                     return "Obsessed - everyone is obsessed with or addicted to a substance, personality, act or item. This monomania pervades every aspect of the culture.";
-                case Quirks.Fashion:
+                case 45:
                     return "Fashion - fine clothing and decoration are considered vitally important in the culture. Underdressed Travellers have no standing here.";
-                case Quirks.AtWar:
+                case 46:
                     return "At war - the culture is at war, either with another planet or polity, or is troubled by terrorists or rebels.";
 
-                case Quirks.Offworlders:
+                case 51:
                     return "Unusual Custom: Offworlders - space travellers hold a unique position in the culture’s mythology or beliefs, and travellers will be expected to live up to these myths.";
-                case Quirks.Starport:
+                case 52:
                     return "Unusual Custom:  Starport - the planet’s starport is more than a commercial centre; it might be a religious temple, or be seen as highly controversial and surrounded by protestors.";
-                case Quirks.Media:
+                case 53:
                     return "Unusual Custom: Media - news agencies and telecommunications channels are especially strange here. Getting accurate information may be difficult.";
-                case Quirks.Technology:
+                case 54:
                     return "Unusual Customs: Technology - the culture interacts with technology in an unusual way. Telecommunications might be banned, robots might have civil rights, or cyborgs might be property.";
-                case Quirks.Lifecycle:
+                case 55:
                     return "Unusual Customs: Lifecycle - there might be a mandatory age of termination, or anagathics might be widely used. Family units might be different, with children being raised by the state or banned in favour of cloning.";
-                case Quirks.SocialStandings:
+                case 56:
                     return "Unusual Customs: Social Standings - the culture has a distinct caste system. Travellers of a low social standing who do not behave appropriately will face punishment.";
 
-                case Quirks.Trade:
+                case 61:
                     return "Unusual Customs: Trade - the culture has an odd attitude towards some aspect of commerce, which may interfere with trade at the spaceport. For example, merchants might expect a gift as part of a deal, or some goods may only be handled by certain families.";
-                case Quirks.Nobility:
+                case 62:
                     return "Unusual Customs: Nobility - those of high social standing have a strange custom associated with them; perhaps nobles are blinded, or must live in gilded cages, or only serve for a single year before being exiled.";
-                case Quirks.Sex:
+                case 63:
                     return "Unusual Customs: Sex - the culture has an unusual attitude towards intercourse and reproduction. Perhaps cloning is used instead, or sex is used to seal commercial deals.";
-                case Quirks.Eating:
+                case 64:
                     return "Unusual Customs: Eating - food and drink occupies an unusual place in the culture. Perhaps eating is a private affair, or banquets and formal dinners are seen as the highest form of politeness.";
-                case Quirks.Travel:
+                case 65:
                     return "Unusual Customs: Travel - travellers may be distrusted or feted, or perhaps the culture frowns on those who leave their homes. ";
-                case Quirks.Conspiracy:
+                case 66:
                     return "Unusual Custom: Conspiracy - something strange is going on. The government is being subverted by another group or agency.";
 
             }
             return "";
         }
 
-        public string GetTemperatureDescription()
-        {
-            return GetTemperatureText(Temperature);
-        }
-
-        private string GetTemperatureText(Temperatures temp)
-        {
-            switch (temp)
-            {
-                case Temperatures.Frozen:
-                    return
-                        "Frozen | Average Temperate <-51 | Frozen World. No liquid water, very dry atmosphere";
-                case Temperatures.Cold:
-                    return
-                        "Cold | Average Temperature -51 - 0| Icy World. Little liquid water, extensive ice caps, few clouds";
-                case Temperatures.Temperate:
-                    return
-                        "Temperate | Average Temperature 0-30 | Temperate world. Earth-Like. Liquid & vaporised water are common. Moderate icecaps";
-                case Temperatures.Hot:
-                    return
-                        "Hot | Average Temperature 31-80 | Hot world. Small or no ice caps, little liquid water. most water in hte form of clouds.";
-                case Temperatures.Boiling:
-                    return "Boiling | Average Temperature 81+ | Boiling world. No ice caps, little liquid water";
-                case Temperatures.Error:
-                    return
-                        "There is an error in the TAS records for this planet. Consult your referee for more information";
-            }
-
-            return "Error in temperature code.";
-        }
-
-        private Temperatures GenerateTemperature(int number)
+        private string GenerateTemperature(int number)
         {
             switch (number)
             {
                 case 0:
                 case 1:
                 case 2:
-                    return Temperatures.Frozen;
+                    return "Frozen | Average Temperate <-51 | Frozen World. No liquid water, very dry atmosphere";
                 case 3:
                 case 4:
-                    return Temperatures.Cold;
+                    return
+                        "Cold | Average Temperature -51 - 0| Icy World. Little liquid water, extensive ice caps, few clouds";
                 case 5:
                 case 6:
                 case 7:
                 case 8:
                 case 9:
-                    return Temperatures.Temperate;
+                    return
+                        "Temperate | Average Temperature 0-30 | Temperate world. Earth-Like. Liquid & vaporised water are common. Moderate icecaps";
                 case 10:
                 case 11:
                     return
-                        Temperatures.Hot;
+                        "Hot | Average Temperature 31-80 | Hot world. Small or no ice caps, little liquid water. most water in hte form of clouds.";
                 case 12:
-                    return Temperatures.Boiling;
+                    return "Boiling | Average Temperature 81+ | Boiling world. No ice caps, little liquid water";
             }
 
-            return Temperatures.Error;
+            return "Error";
         }
-
-        private int _factionCount = 0;
         private void GenerateInitialFactionCount()
         {
             var rand = die;
-            _factionCount = rand.Next(1, 4);
-            if (GovernmentType == 0 || GovernmentType == 7) _factionCount++;
-            else if (GovernmentType == 10) _factionCount--;
+            FactionCount = rand.Next(1, 4);
+            if (GovernmentType == 0 || GovernmentType == 7) FactionCount++;
+            else if (GovernmentType == 10) FactionCount--;
         }
 
-        private List<(int, FactionSize, string)> GenerateFactions()
+        private List<(string, string)> GenerateFactions()
         {
-            var factions = new List<(int, FactionSize, string)>();
+            var factions = new List<(string, string)>();
             GenerateInitialFactionCount();
-            for (int i = 0; i < _factionCount; i++)
+            for (int i = 0; i < FactionCount; i++)
             {
-                factions.Add((Roll2D6(), GetFactionStrengthFromNumber(die.Next(0, 6)), ""));
+                factions.Add((GovernmentTypeDescrption(Roll2D6()), GetFactionStrengthText(Roll2D6())));
             }
 
             return factions;
-        }
-
-        private FactionSize GetFactionStrengthFromNumber(int number)
-        {
-            switch (number)
-            {
-                case 0: return FactionSize.Obscure_Group;
-                case 1: return FactionSize.Fringe_Group;
-                case 2: return FactionSize.Minor_Group;
-                case 3: return FactionSize.Notable_Group;
-                case 4: return FactionSize.Significant_Group;
-                case 5: return FactionSize.Overwhealming_Popular_Support;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
         }
 
         private string GetFactionStrengthText(int number)
@@ -896,7 +937,7 @@ namespace TravellerUniverse
             var oth = OtherBase ? 'Y' : 'N';
             var sq = StarportQuality.ToString("x");
             var ws = WorldSize.ToString("x");
-            return $"{Name} {X + 1} {Y + 1}: {UWP} " +
+            return $"{Name} {X+1} {Y+1}: {UWP} " +
                    $"Gas: {gas} Military: {mil} Other: {oth}";
         }
     }
