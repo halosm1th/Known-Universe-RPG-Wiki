@@ -11,18 +11,16 @@ namespace TravellerWiki.Data
     public class TravellerSpecialNPCService : TravellerNPCService
     {
 
-        private static Random rand = new Random();
+        private static Random  rand = new Random();
 
-
-        public async Task<List<TravellerSpecialNPC>>GetNPCAsync(int npcCount, TravellerNameService.NationNameList nationNameList)
+        public List<TravellerSpecialNPC> GetNPC(int npcCount, TravellerNameService.NationNameList nationNameList)
         {
             var npcList = new List<TravellerSpecialNPC>();
-
             try
             {
                 for (int i = 0; i < npcCount; i++)
                 {
-                    var npc = await GenerateTravellerSpecialNpc(nationNameList);
+                    var npc = GenerateTravellerSpecialNpc(nationNameList);
                     npcList.Add(npc);
                 }
 
@@ -66,17 +64,18 @@ namespace TravellerWiki.Data
 
         private int GetPower() => rand.Next(2, 13);
 
-        private int GetInfluence() => GetPower();
+        private int GetInfluence() => rand.Next(2, 13);
 
-        private async Task<TravellerSpecialNPC> GenerateTravellerSpecialNpc(TravellerNameService.NationNameList nationNameList)
+        private TravellerSpecialNPC GenerateTravellerSpecialNpc(TravellerNameService.NationNameList nationNameList)
         {
-            var baseNPC = await TravellerNpc(nationNameList);
+            var baseNPCTask = TravellerNpc(nationNameList);
+            var baseNPC = baseNPCTask.Result;
 
             var relationship = rand.Next(0, 4);
             var relationshipType = GetRelationship(relationship);
 
-            var affinity = TravellerSpecialNPC.AffinityModifier( GetAffinity(relationshipType));
-            var enmity = TravellerSpecialNPC.EnmityModifier(GetEnmity(relationshipType));
+            var affinity = TravellerSpecialNPC.AffinityModifier( GetAffinity( relationshipType));
+            var enmity = TravellerSpecialNPC.EnmityModifier(GetEnmity( relationshipType));
             var power = TravellerSpecialNPC.PowerInfluenceModifier(GetPower());
             var influence = TravellerSpecialNPC.PowerInfluenceModifier(GetInfluence());
 

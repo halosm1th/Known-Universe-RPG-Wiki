@@ -1,4 +1,6 @@
 ﻿@page "/Subsector/{subX}/{subY}"
+@using System.Text
+@using Microsoft.CodeAnalysis.CSharp.Syntax
 @using TravellerUniverse
 @using TravellerWiki.Data
 @model TravellerWiki.SubsectorModel
@@ -20,7 +22,47 @@
 <body>
 <h1>@subsector.Name Subsector</h1>
 <p>The @subsector.Name Subsector is located in the <a href="Islands_Sector">Islands Sector sector</a> and has the following @subsector.WorldCount systems</p>
+<div class="hex-row">
+    @for (int y = 0; y < subsector.Systems.GetLength(1); y++)
+    {
 
+        @for (int x = 0; x < subsector.Systems.GetLength(0); x++)
+        {
+            var system = subsector.Systems[x, y];
+            var bases = new StringBuilder();
+            if (system.HasWorld)
+            {
+                if (system.GasGiant)
+                {
+                    bases.Append("O");
+                }
+                if (system.MilitaryBase)
+                {
+                    bases.Append("+");
+                }
+                if (system.OtherBase)
+                {
+                    bases.Append("*");
+                }
+            }
+            var hexType = x / 2 == 0 ? "hex even" : "hex";
+            <div class=@hexType style="margin: 10px; border-width: 10px;">
+                <div class="left"></div>
+                <div class="middle" style="text-align: center">
+                    <div>
+                        @system.X @system.Y
+                    </div>
+                    <div>@(system.HasWorld ? system.Name : "")</div>
+                    <div>@(system.HasWorld ? system.UWP : "")</div>
+                    <div>
+                        @bases.ToString()
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+        }
+    }
+</div>
 <img src="Images/New_Islands_Subsector.jpg" alt="New Islands Subsector Map" style="width:50%;height:50%">
     <h1>Planets</h1>
     <div class="flex-container">

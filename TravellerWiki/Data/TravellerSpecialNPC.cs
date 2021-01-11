@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace TravellerWiki.Data
@@ -148,5 +149,39 @@ namespace TravellerWiki.Data
                 5 => "Love",
                 6 => "Fanatical",
             };
+
+        private string SpecialNPCAffinityAndEnimity()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(AffinityDegree(Affinity));
+            sb.Append(", ");
+            sb.Append(EnmityDegree(Enmity));
+
+            return sb.ToString();
+        }
+
+        private string SpecialNPCInfluenceAndPower()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(InfluenceDegree(Influence));
+            sb.Append(", ");
+            sb.Append(PowerDegree(Power));
+
+            return sb.ToString();
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.Append(" ");
+
+            sb.Append(SpecialNPCAffinityAndEnimity());
+            sb.Append(" ");
+
+            sb.Append(SpecialNPCInfluenceAndPower());
+
+            return sb.ToString();
+        }
     }
 }

@@ -20,25 +20,25 @@ namespace TravellerWiki.Data
         private Subsector[,] LoadIslandsSubsectors()
         {
             var subsectors = new Subsector[4,4];
-            //subsectors[0, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Kendrick.json"));
-            //subsectors[0, 1] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Wynona.json"));
-            //subsectors[0, 2] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Olivehurst.json"));
-            //subsectors[0, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Payette.json"));
+            //subsectors[0, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Kendrick.json"));
+            //subsectors[0, 1] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Wynona.json"));
+            //subsectors[0, 2] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Olivehurst.json"));
+            //subsectors[0, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Payette.json"));
 
-            //subsectors[1, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/OrenWastes1.json"));
-            //subsectors[1, 1] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/OrenWastes2.json"));
-            //subsectors[1, 2] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/OrenWastes3.json"));
-            //subsectors[1, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/OrenWastes4.json"));
+            //subsectors[1, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/OrenWastes1.json"));
+            //subsectors[1, 1] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/OrenWastes2.json"));
+            subsectors[1, 2] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/OrenWastes3.json"));
+            //subsectors[1, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/OrenWastes4.json"));
 
-            //subsectors[2, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Doland.json"));
+            //subsectors[2, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Doland.json"));
             subsectors[2, 1] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/NewIslands.json"));
             subsectors[2, 2] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/OldIslands.json"));
-            //subsectors[2, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Stacyville.json"));
+            //subsectors[2, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Stacyville.json"));
 
-            //subsectors[3, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Intercourse.json"));
-            //subsectors[3, 1] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Citra.json"));
-            //subsectors[3, 2] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Wallwern.json"));
-            //subsectors[3, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Zaleski.json"));
+            //subsectors[3, 0] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Intercourse.json"));
+            //subsectors[3, 1] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Citra.json"));
+            //subsectors[3, 2] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Wallwern.json"));
+            //subsectors[3, 3] = JsonConvert.DeserializeObject<Subsector>(File.ReadAllText(Directory.GetCurrentDirectory() + "/SubsectorJson/Zaleski.json"));
 
 
             return subsectors;

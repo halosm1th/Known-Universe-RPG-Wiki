@@ -794,12 +794,12 @@ namespace TravellerUniverse
         {
             switch (number)
             {
-                case 0: return FactionSize.ObscureGroup;
-                case 1: return FactionSize.FringeGroup ;
-                case 2: return FactionSize.MinorGroup ;
-                case 3: return FactionSize.NotableGroup ;
-                case 4: return FactionSize.SignificantGroup ;
-                case 5:return FactionSize.OverwhealmingPopularSupport ;
+                case 0: return FactionSize.Obscure_Group;
+                case 1: return FactionSize.Fringe_Group ;
+                case 2: return FactionSize.Minor_Group ;
+                case 3: return FactionSize.Notable_Group ;
+                case 4: return FactionSize.Significant_Group ;
+                case 5:return FactionSize.Overwhealming_Popular_Support ;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

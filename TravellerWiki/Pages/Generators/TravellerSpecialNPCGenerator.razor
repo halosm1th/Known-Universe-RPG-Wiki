@@ -51,16 +51,9 @@ else
             <tbody style="color:#ffe81F">
                 <tr>
                     <td style=" height: 30px;padding: 10px;border-style: solid">@npc.Name.Replace("_", " ")</td>
-                    <td>
-                        <table style="text-align: right; padding: 2px;">
-                            <thead>
-                                <tr><th>Str</th><th>Dex</th><th>End</th><th>Int</th><th>Edu</th><th>Soc</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr class="tableInfo" style="padding: 2px"><td>@npc.Strength</td><td>@npc.Dexterity</td><td>@npc.Endurance</td><td>@npc.Intelligence</td><td>@npc.Education</td><td>@npc.Social</td></tr>
-                                <tr class="tableInfo"style="padding: 2px"><td>@npc.Modifier(npc.Strength)</td><td>@npc.Modifier(npc.Dexterity)</td><td>@npc.Modifier(npc.Endurance)</td><td>@npc.Modifier(npc.Intelligence)</td><td>@npc.Modifier(npc.Education)</td><td>@npc.Modifier(npc.Social)</td></tr>
-                            </tbody>
-                        </table>
+                    <td style="height: 30px;padding: 10px; border-style: solid">
+                        @npc.Strength@npc.Dexterity@npc.Endurance@npc.Intelligence@npc.Education@npc.Social
+
                     </td>
                     <td style="height: 30px;padding: 10px; border-style: solid">
                         @{
@@ -104,13 +97,13 @@ else
     private int NPCCount;
     private TravellerNameService.NationNameList NationNameList = TravellerNameService.NationNameList.Any;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        await LoadNPCs();
+        LoadNPCs();
     }
 
-    public async Task LoadNPCs()
+    public void LoadNPCs()
     {
-        npcs = await NPCService.GetNPCAsync(NPCCount,NationNameList);
+        npcs = NPCService.GetNPC(NPCCount,NationNameList);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace TravellerWiki.Data
@@ -79,6 +80,53 @@ namespace TravellerWiki.Data
         //Skill,level
         public Dictionary<string,int> SkillDictionary { get; set; }
 
-        
+        public string UPP()
+        {
+            var sb = new StringBuilder();
+            sb.Append(Name);
+            sb.Append(" - ");
+            sb.Append(Strength.ToString("X"));
+            sb.Append(Dexterity.ToString("X"));
+            sb.Append(Endurance.ToString("X"));
+            sb.Append(Intelligence.ToString("X"));
+            sb.Append(Education.ToString("X"));
+            sb.Append(Social.ToString("X"));
+            return sb.ToString();
+        }
+
+        private string NPCBackgroundAndCareer()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Background);
+            sb.Append(", ");
+            sb.Append(Career);
+
+            return sb.ToString();
+        }
+
+        private string NPCTextAndQuirk()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(PatronText);
+            sb.Append(", ");
+            sb.Append(QuirkText);
+
+            return sb.ToString();
+        }
+
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(UPP());
+            sb.Append(" - ");
+
+            sb.Append(NPCBackgroundAndCareer());
+            sb.Append(" - ");
+
+            sb.Append(NPCTextAndQuirk());
+
+            return sb.ToString();
+        }
     }
 }
