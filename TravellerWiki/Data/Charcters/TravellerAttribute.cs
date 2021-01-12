@@ -20,6 +20,8 @@ namespace TravellerWiki.Data.Charcters
         public TravellerAttributes AttributeName { get; }
         public int AttributableValue { get; set; }
 
+        public string AttributeHex => AttributableValue.ToString("X");
+
         public int AttributeModifier => AttributableValue switch
         {
             0 => -3,

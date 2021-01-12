@@ -2,30 +2,30 @@
 
 @using TravellerWiki.Data
 @using System.Linq;
+@using TravellerWiki.Data.Charcters
 @inject TravellerNPCService NPCService
 
 <h1>NPC Generator</h1>
-    <input type="number"  @bind="NPCCount"/>
-    <select @bind="NationNameList">
-        <option>Federation</option>
-        <option>
-            Vers
-        </option>
-        <option>
-            Empire
-        </option>
-        <option>
-            Britannia
-        </option>
-        <option>Germushia</option>
-        <option>  Deutschland</option>
-        <option> XiaoMing</option>
-        <option>AxionAlliance</option>
-        <option> Any</option>
-    </select>
-    <button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
+<input type="number" @bind="NPCCount" />
+<select @bind="NationNameList">
+    <option>Federation</option>
+    <option>
+        Vers
+    </option>
+    <option>
+        Empire
+    </option>
+    <option>
+        Britannia
+    </option>
+    <option>Germushia</option>
+    <option>  Deutschland</option>
+    <option> XiaoMing</option>
+    <option>AxionAlliance</option>
+    <option> Any</option>
+</select>
+<button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
 
-<button class="">Click me to download NPCs</button>
 @if (npcs == null)
 {
     <p>Generating npcs</p>
@@ -35,31 +35,21 @@ else
     <table style="margin: 10px;">
         <thead>
             <tr>
-                <th style="padding: 10px;border-style: solid">Name</th>
-                <th style="padding: 10px;border-style: solid">Strength </th>
-                <th style="padding: 10px;border-style: solid">Dexterity</th>
-                <th style="padding: 10px;border-style: solid">Endurance</th>
-                <th style="padding: 10px;border-style: solid">Intelligence</th>
-                <th style="padding: 10px;border-style: solid">Education</th>
-                <th style="padding: 10px;border-style: solid">Social</th>
-                <th style="padding: 10px;border-style: solid">Skills  </th>
-                <th style="padding: 10px;border-style: solid">Background Information</th>
-                <th style="padding: 10px;border-style: solid">Patron info</th>
-                <th style="padding: 10px;border-style: solid">Character Quirk</th>
+                <th style="padding: 10px;border-style: solid;text-align: center">Name</th>
+                <th style="padding: 10px;border-style: solid;text-align: center">UPP </th>
+                <th style="padding: 10px;border-style: solid;text-align: center">Skills</th>
+                <th style="padding: 10px;border-style: solid;text-align: center">Background</th>
+                <th style="padding: 10px;border-style: solid;text-align: center">info</th>
+                <th style="padding: 10px;border-style: solid;text-align: center">Quirk</th>
             </tr>
         </thead>
         @foreach (var npc in npcs)
         {
             <tbody style="color:#ffe81F">
                 <tr>
-                    <td style="padding: 10px;border-style: solid">@npc.Name.Replace("_", " ")</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Strength.ToString()</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Dexterity.ToString()</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Endurance.ToString()</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Intelligence.ToString()</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Education.ToString()</td>
-                    <td style="padding: 10px;border-style: solid">@npc.Social.ToString()</td>
-                    <td style="padding: 10px;border-style: solid">
+                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.Name.Replace("_", " ")</td>
+                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex</td>
+                    <td style="padding: 10px;border-style: solid;text-align: center">
                         @{
                             var skills = npc.SkillList
                                 .Where(skill
@@ -75,11 +65,11 @@ else
                             }
                         }
                     </td>
-                    <td style="padding: 10px;border-style: solid">
-                        @npc.Background, @npc.Career. 
+                    <td style="padding: 10px;border-style: solid;text-align: center">
+                        @npc.Background, @npc.Career.
                     </td>
-                    <td style="padding: 10px;border-style: solid">@npc.PatronText</td>
-                    <td style="padding: 10px;border-style: solid">@npc.QuirkText</td>
+                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.PatronText</td>
+                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.QuirkText</td>
                 </tr>
             </tbody>
             <p></p>
@@ -101,7 +91,7 @@ else
 
     public async Task LoadNPCs()
     {
-        npcs = await NPCService.GetNPCAsync(NPCCount,NationNameList);
+        npcs = await NPCService.GetNPCAsync(NPCCount, NationNameList);
     }
 
 

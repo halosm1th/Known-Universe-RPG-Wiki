@@ -4,7 +4,7 @@
 @using System.Linq;
 @inject TravellerSpecialNPCService NPCService
 
-<h1>NPC Generator</h1>
+<h1>Special NPC Generator</h1>
     <input type="number"  @bind="NPCCount"/>
     <select @bind="NationNameList">
         <option>Federation</option>
@@ -37,9 +37,9 @@ else
                 <th style="padding: 10px;border-style: solid">Name</th>
                 <th style="padding: 10px;border-style: solid">UPP</th>
                 <th style="padding: 10px; border-style: solid">Skills</th>
-                <th style="padding: 10px;border-style: solid">Background Information</th>
-                <th style="padding: 10px;border-style: solid">Patron info</th>
-                <th style="padding: 10px;border-style: solid">Character Quirk</th>
+                <th style="padding: 10px;border-style: solid">Background</th>
+                <th style="padding: 10px;border-style: solid">Job</th>
+                <th style="padding: 10px;border-style: solid">Quirk</th>
                 <th style="padding: 10px;border-style: solid">Affinity</th>
                 <th style="padding: 10px;border-style: solid">Enmity</th>
                 <th style="padding: 10px;border-style: solid">Power</th>
@@ -52,16 +52,16 @@ else
                 <tr>
                     <td style=" height: 30px;padding: 10px;border-style: solid">@npc.Name.Replace("_", " ")</td>
                     <td style="height: 30px;padding: 10px; border-style: solid">
-                        @npc.Strength@npc.Dexterity@npc.Endurance@npc.Intelligence@npc.Education@npc.Social
+                        @npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex
 
                     </td>
                     <td style="height: 30px;padding: 10px; border-style: solid">
                         @{
-                            var skills = npc.SkillDictionary
+                            var skills = npc.SkillList
                                 .Where(skill
-                                    => !BadSkills.Contains(skill.Key))
+                                    => !BadSkills.Contains(skill.SkillName))
                                 .Select(skills
-                                    => $"{skills.Key}:{skills.Value}")
+                                    => $"{skills.SkillName}:{skills.SkillValue}")
                                 .ToArray();
 
                             foreach (var skill in skills)

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\TravellerNPC.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="wwwroot\Images\Cirta_Subsector.jpg" />
     <None Remove="wwwroot\Images\Doland_subsector.jpg" />
     <None Remove="wwwroot\Images\Intercourse_subsector.jpg" />

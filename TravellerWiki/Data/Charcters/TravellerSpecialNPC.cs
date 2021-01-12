@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
@@ -174,10 +175,10 @@ namespace TravellerWiki.Data
         {
             var sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.Append(" ");
+            sb.Append(" - ");
 
             sb.Append(SpecialNPCAffinityAndEnimity());
-            sb.Append(" ");
+            sb.Append(" - ");
 
             sb.Append(SpecialNPCInfluenceAndPower());
 
