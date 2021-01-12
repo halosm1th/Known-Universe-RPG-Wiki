@@ -17,13 +17,16 @@
 <p>The skills usesd to a cast a spell are named after the 5 planes of existance. Thus they are : Void, Aether, Material, Nether, Abyss/</p>
 <p>The final casting stat line looks like: 2D6 + CASTSING_PLANE + PSI + Modifiers > 5 + NUMBER_OF_WORDS</p>
 
+<h3>Spell Creator</h3>
+<p><a href="/Generators/TravellerSpellCreator">Free Form Magic Creator - This is a tool for helping you craft your spells in the various languages.</a></p>
+
 <h2>Free Form Words in High Versian</h2>
 <p>High Versian is the language used by the Luna Knights, and the Equites Ordinis Deorum for casting free form magic.</p>
 <h3>Free Form Planes (High Versian)</h3>
 <ul>
     @foreach (var plane
-    in MagicService.GetPlanesWords(FreeFormLanguages.HighVersian)
-        .OrderBy(plane => plane.Key))
+   in MagicService.GetPlanesWords(FreeFormLanguages.HighVersian)
+       .OrderBy(plane => plane.Key))
     {
         <li>@plane.Key - @plane.Value</li>
     }
@@ -32,8 +35,8 @@
 <h3>Free Form Verb/Action(High Versian)</h3>
 <ul>
     @foreach (var action
-    in MagicService.GetActionWords(FreeFormLanguages.HighVersian)
-        .OrderBy(action => action.Key))
+   in MagicService.GetActionWords(FreeFormLanguages.HighVersian)
+       .OrderBy(action => action.Key))
     {
         <li>@action.Key - @action.Value</li>
     }
@@ -42,8 +45,8 @@
 <h3>Free Form Noun/Target (High Versian)</h3>
 <ul>
     @foreach (var target
-    in MagicService.GetTargetWords(FreeFormLanguages.HighVersian)
-        .OrderBy(target => target.Key))
+   in MagicService.GetTargetWords(FreeFormLanguages.HighVersian)
+       .OrderBy(target => target.Key))
     {
         <li>@target.Key - @target.Value</li>
     }
@@ -53,8 +56,8 @@
 <ul>
 
     @foreach (var modifier
-    in MagicService.GetModifiersWords(FreeFormLanguages.HighVersian)
-        .OrderBy(modifier => modifier.Key))
+   in MagicService.GetModifiersWords(FreeFormLanguages.HighVersian)
+       .OrderBy(modifier => modifier.Key))
     {
         <li>@modifier.Key - @modifier.Value</li>
     }
@@ -76,8 +79,8 @@
 <h3>Free Form Planes (Jed-I)</h3>
 <ul>
     @foreach (var plane
-      in MagicService.GetPlanesWords(FreeFormLanguages.Jedi)
-          .OrderBy(plane => plane.Key))
+     in MagicService.GetPlanesWords(FreeFormLanguages.Jedi)
+         .OrderBy(plane => plane.Key))
     {
         <li>@plane.Key - @plane.Value</li>
     }
@@ -86,8 +89,8 @@
 <h3>Free Form Verb/Action(Jed-I)</h3>
 <ul>
     @foreach (var action
-      in MagicService.GetActionWords(FreeFormLanguages.Jedi)
-          .OrderBy(action => action.Key))
+     in MagicService.GetActionWords(FreeFormLanguages.Jedi)
+         .OrderBy(action => action.Key))
     {
         <li>@action.Key - @action.Value</li>
     }
@@ -96,8 +99,8 @@
 <h3>Free Form Noun/Target (Jed-I)</h3>
 <ul>
     @foreach (var target
-      in MagicService.GetTargetWords(FreeFormLanguages.Jedi)
-          .OrderBy(target => target.Key))
+     in MagicService.GetTargetWords(FreeFormLanguages.Jedi)
+         .OrderBy(target => target.Key))
     {
         <li>@target.Key - @target.Value</li>
     }
@@ -107,8 +110,8 @@
 <ul>
 
     @foreach (var modifier
-      in MagicService.GetModifiersWords(FreeFormLanguages.Jedi)
-          .OrderBy(modifier => modifier.Key))
+     in MagicService.GetModifiersWords(FreeFormLanguages.Jedi)
+         .OrderBy(modifier => modifier.Key))
     {
         <li>@modifier.Key - @modifier.Value</li>
     }
@@ -119,8 +122,8 @@
 <h3>Free Form Planes (Sith)</h3>
 <ul>
     @foreach (var plane
-       in MagicService.GetPlanesWords(FreeFormLanguages.Sith)
-           .OrderBy(plane => plane.Key))
+      in MagicService.GetPlanesWords(FreeFormLanguages.Sith)
+          .OrderBy(plane => plane.Key))
     {
         <li>@plane.Key - @plane.Value</li>
     }
@@ -129,8 +132,8 @@
 <h3>Free Form Verb/Action(Sith)</h3>
 <ul>
     @foreach (var action
-       in MagicService.GetActionWords(FreeFormLanguages.Sith)
-           .OrderBy(action => action.Key))
+      in MagicService.GetActionWords(FreeFormLanguages.Sith)
+          .OrderBy(action => action.Key))
     {
         <li>@action.Key - @action.Value</li>
     }
@@ -139,8 +142,8 @@
 <h3>Free Form Noun/Target (Sith)</h3>
 <ul>
     @foreach (var target
-       in MagicService.GetTargetWords(FreeFormLanguages.Sith)
-           .OrderBy(target => target.Key))
+      in MagicService.GetTargetWords(FreeFormLanguages.Sith)
+          .OrderBy(target => target.Key))
     {
         <li>@target.Key - @target.Value</li>
     }
@@ -150,8 +153,8 @@
 <ul>
 
     @foreach (var modifier
-       in MagicService.GetModifiersWords(FreeFormLanguages.Sith)
-           .OrderBy(modifier => modifier.Key))
+      in MagicService.GetModifiersWords(FreeFormLanguages.Sith)
+          .OrderBy(modifier => modifier.Key))
     {
         <li>@modifier.Key - @modifier.Value</li>
     }
@@ -162,8 +165,8 @@
 <h3>Free Form Planes (Federation Common)</h3>
 <ul>
     @foreach (var plane
-        in MagicService.GetPlanesWords(FreeFormLanguages.FederationCommon)
-            .OrderBy(plane => plane.Key))
+       in MagicService.GetPlanesWords(FreeFormLanguages.FederationCommon)
+           .OrderBy(plane => plane.Key))
     {
         <li>@plane.Key - @plane.Value</li>
     }
@@ -172,8 +175,8 @@
 <h3>Free Form Verb/Action(Federation Common)</h3>
 <ul>
     @foreach (var action
-        in MagicService.GetActionWords(FreeFormLanguages.FederationCommon)
-            .OrderBy(action => action.Key))
+       in MagicService.GetActionWords(FreeFormLanguages.FederationCommon)
+           .OrderBy(action => action.Key))
     {
         <li>@action.Key - @action.Value</li>
     }
@@ -182,8 +185,8 @@
 <h3>Free Form Noun/Target (Federation Common)</h3>
 <ul>
     @foreach (var target
-        in MagicService.GetTargetWords(FreeFormLanguages.FederationCommon)
-            .OrderBy(target => target.Key))
+       in MagicService.GetTargetWords(FreeFormLanguages.FederationCommon)
+           .OrderBy(target => target.Key))
     {
         <li>@target.Key - @target.Value</li>
     }
@@ -193,8 +196,8 @@
 <ul>
 
     @foreach (var modifier
-        in MagicService.GetModifiersWords(FreeFormLanguages.FederationCommon)
-            .OrderBy(modifier => modifier.Key))
+       in MagicService.GetModifiersWords(FreeFormLanguages.FederationCommon)
+           .OrderBy(modifier => modifier.Key))
     {
         <li>@modifier.Key - @modifier.Value</li>
     }
