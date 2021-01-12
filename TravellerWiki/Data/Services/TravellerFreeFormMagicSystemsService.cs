@@ -8,38 +8,49 @@ namespace TravellerWiki.Data
 {
     public enum FreeFormLanguages
     {
-        Sith,
-        Jedi,
         HighVersian,
-        FederationCommon
+        Jedi,
+        Sith,
+        FederationCommon,
+    }
+    public enum FreeFormPlanes
+    {
+        Void, Aether, Material, Nether, Abyss
+    }
+
+    public enum FreeFormActions
+    {
+        Build, Learn, Change, Ruin, Command
+    }
+
+    public enum FreeFormTargets
+    {
+        Animals, Water, Air, Creature, Plant, Fire, Image, Mind, Earth, Constructed, Electricity, Void
     }
 
     public class TravellerFreeFormMagicSystemsService
     {
-        enum Planes
-        {
-            Void,Aether,Material,Nether,Abyss
-        }
+        
 
-        private static string GetPlaneDescription(Planes plane) =>
+        private static string GetPlaneDescription(FreeFormPlanes plane) =>
             plane switch
             {
-                Planes.Void => "Void (Energy, Raw Matter, Creation)",
-                Planes.Aether => "Aether (Souls, Life, Healing)",
-                Planes.Material => "Material (The Physical world)",
-                Planes.Nether => "Nether (Death, Disease, Sin)",
-                Planes.Abyss => "Abyss (Destruction, Entropy, The Absence of sanity)",
+                FreeFormPlanes.Void => "Void (Energy, Raw Matter, Creation)",
+                FreeFormPlanes.Aether => "Aether (Souls, Life, Healing)",
+                FreeFormPlanes.Material => "Material (The Physical world)",
+                FreeFormPlanes.Nether => "Nether (Death, Disease, Sin)",
+                FreeFormPlanes.Abyss => "Abyss (Destruction, Entropy, The Absence of sanity)",
             };
 
         private Dictionary<string, string> GetFederationPlanes()
         {
             return new Dictionary<string, string>()
             {
-                { "Immortal",GetPlaneDescription(Planes.Void)},
-                { "Spiritual",GetPlaneDescription(Planes.Aether)},
-                { "Temporal",GetPlaneDescription(Planes.Material)},
-                { "Resurrection",GetPlaneDescription(Planes.Nether)},
-                { "Eternal",GetPlaneDescription(Planes.Abyss)},
+                { "Immortal",GetPlaneDescription(FreeFormPlanes.Void)},
+                { "Spiritual",GetPlaneDescription(FreeFormPlanes.Aether)},
+                { "Temporal",GetPlaneDescription(FreeFormPlanes.Material)},
+                { "Resurrection",GetPlaneDescription(FreeFormPlanes.Nether)},
+                { "Eternal",GetPlaneDescription(FreeFormPlanes.Abyss)},
             };
         }
 
@@ -47,11 +58,11 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Spatium",GetPlaneDescription(Planes.Void)},
-                { "Caelum",GetPlaneDescription(Planes.Aether)},
-                { "Verus",GetPlaneDescription(Planes.Material)},
-                { "Exanimum",GetPlaneDescription(Planes.Nether)},
-                { "Exitium",GetPlaneDescription(Planes.Abyss)},
+                { "Spatium",GetPlaneDescription(FreeFormPlanes.Void)},
+                { "Caelum",GetPlaneDescription(FreeFormPlanes.Aether)},
+                { "Verus",GetPlaneDescription(FreeFormPlanes.Material)},
+                { "Exanimum",GetPlaneDescription(FreeFormPlanes.Nether)},
+                { "Exitium",GetPlaneDescription(FreeFormPlanes.Abyss)},
             };
         }
 
@@ -59,11 +70,11 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Altissima",GetPlaneDescription(Planes.Void)},
-                { "Ceu",GetPlaneDescription(Planes.Aether)},
-                { "Terra",GetPlaneDescription(Planes.Material)},
-                { "Morte",GetPlaneDescription(Planes.Nether)},
-                { "Destino",GetPlaneDescription(Planes.Abyss)},
+                { "Altissima",GetPlaneDescription(FreeFormPlanes.Void)},
+                { "Ceu",GetPlaneDescription(FreeFormPlanes.Aether)},
+                { "Terra",GetPlaneDescription(FreeFormPlanes.Material)},
+                { "Morte",GetPlaneDescription(FreeFormPlanes.Nether)},
+                { "Destino",GetPlaneDescription(FreeFormPlanes.Abyss)},
             };
         }
 
@@ -71,39 +82,35 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Vacio",GetPlaneDescription(Planes.Void)},
-                { "Celestial",GetPlaneDescription(Planes.Aether)},
-                { "Terrenal",GetPlaneDescription(Planes.Material)},
-                { "Infierno",GetPlaneDescription(Planes.Nether)},
-                { "Abismo",GetPlaneDescription(Planes.Abyss)},
+                { "Vacio",GetPlaneDescription(FreeFormPlanes.Void)},
+                { "Celestial",GetPlaneDescription(FreeFormPlanes.Aether)},
+                { "Terrenal",GetPlaneDescription(FreeFormPlanes.Material)},
+                { "Infierno",GetPlaneDescription(FreeFormPlanes.Nether)},
+                { "Abismo",GetPlaneDescription(FreeFormPlanes.Abyss)},
             };
         }
 
 
-        enum Actions
-        {
-            Build,Learn,Change,Ruin,Command
-        }
 
-        private static string GetActionDescription(Actions action) =>
+        private static string GetActionDescription(FreeFormActions action) =>
             action switch
             {
-                Actions.Build => "Build, create something. This can be used to create new cells to heal wounds, create food and water, create items",
-                Actions.Learn => "Learn, gather information, understand",
-                Actions.Change => "Change, transform, mutate, intead of creating something new, modifying something currently existing.",
-                Actions.Ruin => "Ruin, destroy, make worse, remove, degrade",
-                Actions.Command => "Command, control, order, tell what to do, manipulate. (You could command an innaimate object to move for example)",
+                FreeFormActions.Build => "Build, create something. This can be used to create new cells to heal wounds, create food and water, create items",
+                FreeFormActions.Learn => "Learn, gather information, understand",
+                FreeFormActions.Change => "Change, transform, mutate, intead of creating something new, modifying something currently existing.",
+                FreeFormActions.Ruin => "Ruin, destroy, make worse, remove, degrade",
+                FreeFormActions.Command => "Command, control, order, tell what to do, manipulate. (You could command an innaimate object to move for example)",
             };
 
         private Dictionary<string, string> GetFederationAction()
         {
             return new Dictionary<string, string>()
             {
-                { "Forge",GetActionDescription(Actions.Build)},
-                { "Study",GetActionDescription(Actions.Learn)},
-                { "Alter",GetActionDescription(Actions.Change)},
-                { "Decay",GetActionDescription(Actions.Ruin)},
-                { "Order",GetActionDescription(Actions.Command)},
+                { "Forge",GetActionDescription(FreeFormActions.Build)},
+                { "Study",GetActionDescription(FreeFormActions.Learn)},
+                { "Alter",GetActionDescription(FreeFormActions.Change)},
+                { "Decay",GetActionDescription(FreeFormActions.Ruin)},
+                { "Order",GetActionDescription(FreeFormActions.Command)},
             };
         }
 
@@ -111,11 +118,11 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Aedificate",GetActionDescription(Actions.Build)},
-                { "Disco",GetActionDescription(Actions.Learn)},
-                { "Mutare",GetActionDescription(Actions.Change)},
-                { "Putridus",GetActionDescription(Actions.Ruin)},
-                { "Mandatum",GetActionDescription(Actions.Command)},
+                { "Aedificate",GetActionDescription(FreeFormActions.Build)},
+                { "Disco",GetActionDescription(FreeFormActions.Learn)},
+                { "Mutare",GetActionDescription(FreeFormActions.Change)},
+                { "Putridus",GetActionDescription(FreeFormActions.Ruin)},
+                { "Mandatum",GetActionDescription(FreeFormActions.Command)},
             };
         }
 
@@ -123,11 +130,11 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Crio",GetActionDescription(Actions.Build)},
-                { "Descobrir",GetActionDescription(Actions.Learn)},
-                { "Modificar",GetActionDescription(Actions.Change)},
-                { "Ruina",GetActionDescription(Actions.Ruin)},
-                { "Ordem",GetActionDescription(Actions.Command)},
+                { "Crio",GetActionDescription(FreeFormActions.Build)},
+                { "Descobrir",GetActionDescription(FreeFormActions.Learn)},
+                { "Modificar",GetActionDescription(FreeFormActions.Change)},
+                { "Ruina",GetActionDescription(FreeFormActions.Ruin)},
+                { "Ordem",GetActionDescription(FreeFormActions.Command)},
             };
         }
 
@@ -135,52 +142,48 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Construir",GetActionDescription(Actions.Build)},
-                { "Comprender",GetActionDescription(Actions.Learn)},
-                { "Cambio",GetActionDescription(Actions.Change)},
-                { "Corrupto",GetActionDescription(Actions.Ruin)},
-                { "Comando",GetActionDescription(Actions.Command)},
+                { "Construir",GetActionDescription(FreeFormActions.Build)},
+                { "Comprender",GetActionDescription(FreeFormActions.Learn)},
+                { "Cambio",GetActionDescription(FreeFormActions.Change)},
+                { "Corrupto",GetActionDescription(FreeFormActions.Ruin)},
+                { "Comando",GetActionDescription(FreeFormActions.Command)},
             };
         }
 
-        enum Targets
-        {
-            Animals,Water,Air,Creature,Plant,Fire,Image,Mind,Earth,Constructed,Electricity,Void
-        }
 
-        private static string GetTargetDescriptions(Targets target)
+        private static string GetTargetDescriptions(FreeFormTargets target)
             => target switch
             { 
-                Targets.Animals => "Animals, things with an intelligence lower then 6.",
-                Targets.Water => "Water/Liquid",
-                Targets.Air => "Air/Gas",
-                Targets.Creature => "Humanoid Bodies/Creatures (intelligence of 6 or more)",
-                Targets.Plant => "Plant/Trees",
-                Targets.Fire => "Fire, Heat, Light",
-                Targets.Image => "Image, Illusions, sensory effects, the nevous system",
-                Targets.Mind => "Mind, thoughts, brain",
-                Targets.Earth => "Earth, Solid stuff, rock, stone, metal",
-                Targets.Constructed => "Constructed, things that are built",
-                Targets.Electricity => "Electricty, Energy",
-                Targets.Void => "Power, void power, Raw elements from the planes.",
+                FreeFormTargets.Air => "Air/Gas",
+                FreeFormTargets.Animals => "Animals, things with an intelligence lower then 6.",
+                FreeFormTargets.Constructed => "Constructed, things that are built",
+                FreeFormTargets.Creature => "Humanoid Bodies/Creatures (intelligence of 6 or more)",
+                FreeFormTargets.Earth => "Earth, Solid stuff, rock, stone, metal",
+                FreeFormTargets.Electricity => "Electricty, Energy",
+                FreeFormTargets.Fire => "Fire, Heat, Light",
+                FreeFormTargets.Image => "Image, Illusions, sensory effects, the nevous system",
+                FreeFormTargets.Mind => "Mind, thoughts, brain",
+                FreeFormTargets.Plant => "Plant/Trees",
+                FreeFormTargets.Void => "Power, void power, Raw elements from the planes.",
+                FreeFormTargets.Water => "Water/Liquid",
             };
 
         private Dictionary<string, string> GetFederationTargets()
         {
             return new Dictionary<string, string>()
             {
-                { "Thoughtless",GetTargetDescriptions(Targets.Animals)},
-                { "Liquid",GetTargetDescriptions(Targets.Water)},
-                { "Gaseous",GetTargetDescriptions(Targets.Air)},
-                { "Thoughtful",GetTargetDescriptions(Targets.Creature)},
-                { "Living",GetTargetDescriptions(Targets.Plant)},
-                { "Flames",GetTargetDescriptions(Targets.Fire)},
-                { "Fiction",GetTargetDescriptions(Targets.Image)},
-                { "Conscious",GetTargetDescriptions(Targets.Mind)},
-                { "Terran",GetTargetDescriptions(Targets.Earth)},
-                { "Engineer",GetTargetDescriptions(Targets.Constructed)},
-                { "Energy",GetTargetDescriptions(Targets.Electricity)},
-                { "Magic",GetTargetDescriptions(Targets.Void)},
+                { "Gaseous",GetTargetDescriptions(FreeFormTargets.Air)},
+                { "Thoughtless",GetTargetDescriptions(FreeFormTargets.Animals)},
+                { "Engineer",GetTargetDescriptions(FreeFormTargets.Constructed)},
+                { "Thoughtful",GetTargetDescriptions(FreeFormTargets.Creature)},
+                { "Terran",GetTargetDescriptions(FreeFormTargets.Earth)},
+                { "Energy",GetTargetDescriptions(FreeFormTargets.Electricity)},
+                { "Flames",GetTargetDescriptions(FreeFormTargets.Fire)},
+                { "Fiction",GetTargetDescriptions(FreeFormTargets.Image)},
+                { "Conscious",GetTargetDescriptions(FreeFormTargets.Mind)},
+                { "Living",GetTargetDescriptions(FreeFormTargets.Plant)},
+                { "Magic",GetTargetDescriptions(FreeFormTargets.Void)},
+                { "Liquid",GetTargetDescriptions(FreeFormTargets.Water)},
             };
         }
 
@@ -188,18 +191,18 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Creaturae",GetTargetDescriptions(Targets.Animals)},
-                { "Liquidum",GetTargetDescriptions(Targets.Water)},
-                { "Aura",GetTargetDescriptions(Targets.Air)},
-                { "Hominum",GetTargetDescriptions(Targets.Creature)},
-                { "Planta",GetTargetDescriptions(Targets.Plant)},
-                { "Ignis",GetTargetDescriptions(Targets.Fire)},
-                { "Fantasia",GetTargetDescriptions(Targets.Image)},
-                { "Mens",GetTargetDescriptions(Targets.Mind)},
-                { "Terra",GetTargetDescriptions(Targets.Earth)},
-                { "Molior",GetTargetDescriptions(Targets.Constructed)},
-                { "Vestibulum",GetTargetDescriptions(Targets.Electricity)},
-                { "Vis",GetTargetDescriptions(Targets.Void)},
+                { "Aura",GetTargetDescriptions(FreeFormTargets.Air)},
+                { "Creaturae",GetTargetDescriptions(FreeFormTargets.Animals)},
+                { "Molior",GetTargetDescriptions(FreeFormTargets.Constructed)},
+                { "Hominum",GetTargetDescriptions(FreeFormTargets.Creature)},
+                { "Terra",GetTargetDescriptions(FreeFormTargets.Earth)},
+                { "Vestibulum",GetTargetDescriptions(FreeFormTargets.Electricity)},
+                { "Ignis",GetTargetDescriptions(FreeFormTargets.Fire)},
+                { "Fantasia",GetTargetDescriptions(FreeFormTargets.Image)},
+                { "Mens",GetTargetDescriptions(FreeFormTargets.Mind)},
+                { "Planta",GetTargetDescriptions(FreeFormTargets.Plant)},
+                { "Vis",GetTargetDescriptions(FreeFormTargets.Void)},
+                { "Liquidum",GetTargetDescriptions(FreeFormTargets.Water)},
             };
         }
 
@@ -207,18 +210,18 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Animal",GetTargetDescriptions(Targets.Animals)},
-                { "Fluido",GetTargetDescriptions(Targets.Water)},
-                { "Ar",GetTargetDescriptions(Targets.Air)},
-                { "Criatura",GetTargetDescriptions(Targets.Creature)},
-                { "Plantar",GetTargetDescriptions(Targets.Plant)},
-                { "Incendio",GetTargetDescriptions(Targets.Fire)},
-                { "Cenario",GetTargetDescriptions(Targets.Image)},
-                { "Pensamento",GetTargetDescriptions(Targets.Mind)},
-                { "Terra",GetTargetDescriptions(Targets.Earth)},
-                { "Criada",GetTargetDescriptions(Targets.Constructed)},
-                { "Eletricidade",GetTargetDescriptions(Targets.Electricity)},
-                { "Igreja",GetTargetDescriptions(Targets.Void)},
+                { "Ar",GetTargetDescriptions(FreeFormTargets.Air)},
+                { "Animal",GetTargetDescriptions(FreeFormTargets.Animals)},
+                { "Criada",GetTargetDescriptions(FreeFormTargets.Constructed)},
+                { "Criatura",GetTargetDescriptions(FreeFormTargets.Creature)},
+                { "Terra",GetTargetDescriptions(FreeFormTargets.Earth)},
+                { "Eletricidade",GetTargetDescriptions(FreeFormTargets.Electricity)},
+                { "Incendio",GetTargetDescriptions(FreeFormTargets.Fire)},
+                { "Cenario",GetTargetDescriptions(FreeFormTargets.Image)},
+                { "Pensamento",GetTargetDescriptions(FreeFormTargets.Mind)},
+                { "Plantar",GetTargetDescriptions(FreeFormTargets.Plant)},
+                { "Igreja",GetTargetDescriptions(FreeFormTargets.Void)},
+                { "Fluido",GetTargetDescriptions(FreeFormTargets.Water)},
             };
         }
 
@@ -226,18 +229,18 @@ namespace TravellerWiki.Data
         {
             return new Dictionary<string, string>()
             {
-                { "Bestia",GetTargetDescriptions(Targets.Animals)},
-                { "Liquido",GetTargetDescriptions(Targets.Water)},
-                { "Cielo",GetTargetDescriptions(Targets.Air)},
-                { "Inteligente",GetTargetDescriptions(Targets.Creature)},
-                { "Arbol",GetTargetDescriptions(Targets.Plant)},
-                { "Fuego",GetTargetDescriptions(Targets.Fire)},
-                { "Foto",GetTargetDescriptions(Targets.Image)},
-                { "Cerebro",GetTargetDescriptions(Targets.Mind)},
-                { "Montana",GetTargetDescriptions(Targets.Earth)},
-                { "Construdio",GetTargetDescriptions(Targets.Constructed)},
-                { "Energia",GetTargetDescriptions(Targets.Electricity)},
-                { "Teologico",GetTargetDescriptions(Targets.Void)},
+                { "Cielo",GetTargetDescriptions(FreeFormTargets.Air)},
+                { "Bestia",GetTargetDescriptions(FreeFormTargets.Animals)},
+                { "Construdio",GetTargetDescriptions(FreeFormTargets.Constructed)},
+                { "Inteligente",GetTargetDescriptions(FreeFormTargets.Creature)},
+                { "Montana",GetTargetDescriptions(FreeFormTargets.Earth)},
+                { "Energia",GetTargetDescriptions(FreeFormTargets.Electricity)},
+                { "Fuego",GetTargetDescriptions(FreeFormTargets.Fire)},
+                { "Foto",GetTargetDescriptions(FreeFormTargets.Image)},
+                { "Cerebro",GetTargetDescriptions(FreeFormTargets.Mind)},
+                { "Arbol",GetTargetDescriptions(FreeFormTargets.Plant)},
+                { "Teologico",GetTargetDescriptions(FreeFormTargets.Void)},
+                { "Liquido",GetTargetDescriptions(FreeFormTargets.Water)},
             };
         }
 
