@@ -1,4 +1,8 @@
 ﻿@page "/Rules/Magic/FreeFormMagic/"
+@using System.Linq;
+@using TravellerWiki.Data
+@inject TravellerFreeFormMagicSystemsService MagicService
+
 <h1>Free Form Magic</h1>
 <p>Free Form Magic is the foundation of the magic system in my Traveller games. To do a magic check, you use your Psi stat against the type of magics spell DC, as well as some modifiers as decided by your Referee and the type of Magic you are trying to cast.</p>
 <p>Free Form Magic operates starts at DC 5, and for each word you add into the spell you increase the DM by 1. Each spell you cast requries at least 3 words (the Plane you're casting from, the Action you're casting, and What you're casting on.), so really the minimum Free Form Magic DC is 8+. You can increase this by adding modifier words to your spell, but it will increase the spell DC.  As well, you use the number of Psi Points equal to the number of words in your spell.</p>
@@ -17,194 +21,181 @@
 <p>High Versian is the language used by the Luna Knights, and the Equites Ordinis Deorum for casting free form magic.</p>
 <h3>Free Form Planes (High Versian)</h3>
 <ul>
-    <li>Spatium - Void (Energy, Raw Matter, Creation)</li>
-    <li>Caelum - Aether (Souls, Life, Healing)</li>
-    <li>Verus - Material (The Physical world)</li>
-    <li>Exanimum - Nether (Death, Disease, Sin)</li>
-    <li>Exitium - Abyss (Destruction, Entropy, The Absence of sanity)</li>
+    @foreach (var plane
+    in MagicService.GetPlanesWords(FreeFormLanguages.HighVersian)
+        .OrderBy(plane => plane.Key))
+    {
+        <li>@plane.Key - @plane.Value</li>
+    }
 </ul>
 
 <h3>Free Form Verb/Action(High Versian)</h3>
 <ul>
-    <li>Aedificate - Build, create something. This can be used to create new cells to heal wounds, create food and water, create items.</li>
-    <li>Disco - Learn, gather information, understand</li>
-    <li>Mutare - Change, transform, mutate, intead of creating something new, modifying something currently existing.</li>
-    <li>Putridus - Ruin, destroy, make worse, remove, degrade</li>
-    <li>Mandatum - Command, control, order, tell what to do, manipulate. (You could command an innaimate object to move for example)</li>
-
+    @foreach (var action
+    in MagicService.GetActionWords(FreeFormLanguages.HighVersian)
+        .OrderBy(action => action.Key))
+    {
+        <li>@action.Key - @action.Value</li>
+    }
 </ul>
 
 <h3>Free Form Noun/Target (High Versian)</h3>
 <ul>
-    <li>Creaturae - Animals, things with an intelligence lower then 6.</li>
-    <li>Liquidum - Water/Liquid</li>
-    <li>Aura - Air/Gas</li>
-    <li>Hominum - Humanoid Bodies/Creatures (intelligence of 6 or more)</li>
-    <li>Planta - Plant/Trees</li>
-    <li>Ignis - Fire, Heat, Light</li>
-    <li>Fantasia - Image, Illusions, sensory effects, the nevous system</li>
-    <li>Mens - Mind, thoughts, brain</li>
-    <li>Terra - Earth, Solid stuff, rock, stone, metal</li>
-    <li>Molior - Constructed, things that are built</li>
-    <li>Vestibulum - Electricty, Energy</li>
-    <li>Vis - Power, void power, Raw elements from the planes.</li>
-
+    @foreach (var target
+    in MagicService.GetTargetWords(FreeFormLanguages.HighVersian)
+        .OrderBy(target => target.Key))
+    {
+        <li>@target.Key - @target.Value</li>
+    }
 </ul>
 
 <h3>Free Form Modifiers (High Versian)</h3>
 <ul>
-    <li>Apocalypsia - Apocalyptic, you can alter the area a spell effects so that the area affected become ruined and devastated in appearance. All surfaces in the area become difficult terrain and remains so for 1D Months.</li>
-    <li>Aqua - Aquaify, your spell can be cast and functions underwater with no immediate pennalties</li>
-    <li>Auctoritas - Authoritative, if the spell lands on a creature, you may pick one of the follow actions to prohibit the creatue from taking: Move Closer to Someone of your choice, Move Away from Someone of your choice, Make an Attack, Cast a Spell</li>
-    <li>mutare Damno - Damage Change, change the type of damage from a spell to one of the following: Acid, Cold, Electric, Fire, Magic, Water</li>
-    <li>Beatitas - Blissfull, the target becomes happy/blissful, on an ally this can empower them to fight harder, on an ememy it can cause them to drop their guard for a turn</li>
-    <li>Resilio - Bouncing, if the spell fails, you can try again against a different target</li>
-    <li>Alacer - Brisk, grant an alterantive movement type or increase movement speed by 1.5 meters</li>
-    <li>Ardens - Burning, the spell does 1D Acid or Fire damage, lasts for 1D rounds unless extinguished with a End 8+ check</li>
-    <li>Centrum - Center, you center the spell on yourself, causing it form around you protecting you from the effects of the spell.</li>
-    <li>Amet Damnum - Expanding Damage, you may cause an additional 2 points of damage in a characteristic of your choice.</li>
-    <li>Maledictum - Curse, curse the target with the effects of the spell for 1D Years, can be upgraded to 1D Decade</li>
-    <li>Compositae - Combined, combined two seperate spells together.</li>
-    <li>Contagiosis - Contagious, the effects of the spell spread to anyone who touches the target for 1D seconds on a failed END 8+ check.</li>
-    <li>Contingens - Contingent, Allows you to set a spell up as a reserve. Essentially set asside the magic now for later.</li>
-    <li>Fumo - Crypt, if a creature dies to your spell, it returns to life at half its health points in 1D hours.</li>
-    <li>Mortuis - Dead, the deciesed</li>
-    <li>Daze - Daze, your spell puts the target into a daze.</li>
-    <li>Mora - Delayed, set your spell to be delayed until a specific trigger</li>
-    <li>Turbulentos - Disruptive, your magic power is so strong that you overwhelm the ability for other mages to cast spells in an area of 2D6 meters around you.</li>
-    <li>Et sonitus - Echoing, cast a spell a second time</li>
-    <li>Deorum Sanguinem - Ectoplasmic, Your spell can bridge the gap between the Material and another Plane</li>
-    <li>Elementum - Elemental, you can change the elemental nature of your spell</li>
-    <li>Talem - Empower, double the effects of the spell</li>
-    <li>Robora - Encourage, those affected by the spell gain a moral boost</li>
-    <li>Dilata - Enlarge, Double the range of the spell</li>
-    <li>Extendere - Extend, Double how long the spell lasts</li>
-    <li>Amicus - Familier, transfer a known spell to a friend/familier of yours</li>
-    <li>Formidabili - Fearsome, the target is shaken and terrifed because of the spell</li>
-    <li>Candor - Flare, Fire, Light, and Electrical spells cause those who see it to take an Int 6+ check or be dazzled and distracted by the effects for 3D6 seconds</li>
-    <li>Fluxa - Fleeting, the spell is easier to dismiss</li>
-    <li>Conuenerunt - Focused, if the spell targest multiple people, one of them is the main taget and has a harder time resisting the effects</li>
-    <li>Furens - Furious, the target of spell becomes enraged</li>
-    <li>Intendet - Intesify, multiply the damage by 5</li>
-    <li>Morantem - Lingering, remains in the area for 1D minutes</li>
-    <li>Misericors - Merciful, the spell deals non-leathal damage</li>
-    <li>Multa - Multiply, add number of Psi points equal to the number of people you'd like to target with the spell</li>
-    <li>Pertinax - Persistent, if the target saves, the taget must save again</li>
-    <li>Redintegrare - Quicken, cast the spell for 1 action point instead of 2</li>
-    <li>Cicatrix - Scarring, the spell leaves the target fearful of the caster or someone of the casters choice.</li>
-    <li>Lecta - Selective, allows the caster to ignore some targets of the spell, 1 psi point per target</li>
-    <li>Umbra - Shadow, the spells area is engulfed in a shadow</li>
-    <li>Extinguere - Snuffing, if a creature takes damage from the spell, any light source they have must be restarted</li>
-    <li>Propria - Stylized, the spell is harder to identify</li>
-    <li>Tenax - Tenacious, the spell is difficult to dispel</li>
-    <li>Tenebrescere - Tenebrous, the spell reduces the light in the affected area</li>
-    <li>Minaces Illusio - Threatening Illusion, the target believes you illusion is a threat</li>
-    <li>Tonitrua - Thundering, deafen a creature with your spell</li>
-    <li>Pronus - Toppling, the spell knocks the target prone</li>
-    <li>Dolum - Trick, the target makes an Int/Edu 8+ check, on failture they don't know the spell has been cast</li>
-    <li>Turbatur - Tumultuous, The target must make an Str/Dex 8+ check or be pushed 2D6 meters away in a random direction.</li>
-    <li>Immensa - Vast, the spell can be maintained across multiple targest across a vast area (1D12 * 100 meters per psi point)</li>
-    <li>Dilatanda - Widen, double the spells area</li>
+
+    @foreach (var modifier
+    in MagicService.GetModifiersWords(FreeFormLanguages.HighVersian)
+        .OrderBy(modifier => modifier.Key))
+    {
+        <li>@modifier.Key - @modifier.Value</li>
+    }
 </ul>
-<p>Here are some example Versian Free Form Spells:
+<p>
+    Here are some example Versian Free Form Spells:
     <ul>
         <li>Saptium Putridus Aura - Push Away</li>
         <li>Caelum Aedificate Hominum - Heal someone</li>
         <li>Verus Mutare Terra Dilatanda - Change land in a large area</li>
         <li>Verus Disco Aura Compsitae Saptium Aedificate Ignis - gather all air and turn it into fire</li>
         <li>Caelum Disco Mens Multa N - Mind link between N people</li>
-    </ul>    
+    </ul>
 </p>
 
 
 <h2>Free Form Words in Jed-I</h2>
-<p></p>
+<p>The Jed-I's ancient tongue is closely related to that of the sith, but is different enough for them to have their own terms for various parts of spells. </p>
 <h3>Free Form Planes (Jed-I)</h3>
 <ul>
-    <li>- Void (Energy, Raw Matter, Creation)</li>
-    <li>- Aether (Souls, Life, Healing)</li>
-    <li>- Material (The Physical world)</li>
-    <li>- Nether (Death, Disease, Sin)</li>
-    <li>- Abyss (Destruction, Entropy, The Absence of sanity)</li>
+    @foreach (var plane
+      in MagicService.GetPlanesWords(FreeFormLanguages.Jedi)
+          .OrderBy(plane => plane.Key))
+    {
+        <li>@plane.Key - @plane.Value</li>
+    }
 </ul>
 
 <h3>Free Form Verb/Action(Jed-I)</h3>
 <ul>
-    <li> - Build, create something. This can be used to create new cells to heal wounds, create food and water, create items.</li>
-    <li> - Learn, gather information, understand</li>
-    <li> - Change, transform, mutate, intead of creating something new, modifying something currently existing.</li>
-    <li> - Ruin, destroy, make worse, remove, degrade</li>
-    <li> - Command, control, order, tell what to do, manipulate. (You could command an innaimate object to move for example)</li>
-
+    @foreach (var action
+      in MagicService.GetActionWords(FreeFormLanguages.Jedi)
+          .OrderBy(action => action.Key))
+    {
+        <li>@action.Key - @action.Value</li>
+    }
 </ul>
 
 <h3>Free Form Noun/Target (Jed-I)</h3>
 <ul>
-    <li> - Animals, things with an intelligence lower then 6.</li>
-    <li> - Water/Liquid</li>
-    <li> - Air/Gas</li>
-    <li> - Humanoid Bodies/Creatures (intelligence of 6 or more)</li>
-    <li> - Plant/Trees</li>
-    <li> - Fire, Heat, Light</li>
-    <li> - Image, Illusions, sensory effects, the nevous system</li>
-    <li> - Mind, thoughts, brain</li>
-    <li> - Earth, Solid stuff, rock, stone, metal</li>
-    <li> - Constructed, things that are built</li>
-    <li> - Electricty, Energy</li>
-    <li> - Power, Void Energy, Raw elements from the planes.</li>
-
+    @foreach (var target
+      in MagicService.GetTargetWords(FreeFormLanguages.Jedi)
+          .OrderBy(target => target.Key))
+    {
+        <li>@target.Key - @target.Value</li>
+    }
 </ul>
 
 <h3>Free Form Modifiers (Jed-I)</h3>
 <ul>
-    <li> - Apocalyptic, you can alter the area a spell effects so that the area affected become ruined and devastated in appearance. All surfaces in the area become difficult terrain and remains so for 1D Months.</li>
-    <li> - Aquaify, your spell can be cast and functions underwater with no immediate pennalties</li>
-    <li> - Authoritative, if the spell lands on a creature, you may pick one of the follow actions to prohibit the creatue from taking: Move Closer to Someone of your choice, Move Away from Someone of your choice, Make an Attack, Cast a Spell</li>
-    <li> - Damage Change, change the type of damage from a spell to one of the following: Acid, Cold, Electric, Fire, Magic, Water</li>
-    <li> - Blissfull, the target becomes happy/blissful, on an ally this can empower them to fight harder, on an ememy it can cause them to drop their guard for a turn</li>
-    <li> - Bouncing, if the spell fails, you can try again against a different target</li>
-    <li> - Brisk, grant an alterantive movement type or increase movement speed by 1.5 meters</li>
-    <li> - Burning, the spell does 1D Acid or Fire damage, lasts for 1D rounds unless extinguished with a End 8+ check</li>
-    <li> - Center, you center the spell on yourself, causing it form around you protecting you from the effects of the spell.</li>
-    <li> - Expanding Damage, you may cause an additional 2 points of damage in a characteristic of your choice.</li>
-    <li> - Curse, curse the target with the effects of the spell for 1D Years, can be upgraded to 1D Decade</li>
-    <li> - Combined, combined two seperate spells together.</li>
-    <li> - Contagious, the effects of the spell spread to anyone who touches the target for 1D seconds on a failed END 8+ check.</li>
-    <li> - Contingent, Allows you to set a spell up as a reserve. Essentially set asside the magic now for later.</li>
-    <li> - Crypt, if a creature dies to your spell, it returns to life at half its health points in 1D hours.</li>
-    <li> - Daze, your spell puts the target into a daze.</li>
-    <li> - Delayed, set your spell to be delayed until a specific trigger</li>
-    <li> - Disruptive, your magic power is so strong that you overwhelm the ability for other mages to cast spells in an area of 2D6 meters around you.</li>
-    <li> - Echoing, cast a spell a second time</li>
-    <li> - Ectoplasmic, Your spell can bridge the gap between the Material and another Plane</li>
-    <li> - Elemental, you can change the elemental nature of your spell</li>
-    <li> - Empower, double the effects of the spell</li>
-    <li> - Encourage, those affected by the spell gain a moral boost</li>
-    <li> - Enlarge, Double the range of the spell</li>
-    <li> - Extend, Double how long the spell lasts</li>
-    <li> - Familier, transfer a known spell to a friend/familier of yours</li>
-    <li> - Fearsome, the target is shaken and terrifed because of the spell</li>
-    <li> - Flare, Fire, Light, and Electrical spells cause those who see it to take an Int 6+ check or be dazzled and distracted by the effects for 3D6 seconds</li>
-    <li> - Fleeting, the spell is easier to dismiss</li>
-    <li> - Focused, if the spell targest multiple people, one of them is the main taget and has a harder time resisting the effects</li>
-    <li> - Furious, the target of spell becomes enraged</li>
-    <li> - Intesify, multiply the damage by 5</li>
-    <li> - Lingering, remains in the area for 1D minutes</li>
-    <li> - Merciful, the spell deals non-leathal damage</li>
-    <li> - Persistent, if the target saves, the taget must save again</li>
-    <li> - Quicken, cast the spell for 1 action point instead of 2</li>
-    <li> - Scarring, the spell leaves the target fearful of the caster or someone of the casters choice.</li>
-    <li> - Selective, allows the caster to ignore some targets of the spell, 1 psi point per target</li>
-    <li> - Shadow, the spells area is engulfed in a shadow</li>
-    <li> - Snuffing, if a creature takes damage from the spell, any light source they have must be restarted</li>
-    <li> - Stylized, the spell is harder to identify</li>
-    <li> - Tenacious, the spell is difficult to dispel</li>
-    <li> - Tenebrous, the spell reduces the light in the affected area</li>
-    <li> - Threatening Illusion, the target believes you illusion is a threat</li>
-    <li> - Thudnering, deafen a creature with your spell</li>
-    <li> - Toppling, the spell knocks the target prone</li>
-    <li> - Trick, the target makes an Int/Edu 8+ check, on failture they don't know the spell has been cast</li>
-    <li> - Tumultuous, The target must make an Str/Dex 8+ check or be pushed 2D6 meters away in a random direction.</li>
-    <li> - Vast, the spell can be maintained across multiple targest across a vast area (1D * 10 meters per psi point)</li>
-    <li> - Widen, double the spells area</li>
+
+    @foreach (var modifier
+      in MagicService.GetModifiersWords(FreeFormLanguages.Jedi)
+          .OrderBy(modifier => modifier.Key))
+    {
+        <li>@modifier.Key - @modifier.Value</li>
+    }
+</ul>
+
+<h2>Free Form Words in Sith</h2>
+<p>The Sith language spellcasting language is related to that of the Jed-I, but over the millennia has grown apart and into its own Language. </p>
+<h3>Free Form Planes (Sith)</h3>
+<ul>
+    @foreach (var plane
+       in MagicService.GetPlanesWords(FreeFormLanguages.Sith)
+           .OrderBy(plane => plane.Key))
+    {
+        <li>@plane.Key - @plane.Value</li>
+    }
+</ul>
+
+<h3>Free Form Verb/Action(Sith)</h3>
+<ul>
+    @foreach (var action
+       in MagicService.GetActionWords(FreeFormLanguages.Sith)
+           .OrderBy(action => action.Key))
+    {
+        <li>@action.Key - @action.Value</li>
+    }
+</ul>
+
+<h3>Free Form Noun/Target (Sith)</h3>
+<ul>
+    @foreach (var target
+       in MagicService.GetTargetWords(FreeFormLanguages.Sith)
+           .OrderBy(target => target.Key))
+    {
+        <li>@target.Key - @target.Value</li>
+    }
+</ul>
+
+<h3>Free Form Modifiers (Sith)</h3>
+<ul>
+
+    @foreach (var modifier
+       in MagicService.GetModifiersWords(FreeFormLanguages.Sith)
+           .OrderBy(modifier => modifier.Key))
+    {
+        <li>@modifier.Key - @modifier.Value</li>
+    }
+</ul>
+
+<h2>Free Form Words in Federation Common</h2>
+<p>Each of the Dominions has their own Sub-Order of the Luna Kinghts, and in many of the furthest reaches of the Federation that have their own Chapters of the Luna Knights, they have grown to cast spells in Federation Common instead of the traditional High Versian. </p>
+<h3>Free Form Planes (Federation Common)</h3>
+<ul>
+    @foreach (var plane
+        in MagicService.GetPlanesWords(FreeFormLanguages.FederationCommon)
+            .OrderBy(plane => plane.Key))
+    {
+        <li>@plane.Key - @plane.Value</li>
+    }
+</ul>
+
+<h3>Free Form Verb/Action(Federation Common)</h3>
+<ul>
+    @foreach (var action
+        in MagicService.GetActionWords(FreeFormLanguages.FederationCommon)
+            .OrderBy(action => action.Key))
+    {
+        <li>@action.Key - @action.Value</li>
+    }
+</ul>
+
+<h3>Free Form Noun/Target (Federation Common)</h3>
+<ul>
+    @foreach (var target
+        in MagicService.GetTargetWords(FreeFormLanguages.FederationCommon)
+            .OrderBy(target => target.Key))
+    {
+        <li>@target.Key - @target.Value</li>
+    }
+</ul>
+
+<h3>Free Form Modifiers (Federation Common)</h3>
+<ul>
+
+    @foreach (var modifier
+        in MagicService.GetModifiersWords(FreeFormLanguages.FederationCommon)
+            .OrderBy(modifier => modifier.Key))
+    {
+        <li>@modifier.Key - @modifier.Value</li>
+    }
 </ul>

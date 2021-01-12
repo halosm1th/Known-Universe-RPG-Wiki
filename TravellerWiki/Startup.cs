@@ -38,6 +38,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerMissionGeneratorService>();
             services.AddSingleton<TravellerCareerService>();
             services.AddSingleton<TravellerSkillDisplayService>();
+            services.AddSingleton<TravellerFreeFormMagicSystemsService>();
 
             services.AddSingleton<TravellerMapService>();
         }
