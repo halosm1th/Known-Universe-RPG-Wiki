@@ -306,5 +306,27 @@
     "TargetQuirk": "Is convinced the Travellers are dangerous",
     "Ally": "Eccentric Scientist",
     "Enemy": "Inveterate Gambler"
+  },
+  {
+    "jobTitle": "Bountry Request",
+    "jobDescription": "A group of people are wanted in connection with the terrorist attack on Uncode within the Mainhair Military Republic. The group is wanted alive for questioning.",
+    "jobPayment": 0,
+    "numberOfAccepted": 4,
+    "numberOfActive": 0,
+    "numberOfMaxAccepts": 3,
+    "visivle": true,
+    "senderName": "Mainhair Military Government",
+    "senderLocation": "6,6:3'2.North Western Islands",
+    "boardOfferedOn": "Travellers Job Board",
+    "expiryDate": "20/5/83395",
+    "IssuingDate": "20/5/83390",
+    "Mission": "Find Targets",
+    "Patron": "Mainhair Military Republic",
+    "Target": "Mikee, Larry, Barry, Dani",
+    "Opposition": "Players",
+    "PatronQuirk": "At war",
+    "TargetQuirk": "Player Group",
+    "Ally": "Nataniel Huber",
+    "Enemy": "Sith Cult Board of Uncode"
   }
 ]
