@@ -22,11 +22,6 @@ namespace TravellerWiki.Data
             {
                 return new TravellerCharacterCreationItemReward(Items);
             }
-            
-            if (NewCareerName != null || NewCareerName != String.Empty)
-            {
-                return new TravellerCharacterCreationJobChangeReward(NewCareerName);
-            }
 
             if (BenefitIncreaseAmount != null)
             {
@@ -56,6 +51,12 @@ namespace TravellerWiki.Data
             if (Rewardtext != null)
             {
                 return new TravellerOtherReward(Rewardtext);
+            }
+
+
+            if (!string.IsNullOrEmpty(NewCareerName))
+            {
+                return new TravellerCharacterCreationJobChangeReward(NewCareerName);
             }
 
             return new TravellerOtherReward("No Entry");

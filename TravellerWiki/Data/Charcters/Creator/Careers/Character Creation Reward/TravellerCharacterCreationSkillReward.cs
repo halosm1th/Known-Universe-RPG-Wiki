@@ -14,7 +14,7 @@ namespace TravellerWiki.Data
 
         public override string ToString()
         {
-            return $"Skills: {Skilllist.Aggregate("",(skills,next) => $"{skills} {next}")}";
+            return $"{Skilllist.Aggregate("",(skills,next) => $"{skills} {next}")}";
         }
     }
 }
