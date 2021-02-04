@@ -20,7 +20,10 @@ namespace TravellerWiki.Data
                     perks:new List<string>
                     {
                         "UC Passport",
-                        "TAS Membership"
+                        "TAS Membership",
+                        "Language (Common) 1",
+                        "Language (Any) 1",
+                        "(Religous? Witcherism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -54,6 +57,10 @@ namespace TravellerWiki.Data
                     {
                         "VoidBlade",
                         "WitcherStatus",
+                        "Language (Witcher) 1",
+                        "Language (Any) 1",
+                        "(Religous? Witcherism)"
+
                     },
                     backgroundSkills:new List<string>
                     {
@@ -87,7 +94,9 @@ namespace TravellerWiki.Data
                     perks:new List<string>
                     {
                         "OptionalNeuralNet",
-                        "FederationCitizenship"
+                        "FederationCitizenship",
+                        "Language (Federation Common) 1",
+                        "(Religous? Witcherism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -122,6 +131,9 @@ namespace TravellerWiki.Data
                         "KnightArmour",
                         "KnightWeapons",
                         "Knightstransport",
+                        "Language (High Versian) 1",
+                        "Language (Federation Common) 1",
+                        "(Religous? Deorism)"
                     },
                     backgroundSkills:new List<string>
                     {"Gun",
@@ -155,6 +167,9 @@ namespace TravellerWiki.Data
                     {
                         "Vers Citizenship",
                         "(soc10+ voidKnife)",
+                        "Language (Low Versian) 1",
+                        "Language (High Versian) 1",
+                        "(Religous? Sithism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -187,6 +202,9 @@ namespace TravellerWiki.Data
                     perks:new List<string>
                     {"VoidBlade",
                         "EquitesOrdinisArmour",
+                        "Language (High Versian) 2",
+                        "Language (Low Versian) 1",
+                        "(Religous? Deorism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -221,6 +239,9 @@ namespace TravellerWiki.Data
                     {
                         "UnitedReverseLordsCitizenship",
                         "OptionalNeuralNet",
+                        "Language (High Versian) 1",
+                        "Language (Low Versian) 1",
+                        "(Religous? Deorism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -252,7 +273,10 @@ namespace TravellerWiki.Data
                     },
                     perks:new List<string>
                     {"Xiao-MingEmployeecard",
-                        "exitpackage(200Cr/Month)"
+                        "exitpackage(200Cr/Month)",
+                        "Language (Xiao-Ming) 1",
+                        "Language (Axios Political) 1",
+                        "(Religous? Jed-Iism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -284,7 +308,8 @@ namespace TravellerWiki.Data
                     },
                     perks:new List<string>
                     {
-                        "None"
+                        "Language (Germushian) 1",
+                        "(Religous? Sigmarism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -317,6 +342,9 @@ namespace TravellerWiki.Data
                     perks:new List<string>
                     {"(Inquisitor? VoidBlade)",
                         "Sexton of Sigmar (Holy Relic)",
+                        "Language (Germushian) 1",
+                        "Language (Sigmarian) 1",
+                        "(Religous? Sigmarism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -344,6 +372,9 @@ namespace TravellerWiki.Data
                     },
                     perks:new List<string>
                     {
+                        "Language (Germushian) 1",
+                        "Language (Any Common) 1",
+                        "(Religous? Lawgarism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -375,7 +406,10 @@ namespace TravellerWiki.Data
                     },
                     perks:new List<string>
                     {
-                        "Weapon"
+                        "Weapon",
+                        "Language (Germushian) 1",
+                        "Language (Sigmarian) 1",
+                        "(Religous? Sigmarism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -409,6 +443,9 @@ namespace TravellerWiki.Data
                     {
                         "Neural Net",
                         "(Imperial? Imperial Status)",
+                        "Language (High Imperial) 1",
+                        "Language (Low Imperial) 1",
+                        "(Religous? Modern Sithism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -440,7 +477,10 @@ namespace TravellerWiki.Data
                     },
                     perks:new List<string>
                     {
-                        "Void Blade"
+                        "Void Blade",
+                        "Language (High Imperial) 1",
+                        "Language (Sith) 1",
+                        "(Religous? Sithism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -467,6 +507,8 @@ namespace TravellerWiki.Data
                         "Neural Net",
                         "Imperial Status",
                         "Void Knife",
+                        "Language (High Imperial) 2",
+                        "(Religous? Orthodox Sithism)"
                     },
                     backgroundSkills:new List<string>
                     {
@@ -498,6 +540,9 @@ namespace TravellerWiki.Data
                     },
                     perks:new List<string>
                     {
+                        "Language (Low Imperial) 1",
+                        "Language (Britannian) 1",
+                        "(Religous? Britannian Sithism)"
                     },
                     backgroundSkills:new List<string>
                     {"Admin",
@@ -529,6 +574,9 @@ namespace TravellerWiki.Data
                     perks:new List<string>
                     {"Neural Net",
                         "Imperial Citizen Status",
+                        "Language (Low Imperial) 1",
+                        "Language (Low Versian) 1",
+                        "(Religous? Deorism)"
                     },
                     backgroundSkills:new List<string>
                     {"Melee",
@@ -558,7 +606,10 @@ namespace TravellerWiki.Data
                         ("(str | dex | end)",1),("(int | edu | soc)",1),
                     },
                     perks:new List<string>
-                    {"Alliance Status"
+                    {"Alliance Status",
+                        "Language (Axios Common) 1",
+                        "Language (Axios Political) 1",
+                        "(Religous? Jed-Iism)"
                     },
                     backgroundSkills:new List<string>
                     {"Admin",
@@ -591,7 +642,10 @@ namespace TravellerWiki.Data
                         ("(Str | Dex)",2),("End",1),("Soc",-4),("Edu",1),("Int",1),
                     },
                     perks:new List<string>
-                    {"Guild Card"
+                    {"Guild Card",
+                        "Language (Tekka) 1",
+                        "Language (Any Common) 1",
+                        "(Religous? Gatism)"
                     },
                     backgroundSkills:new List<string>
                     {

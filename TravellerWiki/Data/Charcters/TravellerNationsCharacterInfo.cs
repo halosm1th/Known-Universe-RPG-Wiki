@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace TravellerWiki.Data
@@ -42,6 +43,22 @@ namespace TravellerWiki.Data
             Perks = new List<string> { "Error" };
             BackgroundSkills = new List<string> { "Error" };
             EntryRequirements = new List<string> { "Error" };
+        }
+
+        public string GetStatChanges()
+        {
+            var sb = new StringBuilder();
+            foreach (var change in StatChanges)
+            {
+                sb.Append(change.Stat);
+                sb.Append(":");
+                sb.Append(change.ChangeBy);
+                sb.Append(", ");
+            }
+
+            sb.Remove(sb.Length - 2, 2);
+
+            return sb.ToString();
         }
 
         public override string ToString()

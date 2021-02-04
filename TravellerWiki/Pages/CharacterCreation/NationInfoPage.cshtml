@@ -29,24 +29,16 @@
     <p>@Model.CharacterInfo.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core, ", ", addition)).Remove(0, 1)</p>
 
 <h3>Stat Changes & Perks</h3>
-    <p>
-    <ul>
-        Stat Changes:
-
-        @{
-            foreach (var statChange in Model.CharacterInfo.StatChanges)
-            {
-                <li>@statChange.Stat: @statChange.ChangeBy</li>
-            }
-        }
-    </ul>
-        @if (Model.CharacterInfo.Perks.Count > 0)
-        {
-            <text>Perks</text>
-            Model.CharacterInfo.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
-        }
+<p>
+    Stat Changes: @Model.CharacterInfo.GetStatChanges()
 </p>
+<p>
+    @if (Model.CharacterInfo.Perks.Count > 0)
+    {
+        var remove = Model.CharacterInfo.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
+        <text>Perks: @remove</text>
     }
+</p>
     <h3>Background Skills</h3>
 
     @{
