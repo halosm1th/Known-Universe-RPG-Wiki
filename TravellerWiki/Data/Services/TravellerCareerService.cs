@@ -26,7 +26,10 @@ namespace TravellerWiki.Data
                 var convertedFile = JsonConvert.DeserializeObject<List<TravellerCareerJson>>(file);
 
                 _loadedFile = true;
-                _careers = convertedFile.Select(career => career.CreateCareerFromJson()).ToList();
+                _careers = convertedFile.Select(career =>
+                {
+                    return career.CreateCareerFromJson();
+                }).ToList();
             }
 
             return _careers;

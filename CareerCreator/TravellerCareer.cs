@@ -26,9 +26,12 @@ namespace TravellerWiki.Data
             TravellerSkillCheck commmsionCheck)
         {
             HasCommision = hasCommision;
-            CommissionSkillList = commissionSkillList;
-            RanksAndBonuses = ranksAndBonuses;
-            CommmsionCheck = commmsionCheck;
+            if (hasCommision)
+            {
+                CommissionSkillList = commissionSkillList;
+                RanksAndBonuses = ranksAndBonuses;
+                CommmsionCheck = commmsionCheck;
+            }
         }
     }
 

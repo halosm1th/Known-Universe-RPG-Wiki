@@ -12,7 +12,7 @@ namespace TravellerWiki.Data
 
         public TravellerCharacterCreationEvent GetEvent()
         {
-            if (EventSkillChoices != null)
+            if (EventSkillChoices != null && EventSkillChoices.Count >0)
             {
                 return new TravellerCharacterCreationEvent(EventText,EventSkillChoices,Reward.GetReward());
             }

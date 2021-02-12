@@ -14,7 +14,7 @@ namespace TravellerWiki.Data
         public TravellerCharacterCreationEvent()
         {
             EventText = "";
-            EventSkillChoices = new List<TravellerCharacterCreationEventSkillChoice>();
+            EventSkillChoices = null;
             Reward = null;
 
         }
@@ -22,7 +22,7 @@ namespace TravellerWiki.Data
         public TravellerCharacterCreationEvent(string eventText)
         {
             EventText = eventText;
-            EventSkillChoices = new List<TravellerCharacterCreationEventSkillChoice>();
+            EventSkillChoices = null;
             Reward = null;
         }
 

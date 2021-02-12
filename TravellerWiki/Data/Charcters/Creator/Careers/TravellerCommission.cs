@@ -24,9 +24,12 @@ namespace TravellerWiki.Data
             TravellerSkillCheck commmsionCheck)
         {
             HasCommision = hasCommision;
-            CommissionSkillList = commissionSkillList;
-            RanksAndBonuses = ranksAndBonuses.Select(rab => (rab.Title,rab.Perk.GetReward())).ToList();
-            CommmsionCheck = commmsionCheck;
+            if (hasCommision)
+            {
+                CommissionSkillList = commissionSkillList;
+                RanksAndBonuses = ranksAndBonuses.Select(rab => (rab.Title, rab.Perk.GetReward())).ToList();
+                CommmsionCheck = commmsionCheck;
+            }
         }
     }
 }

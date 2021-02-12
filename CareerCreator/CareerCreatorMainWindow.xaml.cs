@@ -378,7 +378,7 @@ namespace CareerCreator
                 CareerName.Text,CareerDescription.Text,((string) Nationality.SelectionBoxItem),
                 _qualifications, commission,
                 assignments,GetBenefts(),
-                GetPersonalSkills(),GetServiceSkills(),GetAdvanceEducationSkills(),events.ToList(),mishaps.ToList());
+                GetPersonalSkills(),GetServiceSkills(),GetAdvanceEducationSkills(),GetEvents(),mishaps.ToList());
 
             var json = JsonConvert.SerializeObject(travCareer);
 
@@ -395,6 +395,12 @@ namespace CareerCreator
             }
 
             Environment.Exit(0);
+        }
+
+        private List<TravellerCharacterCreationEvent> GetEvents()
+        {
+
+            return events.ToList();
         }
 
         private List<string> GetPersonalSkills()

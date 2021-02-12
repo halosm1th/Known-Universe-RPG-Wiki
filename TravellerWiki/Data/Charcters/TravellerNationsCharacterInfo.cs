@@ -53,6 +53,7 @@ namespace TravellerWiki.Data
                 sb.Append(change.Stat);
                 sb.Append(":");
                 sb.Append(change.ChangeBy);
+
                 sb.Append(", ");
             }
 

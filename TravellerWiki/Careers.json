@@ -3782,5 +3782,229 @@
       { "EventText": "You are stopped by the ‘authorities' and are arrested, but are able to bribe your way out of it. Your crew has left you behind." },
       { "EventText": "Injured. Roll on the Injury Table." }
     ]
+  },
+  {
+    "CareerName": "Equites Ordinis Deorum",
+    "CareerDescription": "The Equites Ordinis Deorum are those blessed within the Vers empire to not only have been granted the honour of bearing the title of knight, but also having been born with a gift from the gods, the ability to bring from the realm above to the realm material the desires of the knight.\r\n",
+    "Nationality": "Equites Ordinis deorum",
+    "Qualifications": [
+      {
+        "SkillName": "Psi",
+        "BeatValue": 10
+      }
+    ],
+    "Commission": null,
+    "Assignments": [
+      {
+        "Name": "Order of Offense",
+        "Description": "You are the defenders of the faith, you use the powers of the planes to keep the Empire safe and your lord in power.",
+        "Survival": {
+          "SkillName": "Psi",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "Str",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Melee (Void)", "Free Form", "Tactics (Military)", "Free Form", "Strength", "Gun Combat" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Knight",
+            "Item2": { "Skilllist": [ "Free Form magic 1 & Void Blade" ] }
+          },
+          {
+            "Item1": "Brother Knight",
+            "Item2": { "Skilllist": [ "Free Form Magic" ] }
+          },
+          {
+            "Item1": "Sergeant Knight",
+            "Item2": { "Skilllist": [ "Free Form Magic" ] }
+          },
+          {
+            "Item1": "Lieutenant Knight",
+            "Item2": { "Skilllist": [ "Free Form Magic" ] }
+          },
+          {
+            "Item1": "Knight Captain",
+            "Item2": { "Skilllist": [ "Free Form Magic" ] }
+          },
+          {
+            "Item1": "Knight Commander",
+            "Item2": { "Skilllist": [ "Free Form Magic" ] }
+          }
+        ]
+      },
+      {
+        "Name": "Order of Defense",
+        "Description": "You are the defenders of your Brothers. You use powers from beyond the material, as well as a deeper understanding of science and medicine to help keep those in the order alive and well defended.",
+        "Survival": {
+          "SkillName": "Psi",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "End",
+          "BeatValue": 6
+        },
+        "SkillList": [ "Free Form", "Science", "edic", "Stealth", "Free Form", "Melee" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Knight",
+            "Item2": { "Skilllist": [ "Free Form & Void Blade" ] }
+          },
+          {
+            "Item1": "Brother Knight",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Sergeant Knight",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Lieutenant Knight",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Knight Captain",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Knight Commander",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          }
+        ]
+      },
+      {
+        "Name": "",
+        "Description": "",
+        "Survival": {
+          "SkillName": "Psi",
+          "BeatValue": 8
+        },
+        "Advancement": {
+          "SkillName": "Edu",
+          "BeatValue": 8
+        },
+        "SkillList": [ "Electronics", "Language", "Diplomat", "Recon", "Survival", "Streetwise" ],
+        "RanksAndBonuses": [
+          {
+            "Item1": "Knight",
+            "Item2": { "Skilllist": [ "Free Form & Void Blade" ] }
+          },
+          {
+            "Item1": "Brother Knight",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Sergeant Knight",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Lieuteant Knight",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Knight Captain",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          },
+          {
+            "Item1": "Knight Commander",
+            "Item2": { "Skilllist": [ "Free Form" ] }
+          }
+        ]
+      }
+    ],
+    "MusteringOutBenefits": [
+      {
+        "Item1": 100000,
+        "Item2": { "Items": [ "Equites Ordinis Deorum Void Blade" ] }
+      },
+      {
+        "Item1": 250000,
+        "Item2": { "Items": [ "Equites Ordinis Deorum Landing Fort" ] }
+      },
+      {
+        "Item1": 500000,
+        "Item2": { "Items": [ "Knight-World" ] }
+      },
+      {
+        "Item1": 750000,
+        "Item2": { "Items": [ "Universalis ID" ] }
+      },
+      {
+        "Item1": 1000000,
+        "Item2": { "Items": [ "Equites Ordinis Deorum Armour" ] }
+      },
+      {
+        "Item1": 1250000,
+        "Item2": {
+          "ContactCount": "D12",
+          "ContactType": "Nobles"
+        }
+      },
+      {
+        "Item1": 1500000,
+        "Item2": { "Items": [ "Augment" ] }
+      }
+    ],
+    "PersonalDevelopmentSkillList": [ "Free Form (Void)", "Free Form (Aether)", "Free Form (Material)", "Psi", "Free Form (Abyssal)", "Free Form (Nether)" ],
+    "ServiceSkillsList": [ "Psi", "Str", "End", "Int", "Edu", "Soc" ],
+    "AdvancedEducationSkillList": [],
+    "Events": [
+      {
+        "EventText": "Disaster! Roll on the Mishap Table, but you are not ejected from this career.",
+        "EventSkillChoices": [],
+        "Reward": null
+      },
+      {
+        "EventText": "You are called forth by your lord as a key member of a military engagement. Make a Free Form Magic 8+ check, if you succeed, it is thanks to you that the tide of the battle turns, as a result you gain DM+1 to your next advancement roll. If you fail the check, you cause a disastrous failure for your lord, the political backlash costs you SOC-1."
+      },
+      {
+        "EventText": "You spend the term training with your fellow Order members, refining your skills. Make an Education 6+ check. If you succeed, Increase one skill besides Luck or Jack of All Trades by 1. If you fail, nothing happens."
+      },
+      {
+        "EventText": "You are invited to a secret meeting by a Hellsbeckian, asking if they can count on your support if anything were to happen. If you agree, Gain D3 Allies and SOC-1. If you Disagree, Gain 1 Enemy and SOC+1."
+      },
+      {
+        "EventText": "You spend the term studying with your fellow knights in the libraries of your Monastery, make an EDU 6+ check, if you succeed EDU+1."
+      },
+      {
+        "EventText": "Life Event. Roll on the Life Events Table."
+      },
+      {
+        "EventText": " You spend the term in a siege for your liege, and as a result have many days filled with bloody battles. Make a Melee 6+ check. If you succeed, increase your melee by 1. If you fail roll on the injury table."
+      },
+      {
+        "EventText": "You spend the term training with your fellow Knights, make a 6+ check with an Athletics check of your choice, if you succeed, increase that skill by one."
+      },
+      {
+        "EventText": "Some of your fellow Order members invite you to an after hours ritual deep in the catacombs of the Temple you are in. If you choose to attend, you join a dark ceremony honouring one of the Abyssal beings, when your turn comes to take the pledge of allegiance to the otherworldly being, you may make a Deception 8+ check to lie about doing the ritual. If you pass the check, gain PSI+1 and D3 Cutlist Enemies. If you fail the check, Gain PSI+3 and D6 Cultist Contacts, as well as a contact, the human Secretion of the abyssal being brought forth on that fateful night."
+      },
+      {
+        "EventText": "Your Knight-World is suffering from a famine, make a Free Form 8+ Check. If you succeed, you are able to create food for your knight world, and are hailed as a hero on your world SOC+1. If you fail, you are vilanized in the media as a result of your peril, SOC-1.",
+      },
+      {
+        "EventText": "You spend the term tending to minor issues on your Knight-World."
+      }
+    ],
+    "Mishaps": [
+      {
+        "EventText": "Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table and take the lower result."
+      },
+      {
+        "EventText": "Whether your fault or not, blame is placed on you for a mishap resulting in death during an extra-planar event, you are kicked out of the order but allowed to keep your title and armour."
+      },
+      {
+        "EventText": "The specific reasons for your banishment are removed from the Orders books, so as to preserve the names of those involved, as a result you are allowed to keep your armour and blade, but you may no longer consider yourself a member of the Equites Ordinis Deorum. Change career to Versian Knight in the next term if you continue character creation."
+      },
+      {
+        "EventText": "You fail to cast a spell, and the peril causes a Daemon to appear, ruining the temple you’re training in, you are banished from the Order."
+      },
+      {
+        "EventText": "You fail to uphold your Feudal duties and as a result lose your Knightly title, and thus your position in the Equites Ordinis Deroum"
+      },
+      {
+        "EventText": "Injured. Roll on the Injury Table."
+      }
+    ]
   }
 ]
