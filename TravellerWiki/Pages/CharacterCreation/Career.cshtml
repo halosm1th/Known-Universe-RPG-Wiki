@@ -92,12 +92,12 @@
                 <tr><th>1D</th><th style="padding: 2px">Personal Development Skills</th><th style="padding:2px">Service Skills</th></tr>
             </thead>
             <tbody>
-                @for (i = 1; i < career.PersonalDevelopmentSkillList.Count+1; i++)
+                @for (i = 0; i < career.PersonalDevelopmentSkillList.Count; i++)
                 {
                     var personalSkill = career.PersonalDevelopmentSkillList[i];
                     var serviceSkill = career.ServiceSkillsList[i];
                     <tr>
-                        <td style="border: 2px;border-style: solid">@i+1</td>
+                        <td style="border: 2px;border-style: solid">@(i+1)</td>
                         <td style="border: 2px;border-style: solid">@personalSkill</td>
                         <td style="border: 2px;border-style: solid">@serviceSkill</td>
                     </tr>
@@ -111,13 +111,13 @@
                 <tr><th>1D</th><th>@career.Assignments[0].Name</th><th>@career.Assignments[1].Name</th><th>@career.Assignments[2].Name</th></tr>
             </thead>
             <tbody>
-                @for (i = 1; i < @career.Assignments[0].SkillList.Count+1; i++)
+                @for (i = 0; i < @career.Assignments[0].SkillList.Count; i++)
                 {
                     var assignment1 = career.Assignments[0].SkillList[i];
                     var assignment2 = career.Assignments[1].SkillList[i];
                     var assignment3 = career.Assignments[2].SkillList[i];
                     <tr>
-                        <td style="margin: 2px;border-style: solid">@i)</td>
+                        <td style="margin: 2px;border-style: solid">@(i+1))</td>
                         <td style="margin: 2px;border-style: solid">@assignment1</td>
                         <td style="        margin: 2px;
         border-style: solid">
