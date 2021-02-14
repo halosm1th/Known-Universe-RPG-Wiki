@@ -11,7 +11,7 @@ namespace TravellerWiki
 {
     public class JobBoardModel : PageModel
     {
-        private List<string> ValidTASMembershipIDs = new List<string>{ "1701","123",  "0xCAFEBABE"};
+        private List<string> ValidTASMembershipIDs = new List<string>{ "1701","123",  "0xCAFEBABE", "Anchovies" };
         private List<string> InvalidTASMembershipIDs = new List<string>{ "1999","2000","0000","1234", "0xDEADBEEF"};
 
         [BindProperty(SupportsGet = true)] public bool CanViewBoard { get; set; }
