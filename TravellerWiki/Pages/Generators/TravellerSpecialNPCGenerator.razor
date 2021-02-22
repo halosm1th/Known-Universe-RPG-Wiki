@@ -57,11 +57,8 @@ else
                     </td>
                     <td style="height: 30px;padding: 10px; border-style: solid">
                         @{
-                            var skills = npc.SkillList
-                                .Where(skill
-                                    => !BadSkills.Contains(skill.SkillName))
-                                .Select(skills
-                                    => $"{skills.SkillName}:{skills.SkillValue}")
+                            var skills = npc.SkillList.Select(skills
+                                    => $"{skills.SkillNameText}:{skills.SkillValue}")
                                 .ToArray();
 
                             foreach (var skill in skills)
@@ -93,7 +90,6 @@ else
 @code {
     private List<TravellerSpecialNPC> npcs;
 
-    private string[] BadSkills = new[] { "Str", "Dex", "End", "Int", "Edu", "Soc" };
     private int NPCCount;
     private TravellerNameService.NationNameList NationNameList = TravellerNameService.NationNameList.Any;
 

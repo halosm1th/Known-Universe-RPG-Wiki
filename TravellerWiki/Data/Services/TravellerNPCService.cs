@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 using TravellerWiki.Data.Charcters;
+using static TravellerWiki.Data.Charcters.TravellerSkills;
+using static TravellerWiki.Data.Charcters.TravellerAttributes;
 
 namespace TravellerWiki.Data
 {
@@ -16,395 +18,478 @@ namespace TravellerWiki.Data
 
         private static readonly TravellerNameService nameService = new TravellerNameService();
 
-        private Dictionary<string, int> GetBackgroundSkillsAsync(int background) =>
+        private List<TravellerAttribute> GetBackgroundAttributesAsync(int background) =>
+             background switch
+             {
+                 0 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Strength, -1),
+                    new TravellerAttribute(Dexterity, +1),
+                    new TravellerAttribute(Education, -1),
+                },
+                 1 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Endurance, +1),
+                    new TravellerAttribute(Education, -1),
+                },
+                 2 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Education, +1),
+                },
+                 3 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Education, -2),
+                    new TravellerAttribute(Dexterity, +1),
+                    new TravellerAttribute(Social, -2),
+                },
+                 4 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Education, -3),
+                    new TravellerAttribute(Endurance, +2),
+                },
+                 5 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Strength, -1),
+                    new TravellerAttribute(Education, +2),
+                    new TravellerAttribute(Endurance, +1),
+                },
+                 6 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Dexterity, +1),
+                    new TravellerAttribute(Education, +1),
+                    new TravellerAttribute(Endurance, -1),
+                },
+                 7 => new List<TravellerAttribute>()
+                {
+                    new TravellerAttribute(Endurance, +1),
+                },
+             };
+
+        private List<TravellerSkill> GetBackgroundSkillsAsync(int background) =>
             background switch
             { 
-                0 => new Dictionary<string,int>()
+                0 => new List<TravellerSkill>()
                 {
-                    {"Str", -1},
-                    {"Dex", +1},
-                    {"Edu", -1},
-                    {"Profession (belter)", 2},
-                    {"Jack-of-All-Trades", 1},
-                    {"Vacc Suit",1},
-                    {"Astrogation", 0},
-                    {"Carouse", 0},
-                    {"Electronics", 0},
-                    {"Mechanic", 0},
-                    {"Medic", 0},
-                    {"Recon", 0},
-                    {"Science", 0},
+                    new TravellerSkill(Profession_Belter, 2),
+                    new TravellerSkill(JackOfAllTrades, 1),
+                    new TravellerSkill(VaccSuit,1),
+                    new TravellerSkill(Astrogation, 0),
+                    new TravellerSkill(Carouse, 0),
+                    new TravellerSkill(Electronics, 0),
+                    new TravellerSkill(Mechanic, 0),
+                    new TravellerSkill(Medic, 0),
+                    new TravellerSkill(Recon, 0),
+                    new TravellerSkill(Science, 0)
                 },
-                1 => new Dictionary<string, int>()
+                1 => new List<TravellerSkill>()
                 {
-                    {"End", +1},
-                    {"Edu", -1},
-                    {"Survival", 2},
-                    {"Athletics (strength)", 1},
-                    {"Jack-of-All-Trades",1},
-                    {"Gun Combat (slug)", 1},
-                    {"Drive", 0},
-                    {"Navigation", 0},
-                    {"Mechanic", 0},
-                    {"Medic", 0},
-                    {"Recon", 0},
-                    {"Profession", 0},
+                    new TravellerSkill(Survival, 2),
+                    new TravellerSkill(Athletics_Strength, 1),
+                    new TravellerSkill(JackOfAllTrades,1),
+                    new TravellerSkill(GunCombat_Slug, 1),
+                    new TravellerSkill(Drive, 0),
+                    new TravellerSkill(Navigation, 0),
+                    new TravellerSkill(Mechanic, 0),
+                    new TravellerSkill(Medic, 0),
+                    new TravellerSkill(Recon, 0),
+                    new TravellerSkill(Profession, 0),
                 },
-                2 => new Dictionary<string, int>()
+                2 => new List<TravellerSkill>()
                 {
-                    {"Edu", +1},
-                    {"Admin", 1},
-                    {$@"Electronics {((background/2==0)? "Comms" : "Computers")}", 1},
-                    {"Profession (any)",1},
-                    {"Drive (wheel)", 1},
-                    {"Science (any)", 1},
-                    {"art", 0},
-                    {"Advocate", 0},
-                    {"Diplomat", 0},
-                    {"Flyer", 0},
-                    {"Streetwise", 0},
+                    new TravellerSkill(Electronics_Comms, 1),
+                    new TravellerSkill(Profession,1),
+                    new TravellerSkill(Drive_Wheel, 1),
+                    new TravellerSkill(Science, 1),
+                    new TravellerSkill(Art, 0),
+                    new TravellerSkill(Advocate, 0),
+                    new TravellerSkill(Diplomat, 0),
+                    new TravellerSkill(Flyer, 0),
+                    new TravellerSkill(Streetwise, 0),
                 },
-                3 => new Dictionary<string, int>()
+                3 => new List<TravellerSkill>()
                 {
-                    {"Edu", -2},
-                    {"Dex", +1},
-                    {"Soc", -2},
-                    {"Streetwise", 2},
-                    {"Athletics (dexterity)", 1},
-                    {"Deception",1},
-                    {"Melee (Unarmed)", 1},
-                    {"Gambler", 0},
-                    {"Gun combat", 0},
-                    {"Recon", 0},
-                    {"Stealth", 0},
+                    new TravellerSkill(Streetwise, 2),
+                    new TravellerSkill(Athletics_Dexterity, 1),
+                    new TravellerSkill(Deception,1),
+                    new TravellerSkill(Melee_Unarmed, 1),
+                    new TravellerSkill(Gambler, 0),
+                    new TravellerSkill(GunCombat, 0),
+                    new TravellerSkill(Recon, 0),
+                    new TravellerSkill(Stealth, 0),
                 },
-                4 => new Dictionary<string, int>()
+                4 => new List<TravellerSkill>()
                 {
-                    {"Edu", -3},
-                    {"End", +2},
-                    {"Language (Local Dialect)", 2},
-                    {"Profession (Any suitable)", 2},
-                    {"Survival",1},
-                    {"Animals (Any)", 1},
-                    {"Athletics", 0},
-                    {"Gun combat (archaic)", 1},
-                    {"Carouse", 0},
-                    {"Melee (any)", 1},
-                    {"Navigation", 0},
-                    {"Recon", 0},
-                    {"Steward", 0},
-                    {"Streetwise", 0},
+                    new TravellerSkill(Language, 2),
+                    new TravellerSkill(Profession, 2),
+                    new TravellerSkill(Survival,1),
+                    new TravellerSkill(Animals, 1),
+                    new TravellerSkill(Athletics, 0),
+                    new TravellerSkill(GunCombat_Archaic, 1),
+                    new TravellerSkill(Carouse, 0),
+                    new TravellerSkill(Melee, 1),
+                    new TravellerSkill(Navigation, 0),
+                    new TravellerSkill(Recon, 0),
+                    new TravellerSkill(Steward, 0),
+                    new TravellerSkill(Streetwise, 0)
                 },
-                5 => new Dictionary<string, int>()
+                5 => new List<TravellerSkill>()
                 {
-                    {"Str", -1},
-                    {"Edu", +2},
-                    {"End", +1},
-                    {"Profession (Any)", 2},
-                    {"Admin",1},
-                    {"Diplomat", 1},
-                    {$@"Electronics {((background/2==0)? "Comms" : "Computers")}", 1},
-                    {"Streetwise", 1},
-                    {"Advocate", 0},
-                    {"Broker", 0},
-                    {"Carouse", 0},
-                    {"Drive", 0},
+                    new TravellerSkill(Profession, 2),
+                    new TravellerSkill(Admin,1),
+                    new TravellerSkill(Diplomat, 1),
+                    new TravellerSkill(Electronics_Comms),
+                    new TravellerSkill(Streetwise, 1),
+                    new TravellerSkill(Advocate, 0),
+                    new TravellerSkill(Broker, 0),
+                    new TravellerSkill(Carouse, 0),
+                    new TravellerSkill(Drive, 0),
                 },
-                6 => new Dictionary<string, int>()
+                6 => new List<TravellerSkill>()
                 {
-                    {"Dex", +1},
-                    {"Edu", +1},
-                    {"End", -1},
-                    {"Profession (Any)", 1},
-                    {"Athletics (Dexterity)",1},
-                    {"Engineering (Life Support)", 1},
-                    {"Admin", 0},
-                    {"Astrogation", 0},
-                    {"Mechanic", 0},
-                    {"Science", 0},
-                    {"Steward", 0},
-                    {"Vacc Suit", 0},
+                    new TravellerSkill(Profession, 1),
+                    new TravellerSkill(Athletics_Dexterity,1),
+                    new TravellerSkill(Engineer_LifeSupport, 1),
+                    new TravellerSkill(Admin, 0),
+                    new TravellerSkill(Astrogation, 0),
+                    new TravellerSkill(Mechanic, 0),
+                    new TravellerSkill(Science, 0),
+                    new TravellerSkill(Steward, 0),
+                    new TravellerSkill(VaccSuit, 0)
                 },
-                7 => new Dictionary<string, int>()
+                7 => new List<TravellerSkill>()
                 {
-                    {"End", +1},
-                    {"Seafarer  (Any)", 2},
-                    {"Navigation",1},
-                    {"Profession  (Any)", 1},
-                    {"Admin", 0},
-                    {"Recon ", 1},
-                    {"Athletics ", 0},
-                    {"Electronics ", 0},
-                    {"Carouse ", 0},
-                    {"Survival  Suit", 0},
+                    new TravellerSkill(Seafarer, 2),
+                    new TravellerSkill(Navigation,1),
+                    new TravellerSkill(Profession, 1),
+                    new TravellerSkill(Admin, 0),
+                    new TravellerSkill(Recon , 1),
+                    new TravellerSkill(Athletics , 0),
+                    new TravellerSkill(Electronics , 0),
+                    new TravellerSkill(Carouse , 0),
+                    new TravellerSkill(VaccSuit, 0)
                 },
             };
-        private Dictionary<string, int> GetCareerSkillsAsync(int career) =>
+
+        private List<TravellerAttribute> GetCareerAttributesAsync(int career) =>
             career switch
             {
-                0 => new Dictionary<string, int>()
+                0 => new List<TravellerAttribute>()
                 {
-                    {"Edu", +1},
-                    {"Soc", +1},
-                    {"Admin", 3},
-                    {"Advocate", 1},
-                    {"Broker",1},
-                    {"Carouse", 1},
-                    {"Diplomat", 1},
-                    {"Electronics (computers)", 1},
-                    {"Art", 0},
-                    {"Drive", 0},
-                    {"Leadership", 0},
-                    {"Profession", 0},
-                    {"Science", 0},
+                    new TravellerAttribute(Education, +1),
+                    new TravellerAttribute(Social, +1),
                 },
-                1 => new Dictionary<string, int>()
+                1 => new List<TravellerAttribute>()
                 {
-                    {"Int", +1},
-                    {"Streetwise", 2},
-                    {"Investigate", 2},
-                    {"Electronics (comms)", 1},
-                    {"Carouse",1},
-                    {"Deception", 1},
-                    {"Persuade", 0},
-                    {"Recon", 0},
-                    {"Stealth", 0},
-                    {"Advocate", 0},
-                    {"Drive", 0},
-                    {"Melee", 0},
-                    {"Gun Combat", 0},
+                    new TravellerAttribute(Intelligence, +1),
                 },
-                2 => new Dictionary<string, int>()
+                2 => new List<TravellerAttribute>()
                 {
-                    {"Str", +1},
-                    {"End", +2},
-                    {"Melee (Blade)", 2},
-                    {"Survival", 2},
-                    {"Animals (any)", 1},
-                    {"Profession (any suitable)",1},
-                    {"Recon", 1},
-                    {"Athletics (any)", 0},
-                    {"Carouse", 0},
-                    {"Navigation", 0},
-                    {"Stealth", 0},
-                    {"Seafarer", 0},
+                    new TravellerAttribute(Strength, +1),
+                    new TravellerAttribute(Endurance, +2),
                 },
-                3 => new Dictionary<string, int>()
+                3 => new List<TravellerAttribute>()
                 {
-                    {"Edu", +1},
-                    {"Electronics (computer)", 1},
-                    {"Streetwise", 1},
-                    {"Drive (any)", 1},
-                    {"Profession (any)",2},
-                    {"Flyer (any)", 1},
-                    {"Science (any)", 1},
-                    {"Advocate", 0},
-                    {"Art", 0},
-                    {"Carouse", 0},
-                    {"Deception", 0},
-                    {"Diplomat", 0},
-                    {"Mechanic", 0},
-                    {"Medic", 0},
-                    {"Persuade", 0},
+                    new TravellerAttribute(Education, +1),
                 },
-                4 => new Dictionary<string, int>()
+                4 => new List<TravellerAttribute>()
                 {
-                    {"Dex", +1},
-                    {"Soc", -2},
-                    {"Vacc Suit",2},
-                    {"Athletics (dexterity)",1},
-                    {"Gun Combat (any)", 1},
-                    {"Gunner",1},
-                    {"Electronics (any)",1},
-                    {"Mechanic",1},
-                    {"Melee (any)",1},
-                    {"Deception",0},
-                    {"Engineer",0},
-                    {"Explosives",0},
-                    {"Medic",0},
-                    {"Recon",0},
-                    {"Streetwise",0},
+                    new TravellerAttribute(Dexterity, +1),
+                    new TravellerAttribute(Social, -2),
                 },
-                5 => new Dictionary<string, int>()
+                5 => new List<TravellerAttribute>()
                 {
-                    {"Dex", +1},
-                    {"Edu", +1},
-                    {"Vacc Suit",2},
-                    {"Gun Combat (any)", 2},
-                    {"Gunner",1},
-                    {"Electronics",0},
-                    {"Athletics",0},
-                    {"Melee (Blade)",1},
-                    {"Heavy Weapons",0},
-                    {"Explosives",0},
-                    {"Medic",0},
-                    {"Recon",0},
+                    new TravellerAttribute(Dexterity, +1),
+                    new TravellerAttribute(Education, +1),
                 },
-                6 => new Dictionary<string, int>()
+                6 => new List<TravellerAttribute>()
                 {
-                    {"Soc", +1},
-                    {"Medic",3},
-                    {"Admin", 2},
-                    {"Electronics (computer)",1},
-                    {"Investigate",1},
-                    {"Persuade",1},
-                    {"Science (Any)",1},
-                    {"Heavy Advocate",0},
-                    {"Diplomat",0},
-                    {"Drive",0},
-                    {"Flyer",0},
+                    new TravellerAttribute(Social, +1),
                 },
-                7 => new Dictionary<string, int>()
+                7 => new List<TravellerAttribute>()
                 {
-                    {"End", +2},
-                    {"Gun Combat (any)", 3},
-                    {"Athletics (endurance)",1},
-                    {"Explosives",1},
-                    {"Recon",1},
-                    {"Heavy Weapons",1},
-                    {"Mechanic",1},
-                    {"Drive",0},
-                    {"Electronics",0},
-                    {"Medic",0},
-                    {"Melee",0},
-                    {"Sealth",0},
+                    new TravellerAttribute(Endurance, +2),
                 },
-                8 => new Dictionary<string, int>()
+                8 => new List<TravellerAttribute>()
                 {
-                    {"Edu", +1},
-                    {"Leadership", 2},
-                    {"Admin",1},
-                    {"Diplomat",1},
-                    {"Gun Combat (any)",1},
-                    {"Tactics (military)",1},
-                    {"Athletics (endurance)",1},
-                    {"Heavy Weapons",1},
-                    {"Recon",1},
-                    {"Drive",0},
-                    {"Electronics",0},
-                    {"Medic",0},
-                    {"Stealth",0},
+                    new TravellerAttribute(Education, +1),
                 },
-                9 => new Dictionary<string, int>() {
-                    {"Edu",1},
-                    {"Leadership", 2},
-                    {"Diplomat", 2},
-                    {"Admin", 1},
-                    {"Advocate", 1},
-                    {"Carouse", 1},
-                    {"Persuade", 1},
-                    {"Art", 0},
-                    {"Broker", 0}, 
-                    {"Deception", 0},
-                    {"Gambler", 0}
+                9 => new List<TravellerAttribute>() {
+                    new TravellerAttribute (Education,1),
                 },
-                10 => new Dictionary<string, int>()
+                10 => new List<TravellerAttribute>()
                 {
-                    {"Int",1},
-                    {"Art (any)", 3},
-                    {"Carouse", 2},
-                    {"Deception", 1},
-                    {"Persuade", 1},
-                    {"Streetwise", 1},
-                    {"Steward", 1},
-                    {"Athletics", 0},
-                    {"Broker", 0},
-                    {"Gambler", 0},
-                    {"Profession", 0}
+                    new TravellerAttribute(Intelligence,1),
                 },
-                11 => new Dictionary<string, int>()
+                11 => new List<TravellerAttribute>()
                 {
-                    {"Int",1},
-                    {"Soc",-1},
-                    {"Stealth", 2},
-                    {"Streetwise", 2},
-                    { "Deception", 1},
-                    {" Gambler", 1},
-                    {"Melee (any)", 1},
-                    {"Recon", 1},
-                    {"Athletics", 0},
-                    {"Electronics", 0},
-                    { "Gun Combat", 0},
-                    {"Persuade", 0}
+                    new TravellerAttribute(Intelligence,1),
+                    new TravellerAttribute(Social,-1),
                 },
-                12 => new Dictionary<string, int>()
+                12 => new List<TravellerAttribute>()
                 {
-                    {"Int",1},
-                    {"Edu",1},
-                    {"Science (any)", 3},
-                    {"Investigate",2},
-                    { "Electronics (computers)", 1},
-                    {"Science (any other)", 1},
-                    {"Persuade", 1},
-                    {"Art", 0},
-                    {"Diplomat", 0},
-                    {"Drive", 0},
-                    {"Medic", 0},
-                    {"Navigation", 0},
-                    {"Profession", 0}
+                    new TravellerAttribute(Intelligence,1),
+                    new TravellerAttribute(Education,1),
                 },
-                13 => new Dictionary<string, int>()
+                13 => new List<TravellerAttribute>()
                 {
-                    {"Int",1},
-                    {"Astrogation", 1},
-                    { "Pilot (starship)", 1},
-                    {"Electronics (computers)", 1},
-                    { "Engineer (any)", 1},
-                    { "Jack-of-all-Trades", 1},
-                    { "Streetwise", 1},
-                    { "Vacc Suit", 1},
-                    { "Carouse", 0},
-                    { "Drive", 0},
-                    { "Gun Combat", 0},
-                    { "Medic", 0},
-                    {"Investigate", 0},
-                    { "Recon", 0}
+                    new TravellerAttribute(Intelligence,1),
                 },
-                14 => new Dictionary<string, int>()
+                14 => new List<TravellerAttribute>()
                 {
-                    {"Dex",1},
-                    {"Vacc Suit", 3},
-                    { "Athletics (any)", 1},
-                    { "Electronics (any)", 1},
-                    { "Engineer (any)", 1},
-                    { "Mechanic", 1},
-                    { "Steward", 1},
-                    { "Gunner", 0},
-                    { "Pilot", 0},
-                    { "Medic", 0},
-                    { "Persuade", 0}
+                    new TravellerAttribute(Dexterity,1),
                 },
-                15 => new Dictionary<string, int>()
+                15 => new List<TravellerAttribute>()
                 {
-                    {"Int",1},
-                    { "Pilot (starship)", 2},
-                    { "Admin", 1},
-                    { "Astrogation", 1},
-                    { "Electronics (sensors)", 1},
-                    { "Gunner", 1},
-                    { "Vacc Suit", 1},
-                    { "Advocate", 0},
-                    { "Broker", 0},
-                    { "Leadership", 0},
-                    { "Persuade", 0},
-                    { "Tactics", 0}
+                    new TravellerAttribute(Intelligence,1),
                 },
-                16 => new Dictionary<string, int>()
+                16 => new List<TravellerAttribute>()
                 {
-                    { "Streetwise", 2},
-                    { "Melee (unarmed)", 1},
-                    { "Recon", 1},
-                    { "Stealth", 1},
-                    { "Steward", 1},
-                    { "Vacc Suit", 1},
-                    { "Carouse", 0},
-                    { "Deception", 0},
-                    { "Drive", 0},
-                    { "Gun Combat", 0},
-                    { "Mechanic", 0},
-                    { "Profession", 0},
-                    { "Survival", 0}
                 },
+            };
+        private List<TravellerSkill> GetCareerSkillsAsync(int career) =>
+            career switch
+            {
+                0 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Admin, 3),
+                    new TravellerSkill(Advocate, 1),
+                    new TravellerSkill(Broker,1),
+                    new TravellerSkill(Carouse, 1),
+                    new TravellerSkill(Diplomat, 1),
+                    new TravellerSkill(Electronics_Computers, 1),
+                    new TravellerSkill(Art, 0),
+                    new TravellerSkill(Drive, 0),
+                    new TravellerSkill(Leadership, 0),
+                    new TravellerSkill(Profession, 0),
+                    new TravellerSkill(Science, 0),
+                },
+                1 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Streetwise, 2),
+                    new TravellerSkill(Investigate, 2),
+                    new TravellerSkill(Electronics_Comms, 1),
+                    new TravellerSkill(Carouse,1),
+                    new TravellerSkill(Deception, 1),
+                    new TravellerSkill(Persuade, 0),
+                    new TravellerSkill(Recon, 0),
+                    new TravellerSkill(Stealth, 0),
+                    new TravellerSkill(Advocate, 0),
+                    new TravellerSkill(Drive, 0),
+                    new TravellerSkill(Melee, 0),
+                    new TravellerSkill(GunCombat, 0),
+                },
+                2 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Melee_Blade, 2),
+                    new TravellerSkill(Survival, 2),
+                    new TravellerSkill(Animals, 1),
+                    new TravellerSkill(Profession,1),
+                    new TravellerSkill(Recon, 1),
+                    new TravellerSkill(Athletics, 0),
+                    new TravellerSkill(Carouse, 0),
+                    new TravellerSkill(Navigation, 0),
+                    new TravellerSkill(Stealth, 0),
+                    new TravellerSkill(Seafarer, 0),
+                },
+                3 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Electronics_Computers, 1),
+                    new TravellerSkill(Streetwise, 1),
+                    new TravellerSkill(Drive, 1),
+                    new TravellerSkill(Profession,2),
+                    new TravellerSkill(Flyer, 1),
+                    new TravellerSkill(Science, 1),
+                    new TravellerSkill(Advocate, 0),
+                    new TravellerSkill(Art, 0),
+                    new TravellerSkill(Carouse, 0),
+                    new TravellerSkill(Deception, 0),
+                    new TravellerSkill(Diplomat, 0),
+                    new TravellerSkill(Mechanic, 0),
+                    new TravellerSkill(Medic, 0),
+                    new TravellerSkill(Persuade, 0),
+                },
+                4 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(VaccSuit,2),
+                    new TravellerSkill(Athletics_Dexterity,1),
+                    new TravellerSkill(GunCombat, 1),
+                    new TravellerSkill(Gunner,1),
+                    new TravellerSkill(Electronics,1),
+                    new TravellerSkill(Mechanic,1),
+                    new TravellerSkill(Melee,1),
+                    new TravellerSkill(Deception,0),
+                    new TravellerSkill(Engineer,0),
+                    new TravellerSkill(Explosives,0),
+                    new TravellerSkill(Medic,0),
+                    new TravellerSkill(Recon,0),
+                    new TravellerSkill(Streetwise,0),
+                },
+                5 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(VaccSuit,2),
+                    new TravellerSkill(GunCombat, 2),
+                    new TravellerSkill(Gunner,1),
+                    new TravellerSkill(Electronics,0),
+                    new TravellerSkill(Athletics,0),
+                    new TravellerSkill(Melee_Blade,1),
+                    new TravellerSkill(HeavyWeapons,0),
+                    new TravellerSkill(Explosives,0),
+                    new TravellerSkill(Medic,0),
+                    new TravellerSkill(Recon,0),
+                },
+                6 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Admin, 2),
+                    new TravellerSkill(Electronics_Computers,1),
+                    new TravellerSkill(Investigate,1),
+                    new TravellerSkill(Persuade,1),
+                    new TravellerSkill(Science,1),
+                    new TravellerSkill(Advocate,0),
+                    new TravellerSkill(Diplomat,0),
+                    new TravellerSkill(Drive,0),
+                    new TravellerSkill(Flyer,0),
+                },
+                7 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(GunCombat, 3),
+                    new TravellerSkill(Athletics_Endurance,1),
+                    new TravellerSkill(Explosives,1),
+                    new TravellerSkill(Recon,1),
+                    new TravellerSkill(HeavyWeapons,1),
+                    new TravellerSkill(Mechanic,1),
+                    new TravellerSkill(Drive,0),
+                    new TravellerSkill(Electronics,0),
+                    new TravellerSkill(Medic,0),
+                    new TravellerSkill(Melee,0),
+                    new TravellerSkill(Stealth,0),
+                },
+                8 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Leadership, 2),
+                    new TravellerSkill(Admin,1),
+                    new TravellerSkill(Diplomat,1),
+                    new TravellerSkill(GunCombat,1),
+                    new TravellerSkill(Tactics_Military,1),
+                    new TravellerSkill(Athletics_Endurance,1),
+                    new TravellerSkill(HeavyWeapons,1),
+                    new TravellerSkill(Recon,1),
+                    new TravellerSkill(Drive,0),
+                    new TravellerSkill(Electronics,0),
+                    new TravellerSkill(Medic,0),
+                    new TravellerSkill(Stealth,0),
+                },
+                9 => new List<TravellerSkill>() {
+                    new TravellerSkill(Leadership, 2),
+                    new TravellerSkill(Diplomat, 2),
+                    new TravellerSkill(Admin, 1),
+                    new TravellerSkill(Advocate, 1),
+                    new TravellerSkill(Carouse, 1),
+                    new TravellerSkill(Persuade, 1),
+                    new TravellerSkill(Art, 0),
+                    new TravellerSkill(Broker, 0), 
+                    new TravellerSkill(Deception, 0),
+                    new TravellerSkill(Gambler, 0)
+                },
+                10 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Art, 3),
+                    new TravellerSkill(Carouse, 2),
+                    new TravellerSkill(Deception, 1),
+                    new TravellerSkill(Persuade, 1),
+                    new TravellerSkill(Streetwise, 1),
+                    new TravellerSkill(Steward, 1),
+                    new TravellerSkill(Athletics, 0),
+                    new TravellerSkill(Broker, 0),
+                    new TravellerSkill(Gambler, 0),
+                    new TravellerSkill(Profession, 0)
+                },
+                11 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Stealth, 2),
+                    new TravellerSkill(Streetwise, 2),
+                    new TravellerSkill(Deception, 1),
+                    new TravellerSkill(Gambler, 1),
+                    new TravellerSkill(Melee, 1),
+                    new TravellerSkill(Recon, 1),
+                    new TravellerSkill(Athletics, 0),
+                    new TravellerSkill(Electronics, 0),
+                    new TravellerSkill(GunCombat, 0),
+                    new TravellerSkill(Persuade, 0)
+                    
+                },
+                12 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Science, 3),
+                    new TravellerSkill(Investigate,2),
+                    new TravellerSkill(Electronics_Computers, 1),
+                    new TravellerSkill(Science, 1),
+                    new TravellerSkill(Persuade, 1),
+                    new TravellerSkill(Art, 0),
+                    new TravellerSkill(Diplomat, 0),
+                    new TravellerSkill(Drive, 0),
+                    new TravellerSkill(Medic, 0),
+                    new TravellerSkill(Navigation, 0),
+                    new TravellerSkill(Profession, 0)
+                },
+                13 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Astrogation, 1),
+                    new TravellerSkill( Pilot_Spacecraft, 1),
+                    new TravellerSkill(Electronics_Computers, 1),
+                    new TravellerSkill( Engineer, 1),
+                    new TravellerSkill( JackOfAllTrades, 1),
+                    new TravellerSkill( Streetwise, 1),
+                    new TravellerSkill( VaccSuit, 1),
+                    new TravellerSkill( Carouse, 0),
+                    new TravellerSkill( Drive, 0),
+                    new TravellerSkill( GunCombat, 0),
+                    new TravellerSkill( Medic, 0),
+                    new TravellerSkill(Investigate, 0),
+                    new TravellerSkill( Recon, 0)
+                },
+                14 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(VaccSuit, 3),
+                    new TravellerSkill(Athletics, 1),
+                    new TravellerSkill(Electronics, 1),
+                    new TravellerSkill(Engineer, 1),
+                    new TravellerSkill(Mechanic, 1),
+                    new TravellerSkill(Steward, 1),
+                    new TravellerSkill(Gunner, 0),
+                    new TravellerSkill(Pilot, 0),
+                    new TravellerSkill(Medic, 0),
+                    new TravellerSkill(Persuade, 0)
+                },
+                15 => new List<TravellerSkill>()
+                {
+                    new TravellerSkill(Pilot_Spacecraft, 2),
+                    new TravellerSkill(Admin, 1),
+                    new TravellerSkill(Astrogation, 1),
+                    new TravellerSkill(Electronics_Sensors, 1),
+                    new TravellerSkill(Gunner, 1),
+                    new TravellerSkill(VaccSuit, 1),
+                    new TravellerSkill(Advocate, 0),
+                    new TravellerSkill(Broker, 0),
+                    new TravellerSkill(Leadership, 0),
+                    new TravellerSkill(Persuade, 0),
+                    new TravellerSkill(Tactics, 0)
+                },
+                16 => new List<TravellerSkill>()
+                {
+                   new TravellerSkill(Streetwise, 2),
+                   new TravellerSkill(Melee_Unarmed, 1),
+                   new TravellerSkill(Recon, 1),
+                   new TravellerSkill(Stealth, 1),
+                   new TravellerSkill(Steward, 1),
+                   new TravellerSkill(VaccSuit, 1),
+                   new TravellerSkill(Carouse, 0),
+                   new TravellerSkill(Deception, 0),
+                   new TravellerSkill(Drive, 0),
+                   new TravellerSkill(GunCombat, 0),
+                   new TravellerSkill(Mechanic, 0),
+                   new TravellerSkill(Profession, 0),
+                   new TravellerSkill(Survival, 0)
+                }
             };
 
         private List<string> PatronTypeList = new List<string>()
@@ -509,7 +594,7 @@ namespace TravellerWiki.Data
             var career = rand.Next(0, 16);
 
             var skillList = SkillList(background, career, rand);
-            var attributeList = AttributeList(skillList,rand);
+            var attributeList = GetAttributeValues(AttributeList(background, career, rand), rand);
 
             var name = await GetName(nationNameList);
             var backgroundName = GetBackgroundName(background);
@@ -531,59 +616,60 @@ namespace TravellerWiki.Data
             return npc;
         }
 
-        private List<TravellerAttribute> AttributeList(List<TravellerSkill> skills, Random rng)
+        private List<TravellerAttribute> GetAttributeValues(List<TravellerAttribute> skills, Random rng)
         {
             var attributes = new List<TravellerAttribute>();
 
-            attributes.Add(GenerateAttributeFromSkills("Str",skills, rng));
-            attributes.Add(GenerateAttributeFromSkills("Dex",skills, rng));
-            attributes.Add(GenerateAttributeFromSkills("End",skills, rng));
-            attributes.Add(GenerateAttributeFromSkills("Int",skills, rng));
-            attributes.Add(GenerateAttributeFromSkills("Edu",skills, rng));
-            attributes.Add(GenerateAttributeFromSkills("Soc",skills, rng));
+            attributes.Add(GenerateAttributeFromSkills(Strength, skills, rng));
+            attributes.Add(GenerateAttributeFromSkills(Dexterity, skills, rng));
+            attributes.Add(GenerateAttributeFromSkills(Endurance, skills, rng));
+            attributes.Add(GenerateAttributeFromSkills(Intelligence, skills, rng));
+            attributes.Add(GenerateAttributeFromSkills(Education, skills, rng));
+            attributes.Add(GenerateAttributeFromSkills(Social, skills, rng));
 
 
             return attributes;
         }
 
-        private TravellerAttribute GenerateAttributeFromSkills(string attributeName, List<TravellerSkill> skills, Random rng)
+        private List<TravellerAttribute> AttributeList(int background, int career, Random rng)
         {
-            int attMod = 0;
-            if (skills.Any(skill => skill.SkillName == attributeName))
+            var backgroundStats = GetBackgroundAttributesAsync(background);
+            var careerStats = GetCareerAttributesAsync(career);
+
+            var attributeList = new List<TravellerAttribute>();
+
+            foreach (var attr in backgroundStats)
             {
-                attMod = skills.Where(skill => skill.SkillName == attributeName)
-                    .Select(skill => skill.SkillValue).Aggregate(0, (h, t) => h + t);
+                attributeList.Add(attr);
             }
 
-            var attribute = GetAttribute(attributeName);
+            foreach (var attr in careerStats)
+            {
+                if (attributeList.Any(attrList => attrList.AttributeName == attr.AttributeName))
+                {
+                    attributeList.First(attrList => attrList.AttributeName == attr.AttributeName).AttributableValue 
+                        += attr.AttributableValue == 0 ? 1 : attr.AttributableValue;
+                }
+                else
+                {
+                    attributeList.Add(attr);
+                }
+            }
 
-            return new TravellerAttribute(attribute, rng.Next(2, 13) + attMod);
+            return attributeList;
         }
 
-        private TravellerAttributes GetAttribute(string shortHand)
-         {
-             switch (shortHand)
-             {
-                case "Dex":
-                    return TravellerAttributes.Dexterity;
-                    
-                case "End":
-                    return TravellerAttributes.Endurance;
-                case "Int":
-                    return TravellerAttributes.Intelligence;
-                case "Edu":
-                    return TravellerAttributes.Education;
-                case "Soc":
-                    return TravellerAttributes.Social;
-                case "Psi":
-                    return TravellerAttributes.Psionics;
-                case "San":
-                    return TravellerAttributes.Sanity;
-                case "Str":
-                default:
-                    return TravellerAttributes.Strength;
+        private TravellerAttribute GenerateAttributeFromSkills(TravellerAttributes attributeName, List<TravellerAttribute> attributes, Random rng)
+        {
+            int attMod = 0;
+            if (attributes.Any(attr => attr.AttributeName == attributeName))
+            {
+                attMod = attributes.Where(attr => attr.AttributeName == attributeName)
+                    .Select(attr => attr.AttributableValue).Aggregate(0, (h, t) => h + t);
             }
-         }
+
+            return new TravellerAttribute(attributeName, rng.Next(2, 13) + attMod);
+        }
 
         private List<TravellerSkill> SkillList(int background, int career, Random rng)
         {
@@ -594,18 +680,18 @@ namespace TravellerWiki.Data
 
             foreach (var skill in backgroundStats)
             {
-                skillList.Add(new TravellerSkill(skill.Key, skill.Value));
+                skillList.Add(skill);
             }
 
             foreach (var skill in careerStats)
             {
-                if (skillList.Any(listSkill => listSkill.SkillName == skill.Key))
+                if (skillList.Any(listSkill => listSkill.SkillName == skill.SkillName))
                 {
-                    skillList.First(listSkill => listSkill.SkillName == skill.Key).SkillValue += skill.Value == 0 ? 1 : skill.Value;
+                    skillList.First(listSkill => listSkill.SkillName == skill.SkillName).SkillValue += skill.SkillValue == 0 ? 1 : skill.SkillValue;
                 }
                 else
                 {
-                    skillList.Add(new TravellerSkill(skill.Key,skill.Value));
+                    skillList.Add(skill);
                 }
             }
 

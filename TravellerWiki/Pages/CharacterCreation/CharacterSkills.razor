@@ -13,8 +13,10 @@
         @foreach (var skill in DisplayService.GetTravellerSkills())
         {
         <li>
-            <h4>@skill.SkillName:</h4>
-            <p> @(new HtmlString(skill.Description).Value) </p>
+            <p>
+                <h4>@skill.SkillNameText: </h4>
+                @(new HtmlString(skill.SkillDescriptionText).Value)
+            </p>
         </li>
         }
     </ul>
