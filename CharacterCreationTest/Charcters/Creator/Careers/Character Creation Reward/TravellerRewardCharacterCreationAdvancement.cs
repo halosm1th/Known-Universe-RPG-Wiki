@@ -1,10 +1,10 @@
 ﻿namespace TravellerWiki.Data
 {
-    public class TravellerCharacterCreationAdvancementReward : TravellerCharacterCreationReward
+    public class TravellerRewardCharacterCreationAdvancement : TravellerCharacterCreationReward
     {
         public int AdvancementAmount { get; }
 
-        public TravellerCharacterCreationAdvancementReward(int advancementAmount)
+        public TravellerRewardCharacterCreationAdvancement(int advancementAmount)
         {
             AdvancementAmount = advancementAmount;
         }

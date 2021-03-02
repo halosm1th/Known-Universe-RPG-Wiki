@@ -62,9 +62,25 @@ namespace TravellerWiki.Data.Charcters
             AttributableValue += amount;
         }
 
+        public string GetShortName()
+            => AttributeName switch
+            {
+                TravellerAttributes.Strength => "Str",
+                TravellerAttributes.Dexterity => "Dex",
+                TravellerAttributes.Endurance => "End",
+                TravellerAttributes.Intelligence => "Int",
+                TravellerAttributes.Education => "Edu",
+                TravellerAttributes.Social => "Soc",
+                TravellerAttributes.Psionics => "Psi",
+                TravellerAttributes.Sanity => "San",
+                _ => "Error"
+            };
+
         public override string ToString()
         {
             var sb = new StringBuilder();
+            sb.Append(GetShortName());
+            sb.Append(": ");
             sb.Append(AttributableValue);
             sb.Append("[");
             sb.Append(AttributeModifier);

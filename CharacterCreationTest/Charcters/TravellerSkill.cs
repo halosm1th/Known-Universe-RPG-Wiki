@@ -79,6 +79,7 @@ namespace TravellerWiki.Data.Charcters
         HeavyWeapons_Vehicle,
         Investigate,
         JackOfAllTrades,
+        JackLuck,
         Language,
         Language_AxiosCommon,
         Language_AxiosPolitical,
@@ -98,6 +99,7 @@ namespace TravellerWiki.Data.Charcters
         Langauge_Utopian,
         Language_Witcher,
         Langauge_XiaoMing,
+        Language_Sith,
         Leadership,
         LifeCreate,
         LifeDrain,
@@ -127,6 +129,7 @@ namespace TravellerWiki.Data.Charcters
         Recon,
         Religion,
         Religion_BritannianSithism,
+        Religion_ModernSithism,
         Religion_Deorism,
         Religion_Gatism,
         Religion_Imperialism,
@@ -134,6 +137,7 @@ namespace TravellerWiki.Data.Charcters
         Religion_Lawgarism,
         Religion_Sigmarism,
         Religion_Sithism,
+        Religion_OrthodoxSithism,
         Religion_Witcherism,
         Science,
         Science_Archaeology,
@@ -290,6 +294,7 @@ namespace TravellerWiki.Data.Charcters
                 TravellerSkills.Langauge_ElderTongue => "See Langauges page",
                 TravellerSkills.Language_Witcher => "See Langauges page",
                 TravellerSkills.Langauge_Jedi => "See Langauges page",
+                TravellerSkills.Language_Sith => "See Language page",
                 TravellerSkills.Leadership => "The Leadership skill is for directing, inspiring and rallying allies and comrades. A Traveller may make a Leadership action in combat, as detailed on page 72.Shouting an Order: Average (8+) Leadership check (1D seconds, SOC).Rallying Shaken Troops: Difficult (10+) Leadership check (1D seconds, SOC).",
                 TravellerSkills.Luck => "See House Rules for more information on luck.",
                 TravellerSkills.Mechanic => "The Mechanic skill allows a Traveller to maintain and repair most equipment – some advanced equipment and spacecraft components require the Engineer skill. Unlike the narrower and more focussed Engineer or Science skills, Mechanic does not allow a Traveller to build new devices or alter existing ones – it is purely for repairs and maintenance but covers all types of equipment.Repairing a Damaged System in the Field: Average (8+) Mechanic check (1D minutes, INT or EDU).",
@@ -311,6 +316,17 @@ namespace TravellerWiki.Data.Charcters
                 TravellerSkills.Profession_Hydroponics => "Growing crops in hostile environments",
                 TravellerSkills.Profession_Polymers => "Designing and using polymers.",
                 TravellerSkills.Recon => "A Traveller trained in Recon is able to scout out dangers and spot threats, unusual objects or out of place people. Working Out the Routine of a Trio of Guard Patrols:Average (8+) Recon check (1D x 10 minutes, INT).Spotting the Sniper Before he Shoots You: Recon check (1D x 10 seconds, INT) opposed by Stealth (DEX) Check",
+                TravellerSkills.Religion => "",
+                TravellerSkills.Religion_BritannianSithism => "",
+                TravellerSkills.Religion_ModernSithism => "",
+                TravellerSkills.Religion_Deorism => "",
+                TravellerSkills.Religion_Gatism => "",
+                TravellerSkills.Religion_Imperialism => "",
+                TravellerSkills.Religion_JediIsm => "",
+                TravellerSkills.Religion_Lawgarism => "",
+                TravellerSkills.Religion_Sigmarism => "",
+                TravellerSkills.Religion_Sithism => "",
+                TravellerSkills.Religion_Witcherism => "",
                 TravellerSkills.Science_Archaeology => "The study of ancient civilisations, including the previous Imperiums and Ancients. It also covers techniques of investigation and excavations.",
                 TravellerSkills.Science_Astronomy => "The study of stars and celestial pheonomena.",
                 TravellerSkills.Science_Biology => "The study of living organisms.",
@@ -352,6 +368,11 @@ namespace TravellerWiki.Data.Charcters
             };
 
         public int SkillValue { get; set; }
+
+        public override string ToString()
+        {
+            return $"{SkillName}: {SkillValue}";
+        }
 
         public TravellerSkill(TravellerSkills name, int baseValue = 0)
         {

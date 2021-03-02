@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Razor.Language.Intermediate;
-
-namespace TravellerWiki.Data.Charcters
+﻿namespace TravellerWiki.Data.Charcters
 {
     public class TravellerItem
     {

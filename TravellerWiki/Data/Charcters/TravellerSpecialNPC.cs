@@ -7,21 +7,13 @@ using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
-
-
     public class TravellerSpecialNPC : TravellerNPC
     {
         public int Affinity { get; set; }
         public int Enmity { get; set; }
         public int Influence { get; set; }
         public int Power { get; set; }
-        public enum NPCRelationship
-        {
-            Ally,
-            Contact,
-            Rival,
-            Enemy
-        }
+        
 
         public static int PowerInfluenceModifier(int value) 
             => value switch {

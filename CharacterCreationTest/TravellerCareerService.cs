@@ -10,31 +10,28 @@ namespace TravellerWiki.Data
     public class TravellerCareerService
     {
 
-        public static int Updates = 0;
-        public static readonly int MAX_UPDATES_BEFORE_SAVE = 5;
-        public static List<TravellerCareer> ListOfCareers = LoadListOfJobs();
+        public List<TravellerCareer> ListOfCareers = LoadListOfJobs();
 
-
-        private static bool _loadedFile = false;
         private static List<TravellerCareer> _careers;
         public static List<TravellerCareer> LoadListOfJobs()
         {
-            if (!_loadedFile)
-            {
+            var majorPowers = new TravellerMajorPowerCareers();
+            var middlePowers = new TravellerMiddlePowerCareers();
+            var minorPowers = new TravellerMinorPowerCareers();
 
-                var file = File.ReadAllText(Directory.GetCurrentDirectory() + "/Careers.json");
-                var convertedFile = JsonConvert.DeserializeObject<List<TravellerCareerJson>>(file);
+            _careers = new List<TravellerCareer>();
+            //TODO uncomment these as they are added and won't crash shit!
+            majorPowers.AddMajorPowerCareers(_careers);
+            //middlePowers.AddMiddlePowerCareers(_careers);
+            //minorPowers.AddMinorPowers(_careers);
 
-                _loadedFile = true;
-                _careers = convertedFile.Select(career =>
-                {
-                    return career.CreateCareerFromJson();
-                }).ToList();
-            }
 
             return _careers;
         }
 
-        public List<TravellerCareer> GetCareers => ListOfCareers;
+        public List<TravellerCareer> GetCareers()
+        {
+            return ListOfCareers;
+        }
     }
 }

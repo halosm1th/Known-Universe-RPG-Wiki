@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Razor.Language.Intermediate;
-
-namespace TravellerWiki.Data.Charcters
+﻿namespace TravellerWiki.Data.Charcters
 {
     public class TravellerItem
     {
@@ -8,6 +6,11 @@ namespace TravellerWiki.Data.Charcters
         public int Cost { get; set; }
         public int KG { get; set; }
         public int TechLevel { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name}({TechLevel}): Cr{Cost}, {KG}";
+        }
 
         public TravellerItem(string name, int cost, int kg, int tl)
         {

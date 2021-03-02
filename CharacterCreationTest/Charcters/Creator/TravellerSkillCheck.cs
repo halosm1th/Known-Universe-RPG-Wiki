@@ -1,24 +1,29 @@
-﻿namespace TravellerWiki.Data
+﻿using TravellerWiki.Data.Charcters;
+
+namespace TravellerWiki.Data
 {
     public class TravellerSkillCheck
     {
-        public string SkillName { get; set; }
-        public int BeatValue { get; set; }
+        public TravellerSkill SkillToCheck { get; }
 
         public bool PassedCheck(int testValue)
         {
-            return testValue >= BeatValue;
+            return testValue >= SkillToCheck.SkillValue;
         }
 
-        public TravellerSkillCheck(string skillName, int beatValue)
+        public TravellerSkillCheck(TravellerSkills skillName, int beatValue)
         {
-            SkillName = skillName;
-            BeatValue = beatValue;
+            SkillToCheck = new TravellerSkill(skillName,beatValue);
+        }
+
+        public TravellerSkillCheck(TravellerSkill skill)
+        {
+            SkillToCheck = skill;
         }
 
         public override string ToString()
         {
-            return $"{SkillName}: {BeatValue}+";
+            return $"{SkillToCheck.SkillName}({SkillToCheck.SkillValue}+)";
         }
     }
 }

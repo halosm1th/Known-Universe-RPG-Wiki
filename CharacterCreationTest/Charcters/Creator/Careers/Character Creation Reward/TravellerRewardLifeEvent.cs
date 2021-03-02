@@ -1,6 +1,6 @@
 ﻿namespace TravellerWiki.Data
 {
-    public class TravellerLifeEventReward : TravellerCharacterCreationReward
+    public class TravellerRewardLifeEvent : TravellerCharacterCreationReward
     {
         public override string ToString()
         {

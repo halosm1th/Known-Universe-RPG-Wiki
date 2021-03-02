@@ -1,10 +1,10 @@
 ﻿namespace TravellerWiki.Data
 {
-    public class TravellerOtherReward : TravellerCharacterCreationReward
+    public class TravellerRewardOther : TravellerCharacterCreationReward
     {
         public string Rewardtext { get; }
 
-        public TravellerOtherReward(string rewardtext)
+        public TravellerRewardOther(string rewardtext)
         {
             Rewardtext = rewardtext;
         }

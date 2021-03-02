@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
 #nullable enable
     public class TravellerCharacterCreationRewardJSON
     {
-        public List<string> Skilllist { get; set; }
+        public List<TravellerSkills> Skilllist { get; set; }
         public string? Rewardtext { get; set; }
         public string? ContactCount { get; set; }
         public string? ContactType { get; set; }
@@ -32,7 +33,7 @@ namespace TravellerWiki.Data
             {
                 return new TravellerCharacterCreationAdvancementReward(AdvancementAmount ?? 0);
             }
-            
+
             if (CommissionIncreaseChange != null)
             {
                 return new TravellerCharacterCreationCommissionReward(CommissionIncreaseChange ?? 0);
@@ -40,7 +41,7 @@ namespace TravellerWiki.Data
 
             if (ContactType != null && ContactCount != null)
             {
-                return new TravellerContactReward(ContactCount,ContactType);
+                return new TravellerContactReward(ContactCount, ContactType);
             }
 
             if (Skilllist != null)

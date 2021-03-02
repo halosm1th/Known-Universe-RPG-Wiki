@@ -1,10 +1,10 @@
 ﻿namespace TravellerWiki.Data
 {
-    public class TravellerCharacterCreationBenefitIncreaseReward : TravellerCharacterCreationReward
+    public class TravellerRewardCharacterCreationBenefitIncrease : TravellerCharacterCreationReward
     {
         public int BenefitIncreaseAmount { get; }
 
-        public TravellerCharacterCreationBenefitIncreaseReward(int benefitIncreaseAmount)
+        public TravellerRewardCharacterCreationBenefitIncrease(int benefitIncreaseAmount)
         {
             BenefitIncreaseAmount = benefitIncreaseAmount;
         }
