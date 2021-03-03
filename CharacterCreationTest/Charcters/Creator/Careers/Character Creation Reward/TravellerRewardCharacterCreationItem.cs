@@ -23,7 +23,7 @@ namespace TravellerWiki.Data
         }
         public override string ToString()
         {
-            return $"{Items.Aggregate("", (skills, next) => $"{skills} {next}")}";
+            return $"{Items.Aggregate("", (items, next) => $"{items} {next}")} | ";
         }
 
     }

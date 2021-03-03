@@ -62,6 +62,7 @@ namespace TravellerWiki.Data.Charcters
             AttributableValue += amount;
         }
 
+
         public string GetShortName()
             => AttributeName switch
             {

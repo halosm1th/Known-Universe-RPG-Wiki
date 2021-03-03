@@ -5,10 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#nullable enable
 namespace TravellerWiki.Data.Charcters
 {
     public class PlayerTravellerCharacter : TravellerCharacter
     {
+        public Stack<(TravellerCareer Career,TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
+        public TravellerCareer LastCareer => PreviousCareers.Peek().Item1;
+        public TravellerAssignment LastAssignment => PreviousCareers.Peek().Item2;
+
+        public PlayerTravellerCharacter()
+        {
+            PreviousCareers = new Stack<(TravellerCareer, TravellerAssignment, int)>();
+        }
+
+        public PlayerTravellerCharacter(Stack<(TravellerCareer, TravellerAssignment, int)> previousCareers) : base()
+        {
+            PreviousCareers = previousCareers;
+            
+        }
+
     }
 
     public abstract class TravellerCharacter
@@ -52,13 +68,37 @@ namespace TravellerWiki.Data.Charcters
         {
             return GetRelevantAttributeModifier(attribute.AttributeName);
         }
+
+        public bool HasSkill(TravellerSkill skill)
+        {
+            return HasSkill(skill.SkillName);
+        }
+
+        public bool HasSkill(TravellerSkills skill)
+        {
+            return SkillList.Any(x => x.SkillName == skill);
+        }
+
+        public TravellerSkill? GetSkill(TravellerSkill skill)
+        {
+            return GetSkill(skill.SkillName);
+        }
+
+        public TravellerSkill? GetSkill(TravellerSkills skill)
+        {
+            if (HasSkill(skill)) return SkillList.First(x => x.SkillName == skill);
+
+            return null;
+        }
+
         #endregion  
         #region Add values to character
         public bool AddSkill(TravellerSkill skill)
         {
             if (SkillList.Any(s => s.SkillName == skill.SkillName))
             {
-                SkillList.Where(s => s.SkillName == skill.SkillName).Select(x => x.SkillValue += skill.SkillValue);
+                var skillToIncrease = SkillList.First(s => s.SkillName == skill.SkillName);
+                skillToIncrease.Increase(skill.SkillValue);
                 return true;
             }
             else
@@ -70,11 +110,20 @@ namespace TravellerWiki.Data.Charcters
             return false;
         }
 
+        /// <summary>
+        /// Add a skill to the traveller character
+        /// </summary>
+        /// <param name="skill">The skill to be added</param>
+        /// <returns>Whether the skill was added successfully or not.</returns>
         public bool AddSkill(TravellerSkills skill)
         {
+            //If it is a super Skill, return false so that the user can pick the skill.
+            if (TravellerSkill.IsSuperSkill(skill)) return false;
+            
             if (SkillList.Any(s => s.SkillName == skill))
             {
-                SkillList.Where(s => s.SkillName == skill).Select(x => x.SkillValue += 1);
+                var skillToIncrease = SkillList.First(s => s.SkillName == skill);
+                skillToIncrease.Increase(1);
                 return true;
             }
             else
@@ -90,7 +139,8 @@ namespace TravellerWiki.Data.Charcters
         {
             if (AttributeList.Any(s => s.AttributeName == attribute))
             {
-                AttributeList.Where(s => s.AttributeName == attribute).Select(x => x.AttributableValue += 1);
+                var attributeToIncrease = AttributeList.First(s => s.AttributeName == attribute);
+                attributeToIncrease.ModifyStat(1);
                 return true;
             }
             else
@@ -165,6 +215,8 @@ namespace TravellerWiki.Data.Charcters
             sb.Append(Name);
             sb.Append(" ");
             sb.Append(Nationality);
+            sb.Append(" ");
+            sb.Append(Age);
             sb.Append(" ");
 
             sb.Append("\n\n");

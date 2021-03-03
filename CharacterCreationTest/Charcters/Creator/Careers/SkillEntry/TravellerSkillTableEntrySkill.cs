@@ -10,5 +10,10 @@ namespace TravellerWiki.Data
         {
             Skill = skill;
         }
+
+        public override string ToString()
+        {
+            return $"{Skill}";
+        }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO.Pipes;
+using System.Linq;
+using System.Text;
 using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
@@ -18,6 +21,12 @@ namespace TravellerWiki.Data
         public TravellerRewardContact(Dictionary<TravellerNPCRelationship, string> contacts)
         {
             Contacts = contacts;
+        }
+
+        public override string ToString()
+        {
+            return Contacts.Aggregate(new StringBuilder(), (npcs, next) => npcs.Append($"| {next.Value}: {next.Key}"),
+                sb => sb.ToString());
         }
     }
 }

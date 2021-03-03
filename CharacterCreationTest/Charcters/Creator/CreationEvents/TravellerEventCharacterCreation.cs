@@ -11,5 +11,10 @@ namespace TravellerWiki.Data.CreationEvents
         {
             EventText = eventText;
         }
+
+        public override string ToString()
+        {
+            return EventText;
+        }
     }
 }

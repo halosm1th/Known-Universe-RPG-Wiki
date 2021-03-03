@@ -150,7 +150,14 @@ namespace TravellerWiki.Data
                         {14,new TravellerSkill(Streetwise)},
                         {15,new TravellerSkill(Gambler)},
                         {16,new TravellerSkill(VaccSuit)},
-                    }, drifter:"Federation Citizen", drafts:new []{"Federation Army", "Federation Navy","Federation Scout","Lords Military"})},
+                    }, 
+                    drifter:"Federation Citizen", drafts:new []
+                    {
+                        "Federation Army", 
+                        "Federation Navy",
+                        "Federation Scout",
+                        "Lords Military"
+                    })},
             {
                 "Luna Knights",
                 new TravellerNationsCharacterInfo("Luna Knights",
@@ -242,7 +249,12 @@ namespace TravellerWiki.Data
                         {14, new TravellerSkill(Streetwise)},
                         {15, new TravellerSkill(Melee)},
                         {16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Versian Production Worker", drafts:new string[]{"Versian Army", "Versian Navy"})},
+                    }, 
+                    drifter:"Versian Prisoner", drafts:new string[]
+                    {
+                        "Versian Army", 
+                        "Versian Navy"
+                    })},
             {
                 "Equites Ordinis deorum",
                 new TravellerNationsCharacterInfo("Equites Ordinis deorum",
@@ -340,7 +352,13 @@ namespace TravellerWiki.Data
                         {14, new TravellerSkill(Streetwise)},
                         {15, new TravellerSkill(Survival)},
                         {16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Reverse Citizen", drafts:new string[]{"Reverse Army", "Reverse Navy", "Reverse Spy"})},
+                    },
+                    drifter:"Reverse Military Industry", drafts:new string[]
+                    {
+                        "Reverse Army", 
+                        "Reverse Navy", 
+                        "Reverse Spy"
+                    })},
             {
                 "Xiao-Ming Mega Corporation",
                 new TravellerNationsCharacterInfo("Xiao-Ming Mega Corporation",
@@ -382,7 +400,12 @@ namespace TravellerWiki.Data
                         {14, new TravellerSkill(Streetwise)},
                         {15, new TravellerSkill(Steward)},
                         {16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Production", drafts:new string[]{"Defense Contracting"})},
+                    }, 
+                    drifter:"Production", 
+                    drafts:new string[]
+                    {
+                        "Defense Contracting"
+                    })},
             {
                 "Communist Empire of the Deutschland",
                 new TravellerNationsCharacterInfo("Communist Empire of the Deutschland",
@@ -418,7 +441,14 @@ namespace TravellerWiki.Data
                         {14, new TravellerSkill(Streetwise)},
                         {15, new TravellerSkill(Survival)},
                         {16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Deutschland Prisoner", drafts:new string[]{"Deutschland Army", "Deutschland Navy", "Deutschland Colonizer"})},
+                    }, 
+                    drifter:"Deutschland Prisoner", drafts:new string[]
+                    {
+                        "Deutschland Army", 
+                        "Deutschland Navy", 
+                        "Deutschland Colonizer",
+                        "Deutschland Priest"
+                    })},
             {
                 "Church of Sigmar",
                 new TravellerNationsCharacterInfo("Church of Sigmar",
@@ -460,7 +490,12 @@ namespace TravellerWiki.Data
                         new TravellerAttributeCheck(Social,10),
                         new TravellerAttributeCheck(Psionics,8)
                     }, 
-                    drifter:"Deutschland Priest", drafts:new string[]{"Deutschland Priest", "Sigmarine", "Inquisitor of Sigmar"},
+                    drifter:"Deutschland Priest", drafts:new string[]
+                    {
+                        "Deutschland Priest", 
+                        "Sigmarine", 
+                        "Inquisitor of Sigmar"
+                    },
                     parentNation:"Communist Empire of the Deutschland")},
             {
                 "Germushian Free Republic",
@@ -498,7 +533,8 @@ namespace TravellerWiki.Data
                         { 14, new TravellerSkill(Streetwise)},
                         { 15, new TravellerSkill(Stealth)},
                         { 16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Cartel Worker", 
+                    }, 
+                    drifter:"Cartel Worker", 
                     drafts:new string[]
                     {
                         "Government Military",
@@ -544,11 +580,17 @@ namespace TravellerWiki.Data
                         { 14, new TravellerSkill(Streetwise)},
                         { 15, new TravellerSkill(Survival)},
                         { 17, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Pirate", drafts:new string[]{"Pirate", "Military"})},
+                    }, 
+                    drifter:"Pirate", 
+                    drafts:new string[]
+                    {
+                        "Pirate", 
+                        "Military"
+                    })},
             {
                 "Trans Galactic Empire",
                 new TravellerNationsCharacterInfo("Trans Galactic Empire",
-                    backgroundText: "",
+                    backgroundText: "The Empire has only recently been redeclared by the newly crowned Emperor Kylo Ren. Life within the empire is clearly split among the three social classes of Imperial, Citizen, and Resident. Where Imperial is anyone working in service of the empire. Citizens can enjoy a good life while residents can enjoy breathing something related to air.",
                     statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
                     {
                         (Strength,1),
@@ -589,7 +631,8 @@ namespace TravellerWiki.Data
                         { 14, new TravellerSkill(Streetwise)},
                         { 15, new TravellerSkill(Tactics)},
                         { 16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Imperial Mafia", drafts:new string[]
+                    }, 
+                    drifter:"Imperial Mafia", drafts:new string[]
                     {
                         "Imperial Army",
                         "Imperial Navy",
@@ -681,9 +724,10 @@ namespace TravellerWiki.Data
                         { 14, new TravellerSkill(Streetwise)},
                         { 15, new TravellerSkill(Survival)},
                         { 16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Imperial Mafia", drafts:new string[]
+                    }, 
+                    drifter:"Imperial Mafia", drafts:new string[]
                     {
-                        "Elite Imperial Army",
+                        "Elite Storm Trooper",
                         "Elite Imperial Navy",
                         "Imperial Army",
                         "Imperial Navy",
@@ -726,9 +770,10 @@ namespace TravellerWiki.Data
                         { 14, new TravellerSkill(Streetwise)},
                         { 15, new TravellerSkill(Survival)},
                         { 16, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Imperial Mafia", drafts:new []
+                    },
+                    drifter:"Imperial Mafia", drafts:new []
                     {
-                        "",
+                        "Britannian Military",
                         "Imperial Army",
                         "Imperial Navy",
                         "Imperial Stormtrooper"
@@ -829,7 +874,8 @@ namespace TravellerWiki.Data
                         { 18, new TravellerSkill(Streetwise)},
                         { 19, new TravellerSkill(Survival)},
                         { 20, new TravellerSkill(VaccSuit)},
-                    }, drifter:"Ex-Corper", drafts:new []
+                    }, 
+                    drifter:"Ex-Corper", drafts:new []
                     {
                         "Axion Army",
                         "Axion Navy"
@@ -873,7 +919,11 @@ namespace TravellerWiki.Data
                         {11, new TravellerSkill(VaccSuit)},
                         {12, new TravellerSkill(Gambler)},
                         {13, new TravellerSkill(Persuade)}
-                    }, drifter:"Guild Worker", drafts:new string[]{"Guild Defender"},
+                    },
+                    drifter:"Guild Worker", drafts:new string[]
+                    {
+                        "Guild Defender"
+                    },
                     parentNation:"Axion Alliance")},
         };
 

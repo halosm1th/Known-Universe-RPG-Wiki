@@ -2,8 +2,8 @@
 {
     public class TravellerEventChoice : TravellerEventCharacterCreation
     {
-        public bool HasYesEvent => YesEvent == null;
-        public bool HasNoEvent => NoEvent == null;
+        public bool HasYesEvent => YesEvent != null;
+        public bool HasNoEvent => NoEvent != null;
 
         public string YesText { get; }
         public string NoText { get; }

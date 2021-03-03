@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using CharacterCreationTest.CharacterCreation;
 using TravellerWiki.Data;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.CreationEvents;
+using TravellerWiki.Data.TravellerInjuries;
 
 namespace CharacterCreationTest
 {
@@ -29,19 +33,264 @@ namespace CharacterCreationTest
 
             GenerateName(travellerCreator, random);
             GenerateValues(travellerCreator);
+            GenerateNationality(random, travellerCreator);
 
-            var nation = ApplyNationality(random, travellerCreator);
-            GetBackgroundSkills(travellerCreator, nation, random);
+            do
+            {
+                if (!travellerCreator.HasJob)
+                {
+                    FindCareer(travellerCreator, random);
+                    Console.WriteLine("");
+                }
 
-            var career = GetCareer(travellerCreator, random);
-            BasicTraining(travellerCreator, career, random);
+                GenerateSkill(travellerCreator,random);
+                Console.WriteLine("");
+
+                CreationEvent(travellerCreator,random);
+                Console.WriteLine("");
+
+                IncreaseAge(travellerCreator);
+                Console.WriteLine("");
+
+            }
+            //While the traveller has a job and is less then 100, or the traveller gets really unlucky and decides to drop out.
+            while (travellerCreator.HardAdvanced ||
+                   (travellerCreator.HasJob && travellerCreator.TravellersAge < 98) ||
+                   random.Next(0,2)==1);
+            //
+
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(travellerCreator._character.ToString());
             Console.ForegroundColor = ConsoleColor.DarkGray;
         }
 
+        private static void CreationEvent(CharacterCreator travellerCreator, Random random)
+        {
+            TravellerEventCharacterCreation creationEvent;
+            if (travellerCreator.CheckSurvival(travellerCreator.RollDice()))
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("You survive");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                creationEvent = GetEvent(travellerCreator);
+                //Some events may impact advancement, better to use it twice in this case.
+                ApplyEvent(travellerCreator,random,creationEvent);
+                Advance(travellerCreator,random);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You mishap!");
+                Console.ForegroundColor = ConsoleColor.Gray;
+
+                Console.WriteLine();
+                creationEvent = GetMishap(travellerCreator);
+                ApplyEvent(travellerCreator,random,creationEvent);
+            }
+        }
+
+        private static void FindCareer(CharacterCreator travellerCreator, Random random)
+        {
+            var career = GetCareer(travellerCreator, random);
+            GetAssignmentAndJoinCareer(travellerCreator, random, career);
+        }
+
+        private static void GetAssignmentAndJoinCareer(CharacterCreator travellerCreator, Random random, TravellerCareer career)
+        {
+            var assignment = GetAssignment(travellerCreator, career, random);
+            JoinCareerAndBasicTraining(travellerCreator, random, career, assignment);
+        }
+
+        private static void JoinCareerAndBasicTraining(CharacterCreator travellerCreator, Random random, TravellerCareer career,
+            TravellerAssignment assignment)
+        {
+            travellerCreator.JoinCareer(career, assignment);
+            BasicTraining(travellerCreator, career, random);
+        }
+
+        private static void GenerateNationality(Random random, CharacterCreator travellerCreator)
+        {
+            var nation = ApplyNationality(random, travellerCreator);
+            GetBackgroundSkills(travellerCreator, nation, random);
+        }
+
         #region career
+
+        public static void Advance(CharacterCreator creator, Random random)
+        {
+            if (creator.Advances(creator.RollDice()))
+            {
+                var rank = creator.GetRank();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Advanced!");
+                Console.WriteLine($"{rank.title}: {rank.TravellerCharacterCreationReward}");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                //Generate the bonus skill for advancing
+                GenerateSkill(creator,random);
+            }
+        }
+
+        private static void IncreaseAge(CharacterCreator creator)
+        {
+            Console.WriteLine("Applying aging");
+            if (creator.ApplyAging())
+            {
+                var roll = creator.RollDice();
+                if (creator.HasAgingEffect(roll))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Aging has an effect!");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    var injury = creator.AgingRoll(roll);
+                    ApplyInjury(injury);
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"The traveller is now {creator.TravellersAge} years old");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        private static void ApplyInjury(TravellerInjury injury)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("There has been an injury!");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        private static void ApplyEvent(CharacterCreator creator,Random random,TravellerEventCharacterCreation creationEvent)
+        {
+            Console.WriteLine($"{creationEvent.EventText}");
+            if (creationEvent is TravellerEventAttributeCheck attribute)
+            {
+                AttributeEvent(creator,random, attribute);
+            }
+            else if (creationEvent is TravellerEventChangeCareerWithAssignment changeWithAssignment)
+            {
+                var career = creator.GetCareer(changeWithAssignment.NewCareerName);
+                var assignment = creator.GetAssignment(changeWithAssignment.Assignment);
+                JoinCareerAndBasicTraining(creator,random,career,assignment);
+            }
+            else if (creationEvent is TravellerEventChangeCareers changeCareer)
+            {
+                var career = creator.GetCareer(changeCareer.NewCareerName);
+                GetAssignmentAndJoinCareer(creator, random, career);
+            }
+            else if (creationEvent is TravellerEventSkillCheck skillCheck)
+            {
+                PreformASkillCheck(creator, random, skillCheck);
+            }
+            else if (creationEvent is TravellerEventChoice choice)
+            {
+                ChoiceEvent(creator, random, choice);
+            }
+            else if (creationEvent is TravellerEventSeverelyInjured injured)
+            {
+                ApplyInjury(injured.GetSevereInjury(creator.RollDice(1), creator.RollDice(1)));
+            }
+            else if (creationEvent is TravellerEventInjury injury)
+            {
+                ApplyInjury(injury.GetInjury(creator.RollDice(1)));
+            }
+            else if (creationEvent is TravellerEventLife life)
+            {
+                ApplyEvent(creator,random,creator.GetLifeEvent(creator.RollDice()));
+            }
+            else if (creationEvent is TravellerEventMishap mishap)
+            {
+                ApplyEvent(creator,random,creator.GetMishap(creator.RollDice(1)));
+            }
+            else if (creationEvent is TravellerEventMultiChoice multi)
+            {
+                ApplyEvent(creator,random,multi.GetEvent(random.Next(0,multi.Events.Count)));
+            }
+            else if (creationEvent is TravellerEventReward rewards)
+            {
+                foreach (var reward in rewards.Reward)
+                {
+                    Console.WriteLine(reward);
+                    creator.ApplyReward(reward);
+                }
+            }
+            else if (creationEvent is TravellerEventText eventText)
+            {
+            }
+        }
+
+        private static void PreformASkillCheck(CharacterCreator creator, Random random, TravellerEventSkillCheck skillCheck)
+        {
+            var check = skillCheck.SkillChecks[random.Next(skillCheck.SkillChecks.Count)];
+            if (creator.PassSkillCheck(check, creator.RollDice()))
+            {
+                Console.Write(skillCheck.YesText);
+                Console.WriteLine(" <<You succeed>>");
+                if (skillCheck.HasYesEvent)
+                {
+                    ApplyEvent(creator, random, skillCheck.YesEvent);
+                }
+            }
+            else
+            {
+                Console.WriteLine(skillCheck.NoText);
+                Console.WriteLine(" <<You fail>>");
+                if (skillCheck.HasNoEvent)
+                {
+                    ApplyEvent(creator, random, skillCheck.NoEvent);
+                }
+            }
+        }
+
+        private static void ChoiceEvent(CharacterCreator creator, Random random, TravellerEventChoice choice)
+        {
+            if (random.Next(0, 2) != 1)
+            {
+                Console.WriteLine($"{choice.YesText}");
+                if (choice.HasYesEvent)
+                {
+                    ApplyEvent(creator, random, choice.YesEvent);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{choice.NoText}");
+                if (choice.HasNoEvent)
+                {
+                    ApplyEvent(creator, random, choice.NoEvent);
+                }
+            }
+        }
+
+        private static void AttributeEvent(CharacterCreator creator,Random random ,TravellerEventAttributeCheck attribute)
+        {
+            if (attribute.AttributeChecks[0].PassedCheck(creator.RollDice()))
+            {
+                Console.WriteLine($"{attribute.YesText}");
+                if (attribute.HasYesEvent)
+                {
+                    ApplyEvent(creator,random,attribute.YesEvent);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{attribute.NoText}");
+                if (attribute.HasNoEvent)
+                {
+                    ApplyEvent(creator,random,attribute.NoEvent);
+                }
+            }
+        }
+
+        private static TravellerEventCharacterCreation GetEvent(CharacterCreator creator)
+        {
+            return creator.GetEvent(creator.RollDice());
+        }
+
+        private static TravellerEventCharacterCreation GetMishap(CharacterCreator creator)
+        {
+            return creator.GetMishap(creator.RollDice(1));
+        }
+
         private static TravellerCareer GetCareer(CharacterCreator travellerCreator, Random random)
         {
             Console.WriteLine("Getting career.");
@@ -73,6 +322,48 @@ namespace CharacterCreationTest
             Console.WriteLine($"Spending term in: {career.CareerName}");
             
             return career;
+        }
+
+        public static TravellerAssignment GetAssignment(CharacterCreator creator, TravellerCareer career,Random random)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Generating assignment");
+            var assignments = creator.GetAssignments(career);
+
+            var assignment = assignments[random.Next(0, assignments.Count)];
+
+            Console.ForegroundColor = ConsoleColor.Blue ;
+            Console.WriteLine($"Chosen Assignment: {assignment.Name} ");
+
+            return assignment;
+        }
+
+        private static List<TravellerSkillTableEntry> GetSkillTable(CharacterCreator creator, Random random)
+        {
+            var skillTables = creator.GetSkillTables();
+            var table = skillTables.ElementAt(random.Next(0, skillTables.Count));
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Chosen the: {table.Item1}");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            return table.Item2;
+        }
+
+        private static void GenerateSkill(CharacterCreator creator, Random random)
+        {
+            var table = GetSkillTable(creator, random);
+            var skill = table[creator.RollOnSkillTable()];
+
+            if (creator.IsSkill(skill) && creator.IsSuperSkill(skill))
+            {
+                var subSkills = creator.GetSubSkills(((TravellerSkillTableEntrySkill) skill).Skill);
+                skill = new TravellerSkillTableEntrySkill(subSkills[random.Next(0, subSkills.Count)]);
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Gained the: {skill} Skill");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            creator.ApplySkillTableResult(skill);
         }
 
         private static void BasicTraining(CharacterCreator travellerCreator, TravellerCareer career, Random random)

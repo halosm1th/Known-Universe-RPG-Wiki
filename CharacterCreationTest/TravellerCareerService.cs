@@ -29,6 +29,11 @@ namespace TravellerWiki.Data
             return _careers;
         }
 
+        public TravellerCareer GetCareer(string careerName)
+        {
+            return ListOfCareers.First(x => x.CareerName == careerName);
+        }
+
         public List<TravellerCareer> GetCareers()
         {
             return ListOfCareers;

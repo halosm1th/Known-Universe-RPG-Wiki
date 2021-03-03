@@ -8,5 +8,9 @@
         }
 
         public int NumberOfExtraRolls { get; }
+        public override string ToString()
+        {
+            return $"Get an extra {NumberOfExtraRolls} Benefit rolls";
+        }
     }
 }

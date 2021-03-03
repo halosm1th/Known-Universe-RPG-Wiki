@@ -11,5 +11,10 @@ namespace TravellerWiki.Data
         {
             Attribute = attribute;
         }
+
+        public override string ToString()
+        {
+            return $"{Attribute}";
+        }
     }
 }

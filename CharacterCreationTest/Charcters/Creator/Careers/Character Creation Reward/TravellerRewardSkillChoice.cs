@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
@@ -15,12 +16,17 @@ namespace TravellerWiki.Data
         }
         public TravellerRewardSkillChoice(int pickCount, List<TravellerSkills> skillList)
         {
-            var SkillList = new List<TravellerSkill>();
+            SkillList = new List<TravellerSkill>();
             foreach (var skill in skillList)
             {
                 SkillList.Add(new TravellerSkill(skill));
             }
             PickCount = pickCount;
+        }
+
+        public override string ToString()
+        {
+            return $"Pick {PickCount} from: {SkillList.Aggregate("",(next,s) => next + s + ",")}";
         }
     }
 }
