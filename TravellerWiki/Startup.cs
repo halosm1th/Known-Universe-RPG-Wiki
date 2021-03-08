@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TravellerWiki.Data;
+using TravellerWiki.Data.Services.CareerService;
 
 namespace TravellerWiki
 {

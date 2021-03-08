@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.CreationEvents;
+using TravellerWiki.Data.Services.CareerService;
 
 namespace TravellerWiki.Data
 {
@@ -12,7 +13,7 @@ namespace TravellerWiki.Data
         #region Public Variables
         public string CareerName { get; set; }
         public string CareerDescription { get; set; }
-        public string Nationality { get; set; }
+        public TravellerNationalities Nationality { get; set; }
         public List<TravellerAttributeCheck> Qualifications { get; set; }
 
         public List<TravellerAssignment> Assignments { get; set; }
@@ -34,7 +35,7 @@ namespace TravellerWiki.Data
         #region Constructors
         //Everything but comission and advanced education
 
-        public TravellerCareer(string careerName, string description, string nationality, List<TravellerAttributeCheck> qualifications, List<TravellerAssignment> assignments,
+        public TravellerCareer(string careerName, string description, TravellerNationalities nationality, List<TravellerAttributeCheck> qualifications, List<TravellerAssignment> assignments,
             List<(int Cash, TravellerCharacterCreationReward Benefit)> musteringOutBenefits, List<TravellerSkillTableEntry> personalDevelopmentSkillList,
             List<TravellerSkillTableEntry> serviceSkillsList, List<TravellerEventCharacterCreation> events, List<TravellerEventCharacterCreation> mishaps)
         {
@@ -84,7 +85,7 @@ namespace TravellerWiki.Data
                 }),
                 10 => new TravellerEventReward("You stumble into good fortunes, finding money or having a lifelong dream come true.", new List<TravellerCharacterCreationReward>
                 {
-                    new TravellerRewardCharacterCreationBenefitIncrease(2)
+                    new TravellerRewardBenefitIncrease(2)
                 }),
                 11 => new TravellerEventChoice("You commit or are the victim (or accused) of a crime.",
                     yesText:"Lose one Benefit roll",
@@ -97,7 +98,7 @@ namespace TravellerWiki.Data
                     noEvent: new TravellerEventReward("You go to jail or nations drifter.",
                         new List<TravellerCharacterCreationReward>
                         {
-                            new TravellerRewardCharacterCreationJobChange(new TravellerNationsCharacterInfoService().GetNationsList.First(x => x.NationName == Nationality).DrifterCareer.CareerName)
+                            new TravellerRewardJobChange(new TravellerNationsCharacterInfoService().GetNationsList.First(x => x.Nationality == Nationality).DrifterCareer.CareerName)
                         })),
                 12 => new TravellerEventMultiChoice("An unusual event occurs",
                     new List<TravellerEventCharacterCreation>
@@ -109,7 +110,7 @@ namespace TravellerWiki.Data
 
                         new TravellerEventReward("You come into contact with a previously unknown alien species.", new List<TravellerCharacterCreationReward>
                         {
-                            new TravellerRewardCharacterCreationSkill(new List<TravellerSkill>{ new TravellerSkill(TravellerSkills.Science,1)}),
+                            new TravellerRewardSkill(new List<TravellerSkill>{ new TravellerSkill(TravellerSkills.Science,1)}),
                             new TravellerRewardContact("Alien",TravellerNPCRelationship.Contact)
                         }),
 

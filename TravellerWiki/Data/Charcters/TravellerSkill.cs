@@ -6,79 +6,100 @@ namespace TravellerWiki.Data.Charcters
     {
         Admin,
         Advocate,
+
         AetherSwap,
         AetherTalk,
         AetherWalk,
+
         Animals,
         Animals_Handling,
         Animals_Training,
         Animals_Veterinary,
+
         Art,
         Art_Holography,
         Art_Instrument,
         Art_Preformer,
         Art_VisualMedia,
         Art_Write,
+
         Astrogation,
+
         Athletics,
         Athletics_Dexterity,
         Athletics_Endurance,
         Athletics_Strength,
+
         Broker,
         Carouse,
+
         Circle,
         Circle_Abyss,
         Circle_Aether,
         Circle_Material,
         Circle_Nether,
         Circle_Void,
+
         Deception,
         Diplomat,
+
         Drive,
         Drive_HoverCraft,
         Drive_Mole,
         Drive_Track,
         Drive_Walker,
         Drive_Wheel,
+
         Electronics,
         Electronics_Comms,
         Electronics_Computers,
         Electronics_RemoteOps,
         Electronics_Sensors,
+
         Engineer,
         Engineer_JDrive,
         Engineer_LifeSupport,
         Engineer_MDrive,
         Engineer_Power,
+
         Explosives,
+
         Flyer,
         Flyer_Airship,
         Flyer_Grav,
         Flyer_Ornithopter,
         Flyer_Roter,
         Flyer_Wing,
+
         FreeForm,
         FreeForm_Abyss,
         FreeForm_Aether,
         FreeForm_Material,
         FreeForm_Nether,
         FreeForm_Void,
+
         Gambler,
+
         GunCombat,
         GunCombat_Archaic,
         GunCombat_Energy,
         GunCombat_Slug,
+
         Gunner,
         Gunner_Capital,
         Gunner_Ortillery,
         Gunner_Screen,
         Gunner_Turret,
+
         HeavyWeapons,
         HeavyWeapons_Artillery,
         HeavyWeapons_ManPortable,
         HeavyWeapons_Vehicle,
+
         Investigate,
         JackOfAllTrades,
+        JackLuck,
+
         Language,
         Language_AxiosCommon,
         Language_AxiosPolitical,
@@ -99,6 +120,7 @@ namespace TravellerWiki.Data.Charcters
         Language_Witcher,
         Langauge_XiaoMing,
         Language_Sith,
+
         Leadership,
         LifeCreate,
         LifeDrain,
@@ -106,18 +128,22 @@ namespace TravellerWiki.Data.Charcters
         Luck,
         Mechanic,
         Medic,
+
         Melee,
         Melee_Unarmed,
         Melee_Blade,
         Melee_Bludgeon,
         Melee_Natural,
         Melee_Void,
+
         Navigation,
         Persuade,
+
         Pilot,
         Pilot_CapitalShips,
         Pilot_SmallCraft,
         Pilot_Spacecraft,
+
         Profession,
         Profession_Belter,
         Profession_Biologicals,
@@ -125,7 +151,9 @@ namespace TravellerWiki.Data.Charcters
         Profession_Construction,
         Profession_Hydroponics,
         Profession_Polymers,
+
         Recon,
+
         Religion,
         Religion_BritannianSithism,
         Religion_ModernSithism,
@@ -138,6 +166,7 @@ namespace TravellerWiki.Data.Charcters
         Religion_Sithism,
         Religion_OrthodoxSithism,
         Religion_Witcherism,
+
         Science,
         Science_Archaeology,
         Science_Astronomy,
@@ -157,11 +186,13 @@ namespace TravellerWiki.Data.Charcters
         Science_Sophontology,
         Science_Voidology,
         Science_Xenology,
+
         Seafarer,
         Seafarer_OceanShips,
         Seafarer_Personal,
         Seafarer_Sail,
         Seafarer_Submarine,
+
         SigmarsAid,
         SigmarsAir,
         SigmarsFreeze,
@@ -171,16 +202,20 @@ namespace TravellerWiki.Data.Charcters
         SigmarsKnowledge,
         SigmarsLight,
         SigmarsWater,
+
         SoulSight,
         SoulLink,
         SoulSwap,
+
         Stealth,
         Steward,
         Streetwise,
         Survival,
+
         Tactics,
         Tactics_Military,
         Tactics_Naval,
+
         VaccSuit
 
     }
@@ -368,10 +403,50 @@ namespace TravellerWiki.Data.Charcters
 
         public int SkillValue { get; set; }
 
+        public override string ToString()
+        {
+            return $"{SkillName}: {SkillValue}";
+        }
+
         public TravellerSkill(TravellerSkills name, int baseValue = 0)
         {
             SkillName = name;
             SkillValue = baseValue;
         }
+
+        public void Increase(int amount)
+        {
+            SkillValue += amount;
+        }
+
+        public bool IsSuperSkill() => IsSuperSkill(SkillName);
+
+
+        public static bool IsSuperSkill(TravellerSkills skill)
+            => skill switch
+            {
+                TravellerSkills.Animals => true,
+                TravellerSkills.Art => true,
+                TravellerSkills.Athletics => true,
+                TravellerSkills.Circle => true,
+                TravellerSkills.Drive => true,
+                TravellerSkills.Electronics => true,
+                TravellerSkills.Engineer => true,
+                TravellerSkills.Flyer => true,
+                TravellerSkills.FreeForm => true,
+                TravellerSkills.GunCombat => true,
+                TravellerSkills.Gunner => true,
+                TravellerSkills.HeavyWeapons => true,
+                TravellerSkills.JackLuck => true,
+                TravellerSkills.Language => true,
+                TravellerSkills.Melee => true,
+                TravellerSkills.Pilot => true,
+                TravellerSkills.Profession => true,
+                TravellerSkills.Religion => true,
+                TravellerSkills.Science => true,
+                TravellerSkills.Seafarer => true,
+                TravellerSkills.Tactics => true,
+                _ => false
+            };
     }
 }

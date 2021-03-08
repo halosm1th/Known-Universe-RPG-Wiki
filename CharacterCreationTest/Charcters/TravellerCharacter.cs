@@ -42,8 +42,25 @@ namespace TravellerWiki.Data.Charcters
         public List<TravellerAugments> Augments { get; set; }
         public List<TravellerArmour> Armour { get; set; }
         public List<TravellerWeapon> Weapons { get; set; }
-        public List<TravellerFinances> Finances { get; set; }
+
         public List<TravellerCharacter> Contacts { get; set; }
+        public TravellerFinances Finances { get; set; }
+
+        public int Debt
+        {
+            get => Finances.Debt;
+            set => Finances.Debt += value;
+        }
+        public int Credits
+        {
+            get => Finances.Credits;
+            set => Finances.Credits += value;
+        }
+        public int Pension
+        {
+            get => Finances.Pension;
+            set => Finances.Pension += value;
+        }
         #endregion
         #region Constructor
         public TravellerCharacter()
@@ -54,7 +71,7 @@ namespace TravellerWiki.Data.Charcters
             Augments = new List<TravellerAugments>();
             Armour = new List<TravellerArmour>();
             Weapons = new List<TravellerWeapon>();
-            Finances = new List<TravellerFinances>();
+            Finances = new TravellerFinances(0,0,0,0,0);
             Contacts = new List<TravellerCharacter>();
             JackOfAllTrades = -1;
         }
@@ -181,7 +198,20 @@ namespace TravellerWiki.Data.Charcters
 
             return false;
         }
-#endregion
+        #endregion
+        #region Finances
+
+        public void AddDebt(int amountOfDebtToAdd)
+        {
+            if (amountOfDebtToAdd < 0) amountOfDebtToAdd = amountOfDebtToAdd * -1;
+            Debt += amountOfDebtToAdd;
+        }
+
+        public void AddCredits(int amountOfCreditsToAdd)
+        {
+            Credits += amountOfCreditsToAdd;
+        }
+        #endregion
         #region Change Attribute
         /// <summary>
         /// Modify a traveller Attribute on the character
@@ -206,6 +236,32 @@ namespace TravellerWiki.Data.Charcters
                 return false;
             }
         }
+
+        public bool ChangeAttribute(TravellerAttribute attribute)
+        {
+            try
+            {
+                if (AttributeList.Any(x => x.AttributeName == attribute.AttributeName))
+                {
+                    var attributeToChange = AttributeList.First(x => x.AttributeName == attribute.AttributeName);
+                    attributeToChange.ModifyStat(attribute.AttributableValue);
+                    return true;
+                }
+                else
+                {
+                    AttributeList.Add(attribute);
+                    return true;
+                }
+            }
+            catch (ArgumentNullException)
+            {
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                return false;
+            }
+        }
         #endregion
         #region overrides
         public override string ToString()
@@ -213,11 +269,11 @@ namespace TravellerWiki.Data.Charcters
             var sb = new StringBuilder();
 
             sb.Append(Name);
-            sb.Append(" ");
+            sb.Append(" [");
             sb.Append(Nationality);
-            sb.Append(" ");
+            sb.Append(": ");
             sb.Append(Age);
-            sb.Append(" ");
+            sb.Append("] ");
 
             sb.Append("\n\n");
 
@@ -239,11 +295,22 @@ namespace TravellerWiki.Data.Charcters
 
             foreach (var travellerAttribute in Items)
             {
+                sb.Append("[");
                 sb.Append(travellerAttribute);
-                sb.Append(" ");
+                sb.Append("] ");
+            }
+            sb.Append("\n");
+            sb.Append("\n");
+            
+            foreach (var contact in Contacts)
+            {
+                sb.Append("{");
+                sb.Append(contact.ToString());
+                sb.Append("}\n");
             }
 
-            sb.Append("\n");
+            sb.Append("\n\n");
+
 
 
             return sb.ToString();

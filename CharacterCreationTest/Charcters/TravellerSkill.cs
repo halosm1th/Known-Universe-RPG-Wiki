@@ -419,6 +419,8 @@ namespace TravellerWiki.Data.Charcters
             SkillValue += amount;
         }
 
+        public bool IsSuperSkill() => IsSuperSkill(SkillName);
+
 
         public static bool IsSuperSkill(TravellerSkills skill)
             => skill switch

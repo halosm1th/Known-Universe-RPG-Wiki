@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data.CreationEvents
@@ -8,6 +9,11 @@ namespace TravellerWiki.Data.CreationEvents
     {
         public List<TravellerSkillCheck> SkillChecks { get; }
 
+        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, TravellerSkillCheck skillCheck) : base(eventText, yesEvent, noEvent)
+        {
+            SkillChecks = new List<TravellerSkillCheck>();
+            SkillChecks.Add(skillCheck);
+        }
         public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, List<TravellerSkillCheck> skillChecks) : base(eventText, yesEvent, noEvent)
         {
             SkillChecks = skillChecks;
@@ -23,6 +29,22 @@ namespace TravellerWiki.Data.CreationEvents
         {
             var skill = SkillChecks.First(skill => skill.SkillToCheck.SkillName == skillToCheckAgainst.SkillName);
             return skill.PassedCheck(roll + skillToCheckAgainst.SkillValue);
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.Append(EventText);
+            sb.Append(" Make one of: ");
+
+            foreach (var skill in SkillChecks)
+            {
+                sb.Append(skill.ToString());
+                sb.Append(" ");
+            }
+
+            return sb.ToString();
         }
     }
 }

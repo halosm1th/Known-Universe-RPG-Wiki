@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
 
 namespace TravellerWiki.Data.Charcters
 {
@@ -76,6 +78,29 @@ namespace TravellerWiki.Data.Charcters
                 TravellerAttributes.Sanity => "San",
                 _ => "Error"
             };
+
+        public bool IsPhysical() =>
+            AttributeName switch
+            {
+
+                TravellerAttributes.Strength => true,
+                TravellerAttributes.Dexterity => true,
+                TravellerAttributes.Endurance => true,
+                _ => false
+            };
+
+        public bool IsMental() =>
+            AttributeName switch
+            {
+                TravellerAttributes.Intelligence => true,
+                TravellerAttributes.Education => true,
+                TravellerAttributes.Social => true,
+                TravellerAttributes.Psionics=> true,
+                TravellerAttributes.Sanity => true,
+                _ => false
+            };
+
+
 
         public override string ToString()
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
@@ -6,13 +7,13 @@ namespace TravellerWiki.Data
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public TravellerSkillCheck Survival { get; set; }
-        public TravellerSkillCheck Advancement { get; set; }
+        public TravellerAttributeCheck Survival { get; set; }
+        public TravellerAttributeCheck Advancement { get; set; }
 
-        public List<string> SkillList { get; set; }
+        public List<TravellerSkillTableEntry> SkillList { get; set; }
         public List<(string title, TravellerCharacterCreationReward TravellerCharacterCreationReward)> RanksAndBonuses { get; set; }
 
-        public TravellerAssignment(string name, string description, TravellerSkillCheck survival, TravellerSkillCheck advancement, List<string> skillList, List<(string title, TravellerCharacterCreationReward perk)> ranksAndBonuses)
+        public TravellerAssignment(string name, string description, TravellerAttributeCheck survival, TravellerAttributeCheck advancement, List<TravellerSkillTableEntry> skillList, List<(string title, TravellerCharacterCreationReward perk)> ranksAndBonuses)
         {
             Name = name;
             Description = description;

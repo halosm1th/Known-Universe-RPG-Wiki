@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
 
 namespace TravellerWiki.Data.Charcters
 {
@@ -57,9 +59,54 @@ namespace TravellerWiki.Data.Charcters
             AttributableValue = attributableValue;
         }
 
+        public void ModifyStat(int amount)
+        {
+            AttributableValue += amount;
+        }
+
+
+        public string GetShortName()
+            => AttributeName switch
+            {
+                TravellerAttributes.Strength => "Str",
+                TravellerAttributes.Dexterity => "Dex",
+                TravellerAttributes.Endurance => "End",
+                TravellerAttributes.Intelligence => "Int",
+                TravellerAttributes.Education => "Edu",
+                TravellerAttributes.Social => "Soc",
+                TravellerAttributes.Psionics => "Psi",
+                TravellerAttributes.Sanity => "San",
+                _ => "Error"
+            };
+
+        public bool IsPhysical() =>
+            AttributeName switch
+            {
+
+                TravellerAttributes.Strength => true,
+                TravellerAttributes.Dexterity => true,
+                TravellerAttributes.Endurance => true,
+                _ => false
+            };
+
+        public bool IsMental() =>
+            AttributeName switch
+            {
+                TravellerAttributes.Intelligence => true,
+                TravellerAttributes.Education => true,
+                TravellerAttributes.Social => true,
+                TravellerAttributes.Psionics => true,
+                TravellerAttributes.Sanity => true,
+                _ => false
+            };
+
+
+
         public override string ToString()
         {
             var sb = new StringBuilder();
+            sb.Append(GetShortName());
+            sb.Append(": ");
             sb.Append(AttributableValue);
             sb.Append("[");
             sb.Append(AttributeModifier);

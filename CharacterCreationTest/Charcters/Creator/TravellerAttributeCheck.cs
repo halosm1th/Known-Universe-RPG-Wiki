@@ -23,5 +23,9 @@ namespace TravellerWiki.Data
         {
             UnderlingAttribute = attribute;
         }
+        public override string ToString()
+        {
+            return $"{UnderlingAttribute.AttributeName}({UnderlingAttribute.AttributableValue}+)";
+        }
     }
 }

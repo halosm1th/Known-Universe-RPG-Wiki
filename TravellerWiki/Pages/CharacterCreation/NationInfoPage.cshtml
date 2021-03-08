@@ -1,5 +1,6 @@
 ﻿@page
 @using TravellerWiki.Data
+@using TravellerWiki.Data.Services.CareerService
 @model TravellerWiki.NationInfoPageModel
 @{
     ViewData["Title"] = @Model.NationName;
@@ -20,29 +21,30 @@
 <body>
     <h1>@Model.NationName</h1>
 
-<h2>Background</h2>
+    <h2>Background</h2>
     <p>@Model.CharacterInfo.BackgroundText</p>
     <a href="/CharacterCreation/">Back to Character Creation</a>
     <p style="font-size: xx-small">Brackets represent an optional choice, a '|' or separation means OR as in: A | B == A OR B</p>
 
-<h3>Entry Requirements</h3>
-    <p>@Model.CharacterInfo.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core, ", ", addition)).Remove(0, 1)</p>
+    <h3>Entry Requirements</h3>
+    <p>@(Model.CharacterInfo.EntryRequirements.Count>0? 
+           Model.CharacterInfo.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core, ", ", addition)) : "None")</p>
 
-<h3>Stat Changes & Perks</h3>
-<p>
-    Stat Changes: @Model.CharacterInfo.GetStatChanges()
-</p>
-<p>
-    @if (Model.CharacterInfo.Perks.Count > 0)
-    {
-        var remove = Model.CharacterInfo.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
-        <text>Perks: @remove</text>
-    }
-</p>
+    <h3>Stat Changes & Perks</h3>
+    <p>
+        Stat Changes: @Model.CharacterInfo.GetStatChanges()
+    </p>
+    <p>
+        @if (Model.CharacterInfo.Perks.Count > 0)
+        {
+            var remove = Model.CharacterInfo.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
+            <text>Perks: @remove</text>
+        }
+    </p>
     <h3>Background Skills</h3>
 
     @{
-        var skills = Model.CharacterInfo.BackgroundSkills.Aggregate("", (s, n) => s + ", " + n).Remove(0, 1);
+        var skills = Model.CharacterInfo.BackgroundSkills.Aggregate("", (s, n) => s + ", " + n.Value).Remove(0, 1);
     }
     <p>
         @skills
@@ -50,7 +52,7 @@
     </p>
     <h3>National Career Options</h3>
     <ul>
-        @foreach (var career in TravellerCareerService.ListOfCareers.Where(career => career.Nationality.NationName == Model.NationName))
+        @foreach (var career in TravellerCareerService.StaticListOfCareers.Where(career => career.Nationality == Model.NationName))
         {
             <li>
                 <p>
@@ -60,3 +62,4 @@
         }
     </ul>
 </body>
+</html>

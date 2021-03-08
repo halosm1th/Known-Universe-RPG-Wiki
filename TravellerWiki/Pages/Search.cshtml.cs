@@ -29,7 +29,7 @@ namespace TravellerWiki
 
         private static Dictionary<string, string> PageCrosses = GetPageCrosses();
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (SearchString != null)
             {

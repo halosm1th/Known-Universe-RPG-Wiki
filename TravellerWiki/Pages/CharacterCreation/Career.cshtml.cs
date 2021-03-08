@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TravellerWiki.Data;
+using TravellerWiki.Data.Services.CareerService;
 
 namespace TravellerWiki
 {
@@ -18,7 +19,7 @@ namespace TravellerWiki
         {
             if (!string.IsNullOrEmpty(career))
             {
-                var careers = careerService.GetCareers;
+                var careers = careerService.GetCareers();
                 Career = careers.First(x => x.CareerName == career);
             }
         }

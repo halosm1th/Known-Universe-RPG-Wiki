@@ -7,27 +7,29 @@ using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
+
+
     public class TravellerSpecialNPC : TravellerNPC
     {
         public int Affinity { get; set; }
         public int Enmity { get; set; }
         public int Influence { get; set; }
         public int Power { get; set; }
-        
 
-        public static int PowerInfluenceModifier(int value) 
-            => value switch {
-                5=> 0,
-                6 =>1,
+        public static int PowerInfluenceModifier(int value)
+            => value switch
+            {
+                5 => 0,
+                6 => 1,
                 7 => 1,
-                8 =>2,
-                9 =>3,
-                10 =>4,
-                11 =>5,
-                12=> 6,
+                8 => 2,
+                9 => 3,
+                10 => 4,
+                11 => 5,
+                12 => 6,
                 _ => 0
 
-         };
+            };
 
         public static string PowerText(int affinityModifier)
             => affinityModifier switch
@@ -39,6 +41,7 @@ namespace TravellerWiki.Data
                 4 => "Has powerful assets, equivalent to a small merchant shipping line or major business group.",
                 5 => "Has enormous power, such as someone in the top echelons of a planetary government or the CEO of a large shipping line.",
                 6 => "Is a factor in interstellar politics, such as a navy admiral or an official in an interstellar government.",
+                _ => "Error"
             };
 
         public static string InfluenceText(int affinityModifier)
@@ -51,6 +54,7 @@ namespace TravellerWiki.Data
                 4 => "Has some influence at the interplanetary level, with government or underworld figures that owe him a favour or two.",
                 5 => "Has very significant influence at the interstellar level, and can lean on lawmakers or officials in interstellar government.",
                 6 => "Has the ear of extremely powerful people, such as the ruling noble of the local subsector.",
+                _ => "Error"
             };
 
         public static string InfluenceDegree(int affinityModifier)
@@ -63,6 +67,7 @@ namespace TravellerWiki.Data
                 4 => "Highly Influential",
                 5 => "Extremely Influential",
                 6 => "Kingmaker",
+                _ => "Error"
             };
 
         public static string PowerDegree(int affinityModifier)
@@ -79,21 +84,23 @@ namespace TravellerWiki.Data
 
 
         public static int EnmityModifier(int value) => 0 - AffinityModifier(value);
-        
+
         public static int AffinityModifier(int value)
-            => value switch {
-            2 => 0,
-            3 => 1,
-            4=> 1,
-            5 => 2,
-            6 =>2 ,
-            7 => 3,
-            8 =>3,
-            9 =>4,
-            10 =>4,
-            11 =>5,
-            12=> 6,
-            _ => 6};
+            => value switch
+            {
+                2 => 0,
+                3 => 1,
+                4 => 1,
+                5 => 2,
+                6 => 2,
+                7 => 3,
+                8 => 3,
+                9 => 4,
+                10 => 4,
+                11 => 5,
+                12 => 6,
+                _ => 6
+            };
 
         public static string EnmityText(int affinityModifier)
             => affinityModifier switch
