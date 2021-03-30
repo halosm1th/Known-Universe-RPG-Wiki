@@ -9,11 +9,11 @@ using static TravellerWiki.Data.Charcters.TravellerSkills;
 
 namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
 {
-    class TravellerMationCareer : TravellerBasicCareers
+    class TravellerVersianCivis : TravellerBasicCareers
     {
         public static TravellerCareer NationCareer()
         {
-            var career = new TravellerMationCareer();
+            var career = new TravellerVersianCivis();
 
             return career.GetNationCareer();
         }
@@ -21,12 +21,10 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
 
         public TravellerCareer GetNationCareer()
         {
-            return null;
-            /*
             return new TravellerCareer(
-       careerName: "",
-       description: "",
-       nationality: "",
+       careerName: "Versian Civis",
+       description: "The normal people within the Versian Empire. Those who make up the majority of the population, but also have the least overall rights, political power, etc. For many within the Civis class, life is a dull experience of working, spending time with friends, and perhaps pursuing some passions in your off hours. It is a calm and peaceful life for the most part.",
+       nationality: TravellerNationalities.Fifth_Vers_Empire,
        qualifications: new List<TravellerAttributeCheck>
        {
                     new TravellerAttributeCheck(),
@@ -165,7 +163,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                     new TravellerEventCharacterCreation(),
                     new TravellerEventInjury("You are injured!"),
        }
-   );*/
+   );
         }
     }
 }

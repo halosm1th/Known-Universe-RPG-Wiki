@@ -10,7 +10,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
         public static void AddNationCareers(List<TravellerCareer> careers)
         {
 
-            var career = TravellerNationCareer.NationCareer();
+            var career = TravellerMationCareer.NationCareer();
 
             careers.Add(career);
         }

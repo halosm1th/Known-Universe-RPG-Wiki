@@ -17,6 +17,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
         }
         Random random = new Random();
 
+
         public TravellerCareer GetVersianArmy()
         {
             return new TravellerCareer(
