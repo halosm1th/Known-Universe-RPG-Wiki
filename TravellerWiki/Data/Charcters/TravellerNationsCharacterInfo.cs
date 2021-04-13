@@ -12,27 +12,29 @@ namespace TravellerWiki.Data
     public class TravellerNationsCharacterInfo
     {
         public string NationName { get; set; }
+        public TravellerNationalities Nationality { get; }
         public string HTMLName => NationName.Replace(" ", "_");
         public string BackgroundText { get; set; }
         public List<(TravellerAttributes Stat, int ChangeBy)> StatChanges { get; set; }
         public List<TravellerCharacterCreationReward> Perks { get; set; }
         public Dictionary<int, TravellerSkill> BackgroundSkills { get; set; }
         public List<TravellerAttributeCheck> EntryRequirements { get; set; }
+        public bool NationHasEntryRequirements => EntryRequirements.Count > 0;
         public TravellerCareer DrifterCareer => GetJob(_drifterText);
         private string _drifterText { get; }
         public TravellerCareer[] DraftTable => GetJobs(_draftText.ToList()).ToArray();
         private string[] _draftText { get; }
 
-        public string ParentNation { get; set; }
+        public TravellerNationalities ParentNation { get; set; }
         public List<TravellerCareer> NationsCareers { get; set; }
 
         private readonly List<TravellerCareer> careerList = new TravellerCareerService().GetCareers();
 
-        public TravellerNationsCharacterInfo(string name, string backgroundText,
+        public TravellerNationsCharacterInfo(string name,TravellerNationalities nationality,string backgroundText,
             List<(TravellerAttributes Stat, int ChangeBy)> statChanges,
             List<TravellerCharacterCreationReward> perks,
             Dictionary<int, TravellerSkill> backgroundSkills,
-            string parentNation, string drifter,
+            TravellerNationalities parentNation, string drifter,
             string[] drafts)
         {
             NationName = name;
@@ -44,15 +46,18 @@ namespace TravellerWiki.Data
             _draftText = drafts;
             _drifterText = drifter;
             ParentNation = parentNation;
+            NationsCareers = new List<TravellerCareer>();
+            NationsCareers.AddRange(careerList.Where(x => x.Nationality == ParentNation));
             //TODO set the nations careers
-            //NationsCareers = careerList.Where(x => x.Nationality.NationName == name).ToList();
+            NationsCareers.AddRange(careerList.Where(x => x.Nationality == nationality).ToList());
+            Nationality = nationality;
         }
-        public TravellerNationsCharacterInfo(string name, string backgroundText,
+        public TravellerNationsCharacterInfo(string name, TravellerNationalities nationality, string backgroundText,
             List<(TravellerAttributes Stat, int ChangeBy)> statChanges,
             List<TravellerCharacterCreationReward> perks,
             Dictionary<int, TravellerSkill> backgroundSkills,
             List<TravellerAttributeCheck> entryRequirements,
-            string parentNation, string drifter,
+            TravellerNationalities parentNation, string drifter,
             string[] drafts)
         {
             NationName = name;
@@ -64,11 +69,14 @@ namespace TravellerWiki.Data
             _draftText = drafts;
             _drifterText = drifter;
             ParentNation = parentNation;
+            NationsCareers = new List<TravellerCareer>();
             //TODO set the nations careers
-            //NationsCareers = careerList.Where(x => x.Nationality.NationName == name).ToList();
+            NationsCareers.AddRange(careerList.Where(x => x.Nationality == nationality).ToList());
+            NationsCareers.AddRange(careerList.Where(x => x.Nationality == ParentNation));
+            Nationality = nationality;
         }
 
-        public TravellerNationsCharacterInfo(string name, string backgroundText,
+        public TravellerNationsCharacterInfo(string name, TravellerNationalities nationality, string backgroundText,
             List<(TravellerAttributes Stat, int ChangeBy)> statChanges,
             List<TravellerCharacterCreationReward> perks,
             Dictionary<int, TravellerSkill> backgroundSkills,
@@ -83,28 +91,31 @@ namespace TravellerWiki.Data
             EntryRequirements = entryRequirements;
             _draftText = drafts;
             _drifterText = drifter;
-            ParentNation = null;
+            ParentNation = nationality;
+            NationsCareers = new List<TravellerCareer>();
             //TODO set the nations careers
-            //NationsCareers = careerList.Where(x => x.Nationality.NationName == name).ToList();
+            NationsCareers.AddRange(careerList.Where(x => x.Nationality == nationality).ToList());
+            Nationality = nationality;
         }
 
-        public TravellerNationsCharacterInfo(string name, string backgroundText,
+        public TravellerNationsCharacterInfo(string name, TravellerNationalities nationality, string backgroundText,
             List<(TravellerAttributes Stat, int ChangeBy)> statChanges,
             List<TravellerCharacterCreationReward> perks,
             Dictionary<int, TravellerSkill> backgroundSkills, string drifter,
             string[] drafts)
         {
             NationName = name;
-            ParentNation = null;
+            ParentNation = nationality;
             BackgroundText = backgroundText;
             StatChanges = statChanges;
             Perks = perks;
             BackgroundSkills = backgroundSkills;
             EntryRequirements = new List<TravellerAttributeCheck>();
             NationsCareers = new List<TravellerCareer>();
-            NationsCareers.AddRange(careerList.Where(x => x.Nationality == name));
+            NationsCareers.AddRange(careerList.Where(x => x.Nationality == nationality));
             _draftText = drafts;
             _drifterText = drifter;
+            Nationality = nationality;
 
             //TODO set the nations careers
         }
@@ -126,7 +137,7 @@ namespace TravellerWiki.Data
         }
 
         public TravellerCareer GetJob(string jobName = "") =>
-            NationsCareers != null? NationsCareers.First(x => x.CareerName.Equals(jobName)) : null;
+            NationsCareers != null ? NationsCareers.First(x => x.CareerName.Equals(jobName)) : null;
 
         public TravellerNationsCharacterInfo()
         {
@@ -136,7 +147,7 @@ namespace TravellerWiki.Data
             Perks = new List<TravellerCharacterCreationReward>();
             BackgroundSkills = new Dictionary<int, TravellerSkill>();
             EntryRequirements = new List<TravellerAttributeCheck>();
-            ParentNation = null;
+            ParentNation = Nationality;
         }
 
         public string GetStatChanges()

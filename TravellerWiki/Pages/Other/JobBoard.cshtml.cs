@@ -31,7 +31,6 @@ namespace TravellerWiki
            }
          *
          */
-        [HttpPost("{TASID}")]
         public void OnPost(string TASID)
         {
             CanViewBoard = ValidTASMembershipIDs.Contains(TASID);
@@ -41,7 +40,6 @@ namespace TravellerWiki
             }
         }
 
-        [HttpGet("{JobID}")]
         public void GetSpecificJob(int JobID)
         {
         }

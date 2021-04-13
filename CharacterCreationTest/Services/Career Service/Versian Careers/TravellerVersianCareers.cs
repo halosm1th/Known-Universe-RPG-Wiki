@@ -20,7 +20,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
             },
             perks: new List<TravellerCharacterCreationReward>
             {
-                new TravellerRewardtem(new List<TravellerItem>
+                new TravellerRewardItem(new List<TravellerItem>
                 {
                     new TravellerItem("Versian Citizenship", 10000, 1, 20),
                 }),
@@ -64,6 +64,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
 
             careers.AddRange(new List<TravellerCareer>
             {
+                TravellerVersianCivis.VersianCivis(),
                 TravellerVersianPrisoner.VersianPrisoner(),
                 TravellerVersianArmy.VersianArmy(),
                 TravellerVersianKnight.VersianKnight(),

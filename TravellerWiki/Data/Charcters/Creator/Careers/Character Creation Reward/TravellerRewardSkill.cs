@@ -4,25 +4,25 @@ using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
-    public class TravellerRewardCharacterCreationSkill : TravellerCharacterCreationReward
+    public class TravellerRewardSkill : TravellerCharacterCreationReward
     {
         public List<TravellerSkill> Skilllist { get; }
-        public TravellerRewardCharacterCreationSkill(TravellerSkill skill)
+        public TravellerRewardSkill(TravellerSkill skill)
         {
             Skilllist = new List<TravellerSkill> { skill };
         }
 
-        public TravellerRewardCharacterCreationSkill(TravellerSkills skill)
+        public TravellerRewardSkill(TravellerSkills skill)
         {
             Skilllist = new List<TravellerSkill> { new TravellerSkill(skill, 0) };
         }
 
-        public TravellerRewardCharacterCreationSkill(TravellerSkills skill, int value = 0)
+        public TravellerRewardSkill(TravellerSkills skill, int value = 0)
         {
             Skilllist = new List<TravellerSkill> {new TravellerSkill(skill, value)};
         }
 
-        public TravellerRewardCharacterCreationSkill(List<TravellerSkills> skilllist)
+        public TravellerRewardSkill(List<TravellerSkills> skilllist)
         {
             Skilllist = new List<TravellerSkill>();
             foreach (var skill in skilllist)
@@ -31,9 +31,17 @@ namespace TravellerWiki.Data
             }
         }
 
-        public TravellerRewardCharacterCreationSkill(List<TravellerSkill> skilllist)
+        public TravellerRewardSkill(List<TravellerSkill> skilllist)
         {
             Skilllist = skilllist;
+        }
+
+        protected void AddSkills(List<TravellerSkills> skilllist)
+        {
+            foreach (var skill in skilllist)
+            {
+                Skilllist.Add(new TravellerSkill(skill));
+            }
         }
 
         public override string ToString()

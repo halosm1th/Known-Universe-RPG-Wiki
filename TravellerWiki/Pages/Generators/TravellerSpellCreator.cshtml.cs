@@ -26,7 +26,6 @@ namespace TravellerWiki
         private bool _hasSpell = false;
         [BindProperty] public string SpellText { get; set; }
 
-        [HttpGet]
         public void OnGet(int nation, int plane, int action,int target, int modifier, int requestedSpell = 0)
         {
             if (requestedSpell == 1)

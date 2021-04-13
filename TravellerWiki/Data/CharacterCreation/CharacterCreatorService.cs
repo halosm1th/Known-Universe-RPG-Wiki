@@ -11,10 +11,12 @@ using TravellerWiki.Data.TravellerInjuries;
 
 namespace CharacterCreationTest.CharacterCreation
 {
-    class CharacterCreator
+    public class CharacterCreatorService
     {
         #region Public Variables
         public PlayerTravellerCharacter _character;
+        public TravellerNationsCharacterInfo Nationality => _character.Nationality;
+        public string Name => _character.Name;
         public readonly int AgingCrisisCost = 10000;
         public int NumberOfTravellerBackgroundSKills =>
             3 + _character.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education).AttributeModifier;
@@ -27,12 +29,34 @@ namespace CharacterCreationTest.CharacterCreation
         public List<int> BenefitRollModifiers { get; protected set; }
 
         public List<TravellerAttribute> GetAttributes => _character.AttributeList;
+        public TravellerAttribute GetTravellerAttribute(TravellerAttributes attribute) => GetAttributes.First(x => x.AttributeName == attribute) ?? new TravellerAttribute(attribute, -1);
+        
         public List<TravellerAttribute> GetPhysicalAttributes => GetAttributes.Where(x => x.IsPhysical()).ToList();
         public List<TravellerAttribute> GetMentalAttributes => GetAttributes.Where(x => x.IsMental()).ToList();
 
         #endregion
         #region Checks
         //Checks
+
+        public void ResetChecks()
+        {
+            HasCharacter = false;
+          Dead = false;
+            Advanced = false;
+            HardAdvanced = false;
+            Mishapped = false;
+            HasBeenDrafted = false;
+        
+        HasName = false;
+          HasStats = false;
+    HasNationality = false;
+          HasBackgroundSkills = false;
+          HasHadJob = false;
+          HasJob = false;
+          FirstTermOfJob = false;
+          FinishedCharacterCreation = false;
+          BuyEquipment = false;
+    }
         public bool HasCharacter { get; protected set; }
         public bool Dead { get; protected set; }
         public bool Advanced { get; protected set; }
@@ -41,6 +65,7 @@ namespace CharacterCreationTest.CharacterCreation
 
         public bool HasBeenDrafted { get; protected set; }
         public bool HasName { get; protected set; }
+        public bool HasStats { get;  set; }
         public bool HasNationality { get; protected set; }
         public bool HasBackgroundSkills { get; protected set; }
         public bool HasHadJob { get; protected set; }
@@ -58,7 +83,7 @@ namespace CharacterCreationTest.CharacterCreation
         private TravellerSpecialNPCService npcService = new TravellerSpecialNPCService();
         #endregion
         #region Constructor
-        public CharacterCreator()
+        public CharacterCreatorService()
         {
             HasCharacter = false;
             HasName = false;
@@ -133,7 +158,7 @@ namespace CharacterCreationTest.CharacterCreation
         /// </summary>
         /// <param name="nationality">The nationality to check</param>
         /// <returns></returns>
-        public bool NationHasEntryRequirements(TravellerNationsCharacterInfo nationality) =>  nationality.NationHasEntryRequirements;
+        public bool NationHasEntryRequirements(TravellerNationsCharacterInfo nationality) =>  nationality.EntryRequirements.Count > 0;
 
         /// <summary>
         /// Check if a traveller can enter the particular nationality
@@ -215,6 +240,8 @@ namespace CharacterCreationTest.CharacterCreation
             {
                 _character.AddSkill(skill);
             }
+
+            HasBackgroundSkills = true;
         }
         #endregion
         #region Enter Career

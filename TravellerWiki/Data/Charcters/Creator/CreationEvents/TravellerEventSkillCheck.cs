@@ -9,6 +9,17 @@ namespace TravellerWiki.Data.CreationEvents
     {
         public List<TravellerSkillCheck> SkillChecks { get; }
 
+        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, (TravellerSkills skill, int value) skillCheck) : base(eventText, yesEvent, noEvent)
+        {
+            SkillChecks = new List<TravellerSkillCheck>();
+            SkillChecks.Add(new TravellerSkillCheck(skillCheck.skill,skillCheck.value));
+        }
+
+        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, TravellerSkillCheck skillCheck) : base(eventText, yesEvent, noEvent)
+        {
+            SkillChecks = new List<TravellerSkillCheck>();
+            SkillChecks.Add(skillCheck);
+        }
         public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, List<TravellerSkillCheck> skillChecks) : base(eventText, yesEvent, noEvent)
         {
             SkillChecks = skillChecks;

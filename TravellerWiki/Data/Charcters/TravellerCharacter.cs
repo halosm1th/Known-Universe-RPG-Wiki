@@ -10,7 +10,7 @@ namespace TravellerWiki.Data.Charcters
 {
     public class PlayerTravellerCharacter : TravellerCharacter
     {
-        public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
+        public Stack<(TravellerCareer Career,TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
         public TravellerCareer LastCareer => PreviousCareers.Peek().Item1;
         public TravellerAssignment LastAssignment => PreviousCareers.Peek().Item2;
 
@@ -22,7 +22,7 @@ namespace TravellerWiki.Data.Charcters
         public PlayerTravellerCharacter(Stack<(TravellerCareer, TravellerAssignment, int)> previousCareers) : base()
         {
             PreviousCareers = previousCareers;
-
+            
         }
 
     }
@@ -30,13 +30,13 @@ namespace TravellerWiki.Data.Charcters
     public abstract class TravellerCharacter
     {
         #region Public Variables
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Age { get; set; }
-        public int JackOfAllTrades { get; set; }
+        public int JackOfAllTrades { get; set; } 
         public TravellerNationsCharacterInfo? Nationality { get; set; }
 
         public List<TravellerSkill> SkillList { get; set; }
-        public List<TravellerAttribute> AttributeList { get; set; }
+        public List<TravellerAttribute> AttributeList{ get; set; }
 
         public List<TravellerItem> Items { get; set; }
         public List<TravellerAugments> Augments { get; set; }
@@ -65,14 +65,13 @@ namespace TravellerWiki.Data.Charcters
         #region Constructor
         public TravellerCharacter()
         {
-            Name = "";
             SkillList = new List<TravellerSkill>();
             AttributeList = new List<TravellerAttribute>();
             Items = new List<TravellerItem>();
             Augments = new List<TravellerAugments>();
             Armour = new List<TravellerArmour>();
             Weapons = new List<TravellerWeapon>();
-            Finances = new TravellerFinances(0, 0, 0, 0, 0);
+            Finances = new TravellerFinances(0,0,0,0,0);
             Contacts = new List<TravellerCharacter>();
             JackOfAllTrades = -1;
         }
@@ -124,6 +123,7 @@ namespace TravellerWiki.Data.Charcters
                 SkillList.Add(skill);
                 return true;
             }
+
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace TravellerWiki.Data.Charcters
         {
             //If it is a super Skill, return false so that the user can pick the skill.
             if (TravellerSkill.IsSuperSkill(skill)) return false;
-
+            
             if (SkillList.Any(s => s.SkillName == skill))
             {
                 var skillToIncrease = SkillList.First(s => s.SkillName == skill);
@@ -147,6 +147,7 @@ namespace TravellerWiki.Data.Charcters
                 SkillList.Add(new TravellerSkill(skill));
                 return true;
             }
+
         }
 
         public bool AddAttribute(TravellerAttributes attribute)
@@ -159,9 +160,10 @@ namespace TravellerWiki.Data.Charcters
             }
             else
             {
-                AttributeList.Add(new TravellerAttribute(attribute, 1));
+                AttributeList.Add(new TravellerAttribute(attribute,1));
                 return true;
             }
+
         }
 
         /// <summary>
@@ -175,8 +177,7 @@ namespace TravellerWiki.Data.Charcters
             {
                 Augments.Add(augments);
                 return true;
-            }
-            else if (item is TravellerWeapon weapon)
+            }else if (item is TravellerWeapon weapon)
             {
                 Weapons.Add(weapon);
                 return true;
@@ -198,6 +199,7 @@ namespace TravellerWiki.Data.Charcters
 
         public void AddDebt(int amountOfDebtToAdd)
         {
+            if (amountOfDebtToAdd < 0) amountOfDebtToAdd = amountOfDebtToAdd * -1;
             Debt += amountOfDebtToAdd;
         }
 
@@ -263,13 +265,13 @@ namespace TravellerWiki.Data.Charcters
             var sb = new StringBuilder();
 
             sb.Append(Name);
-            sb.Append(" ");
+            sb.Append(" [");
             sb.Append(Nationality);
-            sb.Append(" ");
+            sb.Append(": ");
             sb.Append(Age);
-            sb.Append(" ");
+            sb.Append("] ");
 
-            sb.Append("\n\n");
+            sb.Append("\n\nAttributes: ");
 
             foreach (var travellerAttribute in AttributeList)
             {
@@ -277,7 +279,7 @@ namespace TravellerWiki.Data.Charcters
                 sb.Append(" ");
             }
 
-            sb.Append("\n\n");
+            sb.Append("\n\nSkills: ");
 
             foreach (var travellerAttribute in SkillList)
             {
@@ -285,7 +287,7 @@ namespace TravellerWiki.Data.Charcters
                 sb.Append(" ");
             }
 
-            sb.Append("\n\n");
+            sb.Append("\n\nItems: ");
 
             foreach (var travellerAttribute in Items)
             {
@@ -294,8 +296,8 @@ namespace TravellerWiki.Data.Charcters
                 sb.Append("] ");
             }
             sb.Append("\n");
-            sb.Append("\n");
-
+            sb.Append("\nContacts: ");
+            
             foreach (var contact in Contacts)
             {
                 sb.Append("{");

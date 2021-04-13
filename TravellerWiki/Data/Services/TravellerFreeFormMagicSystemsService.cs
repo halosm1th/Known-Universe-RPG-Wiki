@@ -40,6 +40,7 @@ namespace TravellerWiki.Data
                 FreeFormPlanes.Material => "Material (The Physical world)",
                 FreeFormPlanes.Nether => "Nether (Death, Disease, Sin)",
                 FreeFormPlanes.Abyss => "Abyss (Destruction, Entropy, The Absence of sanity)",
+                _ => "Error",
             };
 
         private Dictionary<string, string> GetFederationPlanes()
@@ -100,6 +101,7 @@ namespace TravellerWiki.Data
                 FreeFormActions.Change => "Change, transform, mutate, intead of creating something new, modifying something currently existing.",
                 FreeFormActions.Ruin => "Ruin, destroy, make worse, remove, degrade",
                 FreeFormActions.Command => "Command, control, order, tell what to do, manipulate. (You could command an innaimate object to move for example)",
+                _ => "Error",
             };
 
         private Dictionary<string, string> GetFederationAction()
@@ -166,6 +168,7 @@ namespace TravellerWiki.Data
                 FreeFormTargets.Plant => "Plant/Trees",
                 FreeFormTargets.Void => "Power, void power, Raw elements from the planes.",
                 FreeFormTargets.Water => "Water/Liquid",
+                _ => "Error",
             };
 
         private Dictionary<string, string> GetFederationTargets()

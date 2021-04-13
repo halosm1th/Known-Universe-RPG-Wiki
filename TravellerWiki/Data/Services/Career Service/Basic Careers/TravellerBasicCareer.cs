@@ -2,7 +2,7 @@
 using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.Services.CareerService.NationsCareeres;
 
-namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
+namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
 {
     class TravellerBasicCareers : TravellerMinorPowerCareers
     {
@@ -10,7 +10,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
         public static void AddNationCareers(List<TravellerCareer> careers)
         {
 
-            var career = TravellerNationCareer.NationCareer();
+            var career = TravellerMationCareer.NationCareer();
 
             careers.Add(career);
         }

@@ -4,20 +4,26 @@ using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
-    public class TravellerRewardtem : TravellerCharacterCreationReward
+    public class TravellerRewardItem : TravellerCharacterCreationReward
     {
         public List<TravellerItem> Items { get; }
 
-        public TravellerRewardtem(TravellerItem item)
+        public TravellerRewardItem(string name, int cost, int kg, int tl)
+        {
+            Items = new List<TravellerItem>();
+            Items.Add(new TravellerItem(name,cost,kg,tl));
+        }
+
+        public TravellerRewardItem(TravellerItem item)
         {
             Items = new List<TravellerItem>();
             Items.Add(item);
         }
-        public TravellerRewardtem(List<TravellerItem> items)
+        public TravellerRewardItem(List<TravellerItem> items)
         {
             Items = items;
         }
-        public TravellerRewardtem(List<string> items)
+        public TravellerRewardItem(List<string> items)
         {
             Items  = new List<TravellerItem>();
             foreach (var item in items)

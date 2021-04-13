@@ -7,6 +7,12 @@ namespace TravellerWiki.Data.CreationEvents
     {
         public List<TravellerCharacterCreationReward> Reward { get; }
 
+        public TravellerEventReward(string text, TravellerCharacterCreationReward reward) : base(text)
+        {
+            Reward = new List<TravellerCharacterCreationReward>();
+            Reward.Add(reward);
+        }
+
         public TravellerEventReward(string text, List<TravellerCharacterCreationReward> reward) : base(text)
         {
             Reward = reward;

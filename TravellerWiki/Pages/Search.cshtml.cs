@@ -19,7 +19,7 @@ namespace TravellerWiki
         }
         
 
-        public async Task<IActionResult> DisplayResults()
+        public IActionResult DisplayResults()
         {
             return Page();
         }

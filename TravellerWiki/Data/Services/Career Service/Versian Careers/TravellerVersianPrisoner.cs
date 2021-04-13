@@ -12,7 +12,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
             return new TravellerCareer(
                 careerName: "Versian Prisoner",
                 description: "You are a prisoner within the Vers empire. Whatever your crime, your life now consists of hard labour and serving your lord and whatever happens to be on his mind today.",
-                nationality: "Fifth Vers Empire",
+                nationality: TravellerNationalities.Fifth_Vers_Empire,
                 qualifications: new List<TravellerAttributeCheck>
                 {
                     new TravellerAttributeCheck(TravellerAttributes.Strength,2),
@@ -37,12 +37,12 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("New Guy", new TravellerRewardCharacterCreationSkill(TravellerSkills.Recon) ),
-                            ("Thug", new TravellerRewardCharacterCreationSkill(TravellerSkills.Melee_Unarmed)),
-                            ("Proper Member", new TravellerRewardCharacterCreationSkill(TravellerSkills.Melee_Unarmed)),
-                            ("Inner Circle", new TravellerRewardCharacterCreationSkill(TravellerSkills.Persuade)),
-                            ("Right Hand", new TravellerRewardCharacterCreationSkill(TravellerSkills.Tactics_Military)),
-                            ("Boss", new TravellerRewardCharacterCreationSkill(TravellerSkills.Leadership))
+                            ("New Guy", new TravellerRewardSkill(TravellerSkills.Recon) ),
+                            ("Thug", new TravellerRewardSkill(TravellerSkills.Melee_Unarmed)),
+                            ("Proper Member", new TravellerRewardSkill(TravellerSkills.Melee_Unarmed)),
+                            ("Inner Circle", new TravellerRewardSkill(TravellerSkills.Persuade)),
+                            ("Right Hand", new TravellerRewardSkill(TravellerSkills.Tactics_Military)),
+                            ("Boss", new TravellerRewardSkill(TravellerSkills.Leadership))
                         }),
 
                     new TravellerAssignment(
@@ -61,12 +61,12 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("New Guy", new TravellerRewardCharacterCreationSkill(TravellerSkills.Recon) ),
-                            ("Thug", new TravellerRewardCharacterCreationSkill(TravellerSkills.Investigate)),
-                            ("Proper Member", new TravellerRewardCharacterCreationSkill(TravellerSkills.Stealth)),
-                            ("Inner Circle", new TravellerRewardCharacterCreationSkill(TravellerSkills.Persuade)),
-                            ("Right Hand", new TravellerRewardCharacterCreationSkill(TravellerSkills.Carouse)),
-                            ("Boss", new TravellerRewardCharacterCreationSkill(TravellerSkills.Leadership,2))
+                            ("New Guy", new TravellerRewardSkill(TravellerSkills.Recon) ),
+                            ("Thug", new TravellerRewardSkill(TravellerSkills.Investigate)),
+                            ("Proper Member", new TravellerRewardSkill(TravellerSkills.Stealth)),
+                            ("Inner Circle", new TravellerRewardSkill(TravellerSkills.Persuade)),
+                            ("Right Hand", new TravellerRewardSkill(TravellerSkills.Carouse)),
+                            ("Boss", new TravellerRewardSkill(TravellerSkills.Leadership,2))
                         }),
 
                     new TravellerAssignment(
@@ -85,12 +85,12 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Know Nothing", new TravellerRewardCharacterCreationSkill(TravellerSkills.Investigate)),
-                            ("Baby Snitch", new TravellerRewardCharacterCreationSkill(TravellerSkills.Persuade)),
-                            ("Snitch", new TravellerRewardCharacterCreationSkill(TravellerSkills.Broker)),
-                            ("Master Snitch", new TravellerRewardCharacterCreationSkill(TravellerSkills.Leadership,1)),
+                            ("Know Nothing", new TravellerRewardSkill(TravellerSkills.Investigate)),
+                            ("Baby Snitch", new TravellerRewardSkill(TravellerSkills.Persuade)),
+                            ("Snitch", new TravellerRewardSkill(TravellerSkills.Broker)),
+                            ("Master Snitch", new TravellerRewardSkill(TravellerSkills.Leadership,1)),
                             ("Knowledge Holder", new TravellerRewardEmpty()),
-                            ("Webmaster", new TravellerRewardCharacterCreationSkill(TravellerSkills.Deception,3)),
+                            ("Webmaster", new TravellerRewardSkill(TravellerSkills.Deception,3)),
                         }),
                 },
                 musteringOutBenefits: new List<(int Cash, TravellerCharacterCreationReward Benefit)>
@@ -101,7 +101,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                     (200, new TravellerRewardSkillChoice(1, new List<TravellerSkills>{TravellerSkills.Deception,TravellerSkills.Diplomat})),
                     (500, new TravellerRewardSkillChoice(1, new List<TravellerSkills>{TravellerSkills.GunCombat,TravellerSkills.Melee}) ),
                     (1000,new TravellerRewardSkillChoice(1, new List<TravellerSkills>{TravellerSkills.Science,TravellerSkills.Profession})),
-                    (2500,new TravellerRewardCharacterCreationSkill(TravellerSkills.JackLuck)),
+                    (2500,new TravellerRewardSkill(TravellerSkills.JackLuck)),
                 },
                 personalDevelopmentSkillList: new List<TravellerSkillTableEntry>
                 {
@@ -146,9 +146,9 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         failEvent:new TravellerEventReward("You fail to impress your new master, allowing others to advance more quickly.",
                             new List<TravellerCharacterCreationReward>
                             {
-                                new TravellerRewardCharacterCreationAdvancement(-1)
+                                new TravellerRewardAdvancement(-1)
                             }),
-                        atributeChecks: new List<TravellerAttributeCheck>
+                        attributeChecks: new List<TravellerAttributeCheck>
                         {
                             new TravellerAttributeCheck(TravellerAttributes.Social,10)
                         }
@@ -158,8 +158,8 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         yesEvent:new TravellerEventSkillCheck("Stepping into the fray, you are tossed a melee weapon and told to help.",
                             new TravellerEventReward("Having helped the pirates, you are kindly forced to join them", new List<TravellerCharacterCreationReward>
                             {
-                                new TravellerRewardCharacterCreationJobChange("Polandskia Pirate"),
-                                new TravellerRewardCharacterCreationSkill(TravellerSkills.Melee)
+                                new TravellerRewardJobChange("Polandskia Pirate"),
+                                new TravellerRewardSkill(TravellerSkills.Melee)
                             }),
                             new TravellerEventInjury("The pirates are stopped and you are hurt in the fighting."),
                             new List<TravellerSkillCheck>
@@ -192,7 +192,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                                 "You are able to fight for your freedom!",
                                 new List<TravellerCharacterCreationReward>
                                 {
-                                    new TravellerRewardCharacterCreationJobChange("Versian Free Man")
+                                    new TravellerRewardJobChange("Versian Free Man")
                                 }),
                             noEvent: new TravellerEventMishap("You fail in the riot, suffer a mishap."),
                             skillChecks: new List<TravellerSkillCheck>
@@ -208,7 +208,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                             new List<TravellerCharacterCreationReward>
                             {
                                 new TravellerRewardContact("Gang Member",TravellerNPCRelationship.Ally),
-                                new TravellerRewardCharacterCreationSkill(TravellerSkills.Melee)
+                                new TravellerRewardSkill(TravellerSkills.Melee)
                             }),
                         noEvent:new TravellerEventInjury("You are on the losing side and beat soundly for it."),
                         skillChecks: new List<TravellerSkillCheck>
@@ -223,16 +223,16 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                     new TravellerEventReward("Made a deal with the wrong person, someone snitched, etc.",
                         new List<TravellerCharacterCreationReward>
                         {
-                            new TravellerRewardCharacterCreationBenefitIncrease(-2),
+                            new TravellerRewardBenefitIncrease(-2),
                             new TravellerRewardContact("Prison snitch",TravellerNPCRelationship.Enemy),
-                            new TravellerRewardCharacterCreationJobChange("Versian Prisoner")
+                            new TravellerRewardJobChange("Versian Prisoner")
                         }),
                     new TravellerEventChangeCareers("Word of your crime reaches your homeworld, possibly your family.","Versian Prisoner"),
                     new TravellerEventReward("A guard has taken a particular liking to ensuring your sufffering.",
                         new List<TravellerCharacterCreationReward>
                         {
                             new TravellerRewardContact("Prison Guard", TravellerNPCRelationship.Enemy),
-                            new TravellerRewardCharacterCreationJobChange("Versian Prisoner")
+                            new TravellerRewardJobChange("Versian Prisoner")
                         }),
                     new TravellerEventChoice(
                         eventText:"You make friends with the wrong person, when they're accused of doing something wrong, you're dragged in with them.",
@@ -242,13 +242,13 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                             {
                                 new TravellerRewardContact("Prison 'Friend'",TravellerNPCRelationship.Rival),
                                 new TravellerRewardBonusBenefit(1),
-                                new TravellerRewardCharacterCreationJobChange("Versian Prisoner")
+                                new TravellerRewardJobChange("Versian Prisoner")
                             }),
                         noText:"Refuse to sell your friend out, gaining them as a contact.",
                         noEvent: new TravellerEventReward("You keep your friend, gaining them as an ally", new List<TravellerCharacterCreationReward>
                         {
                             new TravellerRewardContact("Prison Friend", TravellerNPCRelationship.Ally),
-                            new TravellerRewardCharacterCreationJobChange("Versian Prisoner")
+                            new TravellerRewardJobChange("Versian Prisoner")
                         })
                     ),
                     new TravellerEventInjury("You are injured!"),

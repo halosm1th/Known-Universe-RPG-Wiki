@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.Services.CareerService.PolandskianCareeres;
+using TravellerWiki.Data.Services.CareerService.VersianCareeres;
 using static TravellerWiki.Data.Charcters.TravellerAttributes;
 using static TravellerWiki.Data.Charcters.TravellerSkills;
 
@@ -10,7 +12,7 @@ namespace TravellerWiki.Data
 {
     public class TravellerNationsCharacterInfoService
     {
-        private Dictionary<string, TravellerNationsCharacterInfo> travellerNationsInfo = new Dictionary<string, TravellerNationsCharacterInfo>()
+        private static List<TravellerNationsCharacterInfo> travellerNationsInfo = new List<TravellerNationsCharacterInfo>()
         {
             /* {
                  "Universalis Confederation",
@@ -171,7 +173,7 @@ namespace TravellerWiki.Data
                          new TravellerRewardCharacterCreationItem(new List<TravellerItem>
                          {
                              new TravellerWeapon("Knights Void Blade",5000000,1,20,0,"12D12",0,"Void"),
-                             new TravellerArmour("Knights Armour",5000000,100,18,500,30,"+4 str, +4 dex, 20 slotws, Vacc Suit 2"),
+                             new TravellerArmour("Knights Armour",5000000,100,18,500,30,"+4 str, +4 dex, 20 slots, Vacc Suit 2"),
                              new TravellerItem("Knights Transport",100000000,1,13)
                          }),
                          new TravellerRewardCharacterCreationSkill(new List<TravellerSkill>
@@ -209,109 +211,9 @@ namespace TravellerWiki.Data
                          new TravellerAttributeCheck(Strength,8)
                      }, drifter:"Luna Knight", drafts:new string[]{"Luna Knight"},
                      parentNation:"United Federation of Earth and her Colonies Among the Stars")},*/
-            {
-                "Fifth Vers Empire",
-                new TravellerNationsCharacterInfo("Fifth Vers Empire",
-                    backgroundText: "A regal empire reformed but ashamed, beaten and lost, dejected and defeated but boldly looking to the future for growth. Those from the Vers Empire that are travelling tend to be low members of the Aristocractic class or rich members of the Civis class.",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Social,1),(Education,+1),(Strength,+1),(Intelligence,-2)
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationItem(new List<TravellerItem>
-                        {
-                            new TravellerItem("Versian Citizenship",10000,1,20),
-                            }),
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Language_HighVersian, 1),
-                                new TravellerSkill(Langauge_LowVersian, 1),
-                                new TravellerSkill(Religion_Sithism),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        {0, new TravellerSkill(Admin)},
-                        {1, new TravellerSkill(Animals)},
-                        {2, new TravellerSkill(Art)},
-                        {3, new TravellerSkill(Advocate)},
-                        {4, new TravellerSkill(Carouse)},
-                        {5, new TravellerSkill(Diplomat)},
-                        {6, new TravellerSkill(Deception)},
-                        {7, new TravellerSkill(Gambler)},
-                        {8, new TravellerSkill(Language)},
-                        {9, new TravellerSkill(Investigate)},
-                        {10, new TravellerSkill(Persuade)},
-                        {11, new TravellerSkill(Profession)},
-                        {12, new TravellerSkill(Science)},
-                        {13, new TravellerSkill(Steward)},
-                        {14, new TravellerSkill(Streetwise)},
-                        {15, new TravellerSkill(Melee)},
-                        {16, new TravellerSkill(VaccSuit)},
-                    },
-                    drifter:"Versian Prisoner",
-                    drafts:new string[]
-                    {
-                        "Versian Army",
-                        "Versian Navy"
-                    })},
+           TravellerVersianCareers.VersianNation,
+           TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorumNation,
             /*{
-                "Equites Ordinis deorum",
-                new TravellerNationsCharacterInfo("Equites Ordinis deorum",
-                    backgroundText: "The elite Knights of the Gods serve as the Versian response to things like the Luna Knights, or the Witchers. While technically being an Order now under the command of the Empress, the Knights of the Gods truly serve those within the Void, not just their embodiment in this plane of existence.",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Psionics,2),(Social,-1)
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationItem(new List<TravellerItem>
-                        {
-                            new TravellerItem("Versian Citizenship",10000,1,20),
-                            
-                            new TravellerWeapon("Ordinis Void Blade",10000000,1,20,
-                                0,"12D12",0,"Void"),
-                            
-                            new TravellerArmour("Ordinis Armour",5000000,100,18,
-                                500,30,"+2 str, +2 dex, +6 Psi, 20 slots, Vacc Suit 2"),
-
-                        }),
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Language_HighVersian, 2),
-                                new TravellerSkill(Langauge_LowVersian, 1),
-                                new TravellerSkill(Religion_Deorism),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        {0, new TravellerSkill(Admin)},
-                        {1, new TravellerSkill(Advocate)},
-                        {2, new TravellerSkill(Art)},
-                        {3, new TravellerSkill(Melee)},
-                        {4, new TravellerSkill(FreeForm_Material)},
-                        {5, new TravellerSkill(FreeForm_Abyss)},
-                        {6, new TravellerSkill(Electronics)},
-                        {7, new TravellerSkill(FreeForm_Nether)},
-                        {8, new TravellerSkill(Language)},
-                        {9, new TravellerSkill(FreeForm_Void)},
-                        {10, new TravellerSkill(Medic)},
-                        {11, new TravellerSkill(GunCombat)},
-                        {12, new TravellerSkill(Science)},
-                        {13, new TravellerSkill(FreeForm_Aether)},
-                        {14, new TravellerSkill(Streetwise)},
-                        {15, new TravellerSkill(Survival)},
-                        {16, new TravellerSkill(VaccSuit)},
-                    },
-                    entryRequirements:new List<TravellerAttributeCheck>
-                    {
-                        new TravellerAttributeCheck(Psionics, 6),
-                        new TravellerAttributeCheck(Social, 8)
-                    }, 
-                    drifter:"Versian Knight", drafts:new string[]{"Equites Ordinis Deorum"},
-                    parentNation:"Fifth Vers Empire")},
-            {
                 "United Reverse Lords",
                 new TravellerNationsCharacterInfo("United Reverse Lords",
                     backgroundText: "Following the Deutschland defaulting on their war debt, the Vers empire fell into civil war before eventually fracturing into two. The United Reverse Lords seeks to continue the great work done by Emperor Reveres and takes heavy inspiration from the First Vers Republic.",
@@ -541,53 +443,7 @@ namespace TravellerWiki.Data
                         "Government Military",
                         "Cartel Military",
                     })},*/
-            {
-                "Polandskia Peoples Union",
-                new TravellerNationsCharacterInfo( "Polandskia Peoples Union",
-                    backgroundText: "What happens to a place when the government is told they have to leave, and the replacement government is told they aren’t allowed to do anything too similar to their closest neighbor who they now depend on. Piracy has begun to run rampant, as has terrorism and various warlords declaring their own nations within Polandskia, described once as \\“A nation of nations, one which can handle nations within nations. Even if we don’t always agree as nations.\\”",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Strength,+2),(Intelligence,1),(Education,-1),(Endurance,-2)
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationItem(new List<TravellerItem>
-                        {
-                            new TravellerItem("Weapon",2000,30,12),
-                        }),
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Language_germushian, 1),
-                                new TravellerSkill(Langauge_Sigmarian, 1),
-                                new TravellerSkill(Religion_Sigmarism),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        { 0, new TravellerSkill(GunCombat)},
-                        { 1, new TravellerSkill(Animals)},
-                        { 2, new TravellerSkill(Melee)},
-                        { 3, new TravellerSkill(Athletics)},
-                        { 4, new TravellerSkill(Carouse)},
-                        { 5, new TravellerSkill(Drive)},
-                        { 6, new TravellerSkill(Electronics)},
-                        { 7, new TravellerSkill(Flyer)},
-                        { 8, new TravellerSkill(Language)},
-                        { 9, new TravellerSkill(Mechanic)},
-                        { 10, new TravellerSkill(Medic)},
-                        { 11, new TravellerSkill(Explosives)},
-                        { 12, new TravellerSkill(HeavyWeapons)},
-                        { 13, new TravellerSkill(Seafarer)},
-                        { 14, new TravellerSkill(Streetwise)},
-                        { 15, new TravellerSkill(Survival)},
-                        { 17, new TravellerSkill(VaccSuit)},
-                    },
-                    drifter:"Pirate",
-                    drafts:new string[]
-                    {
-                        "Pirate",
-                        "Military"
-                    })},
+            TravellerPolandskianCareers.PolandskiaNation,
             /*
             {
                 "Trans Galactic Empire",
@@ -932,8 +788,8 @@ namespace TravellerWiki.Data
 
 
         public List<TravellerNationsCharacterInfo> GetNationsList =>
-            GetTravellerNationsCharacterInfos().Select(x => x.Value).ToList();
-        public Dictionary<string, TravellerNationsCharacterInfo> GetTravellerNationsCharacterInfos() =>
+            GetTravellerNationsCharacterInfos().Select(x => x).ToList();
+        public List<TravellerNationsCharacterInfo> GetTravellerNationsCharacterInfos() =>
             travellerNationsInfo;
     }
 }

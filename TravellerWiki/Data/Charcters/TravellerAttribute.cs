@@ -95,7 +95,7 @@ namespace TravellerWiki.Data.Charcters
                 TravellerAttributes.Intelligence => true,
                 TravellerAttributes.Education => true,
                 TravellerAttributes.Social => true,
-                TravellerAttributes.Psionics => true,
+                TravellerAttributes.Psionics=> true,
                 TravellerAttributes.Sanity => true,
                 _ => false
             };

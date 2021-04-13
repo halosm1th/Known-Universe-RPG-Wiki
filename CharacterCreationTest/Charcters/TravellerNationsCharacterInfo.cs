@@ -19,6 +19,7 @@ namespace TravellerWiki.Data
         public List<TravellerCharacterCreationReward> Perks { get; set; }
         public Dictionary<int, TravellerSkill> BackgroundSkills { get; set; }
         public List<TravellerAttributeCheck> EntryRequirements { get; set; }
+        public bool NationHasEntryRequirements => EntryRequirements.Count > 0;
         public TravellerCareer DrifterCareer => GetJob(_drifterText);
         private string _drifterText { get; }
         public TravellerCareer[] DraftTable => GetJobs(_draftText.ToList()).ToArray();

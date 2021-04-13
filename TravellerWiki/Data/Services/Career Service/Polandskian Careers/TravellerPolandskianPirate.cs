@@ -25,7 +25,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
             return new TravellerCareer(
                 careerName: "Polandskia Pirate",
                 description: "Within the peoples union, it is hard to find work, those who still own ships need a way to feed their crew, and better they eat then you.",
-                nationality: "Polandskia Peoples Union",
+                nationality:TravellerNationalities.Polandskia_Peoples_Union,
                 qualifications: new List<TravellerAttributeCheck>
                 {
                     new TravellerAttributeCheck(Strength,6),
@@ -48,12 +48,12 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Stick Sharpener", new TravellerRewardCharacterCreationSkill(Melee)),
-                            ("Stick User", new TravellerRewardCharacterCreationSkill(Streetwise)),
-                            ("People Watcher", new TravellerRewardCharacterCreationSkill(Recon)),
-                            ("Gun Getter", new TravellerRewardCharacterCreationSkill(GunCombat_Archaic)),
-                            ("Group Leader", new TravellerRewardCharacterCreationSkill(Tactics_Military)),
-                            ("Raid Master", new TravellerRewardCharacterCreationSkill(Leadership)),
+                            ("Stick Sharpener", new TravellerRewardSkill(Melee)),
+                            ("Stick User", new TravellerRewardSkill(Streetwise)),
+                            ("People Watcher", new TravellerRewardSkill(Recon)),
+                            ("Gun Getter", new TravellerRewardSkill(GunCombat_Archaic)),
+                            ("Group Leader", new TravellerRewardSkill(Tactics_Military)),
+                            ("Raid Master", new TravellerRewardSkill(Leadership)),
                         }),
 
                     new TravellerAssignment(
@@ -72,12 +72,12 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Stabber", new TravellerRewardCharacterCreationSkill(Melee_Bludgeon)),
-                            ("Sr. Stabber", new TravellerRewardCharacterCreationSkill(Melee_Blade)),
-                            ("Gunny", new TravellerRewardCharacterCreationSkill(GunCombat_Archaic)),
-                            ("Sr. Gunny", new TravellerRewardCharacterCreationSkill(HeavyWeapons)),
-                            ("Tellguy", new TravellerRewardCharacterCreationSkill(Tactics_Military)),
-                            ("Bossman", new TravellerRewardCharacterCreationSkill(Leadership)),
+                            ("Stabber", new TravellerRewardSkill(Melee_Bludgeon)),
+                            ("Sr. Stabber", new TravellerRewardSkill(Melee_Blade)),
+                            ("Gunny", new TravellerRewardSkill(GunCombat_Archaic)),
+                            ("Sr. Gunny", new TravellerRewardSkill(HeavyWeapons)),
+                            ("Tellguy", new TravellerRewardSkill(Tactics_Military)),
+                            ("Bossman", new TravellerRewardSkill(Leadership)),
                         }),
 
                     new TravellerAssignment(
@@ -96,12 +96,12 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Shipboy", new TravellerRewardCharacterCreationSkill(Engineer)),
-                            ("Shipman", new TravellerRewardCharacterCreationSkill(Pilot)),
-                            ("Runner", new TravellerRewardCharacterCreationSkill(Astrogation)),
-                            ("Gunner", new TravellerRewardCharacterCreationSkill(Gunner)),
-                            ("Teller", new TravellerRewardCharacterCreationSkill(Tactics_Naval)),
-                            ("Cap-E-tan", new TravellerRewardCharacterCreationSkill(Leadership)),
+                            ("Shipboy", new TravellerRewardSkill(Engineer)),
+                            ("Shipman", new TravellerRewardSkill(Pilot)),
+                            ("Runner", new TravellerRewardSkill(Astrogation)),
+                            ("Gunner", new TravellerRewardSkill(Gunner)),
+                            ("Teller", new TravellerRewardSkill(Tactics_Naval)),
+                            ("Cap-E-tan", new TravellerRewardSkill(Leadership)),
                         }),
 
                 },
@@ -124,11 +124,11 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                     GetSkillTableEntry(Mechanic),
                 }, musteringOutBenefits: new List<(int Cash, TravellerCharacterCreationReward Benefit)>
                 {
-                    (5, new TravellerRewardCharacterCreationItem(new List<TravellerItem>
+                    (5, new TravellerRewardItem(new List<TravellerItem>
                     {
                         new TravellerItem("Fake TAS Membership",500000,1,16)
                     })),
-                    (10, new TravellerRewardCharacterCreationItem(new List<TravellerItem>
+                    (10, new TravellerRewardItem(new List<TravellerItem>
                     {
                         new TravellerItem("TAS Membership",1000000,1,15)
                     })),
@@ -147,7 +147,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                         yesEvent:new TravellerEventSkillCheck("You try and toss some credits in your pocket",
                             yesEvent:new TravellerEventReward("You are able to hide some of the credits, and convince the Bossman that another in your group took them.", new List<TravellerCharacterCreationReward>
                             {
-                                new TravellerRewardCharacterCreationBenefitIncrease(2),
+                                new TravellerRewardBenefitIncrease(2),
                                 new TravellerRewardContact("Pirate Thrown Under the Bus",TravellerNPCRelationship.Rival)
                             }),
                             noEvent:new TravellerEventReward("The bossman notices you hiding the credits and decides you're not getting paid for this term.", new List<TravellerCharacterCreationReward>
@@ -207,21 +207,21 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                                 {
                                     new TravellerRewardContact("Inquisitor 1",TravellerNPCRelationship.Enemy),
                                     new TravellerRewardContact("Inquisitor 2",TravellerNPCRelationship.Enemy),
-                                }),
-                            atributeChecks: new List<TravellerAttributeCheck>
+                                }), 
+                            attributeChecks: new List<TravellerAttributeCheck>
                             {
                                 new TravellerAttributeCheck(Psionics,8)
                             }
-                            ),
+                            ), 
                         noText:"I'll leave 'em in place. Better to not piss off a God.",
                         noEvent:new TravellerEventText("You leave the statues where they are.")),
 
                     new TravellerEventSkillCheck("The loot from your last haul wasn’t as good as the Bossman promised, and now the people are looking for someone to take charge, you try and step up to take command",
                         yesEvent:new TravellerEventReward("You stand out among the offers",new List<TravellerCharacterCreationReward>
                         {
-                            new TravellerRewardCharacterCreationAdvancement(8)
-                        }),
-                        noEvent: new TravellerEventSeverelyInjured("You fail, and the bossman beats you harshly for your actions."),
+                            new TravellerRewardAdvancement(8)
+                        }), 
+                        noEvent: new TravellerEventSeverelyInjured("You fail, and the bossman beats you harshly for your actions."), 
                         skillChecks:new List<TravellerSkillCheck>
                         {
                             new TravellerSkillCheck(Leadership,8),
@@ -229,7 +229,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
 
                     new TravellerEventLife("You have a life event!"),
 
-                    new TravellerEventReward("You spend the term raiding small time ships in the outer regions.",
+                    new TravellerEventReward("You spend the term raiding small time ships in the outer regions.", 
                         new List<TravellerCharacterCreationReward>{new TravellerRewardBonusBenefit()}),
 
                     new TravellerEventSkillCheck("One of your fellow raiders has been making your life a living hell. You decided to settle this matter in the proper way, violence.",
@@ -244,7 +244,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                                     {"Impressed Pirate 3", TravellerNPCRelationship.Contact},
                                     {"Impressed Pirate 4", TravellerNPCRelationship.Contact},
                                 })
-                            }),
+                            }), 
                         noEvent:new TravellerEventReward("The pirates beat some sense into you, and decided to do it more often.",
                             new List<TravellerCharacterCreationReward>
                             {
@@ -280,7 +280,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
 
                     new TravellerEventReward("You spend the term working with your groups weapons-master, sharpening spears and producing ammunition.",new List<TravellerCharacterCreationReward>
                     {
-                        new TravellerRewardCharacterCreationSkill(Mechanic,1)
+                        new TravellerRewardSkill(Mechanic,1)
                     }),
 
                     new TravellerEventChoice("During a raid, a family thrusts their child onto you, and beg you to take care of it.",
@@ -289,7 +289,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                             new List<TravellerCharacterCreationReward>
                             {
                                 new TravellerRewardContact("Pirate Child",TravellerNPCRelationship.Ally)
-                            }),
+                            }), 
                         noText:"You take the child, and place it into your bag for later.",
                         noEvent:new TravellerEventReward("After the battle, you and your fellows sit down for a hearty meal, using the meat from your bag.",
                             new List<TravellerCharacterCreationReward>

@@ -1,10 +1,10 @@
 ﻿namespace TravellerWiki.Data
 {
-    public class TravellerRewardCharacterCreationJobChange : TravellerCharacterCreationReward
+    public class TravellerRewardJobChange : TravellerCharacterCreationReward
     {
         public string NewCareerName { get; }
 
-        public TravellerRewardCharacterCreationJobChange(string newCareerName)
+        public TravellerRewardJobChange(string newCareerName)
         {
             NewCareerName = newCareerName;
         }

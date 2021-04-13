@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CharacterCreationTest.CharacterCreation;
 using JobBoardCreator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TravellerWiki.Data;
+using TravellerWiki.Data.Services;
 using TravellerWiki.Data.Services.CareerService;
 
 namespace TravellerWiki
@@ -40,6 +42,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerCareerService>();
             services.AddSingleton<TravellerSkillDisplayService>();
             services.AddSingleton<TravellerFreeFormMagicSystemsService>();
+            services.AddSingleton<CharacterCreatorService>();
 
             services.AddSingleton<TravellerMapService>();
         }

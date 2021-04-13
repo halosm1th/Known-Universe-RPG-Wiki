@@ -16,7 +16,7 @@ namespace TravellerWiki
         [BindProperty] public TravellerNameService.NationNameList NameList { get; set; }
 
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPostAsync()
         {
             var temp = new TravellerNameService();
             ListOfNames = temp.GetNames(NumberOfNames, NameList);

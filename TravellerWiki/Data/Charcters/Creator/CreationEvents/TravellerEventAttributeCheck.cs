@@ -8,10 +8,22 @@ namespace TravellerWiki.Data.CreationEvents
     public class TravellerEventAttributeCheck : TravellerEventChoice
     {
         public List<TravellerAttributeCheck> AttributeChecks { get; }
-
-        public TravellerEventAttributeCheck(string eventText, TravellerEventCharacterCreation successEvent, TravellerEventCharacterCreation failEvent, List<TravellerAttributeCheck> atributeChecks, string successText = "Yes", string failText = "No") : base(eventText, successEvent, failEvent,successText,failText)
+        public TravellerEventAttributeCheck(string eventText, TravellerEventCharacterCreation successEvent, TravellerEventCharacterCreation failEvent,
+            (TravellerAttributes attribute, int value) attributeCheck, string successText = "<<Pass>>", string failText = "<<Fail>>") : base(eventText, successEvent, failEvent, successText, failText)
         {
-            AttributeChecks = atributeChecks;
+            AttributeChecks = new List<TravellerAttributeCheck>();
+            AttributeChecks.Add(new TravellerAttributeCheck(attributeCheck.attribute,attributeCheck.value)); 
+        }
+        public TravellerEventAttributeCheck(string eventText, TravellerEventCharacterCreation successEvent, TravellerEventCharacterCreation failEvent,
+            TravellerAttributeCheck attributeCheck, string successText = "<<Pass>>", string failText = "<<Fail>>") : base(eventText, successEvent, failEvent, successText, failText)
+        {
+            AttributeChecks = new List<TravellerAttributeCheck>();
+            AttributeChecks.Add(attributeCheck);
+        }
+        public TravellerEventAttributeCheck(string eventText, TravellerEventCharacterCreation successEvent, TravellerEventCharacterCreation failEvent, 
+            List<TravellerAttributeCheck> attributeChecks, string successText = "<<Pass>>", string failText = "<<Fail>>") : base(eventText, successEvent, failEvent,successText,failText)
+        {
+            AttributeChecks = attributeChecks;
         }
 
         /// <summary>

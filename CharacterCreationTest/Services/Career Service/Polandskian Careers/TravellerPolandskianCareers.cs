@@ -18,7 +18,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                 },
                 perks: new List<TravellerCharacterCreationReward>
                 {
-                    new TravellerRewardtem(new List<TravellerItem>
+                    new TravellerRewardItem(new List<TravellerItem>
                     {
                         new TravellerItem("Weapon", 2000, 30, 12),
                     }),

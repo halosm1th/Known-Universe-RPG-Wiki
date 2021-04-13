@@ -80,14 +80,14 @@ else
     private int NPCCount;
     private TravellerNameService.NationNameList NationNameList = TravellerNameService.NationNameList.Any;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        await LoadNPCs();
+        LoadNPCs();
     }
 
-    public async Task LoadNPCs()
+    public void LoadNPCs()
     {
-        npcs = await NPCService.GetNPCAsync(NPCCount, NationNameList);
+        npcs = NPCService.GetNPCAsync(NPCCount, NationNameList);
     }
 
 

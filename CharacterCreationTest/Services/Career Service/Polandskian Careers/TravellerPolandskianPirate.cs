@@ -124,11 +124,11 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                     GetSkillTableEntry(Mechanic),
                 }, musteringOutBenefits: new List<(int Cash, TravellerCharacterCreationReward Benefit)>
                 {
-                    (5, new TravellerRewardtem(new List<TravellerItem>
+                    (5, new TravellerRewardItem(new List<TravellerItem>
                     {
                         new TravellerItem("Fake TAS Membership",500000,1,16)
                     })),
-                    (10, new TravellerRewardtem(new List<TravellerItem>
+                    (10, new TravellerRewardItem(new List<TravellerItem>
                     {
                         new TravellerItem("TAS Membership",1000000,1,15)
                     })),

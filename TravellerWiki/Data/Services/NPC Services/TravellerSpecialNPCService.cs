@@ -27,7 +27,6 @@ namespace TravellerWiki.Data
             }
             catch (Exception e)
             {
-                var x = 1 + 2;
                 Console.WriteLine(e);
             }
             return npcList;
@@ -40,6 +39,7 @@ namespace TravellerWiki.Data
                 1 => TravellerNPCRelationship.Contact,
                 2 => TravellerNPCRelationship.Enemy,
                 3 => TravellerNPCRelationship.Rival,
+                _ => TravellerNPCRelationship.Contact
             };
 
         private int GetAffinity(TravellerNPCRelationship relationship)
@@ -49,7 +49,7 @@ namespace TravellerWiki.Data
                 TravellerNPCRelationship.Contact => rand.Next(1, 7) + 1,
                 TravellerNPCRelationship.Rival => rand.Next(1, 7) - 1,
                 TravellerNPCRelationship.Enemy => 0,
-
+                _ => 0
             };
 
         private int GetEnmity(TravellerNPCRelationship relationship)
@@ -59,7 +59,7 @@ namespace TravellerWiki.Data
                 TravellerNPCRelationship.Contact => rand.Next(1, 7) - 1,
                 TravellerNPCRelationship.Ally => rand.Next(2, 13),
                 TravellerNPCRelationship.Enemy => 0,
-
+                _ => 0
             };
 
         private int GetPower() => rand.Next(2, 13);
@@ -95,8 +95,7 @@ namespace TravellerWiki.Data
 
         private TravellerSpecialNPC GenerateTravellerSpecialNpc(TravellerNameService.NationNameList nationNameList)
         {
-            var baseNPCTask = TravellerNpc(nationNameList);
-            var baseNPC = baseNPCTask.Result;
+            var baseNPC = TravellerNpc(nationNameList);
 
             var relationship = rand.Next(0, 4);
             var relationshipType = GetRelationship(relationship);

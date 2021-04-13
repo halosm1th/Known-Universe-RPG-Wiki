@@ -33,27 +33,27 @@ namespace TravellerWiki.Data
                 NationNameList.XiaoMing => TravellerNameLists.XiaoMingNameList,
                 NationNameList.AxionAlliance => TravellerNameLists.AxionAllianceNameList,
                 _ => GetNameList(GetRandomNation())
-    };
+            };
 
         private static Random rand = new Random();
 
         private NationNameList GetRandomNation()
         {
             var listOfNames = Enum.GetValues(typeof(NationNameList)).Length;
-            return (NationNameList) rand.Next(0, listOfNames);
+            return (NationNameList)rand.Next(0, listOfNames);
         }
 
         public List<string> GetNames(int numberOfNames, NationNameList nation)
         {
 
-            if (nation == NationNameList.Any) 
+            if (nation == NationNameList.Any)
                 nation = GetRandomNation();
 
             var nameList = GetNameList(nation);
             var returnList = new List<string>();
 
             for (int i = 0; i < numberOfNames; i++)
-            { 
+            {
                 var sb = new StringBuilder();
                 sb.Append(nameList[rand.Next(0, nameList.Count)]);
                 sb.Append(" ");

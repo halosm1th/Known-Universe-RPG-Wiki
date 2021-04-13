@@ -1,0 +1,27 @@
+@page "/CharacterCreation/New"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject CharacterCreatorService CharacterCreationService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+
+    private void CreateCharacter()
+    {
+        NavManager.NavigateTo("/CharacterCreation/");
+    }
+
+}
+<body>
+    <h1>Traveller Character Creator</h1>
+    <p>Do you wish to create a traveller character</p>
+    <button class="" @onclick="CreateCharacter">Create Character</button>
+</body>

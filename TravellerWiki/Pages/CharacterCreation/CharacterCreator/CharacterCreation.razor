@@ -1,0 +1,567 @@
+@page "/CharacterCreation/"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.CreationEvents
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject CharacterCreatorService CharacterCreationService;
+@inject TravellerNationsCharacterInfoService nationsService;
+@inject TravellerCareerService careerService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) Init();
+        base.OnInitialized();
+    }
+
+}
+
+<body style="text-align:center">
+    <h1>Traveller Character Creator</h1>
+
+    @if (!CharacterCreationService.HasName)
+    {
+        <h2>Travellers Name</h2>
+        <p>Enter the Name for your character, or <a href="/Generators/TravellerNameGenerator/" target="_blank" rel="noreferrer noopener">use a name generator</a></p>
+        <input type="text" @bind="TravellerName" />
+        <button @onclick="SetName">Set Name</button>
+    }
+    else if (!SkillsSet() || !DoneStats)
+    {
+        if (GeneratedStats == null)
+        {
+            GenerateStats();
+        }
+        <h2>@CharacterCreationService._character.Name: Stats [<button @onclick="Init">Reset</button>]</h2>
+
+        <p>Roll: @GeneratedStats.Aggregate("", (h, t) => h += t.Value + ", ") Psi Roll: <input type="checkbox" @bind="IncludePsi" /></p>
+        <button @onclick="GenerateStats">Generate new Attributes</button>
+        <p>
+            <ol>
+                <li>
+                    Strength:
+                    @if (!setStr)
+                    {
+                        <select @bind="StrKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                if (!HasNumberBeenUsed(stat.Key))
+                                {
+                                    <option value="@stat.Key">@stat.Value</option>
+                                }
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Strength); }">Set</button>
+                    }
+                    else
+                    {
+                        @CharacterCreationService.GetTravellerAttribute(TravellerAttributes.Strength)
+                        ;
+                    }
+                </li>
+                <li>
+                    Dexterity:
+                    @if (!setDex)
+                    {
+                        <select @bind="DexKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                if (!HasNumberBeenUsed(stat.Key))
+                                {
+                                    <option value="@stat.Key">@stat.Value</option>
+                                }
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Dexterity); }">Set</button>
+                    }
+                    else
+                    {
+                        @CharacterCreationService.GetTravellerAttribute(TravellerAttributes.Dexterity)
+                        ;
+                    }
+                </li>
+                <li>
+                    Endurance:
+                    @if (!setEnd)
+                    {
+                        <select @bind="EndKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                if (!HasNumberBeenUsed(stat.Key))
+                                {
+                                    <option value="@stat.Key">@stat.Value</option>
+                                }
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Endurance); }">Set</button>
+                    }
+                    else
+                    {
+                        @CharacterCreationService.GetTravellerAttribute(TravellerAttributes.Endurance)
+                        ;
+                    }
+                </li>
+                <li>
+                    Intelligence:
+                    @if (!setInt)
+                    {
+                        <select @bind="IntKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                if (!HasNumberBeenUsed(stat.Key))
+                                {
+                                    <option value="@stat.Key">@stat.Value</option>
+                                }
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Intelligence); }">Set</button>
+                    }
+                    else
+                    {
+                        @CharacterCreationService.GetTravellerAttribute(TravellerAttributes.Intelligence)
+                        ;
+                    }
+                </li>
+                <li>
+                    Education:
+                    @if (!setEdu)
+                    {
+                        <select @bind="EduKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                if (!HasNumberBeenUsed(stat.Key))
+                                {
+                                    <option value="@stat.Key">@stat.Value</option>
+                                }
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Education); }">Set</button>
+                    }
+                    else
+                    {
+                        @CharacterCreationService.GetTravellerAttribute(TravellerAttributes.Education)
+                        ;
+                    }
+                </li>
+                <li>
+                    Social:
+                    @if (!setSoc)
+                    {
+                        <select @bind="SocKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                if (!HasNumberBeenUsed(stat.Key))
+                                {
+                                    <option value="@stat.Key">@stat.Value</option>
+                                }
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Social); }">Set</button>
+                    }
+                    else
+                    {
+                        @CharacterCreationService.GetTravellerAttribute(TravellerAttributes.Social)
+                        ;
+                    }
+                </li>
+                @if (IncludePsi)
+                {
+                    <li>
+                        Psionics:
+                        @if (!setPsi)
+                        {
+                            <select @bind="PsiKey">
+                                @foreach (var stat in GeneratedStats)
+                                {
+                                    if (!HasNumberBeenUsed(stat.Key))
+                                    {
+                                        <option value="@stat.Key">@stat.Value</option>
+                                    }
+                                }
+                            </select>
+                            <button @onclick="() => { SetStat(TravellerAttributes.Psionics); }">Set</button>
+                        }
+                        else
+                        {
+                            @CharacterCreationService.GetTravellerAttribute(TravellerAttributes.Psionics)
+                            ;
+                        }
+                    </li>
+                }
+            </ol>
+            <button @onclick="ChangeDoneStats">Finished Stats</button>
+        </p>
+    }
+    else if (!CharacterCreationService.HasNationality)
+    {
+        List<TravellerNationsCharacterInfo> nations = nationsService.GetNationsList;
+        <h2>Select @CharacterCreationService._character.Name's Nationality</h2>
+        <p>Current stats: @CharacterCreationService._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+        <p>Selection your Nationality from the dropdown: </p>
+        <select @bind="ChosenNationality">
+            @foreach (var nationality in nations)
+            {
+                <option value="@nationality.Nationality">@nationality.NationName</option>
+            }
+        </select>
+        if (nations.Any(x => x.Nationality == ChosenNationality))
+        {
+            <div>
+                @{ var drawNationality = nationsService.GetNationsList.First(x => x.Nationality == ChosenNationality); }
+                <h3>
+                    @drawNationality.NationName
+                    @if (drawNationality.ParentNation != drawNationality.Nationality)
+                    {
+                        @("- " + drawNationality.ParentNation)
+                        ;
+                    }
+                </h3>
+                <p>
+                    <h4>Entry Requirements: </h4>
+                    @(drawNationality.EntryRequirements.Count > 0 ?
+                        drawNationality.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core, ", ", addition)) : "None")
+                </p>
+                <p>
+                    Stat Changes: @drawNationality.GetStatChanges()
+                </p>
+                <p>
+                    @if (drawNationality.Perks.Count > 0)
+                    {
+                        var remove = drawNationality.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
+                        <text>Perks: @remove</text>
+                    }
+                </p>
+                <p>
+                    @{
+                        var skills = drawNationality.BackgroundSkills.Aggregate("", (s, n) => s + ", " + n.Value).Remove(0, 1);
+                    }
+                    <h4>Background Skills: </h4>@skills
+
+                </p>
+                <p>
+                    <h4>National Career Options</h4>
+                    <ul>
+                        @foreach (var career in TravellerCareerService.StaticListOfCareers.Where(career => career.Nationality == drawNationality.Nationality))
+                        {
+                            <li>
+                                <a href="/Career?career=@career.CareerName" target="_blank" rel="noreferrer noopener">@career.CareerName </a>- @career.CareerDescription
+                            </li>
+                        }
+                    </ul>
+                </p>
+            </div>
+
+            if (drawNationality.EntryRequirements.Count > 0)
+            {
+                <p>
+                    Select an entry requirement to roll against:
+                    <select @bind="EntryRequirementChoice">
+                        @for (int i = 0; i < drawNationality.EntryRequirements.Count; i++)
+                        {
+                            <option value="@i">@drawNationality.EntryRequirements[i]</option>
+                        }
+                    </select>
+
+                </p>
+                <button @onclick="TryEnterNationality">Attempt to enter nationality</button>
+            }
+            else
+            {
+                <button @onclick="ApplyNationality">Select nationality</button>
+            }
+        }
+    }
+    else if (FailedNationEntry && !DoneFailedNationEntry)
+    {
+        <h2>Failed to get in</h2>
+        <p>You failed ot enter the nation you wanted, and instead are put into their parent nation</p>
+        <button @onclick="ChangeDoneFailedNationEntry">Alright, I understand.</button>
+    }
+    else if (!CharacterCreationService.HasBackgroundSkills)
+    {
+        <h3>Background skills - @CharacterCreationService._character.Name - @CharacterCreationService._character.Nationality.NationName</h3>
+        <p>Already Chosen:@(backgroundSkills.Count > 0 ? backgroundSkills.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1) : "None")</p>
+        @if (backgroundSkills.Count < CharacterCreationService.NumberOfTravellerBackgroundSKills)
+        {
+            var skillList = CharacterCreationService.GetBackgoundSkills(CharacterCreationService._character.Nationality);
+            <p>
+                Select Background Skill (@(backgroundSkills.Count + 1)/@(CharacterCreationService.NumberOfTravellerBackgroundSKills)):
+                <select @bind="chosenBackgroundSkill">
+                    @foreach (var skill in skillList)
+                    {
+                        if (backgroundSkills.All(x => x.SkillName != skill.Value.SkillName))
+                        {
+                            <option value="@skill.Key">@skill.Value</option>
+                        }
+                    }
+                </select>
+                <button @onclick="AddBackgroundSkill">Add skill</button>
+            </p>
+        }
+        else
+        {
+            <p>Confirm these are the skills you want</p>
+            <ul>
+                @foreach (var skill in backgroundSkills)
+                {
+                    <li>
+                        @skill.SkillName - @skill.SkillDescriptionText
+                    </li>
+                }
+            </ul>
+            <button @onclick="SaveSkills">Save Skills</button>
+            <button @onclick="ClearSkills">Clear Skills</button>
+        }
+
+    }
+    else if (!DoneLivingLife && !CharacterCreationService.Dead && CharacterCreationService.TravellersAge < (18 + (4 * 20)))
+    {
+        <h2>@CharacterCreationService.Name - @CharacterCreationService.TravellersAge</h2>
+        if (!CharacterCreationService.HasJob)
+        {
+            <h3>Select Career - @CharacterCreationService.Nationality.NationName</h3>
+            var careers = CharacterCreationService.Nationality.NationsCareers;
+            <p>
+                Careers:
+                <ul>
+                    @foreach (var career in careers)
+                    {
+                        <li>@career.CareerName - @career.CareerDescription - <b style="font-weight: bold">Qualifications: @career.Qualifications.Aggregate("", (h, t) => h += t.ToString() + ", ")</b> </li>
+                    }
+                </ul>
+            </p>
+            <p>
+                Select a Career:
+                <select @bind="careerName">
+                    @foreach (var career in careers)
+                    {
+                        <option value="@career.CareerName">@career.CareerName</option>
+                    }
+                </select>
+
+                @if (!rolledQualification)
+                {
+                    <button @onclick="selectCareer">Select Career</button>
+                }
+            </p>
+            @if (chosenCareer != null && !rolledQualification)
+            {
+                <p> @CharacterCreationService.Name's stats @CharacterCreationService._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+                <p>
+                    Select a Qualification:
+                    <select @bind="qualificationChoice">
+                        @for (int i = 0; i < chosenCareer.Qualifications.Count; i++)
+                        {
+                            <option value="@i">@chosenCareer.Qualifications[i]</option>
+                        }
+                    </select>
+                    <button @onclick="selectQualification">Select Qualification and roll!</button>
+                </p>
+            }
+            @if (rolledQualification)
+            {
+                <p>Rolled a @roll [@chosenCareer.Qualifications[qualificationChoice]]</p>
+                if (!passedQualification && !hasJob)
+                {
+                    <p>
+                        You failed the qualification, you can@(!HasBeenDraftedOnce ? " still be drafted, " : "'t be drafted,") or you can take your nations drifter.
+                        <button @onclick="takeDrifter">
+                            Take Drifter(@CharacterCreationService.Nationality.DrifterCareer.CareerName)
+                        </button>
+                        @if (!HasBeenDraftedOnce)
+                        {
+                            <button @onclick="takeDraft">
+                                Take draft(@CharacterCreationService.Nationality.DraftTable.Aggregate("", (h, t) => h += t.CareerName + ", "))
+                            </button>
+                        }
+                    </p>
+                }
+                if (hasJob && !hasAssignment)
+                {
+                    <p>
+                        @chosenCareer.CareerName Assignments:
+                        <ul>
+                            @foreach (var assignment in chosenCareer.Assignments)
+                            {
+                                <li>@assignment.Name - @assignment.Description</li>
+                            }
+                        </ul>
+                    </p>
+                    <p>
+                        Select an Assignment:
+                        <select @bind="assignmentName">
+                            @foreach (var assignment in chosenCareer.Assignments)
+                            {
+                                <option value="@assignment.Name">@assignment.Name</option>
+                            }
+                        </select>
+                        <button @onclick="selectAssignment">Select Assignment & Join</button>
+                    </p>
+
+                }
+            }
+        }
+        else if (!DoneBasicTraining)
+        {
+
+            if (!DonePickingSkills)
+            {
+                <h3>Basic Training - @chosenCareer.CareerName</h3>
+                <p>You gain: @(chosenCareer.ServiceSkillsList.Aggregate("", (h, t) => h += t.Name + ", ")) from your first basic training.</p>
+            }
+            else if (!HasBasicTrainingSkill)
+            {
+                <p>
+                    Pick one of the following for your basic training:
+                    <select @bind="ChosenBasicTrainingSkillName">
+                        @foreach (var option in chosenCareer.ServiceSkillsList)
+                        {
+                            <option value="@option.Name">@option.ToString()</option>
+                        }
+                    </select>
+                    <button @onclick="ChooseBasicTrainingSkill">Pick Basic Skill</button>
+                </p>
+            }
+            <button @onclick="ChangeDoneBasicTraining">Done Basic Training</button>
+        }
+        else if (DoneBasicTraining && !DonePickingSkills)
+        {
+            <h3>Roll Skill - @chosenCareer.CareerName - @CharacterCreationService.Name </h3>
+            if (!HasChosenSkillTable && !isSuperSkill)
+            {
+                <p>Select a skill table to roll on: </p>
+                <select @bind="chosenSkillTable">
+                    <option value="0">Personal Development</option>
+                    <option value="1">Service Skills</option>
+                    <option value="2">@chosenAssignment.Name</option>
+                </select>
+                <ol>
+
+                    @foreach (var skill in GetChosenSkillTable())
+                    {
+                        <li>@skill.Name</li>
+                    }
+                </ol>
+                <button @onclick="RollSkill">Roll on table</button>
+            }
+            else if (!HasChosenSkillTable && isSuperSkill)
+            {
+                <h4>@SuperSkill</h4>
+                <p>This is a skill with subskills, please pick one to specialized in.</p>
+                <select @bind="ChosenSubSkill">
+                    @foreach (var subskill in CharacterCreationService.GetSubSkills(SuperSkill))
+                    {
+                        <option value="@subskill">@subskill</option>
+                    }
+                </select>
+                <button @onclick="SelectSubSkill">Select Subskill</button>
+            }
+            else
+            {
+                <p>Finished Gaining skill: @(isSuperSkill ? @ChosenSubSkill : @SuperSkill)</p>
+                <button @onclick="ChangeDonePickingSkills">Done picking skills</button>
+            }
+        }
+        else if (DonePickingSkills && !RolledSurvival)
+        {
+            <h3>Roll Survival</h3>
+            <p> @CharacterCreationService.Name's stats @CharacterCreationService._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+            <p>Survival: @chosenAssignment.Survival</p>
+            <button @onclick="RollSurvival">Roll Survival</button>
+            if (HasRolled)
+            {
+                <p>You rolled a: @(roll + CharacterCreationService.GetAttributes.First(x => x.AttributeName == chosenAssignment.Survival.AttributeToCheck).AttributeModifier)/@chosenAssignment.Survival</p>
+                <button @onclick="() => RolledSurvival = true">@(PassedSurvival ? "Onto the event" : "Gimme my mishap")</button>
+            }
+        }
+        else if (RolledSurvival && !DoneGettingEvent)
+        {
+            <h3>@(PassedSurvival ? "Event" : "Mishap")</h3>
+            <p> @CharacterCreationService.Name's stats @CharacterCreationService._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+            if (ThisTermsEvent == null)
+            {
+                GetEvent();
+            }
+
+            <p>@ThisTermsEvent.EventText</p>
+            if (ThisTermsEvent is TravellerEventAttributeCheck attribute)
+            {
+                <p>Success: @(attribute.YesText)</p>
+                <p>Failure: @(attribute.NoText)</p>
+                <p>
+                    Select an attribute to check against:
+                    <select @bind="attributeToCheckNumber">
+                        @for (int i = 0; i < attribute.AttributeChecks.Count; i++)
+                        {
+                            <option value="@i">@(attribute.AttributeChecks[i])</option>
+                        }
+                    </select>
+
+                    <button @onclick="EventAttributeCheck">Preform Check</button>
+                </p>
+
+
+            }
+            else if (ThisTermsEvent is TravellerEventChangeCareerWithAssignment changeWithAssignment)
+            {
+                chosenCareer = CharacterCreationService.GetCareer(changeWithAssignment.NewCareerName);
+                chosenAssignment = CharacterCreationService.GetAssignment(chosenCareer, changeWithAssignment.Assignment);
+                CharacterCreationService.JoinCareer(chosenCareer, chosenAssignment);
+                DoneBasicTraining = false;
+                HasBasicTrainingSkill = false;
+            }
+            else if (ThisTermsEvent is TravellerEventChangeCareers changeCareer)
+            {
+                chosenCareer = CharacterCreationService.GetCareer(changeCareer.NewCareerName);
+                DoneBasicTraining = false;
+                HasBasicTrainingSkill = false;
+                rolledQualification = true;
+                hasJob = true;
+                hasAssignment = false;
+            }
+            else if (ThisTermsEvent is TravellerEventSkillCheck skillCheck)
+            {
+            }
+            else if (ThisTermsEvent is TravellerEventChoice choice)
+            {
+            }
+            else if (ThisTermsEvent is TravellerEventSeverelyInjured injured)
+            {
+            }
+            else if (ThisTermsEvent is TravellerEventInjury injury)
+            {
+            }
+            else if (ThisTermsEvent is TravellerEventLife life)
+            {
+                <p>Life Event</p>
+            }
+            else if (ThisTermsEvent is TravellerEventMishap mishap)
+            {
+            }
+            else if (ThisTermsEvent is TravellerEventMultiChoice multi)
+            {
+            }
+            else if (ThisTermsEvent is TravellerEventReward rewards)
+            {
+            }
+            else if (ThisTermsEvent is TravellerEventText eventText)
+            {
+                <button @onclick="DoneEvent">[Done]</button>
+            }
+        }
+    }
+
+    else
+    {
+        @CharacterCreationService._character.ToString();
+    }
+
+</body>

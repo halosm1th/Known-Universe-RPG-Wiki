@@ -9,11 +9,11 @@ using static TravellerWiki.Data.Charcters.TravellerSkills;
 
 namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
 {
-    class TravellerNationCareer : TravellerBasicCareers
+    class TravellerMationCareer : TravellerBasicCareers
     {
         public static TravellerCareer NationCareer()
         {
-            var career = new TravellerNationCareer();
+            var career = new TravellerMationCareer();
 
             return career.GetNationCareer();
         }

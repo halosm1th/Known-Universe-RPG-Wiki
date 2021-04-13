@@ -16,20 +16,19 @@ namespace TravellerWiki.Data
         public int Influence { get; set; }
         public int Power { get; set; }
 
-        public static int PowerInfluenceModifier(int value)
-            => value switch
-            {
-                5 => 0,
-                6 => 1,
+        public static int PowerInfluenceModifier(int value) 
+            => value switch {
+                5=> 0,
+                6 =>1,
                 7 => 1,
-                8 => 2,
-                9 => 3,
-                10 => 4,
-                11 => 5,
-                12 => 6,
+                8 =>2,
+                9 =>3,
+                10 =>4,
+                11 =>5,
+                12=> 6,
                 _ => 0
 
-            };
+         };
 
         public static string PowerText(int affinityModifier)
             => affinityModifier switch
@@ -41,7 +40,7 @@ namespace TravellerWiki.Data
                 4 => "Has powerful assets, equivalent to a small merchant shipping line or major business group.",
                 5 => "Has enormous power, such as someone in the top echelons of a planetary government or the CEO of a large shipping line.",
                 6 => "Is a factor in interstellar politics, such as a navy admiral or an official in an interstellar government.",
-                _ => "Error"
+                _ => "Error",
             };
 
         public static string InfluenceText(int affinityModifier)
@@ -54,7 +53,7 @@ namespace TravellerWiki.Data
                 4 => "Has some influence at the interplanetary level, with government or underworld figures that owe him a favour or two.",
                 5 => "Has very significant influence at the interstellar level, and can lean on lawmakers or officials in interstellar government.",
                 6 => "Has the ear of extremely powerful people, such as the ruling noble of the local subsector.",
-                _ => "Error"
+                _ => "Error",
             };
 
         public static string InfluenceDegree(int affinityModifier)
@@ -67,7 +66,7 @@ namespace TravellerWiki.Data
                 4 => "Highly Influential",
                 5 => "Extremely Influential",
                 6 => "Kingmaker",
-                _ => "Error"
+                _ => "Error",
             };
 
         public static string PowerDegree(int affinityModifier)
@@ -80,27 +79,26 @@ namespace TravellerWiki.Data
                 4 => "Powerful",
                 5 => "Very Powerful",
                 6 => "Major Player",
+                _ => "Error",
             };
 
 
         public static int EnmityModifier(int value) => 0 - AffinityModifier(value);
-
+        
         public static int AffinityModifier(int value)
-            => value switch
-            {
-                2 => 0,
-                3 => 1,
-                4 => 1,
-                5 => 2,
-                6 => 2,
-                7 => 3,
-                8 => 3,
-                9 => 4,
-                10 => 4,
-                11 => 5,
-                12 => 6,
-                _ => 6
-            };
+            => value switch {
+            2 => 0,
+            3 => 1,
+            4=> 1,
+            5 => 2,
+            6 =>2 ,
+            7 => 3,
+            8 =>3,
+            9 =>4,
+            10 =>4,
+            11 =>5,
+            12=> 6,
+            _ => 6};
 
         public static string EnmityText(int affinityModifier)
             => affinityModifier switch
@@ -112,6 +110,7 @@ namespace TravellerWiki.Data
                 -4 => "Will do almost anything to get one over on the Traveller. Might actively plot against the Traveller for the sake of revenge or causing further harm even if there is little or no gain involved.",
                 -5 => "Will actively plot or take serious risks to cause the Traveller harm at any opportunity.",
                 -6 => "May engage in self-destructive actions in order to harm the Traveller, or put innocents at risk.",
+                _ => "Error",
             };
 
         public static string EnmityDegree(int affinityModifier)
@@ -124,6 +123,7 @@ namespace TravellerWiki.Data
                 -4 => "Hatred",
                 -5 => "Bitter hatred",
                 -6 => "Blinded by hate",
+                _ => "Error",
             };
 
         public static string AffinityText(int affinityModifier)
@@ -136,6 +136,7 @@ namespace TravellerWiki.Data
                 4 => "Will do almost anything to help the Traveller, but may have higher loyalties to their own family, cause or service, or to other close friends.",
                 5 => "Will probably put the Traveller’s interests before their own or that of others.",
                 6 => "Will do whatever the Traveller asks of them (or what they think the Traveller would want), no matter what risks are involved. May also expect others to do the same.",
+                _ => "Error",
             };
 
         public static string AffinityDegree(int affinityModifier)
@@ -148,6 +149,7 @@ namespace TravellerWiki.Data
                 4 => "Loyal friend",
                 5 => "Love",
                 6 => "Fanatical",
+                _ => "Error",
             };
 
         private string SpecialNPCAffinityAndEnimity()

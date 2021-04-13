@@ -17,12 +17,13 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
         }
         Random random = new Random();
 
+
         public TravellerCareer GetVersianArmy()
         {
             return new TravellerCareer(
                 careerName: "Versian Army",
                 description: "You fight in an army, either for your lord or one of their knights. ",
-                nationality: "Fifth Vers Empire",
+                nationality: TravellerNationalities.Fifth_Vers_Empire,
                 qualifications: new List<TravellerAttributeCheck>
                 {
                     new TravellerAttributeCheck(Strength,8),
@@ -47,12 +48,12 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Infantryman", new TravellerRewardCharacterCreationSkill(GunCombat_Slug)),
-                            ("Corporal", new TravellerRewardCharacterCreationSkill(Melee_Blade)),
-                            ("Sargent", new TravellerRewardCharacterCreationSkill(Recon)),
-                            ("Lieutenant", new TravellerRewardCharacterCreationSkill(Stealth)),
-                            ("Captain", new TravellerRewardCharacterCreationSkill(Tactics_Military)),
-                            ("Commander", new TravellerRewardCharacterCreationSkill(Leadership)),
+                            ("Infantryman", new TravellerRewardSkill(GunCombat_Slug)),
+                            ("Corporal", new TravellerRewardSkill(Melee_Blade)),
+                            ("Sargent", new TravellerRewardSkill(Recon)),
+                            ("Lieutenant", new TravellerRewardSkill(Stealth)),
+                            ("Captain", new TravellerRewardSkill(Tactics_Military)),
+                            ("Commander", new TravellerRewardSkill(Leadership)),
                         }),
                     
                     new TravellerAssignment(
@@ -71,12 +72,12 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Infantryman", new TravellerRewardCharacterCreationSkill(GunCombat_Slug)),
-                            ("Corporal", new TravellerRewardCharacterCreationSkill(Melee_Blade)),
-                            ("Sargent", new TravellerRewardCharacterCreationSkill(Recon)),
-                            ("Lieutenant", new TravellerRewardCharacterCreationSkill(Stealth)),
-                            ("Captain", new TravellerRewardCharacterCreationSkill(Tactics_Military)),
-                            ("Commander", new TravellerRewardCharacterCreationSkill(Leadership)),
+                            ("Infantryman", new TravellerRewardSkill(GunCombat_Slug)),
+                            ("Corporal", new TravellerRewardSkill(Melee_Blade)),
+                            ("Sargent", new TravellerRewardSkill(Recon)),
+                            ("Lieutenant", new TravellerRewardSkill(Stealth)),
+                            ("Captain", new TravellerRewardSkill(Tactics_Military)),
+                            ("Commander", new TravellerRewardSkill(Leadership)),
                         }),
 
                     new TravellerAssignment(
@@ -95,12 +96,12 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Infantryman", new TravellerRewardCharacterCreationSkill(GunCombat_Slug)),
-                            ("Corporal", new TravellerRewardCharacterCreationSkill(Melee_Blade)),
-                            ("Sargent", new TravellerRewardCharacterCreationSkill(Recon)),
-                            ("Lieutenant", new TravellerRewardCharacterCreationSkill(Stealth)),
-                            ("Captain", new TravellerRewardCharacterCreationSkill(Tactics_Military)),
-                            ("Commander", new TravellerRewardCharacterCreationSkill(Leadership)),
+                            ("Infantryman", new TravellerRewardSkill(GunCombat_Slug)),
+                            ("Corporal", new TravellerRewardSkill(Melee_Blade)),
+                            ("Sargent", new TravellerRewardSkill(Recon)),
+                            ("Lieutenant", new TravellerRewardSkill(Stealth)),
+                            ("Captain", new TravellerRewardSkill(Tactics_Military)),
+                            ("Commander", new TravellerRewardSkill(Leadership)),
                         }),
 
                 },
@@ -155,7 +156,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         yesEvent:new TravellerEventReward("You are stealthy, the mission goes as planned.",
                             new List<TravellerCharacterCreationReward>
                             {
-                                new TravellerRewardCharacterCreationSkill(Stealth,1),
+                                new TravellerRewardSkill(Stealth,1),
                                 new TravellerRewardBonusBenefit(1)
                             }),
                         noEvent:new TravellerEventReward("You fail to be stealthy and everyone but one other is killed, the sole survivor blames you.",
@@ -172,7 +173,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         yesEvent:new TravellerEventReward("You are instrumental in pushing the enemies back!",
                             new List<TravellerCharacterCreationReward>
                             {
-                                new TravellerRewardCharacterCreationAdvancement(2),
+                                new TravellerRewardAdvancement(2),
                                 new TravellerRewardSkillChoice(1, new List<TravellerSkills>
                                 {
                                     GunCombat_Slug,Gunner
@@ -192,7 +193,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                                 new List<TravellerCharacterCreationReward>
                                 {
                                     new TravellerRewardBonusBenefit(random.Next(1,7)),
-                                    new TravellerRewardCharacterCreationSkill(Gambler)
+                                    new TravellerRewardSkill(Gambler)
                                 }), 
                             noEvent:new TravellerEventReward("You fail to make any winnings gambling.",
                                 new List<TravellerCharacterCreationReward>
@@ -222,7 +223,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                         successEvent:new TravellerEventReward("The officer helps you with your work",
                             new List<TravellerCharacterCreationReward>
                             {
-                                new TravellerRewardCharacterCreationAdvancement(2)
+                                new TravellerRewardAdvancement(2)
                             }),
                         failText:"The officer decides to take an interest in someone else",
                         failEvent:new TravellerEventReward("You spend the term doing extra work, which pays off in other ways",
@@ -230,7 +231,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                             {
                                 new TravellerRewardBonusBenefit(1)
                             }),
-                        atributeChecks:new List<TravellerAttributeCheck>
+                        attributeChecks:new List<TravellerAttributeCheck>
                         {
                             new TravellerAttributeCheck(Social,6)
                         }),
@@ -244,7 +245,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                                     Gunner,
                                     GunCombat_Slug
                                 }),
-                                new TravellerRewardCharacterCreationAdvancement(2)
+                                new TravellerRewardAdvancement(2)
                             }), 
                         noEvent:new TravellerEventText("You do nothing of note during the battle."), 
                         skillChecks:new List<TravellerSkillCheck>
@@ -269,7 +270,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                             new List<TravellerCharacterCreationReward>
                             {
                                 new TravellerRewardContact("Military Joyrider",TravellerNPCRelationship.Enemy),
-                                new TravellerRewardCharacterCreationAdvancement(1)
+                                new TravellerRewardAdvancement(1)
                             })),
                     
                     new TravellerEventReward("There is no war this term, instead you spend it simply waiting at the starport.", new List<TravellerCharacterCreationReward>

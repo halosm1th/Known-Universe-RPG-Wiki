@@ -9,6 +9,7 @@ namespace TravellerWiki.Data
         public TravellerSkillTableEntrySkill(TravellerSkills skill)
         {
             Skill = skill;
+            Name = Skill.ToString();
         }
 
         public override string ToString()

@@ -124,7 +124,7 @@ namespace CharacterCreationTest
             {
                 if (reward is TravellerRewardWeapon weapon)
                 {
-                    creator.ApplyReward(new TravellerRewardtem(new List<TravellerItem>
+                    creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
                     {
                         new TravellerWeapon("Weapon", 2000, 0, 12, 0, "0D6", 0, weapon.RewardText)
                     }));
@@ -579,8 +579,6 @@ namespace CharacterCreationTest
             var nationService = new TravellerNationsCharacterInfoService();
             var nations = nationService.GetNationsList;
             var nation = nations.ElementAt(random.Next(0, nations.Count));
-            //TODO remove shitty code
-            //nation = nations.First(n => n.NationName == "Fifth Vers Empire");
             
 
             Console.WriteLine($"Chosen nation: {nation}");
