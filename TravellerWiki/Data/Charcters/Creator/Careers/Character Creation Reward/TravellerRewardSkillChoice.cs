@@ -7,7 +7,7 @@ namespace TravellerWiki.Data
     public class TravellerRewardSkillChoice : TravellerCharacterCreationReward
     {
         public List<TravellerSkill> SkillList { get; }
-        public int PickCount { get; }
+        public int PickCount { get; set; }
 
         public TravellerRewardSkillChoice(int pickCount, List<TravellerSkills> skillList)
         {
@@ -22,6 +22,19 @@ namespace TravellerWiki.Data
         {
             SkillList = skillList;
             PickCount = pickCount;
+        }
+
+        public void ChoseOne()
+        {
+            PickCount--;
+        }
+
+        protected void AddSkills(List<TravellerSkills> skilllist)
+        {
+            foreach (var skill in skilllist)
+            {
+                SkillList.Add(new TravellerSkill(skill));
+            }
         }
 
         public override string ToString()

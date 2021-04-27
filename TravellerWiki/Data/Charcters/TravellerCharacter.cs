@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravellerWiki.Data.CreationEvents;
 
 #nullable enable
 namespace TravellerWiki.Data.Charcters
@@ -12,6 +13,7 @@ namespace TravellerWiki.Data.Charcters
     {
         public Stack<(TravellerCareer Career,TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
         public TravellerCareer LastCareer => PreviousCareers.Peek().Item1;
+        public Stack<TravellerEventCharacterCreation> CharactersEvents = new Stack<TravellerEventCharacterCreation>();
         public TravellerAssignment LastAssignment => PreviousCareers.Peek().Item2;
 
         public PlayerTravellerCharacter()

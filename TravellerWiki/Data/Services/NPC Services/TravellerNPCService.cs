@@ -593,7 +593,7 @@ namespace TravellerWiki.Data
             return npcList;
         }
 
-        protected async Task<TravellerNPC> TravellerNpc(string name)
+        protected async Task<TravellerNPC> TravellerNpcAsync(string name)
         {
             var background = rand.Next(0, 8);
             var career = rand.Next(0, 16);
@@ -603,6 +603,33 @@ namespace TravellerWiki.Data
 
             var backgroundName = await Task.Run(() => GetBackgroundName(background));
             var careerName = await Task.Run(() => GetCareerName(career));
+
+            var patron = PatronTypeList[rand.Next(0, PatronTypeList.Count)];
+            var quirk = CharacterQuirkList[rand.Next(0, CharacterQuirkList.Count)];
+
+            var npc = new TravellerNPC
+            {
+                SkillList = skillList,
+                AttributeList = attributeList,
+                Name = name,
+                Background = backgroundName,
+                Career = careerName,
+                PatronText = patron,
+                QuirkText = quirk
+            };
+            return npc;
+        }
+
+        protected TravellerNPC TravellerNpc(string name)
+        {
+            var background = rand.Next(0, 8);
+            var career = rand.Next(0, 16);
+
+            var skillList = SkillList(background, career, rand);
+            var attributeList = GetAttributeValues(AttributeList(background, career, rand), rand);
+
+            var backgroundName =GetBackgroundName(background);
+            var careerName = GetCareerName(career);
 
             var patron = PatronTypeList[rand.Next(0, PatronTypeList.Count)];
             var quirk = CharacterQuirkList[rand.Next(0, CharacterQuirkList.Count)];

@@ -18,6 +18,9 @@ namespace CharacterCreationTest.CharacterCreation
         public TravellerNationsCharacterInfo Nationality => _character.Nationality;
         public string Name => _character.Name;
         public readonly int AgingCrisisCost = 10000;
+        public TravellerCareer LastCareer => _character.LastCareer;
+        public TravellerAssignment LastAssignment => _character.LastAssignment;
+        public TravellerCareer ChosenCareer {get; set;}
         public int NumberOfTravellerBackgroundSKills =>
             3 + _character.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education).AttributeModifier;
 
@@ -33,6 +36,9 @@ namespace CharacterCreationTest.CharacterCreation
         
         public List<TravellerAttribute> GetPhysicalAttributes => GetAttributes.Where(x => x.IsPhysical()).ToList();
         public List<TravellerAttribute> GetMentalAttributes => GetAttributes.Where(x => x.IsMental()).ToList();
+
+        public Stack<TravellerEventCharacterCreation> CurrentTermsEvents = new Stack<TravellerEventCharacterCreation>();
+        public TravellerEventCharacterCreation LastEvent => CurrentTermsEvents.Count>0? CurrentTermsEvents.Peek() : new TravellerEventText("Error");
 
         #endregion
         #region Checks
@@ -144,11 +150,17 @@ namespace CharacterCreationTest.CharacterCreation
         }
 
         /// <summary>
-        /// Assign an attribute its value on the character
+        /// Assign an attribute its value on the character, if one with that name exists, remove it and add the new one.
         /// </summary>
         /// <param name="attribute">The attribute to assign to the character sheet</param>
         public void AssignStat(TravellerAttribute attribute)
         {
+            if (_character.AttributeList.Any(a => a.AttributeName == attribute.AttributeName))
+            {
+                _character.AttributeList.RemoveAll(a => a.AttributeName == attribute.AttributeName);
+            }
+
+
             _character.AttributeList.Add(attribute);
         }
         #endregion
@@ -372,7 +384,29 @@ namespace CharacterCreationTest.CharacterCreation
 
             //The life event table is supposed to be the numbers between 2-12. We must adjust for 
             //Zero based indexing
-            return _character.LastCareer.Events[roll - 2];
+            var evnt = _character.LastCareer.Events [roll - 2];
+            AddEvent(evnt);
+            return evnt;
+        }
+        
+        public void AddEvent(TravellerEventCharacterCreation evnt)
+        {
+            CurrentTermsEvents.Push(evnt);
+        }
+
+        public void DoneEvent()
+        {
+            var temp = new Queue<TravellerEventCharacterCreation>();
+            foreach (var evnt in CurrentTermsEvents)
+            {
+                temp.Enqueue(evnt);
+            }
+
+            foreach (var evnt in temp)
+            {
+                _character.CharactersEvents.Push(evnt);
+            }
+            CurrentTermsEvents = new Stack<TravellerEventCharacterCreation>();
         }
 
         /// <summary>
@@ -587,8 +621,12 @@ namespace CharacterCreationTest.CharacterCreation
         }
         #endregion
         #region Benefits
+        /// <summary>
+        /// Gain ytour benefit for the term and finish the event.
+        /// </summary>
         public void GainBenefitForTerm()
         {
+            DoneEvent();
             NumberOfBenefitRolls++;
         }
 

@@ -1,0 +1,82 @@
+@page "/CharacterCreation/Assignment/{characterID}/{careerNameInput}"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerCareerService CareerService;
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+    [Parameter]
+    public string careerNameInput { get; set; }
+    
+    string assignmentName = "";
+    TravellerAssignment chosenAssignment = null;
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    
+    public void selectAssignment()
+    {
+        var assignments = GetCareer().Assignments;
+        if (assignmentName == "")
+        {
+            chosenAssignment = assignments.First();
+        }
+        else
+        {
+            chosenAssignment = assignments.First(x => x.Name == assignmentName);
+        }
+        GetService().JoinCareer(GetCareer(), chosenAssignment);
+        DoneAssignment();
+    }
+
+    public void DoneAssignment()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/BasicTraining/{characterID}");
+    }
+
+    public TravellerCareer GetCareer()
+    {
+        return CareerService.GetCareer(careerNameInput.Replace('_', ' '));
+    }
+
+}
+<body>
+    <div style="text-align: center">
+        <h1>Traveller Character Creator</h1>
+        <h2>Select @GetService().Name's Assignment - @GetCareer().CareerName</h2>
+
+        <p>
+            @GetCareer().CareerName Assignments:
+            <ul>
+                @foreach (var assignment in GetCareer().Assignments)
+                {
+                    <li>@assignment.Name - @assignment.Description</li>
+                }
+            </ul>
+        </p>
+        <p>
+            Select an Assignment:
+            <select @bind="assignmentName">
+                @foreach (var assignment in GetCareer().Assignments)
+                {
+                    <option value="@assignment.Name">@assignment.Name</option>
+                }
+            </select>
+            <button @onclick="selectAssignment">Select Assignment & Join</button>
+        </p>
+    </div>
+</body>

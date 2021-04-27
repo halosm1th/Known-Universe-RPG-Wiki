@@ -43,6 +43,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerSkillDisplayService>();
             services.AddSingleton<TravellerFreeFormMagicSystemsService>();
             services.AddSingleton<CharacterCreatorService>();
+            services.AddSingleton<MultiPageCharacterCreationService>();
 
             services.AddSingleton<TravellerMapService>();
         }

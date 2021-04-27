@@ -1,0 +1,36 @@
+@page "/CharacterCreation/Base/{characterID}"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void DoneNationality()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/Base/{characterID}");
+    }
+
+}
+<body>
+    <div style="text-align: center">
+        <h1>Traveller Character Creator</h1>
+        <h2>Select @GetService().Name's - </h2>
+    </div>
+</body>

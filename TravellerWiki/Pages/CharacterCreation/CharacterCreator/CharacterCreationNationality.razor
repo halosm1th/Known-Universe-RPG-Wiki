@@ -1,0 +1,161 @@
+@page "/CharacterCreation/Nationality/{characterID}"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void DoneNationality()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/BackgroundSkills/{characterID}");
+    }
+
+
+    bool FailedNationEntry = false;
+
+
+    private TravellerNationalities ChosenNationality;
+    private int EntryRequirementChoice = 0;
+
+    public void initNationality()
+    {
+        EntryRequirementChoice = 0;
+    }
+
+    public void ApplyNationality()
+    {
+        var nationality = nationsService.GetNationsList.First(x => x.Nationality == ChosenNationality);
+        ApplyNationality(nationality);
+    }
+
+    public void ApplyNationality(TravellerNationsCharacterInfo nationality)
+    {
+        GetService().ApplyNationality(nationality);
+        DoneNationality();
+    }
+
+    public void TryEnterNationality()
+    {
+        var nationality = nationsService.GetNationsList.First(x => x.Nationality == ChosenNationality);
+        var entryRequirement = nationality.EntryRequirements[EntryRequirementChoice];
+        var roll = GetService().RollDice();
+
+        bool canEnter = !GetService().CanEnterNationality(nationality, entryRequirement, roll);
+
+        if (!canEnter)
+        {
+            nationality = nationsService.GetTravellerNationsCharacterInfos().First(x => x.Nationality == nationality.ParentNation);
+            FailedNationEntry = true;
+        }
+
+        ApplyNationality(nationality);
+    }
+
+}
+<body>
+<div style="text-align: center">
+        <h1>Traveller Character Creator</h1>
+
+        @if (FailedNationEntry)
+        {
+            <h2>Failed to get in</h2>
+            <p>You failed ot enter the nation you wanted, and instead are put into their parent nation</p>
+            <button @onclick="DoneNationality">Alright, I understand.</button>
+        }
+        else
+        {
+            <h2>Select @GetService().Name's Nationality</h2>
+            <p>Current stats: @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+            <p>Selection your Nationality from the dropdown: </p>
+            <select @bind="ChosenNationality">
+                @foreach (var nationality in nationsService.GetNationsList)
+                {
+                    <option value="@nationality.Nationality">@nationality.NationName</option>
+                }
+            </select>
+
+            @if (nationsService.GetNationsList.Any(x => x.Nationality == ChosenNationality))
+            {
+                <div>
+                    @{ var drawNationality = nationsService.GetNationsList.First(x => x.Nationality == ChosenNationality); }
+                    <h3>
+                        @drawNationality.NationName
+                        @if (drawNationality.ParentNation != drawNationality.Nationality)
+                        {
+                            @("- " + drawNationality.ParentNation)
+                            ;
+                        }
+                    </h3>
+                    <p>
+                        <h4>Entry Requirements: </h4>
+                        @(drawNationality.EntryRequirements.Count > 0 ?
+                            drawNationality.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core, ", ", addition)) : "None")
+                    </p>
+                    <p>
+                        Stat Changes: @drawNationality.GetStatChanges()
+                    </p>
+                    <p>
+                        @if (drawNationality.Perks.Count > 0)
+                        {
+                            var remove = drawNationality.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
+                            <text>Perks: @remove</text>
+                        }
+                    </p>
+                    <p>
+                        @{
+                            var skills = drawNationality.BackgroundSkills.Aggregate("", (s, n) => s + ", " + n.Value).Remove(0, 1);
+                        }
+                        <h4>Background Skills: </h4>@skills
+
+                    </p>
+                    <p>
+                        <h4>National Career Options</h4>
+                        <ul>
+                            @foreach (var career in TravellerCareerService.StaticListOfCareers.Where(career => career.Nationality == drawNationality.Nationality))
+                            {
+                                <li>
+                                    <a href="/Career?career=@career.CareerName" target="_blank" rel="noreferrer noopener">@career.CareerName </a>- @career.CareerDescription
+                                </li>
+                            }
+                        </ul>
+                    </p>
+                </div>
+                @if (drawNationality.EntryRequirements.Count > 0)
+                {
+                    <p>
+                        Select an entry requirement to roll against:
+                        <select @bind="EntryRequirementChoice">
+                            @for (int i = 0; i < drawNationality.EntryRequirements.Count; i++)
+                            {
+                                <option value="@i">@drawNationality.EntryRequirements[i]</option>
+                            }
+                        </select>
+
+                    </p>
+                    <button @onclick="TryEnterNationality">Attempt to enter nationality</button>
+                }
+                else
+                {
+                    <button @onclick="ApplyNationality">Select nationality</button>
+                }
+            }
+        }
+    </div>
+</body>

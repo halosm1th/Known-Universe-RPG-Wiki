@@ -20,7 +20,7 @@
     <None Remove="wwwroot\Images\Oren_Wastes_2_Subsector.jpg" />
     <None Remove="wwwroot\Images\Oren_Wastes_3_Subsector.jpg" />
     <None Remove="wwwroot\Images\Oren_wastes_4_subsector.jpg" />
-    <None Remove="wwwroot\Images\Payette_subsector.jpg" />
+    <None Remove="wwwroot\Images\Payette_subsector.jpg" /> 
     <None Remove="wwwroot\Images\Stacyville_subsector.jpg" />
     <None Remove="wwwroot\Images\Wallwern_Subsector.jpg" />
     <None Remove="wwwroot\Images\Wynona_subsector.jpg" />
@@ -41,6 +41,48 @@
 
   <ItemGroup>
     <Content Update="Pages\CharacterCreation\Career.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationEventAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationEventInjury.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationEventReward.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationRollEvent.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationRollSurvival.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationSkillChoice.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationBackgroundSkills.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationBasicTraining.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationChooseCareer.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationBase.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationNationality.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationStats.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationName.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationNew.razor">

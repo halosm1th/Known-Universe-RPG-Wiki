@@ -3,9 +3,9 @@ using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data
 {
-    public class TravellerRewardSkillAny : TravellerRewardSkill
+    public class TravellerRewardSkillAny : TravellerRewardSkillChoice
     {
-        public TravellerRewardSkillAny() : base(new List<TravellerSkills>())
+        public TravellerRewardSkillAny() : base(1, new List<TravellerSkills>())
         {
             AddSkills(new List<TravellerSkills>
             {

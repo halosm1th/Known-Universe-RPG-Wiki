@@ -68,8 +68,7 @@ namespace TravellerWiki.Data
 
         public TravellerSpecialNPC GenerateTravellerSpecialNpc(string name, TravellerNPCRelationship relationshipType)
         {
-            var baseNPCTask = TravellerNpc(name);
-            var baseNPC = baseNPCTask.Result;
+            var baseNPC = TravellerNpc(name);
 
             var affinity = TravellerSpecialNPC.AffinityModifier(GetAffinity(relationshipType));
             var enmity = TravellerSpecialNPC.EnmityModifier(GetEnmity(relationshipType));
