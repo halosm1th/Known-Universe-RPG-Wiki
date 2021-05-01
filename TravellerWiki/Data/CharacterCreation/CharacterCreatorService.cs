@@ -19,8 +19,8 @@ namespace CharacterCreationTest.CharacterCreation
         public string Name => _character.Name;
         public readonly int AgingCrisisCost = 10000;
         public TravellerCareer LastCareer => _character.LastCareer;
+        public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers => _character.PreviousCareers;
         public TravellerAssignment LastAssignment => _character.LastAssignment;
-        public TravellerCareer ChosenCareer {get; set;}
         public int NumberOfTravellerBackgroundSKills =>
             3 + _character.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education).AttributeModifier;
 
@@ -582,7 +582,9 @@ namespace CharacterCreationTest.CharacterCreation
 
             //The mishap table is supposed to be the numbers between 1 and 6. We must adjust for 
             //Zero based indexing
-            return _character.LastCareer.Mishaps[roll - 1];
+            var evnt = _character.LastCareer.Mishaps[roll - 1];
+            AddEvent(evnt);
+            return evnt;
         }
         #endregion
         #region Advancing
@@ -658,6 +660,25 @@ namespace CharacterCreationTest.CharacterCreation
             
             return GetBenefits()[benefitNumber].benefits;
             
+        }
+
+        public List<TravellerCharacterCreationReward> ChosenBenefits = new List<TravellerCharacterCreationReward>();
+        public void SelectBenefit(int benefitNumber, bool cash = false)
+        {
+            ChosenBenefits.Add(GetBenefit(benefitNumber,cash));
+        }
+
+        public Dictionary<int,int> GenerateBenefits()
+        {
+            var rand = new Random();
+            var rolls = new Dictionary<int, int>();
+
+            for (int i = 0; i < NumberOfBenefitRolls; i++)
+            {
+                rolls[i] = rand.Next(0, 6);
+            }
+
+            return rolls;
         }
         #endregion
         #region Injuries

@@ -43,52 +43,85 @@
     <Content Update="Pages\CharacterCreation\Career.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationEventAssignment.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventAssignment.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationEventInjury.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventInjury.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationEventReward.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventReward.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationRollEvent.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationMishapAssignment.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationRollSurvival.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationMishapInjury.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationSkillChoice.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationMishapReward.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationBackgroundSkills.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationRollMishap.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationAssignment.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationRollEvent.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationBasicTraining.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Advance\CharacterCreationRollAdvance.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationChooseCareer.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationRollSurvival.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Advance\CharacterCreationAdvanceSkill.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationSkillChoice.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationBackgroundSkills.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationBasicTraining.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationChooseCareer.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationBase.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationNationality.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationNationality.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationStats.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationStats.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationName.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationName.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationNew.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationNew.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreation.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationAgingInjury.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationFinished.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationAging.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationGenerateBenefit.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationLeaveCareer.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterSkills.razor">
@@ -151,10 +184,10 @@
     <Content Update="Pages\Rules\SpecializedMagic.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Search.cshtml">
+    <Content Update="Pages\Other\Search.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Test.razor">
+    <Content Update="Pages\Subsectors\Subsector_Test.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid2.razor">
@@ -232,52 +265,52 @@
     <Content Update="Pages\Nations\STC.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Citra.razor">
+    <Content Update="Pages\Subsectors\Subsector_Citra.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Doland.razor">
+    <Content Update="Pages\Subsectors\Subsector_Doland.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Intercourse.razor">
+    <Content Update="Pages\Subsectors\Subsector_Intercourse.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Kendrick.razor">
+    <Content Update="Pages\Subsectors\Subsector_Kendrick.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_New_Islands.razor">
+    <Content Update="Pages\Subsectors\Subsector_New_Islands.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Old_Islands.razor">
+    <Content Update="Pages\Subsectors\Subsector_Old_Islands.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Olivehurst.razor">
+    <Content Update="Pages\Subsectors\Subsector_Olivehurst.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_Wastes_1.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_Wastes_1.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_Wastes_2.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_Wastes_2.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_Wastes_3.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_Wastes_3.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_wastes_4.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_wastes_4.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Payette.razor">
+    <Content Update="Pages\Subsectors\Subsector_Payette.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Stacyville.razor">
+    <Content Update="Pages\Subsectors\Subsector_Stacyville.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Wallwern.razor">
+    <Content Update="Pages\Subsectors\Subsector_Wallwern.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Wynona.razor">
+    <Content Update="Pages\Subsectors\Subsector_Wynona.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Zaleski.razor">
+    <Content Update="Pages\Subsectors\Subsector_Zaleski.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Other\UCGalaxyPowerRating.razor">

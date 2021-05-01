@@ -1,4 +1,4 @@
-@page "/CharacterCreation/EventInjury/{characterID}"
+@page "/CharacterCreation/MishapInjury/{characterID}"
 @using CharacterCreationTest.CharacterCreation
 @using Microsoft.AspNetCore.Html
 @using TravellerWiki.Data
@@ -27,7 +27,7 @@
     public void DoneEvent()
     {
         GetService().GainBenefitForTerm();
-        NavManager.NavigateTo($"/CharacterCreation/RollAdvancement/{characterID}");
+        NavManager.NavigateTo($"/CharacterCreation/GenerateBenefit/{characterID}");
     }
     
     public int effectedStat = -1;
@@ -55,7 +55,7 @@
 <body>
     <div style="text-align: center">
         <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's - Injury</h2>
+        <h2>Select @GetService().Name's - Mishap Injury</h2>
         @if (GetService().LastEvent is TravellerEventSeverelyInjured injured)
         {
             if (ActualInjury == null)

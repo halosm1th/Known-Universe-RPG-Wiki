@@ -1,0 +1,43 @@
+@page "/CharacterCreation/LeaveCareer/{characterID}"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void LeaveCareer()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/GenerateBenefit/{characterID}");
+    }
+
+    
+    public void StayInCareer()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/Finished/{characterID}");
+    }
+
+}
+<body>
+    <div style="text-align: center">
+        <h1>Traveller Character Creator</h1>
+        <h2>Select @GetService().Name's - Leave Career</h2>
+        <p>Would you like to: <button @onclick="StayInCareer">Continue in your current Career</button> or <button @onclick="LeaveCareer">Leave your current Career</button> </p>
+    </div>
+</body>

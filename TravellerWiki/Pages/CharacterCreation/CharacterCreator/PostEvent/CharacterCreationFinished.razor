@@ -1,0 +1,42 @@
+@page "/CharacterCreation/Finished/{characterID}"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void DoneFinished()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/Aging/{characterID}");
+    }
+    
+    public void ViewCharacter()
+    {
+        NavManager.NavigateTo($"/Character/{characterID}");
+    }
+}
+<body>
+    <div style="text-align: center">
+        <h1>Traveller Character Creator</h1>
+        <h2>Select @GetService().Name's - Finished?</h2>
+        <p>@GetService()._character</p>
+        <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="ViewCharacter">Thats it.</button></p>
+    </div>
+</body>
