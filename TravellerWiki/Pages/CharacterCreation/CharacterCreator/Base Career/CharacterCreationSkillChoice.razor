@@ -36,8 +36,10 @@
             HasChosenSkillTable = true;
             chosenSkillTable = -1;
             ChosenSkillTableName = "";
+            SkillName = skill.Name;
         }
 
+    public string SkillName = "None";
         public TravellerSkills ChosenSubSkill;
         public TravellerSkills SuperSkill;
         public void SelectSubSkill()
@@ -115,7 +117,7 @@
         }
         else
         {
-            <p>Finished Gaining skill: @(isSuperSkill ? @ChosenSubSkill : @SuperSkill)</p>
+            <p>Finished Gaining skill: @(SkillName)</p>
             <button @onclick="DonePickingSkills">Done picking skills</button>
         }
     </div>

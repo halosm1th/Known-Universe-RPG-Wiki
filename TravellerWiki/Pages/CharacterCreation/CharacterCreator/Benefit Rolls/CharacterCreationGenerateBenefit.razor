@@ -1,0 +1,164 @@
+@page "/CharacterCreation/GenerateBenefit/{characterID}"
+@using CharacterCreationTest.CharacterCreation
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+
+    public Dictionary<int, int> GeneratedBenefits;
+    int chosenBenefitRoll = -1;
+    int benefitModifier = 0;
+
+    public TravellerCareer GetCareer()
+    {
+        if (GetService().FirstTermOfJob)
+        {
+            var Currentcareer = GetService().PreviousCareers.Pop();
+            var retCar = GetService().PreviousCareers.Peek().Career;
+            GetService().PreviousCareers.Push(Currentcareer);
+            return retCar;
+        }
+        else
+        {
+            return GetService().LastCareer;
+        }
+    }
+
+    public void GenerateBenefits()
+    {
+        GeneratedBenefits = GetService().GenerateBenefits();
+
+    }
+
+    private int GetChosenBenefitNumber()
+    {
+        var result = 0;
+        if (chosenBenefitRoll == -1)
+        {
+            chosenBenefitRoll = 0;
+        }
+
+        result = GeneratedBenefits[chosenBenefitRoll];
+
+        GeneratedBenefits.Remove(chosenBenefitRoll); 
+
+        if (benefitModifier > 0)
+        {
+            result += GetService().UseModifier(benefitModifier - 1);
+        }
+
+        return result;
+    }
+
+    public void SelectCash()
+    {
+        GetService().SelectBenefit(GetChosenBenefitNumber(),true);
+    }
+
+    public void SelectBenefit()
+    {
+        GetService().SelectBenefit(GetChosenBenefitNumber(),false);
+    }
+
+    public void ApplyBenefits()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/ApplyBenefits/{characterID}");
+    }
+
+    public void DoneGeneratingBenefits()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/Finished/{characterID}");
+    }
+
+}
+<body>
+    <div style="text-align: center">
+        <h1>Traveller Character Creator</h1>
+        <h2>Select @GetService().Name's - Benefits</h2>
+        @if (GeneratedBenefits == null)
+        {
+            GenerateBenefits();
+        }
+
+
+        <p>You have: @GetService().NumberOfBenefitRolls benefit rolls for the @GetCareer() with the following modifiers:  @(GetService().BenefitRollModifiers.Count > 0 ? @GetService().BenefitRollModifiers.Aggregate("", (h, t) => h += ", " + t).Remove(0, 1) : "None")</p>
+        <p>
+            The @GetCareer() Benefit Table looks like:
+            <table>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Cash</th>
+                        <th>Benefit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < GetCareer().MusteringOutBenefits.Count; i++)
+                    {
+                        <tr><td>@(i + 1)</td><td>Cr @GetCareer().MusteringOutBenefits[i].Cash</td><td>@GetCareer().MusteringOutBenefits[i].Benefit</td></tr>
+                    }
+                </tbody>
+            </table>
+        </p>
+        @if (GeneratedBenefits.Count > 0)
+        {
+            <p>You have: @GeneratedBenefits remaining.</p>
+            <p>
+                Select Benefit Roll to use
+                <select @bind="chosenBenefitRoll">
+                    @foreach (var roll in GeneratedBenefits)
+                    {
+                        <option value="@roll.Value">@roll.Value</option>
+                    }
+                </select>
+            </p>
+            @if (GetService().BenefitRollModifiers.Count >= 0)
+            {
+                <p>
+                    Select a benefit roll modifer to use, if any
+                    <select @bind="benefitModifier">
+                        <option value="0">None</option>
+
+                        @for (int i = 0; i < GetService().BenefitRollModifiers.Count; i++)
+                        {
+                            <option value="@(i+1)"> @GetService().BenefitRollModifiers[i]</option>
+                        }
+                    </select>
+                </p>
+            }
+            <p>
+                <button @onclick="SelectCash">Cash</button> or <button @onclick="SelectBenefit"> Benefit </button>
+            </p>
+        }
+        else
+        {
+            @if (GetService().ChosenBenefits.Count > 0)
+            {
+                <button @onclick="ApplyBenefits">Apply Benefits.</button>
+            }
+            else
+            {
+                <button @onclick="DoneGeneratingBenefits">Done Benefits.</button>
+            }
+        }
+    </div>
+</body>

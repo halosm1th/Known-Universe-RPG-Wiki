@@ -39,6 +39,7 @@ namespace CharacterCreationTest.CharacterCreation
 
         public Stack<TravellerEventCharacterCreation> CurrentTermsEvents = new Stack<TravellerEventCharacterCreation>();
         public TravellerEventCharacterCreation LastEvent => CurrentTermsEvents.Count>0? CurrentTermsEvents.Peek() : new TravellerEventText("Error");
+        public List<TravellerCharacterCreationReward> ChosenBenefits = new List<TravellerCharacterCreationReward>();
 
         #endregion
         #region Checks
@@ -385,7 +386,7 @@ namespace CharacterCreationTest.CharacterCreation
             //The life event table is supposed to be the numbers between 2-12. We must adjust for 
             //Zero based indexing
             var evnt = _character.LastCareer.Events [roll - 2];
-            AddEvent(evnt);
+             AddEvent(evnt);
             return evnt;
         }
         
@@ -637,12 +638,12 @@ namespace CharacterCreationTest.CharacterCreation
             return _character.LastCareer.MusteringOutBenefits;
         }
 
-        public int UseModifier(int usedBenefit)
+        public int UseModifier(int usedBenefitModifier)
         {
-            if(usedBenefit < 0 || usedBenefit > BenefitRollModifiers.Count) throw new ArgumentOutOfRangeException($"Error argument was outside of range for benefit rolls. Got {usedBenefit} but range is 0-{BenefitRollModifiers.Count}");
+            if(usedBenefitModifier < 0 || usedBenefitModifier > BenefitRollModifiers.Count) throw new ArgumentOutOfRangeException($"Error argument was outside of range for benefit rolls. Got {usedBenefitModifier} but range is 0-{BenefitRollModifiers.Count}");
 
-            var benefit = BenefitRollModifiers[usedBenefit];
-            BenefitRollModifiers.RemoveAt(usedBenefit);
+            var benefit = BenefitRollModifiers[usedBenefitModifier];
+            BenefitRollModifiers.RemoveAt(usedBenefitModifier);
 
             return benefit;
         }
@@ -662,20 +663,25 @@ namespace CharacterCreationTest.CharacterCreation
             
         }
 
-        public List<TravellerCharacterCreationReward> ChosenBenefits = new List<TravellerCharacterCreationReward>();
         public void SelectBenefit(int benefitNumber, bool cash = false)
         {
             ChosenBenefits.Add(GetBenefit(benefitNumber,cash));
         }
 
+        /// <summary>
+        /// Generate the benefit rolls, and reset the chosen benefits list.
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<int,int> GenerateBenefits()
         {
             var rand = new Random();
+            ChosenBenefits = new List<TravellerCharacterCreationReward>();
+
             var rolls = new Dictionary<int, int>();
 
             for (int i = 0; i < NumberOfBenefitRolls; i++)
             {
-                rolls[i] = rand.Next(0, 6);
+                rolls.Add(i,rand.Next(0, 6));
             }
 
             return rolls;
@@ -1020,7 +1026,9 @@ namespace CharacterCreationTest.CharacterCreation
             }
 
             //The lowest you can have is the number of dice, but the highest value of those dice
-            return Math.Max(Math.Min(numberOfDice*sidesPerDie,result),numberOfDice);
+            var min = Math.Min(numberOfDice * sidesPerDie, result);
+            var max = Math.Max(min, numberOfDice);
+            return max;
         }
 
         public PlayerTravellerCharacter GetPlayerCharacter() => _character; 

@@ -10,5 +10,14 @@ namespace TravellerWiki.Data.TravellerInjuries
         {
             Injuries = injuries;
         }
+
+        /// <summary>
+        /// When you've resolved an injury, remove it from the list
+        /// </summary>
+        /// <param name="inj">Injury to remove</param>
+        public void ResolveInjury(TravellerInjury inj)
+        {
+            Injuries.Remove(inj);
+        }
     }
 }

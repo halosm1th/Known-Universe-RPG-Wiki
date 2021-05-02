@@ -43,6 +43,9 @@
     <Content Update="Pages\CharacterCreation\Career.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationBenefitAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventAssignment.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -112,13 +115,16 @@
     <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationAgingInjury.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationApplyBenefit.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationFinished.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationAging.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationGenerateBenefit.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationGenerateBenefit.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationLeaveCareer.razor">
