@@ -6,6 +6,7 @@
 @using TravellerWiki.Data.CreationEvents
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -22,7 +23,7 @@
     {
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
     }
-    
+
     #region Change Pages
 
     public void DoneEvent()
@@ -76,116 +77,122 @@
 
 }
 <body>
-<div style="text-align: center">
-    <h1>Traveller Character Creator</h1>
-    <h2>Select @GetService().Name's - Event Reward</h2>
-    @if (GetService().LastEvent is TravellerEventReward rwd)
-    {
-        bool HasShownRewardButton = false;
-        <p>
-            You gain the following rewards:
-            @foreach (var reward in rwd.Reward)
-            {
-                if (!applyReward(reward))
-                {
-                    @reward.ToString()
-                    @(", ")
-                }
-                else
-                {
-                    @reward.ToString()
-                    ;
-                    @(", ")
-                    ;
-                    if (reward is TravellerRewardWeapon weapon)
-                    {
-                        applyReward(new TravellerRewardItem(new List<TravellerItem> { new TravellerWeapon("Weapon", 2000, 0, 12, 0, "0D6", 0, weapon.RewardText) }));
-                    }
-                    else if (reward is TravellerRewardSkillChoice skillRewardChoice)
-                    {
-                        if (PickCount < 0)
-                        {
-                            InitRewardSkill(skillRewardChoice.PickCount);
-                        }
-                        if (PickCount >= 1)
-                        {
-                            <select @bind="chosenRewardSkill">
-                                    @foreach (var skill in skillRewardChoice.SkillList)
-                                    {
-                                        if (skill.IsSuperSkill())
-                                        {
-                                            foreach (var subSkill in GetService().GetSubSkills(skill.SkillName))
-                                            {
-                                                <option value="@((int) subSkill)">@subSkill</option>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <option value="@((int) skill.SkillName)">@skill.SkillNameText</option>
-                                        }
-                                    }
-                                </select>
-                            HasShownRewardButton = true;
-                            <button @onclick="AddRewardSkill">Add skill</button>
 
-                        }
-                        else if (reward is TravellerRewardSkill skills)
+    <div>
+        <div style="text-align: left; padding: 2em;">
+            <h1>Traveller Character Creator</h1>
+            <h2>Select @GetService().Name's - Event Reward</h2>
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <div style="padding-left: 2em;">
+                @if (GetService().LastEvent is TravellerEventReward rwd)
+                {
+                    bool HasShownRewardButton = false;
+                    <p>
+                        You gain the following rewards:
+                        @foreach (var reward in rwd.Reward)
                         {
-
-                            <p>Gain the following skills</p>
-                            <ul>
-                                @foreach (var skill in skills.Skilllist)
+                            if (!applyReward(reward))
+                            {
+                                @reward.ToString()
+                                @(", ")
+                            }
+                            else
+                            {
+                                @reward.ToString()
+                                ;
+                                @(", ")
+                                ;
+                                if (reward is TravellerRewardWeapon weapon)
                                 {
-                                    if (skill.IsSuperSkill())
+                                    applyReward(new TravellerRewardItem(new List<TravellerItem> { new TravellerWeapon("Weapon", 2000, 0, 12, 0, "0D6", 0, weapon.RewardText) }));
+                                }
+                                else if (reward is TravellerRewardSkillChoice skillRewardChoice)
+                                {
+                                    if (PickCount < 0)
                                     {
-                                        <li>
-                                            SuperSkill is a superskill, select a subskill to specialize in: select bind="ChosenSubSkill">
-                                            foreach (var subskill in CharacterCreationService.GetSubSkills(skill.SkillName))
+                                        InitRewardSkill(skillRewardChoice.PickCount);
+                                    }
+                                    if (PickCount >= 1)
+                                    {
+                                        <select @bind="chosenRewardSkill">
+                                            @foreach (var skill in skillRewardChoice.SkillList)
                                             {
-                                            option value="subskill">subskill/option>
+                                                if (skill.IsSuperSkill())
+                                                {
+                                                    foreach (var subSkill in GetService().GetSubSkills(skill.SkillName))
+                                                    {
+                                                        <option value="@((int) subSkill)">@subSkill</option>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <option value="@((int) skill.SkillName)">@skill.SkillNameText</option>
+                                                }
                                             }
-                                            /select>
-                                            button onclick="SelectSubSkill">Select Subskill/button>
-                                        </li>
+                                        </select>
+                                        HasShownRewardButton = true;
+                                        <button @onclick="AddRewardSkill">Add skill</button>
 
                                     }
-                                    else
+                                    else if (reward is TravellerRewardSkill skills)
                                     {
-                                        <li>@skill.SkillName</li>
-                                        GetService().AddSkillToCharacter(skill.SkillName);
-                                    }
+
+                                    <p>Gain the following skills</p>
+                                    <ul>
+                                        @foreach (var skill in skills.Skilllist)
+                                        {
+                                            if (skill.IsSuperSkill())
+                                            {
+                                                <li>
+                                                    SuperSkill is a superskill, select a subskill to specialize in: select bind="ChosenSubSkill">
+                                                    foreach (var subskill in CharacterCreationService.GetSubSkills(skill.SkillName))
+                                                    {
+                                                    option value="subskill">subskill/option>
+                                                    }
+                                                    /select>
+                                                    button onclick="SelectSubSkill">Select Subskill/button>
+                                                </li>
+
+                                            }
+                                            else
+                                            {
+                                                <li>@skill.SkillName</li>
+                                                GetService().AddSkillToCharacter(skill.SkillName);
+                                            }
+                                        }
+                                    </ul>
+                                    HasShownRewardButton = true;
+                                    <button @onclick="DoneEvent">Sweet!</button>
                                 }
-                            </ul>
-                            HasShownRewardButton = true;
-                            <button @onclick="DoneEvent">Sweet!</button>
+                                else if (reward is TravellerRewardJobChange jobChange)
+                                {
+                                    newCareerName = jobChange.NewCareerName;
+                                    HasShownRewardButton = true;
+                                    <button @onclick="ChangeCareerEvent">Okay, let me pick an assignment.</button>
+                                }
+                                else if (reward is TravellerRewardLifeEvent lifeEvent)
+                                {
+                                    HasShownRewardButton = true;
+                                    <button @onclick="LifeEventReward">Bring on the Life Event!</button>
+                                }
+                                else
+                                {
+                                    HasShownRewardButton = true;
+
+                                    <button @onclick="DoneEvent">Sweet!</button>
+                                }
+                            }
                         }
-                        else if (reward is TravellerRewardJobChange jobChange)
+
+                        if (!HasShownRewardButton)
                         {
-                            newCareerName = jobChange.NewCareerName;
-                            HasShownRewardButton = true;
-                            <button @onclick="ChangeCareerEvent">Okay, let me pick an assignment.</button>
-                        }
-                        else if (reward is TravellerRewardLifeEvent lifeEvent)
-                        {
-                            HasShownRewardButton = true;
-                            <button @onclick="LifeEventReward">Bring on the Life Event!</button>
-                        }
-                        else
-                        {
-                            HasShownRewardButton = true;
 
                             <button @onclick="DoneEvent">Sweet!</button>
                         }
                     }
-                }
-
-                if (!HasShownRewardButton)
-                {
-
-                    <button @onclick="DoneEvent">Sweet!</button>
-                }
-            }
-                </p>
-            }
+                        </p>
+                    }
+            </div>
+        </div>
     </div>
-    </body>
+</body>

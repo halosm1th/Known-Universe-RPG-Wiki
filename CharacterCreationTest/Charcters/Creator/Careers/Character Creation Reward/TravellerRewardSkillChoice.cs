@@ -39,7 +39,7 @@ namespace TravellerWiki.Data
 
         public override string ToString()
         {
-            return $"Pick {PickCount} from: [{SkillList.Aggregate("", (next, s) => next + s + ",")}]";
+            return $"Pick {PickCount} from: [{SkillList.Aggregate("",(next,s) => next + s + ",")}]";
         }
     }
 }

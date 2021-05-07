@@ -1,12 +1,39 @@
 @page "/"
 @page "/Index"
 @using TravellerWiki
-<head><title>@this.ToString().Replace("TravellerWiki.Pages.","") </title></head>
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+</head>
 <body>
     <h1>Traveller Universe Wiki</h1>
     <p>
         Welcome to my Traveller Univers WIki page for my groups traveller games. This has information on the different goverments, things, history, etc. I hope you enjoy. I Recommend starting at the <a href="ufe">United Federation of Earth</a>. If you're just looking to get up to speed on whats happening with the Western Islands (the main area for the traveller game) check out the <a href="VoicesFromTheVoid">Voices from the Void.</a> An in universe news letter designed to let the people of the Western Islands (and the players) know just what all the big players have been up too within the area.
     </p>
+    <h2>Islands Information</h2>
+    <ul>
+        <li><a href="/Other/IslandsCompanies">Islands Companies</a></li>
+        <li><a href="/JobBoard/">Islands Job Board</a></li>
+        <li> <a href="/VoicesFromTheVoid/VoicesFromTheVoid">Voices from the Void.</a></li>
+        <li> <a href="Islands_Sector">Islands Sector</a></li>
+    </ul>
+
+    <h2>Player Stuff</h2>
+    <ul>
+        <li><a href="/CharacterCreationRules">Character Creation Rules</a></li>
+        <li><a href="/Career/">Careers</a></li>
+        <li><a href="/CharacterCreation/New">Character Creator (WIP)</a></li>
+        <li><a href="/CharacterCreationRules/Skills">Character Skills</a></li>
+        <li><a href="/Rules/">Rules</a></li>
+    </ul>
+
+    <h2>Generators</h2>
+    <ul>
+        <li> <a href="Generators/TravellerNPCGenerator">NPC Generator</a></li>
+        <li> <a href="Generators/TravellerSpecialNPCGenerator">Special NPC Generator</a></li>
+        <li> <a href="Generators/TravellerNameGenerator">Name Generator</a></li>
+        <li> <a href="Generators/TravellerMissionGenerator">Mission Generator</a></li>
+    </ul>
+
     <h2>Major Goverments</h2>
     <ul>
         <li><NavLink href="UFE">The United Federation of Earth</NavLink></li>
@@ -45,24 +72,6 @@
 
     </ul>
 
-    <h2>Islands Information</h2>
-    <ul>
-        <li><a href="/Other/IslandsCompanies">Islands Companies</a></li>
-        <li><a href="/JobBoard/">Islands Job Board</a></li>
-        <li> <a href="/VoicesFromTheVoid/VoicesFromTheVoid">Voices from the Void.</a></li>
-        <li> <a href="Islands_Sector">Islands Sector</a></li>
-
-    </ul>
-
-    <h2>Player Stuff</h2>
-    <ul>
-        <li><a href="/CharacterCreationRules">Character Creation Rules</a></li>
-        <li><a href="/Career/">Careers</a></li>
-        <li><a href="/CharacterCreation/New">Character Creator (WIP)</a></li>
-        <li><a href="/CharacterCreationRules/Skills">Character Skills</a></li>
-        <li><a href="/Rules/">Rules</a></li>
-    </ul>
-
     <h2>Other Stuff</h2>
     <ul>
         <li> <a href="/Other/UCGalaxyPowerRating"> Universalis Confederation Galatic Level nation Power Ratings!</a></li>
@@ -73,12 +82,5 @@
         <li><a href="/Other/LangaugeFamilies">Language Families</a></li>
     </ul>
 
-    <h2>Generators</h2>
-    <ul>
-        <li> <a href="Generators/TravellerNPCGenerator">NPC Generator</a></li>
-        <li> <a href="Generators/TravellerSpecialNPCGenerator">Special NPC Generator</a></li>
-        <li> <a href="Generators/TravellerNameGenerator">Name Generator</a></li>
-        <li> <a href="Generators/TravellerMissionGenerator">Mission Generator</a></li>
-    </ul>
 </body>
 

@@ -5,6 +5,7 @@
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -78,14 +79,17 @@
 
     public void DoneChoosingCharacter()
     {
-        NavManager.NavigateTo($"/CharacterCreation/Assignment/{characterID}/{chosenCareer.CareerName.Replace(' ','_')}");
+        NavManager.NavigateTo($"/CharacterCreation/Assignment/{characterID}/{chosenCareer.CareerName.Replace(' ', '_')}");
     }
 
 }
 <body>
-    <div style="text-align: center">
-        <h1>Traveller Character Creator</h1>
-        <h2>Select Career - @GetService().Nationality.NationName</h2>
+
+<div style="text-align: left; padding-left: 2em;">
+    <h1>Traveller Character Creator</h1>
+    <h2>Select Career - @GetService().Nationality.NationName</h2>        
+    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <div style="padding-left: 2em;">
         <p>
             Careers:
             <ul>
@@ -147,4 +151,5 @@
         }
 
     </div>
+</div>
 </body>

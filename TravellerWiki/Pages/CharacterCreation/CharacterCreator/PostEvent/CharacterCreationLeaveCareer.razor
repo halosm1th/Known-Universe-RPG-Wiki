@@ -27,7 +27,7 @@
         NavManager.NavigateTo($"/CharacterCreation/GenerateBenefit/{characterID}");
     }
 
-    
+
     public void StayInCareer()
     {
         NavManager.NavigateTo($"/CharacterCreation/Finished/{characterID}");
@@ -35,9 +35,12 @@
 
 }
 <body>
-    <div style="text-align: center">
+
+    <div style="text-align: left; padding: 2em;">
         <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's - Leave Career</h2>
-        <p>Would you like to: <button @onclick="StayInCareer">Continue in your current Career</button> or <button @onclick="LeaveCareer">Leave your current Career</button> </p>
+        <h2>Select @GetService().Name's - Leave Career</h2>        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <div style="padding-left: 2em;">
+            <p>Would you like to: <button @onclick="StayInCareer">Continue in your current Career</button> or <button @onclick="LeaveCareer">Leave your current Career</button> </p>
+        </div>
     </div>
 </body>

@@ -40,7 +40,7 @@ namespace CharacterCreationTest
 
         private static TravellerCharacter GenerateCharacter()
         {
-            var travellerCreator = new CharacterCreator();
+            var travellerCreator = new CharacterCreatorService();
             travellerCreator.NewCharacter();
 
             var random = new Random();
@@ -88,7 +88,7 @@ namespace CharacterCreationTest
             return travellerCreator.GetPlayerCharacter();
         }
 
-        private static void GetBenefits(CharacterCreator creator, Random random)
+        private static void GetBenefits(CharacterCreatorService creator, Random random)
         {
             var benefits = creator.GetBenefits();
             for (var i = 0; i < creator.NumberOfBenefitRolls; i++)
@@ -106,7 +106,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static int GetBenefitModifier(CharacterCreator creator, Random random, int roll)
+        private static int GetBenefitModifier(CharacterCreatorService creator, Random random, int roll)
         {
             var modifier = random.Next(creator.BenefitRollModifiers.Count);
             if (roll + modifier < 1 || roll+modifier > 7)
@@ -117,7 +117,7 @@ namespace CharacterCreationTest
             return modifier;
         }
 
-        private static void ApplyReward(CharacterCreator creator,Random random,TravellerCharacterCreationReward reward)
+        private static void ApplyReward(CharacterCreatorService creator,Random random,TravellerCharacterCreationReward reward)
         {
             Console.WriteLine($"Apply reward: {reward}");
             if (creator.ApplyReward(reward))
@@ -172,7 +172,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void CreationEvent(CharacterCreator travellerCreator, Random random)
+        private static void CreationEvent(CharacterCreatorService travellerCreator, Random random)
         {
             TravellerEventCharacterCreation creationEvent;
             if (travellerCreator.CheckSurvival(travellerCreator.RollDice()))
@@ -198,26 +198,26 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void FindCareer(CharacterCreator travellerCreator, Random random)
+        private static void FindCareer(CharacterCreatorService travellerCreator, Random random)
         {
             var career = GetCareer(travellerCreator, random);
             GetAssignmentAndJoinCareer(travellerCreator, random, career);
         }
 
-        private static void GetAssignmentAndJoinCareer(CharacterCreator travellerCreator, Random random, TravellerCareer career)
+        private static void GetAssignmentAndJoinCareer(CharacterCreatorService travellerCreator, Random random, TravellerCareer career)
         {
             var assignment = GetAssignment(travellerCreator, career, random);
             JoinCareerAndBasicTraining(travellerCreator, random, career, assignment);
         }
 
-        private static void JoinCareerAndBasicTraining(CharacterCreator travellerCreator, Random random, TravellerCareer career,
+        private static void JoinCareerAndBasicTraining(CharacterCreatorService travellerCreator, Random random, TravellerCareer career,
             TravellerAssignment assignment)
         {
             travellerCreator.JoinCareer(career, assignment);
             BasicTraining(travellerCreator, career, random);
         }
 
-        private static void GenerateNationality(Random random, CharacterCreator travellerCreator)
+        private static void GenerateNationality(Random random, CharacterCreatorService travellerCreator)
         {
             var nation = ApplyNationality(random, travellerCreator);
             GetBackgroundSkills(travellerCreator, nation, random);
@@ -225,7 +225,7 @@ namespace CharacterCreationTest
 
         #region career
 
-        public static void Advance(CharacterCreator creator, Random random)
+        public static void Advance(CharacterCreatorService creator, Random random)
         {
             if (creator.Advances(creator.RollDice()))
             {
@@ -239,7 +239,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void IncreaseAge(CharacterCreator creator, Random random)
+        private static void IncreaseAge(CharacterCreatorService creator, Random random)
         {
             Console.WriteLine("Applying aging");
             if (creator.ApplyAging())
@@ -260,7 +260,7 @@ namespace CharacterCreationTest
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
-        private static void ApplyInjuries(CharacterCreator creator, Random random, TravellerInjury injury)
+        private static void ApplyInjuries(CharacterCreatorService creator, Random random, TravellerInjury injury)
         {
             if (injury is TravellerMultiInjury multi)
             {
@@ -271,7 +271,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void ApplyInjury(CharacterCreator creator, Random random, TravellerInjury injury)
+        private static void ApplyInjury(CharacterCreatorService creator, Random random, TravellerInjury injury)
         {
             if (injury is TravellerMultiInjuryChoice choice)
             {
@@ -307,7 +307,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void ApplyEvent(CharacterCreator creator,Random random,TravellerEventCharacterCreation creationEvent)
+        private static void ApplyEvent(CharacterCreatorService creator,Random random,TravellerEventCharacterCreation creationEvent)
         {
             Console.WriteLine($"{creationEvent.EventText}");
             if (creationEvent is TravellerEventAttributeCheck attribute)
@@ -366,7 +366,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void PreformASkillCheck(CharacterCreator creator, Random random, TravellerEventSkillCheck skillCheck)
+        private static void PreformASkillCheck(CharacterCreatorService creator, Random random, TravellerEventSkillCheck skillCheck)
         {
             var check = skillCheck.SkillChecks[random.Next(skillCheck.SkillChecks.Count)];
             if (creator.PassSkillCheck(check, creator.RollDice()))
@@ -389,7 +389,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void ChoiceEvent(CharacterCreator creator, Random random, TravellerEventChoice choice)
+        private static void ChoiceEvent(CharacterCreatorService creator, Random random, TravellerEventChoice choice)
         {
             if (random.Next(0, 2) != 1)
             {
@@ -409,7 +409,7 @@ namespace CharacterCreationTest
             }
         }
 
-        private static void AttributeEvent(CharacterCreator creator,Random random ,TravellerEventAttributeCheck attribute)
+        private static void AttributeEvent(CharacterCreatorService creator,Random random ,TravellerEventAttributeCheck attribute)
         {
             if (attribute.AttributeChecks[0].PassedCheck(creator.RollDice()))
             {
@@ -429,17 +429,17 @@ namespace CharacterCreationTest
             }
         }
 
-        private static TravellerEventCharacterCreation GetEvent(CharacterCreator creator)
+        private static TravellerEventCharacterCreation GetEvent(CharacterCreatorService creator)
         {
             return creator.GetEvent(creator.RollDice());
         }
 
-        private static TravellerEventCharacterCreation GetMishap(CharacterCreator creator)
+        private static TravellerEventCharacterCreation GetMishap(CharacterCreatorService creator)
         {
             return creator.GetMishap(creator.RollDice(1));
         }
 
-        private static TravellerCareer GetCareer(CharacterCreator travellerCreator, Random random)
+        private static TravellerCareer GetCareer(CharacterCreatorService travellerCreator, Random random)
         {
             Console.WriteLine("Getting career.");
 
@@ -472,7 +472,7 @@ namespace CharacterCreationTest
             return career;
         }
 
-        public static TravellerAssignment GetAssignment(CharacterCreator creator, TravellerCareer career,Random random)
+        public static TravellerAssignment GetAssignment(CharacterCreatorService creator, TravellerCareer career,Random random)
         {
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Generating assignment");
@@ -486,7 +486,7 @@ namespace CharacterCreationTest
             return assignment;
         }
 
-        private static List<TravellerSkillTableEntry> GetSkillTable(CharacterCreator creator, Random random)
+        private static List<TravellerSkillTableEntry> GetSkillTable(CharacterCreatorService creator, Random random)
         {
             var skillTables = creator.GetSkillTables();
             var table = skillTables.ElementAt(random.Next(0, skillTables.Count));
@@ -497,7 +497,7 @@ namespace CharacterCreationTest
             return table.Item2;
         }
 
-        private static void GenerateSkill(CharacterCreator creator, Random random)
+        private static void GenerateSkill(CharacterCreatorService creator, Random random)
         {
             var table = GetSkillTable(creator, random);
             var skill = table[creator.RollOnSkillTable()];
@@ -510,7 +510,7 @@ namespace CharacterCreationTest
             creator.ApplySkillTableResult(skill);
         }
 
-        private static TravellerSkillTableEntry GetSubSkill(CharacterCreator creator, Random random,
+        private static TravellerSkillTableEntry GetSubSkill(CharacterCreatorService creator, Random random,
             TravellerSkillTableEntry skill)
         {
             if (creator.IsSkill(skill) && creator.IsSuperSkill(skill))
@@ -522,7 +522,7 @@ namespace CharacterCreationTest
             return skill;
         }
 
-        private static TravellerSkills GetSubSkill(CharacterCreator creator, Random random,
+        private static TravellerSkills GetSubSkill(CharacterCreatorService creator, Random random,
             TravellerSkills skill)
         {
             if (creator.IsSuperSkill(skill))
@@ -534,7 +534,7 @@ namespace CharacterCreationTest
             return skill;
         }
 
-        private static void BasicTraining(CharacterCreator travellerCreator, TravellerCareer career, Random random)
+        private static void BasicTraining(CharacterCreatorService travellerCreator, TravellerCareer career, Random random)
         {
             if (travellerCreator.GetsBasicTraining())
             {
@@ -559,7 +559,7 @@ namespace CharacterCreationTest
         }
         #endregion
         #region background skills
-        private static void GetBackgroundSkills(CharacterCreator travellerCreator, TravellerNationsCharacterInfo nation,
+        private static void GetBackgroundSkills(CharacterCreatorService travellerCreator, TravellerNationsCharacterInfo nation,
             Random random)
         {
             var backgroundSkillList = travellerCreator.GetBackgoundSkills(nation);
@@ -574,7 +574,7 @@ namespace CharacterCreationTest
         }
         #endregion
         #region nationality
-        private static TravellerNationsCharacterInfo ApplyNationality(Random random, CharacterCreator travellerCreator)
+        private static TravellerNationsCharacterInfo ApplyNationality(Random random, CharacterCreatorService travellerCreator)
         {
             var nationService = new TravellerNationsCharacterInfoService();
             var nations = nationService.GetNationsList;
@@ -605,7 +605,7 @@ namespace CharacterCreationTest
         #endregion
         #region basic setup
 
-        private static void GenerateName(CharacterCreator travellerCreator, Random random)
+        private static void GenerateName(CharacterCreatorService travellerCreator, Random random)
         {
             Console.Write("Travellers Name: ");
             var names = new TravellerNameService()
@@ -617,7 +617,7 @@ namespace CharacterCreationTest
             travellerCreator.SetName(name);
         }
 
-        private static void GenerateValues(CharacterCreator travellerCreator)
+        private static void GenerateValues(CharacterCreatorService travellerCreator)
         {
             var stats = travellerCreator.GenerateStats(true);
 

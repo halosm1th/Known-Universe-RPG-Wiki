@@ -18,9 +18,9 @@ namespace CharacterCreationTest.CharacterCreation
         public TravellerNationsCharacterInfo Nationality => _character.Nationality;
         public string Name => _character.Name;
         public readonly int AgingCrisisCost = 10000;
-        public TravellerCareer LastCareer => _character.LastCareer;
-        public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers => _character.PreviousCareers;
-        public TravellerAssignment LastAssignment => _character.LastAssignment;
+        public TravellerCareer LastCareer => _character.LastCareer ?? null;
+        public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers => _character.PreviousCareers ?? null;
+        public TravellerAssignment LastAssignment => _character.LastAssignment ?? null;
         public int NumberOfTravellerBackgroundSKills =>
             3 + _character.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education).AttributeModifier;
 

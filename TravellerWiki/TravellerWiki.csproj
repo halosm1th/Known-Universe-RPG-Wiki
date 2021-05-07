@@ -46,6 +46,9 @@
     <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationBenefitAssignment.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationDrawStats.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventAssignment.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -109,7 +112,7 @@
     <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationNew.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreation.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationSideDisplay.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationAgingInjury.razor">

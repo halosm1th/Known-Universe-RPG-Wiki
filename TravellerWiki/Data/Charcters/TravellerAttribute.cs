@@ -32,24 +32,24 @@ namespace TravellerWiki.Data.Charcters
             3 => -1,
             4 => -1,
             5 => -1,
-            6 => 0,
-            7 => 0,
-            8 => 0,
-            9 => 1,
-            10 => 1,
-            11 => 1,
-            12 => 2,
-            13 => 2,
-            14 => 2,
-            15 => 3,
-            16 => 3,
-            17 => 3,
-            18 => 4,
-            19 => 4,
-            20 => 4,
-            21 => 5,
-            22 => 5,
-            23 => 5,
+            6 => +0,
+            7 => +0,
+            8 => +0,
+            9 => +1,
+            10 => +1,
+            11 => +1,
+            12 => +2,
+            13 => +2,
+            14 => +2,
+            15 => +3,
+            16 => +3,
+            17 => +3,
+            18 => +4,
+            19 => +4,
+            20 => +4,
+            21 => +5,
+            22 => +5,
+            23 => +5,
             _ => -3
         };
 
@@ -101,15 +101,34 @@ namespace TravellerWiki.Data.Charcters
             };
 
 
-
+        public string ToStringLongName()
+        {
+            var sb = new StringBuilder();
+            sb.Append(AttributeName);
+            sb.Append(": ");
+            sb.Append(AttributableValue);
+            sb.Append(" [");
+            sb.Append(AttributeModifier < 0 ? AttributeModifier.ToString() : $"+{AttributeModifier}");
+            sb.Append("]");
+            return sb.ToString();
+        }
         public override string ToString()
         {
             var sb = new StringBuilder();
             sb.Append(GetShortName());
             sb.Append(": ");
-            sb.Append(AttributableValue);
-            sb.Append("[");
-            sb.Append(AttributeModifier);
+            if (AttributableValue >= 10)
+            {
+                sb.Append(AttributableValue);
+            }
+            else
+            {
+                sb.Append(" 0");
+                sb.Append(AttributableValue);
+            }
+
+            sb.Append(" [");
+            sb.Append(AttributeModifier < 0 ? AttributeModifier.ToString() : $"+{AttributeModifier}");
             sb.Append("]");
             return sb.ToString();
         }

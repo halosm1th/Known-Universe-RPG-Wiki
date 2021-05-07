@@ -5,6 +5,7 @@
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -25,40 +26,45 @@
 
     public void DoneAdvance()
     {
-        if(PassedAdvancement)NavManager.NavigateTo($"/CharacterCreation/GetAdvanceSkill/{characterID}/");
+        if (PassedAdvancement) NavManager.NavigateTo($"/CharacterCreation/GetAdvanceSkill/{characterID}/");
         else NavManager.NavigateTo($"/CharacterCreation/LeaveCareer/{characterID}");
     }
-    
+
     public bool RolledAdvancement = false;
     public bool HasRolled = false;
     public bool PassedAdvancement = false;
 
     private int roll = 0;
-    
+
 
     public void RollAdvancement()
     {
-        roll =  GetService().RollDice();
-        PassedAdvancement =  GetService().Advances(roll);
+        roll = GetService().RollDice();
+        PassedAdvancement = GetService().Advances(roll);
         HasRolled = true;
         GetService().GainBenefitForTerm();
     }
 }
 <body>
-    <div style="text-align: center">
+
+<div>
+    <div style="text-align: left; padding-left: 2em;">
         <h1>Traveller Character Creator</h1>
         <h2>Select @GetService().Name's - Roll Advancement</h2>
-        <h3>Roll Advancement</h3>
-        <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
-        <p>Advancement: @GetService().LastAssignment.Advancement</p>
-        <button @onclick="RollAdvancement">Roll Advancement</button>
-        @if (HasRolled)
-        {
-        <p>You rolled with mods a: @(roll + GetService().GetAttributes.First(x => x.AttributeName == GetService().LastAssignment.Advancement.AttributeToCheck).AttributeModifier)/@GetService().LastAssignment.Advancement [@roll]</p>
-        <b>@(PassedAdvancement ? "You passed" : "You failed")</b>
-            <button @onclick="DoneAdvance">
-            @(PassedAdvancement ? "Get Advance Skill" : "Oh well.")
-        </button>
-        }
+        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <div style="padding-left: 2em;">
+            <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+            <p>Advancement: @GetService().LastAssignment.Advancement</p>
+            <button @onclick="RollAdvancement">Roll Advancement</button>
+            @if (HasRolled)
+            {
+                <p>You rolled with mods a: @(roll + GetService().GetAttributes.First(x => x.AttributeName == GetService().LastAssignment.Advancement.AttributeToCheck).AttributeModifier)/@GetService().LastAssignment.Advancement [@roll]</p>
+                <b>@(PassedAdvancement ? "You passed" : "You failed")</b>
+                <button @onclick="DoneAdvance">
+                    @(PassedAdvancement ? "Get Advance Skill" : "Oh well.")
+                </button>
+            }
+        </div>
+    </div>
     </div>
 </body>

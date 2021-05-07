@@ -5,6 +5,7 @@
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -48,28 +49,30 @@
 
 }
 <body>
-    <div style="text-align: center">
-        <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's - </h2>
-        <h3>Basic Training - @GetService().LastCareer.CareerName</h3>
 
-        @if (GetService().GetsBasicTraining() && !GetService().HasHadJob)
-        {
-            <p>You gain: @(GetService().LastCareer.ServiceSkillsList.Aggregate("", (h, t) => h += t.Name + ", ")) from your first basic training.</p>
-            <button @onclick="AllBasicTraining">Done Basic Training</button>
-        }
-        else if (GetService().GetsBasicTraining())
-        {
-            <p>
-                Pick one of the following for your basic training:
-                <select @bind="ChosenBasicTrainingSkillName">
-                    @foreach (var option in GetService().LastCareer.ServiceSkillsList)
-                    {
-                        <option value="@option.Name">@option.ToString()</option>
-                    }
-                </select>
-                <button @onclick="ChooseBasicTrainingSkill">Pick Basic Skill</button>
-            </p>
-        }
+    <div style="text-align: left; padding-left: 2em;">
+        <h1>Traveller Character Creator</h1>
+        <h2>Basic Training - @GetService().LastCareer.CareerName</h2>
+        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <div style="padding-left: 2em;">
+            @if (GetService().GetsBasicTraining() && !GetService().HasHadJob)
+            {
+                <p>You gain: @(GetService().LastCareer.ServiceSkillsList.Aggregate("", (h, t) => h += t.Name + ", ")) from your first basic training.</p>
+                <button @onclick="AllBasicTraining">Done Basic Training</button>
+            }
+            else if (GetService().GetsBasicTraining())
+            {
+                <p>
+                    Pick one of the following for your basic training:
+                    <select @bind="ChosenBasicTrainingSkillName">
+                        @foreach (var option in GetService().LastCareer.ServiceSkillsList)
+                        {
+                            <option value="@option.Name">@option.ToString()</option>
+                        }
+                    </select>
+                    <button @onclick="ChooseBasicTrainingSkill">Pick Basic Skill</button>
+                </p>
+            }
+        </div>
     </div>
 </body>

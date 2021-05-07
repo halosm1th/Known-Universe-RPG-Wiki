@@ -26,17 +26,20 @@
     {
         NavManager.NavigateTo($"/CharacterCreation/Aging/{characterID}");
     }
-    
+
     public void ViewCharacter()
     {
         NavManager.NavigateTo($"/Character/{characterID}");
     }
 }
 <body>
-    <div style="text-align: center">
+
+    <div style="text-align: left; padding: 2em;">
         <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's - Finished?</h2>
-        <p>@GetService()._character</p>
-        <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="ViewCharacter">Thats it.</button></p>
+        <h2>Select @GetService().Name's - Finished?</h2>        
+        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <div style="padding-left: 2em;">
+            <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="ViewCharacter">Thats it.</button></p>
+        </div>
     </div>
 </body>

@@ -5,6 +5,7 @@
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation;
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -27,7 +28,7 @@
         NavManager.NavigateTo($"/CharacterCreation/ChooseCareer/{characterID}");
     }
 
-    
+
     List<TravellerSkill> backgroundSkills = new List<TravellerSkill>();
     int chosenBackgroundSkill = -1;
     private int GetFirstUnusedBackgroundSkill()
@@ -69,41 +70,43 @@
 
 }
 <body>
-    <div style="text-align: center">
+    <div style="text-align: left; padding: 2em;">
         <h1>Traveller Character Creator</h1>
         <h2>Background skills - @GetService().Name - @GetService().Nationality.NationName</h2>
-        <p>Already Chosen:@(backgroundSkills.Count > 0 ?backgroundSkills.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1) : "None")</p>
-        @if (backgroundSkills.Count < GetService().NumberOfTravellerBackgroundSKills)
-        {
-            var skillList = GetService().GetBackgoundSkills(GetService().Nationality);
-            <p>
-                Select Background Skill (@(backgroundSkills.Count + 1)/@(GetService().NumberOfTravellerBackgroundSKills)):
-                <select @bind="chosenBackgroundSkill">
-                    @foreach (var skill in skillList)
-                    {
-                        if (backgroundSkills.All(x => x.SkillName != skill.Value.SkillName))
+        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <div style="padding-left: 2em;">
+            <p>Already Chosen:@(backgroundSkills.Count > 0 ? backgroundSkills.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1) : "None")</p>
+            @if (backgroundSkills.Count < GetService().NumberOfTravellerBackgroundSKills)
+            {
+                var skillList = GetService().GetBackgoundSkills(GetService().Nationality);
+                <p>
+                    Select Background Skill (@(backgroundSkills.Count + 1)/@(GetService().NumberOfTravellerBackgroundSKills)):
+                    <select @bind="chosenBackgroundSkill">
+                        @foreach (var skill in skillList)
                         {
-                            <option value="@skill.Key">@skill.Value</option>
+                            if (backgroundSkills.All(x => x.SkillName != skill.Value.SkillName))
+                            {
+                                <option value="@skill.Key">@skill.Value</option>
+                            }
                         }
+                    </select>
+                    <button @onclick="AddBackgroundSkill">Add skill</button>
+                </p>
+            }
+            else
+            {
+                <p>Confirm these are the skills you want</p>
+                <ul>
+                    @foreach (var skill in backgroundSkills)
+                    {
+                        <li>
+                            @skill.SkillName - @skill.SkillDescriptionText
+                        </li>
                     }
-                </select>
-                <button @onclick="AddBackgroundSkill">Add skill</button>
-            </p>
-        }
-        else
-        {
-            <p>Confirm these are the skills you want</p>
-            <ul>
-                @foreach (var skill in backgroundSkills)
-                {
-                    <li>
-                        @skill.SkillName - @skill.SkillDescriptionText;
-                    </li>
-                }
-            </ul>
-            <button @onclick="SaveSkills">Save Skills</button>
-            <button @onclick="ClearSkills">Clear Skills</button>
-        }
-
+                </ul>
+                <button @onclick="SaveSkills">Save Skills</button>
+                <button @onclick="ClearSkills">Clear Skills</button>
+            }
+        </div>
     </div>
 </body>

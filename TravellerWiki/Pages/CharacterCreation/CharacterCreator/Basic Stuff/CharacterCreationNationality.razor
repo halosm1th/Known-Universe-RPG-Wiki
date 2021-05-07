@@ -43,12 +43,12 @@
     {
         var nationality = nationsService.GetNationsList.First(x => x.Nationality == ChosenNationality);
         ApplyNationality(nationality);
+        DoneNationality();
     }
 
     public void ApplyNationality(TravellerNationsCharacterInfo nationality)
     {
         GetService().ApplyNationality(nationality);
-        DoneNationality();
     }
 
     public void TryEnterNationality()

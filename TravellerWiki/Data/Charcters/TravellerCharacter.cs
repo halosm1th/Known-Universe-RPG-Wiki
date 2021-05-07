@@ -12,9 +12,9 @@ namespace TravellerWiki.Data.Charcters
     public class PlayerTravellerCharacter : TravellerCharacter
     {
         public Stack<(TravellerCareer Career,TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
-        public TravellerCareer LastCareer => PreviousCareers.Peek().Item1;
+        public TravellerCareer? LastCareer => PreviousCareers.Count > 0? PreviousCareers.Peek().Item1 : null;
         public Stack<TravellerEventCharacterCreation> CharactersEvents = new Stack<TravellerEventCharacterCreation>();
-        public TravellerAssignment LastAssignment => PreviousCareers.Peek().Item2;
+        public TravellerAssignment? LastAssignment => PreviousCareers.Count > 0 ? PreviousCareers.Peek().Item2 : null;
 
         public PlayerTravellerCharacter()
         {

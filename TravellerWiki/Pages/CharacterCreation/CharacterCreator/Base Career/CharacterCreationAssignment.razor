@@ -5,6 +5,7 @@
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerCareerService CareerService;
@@ -19,7 +20,7 @@
     public string characterID { get; set; }
     [Parameter]
     public string careerNameInput { get; set; }
-    
+
     string assignmentName = "";
     TravellerAssignment chosenAssignment = null;
     public CharacterCreatorService GetService()
@@ -27,7 +28,7 @@
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
     }
 
-    
+
     public void selectAssignment()
     {
         var assignments = GetCareer().Assignments;
@@ -55,10 +56,12 @@
 
 }
 <body>
-    <div style="text-align: center">
-        <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's Assignment - @GetCareer().CareerName</h2>
 
+<div style="text-align: left; padding-left: 2em;">
+    <h1>Traveller Character Creator</h1>
+    <h2>Select @GetService().Name's Assignment - @GetCareer().CareerName</h2>
+    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <div style="padding-left: 2em;">
         <p>
             @GetCareer().CareerName Assignments:
             <ul>
@@ -79,4 +82,5 @@
             <button @onclick="selectAssignment">Select Assignment & Join</button>
         </p>
     </div>
+</div>
 </body>

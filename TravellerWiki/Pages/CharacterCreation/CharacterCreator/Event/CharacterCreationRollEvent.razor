@@ -124,7 +124,9 @@
     #endregion
 }
 <body>
-    <div style="text-align: center">
+
+<div>
+    <div style="text-align: left; padding: 2em;">
         <h1>Traveller Character Creator</h1>
         @if (GetService().CurrentTermsEvents.Count <= 0)
         {
@@ -132,92 +134,95 @@
         }
 
         <h2>Select @GetService().Name's - Roll Event</h2>
-        <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
-        <p>@GetService().LastEvent.EventText</p>
-        @if (GetService().LastEvent is TravellerEventAttributeCheck attribute)
-        {
-            <p>Success: @(attribute.YesText)</p>
-            <p>Failure: @(attribute.NoText)</p>
-            <p>
-                Select an attribute to check against:
-                <select @bind="attributeToCheckNumber">
-                    @for (int i = 0; i < attribute.AttributeChecks.Count; i++)
-                    {
-                        <option value="@i">@(attribute.AttributeChecks[i])</option>
-                    }
-                </select>
-
-                <button @onclick="EventAttributeCheck">Preform Check</button>
-            </p>
-        }
-        else if (GetService().LastEvent is TravellerEventChangeCareerWithAssignment changeWithAssignment)
-        {
-            var chosenCareer = GetService().GetCareer(changeWithAssignment.NewCareerName);
-            var chosenAssignment = GetService().GetAssignment(chosenCareer, changeWithAssignment.Assignment);
-            GetService().JoinCareer(chosenCareer, chosenAssignment);
-            <button @onclick="DoneEvent">I understand.</button>
-        }
-        else if (GetService().LastEvent is TravellerEventChangeCareers changeCareer)
-        {
-            newCareerName = changeCareer.NewCareerName;
-            <button @onclick="ChangeCareerEvent">Okay, let me pick an assignment.</button>
-        }
-        else if (GetService().LastEvent is TravellerEventSkillCheck skillCheck)
-        {
-            <p>Pass: @(skillCheck.YesText)</p>
-            <p>Fail: @(skillCheck.NoText)</p>
-            <p>
-                Select an skill to check against:
-
-                <select @bind="skillToCheckNumber">
-                    @for (int i = 0; i < skillCheck.SkillChecks.Count; i++)
-                    {
-                        <option value="@i">@(skillCheck.SkillChecks[i])</option>
-                    }
-                </select>
-
-                <button @onclick="EventSkillCheck">Preform Check</button>
-            </p>
-        }
-        else if (GetService().LastEvent is TravellerEventChoice choice)
-        {
-            <button @onclick="() => EventChoiceMade(choice.YesEvent)">@choice.YesText</button>
-            <button @onclick="() => EventChoiceMade(choice.NoEvent)">@choice.NoText</button>
-        }
-        else if (GetService().LastEvent is TravellerEventLife life)
-        {
-            <p>Life Event</p>
-            <button @onclick="DoneEvent">[Done]</button>
-        }
-        else if (GetService().LastEvent is TravellerEventMishap mishap)
-        {
-            roll = GetService().RollDice(1);
-            GetService().AddEvent(GetService().GetMishap(roll));
-            }
-        else if (GetService().LastEvent is TravellerEventMultiChoice multi)
-        {
-            var i = 0;
-            @foreach (var evnt in multi.Events)
+        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <div style="padding-left: 2em;">
+            <p>@GetService().LastEvent.EventText</p>
+            @if (GetService().LastEvent is TravellerEventAttributeCheck attribute)
             {
+                <p>Success: @(attribute.YesText)</p>
+                <p>Failure: @(attribute.NoText)</p>
+                <p>
+                    Select an attribute to check against:
+                    <select @bind="attributeToCheckNumber">
+                        @for (int i = 0; i < attribute.AttributeChecks.Count; i++)
+                        {
+                            <option value="@i">@(attribute.AttributeChecks[i])</option>
+                        }
+                    </select>
 
-                <button @onclick="() => EventChoiceMade(evnt)">Option @i: @evnt.EventText </button>
+                    <button @onclick="EventAttributeCheck">Preform Check</button>
+                </p>
             }
-        }
-        else if (GetService().LastEvent is TravellerEventText eventText)
-        {
-            <button @onclick="DoneEvent">[Done]</button>
-        }
-        else if (GetService().LastEvent is TravellerEventReward rewards)
-        {
-            <button @onclick="GetEventReward">Get Reward</button>
-        }
-        else if (GetService().LastEvent is TravellerEventSeverelyInjured injured)
-        {
-            <button @onclick="GetEventInjury">Oh no!</button>
-        }
-        else if (GetService().LastEvent is TravellerEventInjury injuryEvnt)
-        {
-            <button @onclick="GetEventInjury">Oh no!</button>
-        }
+            else if (GetService().LastEvent is TravellerEventChangeCareerWithAssignment changeWithAssignment)
+            {
+                var chosenCareer = GetService().GetCareer(changeWithAssignment.NewCareerName);
+                var chosenAssignment = GetService().GetAssignment(chosenCareer, changeWithAssignment.Assignment);
+                GetService().JoinCareer(chosenCareer, chosenAssignment);
+                <button @onclick="DoneEvent">I understand.</button>
+            }
+            else if (GetService().LastEvent is TravellerEventChangeCareers changeCareer)
+            {
+                newCareerName = changeCareer.NewCareerName;
+                <button @onclick="ChangeCareerEvent">Okay, let me pick an assignment.</button>
+            }
+            else if (GetService().LastEvent is TravellerEventSkillCheck skillCheck)
+            {
+                <p>Pass: @(skillCheck.YesText)</p>
+                <p>Fail: @(skillCheck.NoText)</p>
+                <p>
+                    Select an skill to check against:
+
+                    <select @bind="skillToCheckNumber">
+                        @for (int i = 0; i < skillCheck.SkillChecks.Count; i++)
+                        {
+                            <option value="@i">@(skillCheck.SkillChecks[i])</option>
+                        }
+                    </select>
+
+                    <button @onclick="EventSkillCheck">Preform Check</button>
+                </p>
+            }
+            else if (GetService().LastEvent is TravellerEventChoice choice)
+            {
+                <button @onclick="() => EventChoiceMade(choice.YesEvent)">@choice.YesText</button>
+                <button @onclick="() => EventChoiceMade(choice.NoEvent)">@choice.NoText</button>
+            }
+            else if (GetService().LastEvent is TravellerEventLife life)
+            {
+                <p>Life Event</p>
+                <button @onclick="DoneEvent">[Done]</button>
+            }
+            else if (GetService().LastEvent is TravellerEventMishap mishap)
+            {
+                roll = GetService().RollDice(1);
+                GetService().AddEvent(GetService().GetMishap(roll));
+            }
+            else if (GetService().LastEvent is TravellerEventMultiChoice multi)
+            {
+                var i = 0;
+                @foreach (var evnt in multi.Events)
+                {
+
+                    <button @onclick="() => EventChoiceMade(evnt)">Option @i: @evnt.EventText </button>
+                }
+            }
+            else if (GetService().LastEvent is TravellerEventText eventText)
+            {
+                <button @onclick="DoneEvent">[Done]</button>
+            }
+            else if (GetService().LastEvent is TravellerEventReward rewards)
+            {
+                <button @onclick="GetEventReward">Get Reward</button>
+            }
+            else if (GetService().LastEvent is TravellerEventSeverelyInjured injured)
+            {
+                <button @onclick="GetEventInjury">Oh no!</button>
+            }
+            else if (GetService().LastEvent is TravellerEventInjury injuryEvnt)
+            {
+                <button @onclick="GetEventInjury">Oh no!</button>
+            }
+        </div>
+    </div>
     </div>
 </body>

@@ -1,4 +1,6 @@
-﻿namespace TravellerWiki.Data.Charcters
+﻿using System.Text;
+
+namespace TravellerWiki.Data.Charcters
 {
     public class TravellerFinances
     {
@@ -35,6 +37,18 @@
                 amount -= Credits;
                 Debt += amount;
             }
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("Credits: ");
+            sb.Append(Credits);
+            sb.Append(". Debt: ");
+            sb.Append(Debt);
+            sb.Append(".");
+            return sb.ToString();
+
         }
     }
 }

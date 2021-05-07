@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravellerWiki.Data.CreationEvents;
 
 #nullable enable
 namespace TravellerWiki.Data.Charcters
@@ -12,6 +13,7 @@ namespace TravellerWiki.Data.Charcters
     {
         public Stack<(TravellerCareer Career,TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
         public TravellerCareer LastCareer => PreviousCareers.Peek().Item1;
+        public Stack<TravellerEventCharacterCreation> CharactersEvents = new Stack<TravellerEventCharacterCreation>();
         public TravellerAssignment LastAssignment => PreviousCareers.Peek().Item2;
 
         public PlayerTravellerCharacter()
@@ -30,10 +32,10 @@ namespace TravellerWiki.Data.Charcters
     public abstract class TravellerCharacter
     {
         #region Public Variables
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Age { get; set; }
         public int JackOfAllTrades { get; set; } 
-        public TravellerNationsCharacterInfo Nationality { get; set; }
+        public TravellerNationsCharacterInfo? Nationality { get; set; }
 
         public List<TravellerSkill> SkillList { get; set; }
         public List<TravellerAttribute> AttributeList{ get; set; }
@@ -124,7 +126,6 @@ namespace TravellerWiki.Data.Charcters
                 return true;
             }
 
-            return false;
         }
 
         /// <summary>
@@ -149,7 +150,6 @@ namespace TravellerWiki.Data.Charcters
                 return true;
             }
 
-            return false;
         }
 
         public bool AddAttribute(TravellerAttributes attribute)
@@ -166,7 +166,6 @@ namespace TravellerWiki.Data.Charcters
                 return true;
             }
 
-            return false;
         }
 
         /// <summary>
@@ -196,7 +195,6 @@ namespace TravellerWiki.Data.Charcters
                 return true;
             }
 
-            return false;
         }
         #endregion
         #region Finances
@@ -275,7 +273,7 @@ namespace TravellerWiki.Data.Charcters
             sb.Append(Age);
             sb.Append("] ");
 
-            sb.Append("\n\n");
+            sb.Append("\n\nAttributes: ");
 
             foreach (var travellerAttribute in AttributeList)
             {
@@ -283,7 +281,7 @@ namespace TravellerWiki.Data.Charcters
                 sb.Append(" ");
             }
 
-            sb.Append("\n\n");
+            sb.Append("\n\nSkills: ");
 
             foreach (var travellerAttribute in SkillList)
             {
@@ -291,7 +289,7 @@ namespace TravellerWiki.Data.Charcters
                 sb.Append(" ");
             }
 
-            sb.Append("\n\n");
+            sb.Append("\n\nItems: ");
 
             foreach (var travellerAttribute in Items)
             {
@@ -300,7 +298,7 @@ namespace TravellerWiki.Data.Charcters
                 sb.Append("] ");
             }
             sb.Append("\n");
-            sb.Append("\n");
+            sb.Append("\nContacts: ");
             
             foreach (var contact in Contacts)
             {

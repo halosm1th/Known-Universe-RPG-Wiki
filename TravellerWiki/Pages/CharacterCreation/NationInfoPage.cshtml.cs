@@ -17,15 +17,13 @@ namespace TravellerWiki
         public TravellerNationalities NationName { get; set; }
         [BindProperty(SupportsGet = true)]
         public TravellerNationsCharacterInfo CharacterInfo { get; set; }
-        [HttpGet("{nationName}")]
-        public async Task<IActionResult> OnGetAsync(TravellerNationalities nationName)
+        public void OnGet(TravellerNationalities nationName)
         {
             NationName = nationName;
             if (characterInfos.Any(nation => nation.Nationality == NationName))
             {
                 CharacterInfo = characterInfos.First(nation => nation.Nationality == NationName);
             }
-            return Page();
         }
     }
 }
