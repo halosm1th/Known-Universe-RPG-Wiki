@@ -6,6 +6,11 @@ body {
     background-color: #000;
 }
 
+.creatorMarkup {
+    text-align: center; 
+    padding: 2em;
+}
+
 .hex {
     float: left;
     margin-right: -26px;
