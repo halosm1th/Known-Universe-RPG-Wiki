@@ -49,6 +49,9 @@
     <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationDrawStats.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationReward.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventAssignment.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -131,6 +134,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationLeaveCareer.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationInjury.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\CharacterSkills.razor">

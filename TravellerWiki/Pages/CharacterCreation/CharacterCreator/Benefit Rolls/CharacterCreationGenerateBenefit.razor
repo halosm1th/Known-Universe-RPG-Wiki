@@ -64,8 +64,9 @@
 
         if (benefitModifier > 0)
         {
-            result += GetService().UseModifier(benefitModifier - 1);
+            result += GetService().UseModifier(benefitModifier);
         }
+        StateHasChanged();
 
         return result;
     }
@@ -82,7 +83,7 @@
 
     public void ApplyBenefits()
     {
-        NavManager.NavigateTo($"/CharacterCreation/ApplyBenefits/{characterID}");
+        NavManager.NavigateTo($"/CharacterCreation/ApplyBenefit/{characterID}");
     }
 
     public void DoneGeneratingBenefits()
@@ -119,20 +120,20 @@
                     <tbody>
                         @for (int i = 0; i < GetCareer().MusteringOutBenefits.Count; i++)
                         {
-                            <tr><td>@(i + 1)</td><td>Cr @GetCareer().MusteringOutBenefits[i].Cash</td><td>@GetCareer().MusteringOutBenefits[i].Benefit</td></tr>
+                            <tr><td>@(i)</td><td>Cr @GetCareer().MusteringOutBenefits[i].Cash</td><td>@GetCareer().MusteringOutBenefits[i].Benefit</td></tr>
                         }
                     </tbody>
                 </table>
             </p>
             @if (GeneratedBenefits.Count > 0)
             {
-                <p>You have: @(GeneratedBenefits.Any()? GeneratedBenefits.Aggregate("",(h,t) => h +=", " + t).Remove(0,1) : "None") remaining.</p>
+                <p>You have: @(GeneratedBenefits.Any()? GeneratedBenefits.Aggregate("",(h,t) => h +=", " + t.Value).Remove(0,1) : "None") remaining.</p>
                 <p>
                     Select Benefit Roll to use
                     <select @bind="chosenBenefitRoll">
                         @foreach (var roll in GeneratedBenefits)
                         {
-                            <option value="@roll.Value">@roll.Value</option>
+                            <option value="@roll.Key">@roll.Value</option>
                         }
                     </select>
                 </p>
@@ -145,7 +146,7 @@
 
                             @for (int i = 0; i < GetService().BenefitRollModifiers.Count; i++)
                             {
-                                <option value="@(i+1)"> @GetService().BenefitRollModifiers[i]</option>
+                                <option value="@i"> @GetService().BenefitRollModifiers[i]</option>
                             }
                         </select>
                     </p>

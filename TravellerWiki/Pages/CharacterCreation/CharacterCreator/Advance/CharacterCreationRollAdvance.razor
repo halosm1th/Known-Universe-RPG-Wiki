@@ -53,8 +53,10 @@
         <h2>Select @GetService().Name's - Roll Advancement</h2>
         <CharacterCreationDrawStats CharacterID="@characterID" />
         <div style="padding-left: 2em;">
-            <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+            <p>Current Advancement Modifiers: @GetService().AdvancementModifier + 
+            @GetService().GetAttributes.First(x => x.AttributeName == @GetService().LastAssignment.Advancement.AttributeToCheck).AttributeModifier</p>
             <p>Advancement: @GetService().LastAssignment.Advancement</p>
+       
             <button @onclick="RollAdvancement">Roll Advancement</button>
             @if (HasRolled)
             {
