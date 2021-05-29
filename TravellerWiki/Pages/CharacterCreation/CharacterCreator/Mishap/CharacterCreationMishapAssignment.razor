@@ -21,34 +21,12 @@
     [Parameter]
     public string careerNameInput { get; set; }
 
-    string assignmentName = "";
-    TravellerAssignment chosenAssignment = null;
     public CharacterCreatorService GetService()
     {
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
     }
 
-
-    public void selectAssignment()
-    {
-        var assignments = GetCareer().Assignments;
-        if (assignmentName == "")
-        {
-            chosenAssignment = assignments.First();
-        }
-        else
-        {
-            chosenAssignment = assignments.First(x => x.Name == assignmentName);
-        }
-        GetService().JoinCareer(GetCareer(), chosenAssignment);
-        DoneMishapAssignment();
-    }
-
-    public void DoneMishapAssignment()
-    {
-        GetService().GainBenefitForTerm();
-        NavManager.NavigateTo($"/CharacterCreation/GenerateCareerSkill/{characterID}");
-    }
+    private string URL = "/CharacterCreation/GenerateCareerSkill/";
 
     public TravellerCareer GetCareer()
     {
@@ -58,35 +36,12 @@
 }
 <body>
 
-<div>
-    <div  class="creatorMarkup">
-        <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's Assignment from Mishap - @GetCareer().CareerName</h2>
-        <CharacterCreationDrawStats CharacterID="@characterID" />
-        <div style="padding-left: 2em;">
-            <p>
-                @GetService().LastEvent.EventText
-            </p>
-            <p>
-                @GetCareer().CareerName Assignments:
-                <ul>
-                    @foreach (var assignment in GetCareer().Assignments)
-                    {
-                        <li>@assignment.Name - @assignment.Description</li>
-                    }
-                </ul>
-            </p>
-            <p>
-                Select an Assignment:
-                <select @bind="assignmentName">
-                    @foreach (var assignment in GetCareer().Assignments)
-                    {
-                        <option value="@assignment.Name">@assignment.Name</option>
-                    }
-                </select>
-                <button @onclick="selectAssignment">Select Assignment & Join</button>
-            </p>
+    <div>
+        <div class="creatorMarkup">
+            <h1>Traveller Character Creator</h1>
+            <h2>Select @GetService().Name's Assignment from Mishap - @GetCareer().CareerName</h2>
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <CharacterCreationChangeAssignment characterID="@characterID" URL="@URL" careerNameInput="@careerNameInput"/>
         </div>
-    </div>
     </div>
 </body>

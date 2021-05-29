@@ -21,35 +21,12 @@
     [Parameter]
     public string careerNameInput { get; set; }
 
-    string assignmentName = "";
-    TravellerAssignment chosenAssignment = null;
     public CharacterCreatorService GetService()
     {
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
     }
 
-
-    public void selectAssignment()
-    {
-        var assignments = GetCareer().Assignments;
-        if (assignmentName == "")
-        {
-            chosenAssignment = assignments.First();
-        }
-        else
-        {
-            chosenAssignment = assignments.First(x => x.Name == assignmentName);
-        }
-        GetService().JoinCareer(GetCareer(), chosenAssignment);
-        DoneEventAssignment();
-    }
-
-    public void DoneEventAssignment()
-    {
-        GetService().GainBenefitForTerm();
-        NavManager.NavigateTo($"/CharacterCreation/RollAdvancement/{characterID}");
-    }
-
+    private string URL = "/CharacterCreation/RollAdvancement/";
     public TravellerCareer GetCareer()
     {
         return CareerService.GetCareer(careerNameInput.Replace('_', ' '));
@@ -59,34 +36,11 @@
 <body>
 
 <div>
-    <div  class="creatorMarkup">
+    <div class="creatorMarkup">
         <h1>Traveller Character Creator</h1>
         <h2>Select @GetService().Name's Assignment from event - @GetCareer().CareerName</h2>
         <CharacterCreationDrawStats CharacterID="@characterID" />
-        <div style="padding-left: 2em;">
-            <p>
-                @GetService().LastEvent.EventText
-            </p>
-            <p>
-                @GetCareer().CareerName Assignments:
-                <ul>
-                    @foreach (var assignment in GetCareer().Assignments)
-                    {
-                        <li>@assignment.Name - @assignment.Description</li>
-                    }
-                </ul>
-            </p>
-            <p>
-                Select an Assignment:
-                <select @bind="assignmentName">
-                    @foreach (var assignment in GetCareer().Assignments)
-                    {
-                        <option value="@assignment.Name">@assignment.Name</option>
-                    }
-                </select>
-                <button @onclick="selectAssignment">Select Assignment & Join</button>
-            </p>
-        </div>
+        <CharacterCreationChangeAssignment characterID="@characterID" URL="@URL" careerNameInput="@careerNameInput" />
     </div>
     </div>
 </body>

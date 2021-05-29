@@ -3,7 +3,7 @@
 @using TravellerWiki.Data
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
-@namespace  TravellerWiki.Pages.CharacterCreation.CharacterCreator
+@namespace TravellerWiki.Pages.CharacterCreation.CharacterCreator
 @inject CharacterCreatorService CharacterCreationService;
 @inject TravellerNationsCharacterInfoService nationsService;
 @inject MultiPageCharacterCreationService MultiCharacterCreationService;
@@ -101,19 +101,19 @@
                     GetService()._character.Weapons.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
             </td>
         </tr>
-    <tr>
-        <td><b>Contacts:</b></td>
-        <td>
-            <ul>
-                @foreach (var contact in GetService()._character.Contacts)
-                {
-                    if (contact is TravellerSpecialNPC npc)
+        <tr>
+            <td><b>Contacts:</b></td>
+            <td>
+                <ul>
+                    @foreach (var contact in GetService()._character.Contacts)
                     {
-                        <li><b>@npc.Name:</b> @npc.PatronText - @npc.QuirkText. [@npc.Background - @npc.Career]</li>
+                        if (contact is TravellerSpecialNPC npc)
+                        {
+                            <li><b>@npc.Name:</b> @npc.PatronText - @npc.QuirkText. [@npc.Background - @npc.Career]</li>
+                        }
                     }
-                }
-            </ul>
-        </td>
-    </tr>
+                </ul>
+            </td>
+        </tr>
     </table>
 </div>

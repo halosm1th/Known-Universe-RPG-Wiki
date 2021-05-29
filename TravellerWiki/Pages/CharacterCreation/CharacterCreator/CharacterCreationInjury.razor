@@ -1,6 +1,7 @@
 @page "/CharacterCreation/Injury/{characterID}"
 @using CharacterCreationTest.CharacterCreation
 @using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.CreationEvents
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.TravellerInjuries
@@ -126,8 +127,15 @@
                         }
                     </select>
                 </p>
-                var stats = GetService().GetEffectedAttributes(mulInjur.Injuries[InjuryChoice]);
                 <p>
+                    @{
+                        if (InjuryChoice > mulInjur.Injuries.Count && InjuryChoice < 0)
+                        {
+                            InjuryChoice = 0;
+                        }
+                        var stats = GetService().GetEffectedAttributes(mulInjur.Injuries[InjuryChoice]);
+                    }
+
                     Select stat to be effected:
                     <select @bind="effectedStat">
                         @for (var j = 0; j < stats.Count; j++)

@@ -211,12 +211,12 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
        {
                     new TravellerEventSeverelyInjured("You are severely injured!"),
                     new TravellerEventChangeCareers("War breaks out on your planet and your Knight drafts you into the army","Versian Army"),
-                    new TravellerEventMishap("Through a series of events that are of no fault of your own, your company fails and you lose your job."),
+                    new TravellerEventText("Through a series of events that are of no fault of your own, your company fails and you lose your job."),
                     new TravellerEventSkillCheck("You are (falsely) accused of a heinous crime.",
                         yesEvent:new TravellerEventText("After finishing character creation you start with A 2D6 million credit bounty on your head."), 
                         noEvent:new TravellerEventChangeCareers("You are taken to prison for your crimes!","Versian Prisoner"), 
                         skillCheck:new TravellerSkillCheck(Stealth,8)),
-                    new TravellerEventMishap("You’re made the scapegoat for a simple mistake, the coverup of which was a larger scandal then the mistake itself. As a result you are unable to work in that field anymore."),
+                    new TravellerEventText("You’re made the scapegoat for a simple mistake, the coverup of which was a larger scandal then the mistake itself. As a result you are unable to work in that field anymore."),
                     new TravellerEventInjury("You are injured!"),
        }
    );
