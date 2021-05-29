@@ -32,17 +32,16 @@
 <body>
 
     <div>
+        <h1>Traveller Character Creator</h1>
         <div class="creatorMarkup">
-            <h1>Traveller Character Creator</h1>
             <h2>Select @GetService().Name's - Event Reward</h2>
             <CharacterCreationDrawStats CharacterID="@characterID" />
             @if (GetService().LastEvent is TravellerEventReward rwd)
             {
                 <CharacterCreationReward characterID="@characterID" DoneRewardURL="@DoneRewardURL"
                                          CareerChangeURL="@CareerChangeURL" LifeEventURL="@LifeEventURL"
-                                         RewardList="@rwd.Reward"
-                                         />
+                                         RewardList="@rwd.Reward" />
             }
-            </div>
+        </div>
     </div>
 </body>

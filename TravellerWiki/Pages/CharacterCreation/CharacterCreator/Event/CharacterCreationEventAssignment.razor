@@ -35,12 +35,12 @@
 }
 <body>
 
-<div>
-    <div class="creatorMarkup">
+    <div>
         <h1>Traveller Character Creator</h1>
         <h2>Select @GetService().Name's Assignment from event - @GetCareer().CareerName</h2>
-        <CharacterCreationDrawStats CharacterID="@characterID" />
-        <CharacterCreationChangeAssignment characterID="@characterID" URL="@URL" careerNameInput="@careerNameInput" />
-    </div>
+        <div class="creatorMarkup">
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <CharacterCreationChangeAssignment characterID="@characterID" URL="@URL" careerNameInput="@careerNameInput" />
+        </div>
     </div>
 </body>

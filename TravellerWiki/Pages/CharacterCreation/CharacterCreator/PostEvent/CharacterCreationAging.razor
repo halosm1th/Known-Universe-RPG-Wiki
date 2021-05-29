@@ -44,36 +44,36 @@
 }
 <body>
 
-    <div  class="creatorMarkup">
-        <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's - Aging</h2>        
-        <CharacterCreationDrawStats CharacterID="@characterID" />
+<h1>Traveller Character Creator</h1>
+<div class="creatorMarkup">
+    <h2>Select @GetService().Name's - Aging</h2>
+    <CharacterCreationDrawStats CharacterID="@characterID" />
     <div style="padding-left: 2em;">
-            @if (roll == -1)
+        @if (roll == -1)
+        {
+            aging = GetService().ApplyAging();
+            roll = GetService().RollDice();
+        }
+        <p>You are: @GetService().TravellersAge years old.</p>
+        @if (aging)
+        {
+            <p>You rolled a: @roll</p>
+            @if (GetService().HasAgingEffect(roll))
             {
-                aging = GetService().ApplyAging();
-                roll = GetService().RollDice();
-            }
-            <p>You are: @GetService().TravellersAge years old.</p>
-            @if (aging)
-            {
-                <p>You rolled a: @roll</p>
-                @if (GetService().HasAgingEffect(roll))
-                {
-                    <p>You failed the aging roll</p>
-                    <button @onclick="AgingInjury">Aging Injury</button>
-                }
-                else
-                {
-                    <p>You're fine.</p>
-                    <button @onclick="NextTerm">Done</button>
-                }
+                <p>You failed the aging roll</p>
+                <button @onclick="AgingInjury">Aging Injury</button>
             }
             else
             {
                 <p>You're fine.</p>
                 <button @onclick="NextTerm">Done</button>
             }
-        </div>
-        </div>
+        }
+        else
+        {
+            <p>You're fine.</p>
+            <button @onclick="NextTerm">Done</button>
+        }
+    </div>
+</div>
 </body>

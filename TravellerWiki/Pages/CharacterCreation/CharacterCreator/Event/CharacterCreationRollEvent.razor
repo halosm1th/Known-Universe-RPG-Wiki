@@ -45,12 +45,12 @@
     }
 
     //GetEventInjury
-    
+
     #endregion
-        
+
     #region Event Reward
 
-    private string DoneURL ="/CharacterCreation/RollAdvancement/";
+    private string DoneURL = "/CharacterCreation/RollAdvancement/";
     private string InjuryURL = "/CharacterCreation/EventInjury/";
     private string RewardURL = "/CharacterCreation/EventReward/";
     private string CareerURL = "/CharacterCreation/EventAssignment/";
@@ -60,18 +60,21 @@
 }
 <body>
 
-<div>
-    <div  class="creatorMarkup">
+    <div>
         <h1>Traveller Character Creator</h1>
-        @if (GetService().CurrentTermsEvents.Count <= 0)
-        {
-            GetEvent();
-        }
 
-        <h2>Select @GetService().Name's - Roll Event</h2>
-        <CharacterCreationDrawStats CharacterID="@characterID" />
-        <CharacterCreationEventHandling characterID="@characterID" DoneURL="@DoneURL" InjuryURL="@InjuryURL"
-                                        RewardURl="@RewardURL" CareerURL="@CareerURL"/>
-    </div>
+
+        <div class="creatorMarkup">
+
+            <h2>Select @GetService().Name's - Roll Event</h2>
+            @if (GetService().CurrentTermsEvents.Count <= 0)
+            {
+                GetEvent();
+            }
+
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <CharacterCreationEventHandling characterID="@characterID" DoneURL="@DoneURL" InjuryURL="@InjuryURL"
+                                            RewardURl="@RewardURL" CareerURL="@CareerURL" />
+        </div>
     </div>
 </body>

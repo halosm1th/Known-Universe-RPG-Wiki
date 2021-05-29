@@ -55,13 +55,13 @@
 <body>
 
     <div>
-        <div  class="creatorMarkup">
+        <h1>Traveller Character Creator</h1>
+        <div class="creatorMarkup">
+            <h2>Select @GetService().Name's - Roll Mishap</h2>
             @if (GetService().CurrentTermsEvents.Count <= 0)
             {
                 GetMishap();
             }
-            <h1>Traveller Character Creator</h1>
-            <h2>Select @GetService().Name's - Roll Mishap</h2>
             <CharacterCreationDrawStats CharacterID="@characterID" />
             <CharacterCreationEventHandling characterID="@characterID" DoneURL="@DoneURL" InjuryURL="@InjuryURL"
                                             RewardURl="@RewardURL" CareerURL="@CareerURL" />

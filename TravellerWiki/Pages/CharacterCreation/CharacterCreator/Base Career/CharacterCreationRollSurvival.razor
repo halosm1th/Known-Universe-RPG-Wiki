@@ -46,9 +46,9 @@
 }
 <body>
 
-<div  class="creatorMarkup">
-    <h1>Traveller Character Creator</h1>
-    <h2>Select @GetService().Name's - Roll Survival</h2>        
+<h1>Traveller Character Creator</h1>
+<div class="creatorMarkup">
+    <h2>Select @GetService().Name's - Roll Survival</h2>
     <CharacterCreationDrawStats CharacterID="@characterID" />
     <div style="padding-left: 2em;">
         <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>

@@ -34,12 +34,12 @@
 }
 <body>
 
-    <div  class="creatorMarkup">
-        <h1>Traveller Character Creator</h1>
-        <h2>Select @GetService().Name's - Finished?</h2>        
-        <CharacterCreationDrawStats CharacterID="@characterID" />
-        <div style="padding-left: 2em;">
-            <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="ViewCharacter">Thats it.</button></p>
-        </div>
+<h1>Traveller Character Creator</h1>
+<div class="creatorMarkup">
+    <h2>Select @GetService().Name's - Finished?</h2>
+    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <div style="padding-left: 2em;">
+        <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="ViewCharacter">Thats it.</button></p>
     </div>
+</div>
 </body>
