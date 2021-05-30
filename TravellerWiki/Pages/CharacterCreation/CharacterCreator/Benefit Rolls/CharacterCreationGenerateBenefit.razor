@@ -47,7 +47,7 @@
     public void GenerateBenefits()
     {
         GeneratedBenefits = GetService().GenerateBenefits();
-        
+
         //We are a group of assholes. So you don't get to apply anything worse then possible.
         if(GetService().BenefitRollModifiers.Count > 0)
         {
@@ -68,7 +68,7 @@
                 {
                     GeneratedBenefits[i] += GetService().BenefitRollModifiers[i];
 
-    //First Get what is smaller, 6 or the Generated Benefit. Then Get what is larger, the benefit or 0. Therefore it is between 0-6 [1-7]
+                    //First Get what is smaller, 6 or the Generated Benefit. Then Get what is larger, the benefit or 0. Therefore it is between 0-6 [1-7]
                     GeneratedBenefits[i] = Math.Max(Math.Min(6, GeneratedBenefits[i]), 0);
                 }
             }
@@ -78,9 +78,14 @@
     private int GetChosenBenefitNumber()
     {
         var result = 0;
-        if (chosenBenefitRoll == -1)
+        if (chosenBenefitRoll <0 )
         {
             chosenBenefitRoll = 0;
+        }
+
+        else if(chosenBenefitRoll > GeneratedBenefits.Count)
+        {
+            chosenBenefitRoll = GeneratedBenefits.Count - 1;
         }
 
         result = GeneratedBenefits[chosenBenefitRoll];
