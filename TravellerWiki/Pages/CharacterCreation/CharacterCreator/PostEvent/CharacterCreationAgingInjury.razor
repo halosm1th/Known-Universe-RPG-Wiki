@@ -108,7 +108,18 @@
                         <ul>
                             @foreach (var inj in mulInjur.Injuries)
                             {
-                                <li> @inj.InjuryDescription,</li>
+                                if (inj is TravellerInjurySpecific spec)
+                                {
+                                    <li>@spec.InjuryDescription: -@spec.InjuryDamage Damage</li>
+                                }
+                                else if (inj is TravellerInjuryMental ment)
+                                {
+                                    <li>@ment.InjuryDescription: -@ment.InjuryDamage Damage</li>
+                                }
+                                else if (inj is TravellerInjury norm)
+                                {
+                                    <li>@norm.InjuryDescription: -@norm.InjuryDamage Damage</li>
+                                }
                             }
 
                         </ul>

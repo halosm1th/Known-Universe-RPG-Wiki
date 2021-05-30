@@ -104,15 +104,15 @@
                         {
                             if (inj is TravellerInjurySpecific spec)
                             {
-                                <li>@spec.InjuryDescription: @spec.InjuryDamage</li>
+                                <li>@spec.InjuryDescription: -@spec.InjuryDamage Damage</li>
                             }
                             else if (inj is TravellerInjuryMental ment)
                             {
-                                <li>@ment.InjuryDescription: @ment.InjuryDamage</li>
+                                <li>@ment.InjuryDescription: -@ment.InjuryDamage</li>
                             }
                             else if (inj is TravellerInjury norm)
                             {
-                                <li>@norm.InjuryDescription: @norm.InjuryDamage</li>
+                                <li>@norm.InjuryDescription: -@norm.InjuryDamage Damage</li>
                             }
                         }
 
@@ -129,7 +129,7 @@
                 </p>
                 <p>
                     @{
-                        if (InjuryChoice > mulInjur.Injuries.Count && InjuryChoice < 0)
+                        if (InjuryChoice > mulInjur.Injuries.Count || InjuryChoice < 0)
                         {
                             InjuryChoice = 0;
                         }

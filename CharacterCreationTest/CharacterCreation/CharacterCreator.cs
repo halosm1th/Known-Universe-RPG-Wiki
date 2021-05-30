@@ -650,7 +650,7 @@ namespace CharacterCreationTest.CharacterCreation
 
         public TravellerCharacterCreationReward GetBenefit(int benefitNumber, bool cash = false)
         {
-            if (benefitNumber > GetBenefits().Count) benefitNumber = GetBenefits().Count - 1;
+            if (benefitNumber >= GetBenefits().Count) benefitNumber = GetBenefits().Count - 1;
             if (benefitNumber < 0) benefitNumber = 0;
 
             NumberOfBenefitRolls--;

@@ -70,6 +70,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                 TravellerVersianKnight.VersianKnight(),
                 TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorum(),
                 TravellerVersianAristocractic.AristocracticCareer(),
+                TravellerVersianIdeaCreator.VersianIdeaCreator(),
             });
 
         }

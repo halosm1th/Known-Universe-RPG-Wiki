@@ -12,8 +12,14 @@ namespace TravellerWiki.Data
 {
     public class TravellerNationsCharacterInfoService
     {
-        private static List<TravellerNationsCharacterInfo> travellerNationsInfo = new List<TravellerNationsCharacterInfo>()
-        {
+        private static List<TravellerNationsCharacterInfo> travellerNationsInfo =
+            new List<TravellerNationsCharacterInfo>
+            {
+                TravellerVersianCareers.VersianNation,
+                TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorumNation,
+                TravellerPolandskianCareers.PolandskiaNation,
+            };
+
             /* {
                  "Universalis Confederation",
                  new TravellerNationsCharacterInfo(
@@ -211,8 +217,6 @@ namespace TravellerWiki.Data
                          new TravellerAttributeCheck(Strength,8)
                      }, drifter:"Luna Knight", drafts:new string[]{"Luna Knight"},
                      parentNation:"United Federation of Earth and her Colonies Among the Stars")},*/
-           TravellerVersianCareers.VersianNation,
-           TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorumNation,
             /*{
                 "United Reverse Lords",
                 new TravellerNationsCharacterInfo("United Reverse Lords",
@@ -443,7 +447,6 @@ namespace TravellerWiki.Data
                         "Government Military",
                         "Cartel Military",
                     })},*/
-            TravellerPolandskianCareers.PolandskiaNation,
             /*
             {
                 "Trans Galactic Empire",
@@ -784,12 +787,15 @@ namespace TravellerWiki.Data
                     },
                     parentNation:"Axion Alliance")},
                     */
-        };
+        
 
 
         public List<TravellerNationsCharacterInfo> GetNationsList =>
             GetTravellerNationsCharacterInfos().Select(x => x).ToList();
-        public List<TravellerNationsCharacterInfo> GetTravellerNationsCharacterInfos() =>
-            travellerNationsInfo;
+        public List<TravellerNationsCharacterInfo> GetTravellerNationsCharacterInfos() => new List<TravellerNationsCharacterInfo>{
+            TravellerVersianCareers.VersianNation,
+            TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorumNation,
+            TravellerPolandskianCareers.PolandskiaNation,
+        };
     }
 }
