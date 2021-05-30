@@ -131,15 +131,15 @@
                 }
 
 
-                <p>You have: @GetService().NumberOfBenefitRolls benefit rolls for the @GetCareer() with the following modifiers:  @(GetService().BenefitRollModifiers.Count > 0 ? @GetService().BenefitRollModifiers.Aggregate("", (h, t) => h += ", " + t).Remove(0, 1) : "None")</p>
+                <p>You have: @GetService().NumberOfBenefitRolls benefit rolls for the @GetCareer().CareerName with the following modifiers:  @(GetService().BenefitRollModifiers.Count > 0 ? @GetService().BenefitRollModifiers.Aggregate("", (h, t) => h += ", " + t).Remove(0, 1) : "None")</p>
                 <p>
-                    The @GetCareer() Benefit Table looks like:
-                    <table style="width:100%">
+                    The @GetCareer().CareerName Benefit Table looks like:
+                    <table>
                         <thead>
                             <tr>
-                                <th style="width:5%">Number</th>
-                                <th style="width:15%">Cash/Money</th>
-                                <th style="width:80%">Benefit</th>
+                                <th style="width:2%">Number</th>
+                                <th style="width:10%">Cash/Money</th>
+                                <th style="">Benefit</th>
                             </tr>
                         </thead>
                         <tbody>
