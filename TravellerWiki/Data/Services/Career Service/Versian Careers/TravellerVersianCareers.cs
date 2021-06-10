@@ -59,7 +59,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                 "Versian Navy"
             });
 
-    public static void AddVersianCareers(List<TravellerCareer> careers)
+        public static void AddVersianCareers(List<TravellerCareer> careers)
         {
 
             careers.AddRange(new List<TravellerCareer>
@@ -71,6 +71,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                 TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorum(),
                 TravellerVersianAristocractic.AristocracticCareer(),
                 TravellerVersianIdeaCreator.VersianIdeaCreator(),
+                TravellerVersianNavy.VersianNavy(),
             });
 
         }

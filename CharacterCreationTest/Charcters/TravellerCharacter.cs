@@ -9,7 +9,7 @@ using TravellerWiki.Data.CreationEvents;
 #nullable enable
 namespace TravellerWiki.Data.Charcters
 {
-    public class PlayerTravellerCharacter : TravellerCharacter
+    public class FuckPlayerTravellerCharacter : TravellerCharacter
     {
         public Stack<(TravellerCareer Career,TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
         public TravellerCareer LastCareer => PreviousCareers.Peek().Item1;
@@ -29,7 +29,7 @@ namespace TravellerWiki.Data.Charcters
 
     }
 
-    public abstract class TravellerCharacter
+    public abstract class FuckTravellerCharacter
     {
         #region Public Variables
         public string? Name { get; set; }

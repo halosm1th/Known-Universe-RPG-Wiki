@@ -6,6 +6,7 @@
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
 @using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -95,7 +96,11 @@
             <ul>
                 @foreach (var career in GetService().Nationality.NationsCareers)
                 {
-                    <li>@career.CareerName - @career.CareerDescription - <b style="font-weight: bold">Qualifications: @career.Qualifications.Aggregate("", (h, t) => h += t.ToString() + ", ")</b> </li>
+              //TODO Make this look nicer.
+                    <li>@career.CareerName - @career.CareerDescription - <p style="font-weight: bold">Qualifications: @career.Qualifications.Aggregate("", (h, t) => h += t.ToString() + ", ")
+                            </p>
+        <br/> 
+        </li>
                 }
             </ul>
         </p>

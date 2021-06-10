@@ -5,6 +5,7 @@
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -78,7 +79,7 @@
         @if (FailedNationEntry)
         {
             <h2>Failed to get in</h2>
-            <p>You failed ot enter the nation you wanted, and instead are put into their parent nation</p>
+            <p>You failed to enter the nation you wanted, and instead are put into their parent nation</p>
             <button @onclick="DoneNationality">Alright, I understand.</button>
         }
         else
@@ -107,8 +108,7 @@
                     </h3>
                     <p>
                         <h4>Entry Requirements: </h4>
-                        @(drawNationality.EntryRequirements.Count > 0 ?
-                            drawNationality.EntryRequirements.Aggregate("", (core, addition) => String.Concat(core, ", ", addition)) : "None")
+                        @(drawNationality.EntryRequirements.Count > 0 ?drawNationality.EntryRequirements.Aggregate("", (head, tail) => head + "," + tail ).Remove(0,1) : "None")
                     </p>
                     <p>
                         Stat Changes: @drawNationality.GetStatChanges()

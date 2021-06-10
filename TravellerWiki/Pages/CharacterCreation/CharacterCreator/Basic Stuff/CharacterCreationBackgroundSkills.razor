@@ -6,6 +6,7 @@
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
 @using  TravellerWiki.Pages.CharacterCreation;
+@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -101,6 +102,7 @@
                 {
                     <li>
                         @skill.SkillName - @skill.SkillDescriptionText
+                        <br />
                     </li>
                 }
             </ul>

@@ -1,4 +1,6 @@
-﻿    using System.Text;
+﻿    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
 
 namespace TravellerWiki.Data.Charcters
 {
@@ -467,6 +469,8 @@ namespace TravellerWiki.Data.Charcters
 
         public bool IsSuperSkill() => IsSuperSkill(SkillName);
 
+        public List<TravellerSkill> GetSubSkills() => GetSubSkills(SkillName).
+            Select(x => new TravellerSkill(x,SkillValue)).ToList();
 
         public static bool IsSuperSkill(TravellerSkills skill)
             => skill switch
@@ -493,6 +497,195 @@ namespace TravellerWiki.Data.Charcters
                 TravellerSkills.Seafarer => true,
                 TravellerSkills.Tactics => true,
                 _ => false
+            };
+
+        public List<TravellerSkills> GetSubSkills(TravellerSkills skill)
+            => skill switch
+            {
+                TravellerSkills.Animals => new List<TravellerSkills>
+                {
+                    TravellerSkills.Animals_Handling,
+                    TravellerSkills.Animals_Training,
+                    TravellerSkills.Animals_Veterinary
+                },
+                TravellerSkills.Art => new List<TravellerSkills>
+                {
+                    TravellerSkills.Art_Holography,
+                    TravellerSkills.Art_Instrument,
+                    TravellerSkills.Art_Preformer,
+                    TravellerSkills.Art_VisualMedia,
+                    TravellerSkills.Art_Write,
+                },
+                TravellerSkills.Athletics => new List<TravellerSkills>
+                {
+                    TravellerSkills.Athletics_Dexterity,
+                    TravellerSkills.Athletics_Endurance,
+                    TravellerSkills.Athletics_Strength,
+                },
+                TravellerSkills.Circle => new List<TravellerSkills>
+                {
+                    TravellerSkills.Circle_Abyss,
+                    TravellerSkills.Circle_Aether,
+                    TravellerSkills.Circle_Material,
+                    TravellerSkills.Circle_Nether,
+                    TravellerSkills.Circle_Void,
+                },
+                TravellerSkills.Drive => new List<TravellerSkills>
+                {
+                    TravellerSkills.Drive_HoverCraft,
+                    TravellerSkills.Drive_Mole,
+                    TravellerSkills.Drive_Track,
+                    TravellerSkills.Drive_Walker,
+                    TravellerSkills.Drive_Wheel,
+                },
+                TravellerSkills.Electronics => new List<TravellerSkills>
+                {
+                    TravellerSkills.Electronics_Comms,
+                    TravellerSkills.Electronics_Computers,
+                    TravellerSkills.Electronics_RemoteOps,
+                    TravellerSkills.Electronics_Sensors,
+                },
+                TravellerSkills.Engineer => new List<TravellerSkills>
+                {
+                    TravellerSkills.Engineer_JDrive,
+                    TravellerSkills.Engineer_LifeSupport,
+                    TravellerSkills.Engineer_MDrive,
+                    TravellerSkills.Engineer_Power,
+                },
+                TravellerSkills.Flyer => new List<TravellerSkills>
+                {
+                    TravellerSkills.Flyer_Airship,
+                    TravellerSkills.Flyer_Grav,
+                    TravellerSkills.Flyer_Ornithopter,
+                    TravellerSkills.Flyer_Roter,
+                    TravellerSkills.Flyer_Wing,
+                },
+                TravellerSkills.FreeForm => new List<TravellerSkills>
+                {
+                    TravellerSkills.FreeForm_Abyss,
+                    TravellerSkills.FreeForm_Aether,
+                    TravellerSkills.FreeForm_Material,
+                    TravellerSkills.FreeForm_Nether,
+                    TravellerSkills.FreeForm_Void,
+                },
+                TravellerSkills.GunCombat => new List<TravellerSkills>
+                {
+
+                    TravellerSkills.GunCombat_Archaic,
+                    TravellerSkills.GunCombat_Energy,
+                    TravellerSkills.GunCombat_Slug,
+                },
+                TravellerSkills.Gunner => new List<TravellerSkills>
+                {
+                    TravellerSkills.Gunner_Capital,
+                    TravellerSkills.Gunner_Ortillery,
+                    TravellerSkills.Gunner_Screen,
+                    TravellerSkills.Gunner_Turret,
+                },
+                TravellerSkills.HeavyWeapons => new List<TravellerSkills>
+                {
+                    TravellerSkills.HeavyWeapons_Artillery,
+                    TravellerSkills.HeavyWeapons_ManPortable,
+                    TravellerSkills.HeavyWeapons_Vehicle,
+                },
+                TravellerSkills.JackLuck => new List<TravellerSkills>
+                {
+                    TravellerSkills.JackOfAllTrades,
+                    TravellerSkills.Luck
+                },
+                TravellerSkills.Language => new List<TravellerSkills>
+                {
+                    TravellerSkills.Language_AxiosCommon,
+                    TravellerSkills.Language_AxiosPolitical,
+                    TravellerSkills.Langauge_Britannian,
+                    TravellerSkills.Language_Common,
+                    TravellerSkills.Langauge_ElderTongue,
+                    TravellerSkills.Language_FederationCommon,
+                    TravellerSkills.Language_germushian,
+                    TravellerSkills.Langauge_HighImperial,
+                    TravellerSkills.Language_HighVersian,
+                    TravellerSkills.Langauge_Jedi,
+                    TravellerSkills.Langauge_LowImperial,
+                    TravellerSkills.Langauge_LowVersian,
+                    TravellerSkills.Langauge_Sigmarian,
+                    TravellerSkills.Language_Tekka,
+                    TravellerSkills.Language_TradersCant,
+                    TravellerSkills.Langauge_Utopian,
+                    TravellerSkills.Language_Witcher,
+                    TravellerSkills.Langauge_XiaoMing,
+                    TravellerSkills.Language_Sith,
+                },
+                TravellerSkills.Melee => new List<TravellerSkills>
+                {
+                    TravellerSkills.Melee_Unarmed,
+                    TravellerSkills.Melee_Blade,
+                    TravellerSkills.Melee_Bludgeon,
+                    TravellerSkills.Melee_Natural,
+                    TravellerSkills.Melee_Void,
+                },
+                TravellerSkills.Pilot => new List<TravellerSkills>
+                {
+                    TravellerSkills.Pilot_CapitalShips,
+                    TravellerSkills.Pilot_SmallCraft,
+                    TravellerSkills.Pilot_Spacecraft,
+                },
+                TravellerSkills.Profession => new List<TravellerSkills>
+                {
+                    TravellerSkills.Profession_Belter,
+                    TravellerSkills.Profession_Biologicals,
+                    TravellerSkills.Profession_CivilEngineering,
+                    TravellerSkills.Profession_Construction,
+                    TravellerSkills.Profession_Hydroponics,
+                    TravellerSkills.Profession_Polymers,
+                },
+                TravellerSkills.Religion => new List<TravellerSkills>
+                {
+                    TravellerSkills.Religion_BritannianSithism,
+                    TravellerSkills.Religion_ModernSithism,
+                    TravellerSkills.Religion_Deorism,
+                    TravellerSkills.Religion_Gatism,
+                    TravellerSkills.Religion_Imperialism,
+                    TravellerSkills.Religion_JediIsm,
+                    TravellerSkills.Religion_Lawgarism,
+                    TravellerSkills.Religion_Sigmarism,
+                    TravellerSkills.Religion_Sithism,
+                    TravellerSkills.Religion_OrthodoxSithism,
+                    TravellerSkills.Religion_Witcherism,
+                },
+                TravellerSkills.Science => new List<TravellerSkills>
+                {
+                    TravellerSkills.Science_Archaeology,
+                    TravellerSkills.Science_Astronomy,
+                    TravellerSkills.Science_Biology,
+                    TravellerSkills.Science_Chemistry,
+                    TravellerSkills.Science_Cosmology,
+                    TravellerSkills.Science_Cybernetics,
+                    TravellerSkills.Science_Economics,
+                    TravellerSkills.Science_Genetics,
+                    TravellerSkills.Science_History,
+                    TravellerSkills.Science_Linguistics,
+                    TravellerSkills.Science_Philosophy,
+                    TravellerSkills.Science_Physics,
+                    TravellerSkills.Science_Planetology,
+                    TravellerSkills.Science_Psychology,
+                    TravellerSkills.Science_Robotics,
+                    TravellerSkills.Science_Sophontology,
+                    TravellerSkills.Science_Voidology,
+                    TravellerSkills.Science_Xenology,
+                },
+                TravellerSkills.Seafarer => new List<TravellerSkills>
+                {
+                    TravellerSkills.Seafarer_OceanShips,
+                    TravellerSkills.Seafarer_Personal,
+                    TravellerSkills.Seafarer_Sail,
+                    TravellerSkills.Seafarer_Submarine,
+                },
+                TravellerSkills.Tactics => new List<TravellerSkills>
+                {
+                    TravellerSkills.Tactics_Military,
+                    TravellerSkills.Tactics_Naval,
+                },
+                _ => new List<TravellerSkills>()
             };
     }
 }

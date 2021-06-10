@@ -29,12 +29,13 @@ namespace TravellerWiki.Data.CreationEvents
         /// Make a skill check
         /// </summary>
         /// <param name="roll">The result of the die roll from the traveller, before modifiers</param>
-        /// <param name="skillToCheckAgainst">the skill the traveller is using.</param>
+        /// <param name="travellersSkill">the skill the traveller is using.</param>
         /// <returns>If the skill check was passed</returns>
-        public bool MakeSkillCheck(int roll, TravellerSkill skillToCheckAgainst)
+        public bool MakeSkillCheck(int roll, TravellerSkill travellersSkill)
         {
-            var skill = SkillChecks.First(skill => skill.SkillToCheck.SkillName == skillToCheckAgainst.SkillName);
-            return skill.PassedCheck(roll + skillToCheckAgainst.SkillValue);
+            var skill = SkillChecks.First(skill => skill.SkillToCheck.SkillName == travellersSkill.SkillName);
+            
+            return skill.PassedCheck(roll + travellersSkill.SkillValue);
         }
 
         public override string ToString()

@@ -6,6 +6,7 @@
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
 @using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -62,6 +63,7 @@
         }
         else if (GetService().GetsBasicTraining())
         {
+            //TODO fix jackluck, didn't work.
             <p>
                 Pick one of the following for your basic training:
                 <select @bind="ChosenBasicTrainingSkillName">

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using TravellerWiki.Data;
 using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.CreationEvents;
 using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.TravellerInjuries;
 
-namespace CharacterCreationTest.CharacterCreation
+namespace TravellerWiki.Data.CharacterCreation
 {
     public class CharacterCreatorService
     {
@@ -21,6 +18,7 @@ namespace CharacterCreationTest.CharacterCreation
         public TravellerCareer LastCareer => _character.LastCareer ?? null;
         public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers => _character.PreviousCareers ?? null;
         public TravellerAssignment LastAssignment => _character.LastAssignment ?? null;
+        public string LastRank => _character.LastRank ?? "None";
         public int NumberOfTravellerBackgroundSKills =>
             3 + _character.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education).AttributeModifier;
 
@@ -138,13 +136,13 @@ namespace CharacterCreationTest.CharacterCreation
         /// </summary>
         /// <param name="includePsi"> whether to include the psi stat in generation</param>
         /// <returns></returns>
-        public Dictionary<int, int> GenerateStats(bool includePsi = false)
+        public List<int> GenerateStats(bool includePsi = false)
         {
             int numberOfStats = 6 + (includePsi ? 1 : 0);
-            var result = new Dictionary<int,int>();
+            var result = new List<int>();
             for (int i = 0; i < numberOfStats; i++)
             {
-                result[i] = RollDice();
+                result.Add(RollDice());
             }
 
             return result;

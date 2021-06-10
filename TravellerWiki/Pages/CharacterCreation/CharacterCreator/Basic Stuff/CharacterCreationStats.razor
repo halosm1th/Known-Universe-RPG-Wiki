@@ -5,6 +5,7 @@
 @using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 <head>
@@ -17,7 +18,7 @@
     public string characterID { get; set; }
 
 
-    public Dictionary<int, int> GeneratedStats;
+    public List<int> GeneratedStats;
     private bool IncludePsi { get; set; }
 
     int StrKey = -1;
@@ -41,33 +42,10 @@
     bool setPsi = false;
     int PsiKey = -1;
 
-    public bool HasNumberBeenUsed(int number)
-    {
-        return (setStr && number == StrKey) || (setDex && number == DexKey) || (setEnd && number == EndKey) ||
-               (setInt && number == IntKey) || (setEdu && number == EduKey) || (setSoc && number == SocKey) ||
-               (setPsi && number == PsiKey);
-    }
+
 
     public bool SkillsSet() => !(setStr & setDex & setEnd & setInt & setEdu & setSoc & IncludePsi) || setPsi;
 
-
-    public int GetFirstUnusedKey()
-    {
-        if (GeneratedStats == null)
-        {
-            GenerateStats();
-        }
-
-        foreach (var key in GeneratedStats)
-        {
-            if (!HasNumberBeenUsed(key.Key))
-            {
-                return key.Key;
-            }
-        }
-
-        return -1;
-    }
 
     public void GenerateStats()
     {
@@ -75,73 +53,53 @@
 
     }
 
+    //TODO Write this so that you can't keep the stat in the box, and hten submit skil. Lets you keep same skill.
+
     public void SetStat(TravellerAttributes attribute)
     {
         int StatValue = -1;
         switch (attribute)
         {
             case TravellerAttributes.Strength:
-                if (StrKey == -1)
-                {
-                    StrKey = GetFirstUnusedKey();
-                }
-                StatValue = GeneratedStats[StrKey];
-                setStr = true;
 
+                StatValue = StrKey;
+                setStr = true;
 
                 break;
             case TravellerAttributes.Dexterity:
-                if (DexKey == -1)
-                {
-                    DexKey = GetFirstUnusedKey();
-                }
 
-                StatValue = GeneratedStats[DexKey];
+
+                StatValue = DexKey;
                 setDex = true;
 
                 break;
             case TravellerAttributes.Endurance:
-                if (EndKey == -1)
-                {
-                    EndKey = GetFirstUnusedKey();
-                }
-                StatValue = GeneratedStats[EndKey];
+
+                StatValue = EndKey;
                 setEnd = true;
 
                 break;
             case TravellerAttributes.Intelligence:
-                if (IntKey == -1)
-                {
-                    IntKey = GetFirstUnusedKey();
-                }
-                StatValue = GeneratedStats[IntKey];
+
+                StatValue = IntKey;
                 setInt = true;
 
                 break;
             case TravellerAttributes.Education:
-                if (EduKey == -1)
-                {
-                    EduKey = GetFirstUnusedKey();
-                }
-                StatValue = GeneratedStats[EduKey];
+
+                StatValue =EduKey;
                 setEdu = true;
 
                 break;
             case TravellerAttributes.Social:
-                if (SocKey == -1)
-                {
-                    SocKey = GetFirstUnusedKey();
-                }
-                StatValue = GeneratedStats[SocKey];
+
+                StatValue = SocKey;
                 setSoc = true;
 
                 break;
             case TravellerAttributes.Psionics:
-                if (PsiKey == -1)
-                {
-                    PsiKey = GetFirstUnusedKey();
-                }
-                StatValue = GeneratedStats[PsiKey];
+
+                StatValue = PsiKey;
                 setPsi = true;
 
                 break;
@@ -149,8 +107,14 @@
                 break;
         }
 
-        GetService().AssignStat(new TravellerAttribute(attribute, StatValue));
+        if(StatValue <= 0)
+        {
+            StatValue = GeneratedStats.Last();
+        }
 
+        GetService().AssignStat(new TravellerAttribute(attribute, StatValue));
+        GeneratedStats.Remove(StatValue);
+        StateHasChanged();
     }
 
     public CharacterCreatorService GetService()
@@ -166,7 +130,7 @@
 }
 <body>
 
-<h1>Traveller Character Creator</h1>
+    <h1>Traveller Character Creator</h1>
     <div style="text-align: center">
 
         @if (GeneratedStats == null)
@@ -175,7 +139,7 @@
         }
         <h2>@GetService().Name: Stats</h2>
 
-        <p>Roll: @GeneratedStats.Aggregate("", (h, t) => h += t.Value + ", ") Psi Roll: <input type="checkbox" @bind="IncludePsi" /></p>
+        <p>Roll: @GeneratedStats.Aggregate("", (h, t) => h += t + ", ") Psi Roll: <input type="checkbox" @bind="IncludePsi" /></p>
         <button @onclick="GenerateStats">Generate new Attributes</button>
         <p>
             <ol>
@@ -184,12 +148,9 @@
                     @if (!setStr)
                     {
                         <select @bind="StrKey">
-                            @foreach (var stat in GeneratedStats)
+                            @foreach(var stat in GeneratedStats)
                             {
-                                if (!HasNumberBeenUsed(stat.Key))
-                                {
-                                    <option value="@stat.Key">@stat.Value</option>
-                                }
+                                    <option value="@stat">@stat</option>
                             }
                         </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Strength); }">Set</button>
@@ -203,15 +164,12 @@
                     Dexterity:
                     @if (!setDex)
                     {
-                        <select @bind="DexKey">
-                            @foreach (var stat in GeneratedStats)
-                            {
-                                if (!HasNumberBeenUsed(stat.Key))
-                                {
-                                    <option value="@stat.Key">@stat.Value</option>
-                                }
-                            }
-                        </select>
+                    <select @bind="DexKey">
+                        @foreach (var stat in GeneratedStats)
+                        {
+                                <option value="@stat">@stat</option>
+                        }
+                    </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Dexterity); }">Set</button>
                     }
                     else
@@ -223,15 +181,12 @@
                     Endurance:
                     @if (!setEnd)
                     {
-                        <select @bind="EndKey">
-                            @foreach (var stat in GeneratedStats)
-                            {
-                                if (!HasNumberBeenUsed(stat.Key))
-                                {
-                                    <option value="@stat.Key">@stat.Value</option>
-                                }
-                            }
-                        </select>
+                    <select @bind="EndKey">
+                        @foreach (var stat in GeneratedStats)
+                        {
+                            <option value="@stat">@stat</option>
+                        }
+                    </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Endurance); }">Set</button>
                     }
                     else
@@ -243,15 +198,12 @@
                     Intelligence:
                     @if (!setInt)
                     {
-                        <select @bind="IntKey">
-                            @foreach (var stat in GeneratedStats)
-                            {
-                                if (!HasNumberBeenUsed(stat.Key))
-                                {
-                                    <option value="@stat.Key">@stat.Value</option>
-                                }
-                            }
-                        </select>
+                    <select @bind="IntKey">
+                        @foreach (var stat in GeneratedStats)
+                        {
+                                <option value="@stat">@stat</option>
+                        }
+                    </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Intelligence); }">Set</button>
                     }
                     else
@@ -263,15 +215,11 @@
                     Education:
                     @if (!setEdu)
                     {
-                        <select @bind="EduKey">
-                            @foreach (var stat in GeneratedStats)
-                            {
-                                if (!HasNumberBeenUsed(stat.Key))
-                                {
-                                    <option value="@stat.Key">@stat.Value</option>
-                                }
-                            }
-                        </select>
+                    <select @bind="EduKey">
+                        @foreach (var stat in GeneratedStats)
+                        {<option value="@stat">@stat</option>
+                        }
+                    </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Education); }">Set</button>
                     }
                     else
@@ -283,15 +231,12 @@
                     Social:
                     @if (!setSoc)
                     {
-                        <select @bind="SocKey">
-                            @foreach (var stat in GeneratedStats)
-                            {
-                                if (!HasNumberBeenUsed(stat.Key))
-                                {
-                                    <option value="@stat.Key">@stat.Value</option>
-                                }
-                            }
-                        </select>
+                    <select @bind="SocKey">
+                        @foreach (var stat in GeneratedStats)
+                        {
+                            <option value="@stat">@stat</option>
+                        }
+                    </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Social); }">Set</button>
                     }
                     else
@@ -305,15 +250,12 @@
                         Psionics:
                         @if (!setPsi)
                         {
-                            <select @bind="PsiKey">
-                                @foreach (var stat in GeneratedStats)
-                                {
-                                    if (!HasNumberBeenUsed(stat.Key))
-                                    {
-                                        <option value="@stat.Key">@stat.Value</option>
-                                    }
-                                }
-                            </select>
+                        <select @bind="PsiKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                    <option value="@stat">@stat</option>
+                            }
+                        </select>
                             <button @onclick="() => { SetStat(TravellerAttributes.Psionics); }">Set</button>
                         }
                         else

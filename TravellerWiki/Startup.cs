@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using TravellerWiki.Data;
 using TravellerWiki.Data.Services;
 using TravellerWiki.Data.Services.CareerService;
+using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService;
 
 namespace TravellerWiki
 {
@@ -44,6 +45,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerFreeFormMagicSystemsService>();
             services.AddSingleton<CharacterCreatorService>();
             services.AddSingleton<MultiPageCharacterCreationService>();
+            services.AddSingleton<TravellerComplexCharacterGeneratorService>();
 
             services.AddSingleton<TravellerMapService>();
         }

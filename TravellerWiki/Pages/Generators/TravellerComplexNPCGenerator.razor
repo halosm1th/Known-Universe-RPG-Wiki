@@ -1,0 +1,54 @@
+﻿@page "/Generators/TravellerSpecialNPCGenerator"
+
+@using TravellerWiki.Data.Services;
+@using System.Linq;
+@using System.Collections.Generic;
+@using TravellerWiki.Data.Charcters
+@inject TravellerComplexCharacterGeneratorService GeneratorService
+
+<h1>Special NPC Generator</h1>
+    <input type="range" min="1" max="100" step="1" @bind="NPCCount"/>
+    <button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
+
+@if (npcs == null)
+{
+    <p>Generating npcs</p>
+}
+else
+{
+    <table style="margin: 10px;height:100%;">
+        <thead>
+            <tr>
+                <th style="padding: 10px;border-style: solid">Character</th>
+                <th style="padding: 10px; border-style: solid">Generation Story</th>
+            </tr>
+        </thead>
+        @foreach (var npc in npcs)
+        {
+            <tbody style="color:#ffe81F">
+                <tr>
+                    <td>@npc.Key.ToString()</td>
+                    <td>@npc.Value</td>
+                </tr>
+            </tbody>
+            <p></p>
+        }
+    </table>
+}
+
+@code {
+    private Dictionary<TravellerCharacter, string> npcs;
+
+    private int NPCCount = 1;
+
+    protected override void OnInitialized()
+    {
+        LoadNPCs();
+    }
+
+    public void LoadNPCs()
+    {
+        npcs = GeneratorService.GetCharacters(NPCCount);
+    }
+
+    }

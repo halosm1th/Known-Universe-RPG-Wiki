@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CharacterCreationTest.CharacterCreation;
+using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService;
 
 namespace TravellerWiki.Data.Services
 {

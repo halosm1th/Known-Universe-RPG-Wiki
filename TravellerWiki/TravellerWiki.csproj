@@ -163,6 +163,9 @@
     <Content Update="Pages\Generators\TravellerNPCGenerator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\Generators\TravellerComplexNPCGenerator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\Generators\TravellerSpecialNPCGenerator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -416,6 +419,10 @@
 
   <ItemGroup>
     <Folder Include="Data\JSON\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CharacterCreationTest\CharacterCreationTest.csproj" />
   </ItemGroup>
 
   <ItemGroup>

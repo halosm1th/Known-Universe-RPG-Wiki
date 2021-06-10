@@ -16,6 +16,9 @@ namespace TravellerWiki.Data.Charcters
         public Stack<TravellerEventCharacterCreation> CharactersEvents = new Stack<TravellerEventCharacterCreation>();
         public TravellerAssignment? LastAssignment => PreviousCareers.Count > 0 ? PreviousCareers.Peek().Item2 : null;
 
+        public string LastRank => PreviousCareers.Count > 0? PreviousCareers.Peek().Item2.RanksAndBonuses[PreviousCareers.Peek().rank].title
+            : "None";
+
         public PlayerTravellerCharacter()
         {
             PreviousCareers = new Stack<(TravellerCareer, TravellerAssignment, int)>();
@@ -28,7 +31,7 @@ namespace TravellerWiki.Data.Charcters
         }
 
     }
-
+    //Test
     public abstract class TravellerCharacter
     {
         #region Public Variables
