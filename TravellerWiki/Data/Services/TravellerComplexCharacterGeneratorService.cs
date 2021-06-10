@@ -8,14 +8,14 @@ namespace TravellerWiki.Data.Services
     {
         private ComplexCharacterGenerator _generator = new ComplexCharacterGenerator();
 
-        public (TravellerCharacter character, string creationStory) GetCharacter()
+        public (PlayerTravellerCharacter character, string creationStory) GetCharacter()
         {
             return _generator.GenerateCharacterAndStory();
         }
 
-        public Dictionary<TravellerCharacter, string> GetCharacters(int count)
+        public Dictionary<PlayerTravellerCharacter, string> GetCharacters(int count)
         {
-            var dict = new Dictionary<TravellerCharacter,string>();
+            var dict = new Dictionary<PlayerTravellerCharacter, string>();
             var characters = _generator.GenerateCharacters(count);
             foreach (var gen in characters)
             {

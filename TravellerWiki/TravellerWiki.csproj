@@ -422,10 +422,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CharacterCreationTest\CharacterCreationTest.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="NameLists\AxionAllianceNameList.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

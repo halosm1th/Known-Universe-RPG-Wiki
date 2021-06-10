@@ -563,6 +563,13 @@ namespace TravellerWiki.Data.CharacterCreation
 
             if (reward is TravellerRewardVehicle vehicle)
             {
+                _character.AddItem(new TravellerItem(@vehicle.RewardText, 100000000, 0, 15));
+                return false;
+            }
+
+            if (reward is TravellerRewardShip ship)
+            {
+                _character.AddItem(new TravellerItem(@ship.RewardText, 100000000, 0, 15));
                 return false;
             }
 
@@ -648,7 +655,7 @@ namespace TravellerWiki.Data.CharacterCreation
 
         public TravellerCharacterCreationReward GetBenefit(int benefitNumber, bool cash = false)
         {
-            if (benefitNumber > GetBenefits().Count) benefitNumber = GetBenefits().Count-1;
+            if (benefitNumber >= GetBenefits().Count) benefitNumber = GetBenefits().Count-1;
             if (benefitNumber < 0) benefitNumber = 0;
 
             NumberOfBenefitRolls--;

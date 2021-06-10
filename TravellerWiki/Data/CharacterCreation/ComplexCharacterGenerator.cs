@@ -11,9 +11,9 @@ namespace TravellerWiki.Data.CharacterCreation
     public class ComplexCharacterGenerator
     {
 
-        public List<(TravellerCharacter character, string creationStory)> GenerateCharacters(int count=1)
+        public List<(PlayerTravellerCharacter character, string creationStory)> GenerateCharacters(int count=1)
         {
-            var characters = new List<(TravellerCharacter character, string creationStory)>();
+            var characters = new List<(PlayerTravellerCharacter character, string creationStory)>();
             for (int i = 0; i < count; i++)
             {
                 characters.Add(GenerateCharacterAndStory());
@@ -23,13 +23,13 @@ namespace TravellerWiki.Data.CharacterCreation
             return characters;
         }
 
-        public (TravellerCharacter character, string creationStory) GenerateCharacterAndStory()
+        public (PlayerTravellerCharacter character, string creationStory) GenerateCharacterAndStory()
         {
             return GenerateCharacter();
         }
 
         
-        private static (TravellerCharacter character, string creationStory) GenerateCharacter()
+        private static (PlayerTravellerCharacter character, string creationStory) GenerateCharacter()
         {
             var travellerCreator = new CharacterCreatorService();
             var story = new StringBuilder();
@@ -74,7 +74,7 @@ namespace TravellerWiki.Data.CharacterCreation
             GetBenefits(travellerCreator, random,story);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            story.Insert(0, travellerCreator._character.ToString());
+            //story.Insert(0, travellerCreator._character.ToString());
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
             return (travellerCreator.GetPlayerCharacter(),story.ToString());

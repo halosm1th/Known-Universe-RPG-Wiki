@@ -297,7 +297,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                         noEvent:new TravellerEventSkillCheck("You stand with those who want a better life, a place in government and to abolish the noble order.",
                             yesEvent: new TravellerEventReward("Your rebellion is successful, you begin a life of piracy aboard your ship. ",new List<TravellerCharacterCreationReward>
                             {
-                                new TravellerRewardJobChange("Polandskian Pirate"),
+                                new TravellerRewardJobChange("Polandskia Pirate"),
                                 new TravellerRewardContact("Versian Pirate 1",TravellerNPCRelationship.Ally),
                                 new TravellerRewardContact("Versian Pirate 2",TravellerNPCRelationship.Ally),
                             }),

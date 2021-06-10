@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CharacterCreationTest.CharacterCreation;
 using JobBoardCreator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
