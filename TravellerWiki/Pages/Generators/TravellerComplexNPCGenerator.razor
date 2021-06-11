@@ -5,14 +5,28 @@
 @using System.Collections.Generic;
 @using TravellerWiki.Data
 @using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services.CareerService
 @inject TravellerComplexCharacterGeneratorService GeneratorService
+@inject TravellerNationsCharacterInfoService NationService
 
 <h1>Special NPC Generator</h1>
 <p>
-    <input type="range" min="1" max="100" step="1" @bind="NPCCount" /> Generate: @NPCCount
-
+    Name: <input type="text" @bind="Name" placeholder="Name" />
+    <br />
+    Char Age: @Age <input type="range" min="18" max="102" step="4" @bind="Age" />
+    <br />
+    Generate: @NPCCount <input type="range" min="1" max="100" step="1" @bind="NPCCount" />
+    <br />
+    Nationality: <select @bind="Nationality">
+        @foreach (var nation in NationService.GetNationsList)
+        {
+            <option value="@nation.Nationality">@nation.Nationality</option>
+        }
+    </select>
+    <br />
+    <br />
     <button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
-            </p>
+</p>
 @if (npcs == null)
 {
     <p>Generating npcs</p>
@@ -23,6 +37,7 @@ else
         <thead>
             <tr>
                 <th style="padding: 10px;border-style: solid">Character</th>
+                <th style="width:2px"></th>
                 <th style="padding: 10px; border-style: solid">Generation Story</th>
             </tr>
         </thead>
@@ -33,18 +48,18 @@ else
                 <tr>
                     <td style="width: 35%;vertical-align: top">
 
-                        <table style="float: Left;border: 1px solid #a2a9b1; background-color: SlateGray;
-                                      margin: 0 2.5em 0 1em; padding: 0.2em 0.2em 0.2em 0.2em; clear: Left; color: #ffe81F; border-color: #ffe81F;">
+                        <table style="float: Left;background-color: SlateGray;
+clear: Left; color: #ffe81F; border-color: #ffe81F;">
                             <thead>
                                 <tr>
-                                    <th >Information</th>
-                                    <th >Attributes</th>
+                                    <th width="60%">Information</th>
+                                    <th width="40%">Attributes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="border-style: none">
                                 <tr>
                                     <td><b>Name:</b> @person.Name</td>
-                                    <td style="text-align: right; float: right;">@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Strength)</td>
+                                    <td style="text-align: right;">@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Strength)</td>
 
                                 </tr>
                                 <tr>
@@ -61,51 +76,63 @@ else
                                 </tr>
                                 <tr>
                                     <td><b>Assignment:</b> @(person.LastAssignment != null ? person.LastAssignment.Name : "None")</td>
-                                    <td style="text-align: right; float: right;">@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education)</td>
+                                    <td style="text-align: right;">@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education)</td>
                                 </tr>
                                 <tr>
                                     <td><b>Rank:</b> @(person.LastRank != null ? person.LastRank : "None")</td>
                                     <td style="text-align: right; float: right;">@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Social)</td>
                                 </tr>
 
-                                @if (person.AttributeList.Any(x => x.AttributeName == TravellerAttributes.Psionics))
-                                {
-                                    <tr><td>@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Psionics).ToString()</td></tr>
-                                }
-                            </tbody>
-                            <thead>
-                                <tr><th colspan="1">Name</th><th colspan="1">Information</th></tr>
-                            </thead>
-                            <tbody>
                                 <tr>
-                                    <td style="vertical-align: top"><b>Skills</b> : </td>
-                                    <td style="text-align: center;border-color: chartreuse; border-style: solid; border: 1px; white-space: pre-line;">
+                                    <td>Has Psi: @person.AttributeList.Any(x => x.AttributeName == TravellerAttributes.Psionics)</td>
+                                    @if (person.AttributeList.Any(x => x.AttributeName == TravellerAttributes.Psionics))
+                                    {
+                                        <td>@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Psionics).ToString()</td>
+
+                                    }
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        <table  style="float: Left;background-color: SlateGray;
+                            clear: Left; color: #ffe81F; border-color: #ffe81F; " width="100%">
+                            <thead>
+                                <tr>
+                                <th width="20%" style="text-align: left">Name</th>
+                                <th width="80%" style="text-align: right">Information</th>
+                                </tr>
+                            </thead>
+                            <tbody style="border-style: none">
+                                <tr>
+                                    <td style="vertical-align: top;text-align: left"><b>Skills</b> : </td>
+                                    <td style="text-align: center;border-color: chartreuse; 
+border-style: solid; border: 1px; white-space: pre-line;text-align: right">
                                         @(person.SkillList.Count > 0 ? person.SkillList.Aggregate("", (h, t) => h += "\n" + t).Remove(0, 1) : "None")
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><b>Finances:</b></td>
-                                    <td>@person.Finances</td>
+                                    <td style="text-align: left"><b>Finances:</b></td>
+                                    <td style="text-align: right">@person.Finances</td>
                                 </tr>
                                 <tr>
-                                    <td><b>Items:</b></td>
-                                    <td>
+                                    <td style="text-align: left"><b>Items:</b></td>
+                                    <td style="text-align: right">
                                         @(person.Items.Count > 0 ?
                                         person.Items.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td><b>Augments:</b></td>
-                                    <td>
+                                    <td style="text-align: left"><b>Augments:</b></td>
+                                    <td style="text-align: right">
                                         @(person.Augments.Count > 0 ?
                                             person.Augments.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td><b>Armour:</b></td>
-                                    <td>
+                                    <td style="text-align: left"><b>Armour:</b></td>
+                                    <td style="text-align: right">
                                         @(person.Armour.Count > 0 ?
                                             person.Armour.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
                                     </td>
@@ -113,15 +140,15 @@ else
 
 
                                 <tr>
-                                    <td><b>Weapons:</b></td>
-                                    <td>
+                                    <td style="text-align: left"><b>Weapons:</b></td>
+                                    <td style="text-align: right">
                                         @(person.Weapons.Count > 0 ?
                                             person.Weapons.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><b>Contacts:</b></td>
-                                    <td>
+                                    <td style="text-align: left"><b>Contacts:</b></td>
+                                    <td style="text-align: right">
                                         <ul>
                                             @foreach (var contact in person.Contacts)
                                             {
@@ -136,10 +163,10 @@ else
                             </tbody>
                         </table>
                     </td>
-                    <td style="white-space: pre-line;width:75%">@generatedNpc.Value</td>
+                    <td style="width:2px"></td>
+                    <td style="white-space: pre-line;">@generatedNpc.Value</td>
                 </tr>
             </tbody>
-            <p></p>
         }
     </table>
 }
@@ -148,6 +175,9 @@ else
     private Dictionary<PlayerTravellerCharacter, string> npcs;
 
     private int NPCCount = 1;
+    private TravellerNationalities Nationality = TravellerNationalities.Fifth_Vers_Empire;
+    private string Name;
+    private int Age = 18;
 
     protected override void OnInitialized()
     {
@@ -156,7 +186,7 @@ else
 
     public void LoadNPCs()
     {
-        npcs = GeneratorService.GetCharacters(NPCCount);
+        npcs = GeneratorService.GetCharacters(NPCCount,Nationality,Name,Age);
     }
 
     }

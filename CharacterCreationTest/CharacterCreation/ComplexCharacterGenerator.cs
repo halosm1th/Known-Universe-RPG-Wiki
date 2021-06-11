@@ -6,13 +6,14 @@ using CharacterCreationTest.CharacterCreation;
 using TravellerWiki.Data;
 using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.CreationEvents;
+using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.TravellerInjuries;
 
 namespace CharacterCreationTest.CharacterCreation
 {
     class ComplexCharacterGenerator
     {
-
+        #region Access The Generated Characters
         public List<(TravellerCharacter character, string creationStory)> GenerateCharacters(int count=1)
         {
             var characters = new List<(TravellerCharacter character, string creationStory)>();
@@ -29,8 +30,75 @@ namespace CharacterCreationTest.CharacterCreation
         {
             return GenerateCharacter();
         }
+        #endregion
+        #region Generator cores
 
-        
+        private static (TravellerCharacter character, string creationStory) 
+            GenerateCharacter(TravellerNationalities nation, int age = 18, string name ="")
+        {
+            var travellerCreator = new CharacterCreatorService();
+            var story = new StringBuilder();
+            var random = new Random();
+
+            travellerCreator.NewCharacter();
+            int CharactersAge = age;
+
+            if (name == String.Empty)
+            {
+                var names = new TravellerNameService()
+                    .GetNames(1, TravellerNameService.GetNationalitiesNameList(nation));
+                name = names[random.Next(names.Count)];
+
+                ApplyName(name, travellerCreator, random, story);
+            }
+            else
+            {
+                ApplyName(name,travellerCreator,random,story);
+            }
+            GenerateValues(travellerCreator, story);
+
+            var nationService = new TravellerNationsCharacterInfoService();
+            var nationality = nationService.GetNationsCharacterInfo(nation);
+            ApplyNationality(nationality, random, travellerCreator, nationService, story);
+            
+            do
+            {
+                if (!travellerCreator.HasJob)
+                {
+                    FindCareer(travellerCreator, random, story);
+                    story.AppendLine("");
+                }
+
+                GenerateSkill(travellerCreator, random, story);
+                story.AppendLine("");
+
+                CreationEvent(travellerCreator, random, story);
+                story.AppendLine("");
+
+                if (travellerCreator.Mishapped)
+                {
+                    GetBenefits(travellerCreator, random, story);
+                }
+
+                IncreaseAge(travellerCreator, random, story);
+                story.AppendLine("");
+
+            }
+            //While the traveller has a job and is less then 100, or the traveller gets really unlucky and decides to drop out.
+            while (travellerCreator.HardAdvanced ||
+                   (travellerCreator.HasJob && travellerCreator.TravellersAge < CharactersAge) ||
+                   random.Next(0, 2) == 1);
+            //
+
+            GetBenefits(travellerCreator, random, story);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            story.Insert(0, travellerCreator._character.ToString());
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+
+            return (travellerCreator.GetPlayerCharacter(), story.ToString());
+        }
+
         private static (TravellerCharacter character, string creationStory) GenerateCharacter()
         {
             var travellerCreator = new CharacterCreatorService();
@@ -81,7 +149,8 @@ namespace CharacterCreationTest.CharacterCreation
 
             return (travellerCreator.GetPlayerCharacter(),story.ToString());
         }
-
+        #endregion
+        #region Benefits
         private static void GetBenefits(CharacterCreatorService creator, Random random, StringBuilder story)
         {
             var benefits = creator.GetBenefits();
@@ -165,7 +234,8 @@ namespace CharacterCreationTest.CharacterCreation
                 }
             }
         }
-
+        #endregion
+        #region Events
         private static void CreationEvent(CharacterCreatorService travellerCreator, Random random, StringBuilder story)
         {
             TravellerEventCharacterCreation creationEvent;
@@ -192,6 +262,144 @@ namespace CharacterCreationTest.CharacterCreation
             }
         }
 
+        private static void ApplyEvent(CharacterCreatorService creator, Random random,
+            TravellerEventCharacterCreation creationEvent, StringBuilder story)
+        {
+            story.AppendLine($"{creationEvent.EventText}");
+            if (creationEvent is TravellerEventAttributeCheck attribute)
+            {
+                AttributeEvent(creator, random, attribute, story);
+            }
+            else if (creationEvent is TravellerEventChangeCareerWithAssignment changeWithAssignment)
+            {
+                var career = creator.GetCareer(changeWithAssignment.NewCareerName);
+                var assignment = creator.GetAssignment(career, changeWithAssignment.Assignment);
+                JoinCareerAndBasicTraining(creator, random, career, assignment, story);
+            }
+            else if (creationEvent is TravellerEventChangeCareers changeCareer)
+            {
+                var career = creator.GetCareer(changeCareer.NewCareerName);
+                GetAssignmentAndJoinCareer(creator, random, career, story);
+            }
+            else if (creationEvent is TravellerEventSkillCheck skillCheck)
+            {
+                PreformASkillCheck(creator, random, skillCheck, story);
+            }
+            else if (creationEvent is TravellerEventChoice choice)
+            {
+                ChoiceEvent(creator, random, choice, story);
+            }
+            else if (creationEvent is TravellerEventSeverelyInjured injured)
+            {
+                ApplyInjury(creator, random, injured.GetSevereInjury(creator.RollDice(1), creator.RollDice(1)), story);
+            }
+            else if (creationEvent is TravellerEventInjury injury)
+            {
+                ApplyInjury(creator, random, injury.GetInjury(creator.RollDice(1)), story);
+            }
+            else if (creationEvent is TravellerEventLife life)
+            {
+                ApplyEvent(creator, random, creator.GetLifeEvent(creator.RollDice()), story);
+            }
+            else if (creationEvent is TravellerEventMishap mishap)
+            {
+                ApplyEvent(creator, random, creator.GetMishap(creator.RollDice(1)), story);
+            }
+            else if (creationEvent is TravellerEventMultiChoice multi)
+            {
+                ApplyEvent(creator, random, multi.GetEvent(random.Next(0, multi.Events.Count)), story);
+            }
+            else if (creationEvent is TravellerEventReward rewards)
+            {
+                foreach (var reward in rewards.Reward)
+                {
+                    story.AppendLine(reward.ToString());
+                    ApplyReward(creator, random, reward, story);
+                }
+            }
+            else if (creationEvent is TravellerEventText eventText)
+            {
+            }
+        }
+
+        private static void PreformASkillCheck(CharacterCreatorService creator, Random random,
+           TravellerEventSkillCheck skillCheck, StringBuilder story)
+        {
+            var check = skillCheck.SkillChecks[random.Next(skillCheck.SkillChecks.Count)];
+            if (creator.PassSkillCheck(check, creator.RollDice()))
+            {
+                story.Append(skillCheck.YesText);
+                story.AppendLine(" <<You succeed>>");
+                if (skillCheck.HasYesEvent)
+                {
+                    ApplyEvent(creator, random, skillCheck.YesEvent, story);
+                }
+            }
+            else
+            {
+                story.AppendLine(skillCheck.NoText);
+                story.AppendLine(" <<You fail>>");
+                if (skillCheck.HasNoEvent)
+                {
+                    ApplyEvent(creator, random, skillCheck.NoEvent, story);
+                }
+            }
+        }
+
+        private static void ChoiceEvent(CharacterCreatorService creator, Random random,
+            TravellerEventChoice choice, StringBuilder story)
+        {
+            if (random.Next(0, 2) != 1)
+            {
+                story.AppendLine($"{choice.YesText}");
+                if (choice.HasYesEvent)
+                {
+                    ApplyEvent(creator, random, choice.YesEvent, story);
+                }
+            }
+            else
+            {
+                story.AppendLine($"{choice.NoText}");
+                if (choice.HasNoEvent)
+                {
+                    ApplyEvent(creator, random, choice.NoEvent, story);
+                }
+            }
+        }
+
+        private static void AttributeEvent(CharacterCreatorService creator, Random random,
+            TravellerEventAttributeCheck attribute, StringBuilder story)
+        {
+            if (attribute.AttributeChecks[0].PassedCheck(creator.RollDice()))
+            {
+                story.AppendLine($"{attribute.YesText}");
+                if (attribute.HasYesEvent)
+                {
+                    ApplyEvent(creator, random, attribute.YesEvent, story);
+                }
+            }
+            else
+            {
+                story.AppendLine($"{attribute.NoText}");
+                if (attribute.HasNoEvent)
+                {
+                    ApplyEvent(creator, random, attribute.NoEvent, story);
+                }
+            }
+        }
+
+        private static TravellerEventCharacterCreation GetEvent(CharacterCreatorService creator)
+        {
+            return creator.GetEvent(creator.RollDice());
+        }
+
+        private static TravellerEventCharacterCreation GetMishap(CharacterCreatorService creator)
+        {
+            return creator.GetMishap(creator.RollDice(1));
+        }
+        #endregion
+        #region Careers
+
         private static void FindCareer(CharacterCreatorService travellerCreator, Random random, StringBuilder story)
         {
             var career = GetCareer(travellerCreator, random, story);
@@ -211,12 +419,6 @@ namespace CharacterCreationTest.CharacterCreation
             BasicTraining(travellerCreator, career, random, story);
         }
 
-        private static void GenerateNationality(Random random, CharacterCreatorService travellerCreator, StringBuilder story)
-        {
-            var nation = ApplyNationality(random, travellerCreator, story);
-            GetBackgroundSkills(travellerCreator, nation, random);
-        }
-
         public static void Advance(CharacterCreatorService creator, Random random, StringBuilder story)
         {
             if (creator.Advances(creator.RollDice()))
@@ -227,10 +429,99 @@ namespace CharacterCreationTest.CharacterCreation
                 story.AppendLine($"{rank.title}: {rank.TravellerCharacterCreationReward}");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 //Generate the bonus skill for advancing
-                GenerateSkill(creator,random, story);
+                GenerateSkill(creator, random, story);
             }
         }
 
+
+        private static TravellerCareer GetCareer(CharacterCreatorService travellerCreator, Random random, StringBuilder story)
+        {
+            story.AppendLine("Getting career.");
+
+            var careers = travellerCreator.GetTravellerCareers();
+            var careerNumber = random.Next(0, careers.Count);
+            var career = careers[careerNumber];
+
+            story.AppendLine($"Chosen Career: {career.CareerName} - {career.CareerDescription}");
+
+            if (!travellerCreator.CanEnterCareer(career.Qualifications[0], travellerCreator.RollDice()))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                story.AppendLine("Failed to enter career!");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                if (!travellerCreator.HasBeenDrafted)
+                {
+                    story.AppendLine("Was drafted");
+                    career = travellerCreator.GetDrafted(random.Next(0,
+                        travellerCreator._character.Nationality.DraftTable.Length));
+                }
+                else
+                {
+                    story.AppendLine("Took drifter");
+                    career = travellerCreator.GetDrifter();
+                }
+            }
+
+            story.AppendLine($"Spending term in: {career.CareerName}");
+
+            return career;
+        }
+
+        public static TravellerAssignment GetAssignment(CharacterCreatorService creator, TravellerCareer career, Random random, StringBuilder story)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            story.AppendLine("Generating assignment");
+            var assignments = creator.GetAssignments(career);
+
+            var assignment = assignments[random.Next(0, assignments.Count)];
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            story.AppendLine($"Chosen Assignment: {assignment.Name} ");
+
+            return assignment;
+        }
+
+
+
+        #endregion
+        #region nationality
+        private static void GenerateNationality(Random random, CharacterCreatorService travellerCreator, StringBuilder story)
+        {
+            var nationService = new TravellerNationsCharacterInfoService();
+            var nations = nationService.GetNationsList;
+            var nationality = nations.ElementAt(random.Next(0, nations.Count));
+
+            var nation = ApplyNationality(nationality,random, travellerCreator, nationService, story);
+        }
+
+        private static TravellerNationsCharacterInfo ApplyNationality(TravellerNationsCharacterInfo nationality, Random random,
+            CharacterCreatorService travellerCreator, TravellerNationsCharacterInfoService nationService, StringBuilder story)
+        {
+            story.AppendLine($"Chosen nation: {nationality}");
+
+            if (travellerCreator.NationHasEntryRequirements(nationality))
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                story.AppendLine("Trying to enter nation.");
+                if (!travellerCreator.CanEnterNationality(nationality, nationality.EntryRequirements[0], travellerCreator.RollDice()))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    story.AppendLine("Failed to enter Nation");
+                    nationality = nationService.GetTravellerNationsCharacterInfos().First(x => x.Nationality == nationality.ParentNation);
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            story.AppendLine($"Applying Nation: {nationality}");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            travellerCreator.ApplyNationality(nationality);
+
+            GetBackgroundSkills(travellerCreator, nationality, random);
+
+            return nationality;
+        }
+        #endregion
+        #region Aging
         private static void IncreaseAge(CharacterCreatorService creator, Random random, StringBuilder story)
         {
             story.AppendLine("Applying aging");
@@ -298,190 +589,8 @@ namespace CharacterCreationTest.CharacterCreation
                 story.AppendLine("It was not fatal... yet.");
             }
         }
-
-        private static void ApplyEvent(CharacterCreatorService creator,Random random,
-            TravellerEventCharacterCreation creationEvent, StringBuilder story)
-        {
-            story.AppendLine($"{creationEvent.EventText}");
-            if (creationEvent is TravellerEventAttributeCheck attribute)
-            {
-                AttributeEvent(creator,random, attribute, story);
-            }
-            else if (creationEvent is TravellerEventChangeCareerWithAssignment changeWithAssignment)
-            {
-                var career = creator.GetCareer(changeWithAssignment.NewCareerName);
-                var assignment = creator.GetAssignment(career,changeWithAssignment.Assignment);
-                JoinCareerAndBasicTraining(creator,random,career,assignment, story);
-            }
-            else if (creationEvent is TravellerEventChangeCareers changeCareer)
-            {
-                var career = creator.GetCareer(changeCareer.NewCareerName);
-                GetAssignmentAndJoinCareer(creator, random, career, story);
-            }
-            else if (creationEvent is TravellerEventSkillCheck skillCheck)
-            {
-                PreformASkillCheck(creator, random, skillCheck, story);
-            }
-            else if (creationEvent is TravellerEventChoice choice)
-            {
-                ChoiceEvent(creator, random, choice, story);
-            }
-            else if (creationEvent is TravellerEventSeverelyInjured injured)
-            {
-                ApplyInjury(creator,random, injured.GetSevereInjury(creator.RollDice(1),creator.RollDice(1)), story);
-            }
-            else if (creationEvent is TravellerEventInjury injury)
-            {
-                ApplyInjury(creator, random, injury.GetInjury(creator.RollDice(1)), story);
-            }
-            else if (creationEvent is TravellerEventLife life)
-            {
-                ApplyEvent(creator,random,creator.GetLifeEvent(creator.RollDice()), story);
-            }
-            else if (creationEvent is TravellerEventMishap mishap)
-            {
-                ApplyEvent(creator,random,creator.GetMishap(creator.RollDice(1)), story);
-            }
-            else if (creationEvent is TravellerEventMultiChoice multi)
-            {
-                ApplyEvent(creator,random,multi.GetEvent(random.Next(0,multi.Events.Count)), story);
-            }
-            else if (creationEvent is TravellerEventReward rewards)
-            {
-                foreach (var reward in rewards.Reward)
-                {
-                    story.AppendLine(reward.ToString());
-                    ApplyReward(creator,random,reward, story);
-                }
-            }
-            else if (creationEvent is TravellerEventText eventText)
-            {
-            }
-        }
-
-        private static void PreformASkillCheck(CharacterCreatorService creator, Random random,
-            TravellerEventSkillCheck skillCheck, StringBuilder story)
-        {
-            var check = skillCheck.SkillChecks[random.Next(skillCheck.SkillChecks.Count)];
-            if (creator.PassSkillCheck(check, creator.RollDice()))
-            {
-                story.Append(skillCheck.YesText);
-                story.AppendLine(" <<You succeed>>");
-                if (skillCheck.HasYesEvent)
-                {
-                    ApplyEvent(creator, random, skillCheck.YesEvent, story);
-                }
-            }
-            else
-            {
-                story.AppendLine(skillCheck.NoText);
-                story.AppendLine(" <<You fail>>");
-                if (skillCheck.HasNoEvent)
-                {
-                    ApplyEvent(creator, random, skillCheck.NoEvent, story);
-                }
-            }
-        }
-
-        private static void ChoiceEvent(CharacterCreatorService creator, Random random, 
-            TravellerEventChoice choice, StringBuilder story)
-        {
-            if (random.Next(0, 2) != 1)
-            {
-                story.AppendLine($"{choice.YesText}");
-                if (choice.HasYesEvent)
-                {
-                    ApplyEvent(creator, random, choice.YesEvent, story);
-                }
-            }
-            else
-            {
-                story.AppendLine($"{choice.NoText}");
-                if (choice.HasNoEvent)
-                {
-                    ApplyEvent(creator, random, choice.NoEvent, story);
-                }
-            }
-        }
-
-        private static void AttributeEvent(CharacterCreatorService creator,Random random ,
-            TravellerEventAttributeCheck attribute, StringBuilder story)
-        {
-            if (attribute.AttributeChecks[0].PassedCheck(creator.RollDice()))
-            {
-                story.AppendLine($"{attribute.YesText}");
-                if (attribute.HasYesEvent)
-                {
-                    ApplyEvent(creator,random,attribute.YesEvent, story);
-                }
-            }
-            else
-            {
-                story.AppendLine($"{attribute.NoText}");
-                if (attribute.HasNoEvent)
-                {
-                    ApplyEvent(creator,random,attribute.NoEvent,story);
-                }
-            }
-        }
-
-        private static TravellerEventCharacterCreation GetEvent(CharacterCreatorService creator)
-        {
-            return creator.GetEvent(creator.RollDice());
-        }
-
-        private static TravellerEventCharacterCreation GetMishap(CharacterCreatorService creator)
-        {
-            return creator.GetMishap(creator.RollDice(1));
-        }
-
-        private static TravellerCareer GetCareer(CharacterCreatorService travellerCreator, Random random, StringBuilder story)
-        {
-            story.AppendLine("Getting career.");
-
-            var careers = travellerCreator.GetTravellerCareers();
-            var careerNumber = random.Next(0, careers.Count);
-            var career = careers[careerNumber];
-
-            story.AppendLine($"Chosen Career: {career.CareerName} - {career.CareerDescription}");
-
-            if (!travellerCreator.CanEnterCareer(career.Qualifications[0], travellerCreator.RollDice()))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                story.AppendLine("Failed to enter career!");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                if (!travellerCreator.HasBeenDrafted)
-                {
-                    story.AppendLine("Was drafted");
-                    career = travellerCreator.GetDrafted(random.Next(0,
-                        travellerCreator._character.Nationality.DraftTable.Length));
-                }
-                else
-                {
-                    story.AppendLine("Took drifter");
-                    career = travellerCreator.GetDrifter();
-                }
-            }
-
-            story.AppendLine($"Spending term in: {career.CareerName}");
-            
-            return career;
-        }
-
-        public static TravellerAssignment GetAssignment(CharacterCreatorService creator, TravellerCareer career,Random random, StringBuilder story)
-        {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            story.AppendLine("Generating assignment");
-            var assignments = creator.GetAssignments(career);
-
-            var assignment = assignments[random.Next(0, assignments.Count)];
-
-            Console.ForegroundColor = ConsoleColor.Blue ;
-            story.AppendLine($"Chosen Assignment: {assignment.Name} ");
-
-            return assignment;
-        }
-
+        #endregion
+        #region Skill Tables
         private static List<TravellerSkillTableEntry> GetSkillTable(CharacterCreatorService creator, Random random, StringBuilder story)
         {
             var skillTables = creator.GetSkillTables();
@@ -569,46 +678,23 @@ namespace CharacterCreationTest.CharacterCreation
 
             travellerCreator.ApplyBackgroundSkills(backgroundSkills);
         }
-
-        private static TravellerNationsCharacterInfo ApplyNationality(Random random, 
-            CharacterCreatorService travellerCreator, StringBuilder story)
-        {
-            var nationService = new TravellerNationsCharacterInfoService();
-            var nations = nationService.GetNationsList;
-            var nation = nations.ElementAt(random.Next(0, nations.Count));
-            
-
-            story.AppendLine($"Chosen nation: {nation}");
-
-            if (travellerCreator.NationHasEntryRequirements(nation))
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                story.AppendLine("Trying to enter nation.");
-                if (!travellerCreator.CanEnterNationality(nation, nation.EntryRequirements[0], travellerCreator.RollDice()))
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    story.AppendLine("Failed to enter Nation");
-                    nation = nationService.GetTravellerNationsCharacterInfos().First(x => x.Nationality == nation.ParentNation);
-                }
-            }
-
-            Console.ForegroundColor = ConsoleColor.Blue;
-            story.AppendLine($"Applying Nation: {nation}");
-            Console.ForegroundColor = ConsoleColor.Gray;
-            travellerCreator.ApplyNationality(nation);
-
-            return nation;
-        }
-
+        #endregion
+        #region Generate basic values
         private static void GenerateName(CharacterCreatorService travellerCreator, Random random
             , StringBuilder story)
         {
-            story.Append("Travellers Name: ");
             var names = new TravellerNameService()
                 .GetNames(1, TravellerNameService.NationNameList.Any);
             var name = names[random.Next(names.Count)];
             
-            story.Append($"{name}\n");
+            ApplyName(name,travellerCreator,random,story);
+        }
+
+        private static void ApplyName(string name, CharacterCreatorService travellerCreator,
+            Random random, StringBuilder story)
+        {
+
+            story.Append($"Travellers Name: {name}\n");
 
             travellerCreator.SetName(name);
         }
@@ -629,5 +715,6 @@ namespace CharacterCreationTest.CharacterCreation
                 story.AppendLine(stat.ToString());
             }
         }
+        #endregion
     }
 }

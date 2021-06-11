@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.Services.CareerService.PolandskianCareeres;
 using TravellerWiki.Data.Services.CareerService.VersianCareeres;
 using static TravellerWiki.Data.Charcters.TravellerAttributes;
@@ -791,5 +792,7 @@ namespace TravellerWiki.Data
             GetTravellerNationsCharacterInfos().Select(x => x).ToList();
         public List<TravellerNationsCharacterInfo> GetTravellerNationsCharacterInfos() =>
             travellerNationsInfo;
+        public TravellerNationsCharacterInfo GetNationsCharacterInfo(TravellerNationalities nationality) => GetNationsList.First(x => x.Nationality == nationality);
+
     }
 }
