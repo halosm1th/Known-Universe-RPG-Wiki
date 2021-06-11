@@ -49,57 +49,64 @@
         GeneratedBenefits = GetService().GenerateBenefits();
 
         //We are a group of assholes. So you don't get to apply anything worse then possible.
-        if(GetService().BenefitRollModifiers.Count > 0)
+        if (GetService().BenefitRollModifiers.Count > 0)
         {
-            if(GetService().BenefitRollModifiers.Count < GeneratedBenefits.Count)
+            int benefitsToApply = 0;
+            if (GetService().BenefitRollModifiers.Count < GeneratedBenefits.Count)
             {
-                for(int i =0; i < GetService().BenefitRollModifiers.Count; i++)
-                {
-                    GeneratedBenefits[i] += GetService().BenefitRollModifiers[i];
+                benefitsToApply = GetService().BenefitRollModifiers.Count;
 
-                    //First Get what is smaller, 6 or the Generated Benefit. Then Get what is larger, the benefit or 0. Therefore it is between 0-6 [1-7]
-                    GeneratedBenefits[i] = Math.Max(Math.Min(6, GeneratedBenefits[i]), 0);
-                }
             }
             else
             {
-                //Loop over, one for each benefit!
-                for(int i =0; i <  GeneratedBenefits.Count; i++)
-                {
-                    GeneratedBenefits[i] += GetService().BenefitRollModifiers[i];
+                benefitsToApply = GeneratedBenefits.Count;
+            }
 
-                    //First Get what is smaller, 6 or the Generated Benefit. Then Get what is larger, the benefit or 0. Therefore it is between 0-6 [1-7]
-                    GeneratedBenefits[i] = Math.Max(Math.Min(6, GeneratedBenefits[i]), 0);
-                }
+            //Loop over, one for each benefit!
+            for (int i = 0; i <benefitsToApply ; i++)
+            {
+                GeneratedBenefits[i] += GetService().BenefitRollModifiers[i];
+
+                //First Get what is smaller, 6 or the Generated Benefit. Then Get what is larger, the benefit or 0. Therefore it is between 0-6 [1-7]
+                GeneratedBenefits[i] = Math.Max(Math.Min(6, GeneratedBenefits[i]), 0);
             }
         }
     }
 
     private int GetChosenBenefitNumber()
     {
-        var result = 0;
-        if (chosenBenefitRoll <0 )
-        {
-            chosenBenefitRoll = 0;
-        }
+        CheckBenefitRollWithinRange();
 
-        else if(chosenBenefitRoll > GeneratedBenefits.Count)
-        {
-            chosenBenefitRoll = GeneratedBenefits.Count - 1;
-        }
-
-        result = GeneratedBenefits[chosenBenefitRoll];
-
+        var result = GeneratedBenefits[chosenBenefitRoll];
         GeneratedBenefits.Remove(chosenBenefitRoll);
-
-        if (benefitModifier > 0)
-        {
-            result += GetService().UseModifier(benefitModifier);
-        }
         StateHasChanged();
 
         return result;
     }
+
+    private void CheckBenefitRollWithinRange()
+    {
+        if (chosenBenefitRoll < 0)
+        {
+            chosenBenefitRoll = 0;
+        }
+
+        else if (chosenBenefitRoll > GeneratedBenefits.Count)
+        {
+            chosenBenefitRoll = GeneratedBenefits.Count - 1;
+        }
+
+        if (!GeneratedBenefits.ContainsKey(chosenBenefitRoll))
+        {
+            foreach(var key in GeneratedBenefits.Keys)
+            {
+                chosenBenefitRoll = key;
+                return;
+            }
+        }
+    }
+
+    #region Cash and benefits select and applied
 
     public void SelectCash()
     {
@@ -120,7 +127,7 @@
     {
         NavManager.NavigateTo($"/CharacterCreation/Finished/{characterID}");
     }
-
+    #endregion
 }
 <body>
 
