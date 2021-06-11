@@ -139,7 +139,10 @@
         <h2>@GetService().Name: Stats</h2>
 
         <p>Roll: @GeneratedStats.Aggregate("", (h, t) => h += t + ", ") Psi Roll: <input type="checkbox" @bind="IncludePsi" /></p>
-        <button @onclick="GenerateStats">Generate new Attributes</button>
+        @if (GeneratedStats == null)
+        {
+            <button @onclick="GenerateStats">Generate new Attributes</button>
+        }
         <p>
             <ol>
                 <li>

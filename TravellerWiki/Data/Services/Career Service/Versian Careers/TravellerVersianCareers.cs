@@ -72,6 +72,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                 TravellerVersianAristocractic.AristocracticCareer(),
                 TravellerVersianIdeaCreator.VersianIdeaCreator(),
                 TravellerVersianNavy.VersianNavy(),
+                TravellerVersianProductionWorker.VersianProductionWorker(),
             });
 
         }
