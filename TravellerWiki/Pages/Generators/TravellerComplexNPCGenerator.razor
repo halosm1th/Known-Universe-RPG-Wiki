@@ -79,7 +79,7 @@ clear: Left; color: #ffe81F; border-color: #ffe81F;">
                                     <td style="text-align: right;">@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education)</td>
                                 </tr>
                                 <tr>
-                                    <td><b>Rank:</b> @(person.LastRank != null ? person.LastRank : "None")</td>
+                                    <td><b>Rank:</b> @(person.LastRank != null ? person.LastRank : "None") [@person.PreviousCareers.Peek().rank]</td>
                                     <td style="text-align: right; float: right;">@person.AttributeList.First(x => x.AttributeName == TravellerAttributes.Social)</td>
                                 </tr>
 

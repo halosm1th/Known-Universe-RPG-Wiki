@@ -19,6 +19,7 @@ namespace TravellerWiki.Data.CharacterCreation
         public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers => _character.PreviousCareers ?? null;
         public TravellerAssignment LastAssignment => _character.LastAssignment ?? null;
         public string LastRank => _character.LastRank ?? "None";
+        public int LastRankNumber => _character.PreviousCareers.Peek().rank;
         public int NumberOfTravellerBackgroundSKills =>
             3 + _character.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education).AttributeModifier;
 
@@ -621,7 +622,8 @@ namespace TravellerWiki.Data.CharacterCreation
             if (Advanced)
             {
                 var career = _character.PreviousCareers.Pop();
-                var newCareer = (career.Career, career.Assignment, career.rank++);
+                var rank = career.rank + 1;
+                var newCareer = (career.Career, career.Assignment, rank);
                 _character.PreviousCareers.Push(newCareer);
             }
 

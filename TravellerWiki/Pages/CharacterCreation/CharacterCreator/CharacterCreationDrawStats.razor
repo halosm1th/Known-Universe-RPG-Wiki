@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td style="text-align: right; float: right;">@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Social)</td>
-                <td><b>Rank:</b> @(GetService().LastRank != null ? GetService().LastRank : "None")</td>
+                <td><b>Rank:</b> @(GetService().LastRank != null ? GetService().LastRank : "None") </td>
             </tr>
 
         @if (GetService().GetAttributes.Any(x => x.AttributeName == TravellerAttributes.Psionics))
