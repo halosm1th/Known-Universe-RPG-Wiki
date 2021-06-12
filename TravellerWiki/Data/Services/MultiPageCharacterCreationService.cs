@@ -14,8 +14,8 @@ namespace TravellerWiki.Data.Services
 
         public string CreateNewCreator()
         {
-            var key = random.Next().ToString();
-            if (CharacterCreationServices.ContainsKey(key)) return CreateNewCreator();
+            var storage = new TravellerCharacterStorageService();
+            var key = storage.GenerateKey();
 
             CharacterCreationServices[key] = new CharacterCreatorService();
             return key;

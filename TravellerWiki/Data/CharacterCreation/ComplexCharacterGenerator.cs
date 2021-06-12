@@ -13,32 +13,32 @@ namespace TravellerWiki.Data.CharacterCreation
     {
         #region Access The Generated Characters
 
-        public List<(PlayerTravellerCharacter character, string creationStory)> GenerateCharacters(int count = 1, TravellerNationalities nation = TravellerNationalities.Fifth_Vers_Empire, int age = 18, string name = "")
+        public List<ComplexTravellerNPC> GenerateCharacters(int count = 1, TravellerNationalities nation = TravellerNationalities.Fifth_Vers_Empire, int age = 18, string name = "", bool usePsi = false)
         {
-            var characters = new List<(PlayerTravellerCharacter character, string creationStory)>();
+            var characters = new List<ComplexTravellerNPC>();
             for (int i = 0; i < count; i++)
             {
-                characters.Add(GenerateCharacterAndStory(nation, age, name));
+                characters.Add(GenerateCharacterAndStory(nation, age, name,usePsi));
             }
 
 
             return characters;
         }
 
-        public (PlayerTravellerCharacter character, string creationStory) GenerateCharacterAndStory()
+        public ComplexTravellerNPC GenerateCharacterAndStory()
         {
             return GenerateCharacter();
         }
 
-        public (PlayerTravellerCharacter character, string creationStory) GenerateCharacterAndStory(TravellerNationalities nation, int age = 18, string name = "")
+        public ComplexTravellerNPC  GenerateCharacterAndStory(TravellerNationalities nation, int age = 18, string name = "", bool usePsi = false)
         {
-            return GenerateCharacter(nation, age, name);
+            return GenerateCharacter(nation, age, name,usePsi);
         }
         #endregion
         #region Generator cores
 
-        private static (PlayerTravellerCharacter character, string creationStory)
-            GenerateCharacter(TravellerNationalities nation, int age = 18, string name = "")
+        private static ComplexTravellerNPC
+            GenerateCharacter(TravellerNationalities nation, int age = 18, string name = "", bool usePsi = false)
         {
             var travellerCreator = new CharacterCreatorService();
             var story = new StringBuilder();
@@ -59,7 +59,7 @@ namespace TravellerWiki.Data.CharacterCreation
             {
                 ApplyName(name, travellerCreator, random, story);
             }
-            GenerateValues(travellerCreator, story);
+            GenerateValues(travellerCreator, story,usePsi);
 
             var nationService = new TravellerNationsCharacterInfoService();
             var nationality = nationService.GetNationsCharacterInfo(nation);
@@ -95,10 +95,10 @@ namespace TravellerWiki.Data.CharacterCreation
             GetBenefits(travellerCreator, random, story);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            story.Insert(0, travellerCreator._character.ToString());
+            //story.Insert(0, travellerCreator._character.ToString());
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
-            return (travellerCreator.GetPlayerCharacter(), story.ToString());
+            return  new ComplexTravellerNPC(travellerCreator.GetPlayerCharacter(),story.ToString()); 
         }
 
         private static bool DoAnotherTerm(CharacterCreatorService travellerCreator, int CharactersAge, Random random)
@@ -121,7 +121,7 @@ namespace TravellerWiki.Data.CharacterCreation
 
         }
 
-        private static (PlayerTravellerCharacter character, string creationStory) GenerateCharacter()
+        private static ComplexTravellerNPC GenerateCharacter()
         {
             var travellerCreator = new CharacterCreatorService();
             var story = new StringBuilder();
@@ -169,7 +169,7 @@ namespace TravellerWiki.Data.CharacterCreation
             story.Insert(0, travellerCreator._character.ToString());
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
-            return (travellerCreator.GetPlayerCharacter(), story.ToString());
+            return new ComplexTravellerNPC(travellerCreator.GetPlayerCharacter(), story.ToString());
         }
         #endregion
         #region Benefits
@@ -723,9 +723,9 @@ namespace TravellerWiki.Data.CharacterCreation
             travellerCreator.SetName(name);
         }
 
-        private static void GenerateValues(CharacterCreatorService travellerCreator, StringBuilder story)
+        private static void GenerateValues(CharacterCreatorService travellerCreator, StringBuilder story, bool usePsi = false)
         {
-            var stats = travellerCreator.GenerateStats(true);
+            var stats = travellerCreator.GenerateStats(usePsi);
 
             var attributes = Enum.GetValues(typeof(TravellerAttributes));
 

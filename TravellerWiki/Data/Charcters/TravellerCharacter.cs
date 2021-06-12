@@ -4,33 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravellerWiki.Data.CreationEvents;
 
 #nullable enable
 namespace TravellerWiki.Data.Charcters
 {
-    public class PlayerTravellerCharacter : TravellerCharacter
-    {
-        public Stack<(TravellerCareer Career,TravellerAssignment Assignment, int rank)> PreviousCareers { get; }
-        public TravellerCareer? LastCareer => PreviousCareers.Count > 0? PreviousCareers.Peek().Item1 : null;
-        public Stack<TravellerEventCharacterCreation> CharactersEvents = new Stack<TravellerEventCharacterCreation>();
-        public TravellerAssignment? LastAssignment => PreviousCareers.Count > 0 ? PreviousCareers.Peek().Item2 : null;
-
-        public string LastRank => PreviousCareers.Count > 0? PreviousCareers.Peek().Item2.RanksAndBonuses[PreviousCareers.Peek().rank].title
-            : "None";
-
-        public PlayerTravellerCharacter()
-        {
-            PreviousCareers = new Stack<(TravellerCareer, TravellerAssignment, int)>();
-        }
-
-        public PlayerTravellerCharacter(Stack<(TravellerCareer, TravellerAssignment, int)> previousCareers) : base()
-        {
-            PreviousCareers = previousCareers;
-            
-        }
-
-    }
     //Test
     public abstract class TravellerCharacter
     {
@@ -265,6 +242,25 @@ namespace TravellerWiki.Data.Charcters
         }
         #endregion
         #region overrides
+
+        public string ShortToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.Append(Name);
+            sb.Append(" [");
+            sb.Append(Nationality);
+            sb.Append(": ");
+            sb.Append(Age);
+            sb.Append("] ");
+            sb.Append(" ");
+            foreach (var attr in AttributeList)
+            {
+                sb.Append($"{attr.ToString()} ");
+            }
+
+            return sb.ToString();
+        }
         public override string ToString()
         {
             var sb = new StringBuilder();

@@ -1,0 +1,24 @@
+@page "/Characters/"
+@using Microsoft.AspNetCore.Html
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject TravellerCharacterStorageService storageService
+@inject TravellerNationsCharacterInfoService nationsService
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+<div style="text-align: center">
+    <h1>Traveller Characters</h1>
+    <p>This is the list of characters that the Traveller Wiki currently has loaded in its memory banks from creation or complex npcs.</p>
+    <ul>
+        @foreach (var character in storageService.GetCharacters)
+        {
+            <li> <a href="/Character/@character.Key" target="_blank" rel="noreferrer noopener">@character.Value.ShortToString()</a></li>
+        }
+    </ul>
+</div>

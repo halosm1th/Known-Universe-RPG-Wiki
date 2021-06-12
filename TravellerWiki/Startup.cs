@@ -44,6 +44,8 @@ namespace TravellerWiki
             services.AddSingleton<TravellerFreeFormMagicSystemsService>();
             services.AddSingleton<CharacterCreatorService>();
             services.AddSingleton<MultiPageCharacterCreationService>();
+            services.AddSingleton<TravellerCharacterStorageService>();
+
             services.AddSingleton<TravellerComplexCharacterGeneratorService>();
 
             services.AddSingleton<TravellerMapService>();

@@ -9,21 +9,15 @@ namespace TravellerWiki.Data.Services
     {
         private ComplexCharacterGenerator _generator = new ComplexCharacterGenerator();
 
-        public (PlayerTravellerCharacter character, string creationStory) GetCharacter()
+        public ComplexTravellerNPC GetCharacter()
         {
             return _generator.GenerateCharacterAndStory();
         }
 
-        public Dictionary<PlayerTravellerCharacter, string> GetCharacters(int count, TravellerNationalities nation, string name, int age)
+        public List<ComplexTravellerNPC> GetCharacters(int count, TravellerNationalities nation, string name, int age, bool usePsi)
         {
-            var dict = new Dictionary<PlayerTravellerCharacter, string>();
-            var characters = _generator.GenerateCharacters(count,nation,age, name);
-            foreach (var gen in characters)
-            {
-                dict.Add(gen.character, gen.creationStory);
-            }
-
-            return dict;
+            return  _generator.GenerateCharacters(count,nation,age, name, usePsi);
+            
         }
     }
 }

@@ -8,6 +8,8 @@
 @using TravellerWiki.Data.Services.CareerService
 @inject TravellerComplexCharacterGeneratorService GeneratorService
 @inject TravellerNationsCharacterInfoService NationService
+@inject  TravellerCharacterStorageService StorageService
+@inject NavigationManager NavManager
 
 <h1>Special NPC Generator</h1>
 <p>
@@ -23,6 +25,9 @@
             <option value="@nation.Nationality">@nation.Nationality</option>
         }
     </select>
+    <br />
+    <input type="checkbox" id="psiCheckbox" @bind="usePsi" />
+    <label for="psiCheckbox">Psionics?</label>
     <br />
     <br />
     <button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
@@ -43,13 +48,13 @@ else
         </thead>
         @foreach (var generatedNpc in npcs)
         {
-            var person = generatedNpc.Key;
+            var person = generatedNpc;
             <tbody style="color:#ffe81F">
                 <tr>
                     <td style="width: 35%;vertical-align: top">
 
                         <table style="float: Left;background-color: SlateGray;
-clear: Left; color: #ffe81F; border-color: #ffe81F;">
+clear: Left; color: #ffe81F; border-color: #ffe81F;" width="100%">
                             <thead>
                                 <tr>
                                     <th width="60%">Information</th>
@@ -162,9 +167,17 @@ border-style: solid; border: 1px; white-space: pre-line;text-align: right">
                                 </tr>
                             </tbody>
                         </table>
+                            @if (!StorageService.ContainsKey(person.CharacterID))
+                            {
+                                <button @onclick="() => SaveCharacter(person)">Save Character</button>
+                            }
+                            else
+                            {
+                                <button @onclick="() =>  ViewCharacter(person)" >View Character</button>
+                            }
                     </td>
                     <td style="width:2px"></td>
-                    <td style="white-space: pre-line;">@generatedNpc.Value</td>
+                    <td style="white-space: pre-line;">@generatedNpc.Story</td>
                 </tr>
             </tbody>
         }
@@ -172,12 +185,26 @@ border-style: solid; border: 1px; white-space: pre-line;text-align: right">
 }
 
 @code {
-    private Dictionary<PlayerTravellerCharacter, string> npcs;
+    private List<ComplexTravellerNPC> npcs;
 
     private int NPCCount = 1;
     private TravellerNationalities Nationality = TravellerNationalities.Fifth_Vers_Empire;
     private string Name;
     private int Age = 18;
+    private bool usePsi = false;
+
+    public void SaveCharacter(ComplexTravellerNPC character)
+    {
+        if(!StorageService.ContainsKey(character.CharacterID)) {
+
+            StorageService.AddCharacter(character.CharacterID, character);
+        }
+    }
+
+    public void ViewCharacter(ComplexTravellerNPC character)
+    {
+        NavManager.NavigateTo($"/character/{character.CharacterID}");
+    }
 
     protected override void OnInitialized()
     {
@@ -186,7 +213,7 @@ border-style: solid; border: 1px; white-space: pre-line;text-align: right">
 
     public void LoadNPCs()
     {
-        npcs = GeneratorService.GetCharacters(NPCCount,Nationality,Name,Age);
+        npcs = GeneratorService.GetCharacters(NPCCount,Nationality,Name,Age,usePsi);
     }
 
     }

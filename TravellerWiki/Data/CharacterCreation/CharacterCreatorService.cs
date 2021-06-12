@@ -599,8 +599,9 @@ namespace TravellerWiki.Data.CharacterCreation
         public (string title, TravellerCharacterCreationReward TravellerCharacterCreationReward) GetRank()
         {
             var rankListSize = _character.LastAssignment.RanksAndBonuses.Count;
+
             return _character.LastAssignment.RanksAndBonuses[
-                Math.Min(rankListSize,_character.PreviousCareers.Peek().rank)];
+                Math.Min(rankListSize-1,_character.PreviousCareers.Peek().rank)];
         }
 
         public bool Advances(int roll)
