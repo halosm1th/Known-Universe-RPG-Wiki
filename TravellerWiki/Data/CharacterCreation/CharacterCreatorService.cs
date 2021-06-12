@@ -643,7 +643,17 @@ namespace TravellerWiki.Data.CharacterCreation
 
         public List<(int cash, TravellerCharacterCreationReward benefits)> GetBenefits()
         {
-            return _character.LastCareer.MusteringOutBenefits;
+            if (FirstTermOfJob)
+            {
+                var Currentcareer = PreviousCareers.Pop();
+                var retCar = PreviousCareers.Peek().Career;
+                PreviousCareers.Push(Currentcareer);
+                return retCar.MusteringOutBenefits;
+            }
+            else
+            {
+                return LastCareer.MusteringOutBenefits;
+            }
         }
 
         public int UseModifier(int usedBenefitModifier)

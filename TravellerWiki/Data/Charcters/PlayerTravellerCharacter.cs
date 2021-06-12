@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualBasic;
 using TravellerWiki.Data.CreationEvents;
 using TravellerWiki.Data.Services;
@@ -39,8 +40,22 @@ namespace TravellerWiki.Data.Charcters
         public Stack<TravellerEventCharacterCreation> CharactersEvents = new Stack<TravellerEventCharacterCreation>();
         public TravellerAssignment? LastAssignment => PreviousCareers.Count > 0 ? PreviousCareers.Peek().Item2 : null;
 
-        public string LastRank => PreviousCareers.Count > 0? PreviousCareers.Peek().Item2.RanksAndBonuses[PreviousCareers.Peek().rank].title
-            : "None";
+        public string LastRank
+        {
+            get
+            {
+                if (PreviousCareers.Count > 0)
+                {
+                    var title = PreviousCareers.Peek().Item2.RanksAndBonuses[Math.Min(PreviousCareers.Peek().rank,
+                        PreviousCareers.Peek().Assignment.RanksAndBonuses.Count)].title;
+                    return title;
+                }
+                else
+                {
+                    return "None";
+                }
+            }
+        }
 
         public PlayerTravellerCharacter()
         {

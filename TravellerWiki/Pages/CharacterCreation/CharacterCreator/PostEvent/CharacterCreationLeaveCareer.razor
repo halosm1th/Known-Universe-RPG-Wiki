@@ -24,6 +24,7 @@
 
     public void LeaveCareer()
     {
+        GetService().LeaveCareer();
         NavManager.NavigateTo($"/CharacterCreation/GenerateBenefit/{characterID}");
     }
 

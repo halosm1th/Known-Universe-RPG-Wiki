@@ -2,6 +2,7 @@
 {
     public enum TravellerNPCRelationship
     {
+        Friend,
         Ally,
         Contact,
         Rival,

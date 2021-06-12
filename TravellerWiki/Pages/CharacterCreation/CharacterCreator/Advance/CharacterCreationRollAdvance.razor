@@ -26,6 +26,7 @@
 
     public void DoneAdvance()
     {
+
         if (PassedAdvancement) NavManager.NavigateTo($"/CharacterCreation/GetAdvanceSkill/{characterID}/");
         else NavManager.NavigateTo($"/CharacterCreation/LeaveCareer/{characterID}");
     }

@@ -73,6 +73,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                 TravellerVersianIdeaCreator.VersianIdeaCreator(),
                 TravellerVersianNavy.VersianNavy(),
                 TravellerVersianProductionWorker.VersianProductionWorker(),
+                TravellerVersianFreeMan.VesianFreeMan(),
             });
 
         }

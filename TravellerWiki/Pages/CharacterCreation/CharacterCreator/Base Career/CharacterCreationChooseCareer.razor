@@ -58,7 +58,8 @@
     {
         var r = new Random();
         var draftTable = GetService().Nationality.DraftTable;
-        chosenCareer = draftTable[r.Next(0, draftTable.Length)];
+        var draftRoll = r.Next(0, draftTable.Length);
+        chosenCareer = draftTable[draftRoll];
         hasJob = true;
         DoneChoosingCharacter();
     }

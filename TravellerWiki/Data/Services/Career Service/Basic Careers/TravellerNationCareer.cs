@@ -26,7 +26,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
             return new TravellerCareer(
        careerName: "",
        description: "",
-       nationality: "",
+       nationality: TravellerNationalities.,
        qualifications: new List<TravellerAttributeCheck>
        {
                     new TravellerAttributeCheck(),
