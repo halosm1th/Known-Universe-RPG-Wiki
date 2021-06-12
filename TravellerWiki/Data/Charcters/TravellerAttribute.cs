@@ -112,6 +112,24 @@ namespace TravellerWiki.Data.Charcters
             sb.Append("]");
             return sb.ToString();
         }
+
+        public string ToNicelyPutAttribute()
+        {
+            return AttributeModifier switch
+            {
+                -3 => "Horrible",
+                -2 => "Bad",
+                -1 => "Not so great",
+                0 => "Average",
+                1 => "Alright",
+                2 => "Pretty good",
+                3 => "Good",
+                4 => "Great",
+                5 => "Amazing",
+
+            };
+        }
+
         public override string ToString()
         {
             var sb = new StringBuilder();
