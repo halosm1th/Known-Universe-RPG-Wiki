@@ -37,10 +37,11 @@ else
             <tr>
                 <th style="padding: 10px;border-style: solid;text-align: center">Name</th>
                 <th style="padding: 10px;border-style: solid;text-align: center">UPP </th>
-                <th style="padding: 10px;border-style: solid;text-align: center">Skills</th>
                 <th style="padding: 10px;border-style: solid;text-align: center">Background</th>
                 <th style="padding: 10px;border-style: solid;text-align: center">info</th>
                 <th style="padding: 10px;border-style: solid;text-align: center">Quirk</th>
+                <th style="padding: 10px;border-style: solid;text-align: center">Skills</th>
+                <th style="padding: 10px; border-style: solid;text-align: center">Copy</th>
             </tr>
         </thead>
         @foreach (var npc in npcs)
@@ -49,10 +50,16 @@ else
                 <tr>
                     <td style="padding: 10px;border-style: solid;text-align: center">@npc.Name.Replace("_", " ")</td>
                     <td style="padding: 10px;border-style: solid;text-align: center">@npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex</td>
+                    
+                    <td style="padding: 10px;border-style: solid;text-align: center">
+                        @npc.Background, @npc.Career.
+                    </td>
+                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.PatronText</td>
+                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.QuirkText</td>
                     <td style="padding: 10px;border-style: solid;text-align: center">
                         @{
                             var skills = npc.SkillList.Select(skills
-                                    => $"{skills.SkillName}:{skills.SkillValue}")
+                                => $"{skills.SkillName}:{skills.SkillValue}")
                                 .ToArray();
 
                             foreach (var skill in skills)
@@ -62,11 +69,15 @@ else
                             }
                         }
                     </td>
-                    <td style="padding: 10px;border-style: solid;text-align: center">
-                        @npc.Background, @npc.Career.
+                    <td>
+                        <input type="button"
+                               id="btnCopy"
+                               onClick="
+navigator.clipboard.writeText('@npc.ToString()').then(function() {
+    /* clipboard successfully set */
+}, function () {
+    alert('Umm, there was an error!'); }) " value="Copy" />
                     </td>
-                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.PatronText</td>
-                    <td style="padding: 10px;border-style: solid;text-align: center">@npc.QuirkText</td>
                 </tr>
             </tbody>
             <p></p>
