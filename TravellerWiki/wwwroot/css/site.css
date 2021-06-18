@@ -118,6 +118,18 @@ h2 {
     border-bottom-color: #A7A7A7;
 }
 
+.IndexSummery {
+    color: #ffe81F;
+    background-color: #595B63;
+    font-size: 1.5em;
+    margin: 0px;
+    padding: 2px;
+    padding-left: 14px;
+    border-style: solid;
+    border-bottom-width: 0.5em;
+    border-bottom-color: #A7A7A7;
+}
+
 h3 {
     color: #ffe81F;
     background-color: #595B63;
