@@ -213,7 +213,7 @@ namespace TravellerWiki.Data.CharacterCreation
                 {
                     creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
                     {
-                        new TravellerWeapon("Weapon", 2000, 0, 12, 0, "0D6", 0, weapon.RewardText)
+                        new TravellerWeapon("Weapon", 2000, 0, 12, 0, "0D6", 0,0, new List<TravellerWeaponTraits> { }, weapon.RewardText)
                     }));
                     story.Append(" new weapon! ");
                 }

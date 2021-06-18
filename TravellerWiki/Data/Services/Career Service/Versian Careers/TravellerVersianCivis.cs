@@ -125,7 +125,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                     GetSkillTableEntry(Broker),
        }, musteringOutBenefits: new List<(int Cash, TravellerCharacterCreationReward Benefit)>
        {
-                    (100, new TravellerRewardItem(new TravellerItem("TAS Membership",1000000,1,15))),
+                    (100, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("TAS Membership"))),
                     (500, new TravellerRewardAttribute(Social,1)),
                     (1000, new TravellerRewardContact(new Dictionary<string, TravellerNPCRelationship>
                     {
@@ -133,7 +133,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                         {"Civis Ally 2", TravellerNPCRelationship.Ally },
                     })),
                     (5000, new TravellerRewardAugment()),
-                    (10000, new TravellerRewardItem("5 Ship Share",50000,0,10)),
+                    (10000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("5 Ship Share"))),
                     (50000, new TravellerRewardVehicle()),
                     (100000, new TravellerRewardShip()),
        },
@@ -141,7 +141,8 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
        {
                     new TravellerEventMishap("Disaster! Roll on the mishap table, but you are not ejected from the career"),
                     new TravellerEventSkillCheck("You are framed for a crime you (might not have) committed",
-                        yesEvent:new TravellerEventReward("You are able to negotiate your way into just paying a fine.",new TravellerRewardDebt(100000)),
+                        yesEvent:new TravellerEventReward("You are able to negotiate your way into just paying a fine.",
+                            new TravellerRewardDebt(100000)),
                         noEvent:new TravellerEventChangeCareers("You are sent to prison","Versian Prisoner"),
                         skillCheck:new TravellerSkillCheck(Advocate,8)),
 
@@ -163,18 +164,21 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                     new TravellerEventLife("You have a life event!"),
 
                     new TravellerEventAttributeCheck("The local knight has for some reason invited you to their court, to join in a party.",
-                        successEvent:new TravellerEventRewardAttribute("You are the talk of the party, everyone seems impressed by you.",new TravellerAttribute(Social,2)),
+                        successEvent:new TravellerEventRewardAttribute("You are the talk of the party, everyone seems impressed by you.",
+                            new TravellerAttribute(Social,2)),
                         failEvent:new TravellerEventRewardAttribute("You are whispered about the whole party, by the end of it you can tell several nasty rumours will be spread about you.",
                             new TravellerAttribute(Social,-2)),
                         attributeCheck:(Social,8)),
 
                     new TravellerEventSkillCheck("The politics on your planet this term become very vitriolic, and you can’t seem to avoid discussion about the topic.",
-                        yesEvent:new TravellerEventRewardContact("You are able to skate by, keeping your friends.", new List<TravellerRewardContact>
+                        yesEvent:new TravellerEventRewardContact("You are able to skate by, keeping your friends.",
+                            new List<TravellerRewardContact>
                         {
                             new TravellerRewardContact("Political Friend 1", TravellerNPCRelationship.Contact),
                             new TravellerRewardContact("Political Friend 2", TravellerNPCRelationship.Contact),
                         }), 
-                        noEvent:new TravellerEventRewardContact("You are able to piss everyone off, angering your friends.", new List<TravellerRewardContact>
+                        noEvent:new TravellerEventRewardContact("You are able to piss everyone off, angering your friends.",
+                            new List<TravellerRewardContact>
                         {
                             new TravellerRewardContact("Political Friend 1", TravellerNPCRelationship.Enemy),
                             new TravellerRewardContact("Political Friend 2", TravellerNPCRelationship.Enemy),

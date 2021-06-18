@@ -544,14 +544,14 @@ namespace TravellerWiki.Data.CharacterCreation
             if (reward is TravellerRewardBlade blade)
             {
                 _character.AddItem(new TravellerWeapon("Blade", 2000, 0, 12, 0, "0D6",
-                    0, "Select any blade weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another blade or one level in the Melee (blades) skill."));
+                    0,0,new List<TravellerWeaponTraits>{}, "Select any blade weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another blade or one level in the Melee (blades) skill."));
                 return false;
             }
 
             if (reward is TravellerRewardGun gun)
             {
                 _character.AddItem(new TravellerWeapon("Gun", 2000, 0, 12, 0, "0D6",
-                    0, "Select any common or military ranged weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another weapon or one level in the appropriate Gun Combat skill for a weapon already received as a benefit"));
+                    0,0, new List<TravellerWeaponTraits> { }, "Select any common or military ranged weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another weapon or one level in the appropriate Gun Combat skill for a weapon already received as a benefit"));
                 return false;
             }
 

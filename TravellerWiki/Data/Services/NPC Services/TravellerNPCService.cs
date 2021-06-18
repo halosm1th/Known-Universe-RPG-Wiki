@@ -10,65 +10,98 @@ using static TravellerWiki.Data.Charcters.TravellerAttributes;
 
 namespace TravellerWiki.Data
 {
+    public enum TravellerNPCBackgrounds
+    {
+        Belter,
+        Colonist,
+        Developed_World,
+        Fringe,
+        Low_Tech,
+        Metropolis,
+        Space_Habitat,
+        Water_World,
+        Error
+    }
+
+    public enum TravellerNPCCareers
+    {
+        Administrator,
+        Agent,
+        Barbarian,
+        Citizen,
+        Corsair,
+        Marine,
+        Medic,
+        Military_Enlisted,
+        Military_Officer,
+        Noble,
+        Performer,
+        Rogue,
+        Scholar,
+        Scout,
+        Spacer_Crew,
+        Spacer_Command,
+        Wanderer,
+        Error
+    }
+
     public class TravellerNPCService
     {
 
-
-
         private static readonly TravellerNameService nameService = new TravellerNameService();
 
-        private List<TravellerAttribute> GetBackgroundAttributesAsync(int background) =>
+        private List<TravellerAttribute> GetBackgroundAttributesAsync(TravellerNPCBackgrounds background) =>
              background switch
              {
-                 0 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Belter => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Strength, -1),
                     new TravellerAttribute(Dexterity, +1),
                     new TravellerAttribute(Education, -1),
                 },
-                 1 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Colonist => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Endurance, +1),
                     new TravellerAttribute(Education, -1),
                 },
-                 2 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Developed_World => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Education, +1),
                 },
-                 3 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Fringe => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Education, -2),
                     new TravellerAttribute(Dexterity, +1),
                     new TravellerAttribute(Social, -2),
                 },
-                 4 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Low_Tech => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Education, -3),
                     new TravellerAttribute(Endurance, +2),
                 },
-                 5 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Metropolis => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Strength, -1),
                     new TravellerAttribute(Education, +2),
                     new TravellerAttribute(Endurance, +1),
                 },
-                 6 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Space_Habitat => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Dexterity, +1),
                     new TravellerAttribute(Education, +1),
                     new TravellerAttribute(Endurance, -1),
                 },
-                 7 => new List<TravellerAttribute>()
+                 TravellerNPCBackgrounds.Water_World => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Endurance, +1),
                 },
                  _ => new List<TravellerAttribute>(),
              };
 
-        private List<TravellerSkill> GetBackgroundSkillsAsync(int background) =>
+        private List<TravellerSkill> GetBackgroundSkillsAsync(TravellerNPCBackgrounds background) =>
             background switch
             {
-                0 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Belter => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Profession_Belter, 2),
                     new TravellerSkill(JackOfAllTrades, 1),
@@ -81,7 +114,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Recon, 0),
                     new TravellerSkill(Science, 0)
                 },
-                1 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Colonist => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Survival, 2),
                     new TravellerSkill(Athletics_Strength, 1),
@@ -94,7 +127,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Recon, 0),
                     new TravellerSkill(Profession, 0),
                 },
-                2 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Developed_World => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Electronics_Comms, 1),
                     new TravellerSkill(Profession,1),
@@ -106,7 +139,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Flyer, 0),
                     new TravellerSkill(Streetwise, 0),
                 },
-                3 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Fringe => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Streetwise, 2),
                     new TravellerSkill(Athletics_Dexterity, 1),
@@ -117,7 +150,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Recon, 0),
                     new TravellerSkill(Stealth, 0),
                 },
-                4 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Low_Tech => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Language, 2),
                     new TravellerSkill(Profession, 2),
@@ -132,7 +165,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Steward, 0),
                     new TravellerSkill(Streetwise, 0)
                 },
-                5 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Metropolis => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Profession, 2),
                     new TravellerSkill(Admin,1),
@@ -144,7 +177,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Carouse, 0),
                     new TravellerSkill(Drive, 0),
                 },
-                6 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Space_Habitat => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Profession, 1),
                     new TravellerSkill(Athletics_Dexterity,1),
@@ -156,7 +189,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Steward, 0),
                     new TravellerSkill(VaccSuit, 0)
                 },
-                7 => new List<TravellerSkill>()
+                TravellerNPCBackgrounds.Water_World => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Seafarer, 2),
                     new TravellerSkill(Navigation,1),
@@ -171,87 +204,87 @@ namespace TravellerWiki.Data
                 _ => new List<TravellerSkill>(),
             };
 
-        private List<TravellerAttribute> GetCareerAttributesAsync(int career) =>
+        private List<TravellerAttribute> GetCareerAttributesAsync(TravellerNPCCareers career) =>
             career switch
             {
-                0 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Administrator => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Education, +1),
                     new TravellerAttribute(Social, +1),
                 },
-                1 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Agent => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Intelligence, +1),
                 },
-                2 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Barbarian => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Strength, +1),
                     new TravellerAttribute(Endurance, +2),
                 },
-                3 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Citizen => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Education, +1),
                 },
-                4 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Corsair => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Dexterity, +1),
                     new TravellerAttribute(Social, -2),
                 },
-                5 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Marine => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Dexterity, +1),
                     new TravellerAttribute(Education, +1),
                 },
-                6 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Medic => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Social, +1),
                 },
-                7 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Military_Enlisted => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Endurance, +2),
                 },
-                8 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Military_Officer => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Education, +1),
                 },
-                9 => new List<TravellerAttribute>() {
+                TravellerNPCCareers.Noble => new List<TravellerAttribute>() {
                     new TravellerAttribute (Education,1),
                 },
-                10 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Performer => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Intelligence,1),
                 },
-                11 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Rogue => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Intelligence,1),
                     new TravellerAttribute(Social,-1),
                 },
-                12 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Scholar => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Intelligence,1),
                     new TravellerAttribute(Education,1),
                 },
-                13 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Scout => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Intelligence,1),
                 },
-                14 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Spacer_Crew => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Dexterity,1),
                 },
-                15 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Spacer_Command => new List<TravellerAttribute>()
                 {
                     new TravellerAttribute(Intelligence,1),
                 },
-                16 => new List<TravellerAttribute>()
+                TravellerNPCCareers.Wanderer => new List<TravellerAttribute>()
                 {
                 },
                 _ => new List<TravellerAttribute>(),
             };
-        private List<TravellerSkill> GetCareerSkillsAsync(int career) =>
+        private List<TravellerSkill> GetCareerSkillsAsync(TravellerNPCCareers career) =>
             career switch
             {
-                0 => new List<TravellerSkill>()
+                TravellerNPCCareers.Administrator => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Admin, 3),
                     new TravellerSkill(Advocate, 1),
@@ -265,7 +298,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Profession, 0),
                     new TravellerSkill(Science, 0),
                 },
-                1 => new List<TravellerSkill>()
+                TravellerNPCCareers.Agent => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Streetwise, 2),
                     new TravellerSkill(Investigate, 2),
@@ -280,7 +313,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Melee, 0),
                     new TravellerSkill(GunCombat, 0),
                 },
-                2 => new List<TravellerSkill>()
+                TravellerNPCCareers.Barbarian => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Melee_Blade, 2),
                     new TravellerSkill(Survival, 2),
@@ -293,7 +326,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Stealth, 0),
                     new TravellerSkill(Seafarer, 0),
                 },
-                3 => new List<TravellerSkill>()
+                TravellerNPCCareers.Citizen => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Electronics_Computers, 1),
                     new TravellerSkill(Streetwise, 1),
@@ -310,7 +343,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Medic, 0),
                     new TravellerSkill(Persuade, 0),
                 },
-                4 => new List<TravellerSkill>()
+                TravellerNPCCareers.Corsair => new List<TravellerSkill>()
                 {
                     new TravellerSkill(VaccSuit,2),
                     new TravellerSkill(Athletics_Dexterity,1),
@@ -326,7 +359,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Recon,0),
                     new TravellerSkill(Streetwise,0),
                 },
-                5 => new List<TravellerSkill>()
+                TravellerNPCCareers.Marine => new List<TravellerSkill>()
                 {
                     new TravellerSkill(VaccSuit,2),
                     new TravellerSkill(GunCombat, 2),
@@ -339,7 +372,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Medic,0),
                     new TravellerSkill(Recon,0),
                 },
-                6 => new List<TravellerSkill>()
+                TravellerNPCCareers.Medic => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Admin, 2),
                     new TravellerSkill(Electronics_Computers,1),
@@ -351,7 +384,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Drive,0),
                     new TravellerSkill(Flyer,0),
                 },
-                7 => new List<TravellerSkill>()
+                TravellerNPCCareers.Military_Enlisted => new List<TravellerSkill>()
                 {
                     new TravellerSkill(GunCombat, 3),
                     new TravellerSkill(Athletics_Endurance,1),
@@ -365,7 +398,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Melee,0),
                     new TravellerSkill(Stealth,0),
                 },
-                8 => new List<TravellerSkill>()
+                TravellerNPCCareers.Military_Officer => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Leadership, 2),
                     new TravellerSkill(Admin,1),
@@ -380,7 +413,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Medic,0),
                     new TravellerSkill(Stealth,0),
                 },
-                9 => new List<TravellerSkill>() {
+                TravellerNPCCareers.Noble => new List<TravellerSkill>() {
                     new TravellerSkill(Leadership, 2),
                     new TravellerSkill(Diplomat, 2),
                     new TravellerSkill(Admin, 1),
@@ -392,7 +425,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Deception, 0),
                     new TravellerSkill(Gambler, 0)
                 },
-                10 => new List<TravellerSkill>()
+                TravellerNPCCareers.Performer => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Art, 3),
                     new TravellerSkill(Carouse, 2),
@@ -405,7 +438,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Gambler, 0),
                     new TravellerSkill(Profession, 0)
                 },
-                11 => new List<TravellerSkill>()
+                TravellerNPCCareers.Rogue => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Stealth, 2),
                     new TravellerSkill(Streetwise, 2),
@@ -419,7 +452,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Persuade, 0)
 
                 },
-                12 => new List<TravellerSkill>()
+                TravellerNPCCareers.Scholar => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Science, 3),
                     new TravellerSkill(Investigate,2),
@@ -433,7 +466,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Navigation, 0),
                     new TravellerSkill(Profession, 0)
                 },
-                13 => new List<TravellerSkill>()
+                TravellerNPCCareers.Scout => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Astrogation, 1),
                     new TravellerSkill( Pilot_Spacecraft, 1),
@@ -449,7 +482,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Investigate, 0),
                     new TravellerSkill( Recon, 0)
                 },
-                14 => new List<TravellerSkill>()
+                TravellerNPCCareers.Spacer_Crew => new List<TravellerSkill>()
                 {
                     new TravellerSkill(VaccSuit, 3),
                     new TravellerSkill(Athletics, 1),
@@ -462,7 +495,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Medic, 0),
                     new TravellerSkill(Persuade, 0)
                 },
-                15 => new List<TravellerSkill>()
+                TravellerNPCCareers.Spacer_Command => new List<TravellerSkill>()
                 {
                     new TravellerSkill(Pilot_Spacecraft, 2),
                     new TravellerSkill(Admin, 1),
@@ -476,7 +509,7 @@ namespace TravellerWiki.Data
                     new TravellerSkill(Persuade, 0),
                     new TravellerSkill(Tactics, 0)
                 },
-                16 => new List<TravellerSkill>()
+                TravellerNPCCareers.Wanderer => new List<TravellerSkill>()
                 {
                    new TravellerSkill(Streetwise, 2),
                    new TravellerSkill(Melee_Unarmed, 1),
@@ -533,40 +566,43 @@ namespace TravellerWiki.Data
             return nameService.GetNames(1, nationList)[0] ?? "Error";
         }
 
-        private string GetBackgroundName(int background)
+
+        public string GetBackgroundName(TravellerNPCBackgrounds background)
             => background switch
             {
-                0 => "Belter",
-                1 => "Colonist",
-                2 => "Developed World",
-                3 => "Fringe",
-                4 => "Low-Tech",
-                5 => "Metropolis",
-                6 => "Space Habitat",
-                7 => "Water World",
+                TravellerNPCBackgrounds.Belter => "Belter",
+                TravellerNPCBackgrounds.Colonist => "Colonist",
+                TravellerNPCBackgrounds.Developed_World => "Developed World",
+                TravellerNPCBackgrounds.Fringe => "Fringe",
+                TravellerNPCBackgrounds.Low_Tech => "Low-Tech",
+                TravellerNPCBackgrounds.Metropolis => "Metropolis",
+                TravellerNPCBackgrounds.Space_Habitat => "Space Habitat",
+                TravellerNPCBackgrounds.Water_World => "Water World",
                 _ => "Error",
             };
 
-        private string GetCareerName(int career)
+       
+
+        public string GetCareerName(TravellerNPCCareers career)
             => career switch
             {
-                0 => "ADMINISTRATOR",
-                1 => "AGENT",
-                2 => "BARBARIAN",
-                3 => "CITIZEN",
-                4 => "CORSAIR",
-                5 => "MARINE",
-                6 => "MEDIC",
-                7 => "MILITARY (ENLISTED)",
-                8 => "MILITARY (OFFICER)",
-                9 => "NOBLE",
-                10 => "PERFORMER",
-                11 => "ROGUE",
-                12 => "SCHOLAR",
-                13 => "SCOUT",
-                14 => "SPACER (CREW)",
-                15 => "SPACER (COMMAND)",
-                16 => "WANDERER",
+                TravellerNPCCareers.Administrator => "ADMINISTRATOR",
+                TravellerNPCCareers.Agent => "AGENT",
+                TravellerNPCCareers.Barbarian => "BARBARIAN",
+                TravellerNPCCareers.Citizen => "CITIZEN",
+                TravellerNPCCareers.Corsair => "CORSAIR",
+                TravellerNPCCareers.Marine => "MARINE",
+                TravellerNPCCareers.Medic => "MEDIC",
+                TravellerNPCCareers.Military_Enlisted => "MILITARY (ENLISTED)",
+                TravellerNPCCareers.Military_Officer => "MILITARY (OFFICER)",
+                TravellerNPCCareers.Noble => "NOBLE",
+                TravellerNPCCareers.Performer => "PERFORMER",
+                TravellerNPCCareers.Rogue => "ROGUE",
+                TravellerNPCCareers.Scholar => "SCHOLAR",
+                TravellerNPCCareers.Scout => "SCOUT",
+                TravellerNPCCareers.Spacer_Crew => "SPACER (CREW)",
+                TravellerNPCCareers.Spacer_Command => "SPACER (COMMAND)",
+                TravellerNPCCareers.Wanderer => "WANDERER",
                 _ => "Error",
             };
 
@@ -593,69 +629,33 @@ namespace TravellerWiki.Data
             return npcList;
         }
 
-        protected async Task<TravellerNPC> TravellerNpcAsync(string name)
+        public TravellerNPC GenerateNPC(string name)
         {
-            var background = rand.Next(0, 8);
-            var career = rand.Next(0, 16);
-
-            var skillList = await Task.Run(() => SkillList(background, career, rand));
-            var attributeList = await Task.Run(() => GetAttributeValues(AttributeList(background, career, rand), rand));
-
-            var backgroundName = await Task.Run(() => GetBackgroundName(background));
-            var careerName = await Task.Run(() => GetCareerName(career));
-
-            var patron = PatronTypeList[rand.Next(0, PatronTypeList.Count)];
-            var quirk = CharacterQuirkList[rand.Next(0, CharacterQuirkList.Count)];
-
-            var npc = new TravellerNPC
-            {
-                SkillList = skillList,
-                AttributeList = attributeList,
-                Name = name,
-                Background = backgroundName,
-                Career = careerName,
-                PatronText = patron,
-                QuirkText = quirk
-            };
+            var background = (TravellerNPCBackgrounds) rand.Next(0, 8);
+            var career = (TravellerNPCCareers) rand.Next(0, 16);
+            var npc = GenerateNPC(name, background, career,null);
             return npc;
         }
 
-        protected TravellerNPC TravellerNpc(string name)
+        public TravellerNPC GenerateNPC(TravellerNameService.NationNameList nationNameList, TravellerNPCBackgrounds background, 
+            TravellerNPCCareers career, List<TravellerItem> items)
         {
-            var background = rand.Next(0, 8);
-            var career = rand.Next(0, 16);
-
-            var skillList = SkillList(background, career, rand);
-            var attributeList = GetAttributeValues(AttributeList(background, career, rand), rand);
-
-            var backgroundName =GetBackgroundName(background);
-            var careerName = GetCareerName(career);
-
-            var patron = PatronTypeList[rand.Next(0, PatronTypeList.Count)];
-            var quirk = CharacterQuirkList[rand.Next(0, CharacterQuirkList.Count)];
-
-            var npc = new TravellerNPC
-            {
-                SkillList = skillList,
-                AttributeList = attributeList,
-                Name = name,
-                Background = backgroundName,
-                Career = careerName,
-                PatronText = patron,
-                QuirkText = quirk
-            };
-            return npc;
-        }
-
-        protected TravellerNPC TravellerNpc(TravellerNameService.NationNameList nationNameList)
-        {
-            var background = rand.Next(0, 8);
-            var career = rand.Next(0, 16);
-
-            var skillList = SkillList(background, career, rand);
-            var attributeList = GetAttributeValues(AttributeList(background, career, rand), rand);
 
             var name = GetName(nationNameList);
+            var npc = GenerateNPC(name,background,career,items);
+            return npc;
+        }
+
+        public TravellerNPC GenerateNPC(string name, TravellerNPCBackgrounds background, TravellerNPCCareers career, List<TravellerItem> items)
+        {
+            if (items == null)
+            {
+                items = new List<TravellerItem>();
+            }
+
+            var skillList = SkillList(background, career, rand);
+            var attributeList = GetAttributeValues(AttributeList(background, career, rand), rand);
+
             var backgroundName = GetBackgroundName(background);
             var careerName = GetCareerName(career);
 
@@ -670,8 +670,23 @@ namespace TravellerWiki.Data
                 Background = backgroundName,
                 Career = careerName,
                 PatronText = patron,
-                QuirkText = quirk
+                QuirkText = quirk,
+                Items = items
             };
+            return npc;
+        }
+
+        protected TravellerNPC TravellerNpc(string name)
+        {
+            var npc = GenerateNPC(name);
+            return npc;
+        }
+        
+        protected TravellerNPC TravellerNpc(TravellerNameService.NationNameList nationNameList)
+        {
+            
+            var name = GetName(nationNameList);
+            var npc = GenerateNPC(name);
             return npc;
         }
 
@@ -690,7 +705,7 @@ namespace TravellerWiki.Data
             return attributes;
         }
 
-        private List<TravellerAttribute> AttributeList(int background, int career, Random rng)
+        private List<TravellerAttribute> AttributeList(TravellerNPCBackgrounds background, TravellerNPCCareers career, Random rng)
         {
             var backgroundStats = GetBackgroundAttributesAsync(background);
             var careerStats = GetCareerAttributesAsync(career);
@@ -730,7 +745,7 @@ namespace TravellerWiki.Data
             return new TravellerAttribute(attributeName, rng.Next(2, 13) + attMod);
         }
 
-        private List<TravellerSkill> SkillList(int background, int career, Random rng)
+        private List<TravellerSkill> SkillList(TravellerNPCBackgrounds background, TravellerNPCCareers career, Random rng)
         {
             var backgroundStats = GetBackgroundSkillsAsync(background);
             var careerStats = GetCareerSkillsAsync(career);

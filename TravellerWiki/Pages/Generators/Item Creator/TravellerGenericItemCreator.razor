@@ -1,0 +1,82 @@
+﻿@page "/Generators/TravellerGenericItemCreator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using Newtonsoft.Json
+@using TravellerWiki.Data.Charcters
+@inject TravellerItemStoreService ItemStore
+
+<h2>Traveller Generic Item Creator</h2>
+<div style="border-width: 1px; border: lightgray; border-style: solid; background: gray;">
+    @if (weapon == null)
+    {
+    <p style="text-align: center">
+        <b>
+            Name
+        </b> <br /> <input type="text" @bind="Name" /><br />
+        <b>
+            Cost
+        </b> <br /> <input type="number" @bind="Cost" /><br />
+        <b>Weight in KG</b> <br /> <input type="number" @bind="KG" /><br />
+        <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
+        <button @onclick="AddWeapon">Add Weapon</button>
+    </p>
+    }
+    else
+    {
+<p>
+    @weapon.ToString() <input type="button"
+                              id="btnCopy"
+                              onClick="
+navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
+    /* clipboard successfully set */
+}, function () {
+    alert('Umm, there was an error!'); }) " value="Copy Json" />
+
+        <button @onclick="Reset">New Item</button>
+    </p>
+    }
+</div>
+
+
+
+@code {
+
+    private string Name = "";
+    private int Cost = 10;
+    private int KG = 1;
+    private int TechLevel = 0;
+    TravellerItem weapon = null;
+    private int ID = 0;
+    Random r = new Random();
+
+    
+    private void Reset()
+    {
+        weapon = null;
+        ID = 0;
+        Name = "";
+        Cost = 10;
+        KG = 1;
+        TechLevel = 1;
+    }
+
+    public void AddWeapon()
+    {
+        weapon = new TravellerItem(Name,Cost,KG,TechLevel);
+        GetID();
+
+        ItemStore.ItemStore.Add(ID,weapon);
+    }
+
+    private void GetID()
+    {
+        ID = r.Next(4004, 60000);
+        if (ItemStore.ItemStore.ContainsKey(ID))
+        {
+            GetID();
+        }
+    }
+
+}

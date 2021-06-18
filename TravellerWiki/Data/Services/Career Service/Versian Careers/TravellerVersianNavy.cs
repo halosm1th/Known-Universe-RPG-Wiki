@@ -130,7 +130,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                     (10000, new TravellerRewardVehicle()),
                     (10000, new TravellerRewardAttribute(Social,1)),
                     (11000, new TravellerRewardContact("Noble",TravellerNPCRelationship.Contact)),
-                    (12000, new TravellerRewardOther("A TAS membereship")),
+                    (12000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("TAS Membership"))),
                     (20000, new TravellerRewardAugment()),
        },
        mishaps: new List<TravellerEventCharacterCreation>

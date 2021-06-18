@@ -126,11 +126,11 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                 {
                     (5, new TravellerRewardItem(new List<TravellerItem>
                     {
-                        new TravellerItem("Fake TAS Membership",500000,1,16)
+                        TravellerItemStoreService.GetItemStatic("Fake TAS Membership"),
                     })),
                     (10, new TravellerRewardItem(new List<TravellerItem>
                     {
-                        new TravellerItem("TAS Membership",1000000,1,15)
+                        TravellerItemStoreService.GetItemStatic("TAS Membership"),
                     })),
                     (100, new TravellerRewardGun()),
                     (250, new TravellerRewardBlade()),

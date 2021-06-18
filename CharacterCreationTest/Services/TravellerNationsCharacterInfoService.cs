@@ -131,7 +131,6 @@ namespace TravellerWiki.Data
                      {
                          new TravellerRewardCharacterCreationItem(new List<TravellerItem>
                          {
-                             new TravellerAugments("Optional Neural Net", 5000000,1,20,"A tiny but powerful semi-organic micro-computer embded at the base of a persons skull. The computer a 20mm rectangle, and serves as the interface for most augmentations. Once inserted into the skull, its tendrils will slowly spread throughout the users brain until fully integrated and able to intrepret commands without verbal cues.   is able to transmit multiple forms of data, Computer/5. Necessary component for most augmentations","Base of Skull"),
                              new TravellerItem("Federation Citizenship",100,1,10)
                          }),
                          new TravellerRewardCharacterCreationSkill(new List<TravellerSkill>

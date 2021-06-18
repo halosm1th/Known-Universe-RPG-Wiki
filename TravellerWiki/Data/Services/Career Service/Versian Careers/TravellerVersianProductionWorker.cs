@@ -130,12 +130,12 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                     GetSkillTableEntry(Electronics_Computers),
                 }, musteringOutBenefits: new List<(int Cash, TravellerCharacterCreationReward Benefit)>
                 {
-                    (5000, new TravellerRewardItem("One Ship Share", 10000, 1, 15)),
+                    (5000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Ship Share"))),
                     (7500, new TravellerRewardContact("Contact from Work", TravellerNPCRelationship.Contact)),
                     (10000, new TravellerRewardAttribute(Strength, 1)),
                     (12500, new TravellerRewardVehicle()),
                     (15000, new TravellerRewardContact("Ally from Work", TravellerNPCRelationship.Ally)),
-                    (20000, new TravellerRewardItem("Two Ship Shares", 20000, 1, 15)),
+                    (20000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("2 Ship Shares"))),
                     (50000, new TravellerRewardOther("Personal Shuttle")),
                 },
                 mishaps: new List<TravellerEventCharacterCreation>

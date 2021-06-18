@@ -1,0 +1,7 @@
+{
+    "1000":{"RangeInMeters":0,"Damage":"12D12","MagazineCapacity":0,"MagainzeCost":10000,"WeaponTraits":[],"OtherInformation":"Void","Name":"Ordinis Void Blade","Cost":10000000,"KG":1,"TechLevel":20,"ItemType":1},
+    "1001":{"RangeInMeters":15,"Damage":"8D20","MagazineCapacity":1,"MagainzeCost":50000,"WeaponTraits":[],"OtherInformation":"Can Shoot a single overchaged shot that does 4D20 Damage with a ranged Gun Combat (Void) attack.","Name":"Equites Void Blade","Cost":12000000,"KG":1,"TechLevel":25,"ItemType":1},
+    "1002":{"RangeInMeters":0,"Damage":"12D12","MagazineCapacity":0,"MagainzeCost":10000,"WeaponTraits":[],"OtherInformation":"Void","Name":"Void Blade","Cost":5000000,"KG":1,"TechLevel":20,"ItemType":1},
+    "1003":{"RangeInMeters":10,"Damage":"3D-3","MagazineCapacity":6,"MagainzeCost":5,"WeaponTraits":[], "OtherInformation":"-","Name":"Revolver","Cost":150,"KG":1,"TechLevel":5,"ItemType":1},
+    "1004":{"RangeInMeters":5,"Damage":"2D-3","MagazineCapacity":1,"MagazineCost":5,"WeaponTraits":[], "OtherInformation":"-","Name":"Antique Pistol","Cost":100,"KG":1,"TechLevel":3,"ItemType":1}
+}

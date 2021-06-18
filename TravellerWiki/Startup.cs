@@ -33,6 +33,7 @@ namespace TravellerWiki
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<TravellerItemStoreService>();
             services.AddSingleton<TravellerNPCService>();
             services.AddSingleton<TravellerSpecialNPCService>();
             services.AddSingleton<TravellerNameService>();

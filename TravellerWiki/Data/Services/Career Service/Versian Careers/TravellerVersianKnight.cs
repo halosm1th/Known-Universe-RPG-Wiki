@@ -47,10 +47,9 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Page", new TravellerRewardItem(new TravellerWeapon("Void Blade",5000000,1,20,0,"12D12",0,"Void"))),
+                            ("Page", new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Void Blade"))),
                             ("Squire", new TravellerRewardSkill(Melee_Void)),
-                            ("Knight", new TravellerRewardItem(new TravellerArmour("Ordinis Armour",5000000,100,18,
-                                500,30,"+2 str, +2 dex, +6 Psi, 20 slots, Vacc Suit 2"))),
+                            ("Knight", new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Ordinis Armour"))),
                             ("Knight Lieutenant", new TravellerRewardSkill(GunCombat)),
                             ("Master Knight", new TravellerRewardSkill(Tactics)),
                             ("Knight Commander", new TravellerRewardAttribute(Social,2)),
@@ -72,10 +71,9 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Page", new TravellerRewardItem(new TravellerWeapon("Void Blade",5000000,1,20,0,"12D12",0,"Void"))),
+                            ("Page", new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Void Blade"))),
                             ("Squire", new TravellerRewardSkill(Language)),
-                            ("Knight", new TravellerRewardItem(new TravellerArmour("Ordinis Armour",5000000,100,18,
-                                500,30,"+2 str, +2 dex, +6 Psi, 20 slots, Vacc Suit 2"))),
+                            ("Knight", new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Ordinis Armour"))),
                             ("Knight Lieutenant", new TravellerRewardSkill(Deception)),
                             ("Master Knight", new TravellerRewardSkill(Leadership)),
                             ("Knight Commander", new TravellerRewardAttribute(Social,2)),
@@ -97,10 +95,9 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                         },
                         ranksAndBonuses:new List<(string title, TravellerCharacterCreationReward perk)>
                         {
-                            ("Page", new TravellerRewardItem(new TravellerWeapon("Void Blade",5000000,1,20,0,"12D12",0,"Void"))),
+                            ("Page", new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Void Blade"))),
                             ("Squire", new TravellerRewardSkill(Broker)),
-                            ("Knight", new TravellerRewardItem(new TravellerArmour("Ordinis Armour",5000000,100,18,
-                                500,30,"+2 str, +2 dex, +6 Psi, 20 slots, Vacc Suit 2"))),
+                            ("Knight", new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Ordinis Armour"))),
                             ("Knight Lieutenant", new TravellerRewardSkill(Steward)),
                             ("Master Knight", new TravellerRewardSkill(Science_Economics)),
                             ("Knight Commander", new TravellerRewardAttribute(Social,2)),
@@ -128,10 +125,10 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
        {
                     (25000, new TravellerRewardSkill(Language)),
                     (50000, new TravellerRewardItem(
-                        new TravellerItem("Universalis Confederation Passport",100000,0,20))),
+                        TravellerItemStoreService.GetItemStatic("Universalis Confederation Passport"))),
                     (100000, new TravellerRewardSkill(JackLuck)),
                     (250000, new TravellerRewardOther("Landing Fort")),
-                    (500000, new TravellerRewardItem(new TravellerWeapon("Knights Revolver",10000,2,18,0,"8D8",10,"Plasma Based"))),
+                    (500000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("Knights Revolver"))),
                     (750000, new TravellerRewardOther("You receive a personal vehicle, such as a ground car or air/raft. You can choose exactly what type of vehicle this is but it may not be armed and has a limit of Cr300000 and TL 10. If you roll this benefit again, gain a level of Drive or Flyer")),
                     (1000000, new TravellerRewardContact("Lord Contact",TravellerNPCRelationship.Ally)),
        },
@@ -149,8 +146,10 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                             Science_Economics),
                         noEvent:new TravellerEventChoice("Your unable to navigate the economic disaster, you need to pick between taking on debt or failing you feudal obligation.",
                             yesText:"Take on Debt",
-                            yesEvent:new TravellerEventReward("You take on a fair bit of debt.",new TravellerRewardCredits(random.Next(1,11) * 1000000)),
-                            noEvent:new TravellerEventRewardAttribute("Your feudal obligation falters.",new TravellerAttribute(Social,-1)),
+                            yesEvent:new TravellerEventReward("You take on a fair bit of debt.",
+                                new TravellerRewardCredits(random.Next(1,11) * 1000000)),
+                            noEvent:new TravellerEventRewardAttribute("Your feudal obligation falters.",
+                                new TravellerAttribute(Social,-1)),
                             noText:"Fail your Feudal Obligiton"), 
                         skillCheck:new TravellerSkillCheck(Science_Economics,8)),
 

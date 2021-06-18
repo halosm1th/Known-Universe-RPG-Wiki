@@ -9,6 +9,7 @@
         {
             Improvement = improvement;
             Location = location;
+            ItemType = TravellerItemTypes.Augment;
         }
         public override string ToString()
         {

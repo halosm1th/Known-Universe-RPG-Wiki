@@ -11,6 +11,7 @@
             RadiationProtection = radiationProtection;
             Protection = protection;
             Other = other;
+            ItemType = TravellerItemTypes.Armour;
         }
         public override string ToString()
         {

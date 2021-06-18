@@ -1,0 +1,10 @@
+{
+    "4000":{"Name":"Versian Citizenship","Cost":10000,"KG":1,"TechLevel":20,"ItemType":0},
+    "4001":{"Name":"Fake TAS Membership","Cost":500000,"KG":1,"TechLevel":16,"ItemType":0},
+    "4002":{"Name":"TAS Membership","Cost":1000000,"KG":1,"TechLevel":15,"ItemType":0},
+    "4003":{"Name":"Universalis Confederation Passport","Cost":100000,"KG":0,"TechLevel":20,"ItemType":0},
+    "5000":{"Name":"Ship Share","Cost":10000,"KG":0,"TechLevel":10,"ItemType":0},
+    "5001":{"Name":"2 Ship Shares","Cost":20000,"KG":1,"TechLevel":10,"ItemType":0},
+    "5002":{"Name":"5 Ship Shares","Cost":50000,"KG":0,"TechLevel":10,"ItemType":0},
+    "50000":{"Name":"Weapon","Cost":2000,"KG":30,"TechLevel":12,"ItemType":0}
+}

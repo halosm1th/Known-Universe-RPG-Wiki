@@ -24,13 +24,9 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
             {
                 new TravellerRewardItem(new List<TravellerItem>
                 {
-                    new TravellerItem("Versian Citizenship", 10000, 1, 20),
-
-                    new TravellerWeapon("Ordinis Void Blade", 10000000, 1, 20,
-                        0, "12D12", 0, "Void"),
-
-                    new TravellerArmour("Ordinis Armour", 5000000, 100, 18,
-                        500, 30, "+2 str, +2 dex, +6 Psi, 20 slots, Vacc Suit 2"),
+                    TravellerItemStoreService.GetItemStatic("Versian Citizenship"),
+                    TravellerItemStoreService.GetItemStatic("Ordinis Void Blade"),
+                    TravellerItemStoreService.GetItemStatic("Ordinis Armour"),
 
                 }),
                 new TravellerRewardSkill(new List<TravellerSkill>
@@ -110,7 +106,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                                 new TravellerRewardSkill(FreeForm,1),
                                 new TravellerRewardItem(new List<TravellerItem>
                                 {
-                                    new TravellerWeapon("Equites Void Blade",12000000,1,25,15,"8D20",1,"Can Shoot a single overchaged shot that does 4D20 Damage with a ranged Gun Combat (Void) attack.")
+                                    TravellerItemStoreService.GetItemStatic("Equites Void Blade")
                                 })
                             })),
                             ("Brother Knight", new TravellerRewardSkill(FreeForm)),
@@ -141,7 +137,8 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                                 new TravellerRewardSkill(FreeForm,1),
                                 new TravellerRewardItem(new List<TravellerItem>
                                 {
-                                    new TravellerWeapon("Equites Void Blade",12000000,1,25,15,"8D20",1,"Can Shoot a single overchaged shot that does 4D20 Damage with a ranged Gun Combat (Void) attack.")
+                                    TravellerItemStoreService.GetItemStatic("Equites Void Blade")
+
                                 })
                             })),
                             ("Brother Knight", new TravellerRewardSkill(FreeForm)),
@@ -172,7 +169,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
                                 new TravellerRewardSkill(FreeForm,1),
                                 new TravellerRewardItem(new List<TravellerItem>
                                 {
-                                    new TravellerWeapon("Equites Void Blade",12000000,1,25,15,"8D20",1,"Can Shoot a single overchaged shot that does 4D20 Damage with a ranged Gun Combat (Void) attack.")
+                                    TravellerItemStoreService.GetItemStatic("Equites Void Blade")
                                 })
                             })),
                             ("Brother Knight", new TravellerRewardSkill(FreeForm)),
@@ -203,19 +200,18 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
        }, musteringOutBenefits: new List<(int Cash, TravellerCharacterCreationReward Benefit)>
        {
                     (100000, new TravellerRewardItem(new List<TravellerItem>
-                        {
-                            new TravellerWeapon("Equites Void Blade",12000000,1,25,15,"8D20",1,"Can Shoot a single overchaged shot that does 4D20 Damage with a ranged Gun Combat (Void) attack.")
-                        })),
+                    {
+                        TravellerItemStoreService.GetItemStatic("Equites Void Blade")
+                    })),
                     (250000, new TravellerRewardOther("You gain the a landing fort in the style of the Equites Ordinis Deorum")),
                     (500000, new TravellerRewardOther("You gain a knight-world as a fief")),
                     (750000, new TravellerRewardItem(new List<TravellerItem>
                     {
-                        new TravellerItem("Universalis Confederation Passport",100000,0,20),
+                        TravellerItemStoreService.GetItemStatic("Universalis Confederation Passport"),
                     })),
                     (1000000,new TravellerRewardItem(new List<TravellerItem>
                     {
-                        new TravellerArmour("Equites Armour",20000000,50,25,
-                            800,45,"+4 str, +4 dex, +8 Psi, 25 Slots, Vacc Suit 3, Psi 6"),
+                        TravellerItemStoreService.GetItemStatic("Equites Armour"),
                     })),
                     (1250000, new TravellerRewardContact(new Dictionary<string, TravellerNPCRelationship>
                         {

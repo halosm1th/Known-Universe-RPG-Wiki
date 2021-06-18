@@ -6,6 +6,7 @@ using TravellerWiki.Data.Services;
 
 namespace TravellerWiki.Data.Charcters
 {
+#nullable enable
     public class ComplexTravellerNPC : PlayerTravellerCharacter
     {
         public string Story { get; set; }

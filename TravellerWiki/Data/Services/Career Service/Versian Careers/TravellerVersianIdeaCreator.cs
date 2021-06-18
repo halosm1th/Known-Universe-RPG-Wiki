@@ -154,7 +154,8 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                                     new TravellerRewardAttribute(Social,-1),
                                     new TravellerRewardJobChange("Versian Idea Creator")
                                 }),
-                            noEvent: new TravellerEventReward("You are discredited and publically shamed.", new TravellerRewardAttribute(Social,-3)),
+                            noEvent: new TravellerEventReward("You are discredited and publically shamed.",
+                                new TravellerRewardAttribute(Social,-3)),
                             skillCheck:(Advocate,8)),
                         noEvent:new TravellerEventText("You slink away into the shadows as the news cycle eventually shifts to a different topic.")),
 

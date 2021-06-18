@@ -134,7 +134,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                     (2500, new TravellerRewardAttribute(Social)),
                     (2500, new TravellerRewardAttribute(Education)),
                     (5000, new TravellerRewardAttribute(Intelligence)),
-                    (10000, new TravellerRewardItem("Two Ship Shares",100000,1,15)),
+                    (10000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("2 Ship Share"))),
                     (20000, new TravellerRewardAttribute(Social)),
        },
 

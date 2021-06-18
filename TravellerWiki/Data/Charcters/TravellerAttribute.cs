@@ -126,7 +126,7 @@ namespace TravellerWiki.Data.Charcters
                 3 => "Good",
                 4 => "Great",
                 5 => "Amazing",
-
+                _ => "Out of Bounds"
             };
         }
 

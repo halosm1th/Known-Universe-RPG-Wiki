@@ -62,13 +62,13 @@
 
                                     var s = sb.ToString(); }
                             <div style="display: none;"> @s</div>
-                            <input type="button" 
-                                   id="btnCopy" 
-                                   onClick="
-    navigator.clipboard.writeText('@s').then(function() {
-                            /* clipboard successfully set */
-    }, function () {
-            alert('Umm, there was an error!'); }) "  value="Copy"/>
+                                <input type="button"
+                                       id="btnCopy"
+                                       onClick="
+navigator.clipboard.writeText('@s').then(function() {
+    /* clipboard successfully set */
+}, function () {
+    alert('Umm, there was an error!'); }) " value="Copy" />
                         </td>
                     </tr>
 
