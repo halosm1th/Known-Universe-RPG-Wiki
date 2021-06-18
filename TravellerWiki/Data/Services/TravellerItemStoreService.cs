@@ -10,7 +10,7 @@ using TravellerWiki.Data.Services.CareerService;
 
 namespace TravellerWiki.Data
 {
-
+#nullable enable
     public class TravellerItemStoreService
     {
         public Dictionary<int, TravellerItem> ItemStore => ItemStoreStatic;
@@ -132,9 +132,15 @@ namespace TravellerWiki.Data
             }
         }
 
-        public static TravellerItem GetItemStatic(string name)
+        public static TravellerItem? GetItemStatic(string name)
         {
-            return ItemStoreStatic.First(x => x.Value.Name == name).Value;
+            Console.WriteLine($"Looking for: {name}");
+            if (ItemStoreStatic.Any(x => x.Value.Name == name))
+            {
+                return ItemStoreStatic.First(x => x.Value.Name == name).Value;
+            }
+
+            return null;
         }
 
         public TravellerItemStoreService()

@@ -133,7 +133,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                         {"Civis Ally 2", TravellerNPCRelationship.Ally },
                     })),
                     (5000, new TravellerRewardAugment()),
-                    (10000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("5 Ship Share"))),
+                    (10000, new TravellerRewardItem(TravellerItemStoreService.GetItemStatic("5 Ship Shares"))),
                     (50000, new TravellerRewardVehicle()),
                     (100000, new TravellerRewardShip()),
        },

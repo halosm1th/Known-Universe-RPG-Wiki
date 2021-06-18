@@ -76,8 +76,10 @@
         <b>@output.ToString()</b>
     }]
     <br />
-</p>
 
+    Number of NPCs [@NPCCount]: <input type="range" @bind="NPCCount" min="1" max="100" step="1"/>
+    <br/>
+</p>
 <button class="" @onclick="AddNPC">Click me to Generate npcs</button>
         <br />
         </p>
@@ -151,6 +153,7 @@ navigator.clipboard.writeText('@npc.ToString()').then(function() {
 
 @code {
     private List<TravellerNPC> npcs = new List<TravellerNPC>();
+    private int NPCCount = 0;
 
     private TravellerNameService.NationNameList NationNameList = TravellerNameService.NationNameList.Any;
     private TravellerNPCBackgrounds NpcBackground;
@@ -165,7 +168,10 @@ navigator.clipboard.writeText('@npc.ToString()').then(function() {
 
     public void AddNPC()
     {
-        npcs.Add(NPCService.GenerateNPC(NationNameList, NpcBackground, NpcCareer, items));
+        for (int i = 0; i < NPCCount; i++)
+        {
+            npcs.Add(NPCService.GenerateNPC(NationNameList, NpcBackground, NpcCareer, items));
+        }
         items = new List<TravellerItem>();
     }
 

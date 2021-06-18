@@ -155,7 +155,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                new List<TravellerCharacterCreationReward>
                {
                    new TravellerRewardContact("Noble who knighted you",TravellerNPCRelationship.Friend),
-                   new TravellerRewardJobChange("Versian Knights")
+                   new TravellerRewardJobChange("Versian Knight")
                }),
            
            new TravellerEventInjury("You are injured!"),

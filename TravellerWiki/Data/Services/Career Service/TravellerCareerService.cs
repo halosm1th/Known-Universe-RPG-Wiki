@@ -36,10 +36,10 @@ namespace TravellerWiki.Data.Services.CareerService
         public static List<TravellerCareer> StaticListOfCareers = LoadListOfJobs();
         public List<TravellerCareer> ListOfCareers = LoadListOfJobs();
 
-        private static List<TravellerCareer> _careers;
+        private static List<TravellerCareer> _careers = new List<TravellerCareer>();
         public static List<TravellerCareer> LoadListOfJobs()
         {
-            if (_careers == null)
+            if (_careers == null || _careers.Count == 0)
             {
                 var majorPowers = new TravellerMajorPowerCareers();
                 var middlePowers = new TravellerMiddlePowerCareers();

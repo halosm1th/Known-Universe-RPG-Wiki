@@ -47,8 +47,8 @@ namespace TravellerWiki.Data.Charcters
             {
                 if (PreviousCareers.Count > 0)
                 {
-                    var title = PreviousCareers.Peek().Item2.RanksAndBonuses[Math.Min(PreviousCareers.Peek().rank,
-                        PreviousCareers.Peek().Assignment.RanksAndBonuses.Count)].title;
+                    var rank = Math.Min(Math.Max(0, PreviousCareers.Peek().rank),PreviousCareers.Peek().Assignment.RanksAndBonuses.Count-1);
+                    var title = PreviousCareers.Peek().Item2.RanksAndBonuses[rank].title;
                     return title;
                 }
                 else

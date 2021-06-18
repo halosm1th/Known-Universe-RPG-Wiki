@@ -123,7 +123,7 @@ border-style: solid; border: 1px; white-space: pre-line;text-align: right">
                                     <td style="text-align: left"><b>Items:</b></td>
                                     <td style="text-align: right">
                                         @(person.Items.Count > 0 ?
-                                        person.Items.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
+                                        person.Items.Aggregate("", (h, t) => h += ", " + (t != null? t.Name : "")).Remove(0, 1) : "None")
                                     </td>
                                 </tr>
 
