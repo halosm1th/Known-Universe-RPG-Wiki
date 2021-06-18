@@ -22,7 +22,7 @@ namespace TravellerWiki.Data.Services.CareerService.VersianCareeres
             {
                 new TravellerRewardItem(new List<TravellerItem>
                 {
-                    new TravellerItem("Versian Citizenship", 10000, 1, 20),
+                    new TravellerGenericItem("Versian Citizenship", 10000, 1, 20),
                 }),
                 new TravellerRewardSkill(new List<TravellerSkill>
                 {

@@ -20,7 +20,7 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
                 {
                     new TravellerRewardItem(new List<TravellerItem>
                     {
-                        new TravellerItem("Weapon", 2000, 30, 12),
+                        new TravellerGenericItem("Weapon", 2000, 30, 12),
                     }),
                     new TravellerRewardSkill(new List<TravellerSkill>
                     {

@@ -7,9 +7,9 @@
             WeaponTrait = trait;
         }
 
-        public TravellerWeaponTraits WeaponTrait { get; }
+        public TravellerWeaponTraits WeaponTrait { get; set; }
 
-        public string TraitText => AnyTraitText(WeaponTrait);
+        public string TraitText() => AnyTraitText(WeaponTrait);
 
         public static string AnyTraitText(TravellerWeaponTraits weaponTrait) =>
             weaponTrait switch
@@ -100,6 +100,7 @@
                 TravellerWeaponTraits.Zero_G => "This weapon has little or no recoil," +
                                                 " allowing it to be used in low or zero gravity situations without requiring an" +
                                                 " Athletics (dexterity) check.",
+                _ => "None"
 
             };
     }

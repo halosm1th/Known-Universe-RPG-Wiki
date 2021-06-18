@@ -8,10 +8,11 @@ namespace TravellerWiki.Data
     {
         public List<TravellerItem> Items { get; }
 
-        public TravellerRewardItem(string name, int cost, int kg, int tl)
+        public TravellerRewardItem(string name, int cost, int kg, int tl,
+            string description = "", TravellerGenericItemTypes subtype = TravellerGenericItemTypes.Other)
         {
             Items = new List<TravellerItem>();
-            Items.Add(new TravellerItem(name,cost,kg,tl));
+            Items.Add(new TravellerGenericItem(name,cost,kg,tl,description,subtype));
         }
 
         public TravellerRewardItem(TravellerItem item)
@@ -28,7 +29,7 @@ namespace TravellerWiki.Data
             Items  = new List<TravellerItem>();
             foreach (var item in items)
             {
-                Items.Add(new TravellerItem(item,0,0,0));
+                Items.Add(new TravellerGenericItem(item,0,0,0,"",TravellerGenericItemTypes.Other));
             }
         }
         public override string ToString()

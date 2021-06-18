@@ -2,14 +2,6 @@
 
 namespace TravellerWiki.Data.Charcters
 {
-    public enum TravellerItemTypes
-    {
-        ItemGeneric,
-        Weapon,
-        Augment,
-        Armour
-    }
-
     public class TravellerItemJson
     {
         public int ID { get; set; }
@@ -28,12 +20,13 @@ namespace TravellerWiki.Data.Charcters
     }
 
 
-    public class TravellerItem
+    public abstract class TravellerItem
     {
         public string Name { get; set; }
         public int Cost { get; set; }
         public int KG { get; set; }
         public int TechLevel { get; set; }
+        public string Description { get; set; }
 
         public TravellerItemTypes ItemType { get; protected set; }
 
@@ -42,13 +35,14 @@ namespace TravellerWiki.Data.Charcters
             return $"{Name}({TechLevel}): Cr{Cost}, {KG}";
         }
 
-        public TravellerItem(string name, int cost, int kg, int tl, TravellerItemTypes itemType = TravellerItemTypes.ItemGeneric)
+        public TravellerItem(string name, int cost, int kg, int tl,string description = "", TravellerItemTypes itemType = TravellerItemTypes.ItemGeneric)
         {
             Name = name;
             Cost = cost;
             KG = kg;
             TechLevel = tl;
             ItemType = itemType;
+            Description = description;
         }
 
         public bool CanBuyItem(TravellerFinances travellersFinances) => travellersFinances.HasEnoughCredits(Cost);

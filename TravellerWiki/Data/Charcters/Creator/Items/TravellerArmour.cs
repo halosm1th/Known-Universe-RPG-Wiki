@@ -4,19 +4,18 @@
     {
         public int RadiationProtection { get; set; }
         public int Protection { get; set; }
-        public string Other { get; set; }
 
-        public TravellerArmour(string name, int cost, int kg, int tl, int radiationProtection, int protection, string other) : base(name, cost, kg, tl)
+        public TravellerArmour(string name, int cost, int kg, int tl, int radiationProtection, int protection, string descr) :
+            base(name, cost, kg, tl,descr, TravellerItemTypes.Armour)
         {
             RadiationProtection = radiationProtection;
             Protection = protection;
-            Other = other;
-            ItemType = TravellerItemTypes.Armour;
+
         }
         public override string ToString()
         {
             return
-                $"[{Name}({TechLevel}), Cr{Cost}, {KG}, {RadiationProtection}, {Protection}+, {Other}]";
+                $"[{Name}({TechLevel}), Cr{Cost}, {KG}, {RadiationProtection}, {Protection}+, {Description}]";
         }
     }
 }

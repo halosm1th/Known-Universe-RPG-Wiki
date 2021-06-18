@@ -5,11 +5,11 @@
         public string Improvement { get; set; }
         public string Location { get; set; }
 
-        public TravellerAugments(string name, int cost, int kg, int tl, string improvement, string location) : base(name, cost, kg, tl)
+        public TravellerAugments(string name, int cost, int kg, int tl, string improvement, string location, string description = "") : 
+            base(name, cost, kg, tl,description, TravellerItemTypes.Augment)
         {
             Improvement = improvement;
             Location = location;
-            ItemType = TravellerItemTypes.Augment;
         }
         public override string ToString()
         {

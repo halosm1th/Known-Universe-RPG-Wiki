@@ -9,31 +9,23 @@ namespace TravellerWiki.Data.Charcters
         public string Damage { get; set; }
         public int MagazineCapacity { get; set; }
         public int MagazineCost { get; set; }
-        public List<TravellerWeaponTrait> WeaponTraits { get; set; }
-        public string OtherInformation { get; set; }
+        public List<TravellerWeaponTraits> WeaponTraits { get; set; }
 
         public TravellerWeapon(string name, int cost, int kg, int tl, int rangeInMeters, string damage,
-            int magazineCapacity, int magazineCost, List<TravellerWeaponTraits> weaponTraits, string otherInformation) :
-            base(name, cost, kg, tl)
+                int magazineCapacity, int magazineCost, List<TravellerWeaponTraits> weaponTraits, string description) :
+            base(name, cost, kg, tl, description, TravellerItemTypes.Weapon)
         {
             RangeInMeters = rangeInMeters;
             Damage = damage;
             MagazineCapacity = magazineCapacity;
-            OtherInformation = otherInformation;
             MagazineCost = magazineCost;
-            ItemType = TravellerItemTypes.Weapon;
-            WeaponTraits = new List<TravellerWeaponTrait>();
-            foreach (var t in weaponTraits)
-            {
-                WeaponTraits.Add(new TravellerWeaponTrait(t));
-
-            }
+            WeaponTraits = weaponTraits;
         }
 
         public override string ToString()
         {
             return
-                $"[{Name}({TechLevel}), Cr{Cost}, {KG}, {RangeInMeters}M, {Damage}, {MagazineCapacity},{OtherInformation}]";
+                $"[{Name}({TechLevel}), Cr{Cost}, {KG}, {RangeInMeters}M, {Damage}, {MagazineCapacity},{Description}]";
         }
     }
 }

@@ -1,0 +1,290 @@
+﻿@page "/Generators/TravellerItemsDisplay"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using Newtonsoft.Json
+@using TravellerWiki.Data.Charcters
+@inject TravellerItemStoreService ItemStore
+
+<style>
+    th {
+        padding: 5px;
+        border-style: solid;
+        border-width: 1px;
+    }
+    td {
+         padding: 5px;
+         
+        border-style: solid;
+        border-width: 1px;
+     }
+    table {
+        text-align: center;
+        border-style: solid;
+        border-width: 1px;
+    }
+</style>
+
+<h2>Traveller Items</h2>
+<div style="border-width: 1px; border: lightgray; border-style: solid; background: gray; ">
+    <label for="itemSelector">Filter Items By</label>
+    <select id="itemSelector" @bind="ItemSelected">
+        <option value="0">All</option>
+        @for (int i = 0; i < Enum.GetValues(typeof(TravellerItemTypes)).Length; i++)
+        {
+            <option value="@(i+1)">@(Enum.GetValues(typeof(TravellerItemTypes)).GetValue(i))</option>
+        }
+    </select>
+    <label for="searchField">Filter by Name: </label>
+    <input type="search" id="searchField" @bind="LimitText"/> (hit enter to apply search)
+
+    <h3>Item List</h3>
+    <p></p>
+    <table style="text-align: center">
+        @if (ItemSelected == 0)
+        {
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in AllItems)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value.Name</td>
+                        <td>Cr​@item.Value.Cost</td>
+                        <td>@item.Value.KG</td>
+                        <td>@item.Value.TechLevel</td>
+                        <td>@item.Value.Description</td>
+                    </tr>
+                }
+            </tbody>
+        }
+        else if (ItemSelected == 1)
+        {
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in GenericItems)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value.Name</td>
+                        <td>Cr​@item.Value.Cost</td>
+                        <td>@item.Value.KG</td>
+                        <td>@item.Value.TechLevel</td>
+                        <td>@item.Value.Description</td>
+                    </tr>
+                }
+            </tbody>
+        }
+        else if (ItemSelected == 2)
+        {
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Range in Meters</th>
+                    <th>Damage</th>
+                    <th>Magazine Capacity</th>
+                    <th>Magazine Cost</th>
+                    <th>Weapon Traits</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Weapons)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value.Name</td>
+                        <td>Cr​@item.Value.Cost</td>
+                        <td>@item.Value.KG</td>
+                        <td>@item.Value.TechLevel</td>
+                        <td>@item.Value.RangeInMeters</td>
+                        <td>@item.Value.Damage</td>
+                        <td>@item.Value.MagazineCapacity</td>
+                        <td>Cr​@item.Value.MagazineCost</td>
+                        <td>
+                            @foreach (var trait in item.Value.WeaponTraits)
+                            {
+                                <span title="@TravellerWeaponTrait.AnyTraitText(trait)">
+                                    @(trait + ", ")
+                                </span>
+                            }
+                        </td>
+                        <td>@item.Value.Description</td>
+                    </tr>
+                }
+            </tbody>
+        }
+        else if (ItemSelected == 3)
+        {
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Improvement</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Augments)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value.Name</td>
+                        <td>Cr​@item.Value.Cost</td>
+                        <td>@item.Value.KG</td>
+                        <td>@item.Value.TechLevel</td>
+                        <td>@item.Value.Improvement</td>
+                        <td>@item.Value.Location</td>
+                        <td>@item.Value.Description</td>
+                    </tr>
+                }
+            </tbody>
+        }
+        else if (ItemSelected == 4)
+        {
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Protection</th>
+                    <th>Radiation Protection</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Armours)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value.Name</td>
+                        <td>Cr​@item.Value.Cost</td>
+                        <td>@item.Value.KG</td>
+                        <td>@item.Value.TechLevel</td>
+                        <td>@item.Value.Protection</td>
+                        <td>@item.Value.RadiationProtection</td>
+                        <td>@item.Value.Description</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+
+
+@code {
+    int ItemSelected = 0;
+    string LimitText = String.Empty;
+    Dictionary<int, TravellerItem> AllItems
+    {
+        get
+        {
+            if (!string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.ItemStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
+                    ToDictionary(x => x.Key, x=> x.Value);
+            }
+
+            return ItemStore.ItemStore;
+        }
+    }
+
+    Dictionary<int, TravellerItem> GenericItems
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.GenericItemStore;
+            }
+            else
+            {
+                return ItemStore.GenericItemStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
+                    ToDictionary(x => x.Key, x=> x.Value);
+            }
+        }
+    }
+    Dictionary<int, TravellerAugments> Augments
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.AugmentsStore;
+            }
+            else
+            {
+                return ItemStore.AugmentsStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
+                    ToDictionary(x => x.Key, x=> x.Value);
+            }
+        }
+    }
+    Dictionary<int, TravellerArmour> Armours
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.ArmourStore;
+            }
+            else
+            {
+                return ItemStore.ArmourStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
+                    ToDictionary(x => x.Key, x=> x.Value);
+            }
+        }
+    }
+
+    Dictionary<int, TravellerWeapon> Weapons
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.WeaponStore;
+            }
+            else
+            {
+                return ItemStore.WeaponStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
+                    ToDictionary(x => x.Key, x=> x.Value);
+            }
+        }
+    }
+}

@@ -21,7 +21,7 @@ namespace TravellerWiki.Data
 
         public static Dictionary<int, TravellerItem> ItemStoreStatic = new Dictionary<int, TravellerItem>();
 
-
+        public Dictionary<int, TravellerItem> GenericItemStore => GenericItemStatic;
 
         public Dictionary<int, TravellerWeapon> WeaponStore => WeaponStoreStatic;
         public static Dictionary<int, TravellerWeapon> WeaponStoreStatic =>
@@ -90,7 +90,7 @@ namespace TravellerWiki.Data
             var itemsJson = File.ReadAllText(Path + "Augments.json");
             var augments = JsonConvert.DeserializeObject<Dictionary<int,TravellerAugments>>(itemsJson);
             
-            foreach (var aug in augments)
+            foreach (var aug in augments ?? new Dictionary<int, TravellerAugments>())
             {
                 ItemStoreStatic.Add(aug.Key,aug.Value);
             }
@@ -100,9 +100,9 @@ namespace TravellerWiki.Data
         {
 
             var itemsJson = File.ReadAllText(Path + "Items.json");
-            var items = JsonConvert.DeserializeObject<Dictionary<int, TravellerItem>>(itemsJson);
+            var items = JsonConvert.DeserializeObject<Dictionary<int, TravellerGenericItem>>(itemsJson);
 
-            foreach (var item in items)
+            foreach (var item in items ?? new Dictionary<int, TravellerGenericItem>())
             {
                 ItemStoreStatic.Add(item.Key, item.Value);
             }
@@ -115,7 +115,7 @@ namespace TravellerWiki.Data
             var itemsJson = File.ReadAllText(Path + "Weapons.json");
             var items = JsonConvert.DeserializeObject<Dictionary<int, TravellerWeapon>>(itemsJson);
 
-            foreach (var item in items)
+            foreach (var item in items ?? new Dictionary<int, TravellerWeapon>())
             {
                 ItemStoreStatic.Add(item.Key, item.Value);
             }
@@ -126,7 +126,7 @@ namespace TravellerWiki.Data
             var itemsJson = File.ReadAllText(Path + "Armours.json");
             var items = JsonConvert.DeserializeObject<Dictionary<int, TravellerArmour>>(itemsJson);
 
-            foreach (var item in items)
+            foreach (var item in items ?? new Dictionary<int, TravellerArmour>())
             {
                 ItemStoreStatic.Add(item.Key, item.Value);
             }

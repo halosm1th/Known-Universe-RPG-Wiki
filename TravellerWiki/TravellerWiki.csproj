@@ -163,6 +163,9 @@
     <Content Update="Pages\Generators\Item Creator\TravellerArmourCreator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerItemsDisplay.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\Generators\Item Creator\TravellerGenericItemCreator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
