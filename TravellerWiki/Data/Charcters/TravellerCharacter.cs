@@ -142,7 +142,7 @@ namespace TravellerWiki.Data.Charcters
             }
             else
             {
-                AttributeList.Add(new TravellerAttribute(attribute,1));
+                AttributeList.Add(new TravellerAttribute(attribute,0));
                 return true;
             }
 

@@ -350,14 +350,22 @@ namespace TravellerWiki.Data.CharacterCreation
         public bool CheckSurvival(int roll)
         {
             var survival = _character.PreviousCareers.Peek().Item2.Survival;
-            var stat = _character.AttributeList.First(x => x.AttributeName == survival.AttributeToCheck);
+            var check = false;
+            try { 
+                var stat = _character.AttributeList.First(x => x.AttributeName == survival.AttributeToCheck);
+            
 
-            var check = survival.PassedCheck(roll + stat.AttributeModifier);
+            check = survival.PassedCheck(roll + stat.AttributeModifier);
 
             Mishapped = !check;
 
             if (Mishapped) HasJob = false;
-
+            }
+            catch (Exception e)
+            {
+                _character.AddAttribute(survival.AttributeToCheck);
+                check = CheckSurvival(roll);
+            }
             return check;
         }
         #endregion
