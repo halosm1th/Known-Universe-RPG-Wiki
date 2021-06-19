@@ -17,7 +17,17 @@
                 TravellerWeaponTraits.None => "No Trait",
                 TravellerWeaponTraits.AP_X => "This weapon has the ability to punch through armour through the use of specially shaped ammunition or high technology. It will ignore an amount of Armour equal to the AP score listed. " +
                                               "Spacecraft Scale targets ignore the AP trait unless the weapon making the attack is also Spacecraft Scale.",
-                
+                TravellerWeaponTraits.AP_1 => "This weapon ignores 1 point of armour.",
+                TravellerWeaponTraits.AP_2 => "This weapon ignores 2 points of armour.",
+                TravellerWeaponTraits.AP_3 => "This weapon ignores 3 points of armour.",
+                TravellerWeaponTraits.AP_4 => "This weapon ignores 4 points of armour.",
+                TravellerWeaponTraits.AP_5 => "This weapon ignores 5 points of armour.",
+                TravellerWeaponTraits.AP_6 => "This weapon ignores 6 points of armour.",
+                TravellerWeaponTraits.AP_7 => "This weapon ignores 7 points of armour.",
+                TravellerWeaponTraits.AP_8 => "This weapon ignores 8 points of armour.",
+                TravellerWeaponTraits.AP_9 => "This weapon ignores 9 points of armour.",
+                TravellerWeaponTraits.AP_10 => "This weapon ignores 10 points of armour.",
+
                 TravellerWeaponTraits.Artillery => "Artillery weapons shoot projectiles along a ballistic trajectory, allowing them to ‘lob’ shots at targets that are out of sight. " +
                                                    "When firing at a target that can be seen, these Artillery weapons follow the usual rules for ranged attacks.When attempting indirect fire at a " +
                                                    "target that cannot be physically seen, the attack suffers a DM-2 penalty. In addition, if the precise location of the targets is not known " +
@@ -32,12 +42,34 @@
                                                 "This uses a number of rounds equal to the Auto score.Full Auto: Make a number of attacks equal to the Auto score. These attacks can be made against separate targets so" +
                                                 " long as they are all within six metres of one another. Full auto uses a number of rounds equal to three times the Auto score.A weapon cannot use " +
                                                 "the Auto trait in the same action as the Scope trait or aiming action.",
-                
+                TravellerWeaponTraits.Auto_1 => "Make up to 1 Automatic attacks",
+                TravellerWeaponTraits.Auto_2 => "Make up to 2 Automatic attacks",
+                TravellerWeaponTraits.Auto_3 => "Make up to 3 Automatic attacks",
+                TravellerWeaponTraits.Auto_5 => "Make up to 5 Automatic attacks",
+
                 TravellerWeaponTraits.Blast_X => "This weapon has an explosive component or is otherwise able to affect targets spread across a wide area. " +
                                                  "Upon a successful attack, damage is rolled against every target within the weapon’s Blast score in metres. " +
                                                  "Dodge Reactions may not be made against a Blast weapon, but targets may dive for cover. Cover may be taken " +
                                                  "advantage of if it lies between a target and the centre of the weapon’s Blast.",
-                
+                TravellerWeaponTraits.Blast_0 => "Explodes, upon successful attack roll damage against everyone within 0 meters.",
+                TravellerWeaponTraits.Blast_1 => "Explodes, upon successful attack roll damage against everyone within 1 meter.",
+                TravellerWeaponTraits.Blast_2 => "Explodes, upon successful attack roll damage against everyone within 2 meters.",
+                TravellerWeaponTraits.Blast_3 => "Explodes, upon successful attack roll damage against everyone within 3 meters.",
+                TravellerWeaponTraits.Blast_4 => "Explodes, upon successful attack roll damage against everyone within 4 meters.",
+                TravellerWeaponTraits.Blast_5 => "Explodes, upon successful attack roll damage against everyone within 5 meters.",
+                TravellerWeaponTraits.Blast_6 => "Explodes, upon successful attack roll damage against everyone within 6 meters.",
+                TravellerWeaponTraits.Blast_9 => "Explodes, upon successful attack roll damage against everyone within 9 meters.",
+                TravellerWeaponTraits.Blast_10 => "Explodes, upon successful attack roll damage against everyone within 10 meters.",
+                TravellerWeaponTraits.Blast_12 => "Explodes, upon successful attack roll damage against everyone within 12 meters.",
+                TravellerWeaponTraits.Blast_15 => "Explodes, upon successful attack roll damage against everyone within 15 meters.",
+                TravellerWeaponTraits.Blast_20 => "Explodes, upon successful attack roll damage against everyone within 20 meters.",
+                TravellerWeaponTraits.Blast_25 => "Explodes, upon successful attack roll damage against everyone within 25 meters.",
+                TravellerWeaponTraits.Blast_30 => "Explodes, upon successful attack roll damage against everyone within 30 meters.",
+                TravellerWeaponTraits.Blast_50 => "Explodes, upon successful attack roll damage against everyone within 50 meters.",
+                TravellerWeaponTraits.Blast_100 => "Explodes, upon successful attack roll damage against everyone within 100 meters.",
+                TravellerWeaponTraits.Blast_1000 => "Explodes, upon successful attack roll damage against everyone within 1000 meters.",
+
+
                 TravellerWeaponTraits.Bulky => "A Bulky weapon has a powerful recoil or is simply extremely heavy – this makes it difficult to use effectively in combat by someone of a weak physical stature. " +
                                                "A Traveller using a Bulky weapon must have STR 9 or higher to use it without penalty. Otherwise, all attack rolls will have a negative DM equal to " +
                                                "the difference between their STR DM and +1.",
