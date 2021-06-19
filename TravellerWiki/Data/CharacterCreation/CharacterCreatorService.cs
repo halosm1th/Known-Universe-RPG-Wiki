@@ -70,7 +70,7 @@ namespace TravellerWiki.Data.CharacterCreation
         public bool HardAdvanced { get; protected set; }
         public bool Mishapped { get; protected set; }
 
-        public bool HasBeenDrafted { get; protected set; }
+        public bool HasBeenDrafted { get; set; }
         public bool HasName { get; protected set; }
         public bool HasStats { get; set; }
         public bool HasNationality { get; protected set; }

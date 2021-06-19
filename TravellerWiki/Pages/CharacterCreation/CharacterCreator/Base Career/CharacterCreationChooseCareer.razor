@@ -61,6 +61,7 @@
         var draftRoll = r.Next(0, draftTable.Length);
         chosenCareer = draftTable[draftRoll];
         hasJob = true;
+        GetService().HasBeenDrafted = true;
         DoneChoosingCharacter();
     }
 
