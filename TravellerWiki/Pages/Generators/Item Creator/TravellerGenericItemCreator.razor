@@ -17,7 +17,7 @@
             <b>Subtype</b> <br />
             <select @bind="Subtype">
                 @foreach(var item in Enum.GetValues(typeof(TravellerGenericItemTypes)))
-                {
+                  {
                     <option value="@item">@item</option>
                 }
             </select>

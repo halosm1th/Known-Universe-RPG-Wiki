@@ -45,15 +45,24 @@ namespace TravellerWiki.Data
             return ItemStoreStatic[ID];
         }
 
+
+        public TravellerItem? GetItem(string name)
+        {
+            if (ItemStore.Any(x => x.Value.Name == name))
+            {
+
+                return ItemStore.First(x => x.Value.Name == name).Value ?? null;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static void AddItemStatic(int id, TravellerItem item)
         {
             ItemStoreStatic.Add(id,item);
         }
 
-        public static void AddItemJsonStatic(string json)
-        {
-
-        }
 
         public TravellerItem GetItem(int ID)
         {

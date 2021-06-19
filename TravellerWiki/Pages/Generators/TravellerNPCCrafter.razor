@@ -49,11 +49,17 @@
     <br />
 </p>
 
+@if (errorAddingItem)
+{
+    <h4 style="color: red">Error! Item [@ItemID] not found.</h4>
+}
+
 <p style="border: dimgrey; background: gray;border-width: 1px">
-    Items: <select @bind="ItemID">
+    Items: <select list="items" @bind="ItemID">
+
         @foreach (var item in ItemStore.ItemStore)
         {
-            <option value="@item.Key">@item.Value.Name</option>
+            <option value="@item.Key">@item.Value.Name [@item.Value.TechLevel]</option>
         }
     </select>
     <button @onclick="AddItem">Add Item</button>
@@ -77,11 +83,11 @@
     }]
     <br />
 
-    Number of NPCs [@NPCCount]: <input type="range" @bind="NPCCount" min="1" max="100" step="1"/>
-    <br/>
+    Number of NPCs [@NPCCount]: <input type="range" @bind="NPCCount" min="1" max="100" step="1" />
+    <br />
 </p>
 <button class="" @onclick="AddNPC">Click me to Generate npcs</button>
-        <br />
+<br />
         </p>
 <h2>Generated NPC's</h2>
 <table style="margin: 10px;">
@@ -160,10 +166,20 @@ navigator.clipboard.writeText('@npc.ToString()').then(function() {
     private TravellerNPCCareers NpcCareer;
     private List<TravellerItem> items = new List<TravellerItem>();
     private int ItemID = 0;
+    private bool errorAddingItem = false;
 
     public void AddItem()
     {
-        items.Add(ItemStore.ItemStore[ItemID]);
+        var item = ItemStore.GetItem(ItemID);
+        if (item != null)
+        {
+            items.Add(item);
+            errorAddingItem = false;
+        }
+        else
+        {
+            errorAddingItem = true;
+        }
     }
 
     public void AddNPC()

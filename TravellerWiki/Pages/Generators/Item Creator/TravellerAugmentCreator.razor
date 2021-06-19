@@ -25,10 +25,20 @@
         <b>
             Improvements
         </b> <br /> <input type="text" @bind="Improvement" /><br />
-        <b>
-            Locations
-        </b> <br /> <input type="text" @bind="Location" /><br />
-                           <b>Description</b> <br /> <input type="text" @bind="Description" /><br />
+
+        <label for="AugmentLocation"><b>Locations</b></label>
+        <br />
+
+        <select id="AugmentLocation" @bind="Location">
+            @foreach (var location in Enum.GetValues(typeof(TravellerAugmentLocations)))
+            {
+                <option value="@location">@location</option>
+            }
+        </select>
+        <br />
+        <b>Description</b> <br /> <input type="text" @bind="Description" /><br />
+                                         <br />
+
         <button @onclick="AddWeapon">Add Augment</button>
     </p>
     }
@@ -57,7 +67,7 @@ navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[
     private int KG = 1;
     private int TechLevel = 0;
     private string Improvement = "";
-    string Location = "";
+    TravellerAugmentLocations Location;
     string Description = "";
     TravellerAugments weapon = null;
     private int ID = 0;
@@ -73,7 +83,7 @@ navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[
         KG = 1;
         TechLevel = 1;
         Improvement = "";
-        Location = "";
+        Location = TravellerAugmentLocations.Head;
     }
 
     private void Clone()

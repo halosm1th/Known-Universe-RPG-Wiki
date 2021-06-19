@@ -541,7 +541,7 @@ namespace TravellerWiki.Data.CharacterCreation
 
             if (reward is TravellerRewardCombatImplant combatImplant)
             {
-                _character.AddItem(new TravellerAugments("Combat Implant", 50000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)", ""));
+                _character.AddItem(new TravellerAugments("Combat Implant", 50000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)" ));
                 return false;
             }
 
@@ -569,7 +569,7 @@ namespace TravellerWiki.Data.CharacterCreation
             if (reward is TravellerRewardAugment augment)
             {
                 _character.AddItem(
-                    new TravellerAugments("Augment", 25000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)", ""));
+                    new TravellerAugments("Augment", 25000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)"));
                 return false;
             }
 
