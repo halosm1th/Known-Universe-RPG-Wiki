@@ -236,7 +236,7 @@ namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
                             new TravellerAttributeCheck(Social,8)
                         }),
 
-                    new TravellerEventChangeCareers("It is discovered that you have the Gift of the Gods.","Equites Ordinius Deorum"),
+                    new TravellerEventChangeCareers("It is discovered that you have the Gift of the Gods.","Equites Ordinis Deorum"),
        },
        mishaps: new List<TravellerEventCharacterCreation>
        {

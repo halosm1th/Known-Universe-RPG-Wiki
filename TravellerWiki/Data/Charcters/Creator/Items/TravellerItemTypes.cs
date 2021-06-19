@@ -5,6 +5,7 @@
         ItemGeneric,
         Weapon,
         Augment,
-        Armour
+        Armour,
+        Weapon_Modification
     }
 }

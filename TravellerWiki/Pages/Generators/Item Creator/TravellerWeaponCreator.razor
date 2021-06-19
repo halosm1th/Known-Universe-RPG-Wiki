@@ -11,34 +11,24 @@
 <div style="border-width: 1px; border: lightgray; border-style: solid; background: gray;">
     @if (weapon == null)
     {
-    <p style="text-align: center">
-        <b>Name</b> <br /> <input type="text" @bind="Name" /><br />
+        <p style="text-align: center">
+            <b>Name</b> <br /> <input type="text" @bind="Name" /><br />
 
-        <b>Cost</b> <br /> <input type="number" @bind="Cost" /><br />
+            <b>Cost</b> <br /> <input type="number" @bind="Cost" /><br />
 
-        <b>Weight in KG</b> <br /> <input type="number" @bind="KG" /><br />
+            <b>Weight in KG</b> <br /> <input type="number" @bind="KG" /><br />
 
-        <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
+            <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
 
-        <b>Range In Meters</b> <br /> <input type="number" @bind="RangeInMeters" /><br />
+            <b>Range In Meters</b> <br /> <input type="number" @bind="RangeInMeters" /><br />
 
-        <b>Damage</b> <br /> <input type="text" @bind="Damage" /><br />
+            <b>Damage</b> <br /> <input type="text" @bind="Damage" /><br />
 
-        <b>Magazine Capacity</b> <br /> <input type="number" @bind="MagazineCapacity" /><br />
+            <b>Magazine Capacity</b> <br /> <input type="number" @bind="MagazineCapacity" /><br />
 
-        <b>Magazine Cost</b> <br /> <input type="number" @bind="MagazineCost" /><br />
+            <b>Magazine Cost</b> <br /> <input type="number" @bind="MagazineCost" /><br />
 
-        <b>Add Traits</b> <br />
-        <select @bind="SelectedTrait" label="Add Trait">
-            @foreach (var trait in Enum.GetValues(typeof(TravellerWeaponTraits)))
-            {
-                <option value="@trait">@trait</option>
-            }
-        </select> <button @onclick="AddTrait">Add Trait</button><br />
-
-
-            <b>Applied Traits</b>
-            <br />
+            <b>Add Traits</b> <br />
 
             @foreach (var t in weaponTraits)
             {
@@ -46,26 +36,32 @@
                     @(t + ", ")
                 </span>
             }
-            <br />
+            <select @bind="SelectedTrait" label="Add Trait">
+                @foreach (var trait in Enum.GetValues(typeof(TravellerWeaponTraits)))
+                {
+                    <option value="@trait">@trait</option>
+                }
+            </select> <button @onclick="AddTrait">Add Trait</button><br />
 
-        <b>Description</b> <br /> <input type="text" @bind="Description" spellcheck="true"/><br />
 
-        <button @onclick="AddWeapon">Add Weapon</button>
-    </p>
+            <b>Description</b> <br /> <input type="text" @bind="Description" spellcheck="true" /><br />
+
+            <button @onclick="AddWeapon">Add Weapon</button>
+        </p>
     }
     else
     {
-<p style="text-align: center">
-    @weapon.ToString() <input type="button"
-                              id="btnCopy"
-                              onClick="
+        <p style="text-align: center">
+            @weapon.ToString() <input type="button"
+                                      id="btnCopy"
+                                      onClick="
 navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
     /* clipboard successfully set */
 }, function () {
     alert('Umm, there was an error!'); }) " value="Copy Json" />
-    <button @onclick="Reset">New Weapon</button>
-    <button @onclick="Clone">Clone</button>
-</p>
+            <button @onclick="Reset">New Weapon</button>
+            <button @onclick="Clone">Clone</button>
+        </p>
     }
 </div>
 

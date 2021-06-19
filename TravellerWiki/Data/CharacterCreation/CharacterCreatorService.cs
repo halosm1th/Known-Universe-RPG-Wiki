@@ -364,7 +364,7 @@ namespace TravellerWiki.Data.CharacterCreation
                 if (Mishapped) HasJob = false;
 
             }
-            catch (ArgumentNullException)
+            catch (InvalidOperationException)
             {
                 _character.AddAttribute(survival.AttributeToCheck);
                 check = CheckSurvival(roll);
@@ -541,12 +541,14 @@ namespace TravellerWiki.Data.CharacterCreation
 
             if (reward is TravellerRewardCombatImplant combatImplant)
             {
+                return true;
                 _character.AddItem(new TravellerAugments("Combat Implant", 50000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)" ));
                 return false;
             }
 
             if (reward is TravellerRewardArmour armour)
             {
+                return true;
                 _character.AddItem(new TravellerArmour("Armour", 10000, 0, 12, 0, 0,
                     "Select any type of armour with a limit of Cr10000 and TL 12. If you roll this benefit again, then you can either select another type of armour with the same limits or trade your original in for armour with a limit of Cr 25000."));
                 return false;
@@ -554,6 +556,7 @@ namespace TravellerWiki.Data.CharacterCreation
 
             if (reward is TravellerRewardBlade blade)
             {
+                return true;
                 _character.AddItem(new TravellerWeapon("Blade", 2000, 0, 12, 0, "0D6",
                     0, 0, new List<TravellerWeaponTraits> { }, "Select any blade weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another blade or one level in the Melee (blades) skill."));
                 return false;
@@ -561,6 +564,7 @@ namespace TravellerWiki.Data.CharacterCreation
 
             if (reward is TravellerRewardGun gun)
             {
+                return true; 
                 _character.AddItem(new TravellerWeapon("Gun", 2000, 0, 12, 0, "0D6",
                     0, 0, new List<TravellerWeaponTraits> { }, "Select any common or military ranged weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another weapon or one level in the appropriate Gun Combat skill for a weapon already received as a benefit"));
                 return false;
@@ -568,6 +572,7 @@ namespace TravellerWiki.Data.CharacterCreation
 
             if (reward is TravellerRewardAugment augment)
             {
+                return true;
                 _character.AddItem(
                     new TravellerAugments("Augment", 25000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)"));
                 return false;

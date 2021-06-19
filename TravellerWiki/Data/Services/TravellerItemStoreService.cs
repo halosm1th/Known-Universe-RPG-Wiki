@@ -42,6 +42,7 @@ namespace TravellerWiki.Data
 
         public static TravellerItem GetItemStatic(int ID)
         {
+            AddDefaultItems();
             return ItemStoreStatic[ID];
         }
 
@@ -60,6 +61,7 @@ namespace TravellerWiki.Data
         }
         public static void AddItemStatic(int id, TravellerItem item)
         {
+            AddDefaultItems();
             ItemStoreStatic.Add(id,item);
         }
 
@@ -132,6 +134,7 @@ namespace TravellerWiki.Data
 
         private static void AddArmours()
         {
+
             var itemsJson = File.ReadAllText(Path + "Armours.json");
             var items = JsonConvert.DeserializeObject<Dictionary<int, TravellerArmour>>(itemsJson);
 
@@ -143,12 +146,17 @@ namespace TravellerWiki.Data
 
         public static TravellerItem? GetItemStatic(string name)
         {
+            AddDefaultItems(); 
+
             Console.WriteLine($"Looking for: {name}");
             if (ItemStoreStatic.Any(x => x.Value.Name == name))
             {
                 return ItemStoreStatic.First(x => x.Value.Name == name).Value;
             }
 
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Attempted to retrieve: {name}");
+            Console.ForegroundColor = ConsoleColor.Gray;
             return null;
         }
 

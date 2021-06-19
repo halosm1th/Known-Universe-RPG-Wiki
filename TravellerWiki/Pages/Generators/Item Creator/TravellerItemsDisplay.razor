@@ -55,7 +55,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in AllItems)
+                @foreach (var item in AllItems.OrderBy(x => x.Key))
                 {
                     <tr>
                         <td>@item.Key</td>

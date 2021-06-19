@@ -206,16 +206,70 @@ namespace TravellerWiki.Data.CharacterCreation
 
         private static void ApplyReward(CharacterCreatorService creator, Random random, TravellerCharacterCreationReward reward, StringBuilder story)
         {
+            var itemStore = new TravellerItemStoreService();
             story.Append($"\n{creator.Name} gets the following reward: ");
             if (creator.ApplyReward(reward))
             {
                 if (reward is TravellerRewardWeapon weapon)
                 {
+                       var weaponItem = itemStore.WeaponStore.Select(x => x.Value).ToList()[random.Next(0, itemStore.WeaponStore.Count)];
                     creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
                     {
-                        new TravellerWeapon("Weapon", 2000, 0, 12, 0, "0D6", 0,0, new List<TravellerWeaponTraits> { }, weapon.RewardText)
+                        weaponItem
                     }));
-                    story.Append(" new weapon! ");
+                    story.Append($" new weapon! ({weaponItem.Name}) ");
+                }else if (reward is TravellerRewardGun gun)
+                {
+                    var guns = itemStore.WeaponStore.Select(x => x.Value).Where(x => x.MagazineCapacity > 0).ToList();
+                    var weaponItem =
+                        guns[random.Next(0, guns.Count)];
+                    creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
+                    {
+                        weaponItem
+                    }));
+                    story.Append($" new gun! ({weaponItem.Name}) ");
+                }
+                else if (reward is TravellerRewardBlade blade)
+                {
+                    var blades = itemStore.WeaponStore.Select(x => x.Value).Where(x => x.MagazineCapacity == 0)
+                        .ToList();
+                    var weaponItem =
+                        blades[random.Next(0, blades.Count)];
+                    creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
+                    {
+                        weaponItem
+                    }));
+                    story.Append($" new blade! ({weaponItem.Name}) ");
+                }
+                else if (reward is TravellerRewardArmour armour)
+                {
+                    var armourItem =
+                        itemStore.ArmourStore.Select(x => x.Value).ToList()[random.Next(0, itemStore.ArmourStore.Count)];
+                    creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
+                    {
+                        armourItem
+                    }));
+                    story.Append($" new armour! ({armourItem.Name}) ");
+                }
+                else if (reward is TravellerRewardAugment augment)
+                {
+                    var augmentItem =
+                        itemStore.AugmentsStore.Select(x => x.Value).ToList()[random.Next(0, itemStore.AugmentsStore.Count)];
+                    creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
+                    {
+                        augmentItem
+                    }));
+                    story.Append($" new augment! ({augmentItem.Name}) ");
+                }
+                else if (reward is TravellerRewardCombatImplant)
+                {
+                    var augmentItem =
+                        itemStore.AugmentsStore.Select(x => x.Value).ToList()[random.Next(0, itemStore.AugmentsStore.Count)];
+                    creator.ApplyReward(new TravellerRewardItem(new List<TravellerItem>
+                    {
+                        augmentItem
+                    }));
+                    story.Append($" new combat implant! ({augmentItem.Name}) ");
                 }
                 else if (reward is TravellerRewardSkillChoice choice)
                 {
