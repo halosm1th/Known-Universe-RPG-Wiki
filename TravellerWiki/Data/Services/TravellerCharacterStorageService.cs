@@ -32,7 +32,17 @@ namespace TravellerWiki.Data.Services
         }
     
 
-        public PlayerTravellerCharacter GetCharacter(string requestedKey) => CharacterList.First(x => x.Key == requestedKey).Value;
+        public PlayerTravellerCharacter GetCharacter(string requestedKey)
+        {
+            foreach (var person in CharacterList)
+            {
+                if (person.Key == requestedKey)
+                {
+                    return person.Value;
+                }
+            }
+            return CharacterList.First(x => x.Key == requestedKey).Value;
+        }
 
         public Dictionary<string, PlayerTravellerCharacter> GetCharacters => CharacterList;
     }

@@ -100,8 +100,12 @@
                 @foreach (var skill in backgroundSkills)
                 {
                     <li>
-                        @skill.SkillName - @skill.SkillDescriptionText
-                        <br />
+                        <details style="padding: 1px">
+                            <summary>
+                                @skill.SkillName
+                            </summary>
+                            @skill.SkillDescriptionText
+                        </details>
                     </li>
                 }
             </ul>

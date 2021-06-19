@@ -33,112 +33,153 @@
         <h1>Traveller Character</h1>
         <h2>@GetService().Name</h2>
         <p>
-            <h3>Basic Information</h3>
-            <br />
-            Name: @GetService().Name
-            <br />
-            Age: @GetService().Age
-            <br />
-            Nationality: @GetService().Nationality
-            <br />
         </p>
 
-        <h3>Attributes</h3>
-        <p>
-            <table style="margin-left: auto;margin-right: auto;">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var stat in GetService().AttributeList)
-                    {
+        <details>
+            <summary class="IndexSummery">
+                <b>Basic Information</b>
+            </summary>
+            <p>
+                Name: @GetService().Name
+                <br />
+                Age: @GetService().Age
+                <br />
+                Nationality: @GetService().Nationality
+                <br />
+            </p>
+            <p>
+                <label for="attributeTable">
+                    <b>Attributes</b>
+                </label>
+                <table style="margin-left: auto;margin-right: auto;" id="attributeTable">
+
+                    <thead>
                         <tr>
-                            <td>@stat.AttributeName</td>
-                            <td>@stat.AttributableValue [@stat.AttributeModifier]</td>
+                            @foreach (var stat in GetService().AttributeList)
+                            {
+                                <th style="padding: 5px; border-style: solid; border-width: 1px;">@stat.AttributeName</th>
+                            }
                         </tr>
-                    }
-                </tbody>
-            </table>
-            <br />
-        </p>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @foreach (var stat in GetService().AttributeList)
+                            {
+                                <td style="padding: 5px; border-style: solid; border-width: 1px;">@stat.AttributableValue</td>
+                            }
+                        </tr>
 
-
-        <h3>Previous Careers</h3>
-        <p>
-            <ol>
-                @foreach (var career in GetService().PreviousCareers)
+                        <tr>
+                            @foreach (var stat in GetService().AttributeList)
+                            {
+                                <td style="padding: 5px; border-style: solid; border-width: 1px;"> [@stat.AttributeModifier]</td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+            </p>
+            <p>
+                <h4>Skills</h4>
+                @foreach (var skill in GetService().SkillList)
                 {
-                    <li>@career.Career.CareerName - @career.Assignment @career.Assignment.RanksAndBonuses[career.rank].title</li>
+                    @($"{skill.SkillName}: {skill.SkillValue}, ")
                 }
-            </ol>
-            <br />
-        </p>
+            </p>
+        </details>
 
-        <h3>Items and stuff</h3>
-        <p>
-            <h4>Finances</h4>
-            @GetService().Finances
-            <br />
-
-            <h4>Items</h4>
-            <ul>
-                @foreach (var item in GetService().Items)
-                {
-                    <li>@item</li>
-                }
-            </ul>
-            <br />
-
-            <h4>Augments</h4>
-            <ul>
-                @foreach (var augment in GetService().Augments)
-                {
-                    <li>@augment</li>
-                }
-            </ul>
-            <br />
-
-            <h4>Armour</h4>
-            <ul>
-                @foreach (var armour in GetService().Armour)
-                {
-                    <li>@armour</li>
-                }
-            </ul>
-            <br />
-
-            <h4>Weapons</h4>
-            <ul>
-                @foreach (var weapon in GetService().Weapons)
-                {
-                    <li>@weapon</li>
-                }
-            </ul>
-            <br />
-
-        </p>
-
-        <h3>Contacts</h3>
-        <p>
-            <ul>
-                @foreach (var contact in GetService().Contacts)
-                {
-                    if (contact is TravellerSpecialNPC npc)
+        <details>
+            <summary class="IndexSummery">
+                <b>Previous Careers</b>
+            </summary>
+            <p>
+                <ol>
+                    @foreach (var career in GetService().PreviousCareers)
                     {
-                        <li><b>@npc.Name:</b> @npc.PatronText - @npc.QuirkText. [@npc.Background - @npc.Career]</li>
+                        <li>@career.Career.CareerName - @career.Assignment [@career.Assignment.RanksAndBonuses[career.rank].title]</li>
                     }
-                    else
-                    {
-                        <li>@contact</li>
-                    }
-                }
-            </ul>
-            <br/>
-        </p>
+                </ol>
+            </p>
+        </details>
 
+        <details>
+            <summary class="IndexSummery">
+                <b>Items and stuff</b>
+            </summary>
+            <div>
+                <div>
+                    <h4>Finances</h4>
+                    <p>
+                        @GetService().Finances
+                        <br />
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Items</h4>
+                    <ul>
+                        @foreach (var item in GetService().Items)
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+                    <br />
+                </div>
+
+                <div>
+                    <h4>Augments</h4>
+                    <ul>
+                        @foreach (var augment in GetService().Augments)
+                        {
+                            <li>@augment</li>
+                        }
+                    </ul>
+                    <br />
+                </div>
+                <div>
+                    <h4>Armour</h4>
+                    <ul>
+                        @foreach (var armour in GetService().Armour)
+                        {
+                            <li>@armour</li>
+                        }
+                    </ul>
+                    <br />
+                </div>
+                <div>
+                    <h3>Weapons</h3>
+                    <ul>
+                        @foreach (var weapon in GetService().Weapons)
+                        {
+                            <li>@weapon</li>
+                        }
+                    </ul>
+                    <br />
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary class="IndexSummery">
+                <b>Contacts</b>
+            </summary>
+            <p>
+                <ul>
+                    @foreach (var contact in GetService().Contacts)
+                    {
+                        if (contact is TravellerSpecialNPC npc)
+                        {
+                            <li><b>@npc.Name:</b> @npc.PatronText - @npc.QuirkText. [@npc.Background - @npc.Career]</li>
+                        }
+                        else
+                        {
+                            <li>@contact</li>
+                        }
+                    }
+                </ul>
+                <br />
+            </p>
+        </details>
 
     </div>
 </body>

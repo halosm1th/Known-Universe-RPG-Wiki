@@ -86,75 +86,79 @@
 }
 <body>
 
-<h1>Traveller Character Creator</h1>
-<div class="creatorMarkup">
-    <h2>Select Career - @GetService().Nationality.NationName</h2>
-    <CharacterCreationDrawStats CharacterID="@characterID" />
-    <div style="padding-left: 2em;">
-        <p>
-            Careers:
-            <ul>
-                @foreach (var career in GetService().Nationality.NationsCareers)
-                {
-              //TODO Make this look nicer.
-                    <li>@career.CareerName - @career.CareerDescription - <p style="font-weight: bold">Qualifications: @career.Qualifications.Aggregate("", (h, t) => h += t.ToString() + ", ")
-                            </p>
-        <br/> 
-        </li>
-                }
-            </ul>
-        </p>
-        <p>
-            Select a Career:
-            <select @bind="careerName">
-                @foreach (var career in GetService().Nationality.NationsCareers)
-                {
-                    <option value="@career.CareerName">@career.CareerName</option>
-                }
-            </select>
-
-            <button @onclick="selectCareer">Select Career</button>
-
-        </p>
-        @if (chosenCareer != null && !rolledQualification)
-        {
-            <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Select Career - @GetService().Nationality.NationName</h2>
+        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <div style="padding-left: 2em;">
             <p>
-                Select a Qualification:
-                <select @bind="qualificationChoice">
-                    @for (int i = 0; i < chosenCareer.Qualifications.Count; i++)
+                <h3>Careers</h3>
+                @foreach (var career in GetService().Nationality.NationsCareers)
+                {
+                    //TODO Make this look nicer.
+                    <details style="padding: 1px">
+                        <summary>
+                            @career.CareerName -                            <b>
+                                Qualifications: [@career.Qualifications.Aggregate("", (h, t) => h = h + ", " + t.ToString()).Remove(0,2)]
+                            </b>
+                        </summary>
+                        <div style="background: gray; border-style: solid; border-width: 1px; color: lightgreen; border-color: #ffe81F">
+                            @career.CareerDescription
+                        </div>
+                    </details>
+                }
+            </p>
+            <p>
+                Select a Career:
+                <select @bind="careerName">
+                    @foreach (var career in GetService().Nationality.NationsCareers)
                     {
-                        <option value="@i">@chosenCareer.Qualifications[i]</option>
+                        <option value="@career.CareerName">@career.CareerName</option>
                     }
                 </select>
-                <button @onclick="selectQualification">Select Qualification and roll!</button>
+
+                <button @onclick="selectCareer">Select Career</button>
+
             </p>
-        }
-        else if (rolledQualification)
-        {
-            <p>Rolled a @roll [@chosenCareer.Qualifications[qualificationChoice]]</p>
-            if (!passedQualification && !hasJob)
+            @if (chosenCareer != null && !rolledQualification)
             {
+                <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
                 <p>
-                    You failed the qualification, you can@(!GetService().HasBeenDrafted ? " still be drafted, " : "'t be drafted,") or you can take your nations drifter.
-                    <button @onclick="takeDrifter">
-                        Take Drifter(@GetService().Nationality.DrifterCareer.CareerName)
-                    </button>
-                    @if (!GetService().HasBeenDrafted)
-                    {
-                        <button @onclick="takeDraft">
-                            Take draft(@GetService().Nationality.DraftTable.Aggregate("", (h, t) => h += t.CareerName + ", "))
-                        </button>
-                    }
+                    Select a Qualification:
+                    <select @bind="qualificationChoice">
+                        @for (int i = 0; i < chosenCareer.Qualifications.Count; i++)
+                        {
+                            <option value="@i">@chosenCareer.Qualifications[i]</option>
+                        }
+                    </select>
+                    <button @onclick="selectQualification">Select Qualification and roll!</button>
                 </p>
             }
-            else if (!passedQualification)
+            else if (rolledQualification)
             {
-                <p>You have joined the: @chosenCareer.CareerName</p>
-                <button @onclick="DoneChoosingCharacter">Onto picking an assignment!</button>
+                <p>Rolled a @roll [@chosenCareer.Qualifications[qualificationChoice]]</p>
+                if (!passedQualification && !hasJob)
+                {
+                    <p>
+                        You failed the qualification, you can@(!GetService().HasBeenDrafted ? " still be drafted, " : "'t be drafted,") or you can take your nations drifter.
+                        <button @onclick="takeDrifter">
+                            Take Drifter(@GetService().Nationality.DrifterCareer.CareerName)
+                        </button>
+                        @if (!GetService().HasBeenDrafted)
+                        {
+                            <button @onclick="takeDraft">
+                                Take draft(@GetService().Nationality.DraftTable.Aggregate("", (h, t) => h += t.CareerName + ", "))
+                            </button>
+                        }
+                    </p>
+                }
+                else if (!passedQualification)
+                {
+                    <p>You have joined the: @chosenCareer.CareerName</p>
+                    <button @onclick="DoneChoosingCharacter">Onto picking an assignment!</button>
+                }
             }
-        }
 
+        </div>
     </div>
-</div>
 </body>

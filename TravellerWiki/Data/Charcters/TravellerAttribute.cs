@@ -26,6 +26,9 @@ namespace TravellerWiki.Data.Charcters
 
         public int AttributeModifier => AttributableValue switch
         {
+            -3 => -3,
+            -2 => -3,
+            -1 => -3,
             0 => -3,
             1 => -2,
             2 => -2,
@@ -50,7 +53,37 @@ namespace TravellerWiki.Data.Charcters
             21 => +5,
             22 => +5,
             23 => +5,
-            _ => -3
+            24 => +6,
+            25 => +6,
+            26 => +6,
+            27 => +7,
+            28 => +7,
+            29 => +7,
+            30 => +8,
+            31 => +8,
+            32 => +8,
+            33 => +9,
+            34 => +9,
+            35 => +9,
+            36 => +10,
+            37 => +10,
+            38 => +10,
+            39 => +11,
+            40 => +11,
+            41 => +11,
+            42 => +12,
+            43 => +12,
+            44 => +12,
+            45 => +13,
+            46 => +13,
+            47 => +13,
+            48 => +14,
+            49 => +14,
+            50 => +14,
+            51 => +15,
+            52 => +15,
+            53 => +15,
+            _ => +16
         };
 
         public TravellerAttribute(TravellerAttributes attributeName, int attributableValue)

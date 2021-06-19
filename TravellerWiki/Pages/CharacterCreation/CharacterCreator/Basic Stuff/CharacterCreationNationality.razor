@@ -13,6 +13,12 @@
 
 </head>
 
+<style>
+    details {
+        padding: 1px;
+    }
+</style>
+
 @code{
     [Parameter]
     public string characterID { get; set; }
@@ -67,12 +73,12 @@
 
         ApplyNationality(nationality);
 
-        if (canEnter) { DoneNationality();}
+        if (canEnter) { DoneNationality(); }
     }
 
 }
 <body>
-<h1>Traveller Character Creator</h1>
+    <h1>Traveller Character Creator</h1>
     <div style="text-align: center">
 
         @if (FailedNationEntry)
@@ -105,29 +111,49 @@
                             ;
                         }
                     </h3>
-                    <p>
-                        <h4>Entry Requirements: </h4>
-                        @(drawNationality.EntryRequirements.Count > 0 ?drawNationality.EntryRequirements.Aggregate("", (head, tail) => head + "," + tail ).Remove(0,1) : "None")
-                    </p>
-                    <p>
-                        Stat Changes: @drawNationality.GetStatChanges()
-                    </p>
-                    <p>
-                        @if (drawNationality.Perks.Count > 0)
-                        {
-                            var remove = drawNationality.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
-                            <text>Perks: @remove</text>
-                        }
-                    </p>
-                    <p>
+
+                    <details>
+                        <summary>
+                            <b>Entry Requirements</b>
+                        </summary>
+                        <p>
+                            @(drawNationality.EntryRequirements.Count > 0 ? drawNationality.EntryRequirements.Aggregate("", (head, tail) => head + "," + tail).Remove(0, 1) : "None")
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>
+                            <b>Stat Changes</b>
+                        </summary>
+                        <p>
+                            @drawNationality.GetStatChanges()
+
+                        </p>
+                    </details>
+                    @if (drawNationality.Perks.Count > 0)
+                    {
+                        var remove = drawNationality.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
+                        <details>
+                            <summary><b>Perks</b></summary>
+                            <p>@remove.Remove(0,1)</p>
+                        </details>
+                    }
+
+
+                    <details>
                         @{
                             var skills = drawNationality.BackgroundSkills.Aggregate("", (s, n) => s + ", " + n.Value).Remove(0, 1);
                         }
-                        <h4>Background Skills: </h4>@skills
+                        <summary>
+                            <b>Background Skills</b>
+                        </summary>
+                        <p>@skills</p>
+                    </details>
 
-                    </p>
-                    <p>
-                        <h4>National Career Options</h4>
+                    <details>
+                        <summary>
+                            <b>National Career Options</b>
+                        </summary>
                         <ul>
                             @foreach (var career in TravellerCareerService.StaticListOfCareers.Where(career => career.Nationality == drawNationality.Nationality))
                             {
@@ -136,7 +162,7 @@
                                 </li>
                             }
                         </ul>
-                    </p>
+                    </details>
                 </div>
                 @if (drawNationality.EntryRequirements.Count > 0)
                 {

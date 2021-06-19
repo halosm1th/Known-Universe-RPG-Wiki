@@ -20,26 +20,26 @@
     public List<int> GeneratedStats;
     private bool IncludePsi { get; set; }
 
-    int StrKey = -1;
+    int StrKey = 0;
     bool setStr = false;
 
     bool setDex = false;
-    int DexKey = -1;
+    int DexKey = 0;
 
     bool setEnd = false;
-    int EndKey = -1;
+    int EndKey = 0;
 
     bool setInt = false;
-    int IntKey = -1;
+    int IntKey = 0;
 
     bool setEdu = false;
-    int EduKey = -1;
+    int EduKey = 0;
 
     bool setSoc = false;
-    int SocKey = -1;
+    int SocKey = 0;
 
     bool setPsi = false;
-    int PsiKey = -1;
+    int PsiKey = 0;
 
 
 
@@ -108,7 +108,7 @@
 
         if(StatValue <= 0)
         {
-            StatValue = GeneratedStats.Last();
+            StatValue = GeneratedStats.First();
         }
 
         GetService().AssignStat(new TravellerAttribute(attribute, StatValue));
@@ -139,10 +139,7 @@
         <h2>@GetService().Name: Stats</h2>
 
         <p>Roll: @GeneratedStats.Aggregate("", (h, t) => h += t + ", ") Psi Roll: <input type="checkbox" @bind="IncludePsi" /></p>
-        @if (GeneratedStats == null)
-        {
-            <button @onclick="GenerateStats">Generate new Attributes</button>
-        }
+        <button @onclick="GenerateStats">Generate new Attributes</button>
         <p>
             <ol>
                 <li>
