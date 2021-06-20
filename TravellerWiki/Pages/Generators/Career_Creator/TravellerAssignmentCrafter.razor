@@ -1,0 +1,66 @@
+﻿@page "/Generators/TravellerAssignmentCrafter"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using TravellerWiki.Pages.Generators.Career_Creator
+@using TravellerWiki.Pages.Generators
+@inject TravellerCareerCreatorService CareerCreator
+
+<div style="text-align: center;">
+    <h2>Assignment Crafter</h2>
+    <form>
+        <label for="careerName">Assignment Name: </label>
+        <input type="text" spellcheck="true" @bind="@CareerCreator.AssignmentName" id="careerName" />
+        <br />
+        <b>Assignment Description</b>
+        <textarea spellcheck="true" @bind="@CareerCreator.AssignmentDescription" cols="40" rows="5">
+</textarea><br />
+        <b>Survival</b>
+        @if (CareerCreator.AssignmentSurvival.Count > 0)
+        {
+            @CareerCreator.AssignmentSurvival[0]
+        }
+        else
+        {
+            <TravellerAttributeCheckCrafter ListToAddTo="CareerCreator.AssignmentSurvival" />
+        }
+        <br />
+        <b>Advancement</b>
+        @if (CareerCreator.AssignmentAdvancement.Count > 0)
+        {
+            @CareerCreator.AssignmentAdvancement[0]
+        }
+        else
+        {
+            <TravellerAttributeCheckCrafter ListToAddTo="CareerCreator.AssignmentAdvancement" />
+        }
+        <br />
+        <TravellerSkillTableCrafter></TravellerSkillTableCrafter>
+        <TravellerRankCrafter></TravellerRankCrafter>
+        <button type="button" @onclick="AddAssignment">Add Assignment</button>
+    </form>
+</div>
+
+@code {
+
+    public void AddAssignment()
+    {
+        CareerCreator.Assignments.Add(
+            new TravellerAssignment(CareerCreator.AssignmentName, CareerCreator.AssignmentDescription,
+                CareerCreator.AssignmentSurvival[0], CareerCreator.AssignmentAdvancement[0],
+                CareerCreator.AssignmentSkillTable, CareerCreator.AssignmentRanks));
+
+
+        CareerCreator.AssignmentName = "";
+        CareerCreator.AssignmentDescription = "";
+        CareerCreator.AssignmentSurvival = new List<TravellerAttributeCheck>();
+        CareerCreator.AssignmentAdvancement = new List<TravellerAttributeCheck>();
+        CareerCreator.AssignmentSkillTable = new List<TravellerSkillTableEntry>();
+        CareerCreator.AssignmentRanks = new List<(string title, TravellerCharacterCreationReward perk)>();
+    }
+
+}

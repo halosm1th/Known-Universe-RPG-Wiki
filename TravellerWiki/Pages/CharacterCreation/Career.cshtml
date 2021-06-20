@@ -12,7 +12,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>@if (Model.Career != null)
+           {
+               @Model.Career.CareerName;
+           }else
+           {
+               @("Career");
+           }</title>
 
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
@@ -133,15 +139,15 @@
     <h3>Events Table</h3>
     <table>
         <thead style="text-align: center">
-        <tr><th>#</th><th>Events</th></tr>
+        <tr><th style="border-style: solid; border-width: 1px; padding: 3px;">#</th><th style="border-style: solid; border-width: 1px; padding: 3px;">Events</th></tr>
         </thead>
         <tbody>
         @{ i = 2;}
         @foreach (var eventText in career.Events)
         {
             <tr>
-                <td>@i)</td>
-                <td>@eventText</td>
+                <td style="border-style: solid; border-width: 1px;padding: 3px;">@i)</td>
+                <td style="border-style: solid; border-width: 1px;padding: 3px;">@eventText</td>
             </tr>
             i++;
         }

@@ -51,6 +51,8 @@ namespace TravellerWiki.Data.CreationEvents
                 sb.Append(" ");
             }
 
+            sb.Append($"{YesText}: [{YesEvent}].\n{NoText}:[{NoEvent}]");
+
             return sb.ToString();
         }
     }

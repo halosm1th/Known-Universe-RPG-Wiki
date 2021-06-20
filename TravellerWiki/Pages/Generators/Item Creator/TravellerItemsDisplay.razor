@@ -7,18 +7,22 @@
 @using TravellerWiki.Data.Charcters
 @inject TravellerItemStoreService ItemStore
 
+<title>Item List</title>
+
+
 <style>
     th {
         padding: 5px;
         border-style: solid;
         border-width: 1px;
     }
+
     td {
-         padding: 5px;
-         
+        padding: 5px;
         border-style: solid;
         border-width: 1px;
-     }
+    }
+
     table {
         text-align: center;
         border-style: solid;
@@ -37,7 +41,7 @@
         }
     </select>
     <label for="searchField">Filter by Name: </label>
-    <input type="search" id="searchField" @bind="LimitText"/> (hit enter to apply search)
+    <input type="search" id="searchField" @bind="LimitText" /> (hit enter to apply search)
 
     <h3>Item List</h3>
     <p></p>
@@ -199,6 +203,52 @@
                 }
             </tbody>
         }
+        else if (ItemSelected == 5)
+        {
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ammo Cost Multiplier</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Damage</th>
+                    <th>Traits</th>
+                    <th>Pistol</th>
+                    <th>Rifle</th>
+                    <th>Shotgun</th>
+                    <th>Heavy</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in WeaponSpecialAmmo)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value.Name</td>
+                        <td>x​@item.Value.AmmoMultiplierCost</td>
+                        <td>@item.Value.KG</td>
+                        <td>@item.Value.TechLevel</td>
+                        <td>@item.Value.Damage</td>
+                        <td>
+                            @foreach (var trait in item.Value.AmmoTraits)
+                            {
+                                <span title="@TravellerWeaponTrait.AnyTraitText(trait)">
+                                    @(trait + ", ")
+                                </span>
+                            }
+                        </td>
+                        <td>@(item.Value.AppliesToPistol ? "Yes" : "No")</td>
+                        <td>@(item.Value.AppliesToRifle ? "Yes" : "No")</td>
+                        <td>@(item.Value.AppliesToShotgun ? "Yes" : "No")</td>
+                        <td>@(item.Value.AppliesToHeavy ? "Yes" : "No")</td>
+                        <td>@item.Value.Description</td>
+                    </tr>
+                }
+            </tbody>
+        }
     </table>
 </div>
 
@@ -215,7 +265,7 @@
             {
                 return ItemStore.ItemStore.
                     Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
-                    ToDictionary(x => x.Key, x=> x.Value);
+                    ToDictionary(x => x.Key, x => x.Value);
             }
 
             return ItemStore.ItemStore;
@@ -234,7 +284,7 @@
             {
                 return ItemStore.GenericItemStore.
                     Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
-                    ToDictionary(x => x.Key, x=> x.Value);
+                    ToDictionary(x => x.Key, x => x.Value);
             }
         }
     }
@@ -250,7 +300,7 @@
             {
                 return ItemStore.AugmentsStore.
                     Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
-                    ToDictionary(x => x.Key, x=> x.Value);
+                    ToDictionary(x => x.Key, x => x.Value);
             }
         }
     }
@@ -266,7 +316,7 @@
             {
                 return ItemStore.ArmourStore.
                     Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
-                    ToDictionary(x => x.Key, x=> x.Value);
+                    ToDictionary(x => x.Key, x => x.Value);
             }
         }
     }
@@ -283,7 +333,24 @@
             {
                 return ItemStore.WeaponStore.
                     Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
-                    ToDictionary(x => x.Key, x=> x.Value);
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+        }
+    }
+
+    Dictionary<int, TravellerSpecialAmmo> WeaponSpecialAmmo
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.SpecialAmmoStore;
+            }
+            else
+            {
+                return ItemStore.SpecialAmmoStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower())).
+                    ToDictionary(x => x.Key, x => x.Value);
             }
         }
     }

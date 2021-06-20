@@ -4,26 +4,29 @@
 @using System.Linq;
 @inject TravellerSpecialNPCService NPCService
 
+<title>Special NPC Generator</title>
+
+
 <h1>Special NPC Generator</h1>
-    <input type="number"  @bind="NPCCount"/>
-    <select @bind="NationNameList">
-        <option>Federation</option>
-        <option>
-            Vers
-        </option>
-        <option>
-            Empire
-        </option>
-        <option>
-            Britannia
-        </option>
-        <option>Germushia</option>
-        <option>  Deutschland</option>
-        <option> XiaoMing</option>
-        <option>AxionAlliance</option>
-        <option> Any</option>
-    </select>
-    <button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
+<input type="number" @bind="NPCCount" />
+<select @bind="NationNameList">
+    <option>Federation</option>
+    <option>
+        Vers
+    </option>
+    <option>
+        Empire
+    </option>
+    <option>
+        Britannia
+    </option>
+    <option>Germushia</option>
+    <option>  Deutschland</option>
+    <option> XiaoMing</option>
+    <option>AxionAlliance</option>
+    <option> Any</option>
+</select>
+<button class="" @onclick="LoadNPCs">Click me to Generate npcs</button>
 
 @if (npcs == null)
 {
@@ -73,17 +76,21 @@ else
                         @npc.Background, @npc.Career.
                     </td>
                     <td style="        height: 30px;padding: 10px;
-        border-style: solid">@npc.PatronText</td>
-                    <td style="        height: 30px;padding: 10px;
-        border-style: solid">@npc.QuirkText </td>
-                    <td style="padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.AffinityText(@npc.Affinity)">@TravellerSpecialNPC.AffinityDegree(@npc.Affinity)</a></td>
-                    <td style="height: 30px;padding: 10px; border-style: solid;"><a href="." title="@TravellerSpecialNPC.EnmityText(@npc.Enmity)">@TravellerSpecialNPC.EnmityDegree(@npc.Enmity)</a></td>
-                    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.PowerText(@npc.Power)"> @TravellerSpecialNPC.PowerDegree(@npc.Power)</a></td>
-                    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.InfluenceText(@npc.Influence)">@TravellerSpecialNPC.InfluenceDegree(@npc.Influence)</a></td>
-                </tr>
-            </tbody>
-            <p></p>
-        }
+        border-style: solid">
+                        @npc.PatronText
+    </td>
+    <td style="        height: 30px;padding: 10px;
+        border-style: solid">
+        @npc.QuirkText
+    </td>
+    <td style="padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.AffinityText(@npc.Affinity)">@TravellerSpecialNPC.AffinityDegree(@npc.Affinity)</a></td>
+    <td style="height: 30px;padding: 10px; border-style: solid;"><a href="." title="@TravellerSpecialNPC.EnmityText(@npc.Enmity)">@TravellerSpecialNPC.EnmityDegree(@npc.Enmity)</a></td>
+    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.PowerText(@npc.Power)"> @TravellerSpecialNPC.PowerDegree(@npc.Power)</a></td>
+    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.InfluenceText(@npc.Influence)">@TravellerSpecialNPC.InfluenceDegree(@npc.Influence)</a></td>
+</tr>
+</tbody>
+<p></p>
+}
     </table>
 }
 
@@ -100,6 +107,6 @@ else
 
     public void LoadNPCs()
     {
-        npcs = NPCService.GetNPC(NPCCount,NationNameList);
+        npcs = NPCService.GetNPC(NPCCount, NationNameList);
     }
 }

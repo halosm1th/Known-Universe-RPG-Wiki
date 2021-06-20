@@ -7,6 +7,9 @@
 @using TravellerWiki.Data.Charcters
 @inject TravellerItemStoreService ItemStore
 
+<title>Armour Creator</title>
+
+
 <h2>Traveller Armour Creator</h2>
 <div style="border-width: 1px; border: lightgray; border-style: solid; background: gray;">
     @if (weapon == null)
@@ -24,18 +27,18 @@
     }
     else
     {
-<p style="text-align: center">
-    @weapon.ToString() <input type="button"
-                              id="btnCopy"
-                              onClick="
+        <p style="text-align: center">
+            @weapon.ToString() <input type="button"
+                                      id="btnCopy"
+                                      onClick="
 navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
     /* clipboard successfully set */
 }, function () {
     alert('Umm, there was an error!'); }) " value="Copy Json" />
-    <button @onclick="Reset">New Armour</button>
-    <button @onclick="Clone">Clone</button>
-</p>
-}
+            <button @onclick="Reset">New Armour</button>
+            <button @onclick="Clone">Clone</button>
+        </p>
+    }
 </div>
 
 

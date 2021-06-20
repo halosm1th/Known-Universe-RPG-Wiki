@@ -5,6 +5,9 @@
 @using TravellerWiki.Data.Charcters
 @inject TravellerNPCService NPCService
 
+<title>NPC Generator</title>
+
+
 <h1>NPC Generator</h1>
 <input type="number" @bind="NPCCount" />
 <select @bind="NationNameList">
@@ -50,7 +53,7 @@ else
                 <tr>
                     <td style="padding: 10px;border-style: solid;text-align: center">@npc.Name.Replace("_", " ")</td>
                     <td style="padding: 10px;border-style: solid;text-align: center">@npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex</td>
-                    
+
                     <td style="padding: 10px;border-style: solid;text-align: center">
                         @npc.Background, @npc.Career.
                     </td>

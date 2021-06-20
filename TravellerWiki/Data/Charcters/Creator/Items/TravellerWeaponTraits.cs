@@ -4,6 +4,9 @@
     {
         None,
         AP_X,
+        AP_x2,
+        AP_x3,
+        AP_x5,
         AP_1,
         AP_2,
         AP_3,

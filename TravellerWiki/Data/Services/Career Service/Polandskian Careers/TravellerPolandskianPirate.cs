@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using Newtonsoft.Json;
 using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.CreationEvents;
 using TravellerWiki.Data.Services.CareerService.PolandskianCareeres;
@@ -15,6 +17,8 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
         public static TravellerCareer PolandskiaPirate()
         {
             var pirate = new TravellerPolandskiaPirate();
+
+            File.WriteAllText(Directory.GetCurrentDirectory() + "/PolandskianPirate.json",JsonConvert.SerializeObject(pirate.GetPolandskiaPirate()));
 
             return pirate.GetPolandskiaPirate();
         }
@@ -229,8 +233,12 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
 
                     new TravellerEventLife("You have a life event!"),
 
-                    new TravellerEventReward("You spend the term raiding small time ships in the outer regions.", 
-                        new List<TravellerCharacterCreationReward>{new TravellerRewardBonusBenefit()}),
+                    new TravellerEventChoice("You spend the term raiding small time ships in the outer regions. While out there, you find a rather nice planet that asks you to settle down on it. Do you?", 
+                        yesText:"I'll stay behind",
+                        yesEvent:new TravellerEventChangeCareers("You stay in the small town, becoming a regular citizen of Polandskia", "Polandskian Citizen"),
+                        noText:"naw, I'm here to loot!",
+                        noEvent:new TravellerEventReward("You begin to loot the village, and find some nice stuff in it.",
+                            new List<TravellerCharacterCreationReward>{new TravellerRewardBonusBenefit()})),
 
                     new TravellerEventSkillCheck("One of your fellow raiders has been making your life a living hell. You decided to settle this matter in the proper way, violence.",
                         yesEvent:new TravellerEventReward("You beat some sense into them, earning their respect.",

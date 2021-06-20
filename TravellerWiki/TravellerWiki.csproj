@@ -160,7 +160,31 @@
     <Content Update="Pages\Galaxies\Asselyum.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerRewardCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerSkillChoiceCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerRankCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerSkillTableCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerQualificationCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerAttributeCheckCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerAssignmentCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\Generators\Item Creator\TravellerArmourCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerSpecialAmmoCreator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Generators\Item Creator\TravellerItemsDisplay.razor">
@@ -182,6 +206,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Generators\Item Creator\TravellerItemCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerCareerCrafter.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Generators\TravellerNPCCrafter.razor">
@@ -236,6 +263,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Subsectors\Subsector_Test.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid5.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid4.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid3.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid2.razor">

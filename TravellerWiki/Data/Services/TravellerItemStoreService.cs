@@ -23,10 +23,16 @@ namespace TravellerWiki.Data
 
         public Dictionary<int, TravellerItem> GenericItemStore => GenericItemStatic;
 
+        public Dictionary<int, TravellerSpecialAmmo> SpecialAmmoStore => SpecialAmmoStoreStatic;
+        public static Dictionary<int, TravellerSpecialAmmo> SpecialAmmoStoreStatic =>
+            ItemStoreStatic.Where(x => x.Value is TravellerSpecialAmmo)
+                .ToDictionary(i => i.Key, i => ((TravellerSpecialAmmo) i.Value));
+
         public Dictionary<int, TravellerWeapon> WeaponStore => WeaponStoreStatic;
         public static Dictionary<int, TravellerWeapon> WeaponStoreStatic =>
             ItemStoreStatic.Where(x => x.Value is TravellerWeapon)
-                .ToDictionary(i => i.Key, i => ((TravellerWeapon) i.Value));
+                .ToDictionary(i => i.Key, i => ((TravellerWeapon)i.Value));
+
 
 
         public Dictionary<int, TravellerArmour> ArmourStore => ArmourStoreStatic;
@@ -88,6 +94,7 @@ namespace TravellerWiki.Data
 
                 AddArmours();
                 AddWeapons();
+                AddSpecialAmmo();
                 AddAugments();
                 AddItems();
 
@@ -127,6 +134,18 @@ namespace TravellerWiki.Data
             var items = JsonConvert.DeserializeObject<Dictionary<int, TravellerWeapon>>(itemsJson);
 
             foreach (var item in items ?? new Dictionary<int, TravellerWeapon>())
+            {
+                ItemStoreStatic.Add(item.Key, item.Value);
+            }
+        }
+
+        private static void AddSpecialAmmo()
+        {
+
+            var itemsJson = File.ReadAllText(Path + "SpecialAmmo.json");
+            var items = JsonConvert.DeserializeObject<Dictionary<int, TravellerSpecialAmmo>>(itemsJson);
+
+            foreach (var item in items ?? new Dictionary<int, TravellerSpecialAmmo>())
             {
                 ItemStoreStatic.Add(item.Key, item.Value);
             }

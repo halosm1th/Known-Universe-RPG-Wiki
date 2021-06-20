@@ -7,47 +7,50 @@
 @using TravellerWiki.Data.Charcters
 @inject TravellerItemStoreService ItemStore
 
+<title>Generic Item Creator</title>
+
+
 <h2>Traveller Generic Item Creator</h2>
 <div style="border-width: 1px; border: lightgray; border-style: solid; background: gray;">
     @if (weapon == null)
     {
         <p style="text-align: center">
             <b>Name</b> <br /> <input type="text" @bind="Name" /><br />
-            
+
             <b>Subtype</b> <br />
             <select @bind="Subtype">
-                @foreach(var item in Enum.GetValues(typeof(TravellerGenericItemTypes)))
-                  {
+                @foreach (var item in Enum.GetValues(typeof(TravellerGenericItemTypes)))
+                {
                     <option value="@item">@item</option>
                 }
             </select>
             <br />
-            
+
             <b>Cost</b> <br /> <input type="number" @bind="Cost" /><br />
-            
+
             <b>Weight in KG</b> <br /> <input type="number" @bind="KG" /><br />
-            
+
             <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
-            
+
             <b>Description</b> <br /> <input type="text" @bind="Description" /><br />
-            
+
             <button @onclick="AddWeapon">Add Item</button>
-                                             </p>
+        </p>
     }
     else
     {
-<p style="text-align: center">
-    @weapon.ToString() <input type="button"
-                              id="btnCopy"
-                              onClick="
+        <p style="text-align: center">
+            @weapon.ToString() <input type="button"
+                                      id="btnCopy"
+                                      onClick="
 navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
     /* clipboard successfully set */
 }, function () {
     alert('Umm, there was an error!'); }) " value="Copy Json" />
 
-    <button @onclick="Reset">New Item</button>
-    <button @onclick="Clone">Clone</button>
-</p>
+            <button @onclick="Reset">New Item</button>
+            <button @onclick="Clone">Clone</button>
+        </p>
     }
 </div>
 
@@ -84,7 +87,7 @@ navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[
 
     public void AddWeapon()
     {
-        weapon = new TravellerGenericItem(Name, Cost, KG, TechLevel,Description,Subtype);
+        weapon = new TravellerGenericItem(Name, Cost, KG, TechLevel, Description, Subtype);
         GetID();
 
         ItemStore.ItemStore.Add(ID, weapon);

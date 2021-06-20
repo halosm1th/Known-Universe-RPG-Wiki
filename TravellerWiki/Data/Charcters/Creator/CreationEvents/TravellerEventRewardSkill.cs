@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data.CreationEvents
@@ -25,6 +26,20 @@ namespace TravellerWiki.Data.CreationEvents
         public TravellerEventRewardSkill(string text, List<TravellerRewardSkill> reward) : base(text, new List<TravellerCharacterCreationReward>())
         {
             Reward.AddRange(reward);
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append($"{EventText}: [");
+            foreach (var reward in Reward)
+            {
+                sb.Append($"{reward}, ");
+            }
+
+            sb.Append("]");
+
+            return sb.ToString();
         }
     }
 }

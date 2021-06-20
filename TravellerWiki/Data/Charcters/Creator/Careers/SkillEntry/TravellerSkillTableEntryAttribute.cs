@@ -7,10 +7,10 @@ namespace TravellerWiki.Data
 
         public TravellerAttributes Attribute { get; }
 
-        public TravellerSkillTableEntryAttribute(TravellerAttributes attribute)
+        public TravellerSkillTableEntryAttribute(TravellerAttributes attribute) 
+            : base(attribute.ToString())
         {
             Attribute = attribute;
-            Name = Attribute.ToString();
         }
 
         public override string ToString()

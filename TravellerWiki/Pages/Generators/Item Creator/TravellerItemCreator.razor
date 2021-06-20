@@ -8,15 +8,19 @@
 @inject TravellerNPCService NPCService
 @inject TravellerItemStoreService ItemStore
 
-<h1>NPC Item Creator</h1>
-<p>Select type of Item to Add: 
+<title>Item Creator</title>
+
+
+<h1>Item Creator</h1>
+<p>
+    Select type of Item to Add:
     <select @bind="typeOfItemToAdd">
         @foreach (var itemType in Enum.GetValues(typeof(TravellerItemTypes)))
         {
             <option value="@itemType">@itemType</option>
         }
     </select>
-    </p>
+</p>
 <p>
     @if (typeOfItemToAdd == TravellerItemTypes.Weapon)
     {
@@ -33,6 +37,10 @@
     else if (typeOfItemToAdd == TravellerItemTypes.ItemGeneric)
     {
         <TravellerGenericItemCreator />
+    }
+    else if (typeOfItemToAdd == TravellerItemTypes.Weapon_Modification)
+    {
+        <TravellerSpecialAmmoCreator></TravellerSpecialAmmoCreator>
     }
     <br />
 </p>

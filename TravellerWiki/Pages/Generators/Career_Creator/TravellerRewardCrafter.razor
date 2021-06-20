@@ -1,0 +1,61 @@
+﻿@page "/Generators/TravellerRewardCrafter"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerWiki.Data.Charcters
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using TravellerWiki.Pages.Generators.Career_Creator
+@using TravellerWiki.Pages.Generators
+@inject TravellerCareerCreatorService CareerCreator
+
+<div style="text-align: center;">
+    
+        <label for="rankTitle">Title:</label>
+        <input type="text" id="rankTitle" @bind="rank" />
+
+        <label for="rewardType">Reward Type</label>
+    <select id="rewardType" @bind="RewardType">
+        @foreach(var r in Enum.GetValues(typeof(RewardTypes)))
+        {
+            <option value="@r">@r</option>
+        }
+    </select>
+        
+        <button @onclick="AddRank">Add Rank</button>
+</div>
+
+@code {
+
+    private enum RewardTypes
+    {
+        Advancement,
+        Armour,
+        Attribute,
+        Augment,
+        BenefitIncrease,
+        Blade,
+        BonusBenefit,
+        CombatImplant,
+        Contact,
+        Credits,
+        Empty,
+        Gun,
+        Item,
+        JobChange,
+    }
+
+    RewardTypes RewardType { get; set; }
+    public string rank { get; set; }
+
+    public TravellerCharacterCreationReward Reward;
+
+
+
+    public void AddRank()
+    {
+        CareerCreator.AssignmentRanks.Add((rank,Reward));
+    }
+
+}

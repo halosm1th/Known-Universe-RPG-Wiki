@@ -7,9 +7,15 @@
 @using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject TravellerCharacterStorageService storageService
-@inject TravellerNationsCharacterInfoService nationsService
+@inject TravellerItemStoreService ItemStore
+
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>
+         View Character @if (!string.IsNullOrEmpty(characterID))
+        {
+            @GetService().Name
+        }
+    </title>
 
 </head>
 
@@ -107,6 +113,19 @@
                 <b>Items and stuff</b>
             </summary>
             <div>
+                <p>Add Item to Character: </p>
+                <select @bind="ChosenItemID">
+                    @foreach (var item in ItemStore.ItemStore)
+                    {
+                        <option value="@item.Key">@item.Value.Name [@item.Value.TechLevel]</option>
+                    }
+
+                </select>
+                <button type="button" @onclick="AddItem">Add Items</button>
+            </div>
+
+
+            <div>
                 <div>
                     <h4>Finances</h4>
                     <p>
@@ -183,3 +202,12 @@
 
     </div>
 </body>
+
+@code{
+    int ChosenItemID = 0;
+    public void AddItem()
+    {
+        GetService().Items.Add(ItemStore.GetItem(ChosenItemID));
+        ChosenItemID = 0;
+    }
+}

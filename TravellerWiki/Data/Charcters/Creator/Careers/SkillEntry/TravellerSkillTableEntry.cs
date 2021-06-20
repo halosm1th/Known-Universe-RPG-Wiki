@@ -4,6 +4,11 @@ namespace TravellerWiki.Data
 {
     public abstract class TravellerSkillTableEntry
     {
-        public string Name { get; protected set; }
+        public string Name { get; set; }
+
+        public TravellerSkillTableEntry(string name)
+        {
+            Name = name;
+        }
     }
 }

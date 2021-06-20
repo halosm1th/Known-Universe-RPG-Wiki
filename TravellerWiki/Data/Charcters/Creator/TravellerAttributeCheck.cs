@@ -23,6 +23,13 @@ namespace TravellerWiki.Data
         {
             UnderlingAttribute = attribute;
         }
+
+        public TravellerAttributeCheck()
+        {
+
+        }
+
+
         public override string ToString()
         {
             return $"{UnderlingAttribute.AttributeName}({UnderlingAttribute.AttributableValue}+)";
