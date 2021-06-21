@@ -9,7 +9,7 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Leave Career (14/17) </title>
 
 </head>
 
@@ -40,6 +40,8 @@
 
 <div class="creatorMarkup">
     <h2>Select @GetService().Name's - Leave Career</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="14" max="17"></progress>
     <CharacterCreationDrawStats CharacterID="@characterID" />
     <div style="padding-left: 2em;">
         <p>Would you like to: <button @onclick="StayInCareer">Continue in your current Career</button> or <button @onclick="LeaveCareer">Leave your current Career</button> </p>

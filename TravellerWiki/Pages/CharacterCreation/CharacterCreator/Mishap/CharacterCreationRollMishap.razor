@@ -12,7 +12,7 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService;
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Mishap (9/17) </title>
 
 </head>
 
@@ -58,6 +58,8 @@
         <h1>Traveller Character Creator</h1>
         <div class="creatorMarkup">
             <h2>Select @GetService().Name's - Roll Mishap</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="9" max="17"></progress>
             @if (GetService().CurrentTermsEvents.Count <= 0)
             {
                 GetMishap();

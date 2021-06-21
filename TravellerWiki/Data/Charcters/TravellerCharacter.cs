@@ -21,9 +21,59 @@ namespace TravellerWiki.Data.Charcters
         public List<TravellerAttribute> AttributeList{ get; set; }
 
         public List<TravellerItem> Items { get; set; }
-        public List<TravellerAugments> Augments { get; set; }
-        public List<TravellerArmour> Armour { get; set; }
-        public List<TravellerWeapon> Weapons { get; set; }
+
+        public List<TravellerAugments> Augments
+        {
+            get
+            {
+                return Items.Where(x => x.ItemType == TravellerItemTypes.Augment && x is TravellerAugments)
+                    .Cast<TravellerAugments>()
+                    .ToList();
+            }
+            set
+            {
+                foreach (var travellerAugmentse in value)
+                {
+                    Items.Add(travellerAugmentse);
+                }
+            }
+        }
+
+        public List<TravellerArmour> Armour
+        {
+            get
+            {
+                return Items.Where(x => x.ItemType == TravellerItemTypes.Armour && x is TravellerArmour)
+                    .Cast<TravellerArmour>()
+                    .ToList();
+
+            }
+            set
+            {
+                foreach (var travellerAugmentse in value)
+                {
+                    Items.Add(travellerAugmentse);
+                }
+            }
+        }
+
+        public List<TravellerWeapon> Weapons
+        {
+            get
+            {
+                return Items.Where(x =>
+                    x.ItemType == TravellerItemTypes.Weapon && x is TravellerWeapon)
+                    .Cast<TravellerWeapon>()
+                    .ToList();
+            }
+            set
+            {
+                foreach (var travellerAugmentse in value)
+                {
+                    Items.Add(travellerAugmentse);
+                }
+            }
+        }
 
         public List<TravellerCharacter> Contacts { get; set; }
         public TravellerFinances Finances { get; set; }

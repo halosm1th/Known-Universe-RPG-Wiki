@@ -1,4 +1,4 @@
-@page "/Character/{characterID}"
+﻿@page "/Character/{characterID}"
 @using Microsoft.AspNetCore.Html
 @using TravellerWiki.Data
 @using TravellerWiki.Data.Charcters
@@ -11,7 +11,7 @@
 
 <head>
     <title>
-         View Character @if (!string.IsNullOrEmpty(characterID))
+        View Character @if (!string.IsNullOrEmpty(characterID))
         {
             @GetService().Name
         }
@@ -34,6 +34,25 @@
     }
 
 }
+<style>
+    table {
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    td {
+        border-style: solid;
+        border-width: 1px;
+        padding: 5px;
+    }
+
+    th {
+        padding: 5px;
+        border-style: solid;
+        border-width: 1px;
+    }
+</style>
 <body>
     <div style="text-align: center">
         <h1>Traveller Character</h1>
@@ -136,43 +155,146 @@
 
                 <div>
                     <h4>Items</h4>
-                    <ul>
-                        @foreach (var item in GetService().Items)
-                        {
-                            <li>@item</li>
-                        }
-                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Cost</th>
+                                <th>KG</th>
+                                <th>TL</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in GetService().Items
+                              .Where(x => (x.ItemType != TravellerItemTypes.Weapon)
+                                          && (x.ItemType != TravellerItemTypes.Armour)
+                                          && (x.ItemType != TravellerItemTypes.Augment)))
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>Cr​@item.Cost</td>
+                                    <td>@item.KG</td>
+                                    <td>@item.TechLevel</td>
+                                    <td>@item.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                     <br />
                 </div>
 
                 <div>
                     <h4>Augments</h4>
-                    <ul>
-                        @foreach (var augment in GetService().Augments)
-                        {
-                            <li>@augment</li>
-                        }
-                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Cost</th>
+                                <th>KG</th>
+                                <th>TL</th>
+                                <th>Improvement</th>
+                                <th>Location</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in GetService().Augments)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>Cr​@item.Cost</td>
+                                    <td>@item.KG</td>
+                                    <td>@item.TechLevel</td>
+                                    <td>@item.Improvement</td>
+                                    <td>@item.Location</td>
+                                    <td>@item.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                     <br />
                 </div>
+
                 <div>
                     <h4>Armour</h4>
-                    <ul>
-                        @foreach (var armour in GetService().Armour)
-                        {
-                            <li>@armour</li>
-                        }
-                    </ul>
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Cost</th>
+                                <th>KG</th>
+                                <th>TL</th>
+                                <th>Protection</th>
+                                <th>Radiation Protection</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in GetService().Armour)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>Cr​@item.Cost</td>
+                                    <td>@item.KG</td>
+                                    <td>@item.TechLevel</td>
+                                    <td>@item.Protection</td>
+                                    <td>@item.RadiationProtection</td>
+                                    <td>@item.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                     <br />
                 </div>
+
                 <div>
                     <h3>Weapons</h3>
-                    <ul>
-                        @foreach (var weapon in GetService().Weapons)
-                        {
-                            <li>@weapon</li>
-                        }
-                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Cost</th>
+                                <th>KG</th>
+                                <th>TL</th>
+                                <th>Range in Meters</th>
+                                <th>Damage</th>
+                                <th>Magazine Capacity</th>
+                                <th>Magazine Cost</th>
+                                <th>Weapon Traits</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in GetService().Weapons)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>Cr​@item.Cost</td>
+                                    <td>@item.KG</td>
+                                    <td>@item.TechLevel</td>
+                                    <td>@item.RangeInMeters</td>
+                                    <td>@item.Damage</td>
+                                    <td>@item.MagazineCapacity</td>
+                                    <td>Cr​@item.MagazineCost</td>
+                                    <td>
+                                        @foreach (var trait in item.WeaponTraits)
+                                        {
+                                            <span title="@TravellerWeaponTrait.AnyTraitText(trait)">
+                                                @(trait + ", ")
+                                            </span>
+                                        }
+                                    </td>
+                                    <td>@item.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                     <br />
                 </div>
             </div>

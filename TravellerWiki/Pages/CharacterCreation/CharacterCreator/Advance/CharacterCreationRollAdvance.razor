@@ -11,7 +11,7 @@
 @inject TravellerNationsCharacterInfoService nationsService;
 @inject TravellerCareerService careerService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Roll Advancement (10/17) </title>
 
 </head>
 
@@ -52,6 +52,8 @@
         <h1>Traveller Character Creator</h1>
         <div class="creatorMarkup">
             <h2>Select @GetService().Name's - Roll Advancement</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="10" max="17"></progress>
             <CharacterCreationDrawStats CharacterID="@characterID" />
             <div style="padding-left: 2em;">
                 <p>

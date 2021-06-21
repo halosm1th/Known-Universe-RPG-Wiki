@@ -10,7 +10,7 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Mishap Reward (9.5/17) </title>
 
 </head>
 
@@ -35,6 +35,8 @@
         <h1>Traveller Character Creator</h1>
         <div class="creatorMarkup">
             <h2>Select @GetService().Name's - Event Reward</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="9.5" max="17"></progress>
             <CharacterCreationDrawStats CharacterID="@characterID" />
             @if (GetService().LastEvent is TravellerEventReward rwd)
             {

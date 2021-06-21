@@ -614,7 +614,7 @@ namespace TravellerWiki.Data.CharacterCreation
                 if (creator.HasAgingEffect(roll))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    story.Append("As they grow older, aging has an effect!\n");
+                    story.Append("\nAs they grow older, aging has an effect! ");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     var injury = creator.AgingRoll(roll);
                     ApplyInjury(creator, random, injury, story);
@@ -622,7 +622,7 @@ namespace TravellerWiki.Data.CharacterCreation
             }
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            story.Append($"{creator.Name} is now {creator.TravellersAge} years old.\n");
+            story.Append($"\n{creator.Name} is now {creator.TravellersAge} years old.\n");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 

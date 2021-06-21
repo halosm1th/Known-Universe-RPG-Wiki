@@ -8,7 +8,7 @@
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Character Stats (2/17) </title>
 
 </head>
 
@@ -130,6 +130,7 @@
 <body>
 
     <h1>Traveller Character Creator</h1>
+
     <div style="text-align: center">
 
         @if (GeneratedStats == null)
@@ -138,6 +139,8 @@
         }
         <h2>@GetService().Name: Stats</h2>
 
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="2" max="17">Step 2</progress>
         <p>Roll: @GeneratedStats.Aggregate("", (h, t) => h += t + ", ") Psi Roll: <input type="checkbox" @bind="IncludePsi" /></p>
         <button @onclick="GenerateStats">Generate new Attributes</button>
         <p>
@@ -147,9 +150,9 @@
                     @if (!setStr)
                     {
                         <select @bind="StrKey">
-                            @foreach(var stat in GeneratedStats)
+                            @foreach (var stat in GeneratedStats)
                             {
-                                    <option value="@stat">@stat</option>
+                                <option value="@stat">@stat</option>
                             }
                         </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Strength); }">Set</button>
@@ -163,12 +166,12 @@
                     Dexterity:
                     @if (!setDex)
                     {
-                    <select @bind="DexKey">
-                        @foreach (var stat in GeneratedStats)
-                        {
+                        <select @bind="DexKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
                                 <option value="@stat">@stat</option>
-                        }
-                    </select>
+                            }
+                        </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Dexterity); }">Set</button>
                     }
                     else
@@ -180,12 +183,12 @@
                     Endurance:
                     @if (!setEnd)
                     {
-                    <select @bind="EndKey">
-                        @foreach (var stat in GeneratedStats)
-                        {
-                            <option value="@stat">@stat</option>
-                        }
-                    </select>
+                        <select @bind="EndKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Endurance); }">Set</button>
                     }
                     else
@@ -197,12 +200,12 @@
                     Intelligence:
                     @if (!setInt)
                     {
-                    <select @bind="IntKey">
-                        @foreach (var stat in GeneratedStats)
-                        {
+                        <select @bind="IntKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
                                 <option value="@stat">@stat</option>
-                        }
-                    </select>
+                            }
+                        </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Intelligence); }">Set</button>
                     }
                     else
@@ -214,11 +217,12 @@
                     Education:
                     @if (!setEdu)
                     {
-                    <select @bind="EduKey">
-                        @foreach (var stat in GeneratedStats)
-                        {<option value="@stat">@stat</option>
-                        }
-                    </select>
+                        <select @bind="EduKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Education); }">Set</button>
                     }
                     else
@@ -230,12 +234,12 @@
                     Social:
                     @if (!setSoc)
                     {
-                    <select @bind="SocKey">
-                        @foreach (var stat in GeneratedStats)
-                        {
-                            <option value="@stat">@stat</option>
-                        }
-                    </select>
+                        <select @bind="SocKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
                         <button @onclick="() => { SetStat(TravellerAttributes.Social); }">Set</button>
                     }
                     else
@@ -249,12 +253,12 @@
                         Psionics:
                         @if (!setPsi)
                         {
-                        <select @bind="PsiKey">
-                            @foreach (var stat in GeneratedStats)
-                            {
+                            <select @bind="PsiKey">
+                                @foreach (var stat in GeneratedStats)
+                                {
                                     <option value="@stat">@stat</option>
-                            }
-                        </select>
+                                }
+                            </select>
                             <button @onclick="() => { SetStat(TravellerAttributes.Psionics); }">Set</button>
                         }
                         else

@@ -10,7 +10,7 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Basic Training (6/17) </title>
 
 </head>
 
@@ -53,6 +53,8 @@
 <h1>Traveller Character Creator</h1>
 <div class="creatorMarkup">
     <h2>Basic Training - @GetService().LastCareer.CareerName</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="6" max="17"></progress>
     <CharacterCreationDrawStats CharacterID="@characterID" />
     <div style="padding-left: 2em;">
         @if (GetService().GetsBasicTraining() && !GetService().HasHadJob)

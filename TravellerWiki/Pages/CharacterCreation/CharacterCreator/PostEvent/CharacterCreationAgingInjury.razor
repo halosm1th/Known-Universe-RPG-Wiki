@@ -12,7 +12,7 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Aging Injury (13/17) </title>
 
 </head>
 
@@ -88,6 +88,8 @@
 <h1>Traveller Character Creator</h1>
 <div class="creatorMarkup">
     <h2>Select @GetService().Name's - Aging Injury</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="13.5" max="17"></progress>
     <CharacterCreationDrawStats CharacterID="@characterID" />
     <div style="padding-left: 2em;">
         @if (rollSuccess())

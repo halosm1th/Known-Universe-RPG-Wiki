@@ -9,7 +9,7 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Nationality (3/17) </title>
 
 </head>
 
@@ -79,17 +79,23 @@
 }
 <body>
     <h1>Traveller Character Creator</h1>
+
     <div style="text-align: center">
 
         @if (FailedNationEntry)
         {
             <h2>Failed to get in</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="3" max="17"></progress>
             <p>You failed to enter the nation you wanted, and instead are put into their parent nation</p>
             <button @onclick="DoneNationality">Alright, I understand.</button>
         }
         else
         {
             <h2>Select @GetService().Name's Nationality</h2>
+
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="3" max="17"></progress>
             <p>Current stats: @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
             <p>Selection your Nationality from the dropdown: </p>
             <select @bind="ChosenNationality">
@@ -135,7 +141,7 @@
                         var remove = drawNationality.Perks.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1);
                         <details>
                             <summary><b>Perks</b></summary>
-                            <p>@remove.Remove(0,1)</p>
+                            <p>@remove.Remove(0, 1)</p>
                         </details>
                     }
 

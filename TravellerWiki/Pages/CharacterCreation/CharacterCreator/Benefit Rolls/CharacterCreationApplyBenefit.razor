@@ -12,7 +12,7 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Apply Benefit (16/17) </title>
 
 </head>
 
@@ -36,6 +36,8 @@
         <h1>Traveller Character Creator</h1>
         <div class="creatorMarkup">
             <h2>Select @GetService().Name's - Apply Benefits</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="15" max="17"></progress>
             <CharacterCreationDrawStats CharacterID="@characterID" />
             <CharacterCreationReward characterID="@characterID" DoneRewardURL="@DoneRewardURL"
                                      CareerChangeURL="@CareerChangeURL" LifeEventURL="@LifeEventURL"

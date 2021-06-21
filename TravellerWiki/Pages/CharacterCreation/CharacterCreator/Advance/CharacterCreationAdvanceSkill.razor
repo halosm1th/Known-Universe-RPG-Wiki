@@ -11,7 +11,7 @@
 @inject TravellerCareerService CareerService;
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Advance Skill (11/17) </title>
 
 </head>
 
@@ -87,6 +87,8 @@
         <h1>Traveller Character Creator</h1>
         <div class="creatorMarkup">
             <h2>Roll Advance Skill - @GetService().LastCareer.CareerName - @GetService().Name </h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="11" max="17"></progress>
             <CharacterCreationDrawStats CharacterID="@characterID" />
             <div style="padding-left: 2em;">
                 @if (!HasChosenSkillTable && !isSuperSkill)

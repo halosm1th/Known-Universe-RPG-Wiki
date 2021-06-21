@@ -767,7 +767,7 @@ namespace TravellerWiki.Data.CharacterCreation
         public bool ApplyAging()
         {
             _character.Age += 4;
-            return ((_character.Age - 18) / 4) > 4;
+            return ((_character.Age - 18) / 4) >= 4;
         }
 
         /// <summary>
@@ -775,7 +775,13 @@ namespace TravellerWiki.Data.CharacterCreation
         /// </summary>
         /// <param name="roll">The roll for this terms aging, 2d6</param>
         /// <returns>whether or not you have to deal with the effects of an aging roll.</returns>
-        public bool HasAgingEffect(int roll) => roll + ((_character.Age - 18) / 4) > 4;
+        public bool HasAgingEffect(int roll)
+        {
+            var ageModifiers = (_character.Age - 18) / 4;
+            var result = (roll - ageModifiers) <= 0;
+            
+            return result;
+        } 
 
         /// <summary>
         /// The effects of an aging roll

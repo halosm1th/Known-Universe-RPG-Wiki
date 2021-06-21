@@ -7,7 +7,7 @@
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>Name Character (1/17)</title>
 
 </head>
 
@@ -30,6 +30,9 @@
 <h1>Traveller Character Creator</h1>
 <div style="text-align: center">
     <h2>Travellers Name</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="1" max="17">Step 1</progress>
+
     <p>Enter the Name for your character, or <a href="/Generators/TravellerNameGenerator/" target="_blank" rel="noreferrer noopener">use a name generator</a></p>
     <input type="text" @bind="TravellerName" />
     <button @onclick="SetName">Set Name</button>
