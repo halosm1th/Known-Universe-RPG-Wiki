@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TravellerWiki.Data.Services.CareerService.VersianCareeres;
 
@@ -9,6 +10,7 @@ namespace TravellerWiki.Data.Services.CareerService
         public void AddMajorPowerCareers(List<TravellerCareer> careers)
         {
             //TODO uncomment these as they are added and won't crash shit!
+            Console.WriteLine("Adding Vers");
             TravellerVersianCareers.AddVersianCareers(careers);
             //AddFederationCareers(careers);
             //AddDeutschlandCareers(careers);

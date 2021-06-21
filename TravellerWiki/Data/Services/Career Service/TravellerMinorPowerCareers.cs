@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.CreationEvents;
 using TravellerWiki.Data.Services.CareerService.PolandskianCareeres;
@@ -10,6 +11,7 @@ namespace TravellerWiki.Data.Services.CareerService
         public void AddMinorPowers(List<TravellerCareer> careers)
         {
             AddArtekkanCareer(careers);
+            Console.WriteLine("Add Polandskia");
             TravellerPolandskianCareers.AddPolandskianCareers(careers);
             AddFirstOrderCareer(careers);
             AddBritanniaCareer(careers);

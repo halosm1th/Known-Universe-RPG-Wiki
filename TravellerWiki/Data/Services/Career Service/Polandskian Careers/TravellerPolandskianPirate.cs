@@ -18,8 +18,6 @@ namespace TravellerWiki.Data.Services.CareerService.PolandskianCareeres
         {
             var pirate = new TravellerPolandskiaPirate();
 
-            File.WriteAllText(Directory.GetCurrentDirectory() + "/PolandskianPirate.json",JsonConvert.SerializeObject(pirate.GetPolandskiaPirate()));
-
             return pirate.GetPolandskiaPirate();
         }
         Random random = new Random();
