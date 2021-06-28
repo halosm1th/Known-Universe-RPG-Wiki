@@ -22,11 +22,19 @@
     }
 
     }
-<head>
-    <title>
-        @GetArticle().ArticleName
-    </title>
-</head>
+    <head>
+        <title>
+            @GetArticle().ArticleName
+        </title>
+
+        <meta property="og:title" content="Known Universe Wiki - @GetArticle().ArticleName" />
+        <meta property="og:url" content="https://theseamnetwork.com/VoicesFromTheVoid/Articles/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/favicon.ico" />
+        <meta content="@GetArticle().ArticleName By @GetArticle().ArticleAuthor in @GetArticle().PublishersName [@GetArticle().PublicationDate]: @GetArticle().Paragraphs.First().Substring(0,Math.Min(120,GetArticle().Paragraphs.First().Length))" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
 <body>
     <VoicesFromTheVoidArticleComponent Article="@GetArticle()"></VoicesFromTheVoidArticleComponent>
     <br/>
