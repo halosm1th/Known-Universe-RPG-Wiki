@@ -11,18 +11,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
 
-    <title>@if (Model.Career != null)
-           {
-               @Model.Career.CareerName;
-           }else
-           {
-               @("Career");
-           }</title>
+    <meta property="og:title" content="Known Universe Wiki - 
+        @if (Model.Career != null)
+        {
+            @Model.Career.CareerName;
+        }
+        else
+        {
+            @("Career");
+        }" />
+    <meta property="og:url" content="https://theseamnetwork.com/Career/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://thesteamnetwork.com/favicon.ico" />
+    <meta content="
+        @if (Model.Career != null)
+        {
+            @Model.Career.CareerDescription
+        }
+        else
+        {
+            @("View the list of Careers available to your charactesr within the Known Universe.")
+        }" property="og:description" />
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
 
-    <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
+
+    <title>
+        @if (Model.Career != null)
+        {
+            @Model.Career.CareerName;
+        }
+        else
+        {
+            @("Career");
+        }
+</title>
+
+<base href="~/" />
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+<link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
 @if (Model.Career != null)

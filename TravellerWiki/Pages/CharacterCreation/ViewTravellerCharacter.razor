@@ -9,15 +9,23 @@
 @inject TravellerCharacterStorageService storageService
 @inject TravellerItemStoreService ItemStore
 
-<head>
-    <title>
-        View Character @if (!string.IsNullOrEmpty(characterID))
-        {
-            @GetService().Name
-        }
-    </title>
+    <head>
+        <title>
+            View Character @if (!string.IsNullOrEmpty(characterID))
+            {
+                @GetService().Name
+            }
+        </title>
 
-</head>
+        <meta property="og:title" content="Known Universe Wiki - @GetService().Name" />
+        <meta property="og:url" content="https://theseamnetwork.com/Character/@characterID" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/favicon.ico" />
+        <meta content="View the Traveller Character: @GetService().ShortToString()." property="og:description" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+
+    </head>
 
 @code{
     [Parameter]

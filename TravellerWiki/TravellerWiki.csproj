@@ -318,10 +318,10 @@
     <Content Update="Pages\Other\CentralTension.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\ChurchOfSigmar.razor">
+    <Content Update="Pages\Wiki Pages\ChurchOfSigmar.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Deutschland.razor">
+    <Content Update="Pages\Wiki Pages\Deutschland.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Galaxies\Dewara.razor">
@@ -342,7 +342,7 @@
     <Content Update="Pages\Islands_Sector.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\IVFT.razor">
+    <Content Update="Pages\Wiki Pages\IVFT.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\KT.razor">
@@ -423,16 +423,16 @@
     <Content Update="Pages\Other\UCGalaxyPowerRating.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\UCM.razor">
+    <Content Update="Pages\Wiki Pages\UCM.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\UFE.razor">
+    <Content Update="Pages\Wiki Pages\UFE.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\VDS.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Vers.razor">
+    <Content Update="Pages\Wiki Pages\Vers.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid.razor">
