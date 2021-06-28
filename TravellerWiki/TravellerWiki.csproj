@@ -288,16 +288,16 @@
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssuePage.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid5.razor">
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid5.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid4.razor">
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid4.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid3.razor">
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid3.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid2.razor">
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid2.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\WITC.razor">
@@ -438,7 +438,7 @@
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid1.razor">
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid1.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\WIA.razor">
