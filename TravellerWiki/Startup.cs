@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using TravellerWiki.Data;
 using TravellerWiki.Data.Services;
 using TravellerWiki.Data.Services.CareerService;
+using TravellerWiki.Data.Services.DataServices;
 using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService;
 
 namespace TravellerWiki
@@ -33,6 +34,7 @@ namespace TravellerWiki
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<TravellerVoicesFromTheVoidService>();
             services.AddSingleton<TravellerItemStoreService>();
             services.AddSingleton<TravellerNPCService>();
             services.AddSingleton<TravellerSpecialNPCService>();

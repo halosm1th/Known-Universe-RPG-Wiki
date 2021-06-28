@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\JSON\**" />
+    <Content Remove="Data\JSON\**" />
+    <EmbeddedResource Remove="Data\JSON\**" />
+    <None Remove="Data\JSON\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\TravellerNPC.cs" />
   </ItemGroup>
 
@@ -35,6 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Markdig" Version="0.25.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
@@ -265,6 +273,21 @@
     <Content Update="Pages\Subsectors\Subsector_Test.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidArticleComponent.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidArticlesPage.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidArticlePage.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssuePage.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid5.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -478,10 +501,6 @@
     <Content Update="wwwroot\Images\Zaleski_subsector.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\JSON\" />
   </ItemGroup>
 
   <ItemGroup>

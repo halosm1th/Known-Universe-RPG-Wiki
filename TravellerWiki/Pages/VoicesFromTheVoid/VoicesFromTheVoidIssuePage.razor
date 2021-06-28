@@ -1,0 +1,42 @@
+@page "/VoicesFromTheVoid/Issue/{IssueNumber}"
+@using System.Transactions
+@using TravellerWiki.Data.Services.DataServices
+@using TravellerWiki.Data.SimpleWikiClasses
+@inject TravellerVoicesFromTheVoidService VoicesService
+@code{
+
+    [Parameter]
+    public string IssueNumber { get; set; } = "1";
+
+    public VoicesFromTheVoidIssue GetIssue()
+    {
+        int numb = 1;
+
+        if (!int.TryParse(IssueNumber, out numb))
+        {
+            numb = 1;
+        }
+        
+        return VoicesService.VoicesFromTheVoidIssues.First(x => x.IssueNumber == numb);
+    }
+
+    }
+<head>
+    <title>
+        @GetIssue().IssueName
+    </title>
+</head>
+<body>
+    <div>
+        <h1>
+            Voices from the Void, Vol @GetIssue().IssueNumber (@GetIssue().IssueName): @GetIssue().StartDate-@GetIssue().EndDate
+        </h1>
+        <p>@GetIssue().IssueDescription</p>
+    </div>
+
+    @foreach (var article in GetIssue().Articles.OrderBy(x => x.PublicationDate))
+    {
+        <VoicesFromTheVoidArticleComponent Article="@article"></VoicesFromTheVoidArticleComponent>
+    }
+
+</body>

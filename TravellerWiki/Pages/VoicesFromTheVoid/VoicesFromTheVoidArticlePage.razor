@@ -1,0 +1,34 @@
+@page "/VoicesFromTheVoid/Articles/{articleID}"
+@using System.Transactions
+@using TravellerWiki.Data.Services.DataServices
+@using TravellerWiki.Data.SimpleWikiClasses
+@inject TravellerVoicesFromTheVoidService VoicesService
+@code{
+
+    [Parameter]
+    public string ArticleID { get; set; } = "1";
+
+
+    public VoicesFromTheVoidArticle GetArticle()
+    {
+        int numb = 1001;
+
+        if (!int.TryParse(ArticleID, out numb))
+        {
+            numb = 1001;
+        }
+
+        return VoicesService.GetArticle(numb);
+    }
+
+    }
+<head>
+    <title>
+        @GetArticle().ArticleName
+    </title>
+</head>
+<body>
+    <VoicesFromTheVoidArticleComponent Article="@GetArticle()"></VoicesFromTheVoidArticleComponent>
+    <br/>
+<a href="/VoicesFromTheVoid/Articles/">View all Articles</a>
+</body>

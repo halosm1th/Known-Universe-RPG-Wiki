@@ -1,35 +1,41 @@
 @page "/VoicesFromTheVoid/VoicesFromTheVoid"
 @page "/VoicesFromTheVoid/"
-<head><title>Voices from the Void</title></head>
+@using TravellerWiki.Data.Services.DataServices
+@using TravellerWiki.Data.SimpleWikiClasses
+@inject TravellerVoicesFromTheVoidService voices
+<head>
+    <title>Voices from the Void</title>
+</head>
+
 
 <body>
     <h1>Voices from the Void.</h1>
- <p>The voices from the Void is a voidnet publication within the <a href="Islands_Sector">Western Islands Sector.</a> It covers major faction news within the Islands.</p>
-<div>
-    <p>
-        List of Issues
-        <ul>
-            <li><a href="/VoicesFromTheVoid/VoicesFromTheVoid1">Issue 1, Bryce Bracing for fallout from Blackmail. 10/04/83390EST</a></li>
+    <p>The voices from the Void is a voidnet publication within the <a href="Islands_Sector">Western Islands Sector.</a> It covers major faction news within the Islands.</p>
+    <div>
+        <p>
+            List of Issues
+            <ul>
+                @foreach (var issue in voices.VoicesFromTheVoidIssues)
+                {
+                    var issueText = $"/VoicesFromTheVoid/Issue/{issue.IssueNumber.ToString()}";
+                    <li><a href="@issueText">Issue @issue.IssueNumber.ToString(), @issue.IssueName @issue.StartDate-@issue.EndDate</a></li>
+                }
 
-            <li><a href="/VoicesFromTheVoid/VoicesFromTheVoid2">Issue 2, The Vampyre Chronicles. 20/12/83389-24/05/83390</a></li>
+            </ul>
+        </p>
 
-            <li><a href="/VoicesFromTheVoid/VoicesFromTheVoid3">Issue 3, The Blood Battles over the Central Islands. 08/05/83389-29/06/83390</a></li>
+        <h4><a href="/VoicesFromTheVoid/Articles/">Full List of Articles by Issue and Search Here!</a></h4>
 
-            <li><a href="/VoicesFromTheVoid/VoicesFromTheVoid4">Issue 4, Political Troubles over Acadie. 20/12/83389-24/05/83390</a></li>
-
-            <li><a href="/VoicesFromTheVoid/VoicesFromTheVoid5">Issue 5, Stars of the Void. 20/12/83389-24/05/83390</a></li>
-        </ul>
-    </p>
-    <p>
-        Writers:
-        <ul>
-            <li>Kustov Kesslering - Western Islands Commune</li>
-            <li>Zygmont Zylka - Western Islands Trade Consortium/Trade Federation</li>
-            <li>Karl Rostova - United Baronies</li>
-            <li>Orlando Kyrie - Western Islands Alliance</li>
-            <li>Faleria Bellator - Rex van der Ostrovski</li>
-            <li>Wyatt Larson - Dominate Supremius</li>
-        </ul>
-    </p>
-</div>
+        <div>
+            <label for="writersList">Writers:</label>
+            <ul id="writersList">
+                <li>Kustov Kesslering - Western Islands Commune</li>
+                <li>Zygmont Zylka - Western Islands Trade Consortium/Trade Federation</li>
+                <li>Karl Rostova - United Baronies</li>
+                <li>Orlando Kyrie - Western Islands Alliance</li>
+                <li>Faleria Bellator - Rex van der Ostrovski</li>
+                <li>Wyatt Larson - Dominate Supremius</li>
+            </ul>
+        </div>
+    </div>
 </body>

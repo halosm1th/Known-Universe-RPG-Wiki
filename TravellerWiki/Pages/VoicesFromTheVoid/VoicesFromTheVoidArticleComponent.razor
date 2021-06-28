@@ -1,0 +1,31 @@
+@page "/VoicesFromTheVoid/ArticleComponent/"
+@using System.Transactions
+@using TravellerWiki.Data.Services.DataServices
+@using TravellerWiki.Data.SimpleWikiClasses
+@inject TravellerVoicesFromTheVoidService VoicesService
+@code{
+
+    [Parameter]
+    public VoicesFromTheVoidArticle Article { get; set; }
+
+    public string GetBackgroundColour()
+        => Article.Publisher switch
+        {
+            IslandsSectorPublishers.Travellers_Aid_Society => "Red",
+            IslandsSectorPublishers.Univeralis_Confederation_Bulletin => "DarkGreen",
+            IslandsSectorPublishers.Voices_From_The_Void => "Black",
+            _ => "Blue"
+            };
+
+}
+
+<div style="background: @GetBackgroundColour()">
+    <h2>@Article.ArticleName</h2>
+    <p style="font-size:smaller">@Article.ArticleAuthor, @Article.PublishersName, (Published on @Article.PublicationDate)</p>
+
+    @foreach (var paragraph in Article.Paragraphs)
+    {
+        @((MarkupString)Markdig.Markdown.ToHtml(paragraph))
+    }
+</div>
+
