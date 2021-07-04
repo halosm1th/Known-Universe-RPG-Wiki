@@ -408,7 +408,7 @@ namespace TravellerWiki.Data
                 { "Formidabili",GetModifierDescriptions(27)},
                 { "Candor",GetModifierDescriptions(28)},
                 { "Fluxa",GetModifierDescriptions(29)},
-                { "Conuenerunt",GetModifierDescriptions(30)},
+                { "scopum",GetModifierDescriptions(30)},
                 { "Furens",GetModifierDescriptions(31)},
                 { "Intendet",GetModifierDescriptions(32)},
                 { "Morantem",GetModifierDescriptions(33)},
