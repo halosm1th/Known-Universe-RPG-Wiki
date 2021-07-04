@@ -14,7 +14,15 @@ namespace TravellerWiki.Data.Services
 
         public void AddCharacter(string ID, PlayerTravellerCharacter character)
         {
-            CharacterList.Add(ID, character);
+            if (CharacterList.ContainsKey(ID))
+            {
+                CharacterList.Remove(ID);
+                CharacterList.Add(ID, character);
+            }
+            else
+            {
+                CharacterList.Add(ID, character);
+            }
         }
 
         public bool ContainsKey(string key) => CharacterList.ContainsKey(key);

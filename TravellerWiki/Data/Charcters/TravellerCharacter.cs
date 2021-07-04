@@ -205,6 +205,10 @@ namespace TravellerWiki.Data.Charcters
         /// <returns>If the item was return successfully or not.</returns>
         public bool AddItem(TravellerItem item)
         {
+            Items.Add(item);
+
+            return true;
+
             if (item is TravellerAugments augments)
             {
                 Augments.Add(augments);

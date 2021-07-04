@@ -28,10 +28,10 @@
         NavManager.NavigateTo($"/CharacterCreation/Aging/{characterID}");
     }
 
-    public void ViewCharacter()
+    public void BuyGear()
     {
         StorageService.AddCharacter(characterID,GetService().GetPlayerCharacter());
-        NavManager.NavigateTo($"/Character/{characterID}");
+        NavManager.NavigateTo($"/CharacterCreation/BuyGear/{characterID}");
     }
 }
 <body>
@@ -43,7 +43,7 @@
     <progress id="CharacterProgess" value="17" max="17"></progress>
     <CharacterCreationDrawStats CharacterID="@characterID" />
     <div style="padding-left: 2em;">
-        <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="ViewCharacter">Thats it.</button></p>
+        <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="BuyGear">Thats it, save {@GetService().Name} and buy gear.</button></p>
     </div>
 </div>
 </body>

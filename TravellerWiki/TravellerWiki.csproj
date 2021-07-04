@@ -54,6 +54,9 @@
     <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationBenefitAssignment.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationBuyGear.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\CharacterCreation\ViewTravellerCharacters.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
