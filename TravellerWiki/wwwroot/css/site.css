@@ -131,6 +131,19 @@ h2 {
     text-align: center;
 }
 
+
+
+.SmallerSummery {
+    color: #ffe81F;
+    background-color: #995D63;
+    font-size: 1.0em;
+    margin: 0px;
+    padding: 1px;
+    border-style: solid;
+    border-bottom-width: 0.5em;
+    border-bottom-color: #D8D8D8;
+    text-align: center;
+}
 h3 {
     color: #ffe81F;
     background-color: #595B63;

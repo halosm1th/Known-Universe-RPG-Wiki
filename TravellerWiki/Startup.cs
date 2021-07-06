@@ -35,6 +35,7 @@ namespace TravellerWiki
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<TravellerVoicesFromTheVoidService>();
+            services.AddSingleton<HighVersianService>();
             services.AddSingleton<TravellerItemStoreService>();
             services.AddSingleton<TravellerNPCService>();
             services.AddSingleton<TravellerSpecialNPCService>();

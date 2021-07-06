@@ -1,0 +1,59 @@
+
+
+@page "/Languages/HighVersianLangauge/Root/{Root}"
+@using TravellerWiki.Data.Services.DataServices
+@inject HighVersianService highVersian
+<head>
+    <title>High Versian - @Root</title>
+</head>
+<style>
+    .high {
+        font-family: 'high_versianregular';
+    }
+</style>
+
+@code
+{
+
+    [Parameter]
+    public string Root { get; set; }
+
+    public HighVersianDefinition _root => GetPrefix();
+
+    public HighVersianDefinition GetPrefix()
+    {
+        return highVersian.Roots.FirstOrDefault(x => x.Letters.ToUpper() == Root.ToUpper());
+    }
+
+    public HighVersianDefinition GenerateWord(HighVersianDefinition prefix, HighVersianDefinition postfix)
+    {
+        var spelling = $"{prefix.Letters}{_root.Letters}{postfix.Letters}";
+
+        return highVersian.Words.Any(x => x.Letters.Equals(spelling)) ? highVersian.Words.First(x => x.Letters == spelling) : new HighVersianDefinition(spelling, $"{prefix.Meaning}. {_root.Meaning}. {postfix.Meaning}");
+    }
+
+}
+
+<body>
+    <h1>High Versian: <div class="high">@_root.Letters</div> </h1>
+    <p><b class="high">@_root.Letters</b> (@_root.Letters): @_root.Meaning</p>
+    @foreach (var letter in highVersian.Letters)
+    {
+        <details >
+            <summary class="IndexSummery"><b class="high">@letter (@highVersian.Prefixes.Count(x => x.Letters.StartsWith(letter.Letters)))</b></summary>
+            @foreach (var prefix in highVersian.Prefixes.Where(x => x.Letters.StartsWith(letter.Letters)))
+            {
+                <details>
+                    <summary class="SmallerSummery"><b class="high">@prefix</b></summary>
+                    <ol>
+                        @foreach (var postfix in highVersian.Postfixes)
+                        {
+                        <li><b class="high">@GenerateWord(prefix, postfix).Letters.ToUpper()</b> [@GenerateWord(prefix, postfix).Letters.ToLower()]: @GenerateWord(prefix, postfix).Meaning</li>
+                        }
+                    </ol>
+                </details>
+
+            }
+        </details>
+    }
+</body>
