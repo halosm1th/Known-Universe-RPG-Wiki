@@ -27,11 +27,7 @@
 
     public HighVersianDefinition GenerateWord(HighVersianDefinition prefix, HighVersianDefinition root )
     {
-        var spelling = $"{prefix.Letters}{root.Letters}{_postfix.Letters}";
-
-        return highVersian.Words.Any(x => x.Letters.Equals(spelling)) ? highVersian.Words.First(x => x.Letters == spelling) : new HighVersianDefinition(spelling, $"{prefix.Meaning}. {root.Meaning}. {_postfix.Meaning}");
-
-        return new HighVersianDefinition($"{prefix.Letters}{root.Letters}{_postfix.Letters}", $"{prefix.Meaning}. {root.Meaning}. {_postfix.Meaning}");
+        return highVersian.GetWord(prefix.Letters, root.Letters, _postfix.Letters);
     }
 
 }
@@ -39,18 +35,19 @@
 <body>
     <h1>High Versian: <div class="high">@_postfix.Letters</div> </h1>
     <p><b class="high">@_postfix.Letters</b> (@_postfix.Letters): @_postfix.Meaning</p>
-    @foreach (var letter in highVersian.Letters)
+    @foreach (var letter in highVersian.Letters())
     {
         <details >
-            <summary class="IndexSummery"><b class="high">@letter (@highVersian.Roots.Count(x => x.Letters.StartsWith(letter.Letters)))</b></summary>
-            @foreach (var root in highVersian.Roots.Where(x => x.Letters.StartsWith(letter.Letters)))
+            <summary class="IndexSummery"><b class="high">@letter.ToString() (@highVersian.Roots.Count(x => x.Letters.StartsWith(letter.ToString())).ToString())</b></summary>
+            @foreach (var root in highVersian.Roots.Where(x => x.Letters.StartsWith(letter.ToString())))
             {
                 <details>
                     <summary class="SmallerSummery"><b class="high">@root</b></summary>
                     <ol>
-                        @foreach (var prefix in highVersian.Prefixes)
+                        @foreach (var prefix in highVersian.Prefixes
+                            .Select(prefix =>  GenerateWord(prefix, root)))
                         {
-                        <li><b class="high">@GenerateWord(prefix, root).Letters.ToUpper()</b> [@GenerateWord(prefix,root).Letters.ToLower()]: @GenerateWord(prefix,root).Meaning</li>
+                        <li><b class="high">@prefix.Letters.ToUpper()</b> [@prefix.Letters.ToLower()]: @prefix.Meaning</li>
                         }
                     </ol>
                 </details>

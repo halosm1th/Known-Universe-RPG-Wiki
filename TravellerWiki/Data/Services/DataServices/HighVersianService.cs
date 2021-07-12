@@ -1,60 +1,84 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net;
+using System.Reflection.Metadata;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting.Internal;
 
 namespace TravellerWiki.Data.Services.DataServices
 {
-    public class HighVersianDefinition
+    public enum HighVersianLetters
     {
-        public string Letters { get; }
-        public string Meaning { get; }
-
-
-        public HighVersianDefinition(string letters, string meaning)
-        {
-            Letters = letters;
-            Meaning = meaning;
-        }
-
-        public override string ToString()
-        {
-            return $"{Letters.ToUpper()}: {Letters}";
-        }
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        G,
+        H,
+        I,
+        J,
+        K,
+        L,
+        M,
+        N,
+        O,
+        P,
+        Q,
+        R,
+        S,
+        T,
+        U,
+        V,
+        W,
+        X,
+        Z
     }
 
     public class HighVersianService
     {
-        public List<HighVersianDefinition> Letters = new List<HighVersianDefinition>()
-        {
-            new HighVersianDefinition("A","a as in [a]pple"),
-            new HighVersianDefinition("B","B as in [B]eta"),
-            new HighVersianDefinition("C","Ch as in [Ch]ase"),
-            new HighVersianDefinition("D","D as in [D]emand"),
-            new HighVersianDefinition("E","e as in B[e]t"),
-            new HighVersianDefinition("F","F as in [F]it"),
-            new HighVersianDefinition("G","G as in [G]ust"),
-            new HighVersianDefinition("H","H as in [H]ot"),
-            new HighVersianDefinition("I","E  as in [E]at"),
-            new HighVersianDefinition("J","J as in [J]oin"),
-            new HighVersianDefinition("K","K as in [C]a[K]e"),
-            new HighVersianDefinition("L","L as in [L]ibrary"),
-            new HighVersianDefinition("M","M as in [M]an"),
-            new HighVersianDefinition("N","N as in [n]o"),
-            new HighVersianDefinition("O","O as in [O]pen"),
-            new HighVersianDefinition("P","P as in [P]eel"),
-            new HighVersianDefinition("Q","Q as in [Q]uiet"),
-            new HighVersianDefinition("R","R as in [R]ide"),
-            new HighVersianDefinition("S","S as in [S]tand"),
-            new HighVersianDefinition("T","T as in [T]iberius"),
-            new HighVersianDefinition("U","U as in F[U]me"),
-            new HighVersianDefinition("V","V as in [V]ictor"),
-            new HighVersianDefinition("W","W as in [W]hile"),
-            new HighVersianDefinition("X","S as in [S]teal"),
-            new HighVersianDefinition("Z","Z as in [Z]eta"),
+        public List<HighVersianLetters> Letters() {
+        var values = Enum.GetValues(typeof(HighVersianLetters));
+            var letters = new List<HighVersianLetters>();
+            foreach (var val in  values)
+            {
+                letters.Add((HighVersianLetters) val);
+            }
 
-
-
+            return letters;
+        }
+        
+        public string GetLetterProunciation(HighVersianLetters letter)
+            => letter switch {
+            HighVersianLetters.A => "a as in [a]pple",
+            HighVersianLetters.B => "B as in [B]eta",
+            HighVersianLetters.C => "Ch as in [Ch]ase",
+            HighVersianLetters.D => "D as in [D]emand",
+            HighVersianLetters.E => "e as in B[e]t",
+            HighVersianLetters.F => "F as in [F]it",
+            HighVersianLetters.G => "G as in [G]ust",
+            HighVersianLetters.H => "H as in [H]ot",
+            HighVersianLetters.I => "E  as in [E]at",
+            HighVersianLetters.J => "J as in [J]oin",
+            HighVersianLetters.K => "K as in [C]a[K]e",
+            HighVersianLetters.L => "L as in [L]ibrary",
+            HighVersianLetters.M => "M as in [M]an",
+            HighVersianLetters.N => "N as in [n]o",
+            HighVersianLetters.O => "O as in [O]pen",
+            HighVersianLetters.P => "P as in [P]eel",
+            HighVersianLetters.Q => "Q as in [Q]uiet",
+            HighVersianLetters.R => "R as in [R]ide",
+            HighVersianLetters.S => "S as in [S]tand",
+            HighVersianLetters.T => "T as in [T]iberius",
+            HighVersianLetters.U => "U as in F[U]me",
+            HighVersianLetters.V => "V as in [V]ictor",
+            HighVersianLetters.W => "W as in [W]hile",
+            HighVersianLetters.X => "S as in [S]teal",
+            HighVersianLetters.Z => "Z as in [Z]eta",
         };
-
 
         public List<HighVersianDefinition> Prefixes = new List<HighVersianDefinition>()
         {
@@ -70,7 +94,7 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Em","Combined / Shared (generally a person)"),
             new HighVersianDefinition("Ext","Extinguish, end, finish"),
             new HighVersianDefinition("For","Very, greatly"),
-            new HighVersianDefinition("gn","Warm/Hot/Warmth"),
+            new HighVersianDefinition("Ign","Warm/Hot/Warmth"),
             new HighVersianDefinition("Il","False, wrong"),
             new HighVersianDefinition("Im","Large, in great amount"),
             new HighVersianDefinition("In","Small, in little amount; not"),
@@ -270,8 +294,65 @@ namespace TravellerWiki.Data.Services.DataServices
 
         public List<HighVersianDefinition> Words => GenerateWords();
 
-        public List<HighVersianDefinition> _words = new List<HighVersianDefinition>();
+        private static List<HighVersianDefinition> _words = new List<HighVersianDefinition>();
 
+
+        private static int cacheHits = 0;
+        private static int valuesInChache => _words.Count;
+        private static int cacheMiss = 0;
+
+        public HighVersianDefinition GetWord(string prefix, string root, string postfix)
+        {
+            if (_words == null || _words.Count <= 0) GenerateWords();
+
+            var spellingOfWord = $"{prefix}{root}{postfix}".ToUpper();
+
+            var containsWord = _words.Any(x => x.Letters == spellingOfWord);
+            
+
+            
+            if (containsWord)
+            {
+                cacheHits++;
+            
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Looking for: {spellingOfWord}. Found: {containsWord} [{cacheHits.ToString()}:{cacheMiss.ToString()}/{valuesInChache.ToString()}]");
+            
+                return Words.First(x => x.Letters == spellingOfWord);
+            }
+            else
+            {
+                cacheMiss++;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Looking for: {spellingOfWord}. Found: {containsWord} [{cacheHits.ToString()}:{cacheMiss.ToString()}/{valuesInChache.ToString()}]");
+            
+                var meaning = GetWordMeaning(prefix,root,postfix);
+                var word = new HighVersianDefinition(spellingOfWord, meaning);
+                AddWord(word);
+                return word;
+            }
+        }
+
+        public string GetWordMeaning(string prefix, string root, string postfix)
+        {
+            var preMeaning = GetPrefixMeaning(prefix);
+            var rootMeaning = GetRootMeaning(root);
+            var postMeaning =   GetPostfixMeaning(postfix);
+            var meaning = $"{preMeaning}. {rootMeaning}. {postMeaning}";
+
+            return meaning;
+        }
+
+        private string GetPrefixMeaning(string prefix) 
+            => Prefixes.AsParallel().First(x => x.Letters == prefix.ToUpper()).Meaning;
+
+        
+        private string GetRootMeaning(string root) 
+            => Roots.First(x => x.Letters == root.ToUpper()).Meaning;
+        
+        private string GetPostfixMeaning(string postfix) 
+            => Postfixes.First(x => x.Letters == postfix.ToUpper()).Meaning;
+        
         public List<HighVersianDefinition> GenerateWords()
         {
             if (_words != null && _words.Count > 0)
@@ -279,8 +360,56 @@ namespace TravellerWiki.Data.Services.DataServices
                 return _words;
             }
 
-            var words = new List<HighVersianDefinition>()
+            _words = HighVersianWordDefinitions();
+
+/*            foreach (var root in Roots.OrderBy(x => x.Letters.First()))
             {
+                Task.Run(() => GeneratePrefixesForRootAndSave(root));
+            }
+*/
+            return _words;
+        }
+
+
+        public void GeneratePrefixesForRootAndSave(HighVersianDefinition root)
+        {
+            foreach (var prefix in Prefixes.OrderBy(x => x.Letters.First()))
+            {
+                Task.Run(() => GeneratePostfixesForRootAndSave(prefix,root));
+            }
+        }
+        
+        public  void GeneratePostfixesForRootAndSave(HighVersianDefinition prefix, HighVersianDefinition root)
+        {
+            foreach (var postfix in Postfixes.OrderBy(x => x.Letters.First()))
+            {
+                var word = new HighVersianDefinition($"{prefix.Letters}{root.Letters}{postfix.Letters}", $"{prefix.Meaning} {root.Meaning} {postfix.Meaning}");
+                AddWord(word);
+                
+            }
+        }
+
+        /// <summary>
+        /// Add a word to the list of words
+        /// </summary>
+        /// <param name="word">The word to add</param>
+        /// <returns>Returns false if the word is already defined. True if added successfully</returns>
+        public bool AddWord(HighVersianDefinition word)
+        {
+            if (_words.Any(x => x.Letters.Equals(word.Letters)))
+            {
+                return false;
+            }
+            
+            _words.Add(word);
+            return true;
+        }
+        
+        private static List<HighVersianDefinition> HighVersianWordDefinitions()
+        {
+            return new List<HighVersianDefinition>()
+            {
+                new HighVersianDefinition("Aedificata","An object or thing which builds. (Factory)"),
                 new HighVersianDefinition("Aedificate","Build"),
                 new HighVersianDefinition("Aedifici","A person who builds"),
                 new HighVersianDefinition("Aedificis","A group of yous' which builds (construction company)"),
@@ -346,27 +475,6 @@ namespace TravellerWiki.Data.Services.DataServices
                 new HighVersianDefinition("",""),
                 */
             };
-
-            foreach (var root in Roots.OrderBy(x => x.Letters.First()))
-            {
-                foreach (var prefix in Prefixes.OrderBy(x => x.Letters.First()))
-                {
-                    foreach (var postfix in Postfixes.OrderBy(x => x.Letters.First()))
-                    {
-                        var word = new HighVersianDefinition($"{prefix.Letters}{root.Letters}{postfix.Letters}", $"{prefix.Meaning} {root.Meaning} {postfix.Meaning}");
-
-                        if (words.All(x => x.Letters != word.Letters))
-                        {
-                            words.Add(word);
-                        }
-                    }
-                }
-            }
-
-            _words = words;
-
-            return words;
         }
-
     }
 }

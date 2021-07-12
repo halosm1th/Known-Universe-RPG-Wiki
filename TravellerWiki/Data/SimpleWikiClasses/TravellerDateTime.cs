@@ -98,6 +98,11 @@ namespace TravellerWiki.Data.SimpleWikiClasses
             Century = cen;
         }
 
+        public string ToIsoTime()
+        {
+            return $"{Millennium.ToString()}{Century.ToString()}-{Month.ToString()}-{Day.ToString()}";
+        }
+
         public string ToEarthStandardTime()
         {
             return $"{_mil}{_cen}-{_month}-{_day}";

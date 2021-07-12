@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Extensions.Hosting.Internal;
 using TravellerWiki.Data.SimpleWikiClasses;
 
 namespace TravellerWiki.Data.VoicesFromTheVoidArticles
 {
-    public class VoicesIssue6
+    public class VoicesIssue6 
     {
         public static VoicesFromTheVoidIssue AddIssue6()
         {
@@ -124,6 +126,18 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                             "Currently it is believed that the terrorists are acting alone, but in the name of the now dissolved Western Islands Commune. The reported reason behind the terrorist targeting The Trade Federation and their allies is due to the terrorists desire to install a pro-communist government like that of the Western Islands Commune. A Spokesman from the Central subcommittee on foreign communications said that the commune had no involvement in the actions of these terrorists and denounce their actions.",
                             "This opinion have been echoed by Knight Huber who said that the terrorists kidnapped his son from a party the Knight was hosting on his privately owned planet of Coda. This party is the same one where the Imperial Ambassador Baldoa was brutally murdered. Knight Huber believes that the terrorist knew the Ambassador would be at the party before the attack and that the murder of the Ambassador was a deliberate choice, knowing it would further destabilize the Sector, and that it was only because of the good work of the Rex van der Ostrovski's Baron Alexi Wysoki that the commune was able to reach a place where it could peacefully dissolve, denying the terrorists their goal.",
                             "All nearby systems and government have been alerted as to this issue and a sector wide manhunt is in effect, with a bounty on the heads of the terrorists; 50 million Credits dead, 100 million Credits alive. As well, the witcher Kaer-Ship Aventorarial has been recalled to retrieve the bodies and being justice to this situation."
+                        }),
+                    new VoicesFromTheVoidArticle(
+                    articleAuthor:"Orlando Kyrie",
+                        articleName:"Star-Can Abandons military obligations to focus on personal defense.",
+                        publisher:IslandsSectorPublishers.Voices_From_The_Void,
+                        publicationDate:new TravellerDateTime(13,07),
+                        paragraphs:new List<string>()
+                        {
+                            $"The [debate](https://thesteamnetwork.com/VoicesFromTheVoid/Articles/{@VoicesIssue5.AddIssue5().Articles.First(x => x.ArticleName.Contains("Star-Can Confederacy debate rages over ship procurement.")).ArticleID.ToString()}) in the Star-Can Confederacy has finished. The Government of the Confederacy decided to renounce their obligations made during the Gloire(3,3:2'3) Accords in 83386, which said that all signatories would maintain a fleet capable of defending themselves as well as rendering aid to fellow signatories in a time of escalating violence. ",
+                            "When war broke out between the Independent Defense Federation(IDF) and the Old Islands Defense League(OIDL), it was assumed that the IDFs traditional allies would back it in its war, as had been reaffirmed at the affirmation accords. There was a flutter of hope that the IDF may get its aid when the Star-Can Confederacy Government began discussing fleet procurement in serious, hushed, voices. The conclusion reached by the Government was that a proper military fleet was well outside of their budget, and at best they could hope for a fleet capable of dealing with internal piracy issues.",
+                            "Opposition to the government pointed out that a fleet for anti-piracy purposes would fall under policing, not military action, and that creating such a fleet for military purposes would cause the Confederation to fail to maintain its promise in the Gloire Accords. ",
+                            "Government chose to ignore their allies and obligations, investing in the anti-piracy fleet for a total cost of just under 1 billion Credits. Most of which is being financed by loans offered to the Confederation by the Western Islands Alliance to allow them to meet their Accords obligation. How this insulting use of funds and failure to uphold their promises will play out in the long run is unknown, but what can be said for certain now is that the Government of the Confederacy has failed and let down their allies, and if the IDF fail in their war against the OIDL and allies, that blame rests as much on the Confederacy as it does the IDF."
                         }),
                 }
             );

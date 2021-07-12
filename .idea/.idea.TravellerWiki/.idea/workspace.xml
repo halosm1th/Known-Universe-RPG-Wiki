@@ -10,16 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Other/LanguageFamilies.razor" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/CharacterCreation/CharacterCreatorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/CharacterCreation/CharacterCreatorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Charcters/TravellerCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Charcters/TravellerCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/InformationServices/TravellerJobBoardService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/InformationServices/TravellerJobBoardService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/TravellerDateTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/TravellerDateTime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Career_Creator/TravellerQualificationCrafter.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Career_Creator/TravellerQualificationCrafter.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfix.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfix.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefix.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefix.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRoot.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRoot.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Nations/RO.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Nations/RO.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/_Host.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +35,55 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="9f5f72a5-72ff-4736-905b-2957251034bc" />
+        <option name="url" value="https://github.com/halosm1th/Known-Universe-RPG-Wiki" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/16B/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3A/ComponentState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/39/RemoteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerSpellCreator.cshtml" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/JobBoard.cshtml" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Nations/RO.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/_Host.cshtml" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Career_Creator/TravellerQualificationCrafter.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Charcters/TravellerCharacter.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/CharacterCreation/CharacterCreatorService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/InformationServices/TravellerJobBoardService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfix.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefix.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRoot.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/TravellerDateTime.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidArticle.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -39,9 +95,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="RiderDpaPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.CareerCreator">
@@ -209,8 +268,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625592294085</updated>
-      <workItem from="1625592295233" duration="299000" />
+      <workItem from="1625592295233" duration="5464000" />
+      <workItem from="1625614949041" duration="1624000" />
+      <workItem from="1625616773219" duration="2142000" />
+      <workItem from="1625718360307" duration="7623000" />
+      <workItem from="1626067715674" duration="3406000" />
     </task>
+    <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
+      <created>1625592821818</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1625592821818</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,40 +297,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Added a few small bug fixes and language features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a few small bug fixes and language features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs</url>
-          <line>349</line>
-          <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Data\Services\DataServices\HighVersianService.cs" initialLine="349" containingFunctionPresentation="method 'GenerateWords'">
-            <startOffsets>
-              <option value="22741" />
-            </startOffsets>
-            <endOffsets>
-              <option value="22800" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs</url>
-          <line>355</line>
-          <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Data\Services\DataServices\HighVersianService.cs" initialLine="355" containingFunctionPresentation="method 'GenerateWords'">
-            <startOffsets>
-              <option value="23047" />
-            </startOffsets>
-            <endOffsets>
-              <option value="23190" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNPCCrafter.razor</url>
           <line>197</line>
@@ -273,6 +321,33 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNPCCrafter.razor</url>
+          <line>183</line>
+          <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Pages\Generators\TravellerNPCCrafter.razor" initialLine="183" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs</url>
+          <line>136</line>
+          <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Data\VoicesFromTheVoidArticles\VoicesIssue6.cs" initialLine="136" containingFunctionPresentation="lambda expression inside method 'AddIssue6'">
+            <startOffsets>
+              <option value="18461" />
+            </startOffsets>
+            <endOffsets>
+              <option value="18543" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

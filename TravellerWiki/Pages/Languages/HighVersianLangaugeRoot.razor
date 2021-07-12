@@ -27,6 +27,8 @@
 
     public HighVersianDefinition GenerateWord(HighVersianDefinition prefix, HighVersianDefinition postfix)
     {
+        return  highVersian.GetWord(prefix.Letters, _root.Letters, postfix.Letters);
+        
         var spelling = $"{prefix.Letters}{_root.Letters}{postfix.Letters}";
 
         return highVersian.Words.Any(x => x.Letters.Equals(spelling)) ? highVersian.Words.First(x => x.Letters == spelling) : new HighVersianDefinition(spelling, $"{prefix.Meaning}. {_root.Meaning}. {postfix.Meaning}");
@@ -37,18 +39,18 @@
 <body>
     <h1>High Versian: <div class="high">@_root.Letters</div> </h1>
     <p><b class="high">@_root.Letters</b> (@_root.Letters): @_root.Meaning</p>
-    @foreach (var letter in highVersian.Letters)
+    @foreach (var letter in highVersian.Letters())
     {
         <details >
-            <summary class="IndexSummery"><b class="high">@letter (@highVersian.Prefixes.Count(x => x.Letters.StartsWith(letter.Letters)))</b></summary>
-            @foreach (var prefix in highVersian.Prefixes.Where(x => x.Letters.StartsWith(letter.Letters)))
+            <summary class="IndexSummery"><b class="high">@letter.ToString() (@highVersian.Prefixes.Count(x => x.Letters.StartsWith(letter.ToString())).ToString())</b></summary>
+            @foreach (var prefix in highVersian.Prefixes.Where(x => x.Letters.StartsWith(letter.ToString())))
             {
                 <details>
                     <summary class="SmallerSummery"><b class="high">@prefix</b></summary>
                     <ol>
-                        @foreach (var postfix in highVersian.Postfixes)
+                        @foreach (var postfix in highVersian.Postfixes.Select(postfix => GenerateWord(prefix, postfix)) )
                         {
-                        <li><b class="high">@GenerateWord(prefix, postfix).Letters.ToUpper()</b> [@GenerateWord(prefix, postfix).Letters.ToLower()]: @GenerateWord(prefix, postfix).Meaning</li>
+                        <li><b class="high">@postfix.Letters.ToUpper()</b> [@postfix.Letters.ToLower()]: @postfix.Meaning</li>
                         }
                     </ol>
                 </details>

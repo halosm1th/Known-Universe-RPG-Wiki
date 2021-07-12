@@ -27,11 +27,14 @@
             @GetArticle().ArticleName
         </title>
 
-        <meta property="og:title" content="Known Universe Wiki - @GetArticle().ArticleName" />
+        <meta property="og:title" content="@GetArticle().ArticleName" />
+        <meta property="og:site_name" content="Known Universe Wiki - @GetArticle().ArticleName" />
         <meta property="og:url" content="https://theseamnetwork.com/VoicesFromTheVoid/Articles/" />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time " content="@GetArticle().PublicationDate.ToIsoTime()" />
+        <meta property="article:author" content="@GetArticle().ArticleAuthor">
         <meta property="og:image" content="https://thesteamnetwork.com/favicon.ico" />
-        <meta content="@GetArticle().ArticleName By @GetArticle().ArticleAuthor in @GetArticle().PublishersName [@GetArticle().PublicationDate]: @GetArticle().Paragraphs.First().Substring(0,Math.Min(120,GetArticle().Paragraphs.First().Length))" />
+        <meta property="og:description" content="@GetArticle().ArticleName By @GetArticle().ArticleAuthor in @GetArticle().PublishersName [@GetArticle().PublicationDate]: @GetArticle().Paragraphs.First().Substring(0,Math.Min(120,GetArticle().Paragraphs.First().Length))" />
         <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
 
     </head>

@@ -1,5 +1,3 @@
-
-
 @page "/Languages/HighVersianLangauge/Prefix/{Prefix}"
 @using TravellerWiki.Data.Services.DataServices
 @inject HighVersianService highVersian
@@ -14,7 +12,6 @@
 
 @code
 {
-
     [Parameter]
     public string Prefix { get; set; }
 
@@ -25,27 +22,10 @@
         return highVersian.Prefixes.FirstOrDefault(x => x.Letters.ToUpper() == Prefix.ToUpper());
     }
 
-    public HighVersianDefinition Word;
 
     public HighVersianDefinition GenerateWord(HighVersianDefinition root, HighVersianDefinition postfix)
     {
-        if (Word != null) return Word;
-
-        var spelling = $"{_prefix.Letters}{root.Letters}{postfix.Letters}";
-
-        var any = highVersian.Words.Any(x => x.Letters.ToLower().Equals(spelling.ToLower()));
-        if (any)
-        {
-            Word = highVersian.Words.First(x => x.Letters.ToLower() == spelling.ToLower());
-        }
-        else
-        {
-            Word = new HighVersianDefinition(spelling, $"{_prefix.Meaning}. {root.Meaning}. {postfix.Meaning}");
-        }
-
-        return Word;
-
-        return new HighVersianDefinition($"{_prefix.Letters}{root.Letters}{postfix.Letters}", $"{_prefix.Meaning}. {root.Meaning}. {postfix.Meaning}");
+        return highVersian.GetWord(_prefix.Letters, root.Letters, postfix.Letters);
     }
 
 }
@@ -53,18 +33,19 @@
 <body>
     <h1>High Versian: <div class="high">@_prefix.Letters</div> </h1>
     <p><b class="high">@_prefix.Letters</b> (@_prefix.Letters): @_prefix.Meaning</p>
-    @foreach (var letter in highVersian.Letters)
+    @foreach (var letter in highVersian.Letters())
     {
         <details >
-            <summary class="IndexSummery"><b class="high">@letter (@highVersian.Roots.Count(x => x.Letters.StartsWith(letter.Letters)))</b></summary>
-            @foreach (var root in highVersian.Roots.Where(x => x.Letters.StartsWith(letter.Letters)))
+            <summary class="IndexSummery"><b class="high">@letter.ToString() (@highVersian.Roots.Count(x => x.Letters.StartsWith(letter.ToString())).ToString())</b></summary>
+            @foreach (var root in highVersian.Roots.Where(x => x.Letters.StartsWith(letter.ToString())))
             {
                 <details>
                     <summary class="SmallerSummery"><b class="high">@root</b></summary>
                     <ol>
-                        @foreach (var postfix in highVersian.Postfixes)
+                        @foreach (var finishedWord in highVersian.Postfixes.Select(post => GenerateWord(root,post)
+                            ))
                         {
-                        <li><b class="high">@GenerateWord(root,postfix).Letters.ToUpper()</b> [@Word.Letters.ToLower()]: @Word.Meaning</li>
+                            <li><b class="high">@finishedWord.Letters.ToUpper()</b> [@finishedWord.Letters.ToLower()]: @finishedWord.Meaning</li>
                         }
                     </ol>
                 </details>

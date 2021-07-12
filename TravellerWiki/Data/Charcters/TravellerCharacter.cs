@@ -208,27 +208,6 @@ namespace TravellerWiki.Data.Charcters
             Items.Add(item);
 
             return true;
-
-            if (item is TravellerAugments augments)
-            {
-                Augments.Add(augments);
-                return true;
-            }else if (item is TravellerWeapon weapon)
-            {
-                Weapons.Add(weapon);
-                return true;
-            }
-            else if (item is TravellerArmour armour)
-            {
-                Armour.Add(armour);
-                return true;
-            }
-            else
-            {
-                Items.Add(item);
-                return true;
-            }
-
         }
         #endregion
         #region Finances
