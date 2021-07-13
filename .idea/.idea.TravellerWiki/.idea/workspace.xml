@@ -9,15 +9,7 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssueArticleComponent.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidArticle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidArticle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlesPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlesPage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Made the voices from the void stuff look a lot nicer">
       <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,10 +68,10 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidArticle.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/wwwroot/css/site.css" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlesPage.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssueArticleComponent.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/wwwroot/css/site.css" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -270,7 +262,7 @@
       <workItem from="1625616773219" duration="2142000" />
       <workItem from="1625718360307" duration="7623000" />
       <workItem from="1626067715674" duration="3810000" />
-      <workItem from="1626207492012" duration="8772000" />
+      <workItem from="1626207492012" duration="9377000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -286,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626071289062</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Made the voices from the void stuff look a lot nicer">
+      <created>1626216696156</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1626216696156</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +308,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added a few small bug fixes and language features" />
     <MESSAGE value="Basic high versian stuff is done, and added some new voices from the void articles!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic high versian stuff is done, and added some new voices from the void articles!" />
+    <MESSAGE value="Made the voices from the void stuff look a lot nicer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the voices from the void stuff look a lot nicer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

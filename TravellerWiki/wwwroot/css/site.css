@@ -1,5 +1,6 @@
 body {
-    font-family: BankFuturistic, Helvetica, sans-serif, 'Fira Code', monospace;
+    font-family: BankFuturistic;
+    font-family: 'Fira Code', monospace;
     font-size: 14px;
     color: #ffe81F;
     background-color: #000;
