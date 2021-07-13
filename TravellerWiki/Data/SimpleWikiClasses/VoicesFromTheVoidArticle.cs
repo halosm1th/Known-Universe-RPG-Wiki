@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography.Xml;
 using System.Threading.Tasks;
+using TravellerWiki.Data.Services.DataServices;
 
 namespace TravellerWiki.Data.SimpleWikiClasses
 {
@@ -22,7 +23,6 @@ namespace TravellerWiki.Data.SimpleWikiClasses
 
     public class VoicesFromTheVoidArticle
     {
-        private static int CurrentArticleID = 1000;
         public string ArticleName { get; protected set; }
         public int ArticleID { get; }
         public List<string> Paragraphs { get; protected set; }
@@ -41,8 +41,7 @@ namespace TravellerWiki.Data.SimpleWikiClasses
             Publisher = publisher;
             PublicationDate = publicationDate;
 
-            ArticleID = CurrentArticleID;
-            CurrentArticleID = ArticleID + 1;
+            ArticleID = TravellerVoicesFromTheVoidService.GetNextID();
         }
     }
 }

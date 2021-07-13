@@ -9,6 +9,20 @@ namespace TravellerWiki.Data.Services.DataServices
 {
     public class TravellerVoicesFromTheVoidService
     {
+
+        private static int currentArticleID { get; set; } = GetBaseID;
+
+        public int CurrentArticleID => currentArticleID;
+        public int BaseArticleID => GetBaseID;
+
+        public static int GetNextID()
+        {
+            currentArticleID += 1;
+            return currentArticleID;
+        }
+
+        public static int GetBaseID => 999;
+        
         private static List<VoicesFromTheVoidIssue> _VoicesFromTheVoidIssues = new List<VoicesFromTheVoidIssue>();
 
         private List<VoicesFromTheVoidIssue> GetIssues()

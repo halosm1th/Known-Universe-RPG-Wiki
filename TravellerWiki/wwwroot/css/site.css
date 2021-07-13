@@ -1,6 +1,5 @@
 body {
-    font-family: BankFuturistic, Arial, Helvetica, sans-serif;
-    font-family: 'Fira Code', monospace;
+    font-family: BankFuturistic, Helvetica, sans-serif, 'Fira Code', monospace;
     font-size: 14px;
     color: #ffe81F;
     background-color: #000;
@@ -19,28 +18,28 @@ body {
     margin-bottom: -50px;
 }
 
-    .hex .left {
-        float: left;
-        width: 0;
-        border-right: 60px solid #6C6;
-        border-top: 104px solid transparent;
-        border-bottom: 104px solid transparent;
-    }
+.hex .left {
+    float: left;
+    width: 0;
+    border-right: 60px solid #6C6;
+    border-top: 104px solid transparent;
+    border-bottom: 104px solid transparent;
+}
 
-    .hex .middle {
-        float: left;
-        width: 120px;
-        height: 208px;
-        background: #6C6;
-    }
+.hex .middle {
+    float: left;
+    width: 120px;
+    height: 208px;
+    background: #6C6;
+}
 
-    .hex .right {
-        float: left;
-        width: 0;
-        border-left: 60px solid #6C6;
-        border-top: 104px solid transparent;
-        border-bottom: 104px solid transparent;
-    }
+.hex .right {
+    float: left;
+    width: 0;
+    border-left: 60px solid #6C6;
+    border-top: 104px solid transparent;
+    border-bottom: 104px solid transparent;
+}
 
 .hex-row {
     clear: left;
@@ -63,22 +62,21 @@ body {
     justify-content: center;
 }
 
-    .flex-container > div {
-        width: 20em;
-        font-size: 15px;
-        border: solid;
-        margin: 4px;
-        border-color: silver;
-    }
+.flex-container > div {
+    width: 20em;
+    font-size: 15px;
+    border: solid silver;
+    margin: 4px;
+}
 
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    padding: 0px;
+    padding: 0;
 }
 
 .grid-item {
-    padding: 0px;
+    padding: 0;
     text-align: center;
     width: 100%;
     height: 25%;
@@ -95,8 +93,7 @@ h1 {
     color: #ffe81F;
     background-color: #595B63;
     font-size: 2em;
-    margin: 0;
-    margin-bottom: 7px;
+    margin: 0 0 7px;
     padding: 4px;
     font-style: italic;
     text-align: center;
@@ -110,9 +107,8 @@ h2 {
     color: #ffe81F;
     background-color: #595B63;
     font-size: 1.5em;
-    margin: 0px;
-    padding: 2px;
-    padding-left: 14px;
+    margin: 0;
+    padding: 2px 2px 2px 14px;
     border-style: solid;
     border-bottom-width: 0.5em;
     border-bottom-color: #A7A7A7;
@@ -122,9 +118,8 @@ h2 {
     color: #ffe81F;
     background-color: #595B63;
     font-size: 1.5em;
-    margin: 0px;
-    padding: 2px;
-    padding-left: 14px;
+    margin: 0;
+    padding: 2px 2px 2px 14px;
     border-style: solid;
     border-bottom-width: 0.5em;
     border-bottom-color: #A7A7A7;
@@ -132,26 +127,24 @@ h2 {
 }
 
 
-
 .SmallerSummery {
     color: #ffe81F;
     background-color: #995D63;
     font-size: 1.0em;
-    margin: 0px;
+    margin: 0;
     padding: 1px;
     border-style: solid;
     border-bottom-width: 0.5em;
     border-bottom-color: #D8D8D8;
     text-align: center;
 }
+
 h3 {
     color: #ffe81F;
     background-color: #595B63;
     font-size: 1.25em;
-    margin: 0px;
-    padding: 2px;
-    padding-left: 14px;
-    border-style: solid;
+    margin: 0;
+    padding: 2px 2px 2px 14px;
     border-style: solid;
     border-bottom-width: 0.5em;
     border-bottom-color: #A7A7A7;
@@ -169,6 +162,45 @@ a {
     text-decoration: dashed underline #DC690C;
     font-style: italic;
     text-transform: capitalize;
+}
+
+a:hover{
+    background-color: #FFa70C;
+    color:black;
+}
+
+.moveA {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.moveA:hover{
+    background-color: #ddd;
+    color:black;
+}
+
+.previousArticle{
+    background-color: #DD4444;
+    color: black;
+
+    text-align:left;
+}
+
+.allArticles{
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFa70C;
+    color: black;
+}
+
+.nextArticle{
+    background-color: #04AA6D;
+    color: white;
+    text-align:right;
 }
 
 table {

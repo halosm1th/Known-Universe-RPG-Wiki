@@ -82,34 +82,28 @@
     <h1>Voices from the Void Articles</h1>
     <p>This is the whole repository of article links, as they are attached to each issue.</p>
 
-    <br />
-    <div class="checkBox">
+<br />
+
+<div><label for="searchBox">Search Articles:</label>
+    <input type="search" @bind="searchText" id="searchBox" />
+    <button type="button">Search</button>
+    <button type="button" @onclick="resetSearch ">clear</button>
+</div>
+<br/>
+<div class="checkBox">
         <label for="paragraph">Include Paragraphs in search</label>
         <input type="checkbox" @bind="IncludeParagraphs" id="paragraph" />
 
                <label for="name">Include the Articles Name in search</label>
                <input type="checkbox" @bind="IncludeArticleName" id="name" />
-    </div>
-    
-    <br />
-    <div class="checkBox">
         <label for="author">Include Article Author in search</label>
         <input type="checkbox" @bind="IncludeArticleAuthor" id="author" />
                <label for="publisher">Include Article Publisher in search</label>
                <input type="checkbox" @bind="IncludePublisher" id="publisher" />
-    </div>
-    
-    <br />
-    <div class="checkBox">
         <label for="id">Include Article ID in search</label>
         <input type="checkbox" @bind="IncludeID" id="id" />
     </div>
-    <br/>
-    <div><label for="searchBox">Search Articles:</label>
-        <input type="search" @bind="searchText" id="searchBox" />
-               <button type="button">Search</button>
-               <button type="button" @onclick="resetSearch ">clear</button>
-    </div>
+<br/>
     @if (!string.IsNullOrEmpty(searchText))
     {
 

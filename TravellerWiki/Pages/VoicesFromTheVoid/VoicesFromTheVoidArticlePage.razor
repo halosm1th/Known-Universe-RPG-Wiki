@@ -9,19 +9,43 @@
     public string ArticleID { get; set; } = "1";
 
 
-    public VoicesFromTheVoidArticle GetArticle()
+    private int GetID()
     {
-        int numb = 1001;
-
-        if (!int.TryParse(ArticleID, out numb))
+        if (!int.TryParse(ArticleID, out var numb))
         {
-            numb = 1001;
+            numb = 1000;
         }
 
-        return VoicesService.GetArticle(numb);
+        return numb;
     }
 
+    private VoicesFromTheVoidArticle _article = null;
+
+    private VoicesFromTheVoidArticle GetArticle()
+    {
+        if (_article == null)
+        {
+            var numb = GetID();
+            _article = GetArticle(numb);
+        }
+        return _article;
     }
+    
+
+    private VoicesFromTheVoidArticle GetArticle(int articleID)
+    {
+        return VoicesService.GetArticle(articleID);
+    }
+
+    private bool ShowPrevious() 
+        => GetID()-1 > VoicesService.BaseArticleID;
+
+    private bool ShowNext() 
+        => GetID()+1 < VoicesService.CurrentArticleID;
+
+    
+
+}
     <head>
         <title>
             @GetArticle().ArticleName
@@ -40,6 +64,20 @@
     </head>
 <body>
     <VoicesFromTheVoidArticleComponent Article="@GetArticle()"></VoicesFromTheVoidArticleComponent>
-    <br/>
-<a href="/VoicesFromTheVoid/Articles/">View all Articles</a>
+<br/>
+@if (ShowPrevious())
+{
+    <div style="text-align:left;display:inline-block;">
+<a href="/VoicesFromTheVoid/Articles/@((GetID() - 1).ToString())" class="moveA previousArticle">&laquo; Previous (@GetArticle(GetID()-1).ArticleName)</a>
+</div>
+}
+<div style="text-align:center;display:inline-block;">
+<a href="/VoicesFromTheVoid/Articles/" class="moveA allArticles">View all Articles</a>
+</div>
+@if (ShowNext())
+{
+    <div style="text-align:right;display:inline-block;">
+    <a href="/VoicesFromTheVoid/Articles/@((GetID() + 1).ToString())" class="moveA nextArticle">Next (@GetArticle(GetID()+1).ArticleName) &raquo;</a>
+                                                                                                                                          </div>
+}
 </body>

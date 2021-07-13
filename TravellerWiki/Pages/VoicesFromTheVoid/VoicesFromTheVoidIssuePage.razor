@@ -40,10 +40,12 @@
         </h1>
         <p>@GetIssue().IssueDescription</p>
     </div>
-
+<section style="display: flex;flex-direction: row;flex-wrap: wrap;">
     @foreach (var article in GetIssue().Articles.OrderBy(x => x.PublicationDate))
     {
-        <VoicesFromTheVoidArticleComponent Article="@article"></VoicesFromTheVoidArticleComponent>
+        <article style="flex:400px;font-size: 20px;margin: 8px;border: solid 2px;background-color: rgb(167, 167, 167)">
+            <VoicesFromTheVoidIssueArticleComponent Article="@article"></VoicesFromTheVoidIssueArticleComponent>
+            </article>
     }
-
+</section>
 </body>

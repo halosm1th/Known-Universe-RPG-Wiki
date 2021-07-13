@@ -9,6 +9,9 @@
     <Content Remove="Data\JSON\**" />
     <EmbeddedResource Remove="Data\JSON\**" />
     <None Remove="Data\JSON\**" />
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssueArticleComponent.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
