@@ -28,10 +28,6 @@
     public HighVersianDefinition GenerateWord(HighVersianDefinition prefix, HighVersianDefinition postfix)
     {
         return  highVersian.GetWord(prefix.Letters, _root.Letters, postfix.Letters);
-        
-        var spelling = $"{prefix.Letters}{_root.Letters}{postfix.Letters}";
-
-        return highVersian.Words.Any(x => x.Letters.Equals(spelling)) ? highVersian.Words.First(x => x.Letters == spelling) : new HighVersianDefinition(spelling, $"{prefix.Meaning}. {_root.Meaning}. {postfix.Meaning}");
     }
 
 }

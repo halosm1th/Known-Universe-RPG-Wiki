@@ -78,6 +78,7 @@ namespace TravellerWiki.Data.Services.DataServices
             HighVersianLetters.W => "W as in [W]hile",
             HighVersianLetters.X => "S as in [S]teal",
             HighVersianLetters.Z => "Z as in [Z]eta",
+            _ => $"{letter} is unknown"
         };
 
         public List<HighVersianDefinition> Prefixes = new List<HighVersianDefinition>()
