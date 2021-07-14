@@ -41,7 +41,7 @@
         => GetID()-1 > VoicesService.BaseArticleID;
 
     private bool ShowNext() 
-        => GetID()+1 < VoicesService.CurrentArticleID;
+        => GetID()+1 <= VoicesService.CurrentArticleID;
 
     
 

@@ -29,9 +29,20 @@ namespace TravellerWiki.Data.SimpleWikiClasses
             return null;
         }
 
+        public VoicesFromTheVoidArticle GetArticle(string articleName)
+        {
+            if (HasArticle(articleName)) return Articles.First(x => x.ArticleName.Contains(articleName));
+            return null;
+        }
+        
         public bool HasArticle(int articleID)
         {
             return Articles.Any(x => x.ArticleID == articleID);
+        }
+        
+        public bool HasArticle(string articleName)
+        {
+            return Articles.Any(x => x.ArticleName.Contains(articleName));
         }
     }
 }
