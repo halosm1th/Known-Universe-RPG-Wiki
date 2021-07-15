@@ -13,7 +13,8 @@
     {
         if (_company == null)
         {
-            _company = _companyService.Companies.First(x => x.FactionName == CompanyName.Replace("_"," "));
+            var lookForName = CompanyName.Replace("_", " ");
+            _company = _companyService.Companies.First(x => x.FactionName.Contains(lookForName.Remove(Math.Min(20,lookForName.Length-1))));
         }
 
         return _company;

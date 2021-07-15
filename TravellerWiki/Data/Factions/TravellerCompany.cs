@@ -50,6 +50,32 @@ namespace TravellerWiki.Data
                 Revenues = (uint)_randomGenerator.Next(10000, 225000000);
                 DividentPercent = Math.Round(_randomGenerator.NextDouble()*10,2);
             }
+
+            if (string.IsNullOrEmpty(FactionName))
+            {
+                var nameType = _randomGenerator.Next(0, 4);
+                FactionName = nameType switch
+                {
+                    0 => $"{FactionHeadName.Split(" ").First()+"'s"} {Industry} on {HeadquatersLocation} {GetRandomEndTag()}",
+                    1 => $"{Industry} on {HeadquatersLocation} {GetRandomEndTag()}",
+                    2 => $"{FactionHeadName.Split(" ").First()+"'s"} {HeadquatersLocation} {Industry} {GetRandomEndTag()}",
+                    _ => $"{HeadquatersLocation} {Industry} {GetRandomEndTag()}"
+                };
+            }
+        }
+
+        private string GetRandomEndTag()
+        {
+            var endTag = _randomGenerator.Next(1, 6);
+            return endTag switch 
+            {
+                1 => "LLC",
+                2 => "Corp",
+                3 => "Inc",
+                4 => "Industries",
+                5 => "Ltd",
+                _ => "Co.",
+            } ;
         }
         
         public string GetOtherLocationName()
@@ -74,9 +100,9 @@ namespace TravellerWiki.Data
 
         public override string ToString()
         {
-            return $"{FactionName} was founded in {FoundedYear}, and its main industry is {Industry}. It is headquartered on {HeadquatersLocation} and its CEO is named {CeoName}. " +
-                   $"The company operates under the laws of {IslandsNation} but its parent/partner company is in {SupportingNationality}. " +
-                   $"The Companies current Share Price is [Cr: {CurrentSharePrice} Min: {MinSharePrice} Max: {MaxSharePrice}], it makes Cr {Revenues}, has a dividend of {DividentPercent}%, and a market cap of {MarketCap}. " +
+            return $"{FactionName} was founded in {FoundedYear}, and its main industry is {Industry.ToString().Replace("_"," ")}. It is headquartered on {HeadquatersLocation} and its CEO is named {CeoName}. " +
+                   $"The company operates under the laws of {IslandsNation.ToString().Replace("_"," ")} but its parent/partner company is in {SupportingNationality.ToString().Replace("_"," ")}. " +
+                   $"The Companies current Share Price is [Cr: {CurrentSharePrice} Min: {MinSharePrice} Max: {MaxSharePrice}], it makes Cr {Revenues}/Year, pays a dividend of {DividentPercent}%, and has a market cap of {MarketCap}. " +
                    $"{(HasOtherLocations()? $"{FactionName} also operates facilities on: {GetOtherLocationName()}." : "")}";
         }
     }

@@ -28,7 +28,9 @@
                     <th style="text-align: center; padding: 5px;">CEO</th>
                     <th style="text-align: center; padding: 5px;">Founded Year</th>
                     <th style="text-align: center; padding: 5px;">Stock Info</th>
-                    <th style="text-align: center; padding: 5px;">Revenue, Market Cap, Dividend</th>
+                    <th style="text-align: center; padding: 5px;">Revenue</th>
+                    <th style="text-align: center; padding: 5px;">Market Cap</th>
+                    <th style="text-align: center; padding: 5px;">Dividend</th>
                     <th style="text-align: center; padding: 5px;">Other Locations</th>
                 </tr>
                 </thead>
@@ -43,7 +45,9 @@
                         <td style="text-align: center">@company.CeoName</td>
                         <td style="text-align: center">@company.FoundedYear</td>
                         <td style="text-align: center">@company.CurrentSharePrice [@company.MinSharePrice : @company.MaxSharePrice]</td>
-                        <td style="text-align: center">@company.Revenues. @company.MarketCap. @company.DividentPercent%</td>
+                        <td style="text-align: center">Cr @company.Revenues.</td>
+                        <td style="text-align: center">Cr @company.MarketCap.</td>
+                        <td style="text-align: center">@company.DividentPercent%.</td>
                         <td style="text-align: center">@(company.HasOtherLocations()? company.GetOtherLocationName() : "None")</td>
                     </tr>
                 }

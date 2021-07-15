@@ -9,7 +9,7 @@ namespace TravellerWiki.Data
 {
     public class TravellerFaction
     {
-        public string FactionName { get; }
+        public string FactionName { get; protected set; }
         public string FactionHeadName { get; protected set; }
         public string HeadquatersLocation { get; }
         public List<string> OtherOwnedLocations { get; }
@@ -29,6 +29,7 @@ namespace TravellerWiki.Data
             IslandsNation = islandsNation;
             SupportingNationality = supportingNationality;
             var factionSeed = factionName.Aggregate(0, (h, t) => h + t) 
+                              + headquatersLocation.Aggregate(0, (h, t) => h + t)
                               + (int) IslandsNation 
                               - ((int) supportingNationality+1);
             
