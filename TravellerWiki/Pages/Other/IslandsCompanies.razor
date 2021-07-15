@@ -15,6 +15,44 @@
     <p>Within the North Western Islands there are many companies, this is a simple breakdown of the different major industries and who the largest players within the industries are.</p>
     <div>
         <h2>The List</h2>
+        
+    @foreach(var industry in Enum.GetValues(typeof(TravellerIndustries))){
+        <div>
+        <h3>@(((TravellerIndustries) industry).ToString().Replace("_"," "))</h3>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th style="text-align: center; padding: 5px;">Name</th>
+                    <th style="text-align: center; padding: 5px;">Headquarters</th>
+                    <th style="text-align: center; padding: 5px;">Loyal to</th>
+                    <th style="text-align: center; padding: 5px;">CEO</th>
+                    <th style="text-align: center; padding: 5px;">Founded Year</th>
+                    <th style="text-align: center; padding: 5px;">Stock Info</th>
+                    <th style="text-align: center; padding: 5px;">Revenue, Market Cap, Dividend</th>
+                    <th style="text-align: center; padding: 5px;">Other Locations</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                @foreach (var company in Companies.Where(x => x.Industry == (TravellerIndustries) industry))
+                {
+        
+                    <tr id="tableInfo">
+                        <td style="text-align: center"><a href="/other/IslandsCompany/@company.FactionName.Replace(" ","_")">@company.FactionName</a></td>
+                        <td style="text-align: center">@company.HeadquatersLocation</td>
+                        <td style="text-align: center">@company.IslandsNation [@company.SupportingNationality]</td>
+                        <td style="text-align: center">@company.CeoName</td>
+                        <td style="text-align: center">@company.FoundedYear</td>
+                        <td style="text-align: center">@company.CurrentSharePrice [@company.MinSharePrice : @company.MaxSharePrice]</td>
+                        <td style="text-align: center">@company.Revenues. @company.MarketCap. @company.DividentPercent%</td>
+                        <td style="text-align: center">@(company.HasOtherLocations()? company.GetOtherLocationName() : "None")</td>
+                    </tr>
+                }
+                                                                                            
+                </tbody>
+            </table>
+            <br/>
+        </div>
+    }
         <div>
             <h3>Fuel Industries</h3>
             <ul>
@@ -288,534 +326,75 @@
                 </li>
             </ul>
         </div>
-        <div>
-            <h3>Small Arms manufacturing</h3>
-            <ul>
-                <h2>Energy Weapons - Pistols</h2>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Adcor Defense</td><td>Waban</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Imperial-Redara</td><td>Lackawaxen</td><td>Ionia-Waskish Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>Islands-Rok</td><td>Cownansville</td><td>Rex van der Ostrovski</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-                <h2>Energy Weapons - Rifles</h2>
-                <li>
-                    <table>
-                        <thead>
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Fincantieri</td><td>Loris</td><td>Rex van der Ostrovski</td></tr>
-                            <tr id="tableInfo"><td>Fallbrook Armouries</td><td>Fallbrook</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Weskcan Energy</td><td>Weskcan</td><td>Domindate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Glasgo Electroarms</td><td>Glasgo</td><td>Rex van der Ostrovski</td></tr>
-                            <tr id="tableInfo"><td>Lacamp Commune Energy Weapons</td><td>Lacamp</td><td>Western Islands Commune</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-                <h2>Slug Weapons - Pistols</h2>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Neartek-Pistols Islands</td><td>Mabscott</td><td>Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>Colchis Killers</td><td>New Colchis</td><td>New Colchis Business Board</td></tr>
-                            <tr id="tableInfo"><td>Lacamp Lead</td><td>Lacamp</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Gunripped Guns</td><td>Gunripped</td><td>Gunripped Stellar Empire</td></tr>
-                            <tr id="tableInfo"><td>Berrsburg Armoury</td><td>Berrysburg</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>bakersville Ballistics</td><td>Bakersville</td><td>Intercourse Subsector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Kills Bril</td><td>Brill</td><td>Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td>Hammers from Hermleigh</td><td>Hermleigh</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>New Home New Weapons</td><td>New Home</td><td>Old Islands Defense League</td></tr>
-                            <tr id="tableInfo"><td>Bro ur Naught gunna Bullteave this</td><td>Bronaugh</td><td>United Baronies</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-                <h2>Slug Weapons - Rifles</h2>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Neartek-Rifles Islands</td><td>Mabscott</td><td>Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>Morriston Munintions</td><td>Morriston</td><td>Rex van der Ostrovski</td></tr>
-                            <tr id="tableInfo"><td>Hartland Rifles</td><td>Hartland</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Doswell Dukels</td><td>Doswell</td><td>Ionia-Waskish Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>Ulson and Fathers</td><td>Holmen</td><td>Rex can der Ostrovski</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Large Arms manufacturing</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                            @foreach (var company in Companies["LargeArms"])
-                            {
-                                <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                            }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Ammunition manufacturing</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Ammunition"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Armour Manufacturing</h3>
-            <ul>
+    <div>
+        <h3>Small Arms manufacturing</h3>
+        <ul>
+            <h2>Energy Weapons - Pistols</h2>
             <li>
                 <table>
                     <thead style="text-align: center; padding: 5px;">
                     <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
                     </thead>
                     <tbody style="color:#ffe81F">
-                   @foreach (var company in Companies["Armour"])
-                    {
-
-                        <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                    }
+                    <tr id="tableInfo"><td>Adcor Defense</td><td>Waban</td><td>Western Islands Commune</td></tr>
+                    <tr id="tableInfo"><td>Imperial-Redara</td><td>Lackawaxen</td><td>Ionia-Waskish Trade Pact</td></tr>
+                    <tr id="tableInfo"><td>Islands-Rok</td><td>Cownansville</td><td>Rex van der Ostrovski</td></tr>
                     </tbody>
                 </table>
             </li>
-        </ul>
-        </div>
-        <div>
-            <h3>Construction</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Construction"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Food</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Food"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Banks</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Banks"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Pharmesuiticals</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Pharmesuiticals"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-
-            <h3>Emergency Gear</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["EmergencyGear"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Toys/Trinkets</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Toys"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Media</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Media"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Wholesellars</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Wholesellars"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Communications</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Communications"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Electronics production</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["ElectronicsProduction"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-
-            <h3>Robot production</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["RobotProduction"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Commodities </h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Commodities"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>manufacturing </h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;"ead>
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Manufacturing"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-
-            <h3>Healthcare</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Healthcare"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Retail</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Retail"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Financial Institutions</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["FinancialInstitutions"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Venture Capital Firms</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["VentureCapital"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-
-            <h3>Law Firms</h3>
-        <ul>
+            <h2>Energy Weapons - Rifles</h2>
+            <li>
+                <table>
+                    <thead>
+                    <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
+                    </thead>
+                    <tbody style="color:#ffe81F">
+                    <tr id="tableInfo"><td>Fincantieri</td><td>Loris</td><td>Rex van der Ostrovski</td></tr>
+                    <tr id="tableInfo"><td>Fallbrook Armouries</td><td>Fallbrook</td><td>Dominate Supremius</td></tr>
+                    <tr id="tableInfo"><td>Weskcan Energy</td><td>Weskcan</td><td>Domindate Supremius</td></tr>
+                    <tr id="tableInfo"><td>Glasgo Electroarms</td><td>Glasgo</td><td>Rex van der Ostrovski</td></tr>
+                    <tr id="tableInfo"><td>Lacamp Commune Energy Weapons</td><td>Lacamp</td><td>Western Islands Commune</td></tr>
+                    </tbody>
+                </table>
+            </li>
+            <h2>Slug Weapons - Pistols</h2>
             <li>
                 <table>
                     <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
+                    <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
                     </thead>
                     <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["LawFirms"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
+                    <tr id="tableInfo"><td>Neartek-Pistols Islands</td><td>Mabscott</td><td>Western Islands Alliance</td></tr>
+                    <tr id="tableInfo"><td>Colchis Killers</td><td>New Colchis</td><td>New Colchis Business Board</td></tr>
+                    <tr id="tableInfo"><td>Lacamp Lead</td><td>Lacamp</td><td>Western Islands Commune</td></tr>
+                    <tr id="tableInfo"><td>Gunripped Guns</td><td>Gunripped</td><td>Gunripped Stellar Empire</td></tr>
+                    <tr id="tableInfo"><td>Berrsburg Armoury</td><td>Berrysburg</td><td>Dominate Supremius</td></tr>
+                    <tr id="tableInfo"><td>bakersville Ballistics</td><td>Bakersville</td><td>Intercourse Subsector Trade Consortium</td></tr>
+                    <tr id="tableInfo"><td>Kills Bril</td><td>Brill</td><td>Kotlik Tribunal</td></tr>
+                    <tr id="tableInfo"><td>Hammers from Hermleigh</td><td>Hermleigh</td><td>Western Islands Commune</td></tr>
+                    <tr id="tableInfo"><td>New Home New Weapons</td><td>New Home</td><td>Old Islands Defense League</td></tr>
+                    <tr id="tableInfo"><td>Bro ur Naught gunna Bullteave this</td><td>Bronaugh</td><td>United Baronies</td></tr>
+                    </tbody>
+                </table>
+            </li>
+            <h2>Slug Weapons - Rifles</h2>
+            <li>
+                <table>
+                    <thead style="text-align: center; padding: 5px;">
+                    <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
+                    </thead>
+                    <tbody style="color:#ffe81F">
+                    <tr id="tableInfo"><td>Neartek-Rifles Islands</td><td>Mabscott</td><td>Western Islands Alliance</td></tr>
+                    <tr id="tableInfo"><td>Morriston Munintions</td><td>Morriston</td><td>Rex van der Ostrovski</td></tr>
+                    <tr id="tableInfo"><td>Hartland Rifles</td><td>Hartland</td><td>United Baronies</td></tr>
+                    <tr id="tableInfo"><td>Doswell Dukels</td><td>Doswell</td><td>Ionia-Waskish Trade Pact</td></tr>
+                    <tr id="tableInfo"><td>Ulson and Fathers</td><td>Holmen</td><td>Rex can der Ostrovski</td></tr>
                     </tbody>
                 </table>
             </li>
         </ul>
-        </div>
-        <div>
-            <h3>Lobbists</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Lobbists"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Scavengers</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Scavengers"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Privateers</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                        <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                        <tr id="tableInfo"><td>NAME</td><td>LOCATION</td><td>NATION</td></tr>
-                        @foreach (var company in Companies["Privateers"])
-                        {
-                            <tr id="tableInfo"><td>@company.Name</td><td>@company.HeadquatersLocation</td><td>@company.InsideNation</td></tr>
-                        }
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
+    </div>
+        
         <div>
             <h3>Recreational Substances</h3>
             <p>Gas</p>

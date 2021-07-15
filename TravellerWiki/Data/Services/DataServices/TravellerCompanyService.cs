@@ -9,302 +9,184 @@ namespace TravellerWiki.Data.Services.DataServices
 {
     public class TravellerCompanyService
     {
-        public Dictionary<string, List<TravellerCompany>> Companies => _companies;
+        public List<TravellerCompany> Companies => _companies;
 
-        private static Dictionary<string, List<TravellerCompany>> _companies =
-            new Dictionary<string, List<TravellerCompany>>()
+        private static List<TravellerCompany> _companies =
+            new List<TravellerCompany>()
             {
-                {
-                    "LargeArms", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("Dominate Missiles", "Reedsville", "Dominate Supremius"),
-                        new TravellerCompany("Moncut Turrets", "Moncut", "United Baroniest"),
-                        new TravellerCompany("Spiritwood Bay Weapons", "Lahaina", "Spiritwood Senate"),
-                        new TravellerCompany("Ionia Spinal Weapons", "Ionia", "Ionia-Waskish Trade Pact"),
+                        new TravellerCompany("Dominate Missiles", "Reedsville", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Large_Arms_Manufacturing),
+                        new TravellerCompany("Moncut Turrets", "Moncut", TravellerIslandsNations.Independent_Baronies ,TravellerIndustries.Large_Arms_Manufacturing),
+                        new TravellerCompany("Spiritwood Bay Weapons", "Lahaina", TravellerIslandsNations.Spiritwood_Senate,TravellerIndustries.Large_Arms_Manufacturing),
+                        new TravellerCompany("Ionia Spinal Weapons", "Ionia", TravellerIslandsNations.Ionia_Waskish_Trade_Pact,TravellerIndustries.Large_Arms_Manufacturing),
                         new TravellerCompany("Hardwich Energy Weapons", "Hardwichport",
-                            "Harwichport-Simla-Parcol Trade Pact"),
-                        new TravellerCompany("Imperial Torpedoes", "Struchia", "Gunipped Stellar Empire"),
-                        new TravellerCompany("Evotis Point Defense Systems", "Evotis", "Tilova Pact")
-                    }
-                },
-                {
-                    "Ammunition", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Rison", "Jeffers-Kosse Trade Pact"),
-                        new TravellerCompany("", "Delray", "Kotlik Tribunal"),
-                        new TravellerCompany("", "Bronaugh", "United Baronies"),
-                        new TravellerCompany("", "Sumpter", "Jeffers-Kosse Trade Pact"),
-                        new TravellerCompany("", "Bellport", "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Gunripped", "Gunripped Stellar Empire"),
-                        new TravellerCompany("", "Thendara", "Intercourse Subsector Trade Consortium"),
-                        new TravellerCompany("", "Hume", "Western Islands Trade Consortium")
-                    }
-                },
-                {
-                    "Armour", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("Safe and Singer Sound Armour", "Singer", "Trade Federation"),
-                        new TravellerCompany("Preventium Pulverziatorium", "Pulcifer", "Soutern Islands Trade Consortium"),
-                        new TravellerCompany("Ricos Rough Rockers", "Esperanza", "Western Islands Allaince"),
-                        new TravellerCompany("I own Armour", "Ionia", "Soutern Islands Trade Consortium"),
-                        new TravellerCompany("Our Protective layer", "Ouray", "Trade Federation"),
-                        new TravellerCompany("Kings Tailor", "Bremerton", "Rex van der Sever"),
-                        new TravellerCompany("Protect ur Selfie", "Ionia", "Southern Islands Trade Consortium"),
-                        new TravellerCompany("Keldron Armour", "Keldron", "Western Islands Alliance"),
-                        new TravellerCompany("Acadie Clothing Imporium", "Acadie", "Independent Baronies"),
-                        new TravellerCompany("Devin's Defensive Dusters", "Camuy", "Western Islands Alliance"),
-                        new TravellerCompany("Spirit of Defense", "Immokalee", "Spiritwood Senate"),
-                        new TravellerCompany("Senatatoral Suits", "Pitts", "Spiritwood Senate"),
-                        new TravellerCompany("Southern Defensive Emporium", "Charenton", "Southern Islands Trade Federation"),
-                        new TravellerCompany("Royal Garbs", "Quichotte", "Rex van der Ostrovski"),
-                        new TravellerCompany("Tribunal Tailor", "Winnemucca", "Kotlik Tribunal"),
-                        new TravellerCompany("Tip Top Imperial Tailor", "Hazelcrest", "Dominate Supremius"),
-                        new TravellerCompany("Xiao-Will Suits and Stuff", "Willesvil", "Willsvil Trade Pact")
-                    }
-                },
-                {
-                    "Construction", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Besancon", "New Colchis Business Board"),
-                        new TravellerCompany("", "ReeDu", "Venhut Dominate States"),
-                        new TravellerCompany("", "Twining", "Rex van der Sever"),
-                        new TravellerCompany("", "Sumpter", "Rex van der Ovstrovski"),
-                        new TravellerCompany("", "Hume", "Western Islands Trade Federation"),
-                        new TravellerCompany("", "Ronks", "Dominate Supremius"),
-                        new TravellerCompany("", "Lattimore", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Nuremberg", "Western Islands Trade Federation"),
-                        new TravellerCompany("", "Chaska", "Soutern Islands Trade Federation"),
-                        new TravellerCompany("", "Bunkie", "Dominate Supremius")
-                    }
-                },
-                {
-                    "Food", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Hazelhurst", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Lithia", "Western Islands Commune"),
-                        new TravellerCompany("", "Bronaugh", "United Baronies"),
-                        new TravellerCompany("", "Pulcifer", "Intercourse Subsector Trade Consortium"),
-                        new TravellerCompany("", "Niwot", "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Kahului", "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Lahaina", "Spiritwood Senate"),
-                        new TravellerCompany("", "Etty", "Untied Baronies"),
-                        new TravellerCompany("", "Thippe464", "United Baronies"),
-                        new TravellerCompany("", "Cayey", "Kotlik Tribunal"),
-                        new TravellerCompany("", "Waskish", "Ionia-Waskish Trade Pact"),
-                        new TravellerCompany("", "Esperanza", "Esperanza Planetary Government"),
-                        new TravellerCompany("", "Cawood", "Rex van der Ostrovski")
-                    }
-                },
-                {
-                    "Banks", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("Bank of Esperanza", "Esperanza", "Esperanza Planetary Government"),
+                            TravellerIslandsNations.Harwichport_Simla_Parcol_Trade_Pact,TravellerIndustries.Large_Arms_Manufacturing),
+                        new TravellerCompany("Imperial Torpedoes", "Struchia",TravellerIslandsNations.Gunipped_Stellar_Empire ,TravellerIndustries.Large_Arms_Manufacturing),
+                        new TravellerCompany("Evotis Point Defense Systems", "Evotis", TravellerIslandsNations.Tilova_Pact,TravellerIndustries.Large_Arms_Manufacturing),
+                        
+                        new TravellerCompany("", "Rison", TravellerIslandsNations.Jeffers_Kosse_Trade_Pact,TravellerIndustries.Ammunition_Manufacturing),
+                        new TravellerCompany("", "Delray", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Ammunition_Manufacturing),
+                        new TravellerCompany("", "Bronaugh", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Ammunition_Manufacturing),
+                        new TravellerCompany("", "Sumpter", TravellerIslandsNations.Jeffers_Kosse_Trade_Pact,TravellerIndustries.Ammunition_Manufacturing),
+                        new TravellerCompany("", "Bellport", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Ammunition_Manufacturing),
+                        new TravellerCompany("", "Gunripped", TravellerIslandsNations.Gunipped_Stellar_Empire,TravellerIndustries.Ammunition_Manufacturing),
+                        new TravellerCompany("", "Thendara", TravellerIslandsNations.Intercourse_Subsector_Trade_Consortium,TravellerIndustries.Ammunition_Manufacturing),
+                        new TravellerCompany("", "Hume", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Ammunition_Manufacturing),
+                        
+                        new TravellerCompany("Safe and Singer Sound Armour", "Singer", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Preventium Pulverziatorium", "Pulcifer", TravellerIslandsNations.Southern_Islands_Trade_Consortium,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Ricos Rough Rockers", "Esperanza", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("I own Armour", "Ionia", TravellerIslandsNations.Southern_Islands_Trade_Consortium,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Our Protective layer", "Ouray", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Kings Tailor", "Bremerton", TravellerIslandsNations.Rex_Van_Der_Sever,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Protect ur Selfie", "Ionia", TravellerIslandsNations.Southern_Islands_Trade_Consortium,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Keldron Armour", "Keldron", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Acadie Clothing Imporium", "Acadie", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Devin's Defensive Dusters", "Camuy", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Spirit of Defense", "Immokalee", TravellerIslandsNations.Spiritwood_Senate,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Senatatoral Suits", "Pitts", TravellerIslandsNations.Spiritwood_Senate,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Southern Defensive Emporium", "Charenton", TravellerIslandsNations.Southern_Islands_Trade_Consortium,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Royal Garbs", "Quichotte", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Tribunal Tailor", "Winnemucca", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Tip Top Imperial Tailor", "Hazelcrest", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("Xiao-Will Suits and Stuff", "Willesvil", TravellerIslandsNations.WillsVille_Trade_Pact,TravellerIndustries.Armour_Manufacturing),
+                        new TravellerCompany("", "Besancon", TravellerIslandsNations.New_Colchis_Business_Board,TravellerIndustries.Construction),
+                        new TravellerCompany("", "ReeDu", TravellerIslandsNations.Venhut_Dominate_States,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Twining", TravellerIslandsNations.Rex_Van_Der_Sever,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Sumpter", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Hume", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Ronks", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Lattimore", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Nuremberg", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Chaska", TravellerIslandsNations.Southern_Islands_Trade_Consortium,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Bunkie", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Construction),
+                        new TravellerCompany("", "Hazelhurst", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Food),
+                        new TravellerCompany("", "Lithia", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Food),
+                        new TravellerCompany("", "Bronaugh", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Food),
+                        new TravellerCompany("", "Pulcifer", TravellerIslandsNations.Intercourse_Subsector_Trade_Consortium,TravellerIndustries.Food),
+                        new TravellerCompany("", "Niwot", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Food),
+                        new TravellerCompany("", "Kahului", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Food),
+                        new TravellerCompany("", "Lahaina", TravellerIslandsNations.Spiritwood_Senate,TravellerIndustries.Food),
+                        new TravellerCompany("", "Etty", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Food),
+                        new TravellerCompany("", "Thippe464", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Food),
+                        new TravellerCompany("", "Cayey", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Food),
+                        new TravellerCompany("", "Waskish", TravellerIslandsNations.Ionia_Waskish_Trade_Pact,TravellerIndustries.Food),
+                        new TravellerCompany("", "Esperanza", TravellerIslandsNations.Esperenza,TravellerIndustries.Food),
+                        new TravellerCompany("", "Cawood", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Food),
+                        new TravellerCompany("Bank of Esperanza", "Esperanza", TravellerIslandsNations.Esperenza,TravellerIndustries.Food),
                         new TravellerCompany("Thendara Trade Bank", "Thendara",
-                            "Intercourse Subsector Trade Consortium"),
+                            TravellerIslandsNations.Intercourse_Subsector_Trade_Consortium,TravellerIndustries.Food),
                         new TravellerCompany("Blissful banking by Blissflied", "Blissfield",
-                            "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Struchia", "Gunipped Stellar Empire")
-                    }
-                },
-                {
-                    "Pharmesuiticals", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("Janeson and Janeson", "Hitterdal", "Trade Federation"),
-                        new TravellerCompany("", "Kerkhoven", "Trade Federation"),
-                        new TravellerCompany("", "Graytown", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Nuremberg", "Trade Federation"),
-                        new TravellerCompany("", "Mabton", "Trade Federation"),
-                        new TravellerCompany("", "Griggsville", "No God Land"),
-                        new TravellerCompany("", "Bandera", "Dominate Supremius"),
-                        new TravellerCompany("", "Ouray", "Trade Federation"),
-                        new TravellerCompany("", "Trevor", "Trade Federation"),
-                        new TravellerCompany("", "Doty", "No God Land"),
-                        new TravellerCompany("", "Jeffers", "Rex van der Ostrovski")
-                    }
-                },
-                {
-                    "EmergencyGear", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Millport", "Western Islands Commune"),
-                        new TravellerCompany("", "Moko", "United Baronies"),
-                    }
-                },
-                {
-                    "Toys", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Schallere", "Western Islands Alliance"),
-                        new TravellerCompany("", "Collbran", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Rheems", "Kotlik Tribunal"),
-                        new TravellerCompany("", "Blissfield", "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Twining", "Western Islands Commune"),
-                    }
-                },
-                {
-                    "Media", new List<TravellerCompany>()
-                    {
+                            TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Food),
+                        new TravellerCompany("Janeson and Janeson", "Hitterdal", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Kerkhoven", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Graytown", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Nuremberg", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Mabton", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Griggsville", TravellerIslandsNations.No_God_Land,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Bandera", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Ouray", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Trevor", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Doty", TravellerIslandsNations.No_God_Land,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Jeffers", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Pharamesuiticals),
+                        new TravellerCompany("", "Millport", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Emergency_Gear),
+                        new TravellerCompany("", "Moko", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Emergency_Gear),
+                        new TravellerCompany("", "Schallere", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Toys_And_Trinkets),
+                        new TravellerCompany("", "Collbran", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Toys_And_Trinkets),
+                        new TravellerCompany("", "Rheems", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Toys_And_Trinkets),
+                        new TravellerCompany("", "Blissfield", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Toys_And_Trinkets),
+                        new TravellerCompany("", "Twining", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Toys_And_Trinkets),
                         new TravellerCompany("Voices From the Void", "Somewhere in the black",
-                            "The nation of your mind"),
-                        new TravellerCompany("Whipp the Truth", "Whippleville", "Western Islands Trade Consortium"),
-                        new TravellerCompany("Kosse's Kings Kommandments", "Kosse", "Jeffers-Kosse Trade Pact"),
-                        new TravellerCompany("Tales from the Tree", "Kingstree", "Western Islands Alliance"),
-                        new TravellerCompany("The Imperial Standard", "Weskan", "Dominate Supremius"),
-                        new TravellerCompany("Lickup the Facts", "Knoblick", "Western Islands Trade Consortium"),
+                            TravellerIslandsNations.None,TravellerIndustries.Media),
+                        new TravellerCompany("Whipp the Truth", "Whippleville", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Media),
+                        new TravellerCompany("Kosse's Kings Kommandments", "Kosse", TravellerIslandsNations.Jeffers_Kosse_Trade_Pact,TravellerIndustries.Media),
+                        new TravellerCompany("Tales from the Tree", "Kingstree", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Media),
+                        new TravellerCompany("The Imperial Standard", "Weskan", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Media),
+                        new TravellerCompany("Lickup the Facts", "Knoblick", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Media),
                         new TravellerCompany("Consortium News Network", "Whippleville",
-                            "Western Islands Trade Consortium"),
-                        new TravellerCompany("Prices Peridoical", "Worland", "United Baronies"),
-                        new TravellerCompany("The Strategist", "KneelDead", "Mainhair Military Republic"),
-                    }
-                },
-                {
-                    "Wholesellars", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Brill", "Kotlik Tribunal"),
-                        new TravellerCompany("", "Hume", "Western Islands Alliance"),
-                        new TravellerCompany("", "Wahpeton", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Griggsvil", "Western Islands Commune"),
-                    }
-                },
-                {
-                    "Communications", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Neubayern", "Neubayern-Topas Alliance"),
-                        new TravellerCompany("", "Trevor", "United Baronies"),
-                        new TravellerCompany("", "Kayenta", "Dominate Supremius"),
-                    }
-                },
-                {
-                    "ElectronicsProduction", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Thippe464", "Trade Federation"),
-                        new TravellerCompany("", "Rison", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Barinsvil", "Dominate Supremius"),
-                        new TravellerCompany("", "Quanah", "Western Islands Alliance"),
-                        new TravellerCompany("", "Norwell", "Dominate Supremius"),
-                        new TravellerCompany("", "Barnwell", "Trade Federation"),
-                        new TravellerCompany("", "Olitar", "Olitar Protectorate"),
-                        new TravellerCompany("", "GenSpace", "Sar-Tan Confederacy"),
-                        new TravellerCompany("", "Cadyville", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Charenton", "Soutern Islands Trade Federation"),
-                        new TravellerCompany("", "Lacamp", "No God Land"),
-                    }
-                },
-                {
-                    "RobotProduction", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Browerville", "Western Islands Alliance"),
-                        new TravellerCompany("", "Sustone", "United Baronies"),
-                        new TravellerCompany("", "Rangeley", "Dominate Supremius"),
-                        new TravellerCompany("", "Joyuse", "Western Islands Alliance"),
-                        new TravellerCompany("", "Dongeal", "Dominate Supremius"),
-                        new TravellerCompany("", "Keldron", "Western Islands Alliance"),
-                    }
-                },
-                {
-                    "Commodities", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Spiritwood", "Spiritwood Senate"),
-                        new TravellerCompany("", "ReeDu", "Venhut Dominate States"),
-                        new TravellerCompany("", "Kotlik", "Kotlik Tribunal"),
-                        new TravellerCompany("", "Oran", "Dominate Supremius"),
-                    }
-                },
-                {
-                    "Manufacturing", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Lithia", "Western Islands Commune"),
-                        new TravellerCompany("", "Harwichport", "Harwichport-Simla-Parcoal Trade Pact"),
-                        new TravellerCompany("", "Garbreeze", "Mainhair Military Republic"),
-                        new TravellerCompany("", "Nebelwelt", "New Colchis Business Board"),
-                        new TravellerCompany("", "Vandiver", "United Baronies"),
-                        new TravellerCompany("", "Uphitera", "Western Islands Commune"),
-                    }
-                },
-                {
-                    "Healthcare", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Essig", "Essig Kitarchy"),
-                        new TravellerCompany("Tokeland Imperial Hopsital", "Tokeland", "Dominate Supremius"),
-                    }
-                },
-                {
-                    "Retail", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Collbran", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Jonancy", "Western Islands Trade Federation"),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                        new TravellerCompany("", "", ""),
-                    }
-                },
-                {
-                    "FinancialInstitutions", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Kenduskeag", "United Baronies"),
-                        new TravellerCompany("", "Kotlik", "Kotlil Tribunal"),
-                    }
-                },
-                {
-                    "VentureCapital", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Elysee", "New Colchis Business Board"),
-                        new TravellerCompany("", "Stryker", "Kotlik Tribunal"),
-                        new TravellerCompany("", "Hutto", "United Baronies"),
-                        new TravellerCompany("", "Levant", "Rex van der Ostrovski"),
-                        new TravellerCompany("", "Bakersville", "Intercourse Subsector Trade Consortium"),
-                    }
-                },
-                {
-                    "LawFirms", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Kerkhoven", "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Charenton", "United Baronies"),
-                        new TravellerCompany("", "Bakersville", "Intercourse Subsector Trade Consortium"),
-                        new TravellerCompany("", "Knoxboro", "Western Islands Commune"),
-                    }
-                },
-                {
-                    "Lobbists", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("", "Ittabena", "Western Islands Commune"),
-                        new TravellerCompany("", "Hume", "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Terrell", "United Baronies"),
-                        new TravellerCompany("", "Pitts", "Spiritwood Senate"),
-                        new TravellerCompany("", "Gurnee", "Western Islands Trade Consortium"),
-                        new TravellerCompany("", "Topas", "Neubayern-Topas Alliance"),
-                    }
-                },
-                {
-                    "Scavengers", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("Grabbin from Bladin", "Bladin", "Citra Subsector Trade Constortium"),
-                        new TravellerCompany("Pickin for Plumtree", "Plumtree", "Dominate Supremius"),
-                        new TravellerCompany("Scavs from Sansterre", "Sansterre", "Indpendent Defense Federation"),
-                    }
-                },
-                {
-                    "Privateers", new List<TravellerCompany>()
-                    {
-                        new TravellerCompany("Essig Hunters", "Essig", "Essig Kitarchy"),
-                        new TravellerCompany("Garrisonville Privateers", "Garrisonville", "United Baronies"),
-                        new TravellerCompany("Sons of Drilions", "Drilion8JA", "Tilova Pact"),
-                        new TravellerCompany("BodeyWak Boys", "BodeyWak", "Venhut Dominate States"),
-                        new TravellerCompany("Nuken Home", "New Home", "Old Islands Defense League"),
-                        new TravellerCompany("Rushforth for money!", "Rushford", "Dominate Supremius"),
-                        new TravellerCompany("Hunnelwell Hunters", "Hunnelwell", "Dominate Supremius"),
-                        new TravellerCompany("Spiritwood Soldiers", "Spiritwood", "Spiritwood Senate"),
+                            TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Media),
+                        new TravellerCompany("Prices Peridoical", "Worland", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Media),
+                        new TravellerCompany("The Strategist", "KneelDead", TravellerIslandsNations.Mainhair_Military_Republic,TravellerIndustries.Media),
+
+                        new TravellerCompany("", "Brill", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Wholesellears),
+                        new TravellerCompany("", "Hume", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Wholesellears),
+                        new TravellerCompany("", "Wahpeton", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Wholesellears),
+                        new TravellerCompany("", "Griggsvil", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Wholesellears),
+                        new TravellerCompany("", "Neubayern", TravellerIslandsNations.Neubayern_Topas_Alliance,TravellerIndustries.Communications),
+                        new TravellerCompany("", "Trevor", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Communications),
+                        new TravellerCompany("", "Kayenta", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Communications),
+                        new TravellerCompany("", "Thippe464", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Rison", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Barinsvil", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Quanah", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Norwell", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Barnwell", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Olitar", TravellerIslandsNations.Olitar_Protectorate,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "GenSpace", TravellerIslandsNations.Sar_Tan_Confederacy,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Cadyville", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Charenton", TravellerIslandsNations.Southern_Islands_Trade_Consortium,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Lacamp", TravellerIslandsNations.No_God_Land,TravellerIndustries.Eletronics_Production),
+                        new TravellerCompany("", "Browerville", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Robot_Production),
+                        new TravellerCompany("", "Sustone", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Robot_Production),
+                        new TravellerCompany("", "Rangeley", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Robot_Production),
+                        new TravellerCompany("", "Joyuse", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Robot_Production),
+                        new TravellerCompany("", "Dongeal", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Robot_Production),
+                        new TravellerCompany("", "Keldron", TravellerIslandsNations.Western_Islands_Alliance,TravellerIndustries.Robot_Production),
+                        new TravellerCompany("", "Spiritwood", TravellerIslandsNations.Spiritwood_Senate,TravellerIndustries.Commodities),
+                        new TravellerCompany("", "ReeDu", TravellerIslandsNations.Venhut_Dominate_States,TravellerIndustries.Commodities),
+                        new TravellerCompany("", "Kotlik", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Commodities),
+                        new TravellerCompany("", "Oran", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Commodities),
+                        new TravellerCompany("", "Lithia", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Manufacturing),
+                        new TravellerCompany("", "Harwichport", TravellerIslandsNations.Harwichport_Simla_Parcol_Trade_Pact,TravellerIndustries.Manufacturing),
+                        new TravellerCompany("", "Garbreeze", TravellerIslandsNations.Mainhair_Military_Republic,TravellerIndustries.Manufacturing),
+                        new TravellerCompany("", "Nebelwelt", TravellerIslandsNations.New_Colchis_Business_Board,TravellerIndustries.Manufacturing),
+                        new TravellerCompany("", "Vandiver", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Manufacturing),
+                        new TravellerCompany("", "Uphitera", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Manufacturing),
+                        new TravellerCompany("", "Essig", TravellerIslandsNations.Essia_Kitarchy,TravellerIndustries.Healthcare),
+                        new TravellerCompany("Tokeland Imperial Hopsital", "Tokeland", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Healthcare),
+                        new TravellerCompany("", "Collbran", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Retail),
+                        new TravellerCompany("", "Jonancy", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "", TravellerIslandsNations.None,TravellerIndustries.Retail),
+                        new TravellerCompany("", "Kenduskeag", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Financial_Instituions),
+                        new TravellerCompany("", "Kotlik", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Financial_Instituions),
+                        new TravellerCompany("", "Elysee", TravellerIslandsNations.New_Colchis_Business_Board,TravellerIndustries.Venture_Capital_Firms),
+                        new TravellerCompany("", "Stryker", TravellerIslandsNations.Kotlik_Tribunal,TravellerIndustries.Venture_Capital_Firms),
+                        new TravellerCompany("", "Hutto", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Venture_Capital_Firms),
+                        new TravellerCompany("", "Levant", TravellerIslandsNations.Rex_Van_Der_Ostrovski,TravellerIndustries.Venture_Capital_Firms),
+                        new TravellerCompany("", "Bakersville", TravellerIslandsNations.Intercourse_Subsector_Trade_Consortium,TravellerIndustries.Venture_Capital_Firms),
+                        new TravellerCompany("", "Kerkhoven", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Law_Firms),
+                        new TravellerCompany("", "Charenton", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Law_Firms),
+                        new TravellerCompany("", "Bakersville", TravellerIslandsNations.Intercourse_Subsector_Trade_Consortium,TravellerIndustries.Law_Firms),
+                        new TravellerCompany("", "Knoxboro", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Law_Firms),
+                        new TravellerCompany("", "Ittabena", TravellerIslandsNations.Western_Islands_Commune,TravellerIndustries.Lobbying),
+                        new TravellerCompany("", "Hume", TravellerIslandsNations.Western_Islands_Trade_Federation ,TravellerIndustries.Lobbying),
+                        new TravellerCompany("", "Terrell", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Lobbying),
+                        new TravellerCompany("", "Pitts", TravellerIslandsNations.Spiritwood_Senate,TravellerIndustries.Lobbying),
+                        new TravellerCompany("", "Gurnee", TravellerIslandsNations.Western_Islands_Trade_Federation,TravellerIndustries.Lobbying),
+                        new TravellerCompany("", "Topas", TravellerIslandsNations.Neubayern_Topas_Alliance,TravellerIndustries.Lobbying),
+                        new TravellerCompany("Grabbin from Bladin", "Bladin", TravellerIslandsNations.Citra_Subsector_Trade_Constortium,TravellerIndustries.Scavengers),
+                        new TravellerCompany("Pickin for Plumtree", "Plumtree", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Scavengers),
+                        new TravellerCompany("Scavs from Sansterre", "Sansterre", TravellerIslandsNations.Independent_Defense_Federation,TravellerIndustries.Scavengers),
+                        new TravellerCompany("Essig Hunters", "Essig", TravellerIslandsNations.Essia_Kitarchy,TravellerIndustries.Privateers),
+                        new TravellerCompany("Garrisonville Privateers", "Garrisonville", TravellerIslandsNations.Independent_Baronies,TravellerIndustries.Privateers),
+                        new TravellerCompany("Sons of Drilions", "Drilion8JA", TravellerIslandsNations.Tilova_Pact,TravellerIndustries.Privateers),
+                        new TravellerCompany("BodeyWak Boys", "BodeyWak", TravellerIslandsNations.Venhut_Dominate_States,TravellerIndustries.Privateers),
+                        new TravellerCompany("Nuken Home", "New Home", TravellerIslandsNations.Old_Islands_Defense_League,TravellerIndustries.Privateers),
+                        new TravellerCompany("Rushforth for money!", "Rushford", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Privateers),
+                        new TravellerCompany("Hunnelwell Hunters", "Hunnelwell", TravellerIslandsNations.Dominate_Supremius,TravellerIndustries.Privateers),
+                        new TravellerCompany("Spiritwood Soldiers", "Spiritwood", TravellerIslandsNations.Spiritwood_Senate,TravellerIndustries.Privateers),
                         new TravellerCompany("Hoopeston Hoppers", "Hoopeston",
-                            "Intercourse Subsector Trade Consortium"),
-                    }
-                }
+                            TravellerIslandsNations.Intercourse_Subsector_Trade_Consortium, TravellerIndustries.Privateers),
             };
     }
 }

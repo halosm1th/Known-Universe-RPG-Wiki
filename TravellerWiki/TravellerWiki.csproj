@@ -12,6 +12,9 @@
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssueArticleComponent.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\Other\IslandsCompany.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

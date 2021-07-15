@@ -9,16 +9,20 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Fixed a small bug with a switch statement">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerCompany.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerIndustries.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerIslandsNations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidIssue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidIssue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/TravellerNameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/TravellerNameService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/TravellerCompany.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/TravellerUniverseSystem/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/TravellerUniverseSystem/World.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/NameLists/BritanniaNameList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/NameLists/BritanniaNameList.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +49,16 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/16B/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3A/ComponentState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/39/RemoteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/_Host.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Languages/HighVersianLangaugeRoot.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Other/IslandsCompanies.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -88,9 +90,19 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyiService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Startup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/IslandsNations.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/TravellerUniverseSystem/World.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/TravellerCompany.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/TravellerFaction.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerIslandsNations.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerCompany.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/TravellerNameService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/NameLists/BritanniaNameList.txt" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -108,7 +120,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.VB.NET" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.CareerCreator">
@@ -281,7 +293,9 @@
       <workItem from="1625616773219" duration="2142000" />
       <workItem from="1625718360307" duration="7623000" />
       <workItem from="1626067715674" duration="3810000" />
-      <workItem from="1626207492012" duration="17204000" />
+      <workItem from="1626207492012" duration="18714000" />
+      <workItem from="1626283862496" duration="3704000" />
+      <workItem from="1626302377698" duration="8674000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -325,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626219144224</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a new voices from the Void issue, and some articles to it.">
+      <created>1626248372590</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1626248372590</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +373,8 @@
     <MESSAGE value="Fixed a font bug?" />
     <MESSAGE value="More font fixes!" />
     <MESSAGE value="Fixed a small bug with a switch statement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a small bug with a switch statement" />
+    <MESSAGE value="Added a new voices from the Void issue, and some articles to it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new voices from the Void issue, and some articles to it." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

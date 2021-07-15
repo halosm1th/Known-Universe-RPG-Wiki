@@ -65,12 +65,12 @@ namespace TravellerWiki.Data
 
         private static Random rand = new Random();
 
-        private NationNameList GetRandomNation()
+        public NationNameList GetRandomNation()
         {
             var listOfNames = Enum.GetValues(typeof(TravellerNameService.NationNameList)).Length;
             return (TravellerNameService.NationNameList)rand.Next(0, listOfNames);
         }
-
+        
         public List<string> GetNames(int numberOfNames, NationNameList nation)
         {
 

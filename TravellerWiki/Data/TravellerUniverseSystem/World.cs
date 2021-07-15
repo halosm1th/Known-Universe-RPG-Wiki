@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using TravellerWiki.Data;
 
 namespace TravellerUniverse
 {
@@ -131,7 +132,7 @@ namespace TravellerUniverse
         [JsonProperty("WorldName")] public string Name { get; set; }
 
         [JsonProperty("WorldControllingFaction")]
-        public string ControllingFaction { get; set; }
+        public TravellerIslandsNations ControllingFaction { get; set; }
 
         [JsonProperty("WorldStarportQuality")] public StarportQuality StarportQuality { get; set; }
         [JsonProperty("WorldSize")] public WorldSize WorldSize;
@@ -218,7 +219,7 @@ namespace TravellerUniverse
         public World(string name, int x, int y,
             StarportQuality starportQuality, WorldSize worldSize, WorldAtmosphere worldAtmosphere,
             int worldHydrographics, int governmentType, int population, int lawLevel, int techLevel,
-            string controllingFaction, Quirks quirk, Temperatures temperature,
+            TravellerIslandsNations controllingFaction, Quirks quirk, Temperatures temperature,
             List<(int GovernmentType, FactionSize Strength, string Backer)> factions,
              bool militaryBase, bool gasGiant, bool otherBase, string ExactPop)
         {
