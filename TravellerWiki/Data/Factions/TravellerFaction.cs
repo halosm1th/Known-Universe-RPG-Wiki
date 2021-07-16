@@ -2,32 +2,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.SimpleWikiClasses;
+using TravellerWiki.Pages.Generators;
 
 namespace TravellerWiki.Data
 {
     public class TravellerFaction
     {
+        private static int _factionID = 10000;
+        public int FactionID { get; }
         public string FactionName { get; protected set; }
-        public string FactionHeadName { get; protected set; }
+        public string FactionHeadName => FactionHead.Name;
         public string HeadquatersLocation { get; }
         public List<string> OtherOwnedLocations { get; }
         public TravellerDateTime FoundedYear { get; }
         public TravellerIslandsNations IslandsNation { get; }
         public TravellerNationalities SupportingNationality { get; }
 
-        protected Random _randomGenerator;
+        public TravellerNPC FactionHead { get; }
+        public List<TravellerNPC> FactionMembers { get; }
+        protected Random _randomGenerator { get; }
 
-        public TravellerFaction(string factionName, string headquatersLocation, TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality, string factionHeadName, List<string> otherOwnedLocations, TravellerDateTime foundedYear)
+        public TravellerFaction(string factionName, string headquatersLocation, TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality, 
+            string factionHeadName, List<string> otherOwnedLocations, TravellerDateTime foundedYear, 
+            TravellerNPC factionHead = null, List<TravellerNPC> factionMembers = null)
         {
             FactionName = factionName;
-            FactionHeadName = factionHeadName;
             HeadquatersLocation = headquatersLocation;
             OtherOwnedLocations = otherOwnedLocations;
             FoundedYear = foundedYear;
             IslandsNation = islandsNation;
             SupportingNationality = supportingNationality;
+            FactionHead = factionHead;
+            FactionMembers = factionMembers;
+            FactionID = GenerateFactionID();
+            
             var factionSeed = factionName.Aggregate(0, (h, t) => h + t) 
                               + headquatersLocation.Aggregate(0, (h, t) => h + t)
                               + (int) IslandsNation 
@@ -37,7 +48,7 @@ namespace TravellerWiki.Data
             
             if (string.IsNullOrEmpty(factionHeadName))
             {
-                FactionHeadName = GetNames(1,TravellerNameService.GetNationalitiesNameList(supportingNationality)).First();
+                factionHeadName = GetNames(1,TravellerNameService.GetNationalitiesNameList(supportingNationality)).First();
             }
 
             if (foundedYear == null)
@@ -45,6 +56,33 @@ namespace TravellerWiki.Data
                 FoundedYear = new TravellerDateTime(_randomGenerator.Next(1, 32), _randomGenerator.Next(1, 13), 83,
                     _randomGenerator.Next(390 - 50, 391));
             }
+
+            if (factionHead == null)
+            {
+                var npcGenerator = new TravellerNPCService();
+                FactionHead = npcGenerator.GenerateNPC(factionHeadName,factionName.Aggregate(0,(h,t) => h+t));
+            }
+
+            if (factionMembers == null)
+            {
+                FactionMembers = new List<TravellerNPC>();
+                var npcGenerator = new TravellerNPCService();
+                
+                int factionMemberCount = _randomGenerator.Next(0, 11);
+                for (int i = 0; i < factionMemberCount; i++)
+                {
+                    var memberName = GetNames(1,TravellerNameService.GetNationalitiesNameList(supportingNationality)).First();
+                    
+                    FactionMembers.Add(npcGenerator.GenerateNPC(memberName,memberName.Aggregate(0,(h,t) => h+t)));
+                }
+            }
+        }
+
+        private int GenerateFactionID()
+        {
+            int id = _factionID;
+            _factionID++;
+            return id;
         }
         
         private TravellerNameService.NationNameList GetRandomNation()

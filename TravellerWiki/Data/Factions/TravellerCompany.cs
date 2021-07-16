@@ -102,7 +102,7 @@ namespace TravellerWiki.Data
         {
             return $"{FactionName} was founded in {FoundedYear}, and its main industry is {Industry.ToString().Replace("_"," ")}. It is headquartered on {HeadquatersLocation} and its CEO is named {CeoName}. " +
                    $"The company operates under the laws of {IslandsNation.ToString().Replace("_"," ")} but its parent/partner company is in {SupportingNationality.ToString().Replace("_"," ")}. " +
-                   $"The Companies current Share Price is [Cr: {CurrentSharePrice} Min: {MinSharePrice} Max: {MaxSharePrice}], it makes Cr {Revenues}/Year, pays a dividend of {DividentPercent}%, and has a market cap of {MarketCap}. " +
+                   $"The Companies current Share Price is [Cr: {CurrentSharePrice} Min: {MinSharePrice} Max: {MaxSharePrice}], it makes Cr {Revenues}/Year, pays a dividend of {DividentPercent}%, and has a market cap of Cr {MarketCap}. " +
                    $"{(HasOtherLocations()? $"{FactionName} also operates facilities on: {GetOtherLocationName()}." : "")}";
         }
     }

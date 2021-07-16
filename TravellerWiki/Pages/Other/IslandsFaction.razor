@@ -1,0 +1,43 @@
+@page "/Other/IslandsFaction/{FactionID}"
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services.DataServices
+@inject TravellerCompanyService _companyService
+
+@code{
+    [Parameter]
+    public string FactionID { get; set; }
+
+    private TravellerFaction _faction = null;
+    
+    public TravellerFaction GetFaction()
+    {
+        int factionID = 999;
+        if (_faction == null)
+        {
+            if (!int.TryParse(FactionID, out factionID))
+            {
+                factionID = 1000;
+            }
+            
+            _faction = _companyService.Companies.First(x => x.FactionID==factionID);
+        }
+
+        return _faction;
+    }
+
+}
+<head>
+    <title>Islands Faction - @GetFaction().FactionName </title>
+</head>
+
+<h1>@GetFaction().FactionName</h1>
+<p>@GetFaction()</p>
+<h3>Important People: </h3>
+<ul style="background-color: rgb(244, 232, 31)">
+    <li  style="color: black;">Head: <span title="@GetFaction().FactionHead.ToString()"> @GetFaction().FactionHead.Name </span></li>
+    @foreach (var member in GetFaction().FactionMembers)
+    {
+        <li><span style="color: black;" title="@member.ToString()">@member.PatronText:  @member.Name [@member.ShortUPP()]  (@member.Background @member.Career)</span></li>
+    }
+</ul>
+<a href="/Other/IslandsCompanies">Back to Company List</a>

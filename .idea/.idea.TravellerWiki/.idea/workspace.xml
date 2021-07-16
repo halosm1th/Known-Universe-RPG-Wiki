@@ -9,17 +9,72 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Started working on Traveller Faction stuff">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsFaction.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/FederationFlag.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Charcters/TravellerNPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Charcters/TravellerNPC.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerCompany.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerCompany.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/NameLists/BritanniaNameList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/NameLists/BritanniaNameList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/NameLists/FederationNameList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/NameLists/FederationNameList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/NameLists/GermushianNameList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/NameLists/GermushianNameList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/NameLists/XiaoMingNameList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/NameLists/XiaoMingNameList.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/Career.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/Career.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/CharacterCreationRules.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/CharacterCreationRules.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/CharacterSkills.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/CharacterSkills.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/NationInfoPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/NationInfoPage.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/ViewTravellerCharacter.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/ViewTravellerCharacter.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/ViewTravellerCharacters.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/ViewTravellerCharacters.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Galaxies/Asselyum.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Galaxies/Asselyum.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Galaxies/Dewara.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Galaxies/Dewara.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerComplexNPCGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerComplexNPCGenerator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerMissionGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerMissionGenerator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNPCCrafter.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNPCCrafter.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNPCGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNPCGenerator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNameGenerator.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerNameGenerator.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerSpecialNPCGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerSpecialNPCGenerator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerSpellCreator.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerSpellCreator.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Islands_Sector.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Islands_Sector.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/CircleMagic.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/CircleMagic.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/CoreMechanics.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/CoreMechanics.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/Curse.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/Curse.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/FreeFormMagic.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/FreeFormMagic.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/HouseRules.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/HouseRules.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/MagicSystems.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/MagicSystems.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/Perils.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/Perils.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/Rules.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/Rules.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/SpecializedMagic.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Rules/SpecializedMagic.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Citra.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Citra.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Doland.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Doland.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Intercourse.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Intercourse.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Kendrick.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Kendrick.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_New_Islands.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_New_Islands.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Old_Islands.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Old_Islands.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Olivehurst.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Olivehurst.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_Wastes_1.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_Wastes_1.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_Wastes_2.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_Wastes_2.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_Wastes_3.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_Wastes_3.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_wastes_4.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Oren_wastes_4.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Payette.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Payette.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Stacyville.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Stacyville.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Wallwern.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Wallwern.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Wynona.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Wynona.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Zaleski.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Subsectors/Subsector_Zaleski.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoid.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoid.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlesPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlesPage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/ChurchOfSigmar.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/ChurchOfSigmar.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Deutschland.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Deutschland.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/IVFT.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/IVFT.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/UCM.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/UCM.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/UFE.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/UFE.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Vers.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Vers.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/_Host.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +101,18 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/16B/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3A/ComponentState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/Factions/TravellerFaction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/39/RemoteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/A/HtmlRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -75,7 +131,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidArticle.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlesPage.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssueArticleComponent.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/_Host.cshtml" />
       <option value="$PROJECT_DIR$/TravellerWiki/wwwroot/css/site.css" />
@@ -85,7 +140,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidIssue.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue2.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyiService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Startup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
@@ -99,11 +153,18 @@
       <option value="$PROJECT_DIR$/TravellerWiki/NameLists/BritanniaNameList.txt" />
       <option value="$PROJECT_DIR$/TravellerWiki/NameLists/GermushianNameList.txt" />
       <option value="$PROJECT_DIR$/TravellerWiki/NameLists/XiaoMingNameList.txt" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Charcters/TravellerNPC.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerCompany.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/Career.cshtml" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/UFE.razor" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -296,7 +357,9 @@
       <workItem from="1626067715674" duration="3810000" />
       <workItem from="1626207492012" duration="18714000" />
       <workItem from="1626283862496" duration="3704000" />
-      <workItem from="1626302377698" duration="14666000" />
+      <workItem from="1626302377698" duration="14834000" />
+      <workItem from="1626325547643" duration="43000" />
+      <workItem from="1626389067406" duration="4835000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -354,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626319225131</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Made corporation stuff">
+      <created>1626325316536</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1626325316536</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +453,8 @@
     <MESSAGE value="Fixed a small bug with a switch statement" />
     <MESSAGE value="Added a new voices from the Void issue, and some articles to it." />
     <MESSAGE value="Started working on Traveller Faction stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started working on Traveller Faction stuff" />
+    <MESSAGE value="Made corporation stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made corporation stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

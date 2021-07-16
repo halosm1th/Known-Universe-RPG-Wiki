@@ -31,6 +31,18 @@ namespace TravellerWiki.Data.Charcters
         public string QuirkText { get; set; }
 
 
+        public string ShortUPP()
+        {
+            var sb = new StringBuilder();
+            sb.Append(Strength.AttributeHex);
+            sb.Append(Dexterity.AttributeHex);
+            sb.Append(Endurance.AttributeHex);
+            sb.Append(Intelligence.AttributeHex);
+            sb.Append(Education.AttributeHex);
+            sb.Append(Social.AttributeHex);
+            return sb.ToString();
+        }
+        
         public string UPP()
         {
             var sb = new StringBuilder();

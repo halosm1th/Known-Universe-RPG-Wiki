@@ -530,9 +530,12 @@ namespace TravellerWiki.Data
 
         private List<string> PatronTypeList = new List<string>()
         {
-            "Assassin","Merchant","Smuggler","Free Trader","Terrorist","Broker","Embezzler","Corporate Executive","Thief",
-            "Corporate Agent","Revolutionary","Financier","Clerk","Belter","Administrator","Researcher","Mayor","Naval Officer","Minor Noble","Pilot","Physician","Starport Administrator",
-            "Tribal Leader","Scout","Diplomat","Alien","Courier","Playboy","Spy","Stowaway","Ambassador","Family Relative","Noble","Agent of a Foreign Power","Police Officer","Imperial Agent"
+            "Assassin","Merchant","Smuggler","Free Trader","Terrorist","Broker","Embezzler","Corporate Executive",
+            "Thief", "Corporate Agent","Revolutionary","Financier","Clerk","Belter","Administrator","Researcher",
+            "Mayor","Naval Officer","Minor Versian Noble","Pilot","Physician","Starport Administrator", "Tribal Leader",
+            "Scout","Diplomat","Alien","Courier","Playboy","Spy","Stowaway","Ambassador","Family Relative","Noble",
+            "Agent of a Foreign Power","Police Officer","Imperial Agent", "Sigmarian Preacher", "Minor Federation Noble",
+            "Traitor","Ripperdoc","Hacker","Punk","Magic User","Spiritual Advisor","Fixer", "Journalist","Influencer"
         };
 
         private List<string> CharacterQuirkList = new List<string>()
@@ -629,8 +632,14 @@ namespace TravellerWiki.Data
             return npcList;
         }
 
-        public TravellerNPC GenerateNPC(string name)
+        public TravellerNPC GenerateNPC(string name, int seed = default)
         {
+            if (seed == default)
+            {
+                seed = rand.Next();
+            }
+
+            rand = new Random(seed);
             var background = (TravellerNPCBackgrounds) rand.Next(0, 8);
             var career = (TravellerNPCCareers) rand.Next(0, 16);
             var npc = GenerateNPC(name, background, career,null);
