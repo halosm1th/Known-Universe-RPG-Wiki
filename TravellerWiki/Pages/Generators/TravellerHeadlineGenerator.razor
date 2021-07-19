@@ -203,6 +203,14 @@
             var companies = _factionService.Factions.Where(x => x is TravellerOtherGroup).ToList();
             factionName = GetFactionNameText(random, companies);
             
+        }else if (faction == FactionTypes.Nation)
+        {
+            var nations = _factionService.Factions.Where(x => x is TravellerNationGroup).ToList();
+            factionName = GetFactionNameText(random,nations);
+        }else if (faction == FactionTypes.MajorNation)
+        {
+            var nations = _factionService.Factions.Where(x => x is TravellerMajorNationGroup).ToList();
+            factionName = GetFactionNameText(random,nations);
         }
         else
         {

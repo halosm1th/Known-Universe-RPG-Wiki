@@ -179,10 +179,10 @@
     
     @if (Faction == null)
     {
-        <p><button @onclick="@CreateCriminalGroup">Create Criminal Group</button></p>
+        <p><button @onclick="@CreateCriminalGroup">Create Professional Group</button></p>
     }
     else
     {
-        <p><button onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Religions Json</button> <button @onclick="@SaveFaction">Add Religion</button></p>
+        <p><button onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Factions Json</button> <button @onclick="@SaveFaction">Add Faction</button></p>
     }
 </div>

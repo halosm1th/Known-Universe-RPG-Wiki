@@ -65,83 +65,43 @@ namespace TravellerWiki.Data.Services.DataServices
             var companyPath = Directory.GetCurrentDirectory() + "/Factions/Companies.json";
             var religionPath = Directory.GetCurrentDirectory() + "/Factions/Religions.json";
             var crimePath = Directory.GetCurrentDirectory() + "/Factions/Criminals.json";
-            var socialPath = Directory.GetCurrentDirectory() + "/Factions/Socials.json";
             var legalPath = Directory.GetCurrentDirectory() + "/Factions/Legals.json";
+            var politicalPath = Directory.GetCurrentDirectory() + "/Factions/Politicals.json";
             
             var classPath = Directory.GetCurrentDirectory() + "/Factions/Classes.json";
-            var politicalPath = Directory.GetCurrentDirectory() + "/Factions/Politicals.json";
             var otherPath = Directory.GetCurrentDirectory() + "/Factions/Others.json";
+            var socialPath = Directory.GetCurrentDirectory() + "/Factions/Socials.json";
             var majorGovPath = Directory.GetCurrentDirectory() + "/Factions/Majors.json";
             var islandGodPath = Directory.GetCurrentDirectory() + "/Factions/Islands.json";
 
-            // File.WriteAllText(path,JsonConvert.SerializeObject(GetCodeFactions()));
-            
-            //return new List<TravellerFaction>();
+            var factions = new List<TravellerFaction>();
+           AddToFactionList<TravellerCompany>(factions, companyPath);
+           AddToFactionList<TravellerSocialGroup>(factions, socialPath);
+           AddToFactionList<TravellerPoliticalGroup>(factions, politicalPath);
+           AddToFactionList<TravellerReligion>(factions, religionPath);
+           AddToFactionList<TravellerOtherGroup>(factions,otherPath);
+           AddToFactionList<TravellerCrimeGroup>(factions,crimePath);
+           AddToFactionList<TravellerProfessionalGroup>(factions,legalPath);
+           AddToFactionList<TravellerClassGroup>(factions,classPath);
+           AddToFactionList<TravellerMajorNationGroup>(factions,majorGovPath);
+           AddToFactionList<TravellerNationGroup>(factions,islandGodPath);
 
-            var travellerCompaniesJson = JsonConvert.DeserializeObject<List<TravellerCompany>>(File.ReadAllText(companyPath));
-            var travellerReligionsJson = JsonConvert.DeserializeObject<List<TravellerReligion>>(File.ReadAllText(religionPath));
-            var travellerCrimeJson = JsonConvert.DeserializeObject<List<TravellerCrimeGroup>>(File.ReadAllText(crimePath));
-            var travellerSocialJson = JsonConvert.DeserializeObject<List<TravellerSocialGroup>>(File.ReadAllText(socialPath));
-            var travellerLegalJson = JsonConvert.DeserializeObject<List<TravellerProfessionalGroup>>(File.ReadAllText(legalPath));
-
-            var travellerClassJson = JsonConvert.DeserializeObject<List<TravellerClassGroup>>(File.ReadAllText(classPath));
-            var travellerPoliticalJson = JsonConvert.DeserializeObject<List<TravellerPoliticalGroup>>(File.ReadAllText(politicalPath));
-            var travellerOtherJson = JsonConvert.DeserializeObject<List<TravellerOtherGroup>>(File.ReadAllText(otherPath));
-//            var travellerJson = JsonConvert.DeserializeObject<List<TravellerReligion>>(File.ReadAllText());
-//            var travellerJson = JsonConvert.DeserializeObject<List<TravellerReligion>>(File.ReadAllText());
-
-           var factions = new List<TravellerFaction>();
-           
-           foreach (var result in travellerCompaniesJson)
-           {
-             factions.Add(result);
-             //Increment the ID
-             TravellerFaction.GetNextID();
-           }
-           
-           foreach (var result in travellerReligionsJson)
-           {
-               factions.Add(result);
-               TravellerFaction.GetNextID();
-           }
-           
-           foreach (var result in travellerCrimeJson)
-           {
-               factions.Add(result);
-               TravellerFaction.GetNextID();
-           }
-           
-           foreach (var result in travellerSocialJson)
-           {
-               factions.Add(result);
-               TravellerFaction.GetNextID();
-           }
-           
-           foreach (var result in travellerLegalJson)
-           {
-               factions.Add(result);
-               TravellerFaction.GetNextID();
-           }
-           
-           foreach (var result in travellerClassJson)
-           {
-               factions.Add(result);
-               TravellerFaction.GetNextID();
-           }
-           
-           foreach (var result in travellerPoliticalJson)
-           {
-               factions.Add(result);
-               TravellerFaction.GetNextID();
-           }
-
-           foreach (var result in travellerOtherJson)
-           {
-               factions.Add(result);
-               TravellerFaction.GetNextID();
-           }
-           
            return factions;
+        }
+        
+        private static void AddToFactionList<T>(List<TravellerFaction> factions, string path)
+        {
+            var travellerCompaniesJson = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path));
+
+            foreach (var result in travellerCompaniesJson ?? new List<T>())
+            {
+                if (result is TravellerFaction)
+                {
+                    var r = result as TravellerFaction;
+                    factions.Add(r);
+                    TravellerFaction.GetNextID();
+                }
+            }
         }
 
         private static List<TravellerFaction> GetFactions()

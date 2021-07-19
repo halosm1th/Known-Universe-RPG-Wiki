@@ -22,6 +22,8 @@ namespace TravellerWiki.Data.Factions
         }
         public int FactionID { get; set; }
         public string FactionName { get; set; }
+
+        [JsonIgnore] public string FactionNameLink => $"[{FactionName}](/Factions/IslandsFaction/{FactionID})";
         
         [JsonIgnore]
         public string FactionHeadName => FactionHead.Name;
