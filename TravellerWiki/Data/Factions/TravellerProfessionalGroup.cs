@@ -20,14 +20,14 @@ namespace TravellerWiki.Data.Factions
         
         public override string ToString()
         {
-            string factionType = "Profession";
+            string factionType = "Professionial Group";
             
             return
                 $"The {factionType} known as {FactionName} first came to prominence in the Islands in {FoundedYear} on {HeadquatersLocation}. It is currently headed by {FactionHead.Name}" +
                 $"and it functions as a part of the {IslandsNation.ToString().Replace("_", " ")} with help from {SupportingNationality.ToString().Replace("_"," ")}." +
                 $"This {factionType} has {PoliticalSway.ToString().Replace("_", " ")} political sway. " +
                 $"{EconomicSway.ToString().Replace("_", " ")} economic sway, " +
-                $"and {SocialSway.ToString().Replace("_", " ")} social sway within the {IslandsNation.ToString().Replace("_", " ")} and its allies. " +
+                $" and {SocialSway.ToString().Replace("_", " ")} social sway within the {IslandsNation.ToString().Replace("_", " ")} and its allies. " +
                 $" {(HasOtherLocation? $"It also has holdings on: {string.Join(", ",OtherOwnedLocations)}" : "")}";
         }
     }

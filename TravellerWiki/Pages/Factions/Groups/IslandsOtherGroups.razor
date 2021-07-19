@@ -1,0 +1,57 @@
+@page "/Factions/IslandsOthers"
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Factions
+@using TravellerWiki.Data.Services.DataServices
+@inject TravellerFactionService _factionService
+<head>
+    <title>Islands Other Groups </title>
+</head>
+
+@{
+    var religions = _factionService.Factions.Where(x => x is TravellerPoliticalGroup).Cast<TravellerPoliticalGroup>().ToList();
+}
+
+<body>
+    <h1>Islands Other Groups</h1>
+<p>There are several other groups that have popped up in the islands, this is a list of some of them. <a href="/Factions/IslandsFactionCreator">Click here to add a new Other group to the list.</a></p>
+    <div>
+        <h2>The List</h2>
+    <div>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th style="text-align: center; padding: 5px;">Name</th>
+                    <th style="text-align: center; padding: 5px;">Headquarters</th>
+                    <th style="text-align: center; padding: 5px;">Loyal to</th>
+                    <th style="text-align: center; padding: 5px;">Leaders Name</th>
+                    <th style="text-align: center; padding: 5px;">Founded Year</th>
+                    <th style="text-align: center; padding: 5px;">Other Locations</th>
+                    <th style="text-align: center; padding: 5px;">Political Sway</th>
+                    <th style="text-align: center; padding: 5px;">Social Sway</th>
+                    <th style="text-align: center; padding: 5px;">Economic Sway</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                @foreach (var religion in religions)
+                {
+        
+                    <tr id="tableInfo">
+                        <td style="text-align: center"><a href="/Factions/IslandsFaction/@religion.FactionID">@religion.FactionName</a></td>
+                        <td style="text-align: center">@religion.HeadquatersLocation</td>
+                        <td style="text-align: center">@religion.IslandsNation.ToString().Replace("_"," ") [@religion.SupportingNationality.ToString().Replace("_"," ")]</td>
+                        <td style="text-align: center">@religion.FactionHeadName</td>
+                        <td style="text-align: center">@religion.FoundedYear</td>
+                        <td style="text-align: center">@(religion.HasOtherLocation? string.Join(", ",religion.OtherOwnedLocations) : "None")</td>
+                        <td style="text-align: center">@religion.PoliticalSway.ToString().Replace("_"," ")</td>
+                        <td style="text-align: center">@religion.SocialSway.ToString().Replace("_"," ")</td>
+                        <td style="text-align: center">@religion.EconomicSway.ToString().Replace("_"," ")</td>
+                                                                                                
+                    </tr>
+                }
+                                                                                            
+                </tbody>
+            </table>
+            <br/>
+        </div>
+    </div>
+</body>

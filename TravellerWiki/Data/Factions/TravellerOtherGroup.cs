@@ -27,7 +27,7 @@ namespace TravellerWiki.Data.Factions
                 $"and it functions as a part of the {IslandsNation.ToString().Replace("_", " ")} with help from {SupportingNationality.ToString().Replace("_"," ")}." +
                 $"This {factionType} has {PoliticalSway.ToString().Replace("_", " ")} political sway. " +
                 $"{EconomicSway.ToString().Replace("_", " ")} economic sway, " +
-                $"and {SocialSway.ToString().Replace("_", " ")} social sway within the {IslandsNation.ToString().Replace("_", " ")} and its allies. " +
+                $" and {SocialSway.ToString().Replace("_", " ")} social sway within the {IslandsNation.ToString().Replace("_", " ")} and its allies. " +
                 $" {(HasOtherLocation? $"It also has holdings on: {string.Join(", ",OtherOwnedLocations)}" : "")}";
         }
     }

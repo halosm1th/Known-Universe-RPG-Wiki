@@ -1,19 +1,19 @@
-@page "/Factions/IslandsCriminalGroups"
+@page "/Factions/IslandsClasses"
 @using TravellerWiki.Data
 @using TravellerWiki.Data.Factions
 @using TravellerWiki.Data.Services.DataServices
 @inject TravellerFactionService _factionService
 <head>
-    <title>Islands Religions </title>
+    <title>Islands Class Groups </title>
 </head>
 
 @{
-    var religions = _factionService.Factions.Where(x => x is TravellerCrimeGroup).Cast<TravellerCrimeGroup>().ToList();
+    var religions = _factionService.Factions.Where(x => x is TravellerProfessionalGroup).Cast<TravellerProfessionalGroup>().ToList();
 }
 
 <body>
-    <h1>Islands Criminal Groups</h1>
-<p>There are several different religions that have popped up in the islands, this is a list of some of them. <a href="/Factions/IslandsFactionCreator">Click here to add a new religion to the list.</a></p>
+    <h1>Islands Class Groups</h1>
+<p>There are several different Class groups that have popped up in the islands, this is a list of some of them. <a href="/Factions/IslandsFactionCreator">Click here to add a new Class group to the list.</a></p>
     <div>
         <h2>The List</h2>
     <div>

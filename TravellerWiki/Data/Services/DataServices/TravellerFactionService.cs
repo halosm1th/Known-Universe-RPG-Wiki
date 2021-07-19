@@ -64,6 +64,15 @@ namespace TravellerWiki.Data.Services.DataServices
             
             var companyPath = Directory.GetCurrentDirectory() + "/Factions/Companies.json";
             var religionPath = Directory.GetCurrentDirectory() + "/Factions/Religions.json";
+            var crimePath = Directory.GetCurrentDirectory() + "/Factions/Criminals.json";
+            var socialPath = Directory.GetCurrentDirectory() + "/Factions/Socials.json";
+            var legalPath = Directory.GetCurrentDirectory() + "/Factions/Legals.json";
+            
+            var classPath = Directory.GetCurrentDirectory() + "/Factions/Classes.json";
+            var politicalPath = Directory.GetCurrentDirectory() + "/Factions/Politicals.json";
+            var otherPath = Directory.GetCurrentDirectory() + "/Factions/Others.json";
+            var majorGovPath = Directory.GetCurrentDirectory() + "/Factions/Majors.json";
+            var islandGodPath = Directory.GetCurrentDirectory() + "/Factions/Islands.json";
 
             // File.WriteAllText(path,JsonConvert.SerializeObject(GetCodeFactions()));
             
@@ -71,6 +80,15 @@ namespace TravellerWiki.Data.Services.DataServices
 
             var travellerCompaniesJson = JsonConvert.DeserializeObject<List<TravellerCompany>>(File.ReadAllText(companyPath));
             var travellerReligionsJson = JsonConvert.DeserializeObject<List<TravellerReligion>>(File.ReadAllText(religionPath));
+            var travellerCrimeJson = JsonConvert.DeserializeObject<List<TravellerCrimeGroup>>(File.ReadAllText(crimePath));
+            var travellerSocialJson = JsonConvert.DeserializeObject<List<TravellerSocialGroup>>(File.ReadAllText(socialPath));
+            var travellerLegalJson = JsonConvert.DeserializeObject<List<TravellerProfessionalGroup>>(File.ReadAllText(legalPath));
+
+            var travellerClassJson = JsonConvert.DeserializeObject<List<TravellerClassGroup>>(File.ReadAllText(classPath));
+            var travellerPoliticalJson = JsonConvert.DeserializeObject<List<TravellerPoliticalGroup>>(File.ReadAllText(politicalPath));
+            var travellerOtherJson = JsonConvert.DeserializeObject<List<TravellerOtherGroup>>(File.ReadAllText(otherPath));
+//            var travellerJson = JsonConvert.DeserializeObject<List<TravellerReligion>>(File.ReadAllText());
+//            var travellerJson = JsonConvert.DeserializeObject<List<TravellerReligion>>(File.ReadAllText());
 
            var factions = new List<TravellerFaction>();
            
@@ -86,7 +104,43 @@ namespace TravellerWiki.Data.Services.DataServices
                factions.Add(result);
                TravellerFaction.GetNextID();
            }
+           
+           foreach (var result in travellerCrimeJson)
+           {
+               factions.Add(result);
+               TravellerFaction.GetNextID();
+           }
+           
+           foreach (var result in travellerSocialJson)
+           {
+               factions.Add(result);
+               TravellerFaction.GetNextID();
+           }
+           
+           foreach (var result in travellerLegalJson)
+           {
+               factions.Add(result);
+               TravellerFaction.GetNextID();
+           }
+           
+           foreach (var result in travellerClassJson)
+           {
+               factions.Add(result);
+               TravellerFaction.GetNextID();
+           }
+           
+           foreach (var result in travellerPoliticalJson)
+           {
+               factions.Add(result);
+               TravellerFaction.GetNextID();
+           }
 
+           foreach (var result in travellerOtherJson)
+           {
+               factions.Add(result);
+               TravellerFaction.GetNextID();
+           }
+           
            return factions;
         }
 

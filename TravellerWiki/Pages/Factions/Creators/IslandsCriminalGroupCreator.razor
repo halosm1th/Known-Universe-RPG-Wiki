@@ -26,7 +26,7 @@
     int FoundingDay = 1;
     int FoundingMonth = 1;
     readonly int FoundingMil = 83;
-    int FoundingCen = 850;
+    int FoundingCen = 350;
     
     List<string> OtherLocations = new List<string>();
     string OtherPlanetName = "";
@@ -183,6 +183,6 @@
     }
     else
     {
-        <p><button onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Religions Json</button> <button @onclick="@SaveFaction">Add Religion</button></p>
+        <p><button onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Faction's Json</button> <button @onclick="@SaveFaction">Add Faction</button></p>
     }
 </div>

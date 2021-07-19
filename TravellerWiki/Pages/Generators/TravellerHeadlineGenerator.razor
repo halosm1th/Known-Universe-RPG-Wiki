@@ -104,14 +104,19 @@
         if (target == Targets.Group)
         {
             var factions = _factionService.Factions
-                .Where(x => 
-                    x is TravellerReligion)
-                .ToList();
-            text = factions[random.Next(0, factions.Count)].FactionName;
+                .Where(x =>
+                    x is TravellerReligion
+                    || x is TravellerSocialGroup
+                    || x is TravellerProfessionalGroup
+                    || x is TravellerCrimeGroup)
+                 .ToList();
+            var fac = factions[random.Next(0, factions.Count)];
+            text = $"[{fac.FactionName}](/Factions/IslandsFaction/{fac.FactionID})";
         }else if (target == Targets.Faction)
         {
             var factions = _factionService.Factions;
-            text = factions[random.Next(0, factions.Count)].FactionName;
+            var fac = factions[random.Next(0, factions.Count)];
+            text = $"[{fac.FactionName}](/Factions/IslandsFaction/{fac.FactionID})";
         }else if (target == Targets.Person)
         {
             var factions = _factionService.Factions;
@@ -128,8 +133,17 @@
             }
         }else if (target == Targets.Planet)
         {
-            var world = _factionService.WorldsHeldByFactions();
-            text = world[random.Next(0, world.Count)];
+            var worlds = _factionService.WorldsHeldByFactions();
+            var world = worlds[random.Next(0, worlds.Count)];
+            var fac = _factionService.Factions.FirstOrDefault(x => x.HasOtherLocation && x.OtherOwnedLocations.Contains(world));
+            if (fac != null)
+            {
+                text = $"[{world}](/Factions/IslandsFaction/{fac.FactionID})";
+            }
+            else
+            {
+                text = world;
+            }
         }
         else
         {
@@ -151,6 +165,42 @@
         else if (faction == FactionTypes.Corporation)
         {
             var companies = _factionService.Factions.Where(x => x is TravellerCompany).ToList();
+            factionName = GetFactionNameText(random, companies);
+            
+        }
+        else if (faction == FactionTypes.Criminal)
+        {
+            var companies = _factionService.Factions.Where(x => x is TravellerCrimeGroup).ToList();
+            factionName = GetFactionNameText(random, companies);
+            
+        }
+        else if (faction == FactionTypes.SocailGroupOrMovement)
+        {
+            var companies = _factionService.Factions.Where(x => x is TravellerSocialGroup).ToList();
+            factionName = GetFactionNameText(random, companies);
+            
+        }
+        else if (faction == FactionTypes.Profession)
+        {
+            var companies = _factionService.Factions.Where(x => x is TravellerProfessionalGroup).ToList();
+            factionName = GetFactionNameText(random, companies);
+            
+        }
+        else if (faction == FactionTypes.Class)
+        {
+            var companies = _factionService.Factions.Where(x => x is TravellerClassGroup).ToList();
+            factionName = GetFactionNameText(random, companies);
+            
+        }
+        else if (faction == FactionTypes.Political)
+        {
+            var companies = _factionService.Factions.Where(x => x is TravellerPoliticalGroup).ToList();
+            factionName = GetFactionNameText(random, companies);
+            
+        }
+        else if (faction == FactionTypes.Other)
+        {
+            var companies = _factionService.Factions.Where(x => x is TravellerOtherGroup).ToList();
             factionName = GetFactionNameText(random, companies);
             
         }
