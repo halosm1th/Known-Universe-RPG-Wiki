@@ -9,15 +9,25 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added religions to the faction system, and companies, and fleshed out companies, and creators for those faction types with more to come. Soon to follow is nations and major nations. Then we'll see what comes after that. Probably criminal elements. Companies is forsure the largest at this time though.">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Laid the  foundation of the headline generator!">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerClassGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerCrimeGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerOtherGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerPoliticalGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerProfessionalGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerSocialGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsCriminalGroups.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsGroups.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionEconomicSway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerFactionEconomicSway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionPoliticalSway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerFactionPoliticalSway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionSocialSway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerFactionSocialSway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerIndustries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerIndustries.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerIslandsNations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerIslandsNations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsCorporationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFactionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsFactionCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsReligionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
     </list>
@@ -70,6 +80,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3F/RendererSynchronizationContextDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/39/RemoteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3E/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Index.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/31/CircuitHost.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/1F/RenderHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -80,22 +91,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/VoicesFromTheVoidIssue.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue2.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerCompanyiService.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/IslandsNations.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/TravellerCompany.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/TravellerFaction.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/TravellerNameService.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/NameLists/FederationNameList.txt" />
-      <option value="$PROJECT_DIR$/TravellerWiki/NameLists/BritanniaNameList.txt" />
-      <option value="$PROJECT_DIR$/TravellerWiki/NameLists/GermushianNameList.txt" />
-      <option value="$PROJECT_DIR$/TravellerWiki/NameLists/XiaoMingNameList.txt" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompany.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Other/IslandsCompanies.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidArticlePage.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/Career.cshtml" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/VoicesFromTheVoid/VoicesFromTheVoidIssuePage.razor" />
@@ -129,8 +124,24 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsReligion.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerOtherGroup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerPoliticalGroup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerClassGroup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerProfessionalGroup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerSocialGroup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerCrimeGroup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsFactionCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsCriminalGroups.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsGroups.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -336,7 +347,7 @@
       <workItem from="1626325547643" duration="43000" />
       <workItem from="1626389067406" duration="6011000" />
       <workItem from="1626500414379" duration="248000" />
-      <workItem from="1626500981959" duration="29830000" />
+      <workItem from="1626500981959" duration="31906000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -422,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626674078329</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Laid the  foundation of the headline generator!">
+      <created>1626676660524</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1626676660524</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +473,8 @@
     <MESSAGE value="Added the federation flag and set it as the iamge." />
     <MESSAGE value="Fixed a small bug" />
     <MESSAGE value="Added religions to the faction system, and companies, and fleshed out companies, and creators for those faction types with more to come. Soon to follow is nations and major nations. Then we'll see what comes after that. Probably criminal elements. Companies is forsure the largest at this time though." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added religions to the faction system, and companies, and fleshed out companies, and creators for those faction types with more to come. Soon to follow is nations and major nations. Then we'll see what comes after that. Probably criminal elements. Companies is forsure the largest at this time though." />
+    <MESSAGE value="Laid the  foundation of the headline generator!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Laid the  foundation of the headline generator!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

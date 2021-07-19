@@ -1,4 +1,4 @@
-@page "/Factions/IslandsReligionCreator"
+@page "/Factions/IslandsProfessionCreator"
 @using TravellerWiki.Data
 @using TravellerWiki.Data.Services.DataServices
 @using System.Runtime.CompilerServices
@@ -28,11 +28,10 @@
     readonly int FoundingMil = 83;
     int FoundingCen = 850;
     
-    int NumberOfFollowers = 100;
     List<string> OtherLocations = new List<string>();
     string OtherPlanetName = "";
 
-    TravellerReligion Religion = null;
+    TravellerProfessionalGroup Faction = null;
 
     
     public void AddNextPlanet()
@@ -41,22 +40,15 @@
         OtherPlanetName = "";
     }
     
-    public void CreateReligion()
+    public void CreateCriminalGroup()
     {
         FoundingDateTime = new TravellerDateTime(FoundingDay, FoundingMonth, FoundingMil, FoundingCen);
         
-        Religion = new TravellerReligion(NumberOfFollowers,
-            FactionName,HeadQuartersWorldName,NationWithin, NationAlignedWith,FactionHeadName,OtherLocations,FoundingDateTime,
+        Faction = new TravellerProfessionalGroup(FactionName,HeadQuartersWorldName,NationWithin, NationAlignedWith,FactionHeadName,OtherLocations,FoundingDateTime,
             PoliticalSway,SocialSway,EconomicSway);
     }
-    
-    public void GenerateFollowerCount()
-    {
-        var random = new Random();
-        NumberOfFollowers = random.Next(0, Math.Max(2, ((int) SocialSway * 100)));
-    }
-    
-    
+
+
     public void GenerateSwayValues()
     {
         var random = new Random();
@@ -69,15 +61,15 @@
     
     public void SaveFaction()
     {
-        _factionService.AddFaction(Religion);
-        NavManager.NavigateTo($"/Factions/IslandsFaction/{Religion.FactionID.ToString()}");
+        _factionService.AddFaction(Faction);
+        NavManager.NavigateTo($"/Factions/IslandsFaction/{Faction.FactionID.ToString()}");
     }
 }
 <div>
     
     <p>
         <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
-            <label for="factionName">Religion Name: </label>
+            <label for="factionName">Profession Name: </label>
             <input type="text" @bind="@FactionName" id="factionName"/>
         </span>
     </p>
@@ -159,7 +151,7 @@
         <button type="button" @onclick="GenerateSwayValues">Generate Random Values</button>
     </p>
     <p>
-        When did the religion revele itself
+        When did the group first arrive on the scene
         <br/>
         <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="establishDay">Establishment Day: </label>
@@ -177,15 +169,6 @@
         </span>
     </p>
     <p>
-        <br/>
-        <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
-            <label for="revenue">Number of Religious Followers: </label>
-            <input type="number" @bind="@NumberOfFollowers" id="revenue"/>
-            
-        </span>
-        <button type="button" @onclick="@GenerateFollowerCount">Generate Random Follower Count</button>
-    </p>
-    <p>
         Other Planest controlled by this faction: @OtherLocations.Aggregate("", (h, t) => h + ", " + t)
         <span style="background-color: darkgray; border: #A7A7A7 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
         <label for="otherPlanetName">Other Planet's Name</label>
@@ -194,12 +177,12 @@
         </span>
     </p>
     
-    @if (Religion == null)
+    @if (Faction == null)
     {
-        <p><button @onclick="@CreateReligion">Create Religion</button></p>
+        <p><button @onclick="@CreateCriminalGroup">Create Criminal Group</button></p>
     }
     else
     {
-        <p><button onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Religion)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Religions Json</button> <button @onclick="@SaveFaction">Add Religion</button></p>
+        <p><button onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Religions Json</button> <button @onclick="@SaveFaction">Add Religion</button></p>
     }
 </div>
