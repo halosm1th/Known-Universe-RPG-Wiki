@@ -1,0 +1,182 @@
+﻿@page "/Generators/TravellerHeadlineGenerator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using JobBoardCreator
+@using Microsoft.Extensions.Hosting.Internal
+@using TravellerWiki.Data.Factions
+@using TravellerWiki.Data.Services.DataServices
+@inject TravellerFactionService _factionService;
+
+    <head>
+        <title>Traveller Headline Generator</title>
+        <meta property="og:title" content="Known Universe Wiki - Mission Generator" />
+        <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerMissionGenerator/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta content="Generate missions for your travellers to undergo in the Known Universe." property="og:description" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
+<h1>Headline Generator</h1>
+
+<button class="" @onclick="GeneateHeadline">Generate Another Headline</button>
+
+        @if (headlineList != null)
+        {
+            <div style="background-color: darkblue; border: darkcyan;">
+            @foreach (var headline in headlineList)
+            {
+                <p>  @((MarkupString) Markdig.Markdown.ToHtml(headline))</p>
+            }
+            </div>
+        }
+@code {
+    private List<string> headlineList = new List<string>();
+
+    private enum FactionTypes
+    {
+        Nation,
+        MajorNation,
+        Religion,
+        Corporation,
+        Criminal,
+        SocailGroupOrMovement,
+        Profession,
+        Class,
+        Political,
+        Other
+    }
+    
+    private enum Actions
+    {
+        Offers,
+        Threatens,
+        Compromises_On,
+        Murders,
+        Kills,
+        Praises,
+        Announces,
+        Reveals,
+        Continous,
+        Demands
+    }
+
+    private enum Targets
+    {
+        Compromise,
+        Plan,
+        Scandal,
+        Bill,
+        Agreement,
+        Story,
+        Person,
+        Group,
+        Planet,
+        Faction
+    }
+    
+    private void GeneateHeadline()
+    {
+        var random = new Random();
+
+        var faction = (FactionTypes) random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
+        var action = (Actions) random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
+        var target = (Targets) random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
+
+        var factionName = faction.ToString();
+        var targetText = target.ToString();
+        
+        factionName = GetFactionName(faction, random);
+
+        targetText = GetTargetText(target, random);
+
+        var headline = $"{factionName} {action.ToString().Replace("_"," ") } {targetText}";
+        
+        headlineList.Add(headline); 
+    }
+
+    private string GetTargetText(Targets target, Random random)
+    {
+        var text = "";
+
+        if (target == Targets.Group)
+        {
+            var factions = _factionService.Factions
+                .Where(x => 
+                    x is TravellerReligion)
+                .ToList();
+            text = factions[random.Next(0, factions.Count)].FactionName;
+        }else if (target == Targets.Faction)
+        {
+            var factions = _factionService.Factions;
+            text = factions[random.Next(0, factions.Count)].FactionName;
+        }else if (target == Targets.Person)
+        {
+            var factions = _factionService.Factions;
+            var faction = factions[random.Next(0, factions.Count)];
+            if (random.Next(0, 2) == 1 && faction.FactionMembers != null && faction.FactionMembers.Count>0)
+            {
+                var person = faction.FactionMembers;
+                text = $"{person[random.Next(0,person.Count)].Name} [[{faction.FactionName}]](/Factions/IslandsFaction/{faction.FactionID})";
+            }
+            else
+            {
+                var person = faction.FactionHead.Name;
+                text = $"{person} [[{faction.FactionName}]](/Factions/IslandsFaction/{faction.FactionID})";
+            }
+        }else if (target == Targets.Planet)
+        {
+            var world = _factionService.WorldsHeldByFactions();
+            text = world[random.Next(0, world.Count)];
+        }
+        else
+        {
+            text =  target.ToString();
+        }
+
+        return text;
+    }
+    
+    
+    private string GetFactionName(FactionTypes faction, Random random)
+    {
+        string factionName;
+        if (faction == FactionTypes.Religion)
+        {
+            var religions = _factionService.Factions.Where(x => x is TravellerReligion).ToList();
+            factionName = GetFactionNameText(random, religions);
+        }
+        else if (faction == FactionTypes.Corporation)
+        {
+            var companies = _factionService.Factions.Where(x => x is TravellerCompany).ToList();
+            factionName = GetFactionNameText(random, companies);
+            
+        }
+        else
+        {
+            factionName = faction.ToString();
+        }
+
+        return factionName;
+    }
+
+    private static string GetFactionNameText(Random random, List<TravellerFaction> religions)
+    {
+        string factionName;
+        if (random.Next(0, 2) == 1)
+        {
+            var fac = religions[random.Next(0, religions.Count())];
+            factionName = $"[{fac.FactionName}](/Factions/IslandsFaction/{fac.FactionID})";
+        }
+        else
+        {
+            var rel = religions[random.Next(0, religions.Count())];
+            factionName = $"{rel.FactionHead.Name} head of [{rel.FactionName}](/Factions/IslandsFaction/{rel.FactionID})";
+        }
+
+        return factionName;
+    }
+
+}
