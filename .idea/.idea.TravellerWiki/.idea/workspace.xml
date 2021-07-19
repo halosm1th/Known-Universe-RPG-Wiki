@@ -9,22 +9,14 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added the json data for the various different groups, added their group pages, and some other stuff and expadned the headline generator">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerMajorNationGroup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerNationGroup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added the code to handle the last two classes of factions, nations and major nations. Also simplified how islands factions are being loaded with a nice generic method (god bless generics) and some updates to the headline system so that is should now use the new factions for its generation of headlines. Now we just need some data!">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/SimpleWikiClasses/HighVersianDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsFactionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsFactionCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerMajorNationGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerMajorNationGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerNationGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerNationGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Majors.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Majors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +78,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerIndustries.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerIslandsNations.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/TravellerUniverseSystem/World.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionPoliticalSway.cs" />
@@ -101,7 +92,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerReligion.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsReligion.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsCriminalGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsSocialGroups.razor" />
@@ -126,8 +116,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerClassGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerProfessionalGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerNationGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerMajorNationGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" />
@@ -137,6 +125,10 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsGroups.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerNationGroup.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerMajorNationGroup.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -342,7 +334,7 @@
       <workItem from="1626325547643" duration="43000" />
       <workItem from="1626389067406" duration="6011000" />
       <workItem from="1626500414379" duration="248000" />
-      <workItem from="1626500981959" duration="38571000" />
+      <workItem from="1626500981959" duration="40595000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -449,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626681936930</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added the code to handle the last two classes of factions, nations and major nations. Also simplified how islands factions are being loaded with a nice generic method (god bless generics) and some updates to the headline system so that is should now use the new factions for its generation of headlines. Now we just need some data!">
+      <created>1626720414649</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1626720414649</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +484,8 @@
     <MESSAGE value="Laid the  foundation of the headline generator!" />
     <MESSAGE value="Added the basic other group classes and their relevant creators" />
     <MESSAGE value="Added the json data for the various different groups, added their group pages, and some other stuff and expadned the headline generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the json data for the various different groups, added their group pages, and some other stuff and expadned the headline generator" />
+    <MESSAGE value="Added the code to handle the last two classes of factions, nations and major nations. Also simplified how islands factions are being loaded with a nice generic method (god bless generics) and some updates to the headline system so that is should now use the new factions for its generation of headlines. Now we just need some data!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the code to handle the last two classes of factions, nations and major nations. Also simplified how islands factions are being loaded with a nice generic method (god bless generics) and some updates to the headline system so that is should now use the new factions for its generation of headlines. Now we just need some data!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
