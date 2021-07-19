@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TravellerWiki.Data;
+using TravellerWiki.Data.Factions;
 
 namespace TravellerUniverse
 {

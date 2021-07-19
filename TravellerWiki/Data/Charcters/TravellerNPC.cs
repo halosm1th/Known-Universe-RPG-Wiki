@@ -3,23 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TravellerWiki.Data.Charcters;
 
 namespace TravellerWiki.Data.Charcters
 {
     public class TravellerNPC : TravellerCharacter
     {
+        
+        [JsonIgnore]
         public TravellerAttribute Strength =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Strength);
+        
+        [JsonIgnore]
         public TravellerAttribute Dexterity =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Dexterity);
+        
+        [JsonIgnore]
         public TravellerAttribute Endurance =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Endurance);
+        
+        [JsonIgnore]
         public TravellerAttribute Intelligence =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Intelligence);
+        
+        [JsonIgnore]
 
         public TravellerAttribute Education =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Intelligence);
+        
+        [JsonIgnore]
 
         public TravellerAttribute Social =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Intelligence);

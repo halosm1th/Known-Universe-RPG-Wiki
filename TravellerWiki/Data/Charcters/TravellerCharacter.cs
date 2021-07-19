@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 #nullable enable
 namespace TravellerWiki.Data.Charcters
@@ -22,6 +23,7 @@ namespace TravellerWiki.Data.Charcters
 
         public List<TravellerItem> Items { get; set; }
 
+        [JsonIgnore]
         public List<TravellerAugments> Augments
         {
             get
@@ -39,6 +41,7 @@ namespace TravellerWiki.Data.Charcters
             }
         }
 
+        [JsonIgnore]
         public List<TravellerArmour> Armour
         {
             get
@@ -57,6 +60,7 @@ namespace TravellerWiki.Data.Charcters
             }
         }
 
+        [JsonIgnore]
         public List<TravellerWeapon> Weapons
         {
             get
@@ -78,16 +82,21 @@ namespace TravellerWiki.Data.Charcters
         public List<TravellerCharacter> Contacts { get; set; }
         public TravellerFinances Finances { get; set; }
 
+        [JsonIgnore]
         public int Debt
         {
             get => Finances.Debt;
             set => Finances.Debt += value;
         }
+        
+        [JsonIgnore]
         public int Credits
         {
             get => Finances.Credits;
             set => Finances.Credits += value;
         }
+        
+        [JsonIgnore]
         public int Pension
         {
             get => Finances.Pension;

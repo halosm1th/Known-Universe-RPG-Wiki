@@ -1,4 +1,4 @@
-﻿namespace TravellerWiki.Data
+﻿namespace TravellerWiki.Data.Factions
 {
     public enum TravellerIndustries
     {

@@ -1,7 +1,8 @@
-@page "/Other/IslandsFaction/{FactionID}"
+@page "/Factions/IslandsFaction/{FactionID}"
 @using TravellerWiki.Data
+@using TravellerWiki.Data.Factions
 @using TravellerWiki.Data.Services.DataServices
-@inject TravellerCompanyService _companyService
+@inject TravellerFactionService _factionService
 
 @code{
     [Parameter]
@@ -19,7 +20,7 @@
                 factionID = 1000;
             }
             
-            _faction = _companyService.Companies.First(x => x.FactionID==factionID);
+            _faction = _factionService.GetTravellerFaction(factionID);
         }
 
         return _faction;
@@ -27,17 +28,23 @@
 
 }
 <head>
-    <title>Islands Faction - @GetFaction().FactionName </title>
+    <title>@GetFaction().FactionName - Islands Faction</title>
 </head>
 
 <h1>@GetFaction().FactionName</h1>
 <p>@GetFaction()</p>
 <h3>Important People: </h3>
 <ul style="background-color: rgb(244, 232, 31)">
-    <li  style="color: black;">Head: <span title="@GetFaction().FactionHead.ToString()"> @GetFaction().FactionHead.Name </span></li>
+    <li  style="color: black;">Head: <span title="@GetFaction().FactionHead.ToString()"> @GetFaction().FactionHead.Name [@GetFaction().FactionHead.ShortUPP()] (@GetFaction().FactionHead.Background, @GetFaction().FactionHead.Career) </span></li>
     @foreach (var member in GetFaction().FactionMembers)
     {
         <li><span style="color: black;" title="@member.ToString()">@member.PatronText:  @member.Name [@member.ShortUPP()]  (@member.Background @member.Career)</span></li>
     }
 </ul>
-<a href="/Other/IslandsCompanies">Back to Company List</a>
+@if (GetFaction() is TravellerCompany)
+{
+    <a href="/Factions/IslandsCompanies">Back to Company List</a>
+}else if (GetFaction() is TravellerReligion)
+{
+    <a href="/Factions/IslandsReligions">Back to Religion List</a>
+}

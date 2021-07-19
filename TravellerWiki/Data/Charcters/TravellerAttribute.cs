@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace TravellerWiki.Data.Charcters
 {
@@ -19,11 +20,18 @@ namespace TravellerWiki.Data.Charcters
     public class TravellerAttribute
     {
 
+        [JsonProperty]
         public TravellerAttributes AttributeName { get; }
+        
+        [JsonProperty]
         public int AttributableValue { get; set; }
-
+        
+        
+        [JsonIgnore]
         public string AttributeHex => AttributableValue.ToString("X");
-
+        
+        
+        [JsonIgnore]
         public int AttributeModifier => AttributableValue switch
         {
             -3 => -3,

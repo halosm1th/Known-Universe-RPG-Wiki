@@ -57,11 +57,7 @@
         <p style="text-align: center">
             @weapon.ToString() <input type="button"
                                       id="btnCopy"
-                                      onClick="
-navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
-    /* clipboard successfully set */
-}, function () {
-    alert('Umm, there was an error!'); }) " value="Copy Json" />
+                                      onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) " value="Copy Json" />
             <button @onclick="Reset">New Weapon</button>
             <button @onclick="Clone">Clone</button>
         </p>

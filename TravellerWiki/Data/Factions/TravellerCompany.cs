@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
+using TravellerWiki.Data.Charcters;
 using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.SimpleWikiClasses;
 
-namespace TravellerWiki.Data
-{
-    public class TravellerCompany : TravellerFaction
+namespace TravellerWiki.Data.Factions{
+
+
+public class TravellerCompany : TravellerFaction
     {
+        [JsonIgnore]
         public string CeoName => FactionHeadName;
-        public uint CurrentSharesOnMarket { get; }
-        public uint MarketCap => CurrentSharePrice * CurrentSharesOnMarket;
-        public uint CurrentSharePrice { get; }
-        public uint MaxSharePrice { get; }
-        public uint MinSharePrice { get; }
-        public uint Revenues { get; }
-        public double DividentPercent { get; }
+        public uint CurrentSharesOnMarket { get; set; }
         
-        public TravellerIndustries Industry { get; }
+        [JsonIgnore]
+        public uint MarketCap => CurrentSharePrice * CurrentSharesOnMarket;
+        public uint CurrentSharePrice { get;  set;}
+        public uint MaxSharePrice { get;  set;}
+        public uint MinSharePrice { get;  set;}
+        public uint Revenues { get;  set;}
+        public double DividentPercent { get;  set; }
+        
+        public TravellerIndustries Industry { get;  set;}
         
         
 
@@ -30,8 +36,11 @@ namespace TravellerWiki.Data
             string factionHeadName = "",
             List<string> otherOwnedLocations = null, 
             TravellerDateTime foundedYear = null,
+            TravellerFactionPoliticalSway politicalSway = TravellerFactionPoliticalSway.Some, 
+            TravellerFactionSocialSway socialSway = TravellerFactionSocialSway.Average, 
+            TravellerFactionEconomicSway economicSway = TravellerFactionEconomicSway.Above_Average,
             uint currentSharesOnMarket = 1, uint currentSharePrice = 1,uint maxSharePrice = 1, uint minSharePrice = 1, uint revenues = 1, double dividentPercent = 1) 
-            : base(factionName,  headquatersLocation,islandsNation, supportingNationality, factionHeadName, otherOwnedLocations, foundedYear)
+            : base(factionName,  headquatersLocation,islandsNation, supportingNationality, factionHeadName, otherOwnedLocations, foundedYear,politicalSway,socialSway, economicSway)
         {
             CurrentSharesOnMarket = currentSharesOnMarket;
             CurrentSharePrice = currentSharePrice;
@@ -43,12 +52,16 @@ namespace TravellerWiki.Data
 
             if (currentSharePrice == 1 && maxSharePrice == 1 && minSharePrice == 1)
             {
-                CurrentSharesOnMarket = (uint) _randomGenerator.Next(1000, 100000000);
-                MaxSharePrice =(uint)_randomGenerator.Next(10, 100001);
-                MinSharePrice = (uint)_randomGenerator.Next(1, Math.Min((int)MaxSharePrice,100));
-                CurrentSharePrice = (uint)_randomGenerator.Next((int)MinSharePrice, (int)MaxSharePrice);
-                Revenues = (uint)_randomGenerator.Next(10000, 225000000);
-                DividentPercent = Math.Round(_randomGenerator.NextDouble()*10,2);
+                var priceInfo = GenerateSharePriceInformation(_randomGenerator);
+                var shareInfo = GenerateMarketInfo(_randomGenerator);
+                    
+                MaxSharePrice = priceInfo.max;
+                MinSharePrice = priceInfo.min;
+                CurrentSharePrice = priceInfo.current;
+
+                CurrentSharesOnMarket = shareInfo.marketShares;
+                Revenues = shareInfo.revenue;
+                DividentPercent = shareInfo.dividend;
             }
 
             if (string.IsNullOrEmpty(FactionName))
@@ -62,6 +75,24 @@ namespace TravellerWiki.Data
                     _ => $"{HeadquatersLocation} {Industry} {GetRandomEndTag()}"
                 };
             }
+        }
+
+        public static (uint marketShares, uint revenue, double dividend) GenerateMarketInfo(Random random)
+        {
+            var market = (uint) random.Next(1000, 100000000);
+            var rev = (uint) random.Next(10000, 225000000);
+            var div = Math.Round(random.NextDouble() * 10, 2);
+
+            return (market, rev, div);
+        }
+
+        public static (uint min, uint max, uint current) GenerateSharePriceInformation(Random random)
+        {
+            var max = (uint) random.Next(10, 100001);
+            var min = (uint) random.Next(1, Math.Min((int) max, 100));
+            var current = (uint) random.Next((int) min, (int) max);
+
+            return (min, max, current);
         }
 
         private string GetRandomEndTag()
@@ -103,7 +134,8 @@ namespace TravellerWiki.Data
             return $"{FactionName} was founded in {FoundedYear}, and its main industry is {Industry.ToString().Replace("_"," ")}. It is headquartered on {HeadquatersLocation} and its CEO is named {CeoName}. " +
                    $"The company operates under the laws of {IslandsNation.ToString().Replace("_"," ")} but its parent/partner company is in {SupportingNationality.ToString().Replace("_"," ")}. " +
                    $"The Companies current Share Price is [Cr: {CurrentSharePrice} Min: {MinSharePrice} Max: {MaxSharePrice}], it makes Cr {Revenues}/Year, pays a dividend of {DividentPercent}%, and has a market cap of Cr {MarketCap}. " +
-                   $"{(HasOtherLocations()? $"{FactionName} also operates facilities on: {GetOtherLocationName()}." : "")}";
+                   $"The Company has {PoliticalSway} political sway, {SocialSway} social sway, and {EconomicSway} economic sway. " +
+                   $"{(HasOtherLocations()? $"{FactionName} It also operates facilities on: {GetOtherLocationName()}." : "")}";
         }
     }
 }

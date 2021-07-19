@@ -1,6 +1,7 @@
 ﻿    using System.Text;
+    using Newtonsoft.Json;
 
-namespace TravellerWiki.Data.Charcters
+    namespace TravellerWiki.Data.Charcters
 {
     public enum TravellerSkills
     {
@@ -222,8 +223,14 @@ namespace TravellerWiki.Data.Charcters
 
     public class TravellerSkill
     {
+        [JsonProperty]
         public TravellerSkills SkillName { get; set; }
+        
+        
+        [JsonProperty ]
+        public int SkillValue { get; set; }
 
+[JsonIgnore]
         public string SkillNameText
         {
             get
@@ -240,6 +247,7 @@ namespace TravellerWiki.Data.Charcters
             }
         }
 
+        [JsonIgnore]
         public string SkillDescriptionText =>
             SkillName switch
             {
@@ -446,8 +454,6 @@ namespace TravellerWiki.Data.Charcters
                 TravellerSkills.VaccSuit => "The Vacc Suit skill allows a Traveller to wear and operate spacesuits and environmental suits. A Traveller will rarely need to make Vacc Suit checks under ordinary circumstances – merely possessing the skill is enough. If the Traveller does not have the requisite Vacc Suit skill for the suit he is wearing, he suffers DM-2 to all skill checks made while wearing a suit for each missing level. This skill also permits the character to operate advanced battle armour. Performing a Systems Check on Battle Dress: Average (8+) Vacc Suit check (1D minutes, EDU).",
                 _ => "Not a valid skill... yet."
     };
-
-        public int SkillValue { get; set; }
 
         public override string ToString()
         {

@@ -1,18 +1,19 @@
-@page "/Other/IslandsCompanies"
+@page "/Factions/IslandsCompanies"
 @using TravellerWiki.Data
+@using TravellerWiki.Data.Factions
 @using TravellerWiki.Data.Services.DataServices
-@inject TravellerCompanyService _companyService
+@inject TravellerFactionService _factionService
 <head>
     <title>Islands Companies </title>
 </head>
 
 @{
-    var Companies = _companyService.Companies;
+    var Companies = _factionService.Factions.Where(x => x is TravellerCompany).Cast<TravellerCompany>();
 }
 
 <body>
     <h1>Islands Companies</h1>
-    <p>Within the North Western Islands there are many companies, this is a simple breakdown of the different major industries and who the largest players within the industries are.</p>
+<p>Within the North Western Islands there are many companies, this is a simple breakdown of the different major industries and who the largest players within the industries are. <a href="/Factions/IslandsFactionCreator">Click here to add a new company to the list.</a></p>
     <div>
         <h2>The List</h2>
         
@@ -32,6 +33,9 @@
                     <th style="text-align: center; padding: 5px;">Market Cap</th>
                     <th style="text-align: center; padding: 5px;">Dividend</th>
                     <th style="text-align: center; padding: 5px;">Other Locations</th>
+                    <th style="text-align: center; padding: 5px;">Political Sway</th>
+                    <th style="text-align: center; padding: 5px;">Social Sway</th>
+                    <th style="text-align: center; padding: 5px;">Economic Sway</th>
                 </tr>
                 </thead>
                 <tbody style="color:#ffe81F">
@@ -39,16 +43,20 @@
                 {
         
                     <tr id="tableInfo">
-                        <td style="text-align: center"><a href="/other/IslandsFaction/@company.FactionID">@company.FactionName</a></td>
+                        <td style="text-align: center"><a href="/Factions/IslandsFaction/@company.FactionID">@company.FactionName</a></td>
                         <td style="text-align: center">@company.HeadquatersLocation</td>
-                        <td style="text-align: center">@company.IslandsNation [@company.SupportingNationality]</td>
+                        <td style="text-align: center">@company.IslandsNation.ToString().Replace("_"," ") [@company.SupportingNationality.ToString().Replace("_"," ")]</td>
                         <td style="text-align: center">@company.CeoName</td>
                         <td style="text-align: center">@company.FoundedYear</td>
-                        <td style="text-align: center">@company.CurrentSharePrice [@company.MinSharePrice : @company.MaxSharePrice]</td>
+                        <td style="text-align: center">@company.CurrentSharePrice</td>
                         <td style="text-align: center">Cr @company.Revenues.</td>
                         <td style="text-align: center">Cr @company.MarketCap.</td>
                         <td style="text-align: center">@company.DividentPercent%.</td>
                         <td style="text-align: center">@(company.HasOtherLocations()? company.GetOtherLocationName() : "None")</td>
+                        <td style="text-align: center">@company.PoliticalSway.ToString().Replace("_"," ")</td>
+                        <td style="text-align: center">@company.SocialSway.ToString().Replace("_"," ")</td>
+                        <td style="text-align: center">@company.EconomicSway.ToString().Replace("_"," ")</td>
+                                                                                                
                     </tr>
                 }
                                                                                             
@@ -67,7 +75,6 @@
                             <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
                         </thead>
                         <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Imperial Tillium Company</td><td>Acadie</td><td>Acadie</td><td>Empire/Dominate Supremius</td></tr>
                             <tr id="tableInfo"><td>Novatek</td><td>Knoxboro</td><td>Doty</td><td>Deutschland/Western Islands Commune</td></tr>
                             <tr id="tableInfo"><td>Wintershall</td><td>Freeborn</td><td>Kerkhoven</td><td>Germushia/Western Islands Trade Consortium</td></tr>
                             <tr id="tableInfo"><td>Baywa</td><td>Hoopeston</td><td>Pulcifer</td><td>WITC/Intercourse Subsector Trade Consortium</td></tr>

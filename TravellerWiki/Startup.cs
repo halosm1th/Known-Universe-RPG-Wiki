@@ -50,7 +50,7 @@ namespace TravellerWiki
             services.AddSingleton<MultiPageCharacterCreationService>();
             services.AddSingleton<TravellerCharacterStorageService>();
             services.AddSingleton<TravellerCareerCreatorService>();
-            services.AddSingleton<TravellerCompanyService>();
+            services.AddSingleton<TravellerFactionService>();
 
             services.AddSingleton<TravellerComplexCharacterGeneratorService>();
 
