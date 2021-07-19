@@ -37,8 +37,8 @@ namespace TravellerWiki.Data.Factions
                 $"This {factionType} has {PoliticalSway.ToString().Replace("_", " ")} political sway. " +
                 $"{EconomicSway.ToString().Replace("_", " ")} economic sway, " +
                 $" and {SocialSway.ToString().Replace("_", " ")} social sway within the {IslandsNation.ToString().Replace("_", " ")} and its allies. " +
-                $"There are several other groups who rely on this {factionType}, most notably: {GetFactionsAlliedWith}." +
-                $" {(HasOtherLocation? $"It also has holdings on: {string.Join(", ",OtherOwnedLocations)}" : "")}";
+                $" {(HasOtherLocation? $"It also has holdings on: {string.Join(", ",OtherOwnedLocations)}" : "")}" +
+                $"There are several other groups who rely on this {factionType}, most notably: {GetAlignedFactions()}.";
         }
     }
 }

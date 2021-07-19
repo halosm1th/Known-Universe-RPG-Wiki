@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.Factions.Faction_Assets;
 using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.SimpleWikiClasses;
 
 namespace TravellerWiki.Data.Factions
 {
-    
     public class TravellerFaction
     {
         private static int _factionID = 10000;
@@ -25,13 +25,13 @@ namespace TravellerWiki.Data.Factions
 
         [JsonIgnore] public string FactionNameLink => $"[{FactionName}](/Factions/IslandsFaction/{FactionID})";
         
-        [JsonIgnore]
-        public string FactionHeadName => FactionHead.Name;
-        public string HeadquatersLocation { get; set; }
+        [JsonIgnore] public string FactionHeadName => FactionHead.Name;
         
-        [JsonIgnore]
-        public bool HasOtherLocation => OtherOwnedLocations != null && OtherOwnedLocations.Count > 0;
-        public List<string> OtherOwnedLocations { get; set; }
+        [JsonIgnore] public TravellerLocation HeadquatersLocation { get; set; }
+        
+        [JsonIgnore] public bool HasOtherLocation => OtherOwnedLocations != null && OtherOwnedLocations.Count > 0;
+        
+        [JsonIgnore] public List<TravellerLocation> OtherOwnedLocations { get; set; }
         public TravellerDateTime FoundedYear { get; set; }
         public TravellerIslandsNations IslandsNation { get; set; }
         public TravellerNationalities SupportingNationality { get; set; }
@@ -40,15 +40,22 @@ namespace TravellerWiki.Data.Factions
         public TravellerFactionEconomicSway EconomicSway { get; set; }
 
         public TravellerNPC FactionHead { get; set; }
-        public List<TravellerNPC> FactionMembers { get; set; }
+
+        public List<TravellerNPC> FactionMembers => FactionAssets
+            .Where(x => x is TravellerFactionPersonAsset)
+            .Cast<TravellerFactionPersonAsset>()
+            .Select(x => x.NPCAsset)
+            .ToList();
+        
+        public List<TravellerFactionAsset> FactionAssets { get; set; }
         
         [JsonIgnore]
         protected Random _randomGenerator { get; }
 
-        public TravellerFaction(string factionName, string headquatersLocation, TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality, 
-            string factionHeadName, List<string> otherOwnedLocations, TravellerDateTime foundedYear,
+        public TravellerFaction(string factionName, TravellerLocation headquatersLocation, TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality, 
+            string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear,
             TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway, TravellerFactionEconomicSway economicSway,
-            TravellerNPC factionHead = null, List<TravellerNPC> factionMembers = null)
+            TravellerNPC factionHead = null, List<TravellerNPC> factionMembers = null, List<TravellerFactionAsset> factionAssets = null)
         {
             FactionName = factionName;
             HeadquatersLocation = headquatersLocation;
@@ -57,14 +64,14 @@ namespace TravellerWiki.Data.Factions
             IslandsNation = islandsNation;
             SupportingNationality = supportingNationality;
             FactionHead = factionHead;
-            FactionMembers = factionMembers;
             PoliticalSway = politicalSway;
             SocialSway = socialSway;
             EconomicSway = economicSway;
+            FactionAssets = factionAssets;
             FactionID = GenerateFactionID();
             
             var factionSeed = factionName.Aggregate(0, (h, t) => h + t) 
-                              + headquatersLocation.Aggregate(0, (h, t) => h + t)
+                              + headquatersLocation.LocationName.Aggregate(0, (h, t) => h + t)
                               + (int) IslandsNation 
                               - ((int) supportingNationality+1);
             
@@ -89,7 +96,7 @@ namespace TravellerWiki.Data.Factions
 
             if (factionMembers == null)
             {
-                FactionMembers = new List<TravellerNPC>();
+                factionMembers = new List<TravellerNPC>();
                 var npcGenerator = new TravellerNPCService();
                 
                 int factionMemberCount = _randomGenerator.Next(0, 11);
@@ -99,6 +106,35 @@ namespace TravellerWiki.Data.Factions
                     
                     FactionMembers.Add(npcGenerator.GenerateNPC(memberName,memberName.Aggregate(0,(h,t) => h+t)));
                 }
+            }
+
+            if (factionAssets == null)
+            {
+                FactionAssets = new List<TravellerFactionAsset>();
+                FactionAssets.Add(
+                    new TravellerPlanetaryBaseAsset(headquatersLocation.LocationName,$"The headquarters of {factionName}",
+                        headquatersLocation,
+                        new TravellerFactionAssetValue(20,50),
+                        new TravellerFactionAssetValue(20,50),
+                        new TravellerFactionAssetValue(20,50),
+                        null,10,1, TravellerPlanetaryBaseLevels.Planetary_Control));
+
+                foreach (var otherLocation in otherOwnedLocations)
+                {
+                    FactionAssets.Add(
+                        new TravellerPlanetaryBaseAsset(otherLocation.LocationName,$"A planet controlled by {factionName}",
+                            otherLocation,
+                            new TravellerFactionAssetValue(10,25),
+                            new TravellerFactionAssetValue(10,25),
+                            new TravellerFactionAssetValue(10,25),
+                            null,5,1, TravellerPlanetaryBaseLevels.Embassy));
+                }
+            }
+
+            foreach (var factionMember in factionMembers)
+            {
+                FactionAssets.Add(new TravellerFactionPersonAsset(factionMember.PatronText,factionMember,
+                    $"{factionMember.Background} {factionMember.Career}", new TravellerLocation()));
             }
         }
 

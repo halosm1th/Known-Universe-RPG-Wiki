@@ -8,11 +8,11 @@
 </head>
 
 @{
-    var religions = _factionService.Factions.Where(x => x is TravellerNationGroup).Cast<TravellerNationGroup>().ToList();
+    var religions = _factionService.Factions.Where(x => x is TravellerNationGroup && !(x is TravellerMajorNationGroup)).Cast<TravellerNationGroup>().ToList();
 }
 
 <body>
-    <h1>Islands Class Groups</h1>
+    <h1>Islands Nations Groups</h1>
 <p>There are several different Nation groups that have popped up in the islands, this is a list of some of them. <a href="/Factions/IslandsFactionCreator">Click here to add a new Nation group to the list.</a></p>
     <div>
         <h2>The List</h2>

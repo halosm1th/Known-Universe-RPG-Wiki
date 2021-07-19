@@ -39,7 +39,7 @@
 </head>
 
 <h1>@GetFaction().FactionName</h1>
-<p>@GetFaction()</p>
+<p> @((MarkupString) Markdig.Markdown.ToHtml(@GetFaction().ToString() ?? string.Empty))</p>
 <h3>Important People: </h3>
 <ul style="background-color: rgb(244, 232, 31)">
     <li  style="color: black;">Head: <span title="@GetFaction().FactionHead.ToString()"> @GetFaction().FactionHead.Name [@GetFaction().FactionHead.ShortUPP()] (@GetFaction().FactionHead.Background, @GetFaction().FactionHead.Career) </span></li>

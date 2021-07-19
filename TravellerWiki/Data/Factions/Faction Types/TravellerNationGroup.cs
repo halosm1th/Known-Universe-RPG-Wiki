@@ -37,15 +37,15 @@ namespace TravellerWiki.Data.Factions
         public override string ToString()
         {
             string factionType = "Islands Nation";
-            
+
             return
                 $"The {factionType} known as {FactionName} first appeared in the Islands in {FoundedYear} on {HeadquatersLocation}. It is currently headed by {FactionHead.Name}" +
-                $"and it functions as a part of the {IslandsNation.ToString().Replace("_", " ")} with help from {SupportingNationality.ToString().Replace("_"," ")}." +
+                $"and it functions as a part of the {IslandsNation.ToString().Replace("_", " ")} with help from {SupportingNationality.ToString().Replace("_", " ")}." +
                 $"This {factionType} has {PoliticalSway.ToString().Replace("_", " ")} political sway. " +
                 $"{EconomicSway.ToString().Replace("_", " ")} economic sway, " +
                 $" and {SocialSway.ToString().Replace("_", " ")} social sway within the {IslandsNation.ToString().Replace("_", " ")} and its allies. " +
-                $"There are several other groups who rely on this {factionType}, most notably: {GetAlignedFactions()}." +
-                $" {(HasOtherLocation? $"It also has holdings on: {string.Join(", ",OtherOwnedLocations)}" : "")}";
+                $" {(HasOtherLocation ? $"It also has holdings on: {string.Join(", ", OtherOwnedLocations)}" : "")}" +
+                $"There are several other groups who rely on this {factionType}, most notably: {GetAlignedFactions()}.";
         }
     }
 }
