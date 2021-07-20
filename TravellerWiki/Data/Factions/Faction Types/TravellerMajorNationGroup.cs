@@ -14,9 +14,9 @@ namespace TravellerWiki.Data.Factions
             _factionService.Factions.Where(x => x.SupportingNationality == SupportingNationality).ToList();
         
         public TravellerMajorNationGroup(
-            string headquatersLocation, TravellerIslandsNations islandsNation, 
+            TravellerLocation headquatersLocation, TravellerIslandsNations islandsNation, 
             TravellerNationalities supportingNationality,
-            string factionHeadName, List<string> otherOwnedLocations, 
+            string factionHeadName, List<TravellerLocation> otherOwnedLocations, 
             TravellerDateTime foundedYear, 
             TravellerFactionPoliticalSway politicalSway, 
             TravellerFactionSocialSway socialSway, 

@@ -29,12 +29,12 @@ public class TravellerCompany : TravellerFaction
         
         
 
-        public TravellerCompany(string factionName = "", string headquatersLocation = "unkown", 
+        public TravellerCompany(string factionName = "", TravellerLocation headquatersLocation = default, 
             TravellerIslandsNations islandsNation = TravellerIslandsNations.Western_Islands_Trade_Federation, 
             TravellerIndustries industry = default, 
             TravellerNationalities supportingNationality = default,
             string factionHeadName = "",
-            List<string> otherOwnedLocations = null, 
+            List<TravellerLocation> otherOwnedLocations = null, 
             TravellerDateTime foundedYear = null,
             TravellerFactionPoliticalSway politicalSway = TravellerFactionPoliticalSway.Some, 
             TravellerFactionSocialSway socialSway = TravellerFactionSocialSway.Average, 

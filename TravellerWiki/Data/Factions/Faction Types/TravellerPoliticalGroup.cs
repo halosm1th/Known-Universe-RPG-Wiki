@@ -7,9 +7,9 @@ namespace TravellerWiki.Data.Factions
 {
     public class TravellerPoliticalGroup : TravellerFaction
     {
-        public TravellerPoliticalGroup(string factionName, string headquatersLocation, 
+        public TravellerPoliticalGroup(string factionName, TravellerLocation headquatersLocation, 
             TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality,
-            string factionHeadName, List<string> otherOwnedLocations, TravellerDateTime foundedYear, 
+            string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear, 
             TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway, 
             TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null, 
             List<TravellerNPC> factionMembers = null) 

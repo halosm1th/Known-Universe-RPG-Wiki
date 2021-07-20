@@ -16,9 +16,9 @@ namespace TravellerWiki.Data.Factions
         public List<TravellerFaction> FactionsAlignedWithNation =>
             _factionService.Factions.Where(x => x.IslandsNation == this.IslandsNation).ToList();
         
-        public TravellerNationGroup(string headquatersLocation, 
+        public TravellerNationGroup(TravellerLocation headquatersLocation, 
             TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality,
-            string factionHeadName, List<string> otherOwnedLocations, TravellerDateTime foundedYear, 
+            string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear, 
             TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway, 
             TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null, 
             List<TravellerNPC> factionMembers = null) 

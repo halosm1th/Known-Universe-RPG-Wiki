@@ -23,11 +23,11 @@ namespace TravellerWiki.Data.Services.DataServices
 
         public TravellerFaction GetTravellerFaction(int factionID) => _factions.First(x => x.FactionID == factionID);
 
-        public List<string> WorldsHeldByFactions()
+        public List<TravellerLocation> WorldsHeldByFactions()
         {
-            var worldNames = new List<string>();
+            var worldNames = new List<TravellerLocation>();
             var factionWorldNames = _factions.Select(x => {
-                    var ret = new List<string>();
+                    var ret = new List<TravellerLocation>();
                     ret.Add(x.HeadquatersLocation);
 
                     if (x.HasOtherLocation)

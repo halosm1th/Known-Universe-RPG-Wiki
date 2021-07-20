@@ -11,9 +11,9 @@ namespace TravellerWiki.Data.Factions
         public int NumberOfFollowers { get; set; }
         
         
-        public TravellerReligion(int numberOfFollowers, string factionName, string headquatersLocation, 
+        public TravellerReligion(int numberOfFollowers, string factionName, TravellerLocation headquatersLocation, 
             TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality, string factionHeadName, 
-            List<string> otherOwnedLocations, TravellerDateTime foundedYear, TravellerFactionPoliticalSway politicalSway, 
+            List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear, TravellerFactionPoliticalSway politicalSway, 
             TravellerFactionSocialSway socialSway, TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null, 
             List<TravellerNPC> factionMembers = null) :
             base(factionName, headquatersLocation, islandsNation, supportingNationality, factionHeadName, otherOwnedLocations, 

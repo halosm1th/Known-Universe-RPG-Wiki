@@ -30,6 +30,7 @@ namespace TravellerWiki.Data.Factions
         [JsonIgnore] public TravellerLocation HeadquatersLocation { get; set; }
         
         [JsonIgnore] public bool HasOtherLocation => OtherOwnedLocations != null && OtherOwnedLocations.Count > 0;
+        [JsonIgnore] public bool HasFactionAssets => FactionAssets != null && FactionAssets.Count > 1;
         
         [JsonIgnore] public List<TravellerLocation> OtherOwnedLocations { get; set; }
         public TravellerDateTime FoundedYear { get; set; }
@@ -48,6 +49,8 @@ namespace TravellerWiki.Data.Factions
             .ToList();
         
         public List<TravellerFactionAsset> FactionAssets { get; set; }
+
+        public string FactionAssetText => String.Join(", ", FactionAssets.Select(x => x.ToString()));
         
         [JsonIgnore]
         protected Random _randomGenerator { get; }

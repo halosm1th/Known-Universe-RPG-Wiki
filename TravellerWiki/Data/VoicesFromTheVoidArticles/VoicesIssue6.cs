@@ -139,6 +139,24 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                             "Opposition to the government pointed out that a fleet for anti-piracy purposes would fall under policing, not military action, and that creating such a fleet for military purposes would cause the Confederation to fail to maintain its promise in the Gloire Accords. ",
                             "Government chose to ignore their allies and obligations, investing in the anti-piracy fleet for a total cost of just under 1 billion Credits. Most of which is being financed by loans offered to the Confederation by the Western Islands Alliance to allow them to meet their Accords obligation. How this insulting use of funds and failure to uphold their promises will play out in the long run is unknown, but what can be said for certain now is that the Government of the Confederacy has failed and let down their allies, and if the IDF fail in their war against the OIDL and allies, that blame rests as much on the Confederacy as it does the IDF."
                         }),
+                    new VoicesFromTheVoidArticle(
+                        articleAuthor:"Master of Arms Haddock Gibbs ",
+                        articleName:"The Death of an Apprentice Sith, Matt Warde.",
+                        publisher:IslandsSectorPublishers.The_Imperial_Standard,
+                        publicationDate: new TravellerDateTime(06,28),
+                        paragraphs: new List<string>
+                        {
+                            "Mathew Warde wasn't an old man when he died. In Imperial years hes was but a wee lad, just barely younger then the Empire intowhich he was born, and a mere speck of an Atom on the Sith Timeline." +
+                            "This fledgling apprentice had an interesting life before he departed from the empire, though his exploits limited and of little note for this publication, as this publication instead wishes to focus its eyes on Apprentice Wardes Actions after he left the Empire and Dominate behind.",
+                            "Warde was known to be on world when the Witcher plague broke out on the Old Islands Defense League world of Nappanee(1,3:4'3), dropping off information and research for an imperial ally but a future enemy of Ward, Imperial Planetary Military Commander and future Planet Moff Sky Eden. [All of which occured just before the planet fell to the plague.](https://thesteamnetwork.com/VoicesFromTheVoid/Articles/1069)",
+                            "Warde and his troupe then went to [Kerkhoven(4,3:4'3)](https://thesteamnetwork.com/VoicesFromTheVoid/Articles/1071), where Warde was responsible for firing on a small childing, wounding their arm. But beyond this, the brave sith was able to his poweres to hold the plague-beasts on the station at bay, buying time for his allies and himself to escape. Afterwhich they departed to the research medical base on Bellport(3,6:4'3).",
+                            "After visiting and rendering aid to the researchers on Bellport, and killing their leader, while one group member was exposed to horrific research experiments. The group then departed, with Warde as their head, towards the recently changed hands planet of Jeffers(2,9:4'3)." +
+                            "On Jeffers, Warde was instrumental in installing the Xiao-Ming Born Duke Han Fei to the throne through a [marriage to the title-holder Silia Auspex](https://thesteamnetwork.com/VoicesFromTheVoid/Articles/1044). In an attempt to stop the transfer of power and instead secure the planet for herself, Imperial Planet-Moff Sky Eden arrived aboard her own star destroyer and attacked the planet, attempting to lay siege." +
+                            " Moff Eden executed the survivors from Kerkhoven, before being stopped by Warde and his allies. Warde then become a body-guard to and key man for Duke Atreiedes himself. " +
+                            "The Duke and his retinue then departed on a mission to view their newest claim, the planet of Acadie (6,5:3'3), along the way, Warde helped the Duke defend his ship from Pirates in the system Means(2,7:4'3), and proceeded to join the Duke on an investigative exploration of the planet Demmitt(2,6:4'3). On this strange world, while defending the researches from a strange, alien entity, ward was attacked by a naked, scared, and confused reseracher with a plasma rifle, whose dead-shot aim oblitered most of Warde. His body was able to offer one last Imperial service, that of cover to protect the Duke and his troupe from the strange alien creature on the world." +
+                            " Warde gave his life for an imperial cause, protecting a title holder and spreading the imperial and sithly message. He was as true to the imperial dream and shall go down in the sector as one of its legends."
+                        }),
+                    
                 }
             );
         }

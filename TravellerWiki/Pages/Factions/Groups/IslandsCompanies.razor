@@ -32,7 +32,7 @@
                     <th style="text-align: center; padding: 5px;">Revenue</th>
                     <th style="text-align: center; padding: 5px;">Market Cap</th>
                     <th style="text-align: center; padding: 5px;">Dividend</th>
-                    <th style="text-align: center; padding: 5px;">Other Locations</th>
+                    <th style="text-align: center; padding: 5px;">Faction Assets</th>
                     <th style="text-align: center; padding: 5px;">Political Sway</th>
                     <th style="text-align: center; padding: 5px;">Social Sway</th>
                     <th style="text-align: center; padding: 5px;">Economic Sway</th>
@@ -52,7 +52,7 @@
                         <td style="text-align: center">Cr @company.Revenues.</td>
                         <td style="text-align: center">Cr @company.MarketCap.</td>
                         <td style="text-align: center">@company.DividentPercent%.</td>
-                        <td style="text-align: center">@(company.HasOtherLocations()? company.GetOtherLocationName() : "None")</td>
+                        <td style="text-align: center">@(company.HasFactionAssets? company.FactionAssetText : "None")</td>
                         <td style="text-align: center">@company.PoliticalSway.ToString().Replace("_"," ")</td>
                         <td style="text-align: center">@company.SocialSway.ToString().Replace("_"," ")</td>
                         <td style="text-align: center">@company.EconomicSway.ToString().Replace("_"," ")</td>
