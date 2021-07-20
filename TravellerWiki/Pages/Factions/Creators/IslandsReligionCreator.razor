@@ -15,6 +15,10 @@
 @code{
     string FactionName = "";
     string HeadQuartersWorldName = "";
+    int hqPX = 1;
+    int hqPY = 1;
+    int hqSX = 1;
+    int hqSY = 1;
     string FactionHeadName = "";
     TravellerIslandsNations NationWithin;
     TravellerNationalities NationAlignedWith;
@@ -29,24 +33,34 @@
     int FoundingCen = 350;
     
     int NumberOfFollowers = 100;
-    List<string> OtherLocations = new List<string>();
+    
+    List<TravellerLocation> OtherLocations = new List<TravellerLocation>();
     string OtherPlanetName = "";
+    int opPX = 1;
+    int opPY = 1;
+    int opSX = 1;
+    int opSY = 1;
 
     TravellerReligion Religion = null;
 
     
     public void AddNextPlanet()
     {
-        OtherLocations.Add(OtherPlanetName);
+        OtherLocations.Add(new TravellerLocation(OtherPlanetName,opSX,opSY,opPX,opPY));
         OtherPlanetName = "";
+        opSX = 1;
+        opSY = 1;
+        opPX = 1;
+        opPY = 1;
     }
     
     public void CreateReligion()
     {
         FoundingDateTime = new TravellerDateTime(FoundingDay, FoundingMonth, FoundingMil, FoundingCen);
-        
+        var hq = new TravellerLocation(HeadQuartersWorldName, hqSX, hqSY, hqPX, hqPY);
+
         Religion = new TravellerReligion(NumberOfFollowers,
-            FactionName,HeadQuartersWorldName,NationWithin, NationAlignedWith,FactionHeadName,OtherLocations,FoundingDateTime,
+            FactionName,hq,NationWithin, NationAlignedWith,FactionHeadName,OtherLocations,FoundingDateTime,
             PoliticalSway,SocialSway,EconomicSway);
     }
     
@@ -92,6 +106,14 @@
         <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="headquartersLocation">Headquarters Location: </label>
             <input type="search" list="worldNames" @bind="@HeadQuartersWorldName" id="headquartersLocation"/>
+            <label for="hqPX">Location: </label>
+            <input type="number" @bind="@hqPX" id="hqPX" style="size:5px"/>
+            <label for="hqPY">,</label>
+            <input type="number" @bind="@hqPY" id="hqPY" style="size:5px"/>
+            <label for="hqSX">:</label>
+            <input type="number" @bind="@hqSX" id="hqSX" style="size:5px"/>
+            <label for="hqSY">'</label>
+            <input type="number" @bind="@hqSY" id="hqSY" style="size:5px"/>
             <datalist id="worldNames">
                 @foreach (var world in _factionService.WorldsHeldByFactions())
                 {
@@ -190,6 +212,14 @@
         <span style="background-color: darkgray; border: #A7A7A7 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
         <label for="otherPlanetName">Other Planet's Name</label>
         <input type="text" @bind="@OtherPlanetName" id="otherPlanetName">
+            <label for="opPX">Location: </label>
+            <input type="number" @bind="@opPX" id="opPX" style="size:5px"/>
+            <label for="opPY">,</label>
+            <input type="number" @bind="@opPY" id="opPY" style="size:5px"/>
+            <label for="opSX">:</label>
+            <input type="number" @bind="@opSX" id="opSX" style="size:5px"/>
+            <label for="opSY">'</label>
+            <input type="number" @bind="@opSX" id="opSY" style="size:5px"/>
         <button type="button" @onclick="AddNextPlanet">Add Planet</button>
         </span>
     </p>
