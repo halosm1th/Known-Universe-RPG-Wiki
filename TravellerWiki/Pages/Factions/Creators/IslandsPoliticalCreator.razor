@@ -98,13 +98,13 @@
             <label for="headquartersLocation">Headquarters Location: </label>
             <input type="search" list="worldNames" @bind="@HeadQuartersWorldName" id="headquartersLocation"/>
             <label for="hqPX">Location: </label>
-            <input type="number" @bind="@hqPX" id="hqPX" style="size:5px"/>
+            <input type="number" @bind="@hqPX" id="hqPX" style="width:3em"/>
             <label for="hqPY">,</label>
-            <input type="number" @bind="@hqPY" id="hqPY" style="size:5px"/>
+            <input type="number" @bind="@hqPY" id="hqPY" style="width:3em"/>
             <label for="hqSX">:</label>
-            <input type="number" @bind="@hqSX" id="hqSX" style="size:5px"/>
+            <input type="number" @bind="@hqSX" id="hqSX" style="width:3em"/>
             <label for="hqSY">'</label>
-            <input type="number" @bind="@hqSY" id="hqSY" style="size:5px"/>
+            <input type="number" @bind="@hqSY" id="hqSY" style="width:3em"/>
             <datalist id="worldNames">
                 @foreach (var world in _factionService.WorldsHeldByFactions())
                 {
@@ -195,13 +195,13 @@
         <label for="otherPlanetName">Other Planet's Name</label>
         <input type="text" @bind="@OtherPlanetName" id="otherPlanetName">
             <label for="opPX">Location: </label>
-            <input type="number" @bind="@opPX" id="opPX" style="size:5px"/>
+            <input type="number" @bind="@opPX" id="opPX" style="width:3em"/>
             <label for="opPY">,</label>
-            <input type="number" @bind="@opPY" id="opPY" style="size:5px"/>
+            <input type="number" @bind="@opPY" id="opPY" style="width:3em"/>
             <label for="opSX">:</label>
-            <input type="number" @bind="@opSX" id="opSX" style="size:5px"/>
+            <input type="number" @bind="@opSX" id="opSX" style="width:3em"/>
             <label for="opSY">'</label>
-            <input type="number" @bind="@opSX" id="opSY" style="size:5px"/>
+            <input type="number" @bind="@opSY" id="opSY" style="width:3em"/>
         <button type="button" @onclick="AddNextPlanet">Add Planet</button>
         </span>
     </p>
@@ -212,6 +212,6 @@
     }
     else
     {
-        <p><button onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Factions Json</button> <button @onclick="@SaveFaction">Add Faction</button></p>
+        <p><button onclick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Factions Json</button> <button @onclick="@SaveFaction">Add Faction</button></p>
     }
 </div>

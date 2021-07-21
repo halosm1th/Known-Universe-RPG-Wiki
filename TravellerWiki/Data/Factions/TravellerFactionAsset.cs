@@ -23,5 +23,10 @@ namespace TravellerWiki.Data.Factions
             SocialValue = socialValue;
             PoliticalValue = politicalValue;
         }
+
+        public override string ToString()
+        {
+            return $"{Name}: {Description} [{CurrentLocation}]. Economic Value: {EconomicValue}. Social Value: {SocialValue}. Political Value: {PoliticalValue}";
+        }
     }
 }

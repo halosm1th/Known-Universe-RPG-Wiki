@@ -8,7 +8,7 @@
 </head>
 
 @{
-    var religions = _factionService.Factions.Where(x => x is TravellerPoliticalGroup).Cast<TravellerPoliticalGroup>().ToList();
+    var religions = _factionService.Factions.Where(x => x is TravellerOtherGroup).Cast<TravellerOtherGroup>().ToList();
 }
 
 <body>

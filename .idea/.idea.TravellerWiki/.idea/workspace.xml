@@ -9,9 +9,31 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added a void news article regarding the death of Matt Warde">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly.">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Classes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Companies.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Criminals.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Islands.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Legals.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Majors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Others.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Politicals.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Religions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Socials.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Classes.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Classes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Companies.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Companies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Criminals.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Criminals.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Legals.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Legals.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Majors.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Majors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Others.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Others.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Politicals.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Politicals.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Religions.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Religions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Socials.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Socials.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" afterDir="false" />
@@ -22,6 +44,8 @@
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,10 +88,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/262/AsyncValueTaskMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/16B/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3A/ComponentState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/29/ComponentHub.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCompanyGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3F/RendererSynchronizationContextDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/39/RemoteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -98,7 +124,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/PlanetaryBaseAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerFactionPersonAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerLocation.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerClassGroup.cs" />
@@ -113,27 +138,28 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCrimeGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCriminalGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsPoliticalGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsProfessionalGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -146,7 +172,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.27735645" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.27701777" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -340,7 +366,7 @@
       <workItem from="1626325547643" duration="43000" />
       <workItem from="1626389067406" duration="6011000" />
       <workItem from="1626500414379" duration="248000" />
-      <workItem from="1626500981959" duration="50802000" />
+      <workItem from="1626500981959" duration="64683000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -475,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626755859469</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly.">
+      <created>1626758792004</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1626758792004</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +548,8 @@
     <MESSAGE value="Started workig on grtafting in faction assets" />
     <MESSAGE value="Started work on adding faction assets" />
     <MESSAGE value="Added a void news article regarding the death of Matt Warde" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a void news article regarding the death of Matt Warde" />
+    <MESSAGE value="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly." />
+    <option name="LAST_COMMIT_MESSAGE" value="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -547,6 +581,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs</url>
+          <line>79</line>
+          <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Data\Factions\TravellerFaction.cs" initialLine="79" containingFunctionPresentation="constructor 'TravellerFaction'">
+            <startOffsets>
+              <option value="3506" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3538" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -41,24 +41,28 @@ namespace TravellerWiki.Data.Factions
         public TravellerFactionEconomicSway EconomicSway { get; set; }
 
         public TravellerNPC FactionHead { get; set; }
-
-        public List<TravellerNPC> FactionMembers => FactionAssets
+        
+        [JsonIgnore] public List<TravellerNPC> FactionMembers => FactionAssets
             .Where(x => x is TravellerFactionPersonAsset)
             .Cast<TravellerFactionPersonAsset>()
             .Select(x => x.NPCAsset)
             .ToList();
-        
-        public List<TravellerFactionAsset> FactionAssets { get; set; }
 
-        public string FactionAssetText => String.Join(", ", FactionAssets.Select(x => x.ToString()));
-        
-        [JsonIgnore]
-        protected Random _randomGenerator { get; }
+        public List<TravellerFactionAsset> FactionAssets { get; set; } = new List<TravellerFactionAsset>();
 
-        public TravellerFaction(string factionName, TravellerLocation headquatersLocation, TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality, 
-            string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear,
-            TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway, TravellerFactionEconomicSway economicSway,
-            TravellerNPC factionHead = null, List<TravellerNPC> factionMembers = null, List<TravellerFactionAsset> factionAssets = null)
+        
+        [JsonIgnore] public string FactionAssetText => String.Join(", ", FactionAssets.Select(x => x.ToString()));
+        
+        [JsonIgnore] protected Random _randomGenerator { get; }
+
+        public TravellerFaction(string factionName = "", 
+            TravellerLocation headquatersLocation = default, 
+            TravellerIslandsNations islandsNation = default, TravellerNationalities supportingNationality = default, 
+            string factionHeadName = "", List<TravellerLocation> otherOwnedLocations = null, 
+            TravellerDateTime foundedYear = null, TravellerFactionPoliticalSway politicalSway = default,
+            TravellerFactionSocialSway socialSway= default, TravellerFactionEconomicSway economicSway= default,
+            TravellerNPC factionHead = null, List<TravellerNPC> factionMembers = null,
+            List<TravellerFactionAsset> factionAssets = null)
         {
             FactionName = factionName;
             HeadquatersLocation = headquatersLocation;
@@ -72,14 +76,26 @@ namespace TravellerWiki.Data.Factions
             EconomicSway = economicSway;
             FactionAssets = factionAssets;
             FactionID = GenerateFactionID();
+
+            if (headquatersLocation != null)
+            {
+                var factionSeed = factionName.Aggregate(0, (h, t) => h + t) 
+                                  + (headquatersLocation.LocationName.Aggregate(0, (h, t) => h + t))
+                                  + (int) IslandsNation 
+                                  - ((int) supportingNationality+1);
             
-            var factionSeed = factionName.Aggregate(0, (h, t) => h + t) 
-                              + headquatersLocation.LocationName.Aggregate(0, (h, t) => h + t)
-                              + (int) IslandsNation 
-                              - ((int) supportingNationality+1);
+                _randomGenerator = new Random(factionSeed);
+            }
+            else
+            {
+                var factionSeed = factionName.Aggregate(0, (h, t) => h + t) 
+                                  + (int) IslandsNation 
+                                  - ((int) supportingNationality+1);
             
-            _randomGenerator = new Random(factionSeed);
-            
+                _randomGenerator = new Random(factionSeed);
+                
+            }
+
             if (string.IsNullOrEmpty(factionHeadName))
             {
                 factionHeadName = GetNames(1,TravellerNameService.GetNationalitiesNameList(supportingNationality)).First();
@@ -107,13 +123,13 @@ namespace TravellerWiki.Data.Factions
                 {
                     var memberName = GetNames(1,TravellerNameService.GetNationalitiesNameList(supportingNationality)).First();
                     
-                    FactionMembers.Add(npcGenerator.GenerateNPC(memberName,memberName.Aggregate(0,(h,t) => h+t)));
+                    factionMembers.Add(npcGenerator.GenerateNPC(memberName,memberName.Aggregate(0,(h,t) => h+t)));
                 }
             }
 
             if (factionAssets == null)
             {
-                FactionAssets = new List<TravellerFactionAsset>();
+                    FactionAssets = new List<TravellerFactionAsset>();
                 FactionAssets.Add(
                     new TravellerPlanetaryBaseAsset(headquatersLocation.LocationName,$"The headquarters of {factionName}",
                         headquatersLocation,
@@ -122,7 +138,7 @@ namespace TravellerWiki.Data.Factions
                         new TravellerFactionAssetValue(20,50),
                         null,10,1, TravellerPlanetaryBaseLevels.Planetary_Control));
 
-                foreach (var otherLocation in otherOwnedLocations)
+                foreach (var otherLocation in otherOwnedLocations ?? new List<TravellerLocation>())
                 {
                     FactionAssets.Add(
                         new TravellerPlanetaryBaseAsset(otherLocation.LocationName,$"A planet controlled by {factionName}",

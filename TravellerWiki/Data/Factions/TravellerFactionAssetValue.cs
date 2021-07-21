@@ -10,5 +10,10 @@
             UpkeepCost = upkeepCost;
             IncomeProduced = incomeProduced;
         }
+
+        public override string ToString()
+        {
+            return $"Upkeep: {UpkeepCost}, Income: {IncomeProduced}";
+        }
     }
 }
