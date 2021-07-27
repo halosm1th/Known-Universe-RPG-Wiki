@@ -20,15 +20,6 @@ namespace TravellerWiki.Data.Factions
             _factionID++;
             return id;
         }
-
-        public static bool AddID(int id)
-        {
-            if (id < _factionID) return false;
-            
-            _factionID = id + 1;
-            return true;
-
-        }
         
         #endregion
         #region instance Variables
@@ -94,7 +85,7 @@ public TravellerFaction(string factionName, TravellerLocation hqLoc, TravellerIs
             FactionHead = factionHead;
             FactionMembers = factionMembers;
             FactionLocations = baseLocations;
-            if (!AddID(factionId)) FactionID = GetNextID();
+            FactionID = GenerateFactionID();
         }
 
         public TravellerFaction(string factionName = "", 
@@ -118,7 +109,6 @@ public TravellerFaction(string factionName, TravellerLocation hqLoc, TravellerIs
             FactionLocations = baseLocations;
             FactionMembers = new List<TravellerFactionPersonAsset>(factionMembers ?? new List<TravellerFactionPersonAsset>());
             FactionID = GenerateFactionID();
-            if (!AddID(FactionID)) FactionID = GetNextID();
             
             if (headquatersLocation != null)
             {

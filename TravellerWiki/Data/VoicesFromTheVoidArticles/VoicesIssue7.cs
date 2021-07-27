@@ -81,6 +81,52 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                                 "Rumours fly as to why the company no showed, but the biggest suspected reason is that the company objects being absorbed into a Trade Consortium, especially one with a 9% tarrif on Xiao-Ming goods, which the corp relies on to produce a majority of minor parts in their jump drives.",
                                 $"Secondary rumours include the company plotting to produce its own, home designed, J3 drive to compete with the one designed by the New Colchis Business Board's Research Institute, or that the company no longer feels _Callin Stellar Imaginators_ have what it takes, especially following their dramatic stock decrees and increasingly bad press, including the renouncement of several Noblemen men from the companies board."
                             }),
+                        new VoicesFromTheVoidArticle(
+                            articleAuthor:"Faleria Bellator",
+                            articleName:"RVO Aristocratics Praises Corporate Agent [Hunnelwell Hunters]",
+                            publisher: IslandsSectorPublishers.Voices_From_The_Void,
+                            publicationDate: new TravellerDateTime(28,07),
+                            paragraphs: new List<string>
+                            {
+                                "A number of high ranking Aristocratics within the Rev van der Ostrovski recently released an open letter praising Ali Ewan; an employee of Hunnelwell Hunters, who are themselves a small privateering firm operating on Hunnelwell(1,9,1,1).",
+                                "The Aristocratics are rumoured to have hired the Hunters on several occasions, most recently the Hunters are believed to have been hired to help overthrow the previously Commune aligned Count of Wellston(6,4:2'1), and instead installing a new ruler closer in line with the RVO ideals.",
+                                "However, the letter spends more of its time praising the training, quality, independence, and trustworthiness of the Hunters. Critics are vocal about their issues with a group of high ranking Astricocratics supporting not only murderers who are reported to have committed several warcrimes; but also soldiers from outside the RVO.",
+                                "Currently, the letter has caused a temporary bump in The Hunnelwell Hunters Stock Price  on the Imperial Exchange, however recent concerns about Imperial Investment Scams praying on RVO minor Nobility have caused the bump to be much smaller then initially expected. Analysts expect the price to keep rising for the rest of the week, before returning to pre-endorsement levels. "
+                            }),
+                        new VoicesFromTheVoidArticle(
+                            articleAuthor:"Caesar Aetius",
+                            articleName:"Senecio Cunobarrus head of Artistic Collective Announces Nuken Home",
+                            publisher: IslandsSectorPublishers.Voices_From_The_Void,
+                            publicationDate:new TravellerDateTime(3,02),
+                            paragraphs: new List<string>()
+                            {
+                                "The Tilovian Pacts Artistic Collective have announced a new partnership with the Old Islands Defense League Privateer Group Nuken Home which will escort artists from around the Central Islands to Tilova(5,10:2'2) so long as they are dues paying Members of the Collective.",
+                                "Known Playboy and spokesperson of the Privateer group Danvers Vanessa said about the partnership: \"We here at New Home deeply believe in Artistic Expression, and so we are excited to announce this partnership with the Aritstic Collective. We Hope that this can be the start of a deeper relationship between the people of New Home and Tilova\"",
+                                "Meanwhile the Corporate Executive behind the Artistic Collective, Cunobarrus Tyrana, said that he is excited to see how this will allow the collective to explore new forms of artistic expression, and artistic ideas from around the sector, and all these ideas to spread across the sector."
+                            }),
+                        new VoicesFromTheVoidArticle(
+                            articleAuthor:"Wyatt Larson",
+                            articleName:"Don Korleonius head of Imperial Mafia Reveals Bill",
+                            publisher:IslandsSectorPublishers.The_Imperial_Standard,
+                            publicationDate:new TravellerDateTime(28,08),
+                            paragraphs: new List<string>()
+                            {
+                                "The (rumoured) head of the Five Families Imperial Mafia in the Old Islands Sector the don, Korleonius, has revealed a new piece of Legislation today.",
+                                "The Bill is set to introduce to the Dominate Supremius a new classification of license allowing research into general purpose AI. This is a bold step not only for the Dominate Supremius, but also for the [Imperial Tillium Company](https://thesteamnetwork.com/Factions/IslandsFaction/10164), who is believed to be behind the drafting of this Legislation. This is because the Bill allows any Dominate Aligned company to apply for a retroactive license, which could interfere in the ongoing investigation into the company for its actions on Acadie(6,5:3'3) regarding the use of [Zalyn units](https://thesteamnetwork.com/VoicesFromTheVoid/Articles/1049)",
+                                "In support of the Bill is also the No God Land social group know as the [Free Robotiks Movement](https://www.thesteamnetwork.com/Factions/IslandsFaction/10169), who advocate for the islands to pursue the development of General Purpose AI to give the lands a competitive advantage against the larger nation states."
+                            }),
+                        
+                        new VoicesFromTheVoidArticle(
+                            articleAuthor:"Zygmont Zylka",
+                            articleName:"Johnson Chins-Ranton head of Free Robotiks Movement Reveals Agreement",
+                            publisher:IslandsSectorPublishers.Voices_From_The_Void,
+                            publicationDate:new TravellerDateTime(30,08),
+                            paragraphs: new List<string>()
+                            {
+                                "John Chins-Ranton, the Head of the Free Robotiks Movement revelead an agreement between the group of several robotics groups within the Dominate Supremius, and the Imperial Tillium Company, to pursue the creation and development of Tillium Mining and Mining ship Defense Robots, to be developed with recent innovations in the field of Artificial Intelligence.",
+                                "The group has however announced that the agreement rests on the passage of the recently reveleaved Bill to allow the research and development of General Purpose AI. This controversial bill is rumoured to have ties back to the Imperial Mafia. However, if the bill passes it would open the door for other islands governments to pass similar AI legislation, possibly leading to an increased ferocity in the already harsh war. and possibly bloodier conflicts in the future.",
+                                "However, as these conflicts grow in size, the number of robots needed to fight in them will increase, which means that this could be the right time to invest in various robot production companies, as if you're going to risk spending the next few decades in constant war, may as well bet on who the winners will be with your life savings!"
+                            }),
                     }
                 );
             }

@@ -9,42 +9,10 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerFactionPersonAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerFactionPersonAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerClassGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerClassGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCrimeGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCrimeGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerMajorNationGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerMajorNationGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerNationGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerNationGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerOtherGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerOtherGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerPoliticalGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerPoliticalGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerProfessionalGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerProfessionalGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerReligiousGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerReligiousGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerSocialGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerSocialGroup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAssetValue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAssetValue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerLocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerLocation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Classes.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Classes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Companies.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Companies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Criminals.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Criminals.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Legals.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Legals.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Majors.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Majors.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Others.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Others.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Politicals.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Politicals.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Politicals.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Real Json/Politicals.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Religions.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Religions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Socials.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Socials.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +74,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerOtherGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerSocialGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerPoliticalGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerClassGroup.cs" />
@@ -154,9 +121,10 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerLocation.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -365,7 +333,7 @@
       <workItem from="1626500414379" duration="248000" />
       <workItem from="1626500981959" duration="75426000" />
       <workItem from="1627281889957" duration="164000" />
-      <workItem from="1627355990279" duration="6950000" />
+      <workItem from="1627355990279" duration="9886000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -514,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626849924030</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!">
+      <created>1627365660522</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1627365660522</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +531,8 @@
     <MESSAGE value="Added a void news article regarding the death of Matt Warde" />
     <MESSAGE value="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly." />
     <MESSAGE value="More fixes! still need to readd the faction data tho" />
-    <option name="LAST_COMMIT_MESSAGE" value="More fixes! still need to readd the faction data tho" />
+    <MESSAGE value="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
