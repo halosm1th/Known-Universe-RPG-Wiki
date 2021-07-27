@@ -2,6 +2,7 @@
 using System.Linq;
 using Newtonsoft.Json;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.Factions.Faction_Assets;
 using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.SimpleWikiClasses;
 
@@ -21,7 +22,7 @@ namespace TravellerWiki.Data.Factions
             TravellerFactionPoliticalSway politicalSway, 
             TravellerFactionSocialSway socialSway, 
             TravellerFactionEconomicSway economicSway, 
-            TravellerNPC factionHead = null, List<TravellerNPC> factionMembers = null) 
+            TravellerNPC factionHead = null, List<TravellerFactionPersonAsset> factionMembers = null) 
             : base(headquatersLocation, islandsNation, supportingNationality, factionHeadName, 
                 otherOwnedLocations, foundedYear, politicalSway, socialSway, economicSway, factionHead, factionMembers)
         {

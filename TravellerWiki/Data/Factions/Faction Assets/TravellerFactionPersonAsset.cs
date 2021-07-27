@@ -14,5 +14,10 @@ namespace TravellerWiki.Data.Factions.Faction_Assets
         {
             NPCAsset = npcAsset;
         }
+
+        public override string ToString()
+        {
+            return $"(Person) {NPCAsset.Name} [{NPCAsset.PatronText}]: {NPCAsset.ShortUPP()} ({NPCAsset.Background}, {NPCAsset.Career}) [{@CurrentLocation}]";
+        }
     }
 }

@@ -195,7 +195,24 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                                 "The debate now rages over the question of whether the fleet's purpose is the defense of the Confederacy, or the protection of trade/anti-piracy measures. The opposition has thusfar been on the offensive, focusing on the lack of military defense in a time of escalating conflict, while Government has been aruging that their priority should be in trade, and that if a war were to come, without the support of the nearby Mainhair Military Republic, Western Islands Alliance, and Independent Defense Federation, the Confederacy would fall quickly to any real threat. Thus the government should focus on the threat it _can_ handle while letting the big players fight it out with each other."
                             }
                         ),
-                    });
+                        new VoicesFromTheVoidArticle(
+                            articleAuthor:"Jasrellius Nymus",
+                            articleName: "Pro God-Land terrorist attack against Daycare on Kingdom of Hermleigh(5,5:1'3); 1 child & both attackers dead.",
+                            publicationDate:new TravellerDateTime(23,07),
+                            publisher: IslandsSectorPublishers.Kosses_Kings_Kommandments,
+                            paragraphs: new List<string>()
+                            {
+                                "In a rather unexpected incident, a the Kingdom of Hermleigh(5,5:1'3) suffered a terror attack at a daycare next door to a Sigmarian Temple and an Amphetemine production facility.",
+                                "The attack happened at 3:52pm Local Time, after the two assailants entered the neighboring Sigmarian Temple, demanding to know the location of a child staying in the temple. When the Temple refused, the terrorists exited the building, entering the daycare next door. ",
+                                "Upon entering the daycare, the older of the two attackers demanded to know the location of a patience corridor, while the younger attacker left the building to guard it from police. When the mom-bots refused, the attacker drew their weapon and attempted to disable the entry mom-bot, but failed instead brutally obliterating a toddler.",
+                                "After firing, the other assailant seemed to begin to run away, before deciding to change course and return to aid their ally, firing a hand-gun round at the older terrorist, hitting them. The Older terrorist swung aronud, raising his own, larger laser rifle, and fired at his friend, failing to wound him.",
+                                "The two continued to exchange fire until station authorities arrived and attampted to take the two into custody. The Both Terrorists attacked the stations security team, but both failed to kill any station personnel. The two attacked seemingly in order of their ages, with the older first being decimated by gunfire, which gave the younger terrorist a moment to shout \" Hail Lithia! \"",
+                                "Lithia(7,6:1'2) is known to be small trade-depo, which is now a part of the No God Land. The Planet recently featured in local newspapers for accidentally shipping out expired food, as well as a recent economic slowdown believed to be brought on by the increased autonomy of the post-Commune systems.",
+                                "The attackers share little in common, both are believed to have been Versian due to their language, the younger one was wearing Fifth Empire Islands Expeditionary Force Military Combat Armour, and the older one made mention of returning to prison. So far, the Expeditionary Force has denied any involvement or relation to the terrorists and the Fifth Vers Empire has only stated that both left Imperial Lands at least 3 years ago, and the Empire had no information about them since.",
+                                "Overall, this attack was a small event, that while concerning, is only one in a recent trend of anti-Sigmarian attacks. Whether these attacks are related to the rumours of the Church hiding Agents of the Communist Empire of the Deutchland or simply more anti-Sigmarian bigotry that has been on the rise since both the End of the Commune, and the End of the last Great War, has yet to become clear."
+                                
+                            })
+                            });
             }
 
             return Issue5;

@@ -11,7 +11,7 @@ namespace TravellerWiki.Data.Factions
         public List<TravellerFactionPersonAsset> AssetPopulation { get; set; }
         
         public int MaxNumberOfPeopleWithAsset { get; set; }
-        public int MinNumberOfPeopleWithAsset { get; set; }
+        public int MinNumberOfPeopleWithAsset { get; set; } 
         [JsonIgnore] public int CurrentNumberOfPeopleWithAsset => AssetPopulation.Count;
 
         public TravellerPopulatedFactionAsset(string name, string description, TravellerLocation currentLocation, 

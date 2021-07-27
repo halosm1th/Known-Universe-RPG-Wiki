@@ -54,7 +54,9 @@
     public void CreateFaction()
     {
         FoundingDateTime = new TravellerDateTime(FoundingDay, FoundingMonth, FoundingMil, FoundingCen);
-        var hq = new TravellerLocation(HeadQuartersWorldName, hqSX, hqSY, hqPX, hqPY);
+        var subLoc = (hqSX,hqSY);
+        var parLoc = (hqPX,hqPY);
+        var hq = new TravellerLocation(HeadQuartersWorldName, subLoc.hqSX, subLoc.hqSY, parLoc.hqPX, parLoc.hqPY);
 
         Faction = new TravellerMajorNationGroup(
             hq,NationWithin, NationAlignedWith,FactionHeadName,OtherLocations,FoundingDateTime,

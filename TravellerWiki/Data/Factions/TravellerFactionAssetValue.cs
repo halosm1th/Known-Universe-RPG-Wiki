@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-            return $"Upkeep: {UpkeepCost}, Income: {IncomeProduced}";
+            return $"Upkeep {UpkeepCost}, Gained {IncomeProduced}.";
         }
     }
 }

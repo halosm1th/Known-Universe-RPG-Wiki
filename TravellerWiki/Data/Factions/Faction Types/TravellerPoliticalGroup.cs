@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.Factions.Faction_Assets;
 using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.SimpleWikiClasses;
 
@@ -12,7 +13,7 @@ namespace TravellerWiki.Data.Factions
             string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear, 
             TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway, 
             TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null, 
-            List<TravellerNPC> factionMembers = null) 
+            List<TravellerFactionPersonAsset> factionMembers = null) 
             : base(factionName, headquatersLocation, islandsNation, supportingNationality, factionHeadName, 
                 otherOwnedLocations, foundedYear, politicalSway, socialSway, economicSway, factionHead, factionMembers)
         {

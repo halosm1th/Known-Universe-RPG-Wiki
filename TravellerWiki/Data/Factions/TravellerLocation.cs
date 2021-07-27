@@ -12,13 +12,13 @@
 
         public TravellerLocation(string locationName = "", int subSectorX = 1, int subSectorY = 1, int parsecX = 1, int parsecY = 1)
         {
-            if (SubSectorX <= 0) subSectorX = 1;
-            if (SubSectorY <= 0) subSectorY = 1;
+            if (subSectorX <= 0) subSectorX = 1;
+            if (subSectorY <= 0) subSectorY = 1;
             if (parsecX <= 0) parsecX = 1;
             if (parsecY <= 0) parsecY = 1;
             
-            if (SubSectorX > 4) subSectorX = 4;
-            if (SubSectorY > 4) subSectorY = 4;
+            if (subSectorX > 4) subSectorX = 4;
+            if (subSectorY > 4) subSectorY = 4;
             if (parsecX > 8) parsecX = 8;
             if (parsecY > 10) parsecY = 10;
             

@@ -2,6 +2,7 @@
 using System.Linq;
 using Newtonsoft.Json;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.Factions.Faction_Assets;
 using TravellerWiki.Data.Services.CareerService;
 using TravellerWiki.Data.Services.DataServices;
 using TravellerWiki.Data.SimpleWikiClasses;
@@ -21,7 +22,7 @@ namespace TravellerWiki.Data.Factions
             string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear, 
             TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway, 
             TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null, 
-            List<TravellerNPC> factionMembers = null) 
+            List<TravellerFactionPersonAsset> factionMembers = null) 
             : base(islandsNation.ToString().Replace("_"," "), headquatersLocation, islandsNation, supportingNationality, factionHeadName, 
                 otherOwnedLocations, foundedYear, politicalSway, socialSway, economicSway, factionHead, factionMembers)
         {
