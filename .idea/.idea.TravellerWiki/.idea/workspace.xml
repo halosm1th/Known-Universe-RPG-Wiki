@@ -9,23 +9,8 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="A small bug allowing companies to now have employees">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Made the assets now just display locations, and added more islands to Islands.json">
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCriminalGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCriminalGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsPoliticalGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsPoliticalGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsProfessionalGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsProfessionalGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsReligion.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsReligion.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,7 +332,7 @@
       <workItem from="1626500981959" duration="75426000" />
       <workItem from="1627281889957" duration="164000" />
       <workItem from="1627355990279" duration="10065000" />
-      <workItem from="1627435975767" duration="4748000" />
+      <workItem from="1627435975767" duration="5633000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -517,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627437087626</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Made the assets now just display locations, and added more islands to Islands.json">
+      <created>1627443596811</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1627443596811</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +554,8 @@
     <MESSAGE value="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!" />
     <MESSAGE value="Added two new voices from the void articles, and patched a small bug." />
     <MESSAGE value="A small bug allowing companies to now have employees" />
-    <option name="LAST_COMMIT_MESSAGE" value="A small bug allowing companies to now have employees" />
+    <MESSAGE value="Made the assets now just display locations, and added more islands to Islands.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the assets now just display locations, and added more islands to Islands.json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
