@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TravellerWiki.Data.Charcters;
+using TravellerWiki.Data.Services.CareerService;
 using static TravellerWiki.Data.Charcters.TravellerSkills;
 using static TravellerWiki.Data.Charcters.TravellerAttributes;
 
@@ -642,6 +643,22 @@ namespace TravellerWiki.Data
             rand = new Random(seed);
             var background = (TravellerNPCBackgrounds) rand.Next(0, 8);
             var career = (TravellerNPCCareers) rand.Next(0, 16);
+            var npc = GenerateNPC(name, background, career,null);
+            return npc;
+        }
+        
+        public TravellerNPC GenerateNPC(int seed = default)
+        {
+            if (seed == default)
+            {
+                seed = rand.Next();
+            }
+
+            rand = new Random(seed);
+            var background = (TravellerNPCBackgrounds) rand.Next(0, 8);
+            var career = (TravellerNPCCareers) rand.Next(0, 16);
+            var nameList = (TravellerNameService.NationNameList) rand.Next(0, Enum.GetValues(typeof(TravellerNameService.NationNameList)).Length);
+            var name = GetName(nameList);
             var npc = GenerateNPC(name, background, career,null);
             return npc;
         }

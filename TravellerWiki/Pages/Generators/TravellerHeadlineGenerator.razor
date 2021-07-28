@@ -19,19 +19,22 @@
         <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
 
     </head>
-<h1>Headline Generator</h1>
+<div style="text-align: center">
+    <h1>Headline Generator</h1>
 
-<button class="" @onclick="GeneateHeadline">Generate Another Headline</button>
+    <button @onclick="GeneateHeadline">Generate Another Headline</button>
 
-        @if (headlineList != null)
-        {
-            <div style="background-color: darkblue; border: darkcyan;">
+    @if (headlineList != null)
+    {
+        <div style="background-color: darkblue; border: darkcyan;">
             @foreach (var headline in headlineList)
             {
                 <p>  @((MarkupString) Markdig.Markdown.ToHtml(headline))</p>
             }
-            </div>
-        }
+        </div>
+    }
+</div>
+
 @code {
     private List<string> headlineList = new List<string>();
 

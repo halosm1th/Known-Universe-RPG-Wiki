@@ -9,10 +9,13 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +44,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/10/Cast.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/6B/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="SKIP_HIGHLIGHTING" />
@@ -74,7 +76,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerSocialGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerPoliticalGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerClassGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerProfessionalGroup.cs" />
@@ -84,7 +85,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerMajorNationGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/PlanetaryBaseAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCompanyGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCriminalGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" />
@@ -117,14 +117,16 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAssetValue.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerFactionPersonAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerLocation.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -333,7 +335,8 @@
       <workItem from="1626500414379" duration="248000" />
       <workItem from="1626500981959" duration="75426000" />
       <workItem from="1627281889957" duration="164000" />
-      <workItem from="1627355990279" duration="9886000" />
+      <workItem from="1627355990279" duration="10065000" />
+      <workItem from="1627435975767" duration="862000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -489,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627365660522</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added two new voices from the void articles, and patched a small bug.">
+      <created>1627368587211</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1627368587211</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +542,8 @@
     <MESSAGE value="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly." />
     <MESSAGE value="More fixes! still need to readd the faction data tho" />
     <MESSAGE value="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!" />
+    <MESSAGE value="Added two new voices from the void articles, and patched a small bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added two new voices from the void articles, and patched a small bug." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

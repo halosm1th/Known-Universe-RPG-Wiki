@@ -11,10 +11,10 @@ namespace TravellerWiki.Data.Factions.Faction_Assets
     {
         public TravellerPlanetaryBaseLevels PlanetaryBaseLevel { get; set; }
 
-        public TravellerPlanetaryBaseAsset(string name, string description, TravellerLocation currentLocation, 
-            TravellerFactionAssetValue economicValue, TravellerFactionAssetValue socialValue, TravellerFactionAssetValue politicalValue, 
-            List<TravellerFactionPersonAsset> assetPopulation, int maxNumberOfPeopleWithAsset, int minNumberOfPeopleWithAsset, 
-            TravellerPlanetaryBaseLevels planetaryBaseLevel) 
+        public TravellerPlanetaryBaseAsset(string name = "Planet Base", string description = "", TravellerLocation currentLocation = default, 
+            TravellerFactionAssetValue economicValue = default, TravellerFactionAssetValue socialValue  = default, TravellerFactionAssetValue politicalValue = default, 
+            List<TravellerFactionPersonAsset> assetPopulation = null, int maxNumberOfPeopleWithAsset = 1, int minNumberOfPeopleWithAsset = 1, 
+            TravellerPlanetaryBaseLevels planetaryBaseLevel = TravellerPlanetaryBaseLevels.Shack) 
             : base(name, description, currentLocation, economicValue, socialValue, politicalValue, assetPopulation, 
                 maxNumberOfPeopleWithAsset, minNumberOfPeopleWithAsset)
         {
