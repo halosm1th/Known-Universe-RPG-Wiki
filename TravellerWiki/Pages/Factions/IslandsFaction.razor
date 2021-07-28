@@ -10,6 +10,8 @@
     [Parameter]
     public string FactionID { get; set; }
 
+    Type previousType = default;
+
     private TravellerFaction _faction = null;
 
     public TravellerFaction GetFaction()
@@ -59,12 +61,20 @@
 </div>
 <div>
     <h3>Faction Assets </h3>
-    <ul style="background-color: rgb(244, 232, 31)">
-        @foreach (var assets in GetFaction().FactionAssets())
+    <ul style="background-color: rgb(244, 232, 31);color: black;">
+        @foreach (var assets in GetFaction().FactionAssets().OrderBy(x => x.GetType().Name))
         {
+
+            if (previousType != assets.GetType())
+            {
+                <br/>
+            }
+                
             <li>
                 <span style="color: black;" title="@assets.FullToString()">@assets.ToString()</span>
             </li>
+            
+            previousType = assets.GetType();
         }
     </ul>
 </div>

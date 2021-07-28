@@ -58,7 +58,12 @@ namespace TravellerWiki.Data.Factions
         public List<TravellerFactionAsset> FactionAssets()
         {
             var assets = new List<TravellerFactionAsset>();
-            assets.AddRange(FactionLocations);
+            foreach (var location in FactionLocations)
+            {
+                assets.AddRange(location.AssetPopulation);
+                assets.Add(location);
+            }
+
             assets.AddRange(FactionMembers);
             return assets;
         }

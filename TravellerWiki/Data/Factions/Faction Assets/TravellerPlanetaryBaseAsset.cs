@@ -23,9 +23,14 @@ namespace TravellerWiki.Data.Factions.Faction_Assets
 
         public override string ToString()
         {
-            return $"(Planet) {Name} [{PlanetaryBaseLevel.ToString().Replace("_"," ")}]: " +
+            return $"(Planet) {Name} [{PlanetaryBaseLevel.ToString().Replace("_", " ")}]: {Description}";
+        }
+
+        public override string FullToString()
+        {
+            return $"{Name} [{PlanetaryBaseLevel.ToString().Replace("_"," ")}]: " +
                    $"{Description}. Workers (Min: {MinNumberOfPeopleWithAsset} , Max: {MaxNumberOfPeopleWithAsset}): " +
-                   $"{string.Join(", ", AssetPopulation?.Select(x => x.NPCAsset.Name) ?? Array.Empty<string?>())}" + 
+                   $"{string.Join(", ", AssetPopulation?.Select(x => x.NPCAsset.Name) ?? Array.Empty<string?>())} " + 
                    $"(P: [{PoliticalValue}] E: [{EconomicValue}] S: [{SocialValue}]) [{CurrentLocation}]";
         }
     }

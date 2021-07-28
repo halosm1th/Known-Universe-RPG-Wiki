@@ -25,7 +25,7 @@
                     <th style="text-align: center; padding: 5px;">Loyal to</th>
                     <th style="text-align: center; padding: 5px;">Leaders Name</th>
                     <th style="text-align: center; padding: 5px;">Founded Year</th>
-                    <th style="text-align: center; padding: 5px;">Assets</th>
+                    <th style="text-align: center; padding: 5px;">Locations</th>
                     <th style="text-align: center; padding: 5px;">Political Sway</th>
                     <th style="text-align: center; padding: 5px;">Social Sway</th>
                     <th style="text-align: center; padding: 5px;">Economic Sway</th>
@@ -41,7 +41,7 @@
                         <td style="text-align: center">@religion.IslandsNation.ToString().Replace("_"," ") [@religion.SupportingNationality.ToString().Replace("_"," ")]</td>
                         <td style="text-align: center">@religion.FactionHeadName</td>
                         <td style="text-align: center">@religion.FoundedYear</td>
-                        <td style="text-align: center">@(religion.HasFactionAssets? string.Join(", ",religion.FactionAssets().Select(x => x.ToString())) : "None")</td>
+                        <td style="text-align: center">@(religion.HasOtherLocation? string.Join(", ", religion.OtherOwnedLocations) : "None")</td>
                         <td style="text-align: center">@religion.PoliticalSway.ToString().Replace("_"," ")</td>
                         <td style="text-align: center">@religion.SocialSway.ToString().Replace("_"," ")</td>
                         <td style="text-align: center">@religion.EconomicSway.ToString().Replace("_"," ")</td>

@@ -31,7 +31,7 @@ namespace TravellerWiki.Data.Factions
                 var npcGenerator = new TravellerNPCService();
                 for (int i = 0; i < population; i++)
                 {
-                    var npc = npcGenerator.GenerateNPC(name.Aggregate(0, (h, t) => h + t));
+                    var npc = npcGenerator.GenerateNPC(name.Aggregate(0, (h, t) => h + t) + AssetPopulation.Count);
                     AssetPopulation.Add(new TravellerFactionPersonAsset(npc.PatronText,npc,$"Employee at: {name}",CurrentLocation));
                 }
             }
