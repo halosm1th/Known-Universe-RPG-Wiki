@@ -211,7 +211,7 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                                 "The attackers share little in common, both are believed to have been Versian due to their language, the younger one was wearing Fifth Empire Islands Expeditionary Force Military Combat Armour, and the older one made mention of returning to prison. So far, the Expeditionary Force has denied any involvement or relation to the terrorists and the Fifth Vers Empire has only stated that both left Imperial Lands at least 3 years ago, and the Empire had no information about them since.",
                                 "Overall, this attack was a small event, that while concerning, is only one in a recent trend of anti-Sigmarian attacks. Whether these attacks are related to the rumours of the Church hiding Agents of the Communist Empire of the Deutchland or simply more anti-Sigmarian bigotry that has been on the rise since both the End of the Commune, and the End of the last Great War, has yet to become clear."
                                 
-                            })
+                            }),
                             });
             }
 

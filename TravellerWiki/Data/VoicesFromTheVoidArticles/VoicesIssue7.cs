@@ -127,6 +127,7 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                                 "The group has however announced that the agreement rests on the passage of the recently reveleaved Bill to allow the research and development of General Purpose AI. This controversial bill is rumoured to have ties back to the Imperial Mafia. However, if the bill passes it would open the door for other islands governments to pass similar AI legislation, possibly leading to an increased ferocity in the already harsh war. and possibly bloodier conflicts in the future.",
                                 "However, as these conflicts grow in size, the number of robots needed to fight in them will increase, which means that this could be the right time to invest in various robot production companies, as if you're going to risk spending the next few decades in constant war, may as well bet on who the winners will be with your life savings!"
                             }),
+                            
                     }
                 );
             }

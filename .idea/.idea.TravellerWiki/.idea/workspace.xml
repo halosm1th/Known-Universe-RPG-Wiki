@@ -9,8 +9,24 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Made the assets now just display locations, and added more islands to Islands.json">
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Factions/Islands.json" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyAttributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyCharacter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyCharacterCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyMoney.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRPCharacterCreator.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRace.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRpCharacterBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasySavingThrow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/Acadie.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue4.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue4.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,20 +83,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/33/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/A/HtmlRenderer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerIndustries.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerClassGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerProfessionalGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsFactionCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerNationGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerMajorNationGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/PlanetaryBaseAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCompanyGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" />
@@ -90,7 +96,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerClassGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCrimeGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerSocialGroup.cs" />
@@ -105,7 +110,6 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerLocation.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" />
@@ -123,6 +127,17 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" />
+      <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/Class1.cs" />
+      <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyAttribute.cs" />
+      <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyCharacterCreator.cs" />
+      <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyCharacter.cs" />
+      <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasySavingThrow.cs" />
+      <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRpCharacterBuilder.cs" />
+      <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRace.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue4.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -135,7 +150,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.27701777" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.27681473" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -332,7 +347,10 @@
       <workItem from="1626500981959" duration="75426000" />
       <workItem from="1627281889957" duration="164000" />
       <workItem from="1627355990279" duration="10065000" />
-      <workItem from="1627435975767" duration="5633000" />
+      <workItem from="1627435975767" duration="6275000" />
+      <workItem from="1627528844303" duration="3728000" />
+      <workItem from="1628490847231" duration="33000" />
+      <workItem from="1628533684662" duration="2361000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -509,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627443596811</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Added more Islands">
+      <created>1627445007224</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1627445007224</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +555,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added a few small bug fixes and language features" />
     <MESSAGE value="Basic high versian stuff is done, and added some new voices from the void articles!" />
     <MESSAGE value="Made the voices from the void stuff look a lot nicer" />
     <MESSAGE value="Fixed a font bug?" />
@@ -555,7 +579,8 @@
     <MESSAGE value="Added two new voices from the void articles, and patched a small bug." />
     <MESSAGE value="A small bug allowing companies to now have employees" />
     <MESSAGE value="Made the assets now just display locations, and added more islands to Islands.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the assets now just display locations, and added more islands to Islands.json" />
+    <MESSAGE value="Added more Islands" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more Islands" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

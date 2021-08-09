@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubsectorJsonGenerator", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreationTest", "CharacterCreationTest\CharacterCreationTest.csproj", "{C4CBEAEC-0D2D-4B0B-878C-01564628AA44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicFantasyRPCharacterCreator", "BasicFantasyRPCharacterCreator\BasicFantasyRPCharacterCreator.csproj", "{4415D9BB-143B-4923-83FD-D17741E28A60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C4CBEAEC-0D2D-4B0B-878C-01564628AA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4CBEAEC-0D2D-4B0B-878C-01564628AA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4CBEAEC-0D2D-4B0B-878C-01564628AA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4415D9BB-143B-4923-83FD-D17741E28A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4415D9BB-143B-4923-83FD-D17741E28A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4415D9BB-143B-4923-83FD-D17741E28A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4415D9BB-143B-4923-83FD-D17741E28A60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

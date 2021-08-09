@@ -143,7 +143,7 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                         articleAuthor:"Master of Arms Haddock Gibbs ",
                         articleName:"The Death of an Apprentice Sith, Matt Warde.",
                         publisher:IslandsSectorPublishers.The_Imperial_Standard,
-                        publicationDate: new TravellerDateTime(06,28),
+                        publicationDate: new TravellerDateTime(28,08),
                         paragraphs: new List<string>
                         {
                             "Mathew Warde wasn't an old man when he died. In Imperial years hes was but a wee lad, just barely younger then the Empire intowhich he was born, and a mere speck of an Atom on the Sith Timeline." +
@@ -156,7 +156,20 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                             "The Duke and his retinue then departed on a mission to view their newest claim, the planet of Acadie (6,5:3'3), along the way, Warde helped the Duke defend his ship from Pirates in the system Means(2,7:4'3), and proceeded to join the Duke on an investigative exploration of the planet Demmitt(2,6:4'3). On this strange world, while defending the researches from a strange, alien entity, ward was attacked by a naked, scared, and confused reseracher with a plasma rifle, whose dead-shot aim oblitered most of Warde. His body was able to offer one last Imperial service, that of cover to protect the Duke and his troupe from the strange alien creature on the world." +
                             " Warde gave his life for an imperial cause, protecting a title holder and spreading the imperial and sithly message. He was as true to the imperial dream and shall go down in the sector as one of its legends."
                         }),
-                    
+                    new VoicesFromTheVoidArticle(
+                        articleAuthor:"Zygmont Zylka",
+                        articleName:"Death of Dimmitt",
+                        publisher: IslandsSectorPublishers.Voices_From_The_Void,
+                        publicationDate:new TravellerDateTime(08,09),
+                        paragraphs:new List<string>{
+                            "A tragedy is on display for us today with the revelation that the Ciayk Starship Producers research outpost on the planet of Dimmitt(2,6:4'3) has been slaughtered.",
+                            "The facilities computer systems have been unrecoverable destroyer, along with a majority of the electronics within the facility. Backups of the research appears to have been stolen, and 8 of the employees have been kidnapped, the rest were all killed.",
+                            "The lab appeared to be researching an innovated new Hull Technology allowing for liquid self repairing hulls, as well as seeing how this technology could be adapted for other markets, such as Augmentation.",
+                            "For this reason, current evidence suggests it may have been an inquisitor who did this. There are several void blade marks that match with one that an inquisitor would use, as well as a few other possible signs, such as ramblings in a journal regarding the 'Wife of Sigmar' from one of the doctors.",
+                            "Hopefully the Witchers are able to investigate this issue and bring justice to the lives lost here."
+                            }
+                        
+                        ),
                 }
             );
         }
