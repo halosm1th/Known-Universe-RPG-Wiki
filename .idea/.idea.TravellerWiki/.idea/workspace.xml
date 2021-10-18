@@ -9,25 +9,7 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyCharacterCreator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyMoney.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRPCharacterCreator.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRace.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyRpCharacterBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasySavingThrow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/Acadie.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue4.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue4.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue7.cs" afterDir="false" />
-    </list>
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -350,7 +332,7 @@
       <workItem from="1627435975767" duration="6275000" />
       <workItem from="1627528844303" duration="3728000" />
       <workItem from="1628490847231" duration="33000" />
-      <workItem from="1628533684662" duration="2361000" />
+      <workItem from="1628533684662" duration="2486000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -534,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627445007224</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added some new void news articles, as well as the basics for a basic fantasy RP charactrer creeator">
+      <created>1628537099771</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1628537099771</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +544,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Basic high versian stuff is done, and added some new voices from the void articles!" />
     <MESSAGE value="Made the voices from the void stuff look a lot nicer" />
     <MESSAGE value="Fixed a font bug?" />
     <MESSAGE value="More font fixes!" />
@@ -580,7 +568,8 @@
     <MESSAGE value="A small bug allowing companies to now have employees" />
     <MESSAGE value="Made the assets now just display locations, and added more islands to Islands.json" />
     <MESSAGE value="Added more Islands" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more Islands" />
+    <MESSAGE value="Added some new void news articles, as well as the basics for a basic fantasy RP charactrer creeator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some new void news articles, as well as the basics for a basic fantasy RP charactrer creeator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
