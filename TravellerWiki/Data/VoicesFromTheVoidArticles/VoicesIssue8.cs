@@ -25,7 +25,7 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                             articleAuthor: "Zygmont Zylka",
                             articleName: "War is here.",
                             publisher: IslandsSectorPublishers.Voices_From_The_Void,
-                            publicationDate: new TravellerDateTime(27, 07, cen:391),
+                            publicationDate: new TravellerDateTime(13, 03, cen:391),
                             paragraphs: new List<string>
                             {
                                 "The last year here in the Islands has not been pretty. Bloody war dominated the closing months 83390; 10/390 saw the Venhut Dominate States losing their Dominate backed fleet after a failed invasion of St. Geneieve due to the interception of Essia Pirates; meanwhile the Dominate launched a successful invasion of Quasqueton (8,9;1’2), meanwhile trade feels further linked the various economies within the sector.",
