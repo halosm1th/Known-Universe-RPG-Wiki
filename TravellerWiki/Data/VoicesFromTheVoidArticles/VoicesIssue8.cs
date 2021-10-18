@@ -18,7 +18,7 @@ namespace TravellerWiki.Data.VoicesFromTheVoidArticles
                     issueName: "Another year of war",
                     issueDescription:
                     "Violence has rocked the Islands as war becomes widespread with teh dawn of the new year",
-                    issueNumber: 7,
+                    issueNumber: 8,
                     articles: new List<VoicesFromTheVoidArticle>
                     {
                         new VoicesFromTheVoidArticle(
