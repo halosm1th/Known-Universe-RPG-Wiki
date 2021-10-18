@@ -36,6 +36,7 @@ namespace TravellerWiki.Data.Services.DataServices
                 _VoicesFromTheVoidIssues.Add(VoicesIssue5.AddIssue5());
                 _VoicesFromTheVoidIssues.Add(VoicesIssue6.AddIssue6()); 
                 _VoicesFromTheVoidIssues.Add(VoicesIssue7.AddIssue7());
+                _VoicesFromTheVoidIssues.Add(VoicesIssue8.AddIssue8());
 
             }
 
