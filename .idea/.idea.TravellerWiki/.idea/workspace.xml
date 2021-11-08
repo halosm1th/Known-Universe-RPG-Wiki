@@ -7,9 +7,17 @@
     <projectFile>CareerCreator/CareerCreator.csproj</projectFile>
     <projectFile>SubsectorJsonGenerator/SubsectorJsonGenerator.csproj</projectFile>
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
+    <projectFile>SubsectorJson/SubsectorJson.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,10 +44,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/10/Cast.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/6B/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue8.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/12/HubConnectionHandler.cs" root0="SKIP_HIGHLIGHTING" />
@@ -61,6 +71,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3E/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/31/CircuitHost.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/1F/RenderHandle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/33/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -69,13 +80,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerClassGroup.cs" />
@@ -120,6 +124,13 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue6.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue5.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue4.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue8.cs" />
+      <option value="$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" />
+      <option value="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml.cs" />
+      <option value="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml" />
+      <option value="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml" />
+      <option value="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -132,7 +143,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.27681473" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.2767365" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -141,7 +152,7 @@
     <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.TravellerWiki">
+  <component name="RunManager" selected=".NET Project.SubsectorJsonGenerator">
     <configuration name="Publish TravellerFactionSystem to folder" type="DotNetFolderPublish" factoryName="Publish to folder" temporary="true">
       <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/TravellerFactionSystem/bin/Release/net5.0/publish" target_framework="net5.0" uuid_high="7797284247241245342" uuid_low="-4882073600492591447" />
       <method v="2" />
@@ -193,6 +204,25 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/JobBoardCreator/JobBoardCreator.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="SubsectorJson" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/SubsectorJson/SubsectorJson.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -334,6 +364,7 @@
       <workItem from="1628490847231" duration="33000" />
       <workItem from="1628533684662" duration="2486000" />
       <workItem from="1634581394237" duration="618000" />
+      <workItem from="1634583436029" duration="3851000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -524,7 +555,28 @@
       <option name="project" value="LOCAL" />
       <updated>1628537099771</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added hte new voices of the void article">
+      <created>1634583489654</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1634583489654</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Okay this might finally have fixed it.">
+      <created>1634583689218</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1634583689218</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Fixed the date on voics from the void">
+      <created>1634584257576</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1634584257576</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,9 +597,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Made the voices from the void stuff look a lot nicer" />
-    <MESSAGE value="Fixed a font bug?" />
-    <MESSAGE value="More font fixes!" />
     <MESSAGE value="Fixed a small bug with a switch statement" />
     <MESSAGE value="Added a new voices from the Void issue, and some articles to it." />
     <MESSAGE value="Started working on Traveller Faction stuff" />
@@ -570,7 +619,10 @@
     <MESSAGE value="Made the assets now just display locations, and added more islands to Islands.json" />
     <MESSAGE value="Added more Islands" />
     <MESSAGE value="Added some new void news articles, as well as the basics for a basic fantasy RP charactrer creeator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some new void news articles, as well as the basics for a basic fantasy RP charactrer creeator" />
+    <MESSAGE value="Added hte new voices of the void article" />
+    <MESSAGE value="Okay this might finally have fixed it." />
+    <MESSAGE value="Fixed the date on voics from the void" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the date on voics from the void" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

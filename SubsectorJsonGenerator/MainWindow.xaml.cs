@@ -62,15 +62,13 @@ namespace SubsectorJsonGenerator
             var quirk = (Quirks) WorldQuirk.SelectedIndex;
             var controllingGov = CurrentGovernment.Text ?? "0";
 
-            var factions = GetFactions();
-
             var fuelDepo = HasFuelDepo.IsChecked ?? false;
             var militaryBase = HasMilitaryBase.IsChecked ?? false;
             var otherBase = HasOtherBase.IsChecked ?? false;
 
             var world = new World(name, x, y, starportQuality, worldSize, atmosphere,
                 hydrographics, controllingGovernmentType, population, lawLevel, techLevel,
-                controllingGov, quirk, temperature, factions,
+                controllingGov, quirk, temperature,
                 militaryBase, fuelDepo, otherBase, exactPop);
 
             return world;
@@ -112,57 +110,6 @@ namespace SubsectorJsonGenerator
 
             var factions = world.Factions;
 
-            //If it has at least 1 item
-            if (factions.Count > 0)
-            {
-                var faction = factions[0];
-                HasGroup1.IsChecked = true;
-                Group1Backer.SelectedIndex = 0; //Always default to backer 0 rn.
-                Group1Size.SelectedIndex = (int) faction.Strength;
-                Group1Type.SelectedIndex = faction.GovernmentType;
-            }
-            else
-            {
-                HasGroup1.IsChecked = false;
-                Group1Backer.SelectedIndex = 0;
-                Group1Size.SelectedIndex = 0;
-                Group1Type.SelectedIndex = 0;
-            }
-
-            //If it has 2 factions
-            if (factions.Count > 1)
-            {
-                var faction = factions[1];
-                HasGroup2.IsChecked = true;
-                Group2Backer.SelectedIndex = 0; //Always default to backer 0 rn.
-                Group2Size.SelectedIndex = (int)faction.Strength;
-                Group2Type.SelectedIndex = faction.GovernmentType;
-            }
-            else
-            {
-                HasGroup2.IsChecked = false;
-                Group2Backer.SelectedIndex = 0;
-                Group2Size.SelectedIndex = 0;
-                Group2Type.SelectedIndex = 0;
-            }
-
-            //If it has 3 factions
-            if (factions.Count > 2)
-            {
-                var faction = factions[2];
-                HasGroup3.IsChecked = true;
-                Group3Backer.SelectedIndex = 0; //Always default to backer 0 rn.
-                Group3Size.SelectedIndex = (int)faction.Strength;
-                Group3Type.SelectedIndex = faction.GovernmentType;
-            }
-            else
-            {
-                HasGroup3.IsChecked = false;
-                Group3Backer.SelectedIndex = 0;
-                Group3Size.SelectedIndex = 0;
-                Group3Type.SelectedIndex = 0;
-            }
-
             HasFuelDepo.IsChecked = world.GasGiant;
             HasMilitaryBase.IsChecked = world.MilitaryBase;
             HasOtherBase.IsChecked = world.OtherBase;
@@ -189,55 +136,9 @@ namespace SubsectorJsonGenerator
             WorldQuirk.SelectedIndex = 0;
             CurrentGovernment.SelectedIndex = 0;
 
-            HasGroup1.IsChecked = false;
-            Group1Backer.SelectedIndex = 0;
-            Group1Size.SelectedIndex = 0;
-            Group1Type.SelectedIndex = 0;
-
-            HasGroup2.IsChecked = false;
-            Group2Backer.SelectedIndex = 0;
-            Group2Size.SelectedIndex = 0;
-            Group2Type.SelectedIndex = 0;
-
-            HasGroup3.IsChecked = false;
-            Group3Backer.SelectedIndex = 0;
-            Group3Size.SelectedIndex = 0;
-            Group3Type.SelectedIndex = 0;
-
             HasFuelDepo.IsChecked = false;
             HasMilitaryBase.IsChecked = false;
             HasOtherBase.IsChecked = false;
-        }
-
-        private List<(int govType, FactionSize govSize, string backer)> GetFactions()
-        {
-            var factions = new List<(int, FactionSize, string)>();
-
-            if (HasGroup1.IsChecked ?? false)
-            {
-                var type = Group1Type.SelectedIndex;
-                var size = (FactionSize) Group1Size.SelectedIndex;
-                var backer = Group1Backer.Text;
-                factions.Add((type,size,backer));
-            }
-
-            if (HasGroup2.IsChecked ?? false)
-            {
-                var type = Group2Type.SelectedIndex;
-                var size = (FactionSize)Group2Size.SelectedIndex;
-                var backer = Group2Backer.Text;
-                factions.Add((type, size, backer));
-            }
-
-            if (HasGroup3.IsChecked ?? false)
-            {
-                var type = Group3Type.SelectedIndex;
-                var size = (FactionSize)Group3Size.SelectedIndex;
-                var backer = Group3Backer.Text;
-                factions.Add((type, size, backer));
-            }
-
-            return factions;
         }
 
         private void GenreateFromButton(object sender, RoutedEventArgs e)
@@ -257,26 +158,11 @@ namespace SubsectorJsonGenerator
                 WorldPrimaryGov.SelectedIndex = UWPdialog.Gov;
                 WorldLawLevel.SelectedIndex = UWPdialog.Law;
                 WorldTechLevel.SelectedIndex = UWPdialog.Tech;
-            }
-        }
 
-        private void Enable1(object sender, RoutedEventArgs e)
-        {
-            Group1Backer.IsEnabled = HasGroup1.IsChecked ?? false;
-            Group1Size.IsEnabled = HasGroup1.IsChecked ?? false;
-            Group1Type.IsEnabled = HasGroup1.IsChecked ?? false;
-        }
-        private void Enable2(object sender, RoutedEventArgs e)
-        {
-            Group2Backer.IsEnabled = HasGroup2.IsChecked ?? false;
-            Group2Size.IsEnabled = HasGroup2.IsChecked ?? false;
-            Group2Type.IsEnabled = HasGroup2.IsChecked ?? false;
-        }
-        private void Enable3(object sender, RoutedEventArgs e)
-        {
-            Group3Backer.IsEnabled = HasGroup3.IsChecked ?? false;
-            Group3Size.IsEnabled = HasGroup3.IsChecked ?? false;
-            Group3Type.IsEnabled = HasGroup3.IsChecked ?? false;
+                HasFuelDepo.IsChecked = UWPdialog.FuelDepo;
+                HasMilitaryBase.IsChecked = UWPdialog.MilitaryBase;
+                HasOtherBase.IsChecked = UWPdialog.OtherBase;
+            }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)

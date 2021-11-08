@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -217,6 +218,38 @@ namespace TravellerUniverse
             Quirk = quirk;
             Temperature = temperature;
             Factions = factions;
+            GovernmentType = governmentType;
+            PopulationStat = population;
+            LawLevel = lawLevel;
+            TechLevel = techLevel;
+            MilitaryBase = militaryBase;
+            GasGiant = gasGiant;
+            OtherBase = otherBase;
+            _population = ExactPop;
+            HasWorld = true;
+        }
+        
+        public World(string name, int x, int y, 
+            StarportQuality starportQuality, WorldSize worldSize, WorldAtmosphere worldAtmosphere, 
+            int worldHydrographics, int governmentType,int population ,int lawLevel, int techLevel,
+            string controllingFaction, Quirks quirk, Temperatures temperature, 
+            bool militaryBase, bool gasGiant, bool otherBase, string ExactPop )
+        {
+            WorldSize = worldSize;
+            X = x;
+            Y = y;
+            Name = name;
+            ControllingFaction = controllingFaction;
+            StarportQuality = starportQuality;
+            WorldAtmosphere = worldAtmosphere;
+            WorldHydrographics = worldHydrographics;
+            Quirk = quirk;
+            Temperature = temperature;
+            
+            //Factions
+            Factions = new List<(int GovernmentType, FactionSize Strength, string Backer)>();
+
+
             GovernmentType = governmentType;
             PopulationStat = population;
             LawLevel = lawLevel;

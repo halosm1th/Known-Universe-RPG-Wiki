@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubsectorJsonGenerator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -180,7 +180,8 @@
         </ComboBox>
 
         <Label Grid.Row="7" Grid.Column="0" Content=" "></Label>
-        <Button Grid.Row="7" Grid.Column="3" Content="Generate From UPP" Click="GenreateFromButton"></Button>
+        <Label Grid.Row="7" Grid.Column="0" Content=" "></Label>
+        <Button Grid.Row="0" Grid.Column="3" Content="Generate From UPP" Click="GenreateFromButton"></Button>
 
         <Label Grid.Row="8" Grid.Column="0" Content="Population:"></Label>
         <TextBox Grid.Row="8" Grid.Column="1" Name="PopulationExact" TabIndex="11"></TextBox>
@@ -243,189 +244,6 @@
 
         <Label Grid.Row="9" Grid.Column="2" Content="Outer Gov:"></Label>
         <ComboBox Grid.Row="9" Grid.Column="3" Name="CurrentGovernment" SelectedIndex="0" TabIndex="13">
-            <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
-            <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Kotlik Tribunal"></ComboBoxItem>
-            <ComboBoxItem Content="Tilova Pact"></ComboBoxItem>
-            <ComboBoxItem Content="Spiritwood Senate"></ComboBoxItem>
-            <ComboBoxItem Content="New Colchis Business Board"></ComboBoxItem>
-            <ComboBoxItem Content="Mainhair Military Republic"></ComboBoxItem>
-            <ComboBoxItem Content="Western Islands Trade Federation"></ComboBoxItem>
-            <ComboBoxItem Content="South-Western Islands Trade  Consortium"></ComboBoxItem>
-            <ComboBoxItem Content="Olitar Protectorate"></ComboBoxItem>
-            <ComboBoxItem Content="Neubayern Topas Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Dominate Supremius"></ComboBoxItem>
-            <ComboBoxItem Content="Venhut Dominate States"></ComboBoxItem>
-            <ComboBoxItem Content="Dominate Of the Imperial Faith"></ComboBoxItem>
-            <ComboBoxItem Content="Old Islands Defense League"></ComboBoxItem>
-            <ComboBoxItem Content="Rex van der Ostrovski"></ComboBoxItem>
-            <ComboBoxItem Content="Rex van der Server"></ComboBoxItem>
-            <ComboBoxItem Content="Esperanza"></ComboBoxItem>
-            <ComboBoxItem Content="Coila Military Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Gunipped Setllar Empire"></ComboBoxItem>
-            <ComboBoxItem Content="No God Land"></ComboBoxItem>
-            <ComboBoxItem Content="Wilsville Trade Pact"></ComboBoxItem>
-            <ComboBoxItem Content="Independent Baronies"></ComboBoxItem>
-            <ComboBoxItem Content="Sar-Tan Confederacy"></ComboBoxItem>
-            <ComboBoxItem Content="Red Rock Republic"></ComboBoxItem>
-            <ComboBoxItem Content="Essia Kitarchy"></ComboBoxItem>
-        </ComboBox>
-
-
-        <Label Grid.Row="10" Grid.Column="0" Content="Has Group"></Label>
-        <Label Grid.Row="10" Grid.Column="1" Content="Group Type"></Label>
-        <Label Grid.Row="10" Grid.Column="2" Content="Group Size"></Label>
-        <Label Grid.Row="10" Grid.Column="3" Content="Backed by"></Label>
-
-        <CheckBox Grid.Row="11" Grid.Column="0" Content="Has Group" Name="HasGroup1" Click="Enable1"></CheckBox>
-        <ComboBox Grid.Row="11" Grid.Column="1" Name="Group1Type" SelectedIndex="0" IsEnabled="false">
-            <ComboBoxItem Content="0) None"></ComboBoxItem>
-            <ComboBoxItem Content="1) Company/Corporation"></ComboBoxItem>
-            <ComboBoxItem Content="2) Participating Democracy"></ComboBoxItem>
-            <ComboBoxItem Content="3) Self-Perpetuating Oligarchy"></ComboBoxItem>
-            <ComboBoxItem Content="4) Representative Democracy"></ComboBoxItem>
-            <ComboBoxItem Content="5) Feudal Technocracy"></ComboBoxItem>
-            <ComboBoxItem Content="6) Captive Government"></ComboBoxItem>
-            <ComboBoxItem Content="7) Balkanisation"></ComboBoxItem>
-            <ComboBoxItem Content="8) Civil Service Bureaucracy"></ComboBoxItem>
-            <ComboBoxItem Content="9) Impersonal Bureaucracy"></ComboBoxItem>
-            <ComboBoxItem Content="A) Charismatic Dictator"></ComboBoxItem>
-            <ComboBoxItem Content="B) Non-Charismatic Leader"></ComboBoxItem>
-            <ComboBoxItem Content="C) Charismatic Oligarchy"></ComboBoxItem>
-            <ComboBoxItem Content="D) Religious Dictatorship"></ComboBoxItem>
-            <ComboBoxItem Content="E) Religious Autocracy"></ComboBoxItem>
-            <ComboBoxItem Content="F) Totalitarian Oligarchy"></ComboBoxItem>
-        </ComboBox>
-
-        <ComboBox Grid.Row="11" Grid.Column="2" SelectedIndex="0" Name="Group1Size" IsEnabled="false">
-            <ComboBoxItem Content="Obscure Group"></ComboBoxItem>
-            <ComboBoxItem Content="Fringe Group"></ComboBoxItem>
-            <ComboBoxItem Content="Minor Group"></ComboBoxItem>
-            <ComboBoxItem Content="Notable Group"></ComboBoxItem>
-            <ComboBoxItem Content="Significant"></ComboBoxItem>
-            <ComboBoxItem Content="Overwhelming popular support"></ComboBoxItem>
-        </ComboBox>
-
-        <ComboBox Grid.Row="11" Grid.Column="3" SelectedIndex="0" Name="Group1Backer"  IsEnabled="false">
-            <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
-            <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Kotlik Tribunal"></ComboBoxItem>
-            <ComboBoxItem Content="Tilova Pact"></ComboBoxItem>
-            <ComboBoxItem Content="Spiritwood Senate"></ComboBoxItem>
-            <ComboBoxItem Content="New Colchis Business Board"></ComboBoxItem>
-            <ComboBoxItem Content="Mainhair Military Republic"></ComboBoxItem>
-            <ComboBoxItem Content="Western Islands Trade Federation"></ComboBoxItem>
-            <ComboBoxItem Content="South-Western Islands Trade  Consortium"></ComboBoxItem>
-            <ComboBoxItem Content="Olitar Protectorate"></ComboBoxItem>
-            <ComboBoxItem Content="Neubayern Topas Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Dominate Supremius"></ComboBoxItem>
-            <ComboBoxItem Content="Venhut Dominate States"></ComboBoxItem>
-            <ComboBoxItem Content="Dominate Of the Imperial Faith"></ComboBoxItem>
-            <ComboBoxItem Content="Old Islands Defense League"></ComboBoxItem>
-            <ComboBoxItem Content="Rex van der Ostrovski"></ComboBoxItem>
-            <ComboBoxItem Content="Rex van der Server"></ComboBoxItem>
-            <ComboBoxItem Content="Esperanza"></ComboBoxItem>
-            <ComboBoxItem Content="Coila Military Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Gunipped Setllar Empire"></ComboBoxItem>
-            <ComboBoxItem Content="No God Land"></ComboBoxItem>
-            <ComboBoxItem Content="Wilsville Trade Pact"></ComboBoxItem>
-            <ComboBoxItem Content="Independent Baronies"></ComboBoxItem>
-            <ComboBoxItem Content="Sar-Tan Confederacy"></ComboBoxItem>
-            <ComboBoxItem Content="Red Rock Republic"></ComboBoxItem>
-            <ComboBoxItem Content="Essia Kitarchy"></ComboBoxItem>
-        </ComboBox>
-
-        <CheckBox Grid.Row="12" Grid.Column="0" Content="Has Group" Name="HasGroup2" Click="Enable2"></CheckBox>
-        <ComboBox Grid.Row="12" Grid.Column="1" Name="Group2Type" SelectedIndex="0"  IsEnabled="false">
-            <ComboBoxItem Content="None"></ComboBoxItem>
-            <ComboBoxItem Content="Company/Corporation"></ComboBoxItem>
-            <ComboBoxItem Content="Participating Democracy"></ComboBoxItem>
-            <ComboBoxItem Content="Self-Perpetuating Oligarchy"></ComboBoxItem>
-            <ComboBoxItem Content="Representative Democracy"></ComboBoxItem>
-            <ComboBoxItem Content="Feudal Technocracy"></ComboBoxItem>
-            <ComboBoxItem Content="Captive Government"></ComboBoxItem>
-            <ComboBoxItem Content="Balkanisation"></ComboBoxItem>
-            <ComboBoxItem Content="Civil Service Bureaucracy"></ComboBoxItem>
-            <ComboBoxItem Content="Impersonal Bureaucracy"></ComboBoxItem>
-            <ComboBoxItem Content="Charismatic Dictator"></ComboBoxItem>
-            <ComboBoxItem Content="Non-Charismatic Leader"></ComboBoxItem>
-            <ComboBoxItem Content="Charismatic Oligarchy"></ComboBoxItem>
-            <ComboBoxItem Content="Religious Dictatorship"></ComboBoxItem>
-            <ComboBoxItem Content="Religious Autocracy"></ComboBoxItem>
-            <ComboBoxItem Content="Totalitarian Oligarchy"></ComboBoxItem>
-        </ComboBox>
-
-        <ComboBox Grid.Row="12" Grid.Column="2" SelectedIndex="0" Name="Group2Size" IsEnabled="false">
-            <ComboBoxItem Content="Obscure Group"></ComboBoxItem>
-            <ComboBoxItem Content="Fringe Group"></ComboBoxItem>
-            <ComboBoxItem Content="Minor Group"></ComboBoxItem>
-            <ComboBoxItem Content="Notable Group"></ComboBoxItem>
-            <ComboBoxItem Content="Significant"></ComboBoxItem>
-            <ComboBoxItem Content="Overwhelming popular support"></ComboBoxItem>
-        </ComboBox>
-
-        <ComboBox Grid.Row="12" Grid.Column="3" SelectedIndex="0" Name="Group2Backer" IsEnabled="false">
-            <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
-            <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Kotlik Tribunal"></ComboBoxItem>
-            <ComboBoxItem Content="Tilova Pact"></ComboBoxItem>
-            <ComboBoxItem Content="Spiritwood Senate"></ComboBoxItem>
-            <ComboBoxItem Content="New Colchis Business Board"></ComboBoxItem>
-            <ComboBoxItem Content="Mainhair Military Republic"></ComboBoxItem>
-            <ComboBoxItem Content="Western Islands Trade Federation"></ComboBoxItem>
-            <ComboBoxItem Content="South-Western Islands Trade  Consortium"></ComboBoxItem>
-            <ComboBoxItem Content="Olitar Protectorate"></ComboBoxItem>
-            <ComboBoxItem Content="Neubayern Topas Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Dominate Supremius"></ComboBoxItem>
-            <ComboBoxItem Content="Venhut Dominate States"></ComboBoxItem>
-            <ComboBoxItem Content="Dominate Of the Imperial Faith"></ComboBoxItem>
-            <ComboBoxItem Content="Old Islands Defense League"></ComboBoxItem>
-            <ComboBoxItem Content="Rex van der Ostrovski"></ComboBoxItem>
-            <ComboBoxItem Content="Rex van der Server"></ComboBoxItem>
-            <ComboBoxItem Content="Esperanza"></ComboBoxItem>
-            <ComboBoxItem Content="Coila Military Alliance"></ComboBoxItem>
-            <ComboBoxItem Content="Gunipped Setllar Empire"></ComboBoxItem>
-            <ComboBoxItem Content="No God Land"></ComboBoxItem>
-            <ComboBoxItem Content="Wilsville Trade Pact"></ComboBoxItem>
-            <ComboBoxItem Content="Independent Baronies"></ComboBoxItem>
-            <ComboBoxItem Content="Sar-Tan Confederacy"></ComboBoxItem>
-            <ComboBoxItem Content="Red Rock Republic"></ComboBoxItem>
-            <ComboBoxItem Content="Essia Kitarchy"></ComboBoxItem>
-        </ComboBox>
-
-        <CheckBox Grid.Row="13" Grid.Column="0" Content="Has Group" Name="HasGroup3" Click="Enable3"></CheckBox>
-        <ComboBox Grid.Row="13" Grid.Column="1" Name="Group3Type" SelectedIndex="0" IsEnabled="false">
-            <ComboBoxItem Content="None"></ComboBoxItem>
-            <ComboBoxItem Content="Company/Corporation"></ComboBoxItem>
-            <ComboBoxItem Content="Participating Democracy"></ComboBoxItem>
-            <ComboBoxItem Content="Self-Perpetuating Oligarchy"></ComboBoxItem>
-            <ComboBoxItem Content="Representative Democracy"></ComboBoxItem>
-            <ComboBoxItem Content="Feudal Technocracy"></ComboBoxItem>
-            <ComboBoxItem Content="Captive Government"></ComboBoxItem>
-            <ComboBoxItem Content="Balkanisation"></ComboBoxItem>
-            <ComboBoxItem Content="Civil Service Bureaucracy"></ComboBoxItem>
-            <ComboBoxItem Content="Impersonal Bureaucracy"></ComboBoxItem>
-            <ComboBoxItem Content="Charismatic Dictator"></ComboBoxItem>
-            <ComboBoxItem Content="Non-Charismatic Leader"></ComboBoxItem>
-            <ComboBoxItem Content="Charismatic Oligarchy"></ComboBoxItem>
-            <ComboBoxItem Content="Religious Dictatorship"></ComboBoxItem>
-            <ComboBoxItem Content="Religious Autocracy"></ComboBoxItem>
-            <ComboBoxItem Content="Totalitarian Oligarchy"></ComboBoxItem>
-        </ComboBox>
-
-        <ComboBox Grid.Row="13" Grid.Column="2" SelectedIndex="0" Name="Group3Size" IsEnabled="false">
-            <ComboBoxItem Content="Obscure Group"></ComboBoxItem>
-            <ComboBoxItem Content="Fringe Group"></ComboBoxItem>
-            <ComboBoxItem Content="Minor Group"></ComboBoxItem>
-            <ComboBoxItem Content="Notable Group"></ComboBoxItem>
-            <ComboBoxItem Content="Significant"></ComboBoxItem>
-            <ComboBoxItem Content="Overwhelming popular support"></ComboBoxItem>
-        </ComboBox>
-
-        <ComboBox Grid.Row="13" Grid.Column="3" SelectedIndex="0" Name="Group3Backer" IsEnabled="false">
             <ComboBoxItem Content="Western Islands Alliance"></ComboBoxItem>
             <ComboBoxItem Content="Independent Defense Federation"></ComboBoxItem>
             <ComboBoxItem Content="Starcan Alliance"></ComboBoxItem>

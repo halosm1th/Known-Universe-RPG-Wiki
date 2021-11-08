@@ -86,14 +86,18 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Apoc","Absolute, complete, total"),
             new HighVersianDefinition("Ard","Burning"),
             new HighVersianDefinition("Auct","Authority / Commander / Author"),
+            new HighVersianDefinition("Cen","Hundred"),
             new HighVersianDefinition("Ci","Skin, Flesh, Physical"),
             new HighVersianDefinition("Com","Mix, combined, added to (generally an object)"),
             new HighVersianDefinition("Con","With, Together"),
             new HighVersianDefinition("De","God/Heavenly/Godly"),
+            new HighVersianDefinition("Dec​","Ten"),
             new HighVersianDefinition("Di","Two"),
             new HighVersianDefinition("Dom","Home, hearth, house"),
+            new HighVersianDefinition("Ex","From (coming from), the place of begining, start; point of origin."),
             new HighVersianDefinition("Em","Combined / Shared (generally a person)"),
             new HighVersianDefinition("Ext","Extinguish, end, finish"),
+            new HighVersianDefinition("Fi","Child, offspring"),
             new HighVersianDefinition("For","Very, greatly"),
             new HighVersianDefinition("Ign","Warm/Hot/Warmth"),
             new HighVersianDefinition("Il","False, wrong"),
@@ -102,21 +106,34 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Mal","Sick, wrong, perverted, badly, poorly"),
             new HighVersianDefinition("Max","Maximum, largest, greatest"),
             new HighVersianDefinition("Med","Mediate, intervene, heal, remedy"),
+            new HighVersianDefinition("Mel","Thousand; millenium"),
+            new HighVersianDefinition("Mil","Million"),
             new HighVersianDefinition("Min","Smallest, lowest, minimum"),
             new HighVersianDefinition("Mis","A little/small"),
             new HighVersianDefinition("Mol","Craft/Construct/Design/Create"),
             new HighVersianDefinition("Mor","Lots, plentiful"),
             new HighVersianDefinition("Mut","Mutate, change, modify"),
+            new HighVersianDefinition("Ni","Nine"),
+            new HighVersianDefinition("Okt","Eight"),
+            new HighVersianDefinition("Pi​","Five"),
+            new HighVersianDefinition("Post","After, behind, back"),
             new HighVersianDefinition("Red","Again"),
             new HighVersianDefinition("Sal","Safe, Secury, saved, protected"),
             new HighVersianDefinition("San","Without, lacking, non"),
+            new HighVersianDefinition("Se​","Six"),
+            new HighVersianDefinition("Sep​","Seven"),
             new HighVersianDefinition("Ton","Stretching or extending"),
+            new HighVersianDefinition("Tri​","Three"),
             new HighVersianDefinition("Turb","Disturbance, disruption, trouble, stir"),
+            new HighVersianDefinition("Un","One"),
             new HighVersianDefinition("Vesti","Energy/Current/Electricity"),
             new HighVersianDefinition("Vis","Void Power/Energy/Raw potential"),
+            new HighVersianDefinition("Vri​","Four"),
             new HighVersianDefinition("​","No prefix"),
+            new HighVersianDefinition("​Som","Sleep, asleep, sleeping"),
 
-        };
+
+        }.OrderBy(x => x.Letters.First()).ToList();
 
         public List<HighVersianDefinition> Roots = new List<HighVersianDefinition>()
         {
@@ -152,6 +169,8 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Flux","Change"),
             new HighVersianDefinition("Fum","decomposing, dead, corpse"),
             new HighVersianDefinition("Fur","Furious, Angry, enraged"),
+            new HighVersianDefinition("Gemma","Jewel, Gem"),
+            new HighVersianDefinition("Gen","Related, similar, alike"),
             new HighVersianDefinition("Guin","Blood"),
             new HighVersianDefinition("Homin","A person/human or something with high intelligence"),
             new HighVersianDefinition("Integr","integrate, mix, combined"),
@@ -165,6 +184,7 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("M","A person, singular"),
             new HighVersianDefinition("Midab","strength of character or muscle. Muscle Mass"),
             new HighVersianDefinition("Mult","Multiply, increase"),
+            new HighVersianDefinition("Necess","Need, necessary, require"),
             new HighVersianDefinition("Orit","To say or speak, orate"),
             new HighVersianDefinition("Par","Leader/Master/Head of Unit/Group"),
             new HighVersianDefinition("Plant","Plant/Tree"),
@@ -172,14 +192,18 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Posit","An idea or theory, which is assumed to be true; A core element or component"),
             new HighVersianDefinition("Pron","Prone, fallen, down"),
             new HighVersianDefinition("Propr","Proper, the correct way"),
+            new HighVersianDefinition("Pur","Pure, clean, safe"),
             new HighVersianDefinition("Putrid","Disgusting, ruined, destroyed"),
             new HighVersianDefinition("Robor","Strengthen or hence, encourage"),
             new HighVersianDefinition("S","Agree, yes, affirmative"),
             new HighVersianDefinition("Sil","Sail, jump, leap, bounce"),
+            new HighVersianDefinition("Simil","Similar, A like, likewise"),
             new HighVersianDefinition("Sonit","Song, Sonnet, music, sound, noise"),
             new HighVersianDefinition("Spat","Void, Beyond Stars / Space"),
+            new HighVersianDefinition("Spir","Breath, blow, breath, (figurative as well as literal)"),
             new HighVersianDefinition("Stellar","Space / Stars"),
             new HighVersianDefinition("Vers","Home, Planet, Capital, (Like Earth) "),
+            new HighVersianDefinition("V","By, (through) [we travelled BY starship; inspired BY hope]"),
             new HighVersianDefinition("Ulent","Full of, abounding in"),
             new HighVersianDefinition("Umbr","Darkness"),
             new HighVersianDefinition("Tu","Body, person (corpse)"),
@@ -189,16 +213,23 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Ten","Tenacious, firm, steadfast, unyielding"),
             new HighVersianDefinition("Tal","Distinguish, excellent"),
             new HighVersianDefinition("Tag","Disease, sickness, plague"),
+            new HighVersianDefinition("Lad","Steal, take"),
 
-        };
+        }.OrderBy(x => x.Letters.First()).ToList();
 
         public List<HighVersianDefinition> Postfixes = new List<HighVersianDefinition>()
         {
             new HighVersianDefinition("A","An object or thing"),
             new HighVersianDefinition("e","A group/Plural"),
             new HighVersianDefinition("i","A person, singular, generally the speaker / First Person"),
-            new HighVersianDefinition("o","A person, singular, generally the speaker / First Person"),
+            new HighVersianDefinition("o","Present tense / at the moment"),
             new HighVersianDefinition("u","For someone else, a person but not the speaker, the person being spoken of/to (can be second person but more often refers to the third person)"),
+
+
+            new HighVersianDefinition("ia","A person using or experiencing an object"),
+            new HighVersianDefinition("ea","A group using or experiencing an object"),
+            new HighVersianDefinition("oa","A object currently doing something; an objecting being used by another object"),
+            new HighVersianDefinition("ua","Someone else using an object"),
 
 
             new HighVersianDefinition("ae","A group of objects"),
@@ -207,10 +238,10 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Ue","A group who works for someone else, a group acting for someone else"),
 
 
-            new HighVersianDefinition("ia","A person using or experiencing an object"),
-            new HighVersianDefinition("ea","A group using or experiencing an object"),
-            new HighVersianDefinition("oa","A object currently doing something; an objecting being used by another object"),
-            new HighVersianDefinition("ua","Someone else using an object"),
+            new HighVersianDefinition("ai","A person using an object"),
+            new HighVersianDefinition("ei","The persons group"),
+            new HighVersianDefinition("oi","The thing which the person is presently doing"),
+            new HighVersianDefinition("ui","The person being spoken to"),
 
 
             new HighVersianDefinition("ao","An object presently doing"),
@@ -291,7 +322,273 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("'","Denotes male/masculine. [quickly stop the last sound]"),
             new HighVersianDefinition(";","Denotes female/feminine. [have the last sound go on for a moment longer]"),
 
-        };
+        }.OrderBy(x => x.Letters.First()).ToList();
+
+
+        private static List<HighVersianDefinition> HighVersianWordDefinitions()
+        {
+            return new List<HighVersianDefinition>()
+            {
+                new HighVersianDefinition("Aedificata","An object or thing which builds. (Factory)"),
+                new HighVersianDefinition("Aedificate","Build"),
+                new HighVersianDefinition("Aedifici","A person who builds"),
+                new HighVersianDefinition("Aedificis","A group of yous' which builds (construction company)"),
+                new HighVersianDefinition("Awka","Water"),
+                new HighVersianDefinition("Awke","An Ocean"),
+                new HighVersianDefinition("Awki","(I am) A person from the sea / ocean / water area."),
+                new HighVersianDefinition("Awko","Water flowing/ A stream / River"),
+                new HighVersianDefinition("Awku","(someone who is) a person from the sea / ocean / water world."),
+                new HighVersianDefinition("Amet","Expanding/Growing"),
+                new HighVersianDefinition("Amicus","Pet/Devoted friend/Significant Other"),
+                new HighVersianDefinition("Alacer","A group devoted to going quickly"),
+                new HighVersianDefinition("Apocalypsia","A person who experiences absolute and total destruction or ruin; an apocalypse."),
+                new HighVersianDefinition("Apocproru","(You are/were) Absolute or completely proper. Good."),
+                new HighVersianDefinition("Ardens","Burning"),
+                new HighVersianDefinition("Auctoritas","A person whose job it is to speak with authority, the commander."),
+                new HighVersianDefinition("Aura","Around / Air / Gas"),
+                new HighVersianDefinition("Aure"," A group of gasses/A cloud"),
+                new HighVersianDefinition("Auri","Drug Addict (Literal: Air Person)"),
+                new HighVersianDefinition("Auro","Farting or the act of gas moving"),
+                new HighVersianDefinition("Auru","Air Person / Pilot"),
+
+                new HighVersianDefinition("Beautitas","A group of things/objects which are beautiful"),
+                new HighVersianDefinition("Caeles","A group of souls."),
+                new HighVersianDefinition("Caeli","A spirit / Soul (Ghost)"),
+                new HighVersianDefinition("Caelum","In service to the (real of) souls"),
+                new HighVersianDefinition("Candor","A candle. Or can be a derogatory term for teacher, thinker, scientist, etc."),
+                new HighVersianDefinition("Centrum","in the Center, in the middle, centered on something"),
+                new HighVersianDefinition("Cicatris","A group who cuts skin; a group of scars people; a mob"),
+                new HighVersianDefinition("Compositae","To combined together two base objects / element / ideas into a new object or idea or element"),
+                new HighVersianDefinition("Contagios","A plague, disease, or illness, which is actively being spread. (Literal: A group of people with a disease or plague)"),
+                new HighVersianDefinition("Contagiosis","An organization or group of people who are spreading a disease or plague. (Literal: An organization of a group of people with a disease or plague)"),
+                new HighVersianDefinition("Contingens","Contingent, waiting for, possible. (Literal, with an active touch, with a push)"),
+                new HighVersianDefinition("Creaturae","a group of low intelligence creatures"),
+                new HighVersianDefinition("Damno","To damage; To damn someone, to demand someone’s present destruction; "),
+                new HighVersianDefinition("Damnum","Devoted to or in service of destruction"),
+                new HighVersianDefinition("Daze","A group which is Shocked, stunned, dazed"),
+                new HighVersianDefinition("Dazi","A person who is shocked on stunned"),
+                new HighVersianDefinition("Deor","God/Godly"),
+                new HighVersianDefinition("Dees","The Gods/Gods"),
+                new HighVersianDefinition("Deorum","In the service of Gods"),
+                new HighVersianDefinition("Dilata","Increase the possible area of an object, double the range"),
+                new HighVersianDefinition("Dilatanda","Double the actual area of an object, double its width"),
+                new HighVersianDefinition("Disco","(Active) to learn/Study"),
+                new HighVersianDefinition("Dolum","A person who plays a trick, a person involved in a joke or prank; trickster"),
+
+                new HighVersianDefinition("Domemparior","Lord (Literal: Commander of the shared house) "),
+                new HighVersianDefinition("Demil","The person who is godly; the divine person;"),
+
+                new HighVersianDefinition("Elementum","Working for an element. Serving an element"),
+
+                new HighVersianDefinition("Emparar","The Crown "),
+                new HighVersianDefinition("Emparir","A Emperor / The Emperor"),
+                new HighVersianDefinition("Emparior","The person who does the job of shared leader; (The) Emperor"),
+                new HighVersianDefinition("Emparor","The Role of Emperor"),
+
+                new HighVersianDefinition("Equitar","The armour of a Knight"),
+                new HighVersianDefinition("Equitir","A Knight"),
+                new HighVersianDefinition("Equites","Knights"),
+                new HighVersianDefinition("Equitor","(The) Knight"),
+
+                new HighVersianDefinition("Extendere","Extend, increase the length (generally in time) (Literal: the end length of the group of groups)"),
+
+                new HighVersianDefinition("Exvers","From the Home (cultural/spiritial/social home; not literal)"),
+
+                new HighVersianDefinition("Exit","Left, evacuated, exited"),
+                new HighVersianDefinition("Exita","Exit, doorway, (Literal: The object exit) ; Death, died"),
+                new HighVersianDefinition("Exite","Exits, multiple exits"),
+                new HighVersianDefinition("Exiti","I exit, I leave"),
+                new HighVersianDefinition("Exito","To leave, to exit. Active form of exit; Dying (leaving life)"),
+                new HighVersianDefinition("Exitu","You exit, you leave, they exit"),
+                new HighVersianDefinition("Exitium","A person who is devoted to destruction/The Abyss"),
+
+                new HighVersianDefinition("Extinguere","Extinguish, snuff out light (Literal: End / Extinguish a group of fires for someone else’s)"),
+
+                new HighVersianDefinition("Fantasia","A person experiencing a fake image/illusion or sensation"),
+                new HighVersianDefinition("Fluxa","Fleeting (Literal: A changing object, an object in change) "),
+                new HighVersianDefinition("Formidabili","Fearsome, Formidable (Literal: A person who is very devoted to their strength)"),
+                new HighVersianDefinition("Forsilo","Big Jump; Leap (Literal: Very big sail/jump)"),
+                new HighVersianDefinition("Fumo","A crypt or graveyard (Literal: A group of dead or decomposing things)"),
+                new HighVersianDefinition("Furens","A person who is presently angry"),
+
+                new HighVersianDefinition("Hominum","In service of or devoted to a person or thing with human-like intelligence."),
+
+                new HighVersianDefinition("Ignis","Fire/Flames. Or to set on fire (properly, in service of heat)"),
+                new HighVersianDefinition("Illusio","An illusion (Literal: You are currently doing/watching a bad play / show.) "),
+                new HighVersianDefinition("Immensa","Immense, vast, huge. (Literal: An idea of great size)"),
+                new HighVersianDefinition("Intendet","Intensify (Literal: To make a group not soft/tender)"),
+
+                new HighVersianDefinition("Liquidum","Bring forth water/to control water"),
+
+                new HighVersianDefinition("Lecta","A chosen object"),
+                new HighVersianDefinition("Lecte","A chosen group/people"),
+                new HighVersianDefinition("Lecti","A chosen speaker; the chosen one"),
+                new HighVersianDefinition("Lecto","The act of choosing"),
+                new HighVersianDefinition("Lectu","A chosen person"),
+
+                new HighVersianDefinition("Luso","The act of play. A show/performance."),
+
+                new HighVersianDefinition("Ma","It (generally an object)"),
+                new HighVersianDefinition("Maledictum","Curse (Literal: a Someone who is serving a wrong commandment or order)"),
+                new HighVersianDefinition("Mandatum","A command / following a command / A command to be followed"),
+
+                new HighVersianDefinition("Mi","Me"),
+                new HighVersianDefinition("Mio","We, With me (my group)"),
+
+                new HighVersianDefinition("Minaces","Threaten, threatening (Literal: A group of small violence)"),
+                new HighVersianDefinition("Minamichi","My little friend, my pet (general a small animal)"),
+                new HighVersianDefinition("Misericors","Merciful (Literal: A group whose job it is to have a little amount of mercy)"),
+                new HighVersianDefinition("Molior","A person who builds/crafts/creates (less like construction, more like artist/craftsmen)"),
+                new HighVersianDefinition("Mora","Delayed (Literal: Lots of objects or items)"),
+                new HighVersianDefinition("Morantes","Lingering, remaining. (Literal: A Large group of smells or orders)"),
+                new HighVersianDefinition("Mortuis","The dead. (Literal: A group of large [bloated] bodies)"),
+
+                new HighVersianDefinition("Mu","They"),
+                new HighVersianDefinition("Mu’","He"),
+                new HighVersianDefinition("Mu;","She"),
+                new HighVersianDefinition("Mua","It"),
+                new HighVersianDefinition("Mua’","It (Male)"),
+                new HighVersianDefinition("Mua;","It (female)"),
+
+                new HighVersianDefinition("Mue","You (plural, group)"),
+                new HighVersianDefinition("Mue’","Guys/Men"),
+                new HighVersianDefinition("Mue;","Girls/Women"),
+
+                new HighVersianDefinition("Mui","You"),
+                new HighVersianDefinition("Mui’","You (Male)"),
+                new HighVersianDefinition("Mui;","You (Female)"),
+                new HighVersianDefinition("Multa","Multiple, multiply objects"),
+                new HighVersianDefinition("Mutare","To change, mutate, or otherwise transform"),
+
+                new HighVersianDefinition("Ordinis","Order of the"),
+
+                new HighVersianDefinition("Pertinas","Persistent (Literal: Part of a group of things in an area taken up by people)"),
+                new HighVersianDefinition("Planta","A plant or tree"),
+                new HighVersianDefinition("Pronus","A person who has fallen down (Literal: A person devoted to being prone)"),
+                new HighVersianDefinition("Propria","Stylized (Literal: a person who is experiencing the proper way/form)"),
+                new HighVersianDefinition("Putridus","Devoted to destruction/ruin"),
+
+                new HighVersianDefinition("Redintegrare","Quicken (Literal: A group of objects which are used to integrate again)"),
+                new HighVersianDefinition("Resilio","Bounce (Literal: A person who is currently leaping again)"),
+                new HighVersianDefinition("Robora","Encourage (Literal: An object which strengthens)"),
+
+                new HighVersianDefinition("Sanguinem","A loss of blood, bloody (Literal: The loss of a group of blood)"),
+
+                new HighVersianDefinition("Sa","Yes (it agrees/it works/it functions)"),
+                new HighVersianDefinition("Se","Yes (we agree or I agree with multiple statements) "),
+                new HighVersianDefinition("Si","Yes (I agree)"),
+                new HighVersianDefinition("So","Yes, and; Yes, lets"),
+                new HighVersianDefinition("Su","Yes (You agree)"),
+
+                new HighVersianDefinition("Saleo","Welcome (to the group / event), hello. (Literal: A group which is currently safe)"),
+                new HighVersianDefinition("Salio","Hello, Salutations (Literal: I am a person who is currently safe)"),
+                new HighVersianDefinition("Saluo","Are you okay. Hello? (Literal: You are currently safe)"),
+
+                new HighVersianDefinition("Salbol","Safehouse, Bank, church; sacred place / religious place. (Literal: Safe Place, a safe place where people gather or things are stored)"),
+                new HighVersianDefinition("Salboli","My house which is safe"),
+
+                new HighVersianDefinition("Sonetus","A sound or noise from someone else"),
+
+                new HighVersianDefinition("Stellar","Stars / space"),
+                new HighVersianDefinition("Stellarum","In the service of the stars"),
+
+                new HighVersianDefinition("Talem","Empower, increase power. (Literal: The distinguished group) "),
+                new HighVersianDefinition("Tenas","Stubborn (Literal: A group of things which are tenacious)"),
+                new HighVersianDefinition("Tenebrescere","Tenebrous, dark, shadowy. (Literal: A super category of unyielding or unending darkness)"),
+                new HighVersianDefinition("Terra","A rock, or mineral, or other object that comes from the ground. "),
+                new HighVersianDefinition("Tonitrua","Thunder (Literal: the stretching of already stretched rope by someone else; the sound of rope breaking from afar)"),
+                new HighVersianDefinition("Turbatur","Tumultuous (Literal: A person whose job or role is marked by disturbances or disruptions)"),
+                new HighVersianDefinition("Turbulentos","Disruptive (Literal: A group that is currently full of disturbances)"),
+
+                new HighVersianDefinition("Umbra","Shadow, dark[ness] (Literal: An object which is dark.)"),
+
+                new HighVersianDefinition("Vis","Void energy/power"),
+
+                new HighVersianDefinition("Vers","The planet of Vers OR Homeworld"),
+                new HighVersianDefinition("Versius","My Home/Planet devoted to your service; from my home to you. OR My Planet which is devoted to the service of Vers/The Home (Also the capital of the Vers empire)"),
+                new HighVersianDefinition("Versariam","The thing which does the job of being my land. The Land of the Vers empire (Versians) (Literal: The area occupied by my home)"),
+                new HighVersianDefinition("Versarium","The thing which does the job of being my home being used by you. OR Our shared home; OR The people of Vers, Versians. "),
+
+                new HighVersianDefinition("Verus","Material / Real / Physical"),
+                new HighVersianDefinition("Vestibulum","Commanding Energy or electricity. (Formally, either someone who is devoted to collected energy, or that the energy is devoted to someone)"),
+
+                new HighVersianDefinition("Una","One"),
+                new HighVersianDefinition("Dia","Two"),
+                new HighVersianDefinition("Tria","Three"),
+                new HighVersianDefinition("Vria","Four"),
+                new HighVersianDefinition("Pia","Five"),
+                new HighVersianDefinition("Sea","Six"),
+                new HighVersianDefinition("Sepa","Seven"),
+                new HighVersianDefinition("Okta","Eight"),
+                new HighVersianDefinition("Nia","Nine"),
+                new HighVersianDefinition("Deca","Ten"),
+                new HighVersianDefinition("Undecuna","Eleven (One ten and one)"),
+                new HighVersianDefinition("Undecdia","Tweleve (one ten and two)"),
+                new HighVersianDefinition("Undectria","Thirteen (one ten and three)"),
+                new HighVersianDefinition("Undecvria","Fourteen"),
+                new HighVersianDefinition("Undecpia","Fifteen"),
+                new HighVersianDefinition("Undecsea","Sixteen"),
+                new HighVersianDefinition("Undecsepa","Seventeen"),
+                new HighVersianDefinition("Undecokta","Eighteen"),
+                new HighVersianDefinition("Undecnia","Nineteen"),
+                new HighVersianDefinition("Dideca","Twenty (two ten)"),
+                new HighVersianDefinition("Didecuna","Twenty one (two ten and one)"),
+                new HighVersianDefinition("Trideca","Thirty"),
+                new HighVersianDefinition("Tridecuna","Thirty one"),
+                new HighVersianDefinition("Uncena","One Hundred"),
+                new HighVersianDefinition("Unmela","One Thousand"),
+                new HighVersianDefinition("Trimelpicena et Sea","Three Thousand Five Hundred and Six"),
+                new HighVersianDefinition("Decmela","Ten Thousand"),
+                new HighVersianDefinition("Cenmela","One-Hundred Thousand"),
+                new HighVersianDefinition("Pisemela","Fifty Six Thousand"),
+                new HighVersianDefinition("Dicenmela","Two Hundred Thousand"),
+                new HighVersianDefinition("Unmila","One Million"),
+                new HighVersianDefinition("Una","One"),
+                new HighVersianDefinition("Tridecmila, Picen Et Oktdecmel, Sepcena Et Vridecuna","Thirty Six Million, Five hundred and eighty two thousand, Seven-Hundred and Fourty-One"),
+
+                new HighVersianDefinition("Fimul","(Another) Child (person you're talking to); Non-Literal: Childhood friend; fellow child"),
+                new HighVersianDefinition("Fimui","Child (person you're talking to)"),
+                new HighVersianDefinition("Fimui'","Child (male) whose the target of your speech"),
+                new HighVersianDefinition("Fimui;","Child (female) to whom you're speaking"),
+                
+                new HighVersianDefinition("Fimei","The speakers child (the child being spoken to who "),
+                new HighVersianDefinition("Fimei'","Son"),
+                new HighVersianDefinition("Fimei;","Daughter"),
+
+                new HighVersianDefinition("Ladu","One who steals"),
+                new HighVersianDefinition("Ladi","I steal"),
+                new HighVersianDefinition("Ladio","I am stealing"),
+                new HighVersianDefinition("Ladir","Thief; person who steals"),
+
+                new HighVersianDefinition("Caelereis","Everyones/humanities collective souls. [proper: Cael-ere-ei-is] (Literal: The souls of the larger category of the speakers group/organizatgion)"),
+
+                new HighVersianDefinition("Amicu","A friend, someone who is a friend [second or third person] (literal: familiar/friend being spoken of)"),
+
+                new HighVersianDefinition("Genel","Family, Kin, (Literal: a group which is alike/related)"),
+
+                new HighVersianDefinition("Exspiroa","Inspire; blow [air] (Literal: From the object which is currently breathing)"),
+
+                new HighVersianDefinition("Vam","By/through (an object causing)"),
+
+                new HighVersianDefinition("Somfantasia","The dream which someone is experiencing (literal: sleep illusion someone is experiencing)"),
+                new HighVersianDefinition("Somfantasa","Dream as an object, someones dream, or a dream (literal: The object of sleep illusion )"),
+                new HighVersianDefinition("Piia","A person who is experiencing five of an object"),
+                new HighVersianDefinition("Pura","an object which is clean/pure"),
+                new HighVersianDefinition("Puro","Something which is actively being purified/purifying"),
+                new HighVersianDefinition("Puri","I am pure"),
+                new HighVersianDefinition("Peru","Someone else who is pure/you are pure"),
+                new HighVersianDefinition("Inperu","Someone who is not pure"),
+                new HighVersianDefinition("Inpereo","A group who is actively impure"),
+
+                new HighVersianDefinition("Damnitio","Damnation (Literal: A person who is actively experiencing a group of damage/pain)"),
+                new HighVersianDefinition("Damnituio","Damn you [insult] (Literal: the person being spoken to is actively being caused a group of damage/hurt)"),
+                new HighVersianDefinition("necessarius","a person who is devoted to the thing which does something that is necessary"),
+                new HighVersianDefinition("",""),
+                new HighVersianDefinition("",""),
+                new HighVersianDefinition("",""),
+                new HighVersianDefinition("",""),
+            }.OrderBy(x => x.Letters.First()).ToList();
+        }
 
         public List<HighVersianDefinition> Words => GenerateWords();
 
@@ -323,6 +620,8 @@ namespace TravellerWiki.Data.Services.DataServices
             }
             else
             {
+                return new HighVersianDefinition("ERROR", "Not Found -- No word with a more complex meaning then the literal form of its translation.");
+                //Bad Code, slows stuff down too much
                 cacheMiss++;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Looking for: {spellingOfWord}. Found: {containsWord} [{cacheHits.ToString()}:{cacheMiss.ToString()}/{valuesInChache.ToString()}]");
@@ -406,76 +705,5 @@ namespace TravellerWiki.Data.Services.DataServices
             return true;
         }
         
-        private static List<HighVersianDefinition> HighVersianWordDefinitions()
-        {
-            return new List<HighVersianDefinition>()
-            {
-                new HighVersianDefinition("Aedificata","An object or thing which builds. (Factory)"),
-                new HighVersianDefinition("Aedificate","Build"),
-                new HighVersianDefinition("Aedifici","A person who builds"),
-                new HighVersianDefinition("Aedificis","A group of yous' which builds (construction company)"),
-                new HighVersianDefinition("Awka","Water"),
-                new HighVersianDefinition("Awke","An Ocean"),
-                new HighVersianDefinition("Awki","(I am) A person from the sea / ocean / water area."),
-                new HighVersianDefinition("Awko","Water flowing/ A stream / River"),
-                new HighVersianDefinition("Awku","(someone who is) a person from the sea / ocean / water world."),
-                new HighVersianDefinition("Amet","Expanding/Growing"),
-                new HighVersianDefinition("Amicus","Pet/Devoted friend/Significant Other"),
-                new HighVersianDefinition("Alacer","A group devoted to going quickly"),
-                new HighVersianDefinition("Apocalypsia","A person who experiences absolute and total destruction or ruin; an apocalypse."),
-                new HighVersianDefinition("Apocproru","(You are/were) Absolute or completely proper. Good."),
-                new HighVersianDefinition("Ardens","Burning"),
-                new HighVersianDefinition("Auctoritas","A person whose job it is to speak with authority, the commander."),
-                new HighVersianDefinition("Aura","Around / Air / Gas"),
-                new HighVersianDefinition("Aure"," A group of gasses/A cloud"),
-                new HighVersianDefinition("Auri","Drug Addict (Literal: Air Person)"),
-                new HighVersianDefinition("Auro","Farting or the act of gas moving"),
-                new HighVersianDefinition("Auru","Air Person / Pilot"),
-
-                new HighVersianDefinition("Beautitas","A group of things/objects which are beautiful"),
-                new HighVersianDefinition("Caeles","A group of souls."),
-                new HighVersianDefinition("Caeli","A spirit / Soul (Ghost)"),
-                new HighVersianDefinition("Caelum","In service to the (real of) souls"),
-                new HighVersianDefinition("Candor","A candle. Or can be a derogatory term for teacher, thinker, scientist, etc."),
-                new HighVersianDefinition("Centrum","in the Center, in the middle, centered on something"),
-                new HighVersianDefinition("Cicatris","A group who cuts skin; a group of scars people; a mob"),
-                new HighVersianDefinition("Compositae","To combined together two base objects / element / ideas into a new object or idea or element"),
-                new HighVersianDefinition("Contagios","A plague, disease, or illness, which is actively being spread. (Literal: A group of people with a disease or plague)"),
-                new HighVersianDefinition("Contagiosis","An organization or group of people who are spreading a disease or plague. (Literal: An organization of a group of people with a disease or plague)"),
-                new HighVersianDefinition("Contingens","Contingent, waiting for, possible. (Literal, with an active touch, with a push)"),
-                new HighVersianDefinition("Creaturae","a group of low intelligence creatures"),
-                new HighVersianDefinition("Damno","To damage; To damn someone, to demand someone’s present destruction; "),
-                new HighVersianDefinition("Damnum","Devoted to or in service of destruction"),
-                new HighVersianDefinition("Daze","A group which is Shocked, stunned, dazed"),
-                new HighVersianDefinition("Dazi","A person who is shocked on stunned"),
-                new HighVersianDefinition("Deor","God/Godly"),
-                new HighVersianDefinition("Dees","The Gods/Gods"),
-                new HighVersianDefinition("Deorum","In the service of Gods"),
-                new HighVersianDefinition("Dilata","Increase the possible area of an object, double the range"),
-                new HighVersianDefinition("Dilatanda","Double the actual area of an object, double its width"),
-                new HighVersianDefinition("Disco","(Active) to learn/Study"),
-                new HighVersianDefinition("Dolum","A person who plays a trick, a person involved in a joke or prank; trickster"),
-                new HighVersianDefinition("Domemparior","Lord (Literal: Commander of the shared house) "),
-                new HighVersianDefinition("Elementum","Working for an element. Serving an element"),
-                new HighVersianDefinition("Emparar","The Crown "),
-                new HighVersianDefinition("Emparir","A Emperor / The Emperor"),
-                new HighVersianDefinition("Emparior","The person who does the job of shared leader; (The) Emperor"),
-
-                new HighVersianDefinition("Emparor","The Role of Emperor"),
-                new HighVersianDefinition("Equitar","The armour of a Knight"),
-                new HighVersianDefinition("Equitir","A Knight"),
-                new HighVersianDefinition("Equites","Knights"),
-                new HighVersianDefinition("Equitor","(The) Knight"),
-
-                new HighVersianDefinition("Extendere","Extend, increase the length (generally in time) (Literal: the end length of the group of groups)"),
-                /*
-                new HighVersianDefinition("",""),
-                new HighVersianDefinition("",""),
-                new HighVersianDefinition("",""),
-                new HighVersianDefinition("",""),
-                new HighVersianDefinition("",""),
-                */
-            };
-        }
     }
 }

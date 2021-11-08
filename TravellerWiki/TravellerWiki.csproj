@@ -10,6 +10,9 @@
     <Content Remove="Data\JSON\**" />
     <EmbeddedResource Remove="Data\JSON\**" />
     <None Remove="Data\JSON\**" />
+    <Content Update="Pages\Languages\HighVersianLangaugeWords.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssueArticleComponent.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
