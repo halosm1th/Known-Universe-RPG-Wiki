@@ -327,7 +327,7 @@ namespace TravellerWiki.Data.Services.DataServices
 
         private static List<HighVersianDefinition> HighVersianWordDefinitions()
         {
-            return new List<HighVersianDefinition>()
+            var text = new List<HighVersianDefinition>()
             {
                 new HighVersianDefinition("Aedificata","An object or thing which builds. (Factory)"),
                 new HighVersianDefinition("Aedificate","Build"),
@@ -550,7 +550,7 @@ namespace TravellerWiki.Data.Services.DataServices
                 new HighVersianDefinition("Fimui","Child (person you're talking to)"),
                 new HighVersianDefinition("Fimui'","Child (male) whose the target of your speech"),
                 new HighVersianDefinition("Fimui;","Child (female) to whom you're speaking"),
-                
+
                 new HighVersianDefinition("Fimei","The speakers child (the child being spoken to who "),
                 new HighVersianDefinition("Fimei'","Son"),
                 new HighVersianDefinition("Fimei;","Daughter"),
@@ -583,11 +583,9 @@ namespace TravellerWiki.Data.Services.DataServices
                 new HighVersianDefinition("Damnitio","Damnation (Literal: A person who is actively experiencing a group of damage/pain)"),
                 new HighVersianDefinition("Damnituio","Damn you [insult] (Literal: the person being spoken to is actively being caused a group of damage/hurt)"),
                 new HighVersianDefinition("necessarius","a person who is devoted to the thing which does something that is necessary"),
-                new HighVersianDefinition("",""),
-                new HighVersianDefinition("",""),
-                new HighVersianDefinition("",""),
-                new HighVersianDefinition("",""),
-            }.OrderBy(x => x.Letters.First()).ToList();
+            };
+            if (text.Count > 0) return text.OrderBy(x => x?.Letters.First()).ToList();
+            else return text;
         }
 
         public List<HighVersianDefinition> Words => GenerateWords();
