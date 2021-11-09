@@ -16,55 +16,23 @@
 
     <h2>High Versian Letters</h2>
     <p>These are the letters of the High Versian Language</p>
-    <ul>
-        @foreach (var letter in highVersian.Letters())
-        {
-            <li><b class="high">@letter.ToString().ToUpper():</b> @highVersian.GetLetterProunciation(letter) </li>
-        }
-    </ul>
+<ul>
+    @foreach (var letter in highVersian.Letters())
+    {
+        <li><b class="high">@letter.ToString().ToUpper():</b> @highVersian.GetLetterProunciation(letter) </li>
+    }
+</ul>
 
-    <h2>High Versian Prefixes</h2>
-    <p>These are the prefixes in the High Versian Language</p>
-    <ul>
-        @foreach (var letter in highVersian.Prefixes.OrderBy(x => x.Letters.First()))
-        {
-            <li>
-                <a href="/Languages/HighVersianLangauge/Prefix/@letter.Letters">
-                    <b class="high">@letter.Letters.ToUpper():</b>  @letter.Meaning
-                </a>
-            </li>
-        }
-    </ul>
-    <h2>High Versian roots</h2>
-    <p>These are the root words of the High Versian Language</p>
-    <ul>
-        @foreach (var letter in highVersian.Roots.OrderBy(x => x.Letters.First()))
-        {
-            <li>
+<HighVersianLangaugePrefixList />
+<a href="HighVersianLangaugePrefixList.razor">View Just Prefixes</a>
 
-                <a href="/Languages/HighVersianLangauge/Root/@letter.Letters">
-                    <b class="high">@letter.Letters.ToUpper():</b> @letter.Meaning
-                </a>
-            </li>
-        }
-    </ul>
+<HighVersianLangaugeRootList />
+<a href="HighVersianLangaugeRootList.razor">View Just Roots</a>
 
-    <h2>High Versian Postfix</h2>
-    <p>These are the postfix of the High Versian Language</p>
-    <ul>
-        @foreach (var letter in highVersian.Postfixes.OrderBy(x => x.Letters.First()))
-        {
+<HighVersianLangaugePostfixList />
+<a href="HighVersianLangaugePostfixList.razor">View Just Postfixes</a>
 
-            <li>
-
-                <a href="/Languages/HighVersianLangauge/Postfix/@letter.Letters">
-                    <b class="high">@letter.Letters.ToUpper()</b>: @letter.Meaning
-                </a>
-            </li>
-        }
-    </ul>
-
-    <h2>List of Words</h2>
-    <a href="/Languages/HighVersianLangauge/Words">Full list of translated/known words.</a>
+<HighVersianLangaugeWords></HighVersianLangaugeWords>
+<a href="/Languages/HighVersianLangauge/Words">View full list of translated/known words.</a>
 
 </body>

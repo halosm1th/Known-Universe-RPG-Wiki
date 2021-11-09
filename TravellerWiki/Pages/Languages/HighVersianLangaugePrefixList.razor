@@ -1,0 +1,46 @@
+@page "/Languages/HighVersianLangauge/Prefix/"
+@using TravellerWiki.Data.Services.DataServices
+@inject HighVersianService highVersian
+<head>
+    <title>High Versian - @Prefix</title>
+</head>
+<style>
+    .high {
+        font-family: 'high_versianregular';
+    }
+</style>
+
+@code
+{
+    [Parameter]
+    public string Prefix { get; set; }
+
+    public HighVersianDefinition _prefix => GetPrefix();
+
+    public HighVersianDefinition GetPrefix()
+    {
+        return highVersian.Prefixes.FirstOrDefault(x => x.Letters.ToUpper() == Prefix.ToUpper());
+    }
+
+
+    public HighVersianDefinition GenerateWord(HighVersianDefinition root, HighVersianDefinition postfix)
+    {
+        return highVersian.GetWord(_prefix.Letters, root.Letters, postfix.Letters);
+    }
+
+}
+
+<body>
+    <h1>High Versian Prefixes</h1>
+    <p>These are the prefixes in the High Versian Language</p>
+    <ul>
+        @foreach (var letter in highVersian.Prefixes.OrderBy(x => x.Letters.First()))
+        {
+            <li>
+                <a href="/Languages/HighVersianLangauge/Prefix/@letter.Letters">
+                    <b class="high">@letter.Letters.ToUpper():</b>  @letter.Meaning
+                </a>
+            </li>
+        }
+    </ul>
+</body>

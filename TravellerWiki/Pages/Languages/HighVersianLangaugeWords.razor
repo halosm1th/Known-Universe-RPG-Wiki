@@ -16,15 +16,13 @@
     <p>The complete list of words in High Versian that are in the dictionary as common parlace beyond just being combind stuff. (IE I actually used them a bit)</p>
     @foreach (var letter in highVersian.Letters())
     {
-        <details>
-            <summary class="IndexSummery"><b class="high">@letter.ToString() (@highVersian.Words.Count(x => x.Letters.StartsWith(letter.ToString())).ToString())</b></summary>
+        <h5><b class="high">@letter.ToString() (@highVersian.Words.Count(x => x.Letters.StartsWith(letter.ToString())).ToString())</b></h5>
             <ul>
                 @foreach (var word in highVersian.Words.Where(x => x.Letters.StartsWith(letter.ToString())))
                 {
                     <li><b class="high">@word.Letters</b>: @word.Meaning</li>
                 }
             </ul>
-        </details>
     }
 
 </body>

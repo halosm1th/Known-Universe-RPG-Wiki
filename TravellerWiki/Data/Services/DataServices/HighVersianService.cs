@@ -69,7 +69,7 @@ namespace TravellerWiki.Data.Services.DataServices
             HighVersianLetters.N => "N as in [n]o",
             HighVersianLetters.O => "O as in [O]pen",
             HighVersianLetters.P => "P as in [P]eel",
-            HighVersianLetters.Q => "Q as in [Q]uiet",
+            HighVersianLetters.Q => "Q as in [Qu]iet",
             HighVersianLetters.R => "R as in [R]ide",
             HighVersianLetters.S => "S as in [S]tand",
             HighVersianLetters.T => "T as in [T]iberius",
@@ -130,7 +130,12 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Vis","Void Power/Energy/Raw potential"),
             new HighVersianDefinition("Vri​","Four"),
             new HighVersianDefinition("​","No prefix"),
-            new HighVersianDefinition("​Som","Sleep, asleep, sleeping"),
+            new HighVersianDefinition("Som","Sleep, asleep, sleeping"),
+            new HighVersianDefinition("Omn","All"),
+            new HighVersianDefinition("Pat","Father"),
+            new HighVersianDefinition("Mat","Mother"),
+            new HighVersianDefinition("De","Of/From [ie House OF Allusia]"),
+            new HighVersianDefinition("Ne","Not, no"),
 
 
         }.OrderBy(x => x.Letters.First()).ToList();
@@ -214,6 +219,21 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Tal","Distinguish, excellent"),
             new HighVersianDefinition("Tag","Disease, sickness, plague"),
             new HighVersianDefinition("Lad","Steal, take"),
+            new HighVersianDefinition("Sanct","Sacred, Holy, divine, religious"),
+            new HighVersianDefinition("Glad","Sword, Blade, etc"),
+            new HighVersianDefinition("Siens","Knowing, understanding"),
+            new HighVersianDefinition("Armor","Armour, protective clothing"),
+            new HighVersianDefinition("Arm","Clothing"),
+            new HighVersianDefinition("Thron","Throne, head seat, master-chair"),
+            new HighVersianDefinition("En","In/at/from/upon/within/under/while/during"),
+            new HighVersianDefinition("Qies","Rest/sleep/ To stop. (pronounced quies)"),
+            new HighVersianDefinition("Castell","Castle"),
+            new HighVersianDefinition("Libr","Book/text"),
+            new HighVersianDefinition("Qod","Which; Because; Until"),
+            new HighVersianDefinition("Qom","Whose,"),
+            new HighVersianDefinition("Ips","himself/herself/itself/being"),
+            new HighVersianDefinition("Bell","War"),
+            new HighVersianDefinition("Vid","See/View"),
 
         }.OrderBy(x => x.Letters.First()).ToList();
 
@@ -461,6 +481,7 @@ namespace TravellerWiki.Data.Services.DataServices
                 new HighVersianDefinition("Mutare","To change, mutate, or otherwise transform"),
 
                 new HighVersianDefinition("Ordinis","Order of the"),
+                new HighVersianDefinition("Orito","(To) speak, speaking"),
 
                 new HighVersianDefinition("Pertinas","Persistent (Literal: Part of a group of things in an area taken up by people)"),
                 new HighVersianDefinition("Planta","A plant or tree"),
@@ -583,6 +604,27 @@ namespace TravellerWiki.Data.Services.DataServices
                 new HighVersianDefinition("Damnitio","Damnation (Literal: A person who is actively experiencing a group of damage/pain)"),
                 new HighVersianDefinition("Damnituio","Damn you [insult] (Literal: the person being spoken to is actively being caused a group of damage/hurt)"),
                 new HighVersianDefinition("necessarius","a person who is devoted to the thing which does something that is necessary"),
+                new HighVersianDefinition("Thornar","The throne/their throne"),
+                new HighVersianDefinition("Exdom","From home"),
+                new HighVersianDefinition("Necessoi","The thing which the person is presently doing which is necessary/needed"),
+                new HighVersianDefinition("Sanctaor","An object which is sacred"),
+                new HighVersianDefinition("Visgladau","Someone elses void blade; the void blade which belongs to"),
+                new HighVersianDefinition("Omnsiensie","The (group of) All-Knowing Leaders"),
+                new HighVersianDefinition("Dearmorua","(Someone Elses) Godly/Divine/Spiritual(?) Armour"),
+                new HighVersianDefinition("Unpatir'","(Male) One/First person who does the job of being the Father. (Spirirtual: One-Father, the 'father' everyone prays to in a Sigmarian Religion)"),
+                new HighVersianDefinition("Qieso","The active form of rest, resting/sleeping (figurative form of resting as well, as in resting on)"),
+                new HighVersianDefinition("Imcastellam","(The) Large/Great Castle which is in use (by) "),
+                new HighVersianDefinition("Devers","Holy capital/spiritual center. The divine home (planet)."),
+                new HighVersianDefinition("Fornecessao","An object which is very/greatly necessary"),
+                new HighVersianDefinition("Mallibral","A book which is sick/wrong/heretical"),
+                new HighVersianDefinition("Exitiam","In use by the Abyss, someone who is working for the Daemons (Literal: I am in use by destroy)"),
+                new HighVersianDefinition("Neu","Not (person, other)"),
+                new HighVersianDefinition("Auctumbrie","Dark Lords"),
+                new HighVersianDefinition("Fordecaelia","The object of the very/greatly divine spirit"),
+                new HighVersianDefinition("Canda","The object of light"),
+                new HighVersianDefinition("Vidia","Seer (a person who experiences seeing)"),
+                
+                new HighVersianDefinition("Nesomfantasoi","avoiding thinking about, to lack the courage to do, to not want to do  (Literal: The sleep-illusion (dream) the person is presently NOT having.)"),
             };
             if (text.Count > 0) return text.OrderBy(x => x?.Letters.First()).ToList();
             else return text;

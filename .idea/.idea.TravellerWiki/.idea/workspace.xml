@@ -11,12 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfixList.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefixList.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRootList.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +45,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/10/Cast.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/6B/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/VoicesFromTheVoidArticles/VoicesIssue8.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,7 +70,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3E/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/31/CircuitHost.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/1F/RenderHandle.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Data/Services/DataServices/TravellerVoicesFromTheVoidService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/33/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -80,11 +78,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerClassGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerCrimeGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerSocialGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerNationGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerOtherGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerPoliticalGroup.cs" />
@@ -131,6 +124,11 @@
       <option value="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml" />
       <option value="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml" />
       <option value="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefixList.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRootList.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfixList.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -152,7 +150,7 @@
     <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.SubsectorJsonGenerator">
+  <component name="RunManager" selected=".NET Launch Settings Profile.TravellerWiki">
     <configuration name="Publish TravellerFactionSystem to folder" type="DotNetFolderPublish" factoryName="Publish to folder" temporary="true">
       <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/TravellerFactionSystem/bin/Release/net5.0/publish" target_framework="net5.0" uuid_high="7797284247241245342" uuid_low="-4882073600492591447" />
       <method v="2" />
@@ -365,6 +363,7 @@
       <workItem from="1628533684662" duration="2486000" />
       <workItem from="1634581394237" duration="618000" />
       <workItem from="1634583436029" duration="3851000" />
+      <workItem from="1636435451155" duration="5557000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
