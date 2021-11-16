@@ -10,9 +10,6 @@
     <Content Remove="Data\JSON\**" />
     <EmbeddedResource Remove="Data\JSON\**" />
     <None Remove="Data\JSON\**" />
-    <Content Update="Pages\Languages\HighVersianLangaugeWords.razor">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssueArticleComponent.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -88,13 +85,28 @@
     <Content Update="Pages\Factions\Groups\IslandsMajorNationGroups.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Languages\HighVersianLangaugePostfixList.razor">
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugeWords.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Languages\HighVersianLangaugePrefixList.razor">
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugeRootList.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Languages\HighVersianLangaugeRootList.razor">
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugePrefixList.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugePostfixList.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Language Bits Specific\HighVersianLangaugeRoot.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Language Bits Specific\HighVersianLangaugePrefix.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Language Bits Specific\HighVersianLangaugePostfix.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\HighVersianLangaugeTranslator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -320,15 +332,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Generators\TravellerSpecialNPCGenerator.razor">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="Pages\Languages\HighVersianLangaugePostfix.razor">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="Pages\Languages\HighVersianLangaugeRoot.razor">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="Pages\Languages\HighVersianLangaugePrefix.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Other\JobBoard.cshtml">

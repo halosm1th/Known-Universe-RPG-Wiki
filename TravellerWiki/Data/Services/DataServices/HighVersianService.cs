@@ -81,7 +81,7 @@ namespace TravellerWiki.Data.Services.DataServices
             _ => $"{letter} is unknown"
         };
 
-        public List<HighVersianDefinition> Prefixes = new List<HighVersianDefinition>()
+        public List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>()
         {
             new HighVersianDefinition("Apoc","Absolute, complete, total"),
             new HighVersianDefinition("Ard","Burning"),
@@ -140,7 +140,7 @@ namespace TravellerWiki.Data.Services.DataServices
 
         }.OrderBy(x => x.Letters.First()).ToList();
 
-        public List<HighVersianDefinition> Roots = new List<HighVersianDefinition>()
+        public List<HighVersianDefinition> Roots { get; } = new List<HighVersianDefinition>()
         {
             new HighVersianDefinition("Aedific","Build/Craft/Create"),
             new HighVersianDefinition("Ac","Threat, Attack, Action"),
@@ -236,8 +236,8 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Vid","See/View"),
 
         }.OrderBy(x => x.Letters.First()).ToList();
-
-        public List<HighVersianDefinition> Postfixes = new List<HighVersianDefinition>()
+        
+        public List<HighVersianDefinition> Postfixes { get; } = new List<HighVersianDefinition>()
         {
             new HighVersianDefinition("A","An object or thing"),
             new HighVersianDefinition("e","A group/Plural"),
@@ -361,7 +361,7 @@ namespace TravellerWiki.Data.Services.DataServices
                 new HighVersianDefinition("Amet","Expanding/Growing"),
                 new HighVersianDefinition("Amicus","Pet/Devoted friend/Significant Other"),
                 new HighVersianDefinition("Alacer","A group devoted to going quickly"),
-                new HighVersianDefinition("Apocalypsia","A person who experiences absolute and total destruction or ruin; an apocalypse."),
+                new HighVersianDefinition("Apocalypseia","A person who experiences absolute and total destruction or ruin; an apocalypse."),
                 new HighVersianDefinition("Apocproru","(You are/were) Absolute or completely proper. Good."),
                 new HighVersianDefinition("Ardens","Burning"),
                 new HighVersianDefinition("Auctoritas","A person whose job it is to speak with authority, the commander."),

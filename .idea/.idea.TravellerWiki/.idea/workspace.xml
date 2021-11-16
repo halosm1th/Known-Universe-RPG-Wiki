@@ -10,7 +10,20 @@
     <projectFile>SubsectorJson/SubsectorJson.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Hopefully fixes a bug" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeTranslator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfix.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Language Bits Specific/HighVersianLangaugePostfix.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfixList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugePostfixList.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefix.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Language Bits Specific/HighVersianLangaugePrefix.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefixList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugePrefixList.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRoot.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Language Bits Specific/HighVersianLangaugeRoot.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRootList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugeRootList.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeWords.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugeWords.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,12 +53,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/6B/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/12/HubConnectionHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/25F/AsyncMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/24/DefaultHubDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerIslandsNations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -62,17 +75,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/39/RemoteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3E/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/31/CircuitHost.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/1F/RenderHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/33/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/A/HtmlRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerIndustries.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerOtherGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerPoliticalGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerReligiousGroup.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerProfessionalGroup.cs" />
@@ -117,12 +129,13 @@
       <option value="$PROJECT_DIR$/SubsectorJsonGenerator/FromUWPDialog.xaml" />
       <option value="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml" />
       <option value="$PROJECT_DIR$/SubsectorJsonGenerator/MainWindow.xaml.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefixList.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRootList.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfixList.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeWords.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeTranslator.razor" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -357,7 +370,9 @@
       <workItem from="1628533684662" duration="2486000" />
       <workItem from="1634581394237" duration="618000" />
       <workItem from="1634583436029" duration="3851000" />
-      <workItem from="1636435451155" duration="5956000" />
+      <workItem from="1636435451155" duration="6965000" />
+      <workItem from="1636957521684" duration="4237000" />
+      <workItem from="1637039197763" duration="7564000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -583,7 +598,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636443354353</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Another bug fix, this time related to the links for the lists of pre/root/postfixes">
+      <created>1636443654614</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1636443654614</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +626,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Started working on Traveller Faction stuff" />
     <MESSAGE value="Made corporation stuff" />
     <MESSAGE value="Added the federation flag and set it as the iamge." />
     <MESSAGE value="Fixed a small bug" />
@@ -629,7 +650,8 @@
     <MESSAGE value="Fixed the date on voics from the void" />
     <MESSAGE value="Added some words to high versian and made the pages for it easier to use" />
     <MESSAGE value="Hopefully fixes a bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hopefully fixes a bug" />
+    <MESSAGE value="Another bug fix, this time related to the links for the lists of pre/root/postfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Another bug fix, this time related to the links for the lists of pre/root/postfixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
