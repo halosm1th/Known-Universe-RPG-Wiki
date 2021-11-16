@@ -12,11 +12,13 @@
 
 <body>
     <h1>High Versian Language</h1>
-    <p>Within the Human Empires of the Known Universe, two major language families have come to dominate the common thought, the Versian Language family and the Federation language family. But there are some other smaller Language families.</p>
+<p>Within the Human Empires of the Known Universe, two major language families have come to dominate the common thought, the Versian Language family and the Federation language family. But there are some other smaller Language families.</p>
+<a href="/Languages/HighVersianLangauge/Translator">Translate some stuff from High Versian.</a>
 
-    <h2>High Versian Letters</h2>
+<h2>High Versian Letters</h2>
     <p>These are the letters of the High Versian Language</p>
 <ul>
+    @* ReSharper disable once HeapView.BoxingAllocation *@
     @foreach (var letter in highVersian.Letters())
     {
         <li><b class="high">@letter.ToString().ToUpper():</b> @highVersian.GetLetterProunciation(letter) </li>
