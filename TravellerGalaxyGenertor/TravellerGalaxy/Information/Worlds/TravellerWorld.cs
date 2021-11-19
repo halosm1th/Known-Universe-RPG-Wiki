@@ -246,29 +246,37 @@ namespace TravellerMapSystem.Worlds
     
         public string WorldData()
         {
-            return $"```Universal World Profile.\n" +
-                $"------------------------\n" +
-                $"Name: {Name}\n" +
-                $"UWP: {UWP}\n" +
-                $"------------------------\n" +
-                $"Starport: {StarportDescription()}\n" +
-                $"World Size: {WorldSizeDescription()}\n" +
-                $"World atmosphere: {WorldAtmosphereDescrpition()}\n" +
-                $"World hydrographics: {WorldHydrographicsDescription()}\n" +
-                $"Population: {PopulationDescription()}\n" +
-                $"Government Type: {GovernmentTypeDescrption()}\n" +
-                $"Law Level: {LawLevelDescription()}\n" +
-                $"Tech Level: {TechLevelDescription() }\n" +
-                $"------------------------\n" +
-                $"Travel Warning: {TravelWarning()}\n" +
-                $@"Trade Codes:
-                    {GetTradeCodes().Aggregate("",((h, t) =>
+            return $"Name: {Name}\n" +
+                   $"UWP: {UWP}\n" +
+                   $"------------------------\n" +
+                   $"Starport: {StarportDescription()}\n" +
+                   $"World Size: {WorldSizeDescription()}\n" +
+                   $"World atmosphere: {WorldAtmosphereDescrpition()}\n" +
+                   $"World hydrographics: {WorldHydrographicsDescription()}\n" +
+                   $"Population: {PopulationDescription()} ({PopulationStat})\n" +
+                   $"Government Type: {GovernmentTypeDescrption()}\n" +
+                   $"Law Level: {LawLevelDescription()}\n" +
+                   $"Tech Level: {TechLevelDescription()}\n" +
+                   $"------------------------\n" +
+                   $"Travel Warning: {TravelWarning()}\n" +
+                   $@"Trade Codes:
+                    {GetTradeCodes().Aggregate("", ((h, t) =>
                     {
                         var sb = new StringBuilder(); sb.Append(h);
                         sb.Append(" ");
                         sb.Append(t);
                         return sb.ToString();
-                    }))}";
+                    }))}" +
+                   $"------------------------\n" +
+                   $"Temperature: {GetTemperatureDescription()}\n" +
+                   $"Quirk: {QuirkDescription()}\n" +
+                   $"------------------------\n" +
+                   $@"Factions: {Factions.Aggregate("", (h, t) =>
+                   {
+                       var sb = new StringBuilder(); 
+                       sb.Append(h); sb.Append("  "); sb.Append($"{GovernmentTypeDescrption(t.GovernmentType)}: {t.Strength} supported by: {t.Backer}"); return sb.ToString();
+                       
+                   })}\n";
         }
         
         #region Descriptions

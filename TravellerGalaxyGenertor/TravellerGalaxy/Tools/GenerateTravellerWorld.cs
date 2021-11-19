@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using TravellerMapSystem.Worlds;
 
 namespace TravellerMapSystem.Tools
@@ -349,6 +350,16 @@ namespace TravellerMapSystem.Tools
             world.Quirk = GenerateQuirk();
             world.Temperature = GenerateTemperature(world);
             world.Factions = GenerateFactions(world);
+            
+            var r = new Random(world.Name.Aggregate(0, (h,t) => h+t));
+            var size = "";
+            size += r.Next(0, 10);
+            for (int i = 0; i < world.PopulationStat-1; i++)
+            {
+                size += r.Next(0,9);
+            }
+
+            world.Population = size;
         }
     }
 }

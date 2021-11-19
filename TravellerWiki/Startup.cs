@@ -61,6 +61,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerComplexCharacterGeneratorService>();
 
             services.AddSingleton<TravellerMapService>();
+            services.AddSingleton<TravellerSubsectorGeneratorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,6 +93,9 @@ namespace TravellerWiki
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
+                endpoints.MapControllerRoute(
+                    name: "Subsector Image Request",
+                    pattern: "{controller=SubsectorImageGenerator}/{action=GetImage}/{imageID?}");
                 endpoints.MapFallbackToPage("/_Host");
             });
         }

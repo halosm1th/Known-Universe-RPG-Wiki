@@ -644,4 +644,8 @@
     <_ContentIncludedByDefault Remove="SubsectorJson\OrenWastes3.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Generated" />
+  </ItemGroup>
+
 </Project>

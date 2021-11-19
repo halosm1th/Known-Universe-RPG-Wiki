@@ -33,7 +33,7 @@ namespace TravellerMapSystem.Worlds
                 
                 for (int i = 0; i < systemSize; i++)
                 {
-                    WorldsInSystem.Add(new TravellerWorld(name));
+                    WorldsInSystem.Add(new TravellerWorld(name,i+1));
                 }
             }
         }

@@ -35,6 +35,17 @@ namespace TravellerMapSystem
             Name = GenerateName() + $" subsector {x},{y}";
             Systems = new KnownUniverseSystem[10, 8];
         }
+        
+        public KnownUniverseSubsector(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                name = names[random.Next(0, names.Count)];
+            }
+            
+            Name = name;
+            Systems = new KnownUniverseSystem[10, 8];
+        }
 
         
         public KnownUniverseSubsector()
@@ -71,9 +82,9 @@ namespace TravellerMapSystem
                     {
                         if (random.Next(0, 101) <= worldOdds)
                         {
-                            Systems[y, x] = new KnownUniverseSystem(x, y, GenerateName());
+                            Systems[y, x] = new KnownUniverseSystem(x, y, GenerateName(),random.Next(1,3));
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine(Systems[y, x]);
+                            Console.WriteLine(Systems[y, x].ToString());
                         }
                         else
                         {
@@ -120,7 +131,7 @@ namespace TravellerMapSystem
                 sb.Append(system.ToString() + "\n");
             }
 
-            return sb.ToString();
+            return sb.ToString().Replace("\n","");
         }
 
     }

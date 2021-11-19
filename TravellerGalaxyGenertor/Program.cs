@@ -6,7 +6,7 @@ namespace TravellerMapSystem
     {
         static void Main(string[] args)
         {
-            var path = Directory.GetCurrentDirectory() + "/Malfantasai/";
+            var path = Directory.GetCurrentDirectory() + "/Malfantasai2/";
             
             
             var sec = new KnownUniverseSector();
