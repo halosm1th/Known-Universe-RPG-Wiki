@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using TravellerCharacter.CharcterTypes;
 using TravellerFactionSystem.Faction_Assets;
 using TravellerFactionSystem.FactionEnums;
+using VoicesFromTheVoidArticles;
 
 namespace TravellerFactionSystem.Faction_Types
 {

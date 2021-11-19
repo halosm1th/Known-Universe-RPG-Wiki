@@ -1,7 +1,8 @@
 ﻿@page "/Subsector/{subX}/{subY}"
 @using System.Text
 @using Microsoft.CodeAnalysis.CSharp.Syntax
-@using TravellerUniverse
+@using TravellerGalaxyGenertor
+@using TravellerMapSystem.Worlds
 @using TravellerWiki.Data
 @model TravellerWiki.SubsectorModel
 @inject TravellerMapService MapService
@@ -32,15 +33,15 @@
             var bases = new StringBuilder();
             if (system.HasWorld)
             {
-                if (system.GasGiant)
+                if (((TravellerWorld) system.PrimaryWorld).GasGiant)
                 {
                     bases.Append("O");
                 }
-                if (system.MilitaryBase)
+                if (((TravellerWorld) system.PrimaryWorld).MilitaryBase)
                 {
                     bases.Append("+");
                 }
-                if (system.OtherBase)
+                if (((TravellerWorld) system.PrimaryWorld).OtherBase)
                 {
                     bases.Append("*");
                 }
@@ -53,7 +54,6 @@
                         @system.X @system.Y
                     </div>
                     <div>@(system.HasWorld ? system.Name : "")</div>
-                    <div>@(system.HasWorld ? system.UWP : "")</div>
                     <div>
                         @bases.ToString()
                     </div>
@@ -66,38 +66,37 @@
 <img src="Images/New_Islands_Subsector.jpg" alt="New Islands Subsector Map" style="width:50%;height:50%">
     <h1>Planets</h1>
     <div class="flex-container">
-        @foreach (var system in subsector.Systems.OfType<World>().Where(world => world.HasWorld))
+        @foreach (var system in subsector.Systems.OfType<KnownUniverseSystem>().Where(world => world.HasWorld))
         {
-        <div>
-            <div>Name: @system.Name</div>
+            @foreach(var world in system.WorldsInSystem ){
+                <div>
+            <div>Name: @(world as TravellerWorld).Name</div>
             <br />
-            <div>UWP: @system.UWP</div>
+            <div>UWP: @(world as TravellerWorld).UWP</div>
             <br />
-            <div>Location: @system.X:@system.Y</div>
+            <div>Starport Quality: @(world as TravellerWorld).StarportDescription()</div>
             <br />
-            <div>Starport Quality: @system.StarportDescription()</div>
+            <div>Size: @(world as TravellerWorld).WorldSizeDescription()</div>
             <br />
-            <div>Size: @system.WorldSizeDescription()</div>
+            <div>Atmosphere: @(world as TravellerWorld).WorldAtmosphereDescrpition()</div>
             <br />
-            <div>Atmosphere: @system.WorldAtmosphereDescrpition()</div>
+            <div>Hydrographics: @((TravellerWorld) world).WorldHydrographicsDescription()</div>
             <br />
-            <div>Hydrographics: @system.WorldHydrographicsDescription()</div>
+            <div>Population: @((TravellerWorld) world).Population</div>
             <br />
-            <div>Population: @system.Population</div>
+            <div>Primary Government: @((TravellerWorld) world).GovernmentTypeDescrption()</div>
             <br />
-            <div>Primary Government: @system.GovernmentTypeDescrption()</div>
+            <div>Law Level: @((TravellerWorld) world).LawLevelDescription()</div>
             <br />
-            <div>Law Level: @system.LawLevelDescription()</div>
+            <div>Tech Level: @((TravellerWorld) world).TechLevelDescription()</div>
             <br />
-            <div>Tech Level: @system.TechLevelDescription()</div>
-            <br />
-            <div>Temperature: @system.GetTemperatureDescription()</div>
+            <div>Temperature: @(world as TravellerWorld).GetTemperatureDescription()</div>
             <br />
 
             <div>Trade Codes</div>
             <div style="color: orange">
 
-                @foreach (var tradeCode in system.GetTradeCodes())
+                @foreach (var tradeCode in ((TravellerWorld) world).GetTradeCodes())
                 {
                     <div>@tradeCode</div>
                 }
@@ -105,27 +104,27 @@
             <br />
 
             <div>Bases in system</div>
-            @if (system.GasGiant)
+            @if ((world as TravellerWorld).GasGiant)
             {
                 <div style="color:orangered">Fuel Depo(s)</div>
             }
-            @if (system.MilitaryBase)
+            @if (((TravellerWorld) world).MilitaryBase)
             {
                 <div style="color:#6bDA26">Military Base</div>
             }
-            @if (system.OtherBase)
+            @if (((TravellerWorld) world).OtherBase)
             {
                 <div style="color:white">Other Base</div>
             }
             <br />
 
-            @if (system.Factions != null)
+            @if (((TravellerWorld) world).Factions != null)
             {
                 <div>Factions</div>
-                @foreach (var faction in system.Factions)
+                @foreach (var faction in ((TravellerWorld) world).Factions)
                 {
                     <div style="color: #ffe81F">
-                        @system.GovernmentTypeDescrption(faction.GovernmentType)
+                        @((TravellerWorld) world).GovernmentTypeDescrption(faction.GovernmentType)
                         <div style="color: darkorange; "> @((int)faction.Strength!=5? "It is a " + @faction.Strength.ToString().Replace('_',' ') : "The group has " + @faction.Strength.ToString().Replace('_',' '))</div>
                         <div style="color:cyan">It is backed by the @faction.Backer</div>
                     </div>
@@ -135,12 +134,13 @@
             }
             <div>Quirk</div>
             <div>
-                @system.QuirkDescription()
+                @((TravellerWorld) world).QuirkDescription()
             </div>
             <br />
             <div>Controlled by</div>
-            <a> @system.ControllingFaction</a>
+            <a> @((TravellerWorld) world).ControllingFaction</a>
         </div>
+        }
         }
     </div>
 

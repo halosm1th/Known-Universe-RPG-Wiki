@@ -1,11 +1,12 @@
 @page "/CharacterCreation/RollAdvancement/{characterID}"
 @using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.Career_Service
 @using TravellerWiki.Data
-@using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
 @using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;

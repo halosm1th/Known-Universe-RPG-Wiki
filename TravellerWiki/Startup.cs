@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JobBoardCreator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -11,11 +10,18 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TravellerCharacter.Character_Services;
+using TravellerCharacter.Character_Services.Career_Service;
+using TravellerCharacter.Character_Services.NPC_Services;
+using TravellerFactionSystem;
+using TravellerGalaxyGenertor;
 using TravellerWiki.Data;
 using TravellerWiki.Data.Services;
 using TravellerWiki.Data.Services.CareerService;
-using TravellerWiki.Data.Services.DataServices;
-using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService;
+using VoicesFromTheVoidArticles;
+using WikiServices.DataServices;
+using WikiServices.InformationServices;
+using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService;
 
 namespace TravellerWiki
 {

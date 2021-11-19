@@ -5,25 +5,25 @@ using System.Threading.Tasks;
 
 namespace TravellerMapSystem
 {
-    class KnownUniverseSector
+    public class KnownUniverseSector
     {
-        private KnownUniverseSubsector[,] subsectors;
+        public KnownUniverseSubsector[,] Subsectors;
         public string Name;
 
         public KnownUniverseSector()
         {
-            subsectors = new KnownUniverseSubsector[4,4];
+            Subsectors = new KnownUniverseSubsector[4,4];
             Name = KnownUniverseSubsector.GenerateName();
         }
 
         public void GenerateSubsectors(int worldChance = 50)
         {
-            for (int y = 0; y < subsectors.GetLength(0); y++)
+            for (int y = 0; y < Subsectors.GetLength(0); y++)
             {
-                for (int x = 0; x < subsectors.GetLength(1); x++)
+                for (int x = 0; x < Subsectors.GetLength(1); x++)
                 {
-                    subsectors[y,x] = new KnownUniverseSubsector(x,y);
-                    subsectors[y,x].GenerateSubsector(worldChance);
+                    Subsectors[y,x] = new KnownUniverseSubsector(x,y);
+                    Subsectors[y,x].GenerateSubsector(worldChance);
                 }
             }
         }
@@ -31,7 +31,7 @@ namespace TravellerMapSystem
         public void WriteSector(string directory)
         {
             Directory.SetCurrentDirectory(directory);
-            foreach (var subsector in subsectors)
+            foreach (var subsector in Subsectors)
             {
                 var sub= subsector.GenerateSubSectorImage();
                 sub.Save(subsector.Name + ".jpg");

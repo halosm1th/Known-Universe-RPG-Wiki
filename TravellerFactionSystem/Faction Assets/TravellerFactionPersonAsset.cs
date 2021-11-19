@@ -1,4 +1,6 @@
-﻿namespace TravellerFactionSystem.Faction_Assets
+﻿using TravellerCharacter.CharcterTypes;
+
+namespace TravellerFactionSystem.Faction_Assets
 {
     public class TravellerFactionPersonAsset : TravellerFactionAsset
     {

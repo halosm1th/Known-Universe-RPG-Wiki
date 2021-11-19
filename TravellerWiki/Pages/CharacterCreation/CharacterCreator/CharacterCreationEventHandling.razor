@@ -1,13 +1,12 @@
 @page "/CharacterCreation/Event/{characterID}"
 @using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.CreationEvents
 @using TravellerWiki.Data
-@using TravellerWiki.Data.Charcters
-@using TravellerWiki.Data.CreationEvents
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
 @namespace TravellerWiki.Pages.CharacterCreation.CharacterCreator
-@using TravellerWiki.Data.TravellerInjuries
-@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager;
 @inject MultiPageCharacterCreationService MultiCharacterCreationService;
 @inject TravellerNationsCharacterInfoService nationsService;

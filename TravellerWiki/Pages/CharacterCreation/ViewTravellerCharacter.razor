@@ -1,10 +1,12 @@
 ﻿@page "/Character/{characterID}"
 @using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Items
+@using TravellerCharacter.CharcterTypes
 @using TravellerWiki.Data
-@using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
-@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject TravellerCharacterStorageService storageService
 @inject TravellerItemStoreService ItemStore

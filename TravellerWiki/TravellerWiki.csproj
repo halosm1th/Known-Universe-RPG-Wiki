@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -145,6 +145,7 @@
     <PackageReference Include="Markdig" Version="0.25.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -607,30 +608,40 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="NameLists\AxionAllianceNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NameLists\BritanniaNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NameLists\DeutschlandNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NameLists\FederationNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NameLists\GermushianNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NameLists\ImperialNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NameLists\VersNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NameLists\XiaoMingNameList.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\TravellerGalaxyGenertor\TravellerGalaxyGenertor.csproj" />
+    <ProjectReference Include="..\VoicesFromTheVoidArticles\VoicesFromTheVoidArticles.csproj" />
+    <ProjectReference Include="..\WikiServices\WikiServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Factions\Classes.json" />
+    <_ContentIncludedByDefault Remove="Factions\Companies.json" />
+    <_ContentIncludedByDefault Remove="Factions\Criminals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Islands.json" />
+    <_ContentIncludedByDefault Remove="Factions\Legals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Majors.json" />
+    <_ContentIncludedByDefault Remove="Factions\Others.json" />
+    <_ContentIncludedByDefault Remove="Factions\Politicals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Classes.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Companies.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Criminals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Islands.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Legals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Majors.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Others.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Politicals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Religions.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Socials.json" />
+    <_ContentIncludedByDefault Remove="Factions\Religions.json" />
+    <_ContentIncludedByDefault Remove="Factions\Socials.json" />
+    <_ContentIncludedByDefault Remove="Items\Armours.json" />
+    <_ContentIncludedByDefault Remove="Items\Augments.json" />
+    <_ContentIncludedByDefault Remove="Items\Items.json" />
+    <_ContentIncludedByDefault Remove="Items\SpecialAmmo.json" />
+    <_ContentIncludedByDefault Remove="Items\Weapons.json" />
+    <_ContentIncludedByDefault Remove="SubsectorJson\NewIslands.json" />
+    <_ContentIncludedByDefault Remove="SubsectorJson\OldIslands.json" />
+    <_ContentIncludedByDefault Remove="SubsectorJson\OrenWastes3.json" />
   </ItemGroup>
 
 </Project>

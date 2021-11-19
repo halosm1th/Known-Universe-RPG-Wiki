@@ -1,8 +1,10 @@
 @page "/CharacterCreation/DrawStats/{CharacterID}"
 @using TravellerWiki.Data
-@using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
-@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharcterTypes
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterParts
 @namespace TravellerWiki.Pages.CharacterCreation.CharacterCreator
 @inject CharacterCreatorService CharacterCreationService;
 @inject TravellerNationsCharacterInfoService nationsService;

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
-using System.Threading.Tasks;
+using TravellerCharacter.CharcterTypes;
 using TravellerFactionSystem.FactionEnums;
-using TravellerWiki.Data.Charcters;
-using TravellerWiki.Data.SimpleWikiClasses;
+using VoicesFromTheVoidArticles;
 
 namespace TravellerFactionSystem.Faction_Types
 {

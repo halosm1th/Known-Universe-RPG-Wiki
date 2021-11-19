@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using TravellerCharacter.Character_Services;
+using TravellerCharacter.Character_Services.NameLists;
+using TravellerCharacter.Character_Services.NPC_Services;
+using TravellerCharacter.CharcterTypes;
 using TravellerFactionSystem.Faction_Assets;
 using TravellerFactionSystem.FactionEnums;
-using TravellerWiki.Data.Charcters;
-using TravellerWiki.Data.SimpleWikiClasses;
+using VoicesFromTheVoidArticles;
 
 namespace TravellerFactionSystem
 {

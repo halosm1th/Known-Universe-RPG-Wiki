@@ -8,4 +8,9 @@
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TravellerCharacter\TravellerCharacter.csproj" />
+      <ProjectReference Include="..\VoicesFromTheVoidArticles\VoicesFromTheVoidArticles.csproj" />
+    </ItemGroup>
+
 </Project>

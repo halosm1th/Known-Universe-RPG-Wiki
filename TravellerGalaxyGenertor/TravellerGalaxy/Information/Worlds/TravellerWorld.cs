@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using TravellerFactionSystem.FactionEnums;
 using TravellerMapSystem.Tools;
 
 namespace TravellerMapSystem.Worlds
@@ -119,7 +120,7 @@ namespace TravellerMapSystem.Worlds
 
     #endregion
     
-    class TravellerWorld : IWorld
+    public class TravellerWorld : IWorld
     {
         #region IWorld Requirements
         [JsonProperty("WorldName")] public string Name { get; set; }
@@ -137,8 +138,7 @@ namespace TravellerMapSystem.Worlds
         
         #endregion
         #region Variables
-        //TODO Fix this once factions are in their own seperate project
-        //[JsonProperty("WorldControllingFaction")] public TravellerIslandsNations ControllingFaction { get; set; }
+        [JsonProperty("WorldControllingFaction")] public TravellerIslandsNations ControllingFaction { get; set; }
         public string UWP
         {
             get
@@ -475,6 +475,127 @@ namespace TravellerMapSystem.Worlds
                            || (GovernmentType == 0 || GovernmentType == 7 || GovernmentType == 10)
                            || (LawLevel == 0 || LawLevel >= 9);
                 }
+                
+                    public string QuirkDescription()
+        {
+            return QuirkText(Quirk);
+        }
+        private string QuirkText(Quirks quirk)
+        {
+            switch (quirk)
+            {
+                case Quirks.Sexist:
+                    return "Sexist - one gender is considered subservient or inferior to the other.";
+                case Quirks.Religous:
+                    return "Religious - culture is heavily influenced by a religion or belief systems, possibly one unique to this world.";
+                case Quirks.Artistic:
+                    return "Artistic - art and culture are highly prized. Aesthetic design is important in all artefacts produced on world.";
+                case Quirks.Ritualised:
+                    return "Ritualised - social interaction and trade is highly formalised. Politeness and adherence to traditional forms is considered very important.";
+                case Quirks.Conservative:
+                    return "Conservative - the culture resists change and outside influences. ";
+                case Quirks.Xenophobic:
+                    return "Xenophobic - the culture distrusts outsiders and alien influences. Offworlders will face considerable prejudice.";
+
+                case Quirks.Taboo:
+                    return "Taboo - a particular topic is forbidden and cannot be discussed. Travellers who unwittingly mention this topic will be ostracised.";
+                case Quirks.Deceptive:
+                    return "Deceptive - trickery and equivocation are considered acceptable. Honesty is a sign of weakness.";
+                case Quirks.Liberal:
+                    return "Liberal - the culture welcomes change and offworld influence. Travellers who bring new and strange ideas will be welcomed.";
+                case Quirks.Honourable:
+                    return "Honourable - one’s word is one’s bond in the culture. Lying is both rare and despised.";
+                case Quirks.Influenced:
+                    return "Influenced - the culture is heavily influenced by another, neighbouring world. Roll again for a cultural quirk that has been inherited from the culture.";
+                case Quirks.Fusion:
+                    return "Fusion - the culture is a merger of two distinct cultures. Roll again twice to determine the quirks inherited from these cultures. If the quirks are incompatible, then the culture is likely divided.";
+
+                case Quirks.Barbaric:
+                    return "Barbaric - physical strength and combat prowess are highly valued in the culture. Travellers may be challenged to a fight, or dismissed if they seem incapable of defending themselves. Sports tend towards the bloody and violent.";
+                case Quirks.Remnant:
+                    return "Remnant - the culture is a surviving remnant of a once-great and vibrant civilisation, clinging to its former glory. The world is filled with crumbling ruins, and every story revolves around the good old days.";
+                case Quirks.Degenerate:
+                    return "Degenerate - the culture is falling apart and is on the brink of war or economic collapse. Violent protests are common, and the social order is decaying. ";
+                case Quirks.Progressive:
+                    return "Progressive - the culture is expanding and vibrant. Fortunes are being made in trade; science is forging bravely ahead.";
+                case Quirks.Recovering:
+                    return "Recovering - a recent trauma, such as a plague, war, disaster or despotic regime has left scars on the culture.";
+                case Quirks.Nexus:
+                    return "Nexus - members of many different cultures and species visit here.";
+
+                case Quirks.TouristAttraction:
+                    return "Tourist Attraction - some aspect of the culture or the planet draws visitors from all over charted space. ";
+                case Quirks.Violent:
+                    return "Violent - physical conflict is common, taking the form of duels, brawls or other contests. Trial by combat is a part of their judicial system.";
+                case Quirks.Peaceful:
+                    return "Peaceful - physical conflict is almost unheard-of. The culture produces few soldiers, and diplomacy reigns supreme. Forceful Travellers will be ostracised.";
+                case Quirks.Obsessed:
+                    return "Obsessed - everyone is obsessed with or addicted to a substance, personality, act or item. This monomania pervades every aspect of the culture.";
+                case Quirks.Fashion:
+                    return "Fashion - fine clothing and decoration are considered vitally important in the culture. Underdressed Travellers have no standing here.";
+                case Quirks.AtWar:
+                    return "At war - the culture is at war, either with another planet or polity, or is troubled by terrorists or rebels.";
+
+                case Quirks.Offworlders:
+                    return "Unusual Custom: Offworlders - space travellers hold a unique position in the culture’s mythology or beliefs, and travellers will be expected to live up to these myths.";
+                case Quirks.Starport:
+                    return "Unusual Custom:  Starport - the planet’s starport is more than a commercial centre; it might be a religious temple, or be seen as highly controversial and surrounded by protestors.";
+                case Quirks.Media:
+                    return "Unusual Custom: Media - news agencies and telecommunications channels are especially strange here. Getting accurate information may be difficult.";
+                case Quirks.Technology:
+                    return "Unusual Customs: Technology - the culture interacts with technology in an unusual way. Telecommunications might be banned, robots might have civil rights, or cyborgs might be property.";
+                case Quirks.Lifecycle:
+                    return "Unusual Customs: Lifecycle - there might be a mandatory age of termination, or anagathics might be widely used. Family units might be different, with children being raised by the state or banned in favour of cloning.";
+                case Quirks.SocialStandings:
+                    return "Unusual Customs: Social Standings - the culture has a distinct caste system. Travellers of a low social standing who do not behave appropriately will face punishment.";
+
+                case Quirks.Trade:
+                    return "Unusual Customs: Trade - the culture has an odd attitude towards some aspect of commerce, which may interfere with trade at the spaceport. For example, merchants might expect a gift as part of a deal, or some goods may only be handled by certain families.";
+                case Quirks.Nobility:
+                    return "Unusual Customs: Nobility - those of high social standing have a strange custom associated with them; perhaps nobles are blinded, or must live in gilded cages, or only serve for a single year before being exiled.";
+                case Quirks.Sex:
+                    return "Unusual Customs: Sex - the culture has an unusual attitude towards intercourse and reproduction. Perhaps cloning is used instead, or sex is used to seal commercial deals.";
+                case Quirks.Eating:
+                    return "Unusual Customs: Eating - food and drink occupies an unusual place in the culture. Perhaps eating is a private affair, or banquets and formal dinners are seen as the highest form of politeness.";
+                case Quirks.Travel:
+                    return "Unusual Customs: Travel - travellers may be distrusted or feted, or perhaps the culture frowns on those who leave their homes. ";
+                case Quirks.Conspiracy:
+                    return "Unusual Custom: Conspiracy - something strange is going on. The government is being subverted by another group or agency.";
+
+            }
+            return "";
+        }
+
+        public string GetTemperatureDescription()
+        {
+            return GetTemperatureText(Temperature);
+        }
+
+        private string GetTemperatureText(Temperatures temp)
+        {
+            switch (temp)
+            {
+                case Temperatures.Frozen:
+                    return
+                        "Frozen | Average Temperate <-51 | Frozen World. No liquid water, very dry atmosphere";
+                case Temperatures.Cold:
+                    return
+                        "Cold | Average Temperature -51 - 0| Icy World. Little liquid water, extensive ice caps, few clouds";
+                case Temperatures.Temperate:
+                    return
+                        "Temperate | Average Temperature 0-30 | Temperate world. Earth-Like. Liquid & vaporised water are common. Moderate icecaps";
+                case Temperatures.Hot:
+                    return
+                        "Hot | Average Temperature 31-80 | Hot world. Small or no ice caps, little liquid water. most water in hte form of clouds.";
+                case Temperatures.Boiling:
+                    return "Boiling | Average Temperature 81+ | Boiling world. No ice caps, little liquid water";
+                case Temperatures.Error:
+                    return
+                        "There is an error in the TAS records for this planet. Consult your referee for more information";
+            }
+
+            return "Error in temperature code.";
+        }
         #endregion
     }
 }

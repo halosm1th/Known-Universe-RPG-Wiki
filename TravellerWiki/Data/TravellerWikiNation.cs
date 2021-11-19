@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravellerCharacter.CharacterParts;
 
 namespace TravellerWiki.Data
 {
@@ -14,7 +15,6 @@ namespace TravellerWiki.Data
 
         public string Name { get; }
         
-        public TravellerNationsCharacterInfo PatronNationInfo { get; set; }
 
         public Dictionary<(string Name, string URL), Relationship> Relationships { get; set; }
         

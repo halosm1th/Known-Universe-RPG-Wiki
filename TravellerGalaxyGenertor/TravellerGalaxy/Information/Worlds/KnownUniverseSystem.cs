@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TravellerMapSystem.Worlds
 {
-    class KnownUniverseSystem
+    public class KnownUniverseSystem
     {
         #region Variables
         public int X { get; }

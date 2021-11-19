@@ -13,7 +13,7 @@ using TravellerMapSystem.Worlds;
 
 namespace TravellerMapSystem
 {
-    class KnownUniverseSubsector
+    public class KnownUniverseSubsector
     {
         
         [JsonProperty]

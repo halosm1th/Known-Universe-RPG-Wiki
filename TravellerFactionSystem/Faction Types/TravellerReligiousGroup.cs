@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TravellerCharacter.CharcterTypes;
 using TravellerFactionSystem.Faction_Assets;
 using TravellerFactionSystem.FactionEnums;
-using TravellerWiki.Data.Charcters;
-using TravellerWiki.Data.SimpleWikiClasses;
+using VoicesFromTheVoidArticles;
 
 namespace TravellerFactionSystem.Faction_Types
 {

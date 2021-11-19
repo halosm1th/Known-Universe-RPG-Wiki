@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TravellerWiki.Data;
-using Microsoft.AspNetCore.Mvc.TagHelpers;
-using TravellerWiki.Data.Services.CareerService;
+using TravellerCharacter.Character_Services;
+using TravellerCharacter.CharacterParts;
+using TravellerCharacter.CharcterTypes;
 
 namespace TravellerWiki
 {

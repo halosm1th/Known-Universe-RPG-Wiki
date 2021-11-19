@@ -1,11 +1,12 @@
 @page "/CharacterCreation/ChooseCareer/{characterID}"
 @using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Careers
 @using TravellerWiki.Data
-@using TravellerWiki.Data.Charcters
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
 @using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;

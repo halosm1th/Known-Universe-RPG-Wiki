@@ -1,12 +1,15 @@
 @page "/CharacterCreation/Reward/{characterID}"
 @using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
+@using TravellerCharacter.CharacterCreator.CreationEvents
+@using TravellerCharacter.CharacterCreator.Items
+@using TravellerCharacter.CharacterParts
 @using TravellerWiki.Data
-@using TravellerWiki.Data.Charcters
-@using TravellerWiki.Data.CreationEvents
 @using TravellerWiki.Data.Services
 @using TravellerWiki.Data.Services.CareerService
 @using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerWiki.Data.CharacterCreation.CharacterCreatorService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -28,7 +31,7 @@
     public string LifeEventURL { get; set; }
 
     [Parameter]
-    public List<TravellerWiki.Data.TravellerCharacterCreationReward> RewardList { get; set; }
+    public List<TravellerCharacterCreationReward> RewardList { get; set; }
 
     public CharacterCreatorService GetService()
     {
