@@ -8,21 +8,27 @@
     <projectFile>SubsectorJsonGenerator/SubsectorJsonGenerator.csproj</projectFile>
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
     <projectFile>SubsectorJson/SubsectorJson.csproj</projectFile>
+    <projectFile>TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeTranslator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseGalaxy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseMegaSector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseQuadrant.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSuperSector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/IWorld.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfix.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Language Bits Specific/HighVersianLangaugePostfix.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfixList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugePostfixList.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefix.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Language Bits Specific/HighVersianLangaugePrefix.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePrefixList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugePrefixList.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRoot.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Language Bits Specific/HighVersianLangaugeRoot.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRootList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugeRootList.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeWords.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugeWords.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/TravellerUniverseSystem/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/TravellerUniverseSystem/World.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +56,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/10/Cast.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/2D/Environment.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/6B/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,6 +67,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/25F/AsyncMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/24/DefaultHubDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Data/Factions/FactionEnums/TravellerIslandsNations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/4/ObjectMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -75,7 +83,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/39/RemoteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3E/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/31/CircuitHost.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/1F/RenderHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/33/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,32 +92,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerPoliticalGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerReligiousGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerProfessionalGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Types/TravellerMajorNationGroup.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAssetValue.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerFactionPersonAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/TravellerFactionService.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerLocation.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Generators/TravellerHeadlineGenerator.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/Character Services/NPC Services/TravellerNPCService.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFactionAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/TravellerFaction.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPlanetaryBaseAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Factions/Faction Assets/TravellerPopulatedFactionAsset.cs" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsReligion.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsProfessionalGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsPoliticalGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCriminalGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" />
       <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/Class1.cs" />
       <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyAttribute.cs" />
       <option value="$PROJECT_DIR$/BasicFantasyRPCharacterCreator/BasicFantasyCharacterCreator.cs" />
@@ -133,9 +114,35 @@
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeRootList.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugePostfixList.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeWords.razor" />
-      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" />
       <option value="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangaugeTranslator.razor" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/Services/DataServices/HighVersianService.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/Class1.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/System.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/World.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/SuperSector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/MegaSector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Sector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Subsector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/DrawSubsector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Quadrant.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Galaxy.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/Program.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/System.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/System.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Subsector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseQuadrant.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseGalaxy.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseMegaSector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSuperSector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/IWorld.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" />
+      <option value="$PROJECT_DIR$/TravellerWiki/Data/TravellerUniverseSystem/World.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" />
+      <option value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ux1BVb1B7cxRoOrLetmFMwVrMb" />
@@ -157,8 +164,8 @@
     <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.TravellerWiki">
-    <configuration name="Publish TravellerFactionSystem to folder" type="DotNetFolderPublish" factoryName="Publish to folder" temporary="true">
+  <component name="RunManager" selected=".NET Project.TravellerGalaxyGenertor">
+    <configuration name="Publish TravellerFactionSystem to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/TravellerFactionSystem/bin/Release/net5.0/publish" target_framework="net5.0" uuid_high="7797284247241245342" uuid_low="-4882073600492591447" />
       <method v="2" />
     </configuration>
@@ -257,6 +264,25 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="TravellerGalaxyGenertor" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration default="true" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -336,11 +362,6 @@
         <option name="Build" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Publish to folder.Publish TravellerFactionSystem to folder" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -372,7 +393,8 @@
       <workItem from="1634583436029" duration="3851000" />
       <workItem from="1636435451155" duration="6965000" />
       <workItem from="1636957521684" duration="4237000" />
-      <workItem from="1637039197763" duration="7564000" />
+      <workItem from="1637039197763" duration="14559000" />
+      <workItem from="1637288883391" duration="854000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -605,7 +627,28 @@
       <option name="project" value="LOCAL" />
       <updated>1636443654614</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary">
+      <created>1637047262463</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1637047262463</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary">
+      <created>1637047294565</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1637047294565</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed bug">
+      <created>1637047343185</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1637047343185</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,9 +669,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Made corporation stuff" />
-    <MESSAGE value="Added the federation flag and set it as the iamge." />
-    <MESSAGE value="Fixed a small bug" />
     <MESSAGE value="Added religions to the faction system, and companies, and fleshed out companies, and creators for those faction types with more to come. Soon to follow is nations and major nations. Then we'll see what comes after that. Probably criminal elements. Companies is forsure the largest at this time though." />
     <MESSAGE value="Laid the  foundation of the headline generator!" />
     <MESSAGE value="Added the basic other group classes and their relevant creators" />
@@ -651,7 +691,10 @@
     <MESSAGE value="Added some words to high versian and made the pages for it easier to use" />
     <MESSAGE value="Hopefully fixes a bug" />
     <MESSAGE value="Another bug fix, this time related to the links for the lists of pre/root/postfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Another bug fix, this time related to the links for the lists of pre/root/postfixes" />
+    <MESSAGE value="small fix" />
+    <MESSAGE value="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary" />
+    <MESSAGE value="Fixed bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

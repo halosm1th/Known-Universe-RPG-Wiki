@@ -234,6 +234,7 @@ namespace TravellerWiki.Data.Services.DataServices
             new HighVersianDefinition("Ips","himself/herself/itself/being"),
             new HighVersianDefinition("Bell","War"),
             new HighVersianDefinition("Vid","See/View"),
+            new HighVersianDefinition("Mag","Magic"),
 
         }.OrderBy(x => x.Letters.First()).ToList();
         
