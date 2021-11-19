@@ -10,21 +10,13 @@
     <projectFile>SubsectorJson/SubsectorJson.csproj</projectFile>
     <projectFile>TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/SubsectorGenerator.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/SubsectorImageGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/placeName.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -391,7 +383,10 @@
       <workItem from="1636957521684" duration="4237000" />
       <workItem from="1637039197763" duration="14559000" />
       <workItem from="1637288883391" duration="16645000" />
-      <workItem from="1637340852842" duration="5271000" />
+      <workItem from="1637340852842" duration="6185000" />
+      <workItem from="1637347150400" duration="28000" />
+      <workItem from="1637347206866" duration="262000" />
+      <workItem from="1637347531653" duration="78000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -659,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637302581224</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Finished the basic version of the subsector generator">
+      <created>1637346408439</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1637346408440</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,7 +682,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added the basic other group classes and their relevant creators" />
     <MESSAGE value="Added the json data for the various different groups, added their group pages, and some other stuff and expadned the headline generator" />
     <MESSAGE value="Added the code to handle the last two classes of factions, nations and major nations. Also simplified how islands factions are being loaded with a nice generic method (god bless generics) and some updates to the headline system so that is should now use the new factions for its generation of headlines. Now we just need some data!" />
     <MESSAGE value="Started workig on grtafting in faction assets" />
@@ -705,7 +706,8 @@
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Started a massive refactor by pulling in my old map generation code, and then started refactoring that, but in the process have begun a full refactor of the codebase" />
     <MESSAGE value="Refactored a lot of stuff into seperate things within the codebase so that its easier to extend in the future" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored a lot of stuff into seperate things within the codebase so that its easier to extend in the future" />
+    <MESSAGE value="Finished the basic version of the subsector generator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the basic version of the subsector generator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
