@@ -14,7 +14,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Try 3!">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="more linux fun">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerMapService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerMapService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +50,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/24/DefaultHubDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerGalaxyGenertor/TravellerMapService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/4/ObjectMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
@@ -386,7 +390,7 @@
       <workItem from="1637347206866" duration="262000" />
       <workItem from="1637347531653" duration="78000" />
       <workItem from="1637347703299" duration="133000" />
-      <workItem from="1637348112587" duration="3097000" />
+      <workItem from="1637348112587" duration="4196000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -696,7 +700,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637460201480</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="more linux fun">
+      <created>1637460560132</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1637460560132</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +728,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly." />
     <MESSAGE value="More fixes! still need to readd the faction data tho" />
     <MESSAGE value="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!" />
     <MESSAGE value="Added two new voices from the void articles, and patched a small bug." />
@@ -742,7 +752,8 @@
     <MESSAGE value="Maybe got the donet-core stuff running on linux?" />
     <MESSAGE value="Maybe this amkes linux work?" />
     <MESSAGE value="Try 3!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try 3!" />
+    <MESSAGE value="more linux fun" />
+    <option name="LAST_COMMIT_MESSAGE" value="more linux fun" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
