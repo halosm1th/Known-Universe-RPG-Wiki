@@ -14,11 +14,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="no idea, plz help">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.json" beforeDir="false" afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +143,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.2767365" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.27681473" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -389,7 +388,7 @@
       <workItem from="1637347206866" duration="262000" />
       <workItem from="1637347531653" duration="78000" />
       <workItem from="1637347703299" duration="133000" />
-      <workItem from="1637348112587" duration="296000" />
+      <workItem from="1637348112587" duration="1565000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -671,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637347829506</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="no idea, plz help">
+      <created>1637348689303</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1637348689303</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +698,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added the code to handle the last two classes of factions, nations and major nations. Also simplified how islands factions are being loaded with a nice generic method (god bless generics) and some updates to the headline system so that is should now use the new factions for its generation of headlines. Now we just need some data!" />
     <MESSAGE value="Started workig on grtafting in faction assets" />
     <MESSAGE value="Started work on adding faction assets" />
     <MESSAGE value="Added a void news article regarding the death of Matt Warde" />
@@ -717,7 +722,8 @@
     <MESSAGE value="Refactored a lot of stuff into seperate things within the codebase so that its easier to extend in the future" />
     <MESSAGE value="Finished the basic version of the subsector generator" />
     <MESSAGE value="Maybe this fixed something?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maybe this fixed something?" />
+    <MESSAGE value="no idea, plz help" />
+    <option name="LAST_COMMIT_MESSAGE" value="no idea, plz help" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

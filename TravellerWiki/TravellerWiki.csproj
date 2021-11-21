@@ -109,6 +109,10 @@
     <Content Update="Pages\Languages\HighVersianLangaugeTranslator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Remove="placeName.txt" />
+    <Content Include="placeName.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
