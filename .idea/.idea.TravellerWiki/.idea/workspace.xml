@@ -14,8 +14,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Maybe this amkes linux work?">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Try 3!">
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerMapService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerMapService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -386,7 +386,7 @@
       <workItem from="1637347206866" duration="262000" />
       <workItem from="1637347531653" duration="78000" />
       <workItem from="1637347703299" duration="133000" />
-      <workItem from="1637348112587" duration="2696000" />
+      <workItem from="1637348112587" duration="3097000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few small bug fixes and language features">
       <created>1625592821818</created>
@@ -689,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637459703800</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Try 3!">
+      <created>1637460201480</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1637460201480</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +717,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added a void news article regarding the death of Matt Warde" />
     <MESSAGE value="overhauled the faction creator pages so that they now work. Just need to finish updating the faction services so that all their home worlds are registered properly." />
     <MESSAGE value="More fixes! still need to readd the faction data tho" />
     <MESSAGE value="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!" />
@@ -735,7 +741,8 @@
     <MESSAGE value="no idea, plz help" />
     <MESSAGE value="Maybe got the donet-core stuff running on linux?" />
     <MESSAGE value="Maybe this amkes linux work?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maybe this amkes linux work?" />
+    <MESSAGE value="Try 3!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try 3!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

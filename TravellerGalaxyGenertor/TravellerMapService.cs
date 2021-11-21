@@ -11,7 +11,8 @@ namespace TravellerGalaxyGenertor
         public TravellerMapService()
         {
             //Islands_Sector = new KnownUniverseSector("North Western Islands", LoadIslandsSubsectors());
-          }
+            System.Environment.SetEnvironmentVariable("LD_DEBUG", "true");
+        }
 
         private KnownUniverseSubsector[,] LoadIslandsSubsectors()
         {
