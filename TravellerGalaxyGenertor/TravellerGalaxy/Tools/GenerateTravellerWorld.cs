@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Worlds;
 
 namespace TravellerMapSystem.Tools
 {
-    class GenerateTravellerWorld
+    class GenerateTravellerWorld : IWorldGenerator
     {
         
         private static Random die = new Random();
@@ -331,8 +332,15 @@ namespace TravellerMapSystem.Tools
             }
         }
 
-        public void GenerateWorld(TravellerWorld world)
-        { 
+        public void GenerateWorld(IWorld worldToGenerate)
+        {
+            if (worldToGenerate.GetType() != typeof(TravellerWorld))
+                throw new TypeAccessException("Error expects traveller world!");
+
+            if (worldToGenerate == null) throw new NullReferenceException("Expects non null world!");
+            
+            var world = worldToGenerate as TravellerWorld;
+            
             world.WorldSize = (WorldSize)Math.Max(0, Roll2D6(2));
             world.WorldAtmosphere = (WorldAtmosphere)Math.Max(0, world.WorldSize <= 0 ? 0 : Roll2D6((int)world.WorldSize - 7));
             world.WorldHydrographics = Math.Max(0, world.WorldAtmosphere <= 0 ? 0 : Roll2D6((int)world.WorldAtmosphere - 7));

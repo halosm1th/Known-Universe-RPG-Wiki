@@ -3,8 +3,6 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -74,24 +72,34 @@ namespace TravellerMapSystem
             return systems;
         }
         
-        public void GenerateSubsector(int worldOdds = 50)
+        public void GenerateSubsector(int worldOdds = 50, int minSystemSize = 1, int maxSystemSize = 21)
         {
+            if (maxSystemSize > 51)
+            {
+                maxSystemSize = 50;
+            }
+
+            if (minSystemSize < 0)
+            {
+                minSystemSize = 0;
+            }
+            
             for (int y = 0; y < Systems.GetLength(0); y++)
+            {
+                for (int x = 0; x < Systems.GetLength(1); x++)
                 {
-                    for (int x = 0; x < Systems.GetLength(1); x++)
+                    if (random.Next(0, 101) <= worldOdds)
                     {
-                        if (random.Next(0, 101) <= worldOdds)
-                        {
-                            Systems[y, x] = new KnownUniverseSystem(x, y, GenerateName(),random.Next(1,3));
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine(Systems[y, x].ToString());
-                        }
-                        else
-                        {
-                            Systems[y, x] = new KnownUniverseSystem(x, y);
-                        }
+                        Systems[y, x] = new KnownUniverseSystem(x, y, GenerateName(),random.Next(minSystemSize, maxSystemSize));
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(Systems[y, x].ToString());
+                    }
+                    else
+                    {
+                        Systems[y, x] = new KnownUniverseSystem(x, y);
                     }
                 }
+            }
         }
 
         public Bitmap GenerateSubSectorImage()
@@ -122,6 +130,12 @@ namespace TravellerMapSystem
 
             return worlds;
         }
+
+        public KnownUniverseSystem GetSystem(int x, int y)
+        {
+            return Systems[y, x];
+        }
+        
         public override string ToString()
         {
             var sb = new StringBuilder();

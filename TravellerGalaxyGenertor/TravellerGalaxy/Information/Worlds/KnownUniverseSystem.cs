@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds;
+using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 
 namespace TravellerMapSystem.Worlds
 {
@@ -23,9 +26,11 @@ namespace TravellerMapSystem.Worlds
         public KnownUniverseSystem(int x, int y, string name = "", int systemSize = 0)
         {
             X = x;
-            Y = x;
+            Y = y;
             WorldsInSystem = new List<IWorld>();
             Name = name;
+            var rand = new Random(name.Aggregate(0, (h, t) => h + t));
+            var hasCoreWorld = false;
 
             if (systemSize > 0)
             {
@@ -33,7 +38,16 @@ namespace TravellerMapSystem.Worlds
                 
                 for (int i = 0; i < systemSize; i++)
                 {
-                    WorldsInSystem.Add(new TravellerWorld(name,i+1));
+                    var worldtype = rand.Next(0, 2);
+                    if (!hasCoreWorld || worldtype == 0)
+                    {
+                        WorldsInSystem.Add(new TravellerWorld(name, i + 1));
+                        if (!hasCoreWorld) hasCoreWorld = true;
+
+                    }else if (worldtype == 1)
+                    {
+                        WorldsInSystem.Add(new StarsWithoutNumberWorld(name,i+1));
+                    }
                 }
             }
         }

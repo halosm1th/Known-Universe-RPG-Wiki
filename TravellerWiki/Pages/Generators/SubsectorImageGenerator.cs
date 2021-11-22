@@ -9,7 +9,7 @@ namespace TravellerWiki
     public class SubsectorImageGenerator : Controller
     {
         // GET
-        public IActionResult GetImage(int imageID)
+        public IActionResult GetImage(string imageID)
         {
             var generator = new TravellerSubsectorGeneratorService();
             var image = generator.GenerateSubSectorImage(imageID);

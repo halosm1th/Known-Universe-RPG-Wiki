@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using TravellerFactionSystem.FactionEnums;
+using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds;
+using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Tools;
 
 namespace TravellerMapSystem.Worlds
@@ -34,18 +36,18 @@ namespace TravellerMapSystem.Worlds
     {
         None,
         Trace,
-        VeryThinTainted,
-        VeryThin,
-        ThinTainted,
+        Very_Thin_And_Tainted,
+        Very_Thin,
+        Thin_and_Tainted,
         Thin,
         Standard,
-        StandardTainted,
-        DenseTainted,
+        Standard_and_Tainted,
+        Dense_and_Tainted,
         Dense,
         Exotic,
         Corrosive,
         Insidious,
-        VersyDense,
+        Versy_Dense,
         Low,
         Unusual
     }
@@ -124,6 +126,7 @@ namespace TravellerMapSystem.Worlds
     {
         #region IWorld Requirements
         [JsonProperty("WorldName")] public string Name { get; set; }
+        [JsonProperty("WorldNumber")]  public int WorldNumber { get; }
        
         public override string ToString()
         {
@@ -135,6 +138,15 @@ namespace TravellerMapSystem.Worlds
             return $"{Name}: {UWP} " +
                    $"Gas: {gas} Military: {mil} Other: {oth}";
         }
+
+        public string ShortDescription()
+        {
+            return $"{Name} is a planet with a Class-{StarportQuality} starport. The world is a {WorldSize}, with an atmosphere which is {WorldAtmosphere}. " +
+                   $"The government is {ShortGovernmentTypeDescrption()}, which rules over {Population} people. " +
+                   $"The world has Law Level {LawLevel} and Tech Level {TechLevel}. " +
+                   $"The planets temperature is: {Temperature}, and the people are often {Quirk}.".Replace("_", " ");
+        }
+        
         
         #endregion
         #region Variables
@@ -239,6 +251,8 @@ namespace TravellerMapSystem.Worlds
         public TravellerWorld(string systemName, int worldNumber)
         {
             Name = $"{systemName}.{worldNumber.ToString()}";
+            WorldNumber = worldNumber;
+            
             var worldGenerator = new GenerateTravellerWorld();
             worldGenerator.GenerateWorld(this);
         }
@@ -265,6 +279,7 @@ namespace TravellerMapSystem.Worlds
                         var sb = new StringBuilder(); sb.Append(h);
                         sb.Append(" ");
                         sb.Append(t);
+                        sb.Append("\n");
                         return sb.ToString();
                     }))}" +
                    $"------------------------\n" +
@@ -274,7 +289,7 @@ namespace TravellerMapSystem.Worlds
                    $@"Factions: {Factions.Aggregate("", (h, t) =>
                    {
                        var sb = new StringBuilder(); 
-                       sb.Append(h); sb.Append("  "); sb.Append($"{GovernmentTypeDescrption(t.GovernmentType)}: {t.Strength} supported by: {t.Backer}"); return sb.ToString();
+                       sb.Append(h); sb.Append("  "); sb.Append($"{GovernmentTypeDescrption(t.GovernmentType)}: {t.Strength} supported by: {t.Backer}\n"); return sb.ToString();
                        
                    })}\n";
         }
@@ -312,18 +327,18 @@ namespace TravellerMapSystem.Worlds
             {
                 WorldAtmosphere.None => "Compostion: None. | Example Moon. | Pressure 0.00. | Survival Gear Required Vacc Suit.",
                 WorldAtmosphere.Trace => "Compostion: Trace. | Example Mars. | Pressure 0.01 to 0.09. | Survival Gear Required Vacc Suit.",
-                WorldAtmosphere.VeryThin => "Compostion: Very Thin, Tainted. | Example None. | Pressure 0.1 to 0.42. | Survival Gear Required Respirator, Filter/",
-                WorldAtmosphere.VeryThinTainted => "Compostion: Very Thin. | Example None. | Pressure 0.1 to 0.42. | Survival Gear Required Respirator.",
-                WorldAtmosphere.ThinTainted => "Compostion: Thin, Tainted. | Example None. | Pressure 0.43 to 0.7. | Survival Gear Required Filter.",
+                WorldAtmosphere.Very_Thin => "Compostion: Very Thin, Tainted. | Example None. | Pressure 0.1 to 0.42. | Survival Gear Required Respirator, Filter/",
+                WorldAtmosphere.Very_Thin_And_Tainted => "Compostion: Very Thin. | Example None. | Pressure 0.1 to 0.42. | Survival Gear Required Respirator.",
+                WorldAtmosphere.Thin_and_Tainted => "Compostion: Thin, Tainted. | Example None. | Pressure 0.43 to 0.7. | Survival Gear Required Filter.",
                 WorldAtmosphere.Thin => "Compostion: Thin. | Example None. | Pressure 0.43 to 0.7. | Survival Gear Required None.",
                 WorldAtmosphere.Standard => "Compostion: Standard. | Example Earth. | Pressure 0.71-1.49. | Survival Gear Required None.",
-                WorldAtmosphere.StandardTainted => "Compostion: Standard, Tainted. | Example None. | Pressure 0.71-1.49. | Survival Gear Required Filter.",
+                WorldAtmosphere.Standard_and_Tainted => "Compostion: Standard, Tainted. | Example None. | Pressure 0.71-1.49. | Survival Gear Required Filter.",
                 WorldAtmosphere.Dense => "Compostion: Dense. | Example None. | Pressure 1.5-2.49. | Survival Gear Required None.",
-                WorldAtmosphere.DenseTainted => "Compostion: Dense, Tainted.  | Example None. | Pressure 1.5-2.49. | Survival Gear Required Filter.",
+                WorldAtmosphere.Dense_and_Tainted => "Compostion: Dense, Tainted.  | Example None. | Pressure 1.5-2.49. | Survival Gear Required Filter.",
                 WorldAtmosphere.Exotic => "Compostion: Exotic. | Example None. | Pressure Varies. | Survival Gear Required Air Supply..",
                 WorldAtmosphere.Corrosive => "Compostion: Corrosive. | Example Venus. Pressure Varies. | Survival Gear Required Vacc Suit.",
                 WorldAtmosphere.Insidious => "Compostion: Insidious. | Example None. Pressure Varies. | Survival Gear Required Vacc Suit.",
-                WorldAtmosphere.VersyDense => "Compostion: Very Dense. | Example None. | Pressure 2.5+. | Survival Gear Required None",
+                WorldAtmosphere.Versy_Dense => "Compostion: Very Dense. | Example None. | Pressure 2.5+. | Survival Gear Required None",
                 WorldAtmosphere.Low => "Compostion: Low. | Example None. | Pressure 0.5 or less. | Survival Gear Required None.",
                 WorldAtmosphere.Unusual => "Compostion: Unusual. | Example None. | Pressure Varies. | Survival Gear Required Varies",
                 _ => "Error"
@@ -348,6 +363,27 @@ namespace TravellerMapSystem.Worlds
         //Give us an actual size stat
         public string PopulationDescription() => Population;
 
+         private string ShortGovernmentTypeDescrption() => GovernmentType switch
+        {
+            0 => "None",
+            1 => "Company/Corporation",
+            2 => "Participating Democracy",
+            3 => "Self-Perpetuating Oligarchy",
+            4 => "Representative Democracy",
+            5 => "Feudal Technocracy",
+            6 => "Captive Government",
+            7 => "Balkanisation",
+            8 => "Civil Service Bureaucracy",
+            9 => "Impersonal Bureaucracy",
+            10 => "Charismatic Dictator",
+            11 => "Non-Charismatic Leader",
+            12 => "Charismatic Oligarchy",
+            13 => "Religious Dicatorship",
+            14 => "Religious Autocracy",
+            15 => "Totalitarian Oligarchy",
+            _ => "No idea."
+        };
+        
         public string GovernmentTypeDescrption() => GovernmentType switch
         {
             0 => "None. | No Government stucture, in many cases family bonds predominate. | Examples: Family, clan, anarchy. | No contraband",

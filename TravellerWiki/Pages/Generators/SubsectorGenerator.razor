@@ -1,20 +1,20 @@
 ﻿@page "/Generators/SubsectorGenerator/"
-@using TravellerMapSystem.Worlds
-@using TravellerMapSystem
 @using TravellerGalaxyGenertor
+@using TravellerWiki.Pages.WorldInfo;
 @inject TravellerSubsectorGeneratorService subsectorGenerator; 
 
 <h3>SubsectorGenerator</h3>
 @code {
     int subsectorDensity = 50;
-    public KnownUniverseSubsector? subsector { get; set; }
-    public int SubsectorID { get; set; }
+    int maxNumberOfPlanets = 4;
+    private readonly int minSystemCount = 1;
+    
     public string subsectorName;
+    private string subsectorID { get; set; }
     
     public void GenerateSubsector()
     {
-        SubsectorID = subsectorGenerator.GenerateSubsector(subsectorName,subsectorDensity);
-        subsector = subsectorGenerator.GetSubsector(SubsectorID);
+        subsectorID = subsectorGenerator.GenerateSubsector(subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
     }
     
     
@@ -26,29 +26,16 @@
 
     <br />
     <label for="density">Density: @subsectorDensity</label>
-        <input type="range" min="1" max="100" step="1" id="density" @bind="subsectorDensity"/>
-    <br/>
-        <button type="button" @onclick="GenerateSubsector">Generate Subsector</button>
-</p>
-        @if (subsector != null)
-{
-    <h2> The @subsector.Name Subsector.</h2>
-    <img alt="the subsector map" src="SubsectorImageGenerator/GetImage/@SubsectorID" width="50%" height="50%"/>
+    <input type="range" min="1" max="100" step="1" id="density" @bind="subsectorDensity"/>
     
-    <h3>The Systems of the @subsector.Name subsector!</h3>
-                                           <p>
-    @foreach (var system in subsector.Systems)
-    {
-        if(system.HasWorld == true && system.WorldCount > 0){
-            <h4> The @system.Name System (@(system.X+1), @(system.Y+1))</h4>
-            <ul>
-            @foreach (var world in system.WorldsInSystem)
-            {
-                <li style="white-space: pre-line;border-spacing: 2px;" >@(((TravellerWorld) world).WorldData())</li>
-            }
-            </ul>
-            <br/>
-        }
+    <br />
+    <label for="maxGenWorld">Max Number Of Worlds per system: @maxNumberOfPlanets</label>
+    <input type="range" min="1" max="22" step="1" id="maxGenWorld" @bind="maxNumberOfPlanets"/>
+    
+    <br/>
+    <button type="submit" @onclick="GenerateSubsector">Generate Subsector</button>
+</p>
+
+@if(!string.IsNullOrEmpty(subsectorID)){
+    <SubsectorInfo SubsectorID="@subsectorID" />
     }
-    </p>
-}
