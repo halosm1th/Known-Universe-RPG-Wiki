@@ -1,5 +1,12 @@
 ﻿using System;
-using System.Drawing;
+using SixLabors.Fonts;
+using SixLabors.ImageSharp;
+using SixLabors.Fonts;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Drawing;
+using SixLabors.ImageSharp.Drawing.Processing;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 using TravellerMapSystem.Worlds;
 
 namespace TravellerMapSystem.Tools
@@ -21,56 +28,60 @@ namespace TravellerMapSystem.Tools
                     _knownUniverseSubsectorToDraw = knownUniverseSubsectorToDraw;
                 }
                 
-                public Bitmap GenerateSubSectorImage()
+                public Image GenerateSubSectorImage()
                 {
-                    var subsector = new Bitmap(GRID);
-        
+                    Image subsector = GRID.CloneAs<Rgb24>();
                     DrawWorlds(subsector);
-        
+                    
                     return subsector;
                 }
         
-                private void DrawWorlds(Bitmap subsector)
+                private void DrawWorlds(Image subsector)
                 {
                     var fontSize = 18;
-        
-                    var graphics = Graphics.FromImage(subsector);
+
                     var brush = new SolidBrush(Color.Black);
-                    var Font = new Font("Ariel", fontSize);
-        
+                    var font = SystemFonts.CreateFont("Arial", fontSize);
+
                     for (int row = 0; row < _knownUniverseSubsectorToDraw.Systems.GetLength(0); row++)
                     {
                         for (int col = 0; col < _knownUniverseSubsectorToDraw.Systems.GetLength(1); col++)
                         {
                             //Get HexCoords
-        
-                            DrawLocationText(row, col, fontSize, HEIGHT, WIDTH, Font, graphics, brush);
-        
-                            if ( _knownUniverseSubsectorToDraw.Systems[row, col].HasWorld)
+
+                            DrawLocationText(row, col, fontSize, HEIGHT, WIDTH, font, subsector, brush);
+
+                            if (_knownUniverseSubsectorToDraw.Systems[row, col].HasWorld)
                             {
-                                var world = _knownUniverseSubsectorToDraw.Systems[row, col].PrimaryWorld as TravellerWorld;
-                                DrawSystemName(row, col, fontSize, HEIGHT, WIDTH, Font, graphics, brush);
-                                DrawUniversalWorldProfile(HEIGHT, row, col, WIDTH, Font, graphics, brush, world);
-        
-        
-                                //Get Text Coords
-                                var y = (float)(HEIGHT / 2) + (row * HEIGHT);
-                                if (col % 2 == 1) y += HEIGHT / 2;
-                                y += fontSize * 1.5f;
-        
-                                var text = $"{ world.Stations}".ToUpper();
-        
-                                var x = col * (WIDTH * 0.75f);
-                                x += (WIDTH / 2) - (text.Length * Font.SizeInPoints) / 2.0f;
-                                x += Font.Size;
-        
-                                graphics.DrawString(text, Font, brush, x, y);
+                                var world =
+                                    _knownUniverseSubsectorToDraw.Systems[row, col].PrimaryWorld as TravellerWorld;
+                                DrawSystemName(row, col, fontSize, HEIGHT, WIDTH, font, subsector, brush);
+                                DrawUniversalWorldProfile(HEIGHT, row, col, WIDTH, font, subsector, brush, world);
+
+                                DrawSystemStation(subsector, row, col, fontSize, world, font, brush);
                             }
                         }
                     }
                 }
-        
-                private void DrawSystemName(int row, int col, int fontSize, int height, float width, Font Font, Graphics graphics,
+
+                private static void DrawSystemStation(Image subsector, int row, int col, int fontSize, TravellerWorld? world,
+                    Font? Font, SolidBrush? brush)
+                {
+                    //Get Text Coords
+                    var y = (float)(HEIGHT / 2) + (row * HEIGHT);
+                    if (col % 2 == 1) y += HEIGHT / 2;
+                    y += fontSize * 1.5f;
+
+                    var text = $"{world.Stations}".ToUpper();
+
+                    var x = col * (WIDTH * 0.75f);
+                    x += (WIDTH / 2) - (text.Length * Font.Size) / 2.5f;
+                    x += Font.Size;
+
+                    subsector.Mutate(ctx => ctx.DrawText(text, Font, brush, new PointF(x, y)));
+                }
+
+                private void DrawSystemName(int row, int col, int fontSize, int height, float width, Font Font, Image graphics,
                     SolidBrush brush)
                 {
                     var text = $"{ _knownUniverseSubsectorToDraw.Systems[row, col].Name}";
@@ -84,13 +95,13 @@ namespace TravellerMapSystem.Tools
                     if (col % 2 == 1) y += height / 2;
         
                     var x = col * (width * 0.75f);
-                    x += (width / 2) - (text.Length * Font.Size) / 2.8f;
+                    x += (width / 2) - (text.Length * Font.Size) / 4.0f;
         
-                    graphics.DrawString(text, Font, brush, x, y);
+                    graphics.Mutate(ctx => ctx.DrawText(text, Font, brush, new PointF(x, y)));
                 }
         
                 private static void DrawLocationText(int row, int col, int fontSize, int height, float width, Font Font,
-                    Graphics graphics, SolidBrush brush)
+                    Image graphics, SolidBrush brush)
                 {
                     var text = $"{col + 1} {row + 1}";
         
@@ -98,12 +109,12 @@ namespace TravellerMapSystem.Tools
                     if (col % 2 == 1) y += height / 2;
         
                     var x = col * (width * 0.75f);
-                    x += (width / 2) - (text.Length * Font.SizeInPoints) / 2.0f;
+                    x += (width / 2) - (text.Length * Font.Size) / 4.0f;
         
-                    graphics.DrawString(text, Font, brush, x, y - fontSize);
+                    graphics.Mutate(ctx => ctx.DrawText(text, Font, brush, new PointF(x, y - fontSize)));
                 }
         
-                private static void DrawUniversalWorldProfile(int height, int row, int col, float width, Font Font, Graphics graphics,
+                private static void DrawUniversalWorldProfile(int height, int row, int col, float width, Font Font, Image graphics,
                     SolidBrush brush, TravellerWorld travellerWorld)
                 {
                     //Get Text Coords
@@ -113,10 +124,10 @@ namespace TravellerMapSystem.Tools
                     var text = $"{travellerWorld.UWP}".ToUpper();
         
                     var x = col * (width * 0.75f);
-                    x += (width / 2) - (text.Length * Font.SizeInPoints) / 2.0f;
+                    x += (width / 2) - (text.Length * Font.Size) / 2.5f;
                     x += Font.Size;
         
-                    graphics.DrawString(text, Font, brush, x, y);
+                    graphics.Mutate(ctx => ctx.DrawText(text, Font, brush, new PointF(x, y)));
                 }
         
                 private static PointF[] HexToPoints(float height, int row, int Col)
@@ -148,23 +159,26 @@ namespace TravellerMapSystem.Tools
         
                 private static Image CreateGrid()
                 {
-                    var grid =new Bitmap(xSize, ySize);
-                    var graphics = Graphics.FromImage(grid);
-                    var brush = new SolidBrush(Color.White);
-                    graphics.FillRectangle(brush,new Rectangle(0,0,xSize,ySize));
-                    var pen = new Pen(Color.Black);
-        
-                    for (int row = 0; row < 10; row++)
+                    Image retImage = null;
+                    using (var grid = new Image<Rgb24>(xSize, ySize))
                     {
-                        for (int col = 0; col < 8; col++)
+                        var brush = new SolidBrush(Color.White);
+                        grid.Mutate(x => x.Fill(brush, new Rectangle(0, 0, xSize, ySize)));
+
+                        for (int row = 0; row < 10; row++)
                         {
-                            var points = HexToPoints(HEIGHT, row, col);
-                            graphics.DrawPolygon(pen, points);
+                            for (int col = 0; col < 8; col++)
+                            {
+                                var points = HexToPoints(HEIGHT, row, col);
+                                grid.Mutate(x => x.DrawPolygon(Color.Black,1,points));
+                            }
                         }
+
+                        retImage = grid.Clone();
                     }
-        
-        
-                    return grid as Image;
+
+
+                    return retImage;
                 }
 
     }

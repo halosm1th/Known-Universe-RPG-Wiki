@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TravellerMapSystem.Tools;
 using TravellerMapSystem.Worlds;
+using Image = SixLabors.ImageSharp.Image;
 
 namespace TravellerMapSystem
 {
@@ -106,7 +107,7 @@ namespace TravellerMapSystem
             }
         }
 
-        public Bitmap GenerateSubSectorImage()
+        public Image GenerateSubSectorImage()
         {
             var drawing = new DrawSubsector(this);
             return drawing.GenerateSubSectorImage();

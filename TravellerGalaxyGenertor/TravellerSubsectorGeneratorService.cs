@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
+using SixLabors.ImageSharp;
 using TravellerMapSystem;
 using TravellerMapSystem.Worlds;
 
@@ -15,7 +15,7 @@ namespace TravellerGalaxyGenertor
             if(Subsectors == null) Subsectors = new Dictionary<string, KnownUniverseSubsector>();
         }
 
-        public Bitmap GenerateSubSectorImage(string id)
+        public Image GenerateSubSectorImage(string id)
         {
             return Subsectors[id].GenerateSubSectorImage();
         }

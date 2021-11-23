@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using SixLabors.ImageSharp.Formats;
+using SixLabors.ImageSharp.Formats.Jpeg;
 using TravellerGalaxyGenertor;
 
 namespace TravellerWiki
@@ -12,11 +14,12 @@ namespace TravellerWiki
         public IActionResult GetImage(string imageID)
         {
             var generator = new TravellerSubsectorGeneratorService();
-            var image = generator.GenerateSubSectorImage(imageID);
-            ImageConverter ic = new ImageConverter();
-            var bytes = (byte[]) ic.ConvertTo(image, typeof(byte[])) ?? Array.Empty<byte>();
-                            
-            return File(bytes, "image/jpg");
+            using var image = generator.GenerateSubSectorImage(imageID);
+            var byteStream = new MemoryStream();
+            image.Save(byteStream, new JpegEncoder());
+            byteStream.Flush();
+            byteStream.Position = 0;
+            return File(byteStream, "image/jpg");
         }
     }
 }
