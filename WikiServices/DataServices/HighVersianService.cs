@@ -651,8 +651,8 @@ namespace WikiServices.DataServices
             {
                 cacheHits++;
             
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Looking for: {spellingOfWord}. Found: {containsWord} [{cacheHits.ToString()}:{cacheMiss.ToString()}/{valuesInChache.ToString()}]");
+                //Console.ForegroundColor = ConsoleColor.Green;
+                //Console.WriteLine($"Looking for: {spellingOfWord}. Found: {containsWord} [{cacheHits.ToString()}:{cacheMiss.ToString()}/{valuesInChache.ToString()}]");
             
                 return Words.First(x => x.Letters == spellingOfWord);
             }
