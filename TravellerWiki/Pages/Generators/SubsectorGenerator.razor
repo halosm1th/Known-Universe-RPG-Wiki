@@ -1,7 +1,9 @@
 ﻿@page "/Generators/SubsectorGenerator/"
 @using TravellerGalaxyGenertor
-@using TravellerWiki.Pages.WorldInfo;
+@using TravellerWiki.Pages.InformationOnSetting;
 @inject TravellerSubsectorGeneratorService subsectorGenerator; 
+@inject NavigationManager NavManager
+@inject IJSRuntime JsRuntime;
 
 <h3>SubsectorGenerator</h3>
 @code {
@@ -15,6 +17,8 @@
     public void GenerateSubsector()
     {
         subsectorID = subsectorGenerator.GenerateSubsector(subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
+        var url = $"/InformationOnSetting/SubsectorInfo/{subsectorID}";
+        JsRuntime.InvokeVoidAsync("open", url, "_blank");
     }
     
     
@@ -36,6 +40,7 @@
     <button type="submit" @onclick="GenerateSubsector">Generate Subsector</button>
 </p>
 
+
 @if(!string.IsNullOrEmpty(subsectorID)){
-    <SubsectorInfo SubsectorID="@subsectorID" />
+    <a href="/InformationOnSetting/SubsectorInfo/@subsectorID">Click me to view your generated subsector. ID #@subsectorID</a>
     }

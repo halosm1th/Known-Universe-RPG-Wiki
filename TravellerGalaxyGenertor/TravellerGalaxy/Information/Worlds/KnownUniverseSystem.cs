@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
@@ -18,6 +19,10 @@ namespace TravellerMapSystem.Worlds
         public List<IWorld> WorldsInSystem { get; }
         
         public int WorldCount => WorldsInSystem.Count;
+        public int AverageTechLevel => (WorldsInSystem.Aggregate(0,(h,t) => h + t.TechLevel) / WorldsInSystem.Count);
+
+        public BigInteger TotalPopulation =>
+            WorldsInSystem.Aggregate(BigInteger.Zero, (h, t) => h + BigInteger.Parse(t.Population));
 
         public IWorld PrimaryWorld => WorldsInSystem.First();
         #endregion
@@ -38,15 +43,18 @@ namespace TravellerMapSystem.Worlds
                 
                 for (int i = 0; i < systemSize; i++)
                 {
-                    var worldtype = rand.Next(0, 2);
-                    if (!hasCoreWorld || worldtype == 0)
+                    var worldtype = rand.Next(1, 101);
+                    if (!hasCoreWorld || worldtype >= 1 && worldtype <= 25)
                     {
                         WorldsInSystem.Add(new TravellerWorld(name, i + 1));
                         if (!hasCoreWorld) hasCoreWorld = true;
 
-                    }else if (worldtype == 1)
+                    }else if (worldtype >= 25 && worldtype <= 60)
                     {
                         WorldsInSystem.Add(new StarsWithoutNumberWorld(name,i+1));
+                    }else if (worldtype >= 60 && worldtype <= 101)
+                    {
+                        WorldsInSystem.Add(new StarsWithoutNumberPointOfInterest(name,i+1));
                     }
                 }
             }

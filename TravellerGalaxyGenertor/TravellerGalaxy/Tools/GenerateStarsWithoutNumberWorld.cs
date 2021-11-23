@@ -26,25 +26,25 @@ namespace TravellerMapSystem.Tools
             world.Atmosphere = GenerateAtmosphere(rand);
             world.Temperature = GenerateTemperature(rand);
             world.Biosphere = GenerateBiosphere(rand);
-            world.Population = GeneratePopulation(rand);
-            world.TechLevel = GenerateTechLevel(rand,world.Population);
+            (world.PopulationOutline,world.Population) = GeneratePopulation(rand);
+            world.TechLevel = GenerateTechLevel(rand,world.PopulationOutline);
             
-            world.ContactPoint = GenerateContactPoint(rand);
-            world.CurrentRelationship = GenerateRelationship(rand);
-            world.OriginOfWorld = GenerateOriginOfWorld(rand);
+            world.StarsWithoutNumberContactPoint = GenerateContactPoint(rand);
+            world.StarsWithoutNumberCurrentRelationship = GenerateRelationship(rand);
+            world.StarsWithoutNumberOriginOfWorld = GenerateOriginOfWorld(rand);
         }
 
-        private int GenerateTechLevel(Random rand, Population pop)
+        private int GenerateTechLevel(Random rand, StarsWithoutNumberPopulation pop)
         {
             var mod = pop switch
             {
-                Population.Failed_Colony => -5,
-                Population.Outpost => -2,
-                Population.Fewer_Then_A_Million_Inhabitants => 0,
-                Population.Several_Million_Inhabitants => +1,
-                Population.Billions_Of_Inhabitants => +2,
-                Population.Hundreds_Of_Millions_Of_Inhabitants => +3,
-                Population.Alien_Inhabitants => +5,
+                StarsWithoutNumberPopulation.Failed_Colony => -5,
+                StarsWithoutNumberPopulation.Outpost => -2,
+                StarsWithoutNumberPopulation.Fewer_Then_A_Million_Inhabitants => 0,
+                StarsWithoutNumberPopulation.Several_Million_Inhabitants => +1,
+                StarsWithoutNumberPopulation.Billions_Of_Inhabitants => +2,
+                StarsWithoutNumberPopulation.Hundreds_Of_Millions_Of_Inhabitants => +3,
+                StarsWithoutNumberPopulation.Alien_Inhabitants => +5,
                 _ => 0
             };
 
@@ -52,127 +52,127 @@ namespace TravellerMapSystem.Tools
             return Math.Max(1, tl);
         }
 
-        private Population GeneratePopulation(Random rand)
+        private (StarsWithoutNumberPopulation,string) GeneratePopulation(Random rand)
         {
             return rand.Next(2, 13) switch
             {
-                2 => Population.Failed_Colony,
-                3 => Population.Outpost,
-                4 => Population.Fewer_Then_A_Million_Inhabitants,
-                5 => Population.Fewer_Then_A_Million_Inhabitants,
-                6 => Population.Several_Million_Inhabitants,
-                7 => Population.Several_Million_Inhabitants,
-                8 => Population.Several_Million_Inhabitants,
-                9 => Population.Hundreds_Of_Millions_Of_Inhabitants,
-                10 => Population.Hundreds_Of_Millions_Of_Inhabitants,
-                11 => Population.Billions_Of_Inhabitants,
-                12 => Population.Alien_Inhabitants,
-                _ => Population.Outpost 
+                2 => (StarsWithoutNumberPopulation.Failed_Colony, rand.Next(0,11).ToString()),
+                3 => (StarsWithoutNumberPopulation.Outpost, rand.Next(1,101).ToString()),
+                4 => (StarsWithoutNumberPopulation.Fewer_Then_A_Million_Inhabitants, rand.Next(100,500001).ToString()),
+                5 => (StarsWithoutNumberPopulation.Fewer_Then_A_Million_Inhabitants, rand.Next(500000,1000000).ToString()),
+                6 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants, rand.Next(1000000,9000000).ToString()),
+                7 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants, rand.Next(10000000,50000000).ToString()),
+                8 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants,rand.Next(50000000,100000000).ToString()),
+                9 => (StarsWithoutNumberPopulation.Hundreds_Of_Millions_Of_Inhabitants,rand.Next(100000000,500000000).ToString() ),
+                10 => (StarsWithoutNumberPopulation.Hundreds_Of_Millions_Of_Inhabitants, rand.Next(500000000,1000000000).ToString()),
+                11 => (StarsWithoutNumberPopulation.Billions_Of_Inhabitants, rand.Next(1000000000, 2139999999).ToString()),
+                12 => (StarsWithoutNumberPopulation.Alien_Inhabitants, rand.Next(1,100000001).ToString() ),
+                _ => (StarsWithoutNumberPopulation.Outpost,rand.Next(1,101).ToString() )
             };
         }
 
-        private Biosphere GenerateBiosphere(Random rand)
+        private StarsWithoutNumberBiosphere GenerateBiosphere(Random rand)
         {
             return rand.Next(2, 13) switch
             {
-                2 => Biosphere.Remnant,
-                3 => Biosphere.Microbiol,
-                4 => Biosphere.No,
-                5 => Biosphere.No,
-                6 => Biosphere.Human_Miscible,
-                7 => Biosphere.Human_Miscible,
-                8 => Biosphere.Human_Miscible,
-                9 => Biosphere.Immiscible,
-                10 => Biosphere.Immiscible,
-                11 => Biosphere.Hybrid,
-                12 => Biosphere.Engineered,
-                _ => Biosphere.Human_Miscible
+                2 => StarsWithoutNumberBiosphere.Remnant,
+                3 => StarsWithoutNumberBiosphere.Microbiol,
+                4 => StarsWithoutNumberBiosphere.No,
+                5 => StarsWithoutNumberBiosphere.No,
+                6 => StarsWithoutNumberBiosphere.Human_Miscible,
+                7 => StarsWithoutNumberBiosphere.Human_Miscible,
+                8 => StarsWithoutNumberBiosphere.Human_Miscible,
+                9 => StarsWithoutNumberBiosphere.Immiscible,
+                10 => StarsWithoutNumberBiosphere.Immiscible,
+                11 => StarsWithoutNumberBiosphere.Hybrid,
+                12 => StarsWithoutNumberBiosphere.Engineered,
+                _ => StarsWithoutNumberBiosphere.Human_Miscible
             };
         }
 
-        private Temperature GenerateTemperature(Random rand)
+        private StarsWithoutNumberTemperature GenerateTemperature(Random rand)
         {
             return rand.Next(2, 13) switch
             {
-                2 => Temperature.Frozen,
-                3 => Temperature.Cold,
-                4 => Temperature.Variable_Cold,
-                5 => Temperature.Variable_Cold,
-                6 => Temperature.Temperate,
-                7 => Temperature.Temperate,
-                8 => Temperature.Temperate,
-                9 => Temperature.Variable_Warm,
-                10 => Temperature.Variable_Warm,
-                11 => Temperature.Warm,
-                12 => Temperature.Burning,
-                _ => Temperature.Temperate
+                2 => StarsWithoutNumberTemperature.Frozen,
+                3 => StarsWithoutNumberTemperature.Cold,
+                4 => StarsWithoutNumberTemperature.Variable_Cold,
+                5 => StarsWithoutNumberTemperature.Variable_Cold,
+                6 => StarsWithoutNumberTemperature.Temperate,
+                7 => StarsWithoutNumberTemperature.Temperate,
+                8 => StarsWithoutNumberTemperature.Temperate,
+                9 => StarsWithoutNumberTemperature.Variable_Warm,
+                10 => StarsWithoutNumberTemperature.Variable_Warm,
+                11 => StarsWithoutNumberTemperature.Warm,
+                12 => StarsWithoutNumberTemperature.Burning,
+                _ => StarsWithoutNumberTemperature.Temperate
             };
         }
 
-        private Atmosphere GenerateAtmosphere(Random rand)
+        private StarsWithoutNumberAtmosphere GenerateAtmosphere(Random rand)
         {
             return rand.Next(2, 13) switch
             {
-                 2 => Atmosphere.Corrosive,
-                 3 => Atmosphere.Inert,
-                 4 => Atmosphere.Airless_Or_Thin,
-                 5 => Atmosphere.Breathable,
-                 6 => Atmosphere.Breathable,
-                 7 => Atmosphere.Breathable,
-                 8 => Atmosphere.Breathable,
-                 9 => Atmosphere.Breathable,
-                 10 => Atmosphere.Thick,
-                 11 => Atmosphere.Invasive,
-                 12 => Atmosphere.Both_Corrosive_And_Invasive,
-                 _ => Atmosphere.Breathable
+                 2 => StarsWithoutNumberAtmosphere.Corrosive,
+                 3 => StarsWithoutNumberAtmosphere.Inert,
+                 4 => StarsWithoutNumberAtmosphere.Airless_Or_Thin,
+                 5 => StarsWithoutNumberAtmosphere.Breathable,
+                 6 => StarsWithoutNumberAtmosphere.Breathable,
+                 7 => StarsWithoutNumberAtmosphere.Breathable,
+                 8 => StarsWithoutNumberAtmosphere.Breathable,
+                 9 => StarsWithoutNumberAtmosphere.Breathable,
+                 10 => StarsWithoutNumberAtmosphere.Thick,
+                 11 => StarsWithoutNumberAtmosphere.Invasive,
+                 12 => StarsWithoutNumberAtmosphere.Both_Corrosive_And_Invasive,
+                 _ => StarsWithoutNumberAtmosphere.Breathable
             };
         }
 
-        private OriginOfWorld GenerateOriginOfWorld(Random rand)
+        private StarsWithoutNumberOriginOfWorld GenerateOriginOfWorld(Random rand)
         {
             return rand.Next(1, 9) switch
             {
-                1 => OriginOfWorld.Recent_Colony_From_Primary_World,
-                2 => OriginOfWorld.Refuge_For_Exiles_From_Primary,
-                3 => OriginOfWorld.Founded_Ages_Ago_By_Different_Group,
-                4 => OriginOfWorld.Founded_Long_Before_The_Primary_World,
-                5 => OriginOfWorld.Lost_Ancient_Colony_Of_The_Primary,
-                6 => OriginOfWorld.Colony_Recently_Torn_Free_Of_The_Primary,
-                7 => OriginOfWorld.Long_Standing_Cooperative_Colony_World,
-                8 => OriginOfWorld.Recent_Interstellar_Colony_From_Elsewhere,
-                _ => OriginOfWorld.Founded_Long_Before_The_Primary_World
+                1 => StarsWithoutNumberOriginOfWorld.Recent_Colony_From_Primary_World,
+                2 => StarsWithoutNumberOriginOfWorld.Refuge_For_Exiles_From_Primary,
+                3 => StarsWithoutNumberOriginOfWorld.Founded_Ages_Ago_By_Different_Group,
+                4 => StarsWithoutNumberOriginOfWorld.Founded_Long_Before_The_Primary_World,
+                5 => StarsWithoutNumberOriginOfWorld.Lost_Ancient_Colony_Of_The_Primary,
+                6 => StarsWithoutNumberOriginOfWorld.Colony_Recently_Torn_Free_Of_The_Primary,
+                7 => StarsWithoutNumberOriginOfWorld.Long_Standing_Cooperative_Colony_World,
+                8 => StarsWithoutNumberOriginOfWorld.Recent_Interstellar_Colony_From_Elsewhere,
+                _ => StarsWithoutNumberOriginOfWorld.Founded_Long_Before_The_Primary_World
             };
         }
 
-        private CurrentRelationship GenerateRelationship(Random rand)
+        private StarsWithoutNumberCurrentRelationship GenerateRelationship(Random rand)
         {
             return rand.Next(1, 9) switch
             {
-                1 => CurrentRelationship.Confirmed_hatred_of_each_other,
-                2 => CurrentRelationship.Active_cold_war_between_them,
-                3 => CurrentRelationship.Old_grudges_or_resentments,
-                4 => CurrentRelationship.Cultural_disgust_and_avoidance,
-                5 => CurrentRelationship.Polite_interchange_and_trade,
-                6 => CurrentRelationship.Cultural_admiration_for_primary,
-                7 => CurrentRelationship.Long_standing_friendship,
-                8 => CurrentRelationship.Unflinching_mutual_loyalty,
-                _ => CurrentRelationship.Long_standing_friendship
+                1 => StarsWithoutNumberCurrentRelationship.Confirmed_hatred_of_each_other,
+                2 => StarsWithoutNumberCurrentRelationship.Active_cold_war_between_them,
+                3 => StarsWithoutNumberCurrentRelationship.Old_grudges_or_resentments,
+                4 => StarsWithoutNumberCurrentRelationship.Cultural_disgust_and_avoidance,
+                5 => StarsWithoutNumberCurrentRelationship.Polite_interchange_and_trade,
+                6 => StarsWithoutNumberCurrentRelationship.Cultural_admiration_for_primary,
+                7 => StarsWithoutNumberCurrentRelationship.Long_standing_friendship,
+                8 => StarsWithoutNumberCurrentRelationship.Unflinching_mutual_loyalty,
+                _ => StarsWithoutNumberCurrentRelationship.Long_standing_friendship
             };
         }
 
-        private ContactPoint GenerateContactPoint(Random rand)
+        private StarsWithoutNumberContactPoint GenerateContactPoint(Random rand)
         {
             return rand.Next(1, 9) switch
             {
-                1 => ContactPoint.Trade_in_vital_goods,
-                2 => ContactPoint.Shared_religion,
-                3 => ContactPoint.Mutual_language,
-                4 => ContactPoint.Entertainment_content,
-                5 => ContactPoint.Shared_religion,
-                6 => ContactPoint.Threat_to_both_of_them,
-                7 => ContactPoint.Shared_elite_families,
-                8 => ContactPoint.Exploiting_shared_resource,
-                _ => ContactPoint.Shared_elite_families
+                1 => StarsWithoutNumberContactPoint.Trade_in_vital_goods,
+                2 => StarsWithoutNumberContactPoint.Shared_religion,
+                3 => StarsWithoutNumberContactPoint.Mutual_language,
+                4 => StarsWithoutNumberContactPoint.Entertainment_content,
+                5 => StarsWithoutNumberContactPoint.Shared_research,
+                6 => StarsWithoutNumberContactPoint.Threat_to_both_of_them,
+                7 => StarsWithoutNumberContactPoint.Shared_elite_families,
+                8 => StarsWithoutNumberContactPoint.Exploiting_shared_resource,
+                _ => StarsWithoutNumberContactPoint.Shared_elite_families
             };
         }
     }

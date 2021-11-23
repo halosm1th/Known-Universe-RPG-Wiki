@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using Newtonsoft.Json;
 using TravellerFactionSystem.FactionEnums;
@@ -21,16 +22,16 @@ namespace TravellerMapSystem.Worlds
     public enum WorldSize
     {
         Statation,
-        TinyMoon,
+        Tiny_Moon,
         Moon,
-        TinyWorld,
-        SmallWorld,
-        MediumWorld,
-        MediumLargeWorld,
-        LargeWorld,
-        ReallyLargeWorld,
-        HugeWorld,
-        MassiveWorld
+        Tiny_World,
+        Small_World,
+        Medium_World,
+        Medium_Large_World,
+        Large_World,
+        Really_Large_World,
+        Huge_World,
+        Massive_World
     }
     public enum WorldAtmosphere
     {
@@ -76,19 +77,19 @@ namespace TravellerMapSystem.Worlds
         Recovering,
         Nexus,
 
-        TouristAttraction,
+        Tourist_Attraction,
         Violent,
         Peaceful,
         Obsessed,
         Fashion,
-        AtWar,
+        At_War,
 
         Offworlders,
         Starport,
         Media,
         Technology,
         Lifecycle,
-        SocialStandings,
+        Social_Standings,
 
         Trade,
         Nobility,
@@ -126,6 +127,7 @@ namespace TravellerMapSystem.Worlds
     {
         #region IWorld Requirements
         [JsonProperty("WorldName")] public string Name { get; set; }
+        public string WorldType => "Traveller world";
         [JsonProperty("WorldNumber")]  public int WorldNumber { get; }
        
         public override string ToString()
@@ -141,10 +143,10 @@ namespace TravellerMapSystem.Worlds
 
         public string ShortDescription()
         {
-            return $"{Name} is a planet with a Class-{StarportQuality} starport. The world is a {WorldSize}, with an atmosphere which is {WorldAtmosphere}. " +
-                   $"The government is {ShortGovernmentTypeDescrption()}, which rules over {Population} people. " +
+            return ($"{Name} is a planet with a Class-{StarportQuality} starport. The world is a {WorldSize}, with an atmosphere which is {WorldAtmosphere}. " +
+                   $"The government is {ShortGovernmentTypeDescrption()}, which rules over {BigInteger.Parse(Population).ToString("N0")} people. " +
                    $"The world has Law Level {LawLevel} and Tech Level {TechLevel}. " +
-                   $"The planets temperature is: {Temperature}, and the people are often {Quirk}.".Replace("_", " ");
+                   $"The planets temperature is: {Temperature}, and the people are often {Quirk}.").Replace("_", " ");
         }
         
         
@@ -310,16 +312,16 @@ namespace TravellerMapSystem.Worlds
             => WorldSize switch
             {
                 WorldSize.Statation => "Size of Less then 1000KM. | Examples Asteroid, Orbital Complex. | Negligible Gravity",
-                WorldSize.TinyMoon => "Size of Roughly 1,600KM. | Example Triton. | 0.05 Gravity",
+                WorldSize.Tiny_Moon => "Size of Roughly 1,600KM. | Example Triton. | 0.05 Gravity",
                 WorldSize.Moon => "Size of Roughly 3,200KM. | Examples Luna, Europa. | 0.15 Gravity",
-                WorldSize.TinyWorld => "Size of Roughly 4,800KM. | Examples Mercury, Ganymede. | 0.25 Gravity",
-                WorldSize.SmallWorld => "Size of Roughly 6,400KM. | No listed example. | 0.35 Gravity",
-                WorldSize.MediumWorld => "Size of Roughly 8,000KM. | Example Mars. | 0.45 Gravity",
-                WorldSize.MediumLargeWorld => "Size of Roughly 9,600KM. | No Listed examples. | 0.7 Gravity",
-                WorldSize.LargeWorld => "Size of Roughly 11,200KM. | Example Earth. 0.9 | Gravity",
-                WorldSize.ReallyLargeWorld => "Size of Roughly 12,800KM. | No Listed examples. | 1.0 Gravity",
-                WorldSize.HugeWorld => "Size of Roughly 14,400KM. | No Listed examples. | 1.25 Gravity",
-                WorldSize.MassiveWorld => "Size of Roughly 16,000KM. | No Listed examples. | 1.4 Gravity",
+                WorldSize.Tiny_World => "Size of Roughly 4,800KM. | Examples Mercury, Ganymede. | 0.25 Gravity",
+                WorldSize.Small_World => "Size of Roughly 6,400KM. | No listed example. | 0.35 Gravity",
+                WorldSize.Medium_World => "Size of Roughly 8,000KM. | Example Mars. | 0.45 Gravity",
+                WorldSize.Medium_Large_World => "Size of Roughly 9,600KM. | No Listed examples. | 0.7 Gravity",
+                WorldSize.Large_World => "Size of Roughly 11,200KM. | Example Earth. 0.9 | Gravity",
+                WorldSize.Really_Large_World => "Size of Roughly 12,800KM. | No Listed examples. | 1.0 Gravity",
+                WorldSize.Huge_World => "Size of Roughly 14,400KM. | No Listed examples. | 1.25 Gravity",
+                WorldSize.Massive_World => "Size of Roughly 16,000KM. | No Listed examples. | 1.4 Gravity",
                 _ => "Error"
             };
         public string WorldAtmosphereDescrpition()
@@ -363,7 +365,7 @@ namespace TravellerMapSystem.Worlds
         //Give us an actual size stat
         public string PopulationDescription() => Population;
 
-         private string ShortGovernmentTypeDescrption() => GovernmentType switch
+         public string ShortGovernmentTypeDescrption() => GovernmentType switch
         {
             0 => "None",
             1 => "Company/Corporation",
@@ -381,7 +383,7 @@ namespace TravellerMapSystem.Worlds
             13 => "Religious Dicatorship",
             14 => "Religious Autocracy",
             15 => "Totalitarian Oligarchy",
-            _ => "No idea."
+            _ => "No idea"
         };
         
         public string GovernmentTypeDescrption() => GovernmentType switch
@@ -567,7 +569,7 @@ namespace TravellerMapSystem.Worlds
                 case Quirks.Nexus:
                     return "Nexus - members of many different cultures and species visit here.";
 
-                case Quirks.TouristAttraction:
+                case Quirks.Tourist_Attraction:
                     return "Tourist Attraction - some aspect of the culture or the planet draws visitors from all over charted space. ";
                 case Quirks.Violent:
                     return "Violent - physical conflict is common, taking the form of duels, brawls or other contests. Trial by combat is a part of their judicial system.";
@@ -577,7 +579,7 @@ namespace TravellerMapSystem.Worlds
                     return "Obsessed - everyone is obsessed with or addicted to a substance, personality, act or item. This monomania pervades every aspect of the culture.";
                 case Quirks.Fashion:
                     return "Fashion - fine clothing and decoration are considered vitally important in the culture. Underdressed Travellers have no standing here.";
-                case Quirks.AtWar:
+                case Quirks.At_War:
                     return "At war - the culture is at war, either with another planet or polity, or is troubled by terrorists or rebels.";
 
                 case Quirks.Offworlders:
@@ -590,7 +592,7 @@ namespace TravellerMapSystem.Worlds
                     return "Unusual Customs: Technology - the culture interacts with technology in an unusual way. Telecommunications might be banned, robots might have civil rights, or cyborgs might be property.";
                 case Quirks.Lifecycle:
                     return "Unusual Customs: Lifecycle - there might be a mandatory age of termination, or anagathics might be widely used. Family units might be different, with children being raised by the state or banned in favour of cloning.";
-                case Quirks.SocialStandings:
+                case Quirks.Social_Standings:
                     return "Unusual Customs: Social Standings - the culture has a distinct caste system. Travellers of a low social standing who do not behave appropriately will face punishment.";
 
                 case Quirks.Trade:

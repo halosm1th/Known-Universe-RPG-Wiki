@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Numerics;
+using Newtonsoft.Json;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Tools;
 
 namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
 {
-    public enum OriginOfWorld
+    public enum StarsWithoutNumberOriginOfWorld
     {
         Recent_Colony_From_Primary_World,
         Refuge_For_Exiles_From_Primary,
@@ -16,7 +18,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Recent_Interstellar_Colony_From_Elsewhere
     }
     
-    public enum CurrentRelationship
+    public enum StarsWithoutNumberCurrentRelationship
     {
         Confirmed_hatred_of_each_other,
         Active_cold_war_between_them,
@@ -28,7 +30,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Unflinching_mutual_loyalty
     }
 
-    public enum ContactPoint
+    public enum StarsWithoutNumberContactPoint
     {
         Trade_in_vital_goods,
         Shared_religion,
@@ -40,7 +42,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Exploiting_shared_resource
     }
 
-    public enum Atmosphere
+    public enum StarsWithoutNumberAtmosphere
     {
         Corrosive,
         Inert,
@@ -51,7 +53,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Both_Corrosive_And_Invasive
     }
 
-    public enum Temperature
+    public enum StarsWithoutNumberTemperature
     {
         Frozen,
         Cold,
@@ -62,7 +64,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Burning
     }
     
-    public enum Biosphere {
+    public enum StarsWithoutNumberBiosphere {
         Remnant,
         Microbiol,
         No,
@@ -72,7 +74,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Engineered
     }
 
-    public enum Population
+    public enum StarsWithoutNumberPopulation
     {
         Failed_Colony,
         Outpost,
@@ -87,17 +89,19 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
     {
         public string Name { get; }
         [JsonProperty("WorldNumber")] public int WorldNumber { get; }
+        public string WorldType => "SWN World";
         //public StarsWithoutNumberWorldTag WorldTag { get; set; }
-        public OriginOfWorld OriginOfWorld { get; set; }
-        public CurrentRelationship CurrentRelationship { get; set; }
-        public ContactPoint ContactPoint { get; set; }
+        public StarsWithoutNumberOriginOfWorld StarsWithoutNumberOriginOfWorld { get; set; }
+        public StarsWithoutNumberCurrentRelationship StarsWithoutNumberCurrentRelationship { get; set; }
+        public StarsWithoutNumberContactPoint StarsWithoutNumberContactPoint { get; set; }
         
-        public Atmosphere Atmosphere { get; set; }
+        public StarsWithoutNumberAtmosphere Atmosphere { get; set; }
         
-        public Temperature Temperature { get; set; }
+        public StarsWithoutNumberTemperature Temperature { get; set; }
         
-        public Biosphere Biosphere { get; set; }
-        public Population Population { get; set; }
+        public StarsWithoutNumberBiosphere Biosphere { get; set; }
+        public string Population { get; set; }
+        public StarsWithoutNumberPopulation PopulationOutline { get; set; }
         
         public int TechLevel { get; set; }
 
@@ -115,27 +119,46 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
                    //$"World Tag: {WorldTag}\n" +
                    $"------------------------\n" +
                    $"Atmosphere: {Atmosphere} ({GetAtmoSphereDescription()})\n" +
-                   $"Temperature: {Temperature}\n" +
+                   $"Temperature: {Temperature} ({GetTemperatureDescription()})\n" +
                    $"Biosphere: {Biosphere}\n" +
-                   $"Population: {Population}\n" +
+                   $"Population: {PopulationOutline} ({Population})\n" +
                    $"Tech Level:  {TechLevel}\n" +
                    $"------------------------\n" +
-                   $"Origin of World: {OriginOfWorld}\n" +
-                   $"Current Relationship: {CurrentRelationship}\n" +
-                   $"Contact Point: {ContactPoint}\n").Replace("_"," ");
+                   $"Origin of World: {StarsWithoutNumberOriginOfWorld}\n" +
+                   $"Current Relationship: {StarsWithoutNumberCurrentRelationship}\n" +
+                   $"Contact Point: {StarsWithoutNumberContactPoint}\n").Replace("_"," ");
         }
-        
-        
+        private string GetTemperatureDescription()
+            => Temperature switch
+            {
+                StarsWithoutNumberTemperature.Frozen => "Locked in perpetual ice",
+                StarsWithoutNumberTemperature.Cold => "Dominated by glaciers and tundra",
+                StarsWithoutNumberTemperature.Variable_Cold => "Cold with tempermate places",
+                StarsWithoutNumberTemperature.Temperate => "Earthlike in its ranges",
+                StarsWithoutNumberTemperature.Variable_Warm => "With temperate places",
+                StarsWithoutNumberTemperature.Warm => "Tropical and hotter in places",
+                StarsWithoutNumberTemperature.Burning => "Intolerably hot on its surface",
+                _ => "Earthlike in its ranges"
+            };
+
+
         public string ShortDescription()
         {
-            return ($"{Name} came from {OriginOfWorld}, to whom its current relationship is {CurrentRelationship} and the two are in contact because of: {ContactPoint}. " +
+            return ($"{Name} came from {StarsWithoutNumberOriginOfWorld}, to whom its current relationship is {StarsWithoutNumberCurrentRelationship} and the two are in contact because of: {StarsWithoutNumberContactPoint}. " +
                    $"{Name}'s biosphere is {Biosphere}, and its atmosphere is {Atmosphere}. The temperature is usually {Temperature}. " +
-                   $"Its population is {Population} and its tech level is {TechLevel}").Replace("_", " ");
+                   $"Its population is {BigInteger.Parse(Population).ToString("N0")} and its tech level is {TechLevel}").Replace("_", " ");
         }
 
         private string GetAtmoSphereDescription()
             => Atmosphere switch
             {
+                StarsWithoutNumberAtmosphere.Corrosive => "Corrosive, damaging to foreign objects",
+                StarsWithoutNumberAtmosphere.Inert => "Inert gas, useless for respiration",
+                StarsWithoutNumberAtmosphere.Airless_Or_Thin => "Airless or thin to the point of suffocation",
+                StarsWithoutNumberAtmosphere.Breathable => "A breathable mix",
+                StarsWithoutNumberAtmosphere.Thick => " Breathable with a pressure mask",
+                StarsWithoutNumberAtmosphere.Invasive => "Penetrating suit seals",
+                StarsWithoutNumberAtmosphere.Both_Corrosive_And_Invasive => "Both corrosive and invasive in its effects",
                 _ => "Mix"
             };
 

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -21,6 +22,9 @@ namespace TravellerMapSystem
         public string Name;
         
         public long WorldCount => Systems.Cast<KnownUniverseSystem>().Aggregate(0,(h,t) => h + t.WorldCount);
+
+        public BigInteger TotalPopulation =>
+            Worlds().Aggregate(BigInteger.Zero, (h, t) => h + (t == null? 0 : BigInteger.Parse(t.Population )));
         
         [JsonIgnore]
         private static List<string> names = File.ReadAllLines(Directory.GetCurrentDirectory() + "/placeName.txt").ToList();

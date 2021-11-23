@@ -6,16 +6,19 @@
 @code {
     [Parameter]
     public string SubsectorID { get; set; }
+
+    private string _subsectorID = "";
     
     public KnownUniverseSubsector? subsector { get; set; }
 
     public void GetSubsector()
     {
         subsector = subsectorGenerator.GetSubsector(SubsectorID);
+        _subsectorID = SubsectorID;
     }
 }
 
-@if (subsector == null)
+@if (subsector == null || SubsectorID != _subsectorID)
 {
     GetSubsector();
 }
@@ -23,6 +26,7 @@
 @if(subsector != null) {
     <div>
         <h2> The @subsector.Name Subsector.</h2>
+        <p>The @subsector.Name has a popualtion of: @subsector.TotalPopulation.ToString("N0"), spread across @subsector.WorldCount worlds.</p>
         <img alt="the subsector map" src="SubsectorImageGenerator/GetImage/@SubsectorID" width="50%" height="50%"/>
         
         <h3>The Systems of the @subsector.Name subsector!</h3>
@@ -32,11 +36,11 @@
             if (system.HasWorld == true && system.WorldCount > 0)
             {
                 <div>
-                    <h4> The <a href="/InformationOnSetting/SystemInfo/@SubsectorID/@system.X/@system.Y/">@system.Name System</a> (@(system.X + 1), @(system.Y + 1))</h4>
+                    <h4> The <a href="/InformationOnSetting/SystemInfo/@SubsectorID/@system.X/@system.Y/">@system.Name System</a> (@(system.X + 1), @(system.Y + 1)) [Pop: @system.TotalPopulation, AvrTL: @system.AverageTechLevel]</h4>
                     <ul>
                         @foreach (var world in system.WorldsInSystem)
                         {
-                            <li style="white-space: pre-line;">@(world.ShortDescription())</li>
+                            <li style="white-space: pre-line;"><b>[@world.Name: @world.WorldType]</b> @(world.ShortDescription())</li>
                         }
                     </ul>
                 </div>

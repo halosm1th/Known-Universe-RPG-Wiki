@@ -1,0 +1,38 @@
+﻿@page "/InformationOnSetting/SystemInfo/{SubsectorID}/{SysX}/{SysY}"
+@using TravellerMapSystem.Worlds
+@using TravellerGalaxyGenertor;
+@using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
+@code {
+    [Parameter]
+    public string SysX { get; set; }
+    [Parameter]
+    public string SysY { get; set; }
+    [Parameter]
+    public string SubsectorID { get; set; }
+
+    private KnownUniverseSystem? _system;
+
+    public void GetSystem()
+    {
+        var sysXI = Convert.ToInt32(SysX);
+        var sysYI = Convert.ToInt32(SysY);
+        
+        _system = TravellerSubsectorGeneratorService.GetSystem(SubsectorID, sysXI, sysYI);
+    }
+}
+
+
+@if (_system == null)
+{
+    GetSystem();
+}
+
+@if (_system != null){
+    <h3>@_system.Name (@_system.X, @_system.Y) [@_system.WorldCount]</h3>
+    <p>The @_system.Name system is home to @_system.WorldCount worlds, with an average tech level of @_system.AverageTechLevel. Its primary world is: @_system.PrimaryWorld</p>
+    <ul>
+    @foreach (var world in _system.WorldsInSystem)
+    {
+        <li><a href="/WorldInfo/WorldInfo/@SubsectorID/@SysX/@SysY/@world.WorldNumber">@world.Name:</a> @world.ShortDescription()</li>
+    }</ul>
+}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using TravellerFactionSystem;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Worlds;
 
@@ -140,11 +141,11 @@ namespace TravellerMapSystem.Tools
             switch (world.WorldSize)
             {
                 case 0:
-                case WorldSize.TinyMoon:
+                case WorldSize.Tiny_Moon:
                     modifier = 2;
                     break;
-                case WorldSize.TinyWorld:
-                case WorldSize.SmallWorld:
+                case WorldSize.Tiny_World:
+                case WorldSize.Small_World:
                     modifier = 1;
                     break;
                 default:
@@ -278,7 +279,9 @@ namespace TravellerMapSystem.Tools
             GenerateInitialFactionCount(world);
             for (int i = 0; i < _factionCount; i++)
             {
-                factions.Add((Roll2D6(), GetFactionStrengthFromNumber(die.Next(0, 6)), ""));
+                var travFac = new TravellerFactionService();
+                var faction =  travFac.Factions[Roll2D6(0, 0, travFac.Factions.Count)] ?? null;
+                factions.Add((Roll2D6(0,0,16), GetFactionStrengthFromNumber(die.Next(0, 6)), faction?.FactionName ?? "unknown"));
             }
 
             return factions;
