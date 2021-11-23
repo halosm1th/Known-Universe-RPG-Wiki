@@ -113,6 +113,38 @@
     <Content Include="placeName.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Remove="Data\NameLists\AxionAllianceNameList.txt" />
+    <Content Include="Data\NameLists\AxionAllianceNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\BritanniaNameList.txt" />
+    <Content Include="Data\NameLists\BritanniaNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\DeutschlandNameList.txt" />
+    <Content Include="Data\NameLists\DeutschlandNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\FederationNameList.txt" />
+    <Content Include="Data\NameLists\FederationNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\GermushianNameList.txt" />
+    <Content Include="Data\NameLists\GermushianNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\ImperialNameList.txt" />
+    <Content Include="Data\NameLists\ImperialNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\VersNameList.txt" />
+    <Content Include="Data\NameLists\VersNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\XiaoMingNameList.txt" />
+    <Content Include="Data\NameLists\XiaoMingNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
