@@ -1,0 +1,125 @@
+@page "/CharacterCreation/DrawStats/{CharacterID}"
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharcterTypes
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterParts
+@namespace TravellerWiki.Pages.CharacterCreation.CharacterCreator
+@inject CharacterCreatorService CharacterCreationService;
+@inject TravellerNationsCharacterInfoService nationsService;
+@inject MultiPageCharacterCreationService MultiCharacterCreationService;
+
+@code{
+    [Parameter]
+    public string CharacterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(CharacterID);
+    }
+}
+
+<div>
+    <table style="float: Left;border: 1px solid #a2a9b1; background-color: SlateGray;
+                                      margin: 0 2.5em 0 1em; padding: 0.2em 0.2em 0.2em 0.2em; clear: Left; width: 35%; color: #ffe81F; border-color: #ffe81F;">
+        <thead>
+            <tr>
+                <th style="width:30%">Attributes</th>
+                <th style="width: 70%">Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Strength)</td>
+                <td><b>Name:</b> @GetService().Name</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Dexterity)</td>
+                <td><b>Nationality:</b> @GetService().Nationality.NationName</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Endurance)</td>
+                <td><b>Age:</b> @GetService().TravellersAge</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Intelligence)</td>
+                <td><b>Career:</b> @(GetService().LastCareer != null ? GetService().LastCareer.CareerName : "None")</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Education)</td>
+                <td><b>Assignment:</b> @(GetService().LastAssignment != null ? GetService().LastAssignment.Name : "None")</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Social)</td>
+                <td><b>Rank:</b> @(GetService().LastRank != null ? GetService().LastRank : "None") </td>
+            </tr>
+
+        @if (GetService().GetAttributes.Any(x => x.AttributeName == TravellerAttributes.Psionics))
+        {
+            <tr><td>@GetService().GetAttributes.First(x => x.AttributeName == TravellerAttributes.Psionics).ToStringLongName()</td></tr>
+        }
+        </tbody>
+        <thead>
+            <tr><th colspan="1">Name</th><th colspan="1">Information</th></tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="vertical-align: top"><b>Skills</b> : </td>
+            <td style="text-align: right;border-color: chartreuse; border-style: solid; border: 1px;">
+                @(GetService()._character.SkillList.Count > 0 ? GetService()._character.SkillList.Aggregate("", (h, t) => h += ", " + t).Remove(0, 1) : "None")
+            </td>
+        </tr>
+            <tr>
+                <td><b>Finances:</b></td>
+                <td>@GetService()._character.Finances</td>
+            </tr>
+            <tr>
+                <td><b>Items:</b></td>
+                <td>
+                    @(GetService()._character.Items.Count > 0 ?
+                    GetService()._character.Items.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Augments:</b></td>
+                <td>
+                    @(GetService()._character.Augments.Count > 0 ?
+                        GetService()._character.Augments.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Armour:</b></td>
+                <td>
+                    @(GetService()._character.Armour.Count > 0 ?
+                        GetService()._character.Armour.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><b>Weapons:</b></td>
+                <td>
+                    @(GetService()._character.Weapons.Count > 0 ?
+                        GetService()._character.Weapons.Aggregate("", (h, t) => h += ", " + t.Name).Remove(0, 1) : "None")
+                </td>
+            </tr>
+            <tr>
+                <td><b>Contacts:</b></td>
+                <td>
+                    <ul>
+                        @foreach (var contact in GetService()._character.Contacts)
+                        {
+                            if (contact is TravellerSpecialNPC npc)
+                            {
+                                <li><b>@npc.Name:</b> @npc.PatronText - @npc.QuirkText. [@npc.Background - @npc.Career]</li>
+                            }
+                        }
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,5 +1,5 @@
 ﻿@page "/JobBoard/"
-@using TravellerWiki.Data
+@using WikiServices.InformationServices
 @model TravellerWiki.JobBoardModel
 @inject TravellerJobBoardService JobBoardService
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -30,7 +30,7 @@
             </p>
         </form>
         <p>Non-TAS Jobs</p>
-        <form method="get" asp-action="GetSpecificJob">
+        <form method="get" asp-action="">
             <p>Job ID:</p> <input type="number" name="JobID" value="" />
             <button>Search</button>
         </form>

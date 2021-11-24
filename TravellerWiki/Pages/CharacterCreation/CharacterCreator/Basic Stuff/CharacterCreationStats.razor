@@ -1,0 +1,275 @@
+@page "/CharacterCreation/Stats/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterParts
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+<head>
+    <title>Character Stats (2/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+
+    public List<int> GeneratedStats;
+    private bool IncludePsi { get; set; }
+
+    int StrKey = 0;
+    bool setStr = false;
+
+    bool setDex = false;
+    int DexKey = 0;
+
+    bool setEnd = false;
+    int EndKey = 0;
+
+    bool setInt = false;
+    int IntKey = 0;
+
+    bool setEdu = false;
+    int EduKey = 0;
+
+    bool setSoc = false;
+    int SocKey = 0;
+
+    bool setPsi = false;
+    int PsiKey = 0;
+
+
+
+    public bool SkillsSet() => !(setStr & setDex & setEnd & setInt & setEdu & setSoc & IncludePsi) || setPsi;
+
+
+    public void GenerateStats()
+    {
+        GeneratedStats = GetService().GenerateStats(IncludePsi);
+
+    }
+
+    //TODO Write this so that you can't keep the stat in the box, and hten submit skil. Lets you keep same skill.
+
+    public void SetStat(TravellerAttributes attribute)
+    {
+        int StatValue = -1;
+        switch (attribute)
+        {
+            case TravellerAttributes.Strength:
+
+                StatValue = StrKey;
+                setStr = true;
+
+                break;
+            case TravellerAttributes.Dexterity:
+
+
+                StatValue = DexKey;
+                setDex = true;
+
+                break;
+            case TravellerAttributes.Endurance:
+
+                StatValue = EndKey;
+                setEnd = true;
+
+                break;
+            case TravellerAttributes.Intelligence:
+
+                StatValue = IntKey;
+                setInt = true;
+
+                break;
+            case TravellerAttributes.Education:
+
+                StatValue =EduKey;
+                setEdu = true;
+
+                break;
+            case TravellerAttributes.Social:
+
+                StatValue = SocKey;
+                setSoc = true;
+
+                break;
+            case TravellerAttributes.Psionics:
+
+                StatValue = PsiKey;
+                setPsi = true;
+
+                break;
+            default:
+                break;
+        }
+
+        if(StatValue <= 0)
+        {
+            StatValue = GeneratedStats.First();
+        }
+
+        GetService().AssignStat(new TravellerAttribute(attribute, StatValue));
+        GeneratedStats.Remove(StatValue);
+        StateHasChanged();
+    }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void DoneStats()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/Nationality/{characterID}");
+    }
+
+}
+<body>
+
+    <h1>Traveller Character Creator</h1>
+
+    <div style="text-align: center">
+
+        @if (GeneratedStats == null)
+        {
+            GenerateStats();
+        }
+        <h2>@GetService().Name: Stats</h2>
+
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="2" max="17">Step 2</progress>
+        <p>Roll: @GeneratedStats.Aggregate("", (h, t) => h += t + ", ") Psi Roll: <input type="checkbox" @bind="IncludePsi" /></p>
+        <button @onclick="GenerateStats">Generate new Attributes</button>
+        <p>
+            <ol>
+                <li>
+                    Strength:
+                    @if (!setStr)
+                    {
+                        <select @bind="StrKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Strength); }">Set</button>
+                    }
+                    else
+                    {
+                        @GetService().GetTravellerAttribute(TravellerAttributes.Strength);
+                    }
+                </li>
+                <li>
+                    Dexterity:
+                    @if (!setDex)
+                    {
+                        <select @bind="DexKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Dexterity); }">Set</button>
+                    }
+                    else
+                    {
+                        @GetService().GetTravellerAttribute(TravellerAttributes.Dexterity);
+                    }
+                </li>
+                <li>
+                    Endurance:
+                    @if (!setEnd)
+                    {
+                        <select @bind="EndKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Endurance); }">Set</button>
+                    }
+                    else
+                    {
+                        @GetService().GetTravellerAttribute(TravellerAttributes.Endurance);
+                    }
+                </li>
+                <li>
+                    Intelligence:
+                    @if (!setInt)
+                    {
+                        <select @bind="IntKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Intelligence); }">Set</button>
+                    }
+                    else
+                    {
+                        @GetService().GetTravellerAttribute(TravellerAttributes.Intelligence);
+                    }
+                </li>
+                <li>
+                    Education:
+                    @if (!setEdu)
+                    {
+                        <select @bind="EduKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Education); }">Set</button>
+                    }
+                    else
+                    {
+                        @GetService().GetTravellerAttribute(TravellerAttributes.Education);
+                    }
+                </li>
+                <li>
+                    Social:
+                    @if (!setSoc)
+                    {
+                        <select @bind="SocKey">
+                            @foreach (var stat in GeneratedStats)
+                            {
+                                <option value="@stat">@stat</option>
+                            }
+                        </select>
+                        <button @onclick="() => { SetStat(TravellerAttributes.Social); }">Set</button>
+                    }
+                    else
+                    {
+                        @GetService().GetTravellerAttribute(TravellerAttributes.Social);
+                    }
+                </li>
+                @if (IncludePsi)
+                {
+                    <li>
+                        Psionics:
+                        @if (!setPsi)
+                        {
+                            <select @bind="PsiKey">
+                                @foreach (var stat in GeneratedStats)
+                                {
+                                    <option value="@stat">@stat</option>
+                                }
+                            </select>
+                            <button @onclick="() => { SetStat(TravellerAttributes.Psionics); }">Set</button>
+                        }
+                        else
+                        {
+                            @GetService().GetTravellerAttribute(TravellerAttributes.Psionics);
+                        }
+                    </li>
+                }
+            </ol>
+            <button @onclick="DoneStats">Finished Stats</button>
+        </p>
+    </div>
+</body>

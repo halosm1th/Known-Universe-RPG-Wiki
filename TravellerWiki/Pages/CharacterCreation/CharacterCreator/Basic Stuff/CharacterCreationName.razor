@@ -1,0 +1,40 @@
+@page "/CharacterCreation/Name/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+<head>
+    <title>Name Character (1/17)</title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    private string TravellerName = "";
+
+    public void SetName()
+    {
+        var creator = MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+        creator.NewCharacter();
+        creator.SetName(TravellerName);
+        NavManager.NavigateTo($"/CharacterCreation/Stats/{characterID}");
+    }
+
+}
+<body>
+<h1>Traveller Character Creator</h1>
+<div style="text-align: center">
+    <h2>Travellers Name</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="1" max="17">Step 1</progress>
+
+    <p>Enter the Name for your character, or <a href="/Generators/TravellerNameGenerator/" target="_blank" rel="noreferrer noopener">use a name generator</a></p>
+    <input type="text" @bind="TravellerName" />
+    <button @onclick="SetName">Set Name</button>
+</div>
+</body>

@@ -1,0 +1,76 @@
+@page "/Factions/IslandsFactionCreator"
+<head>
+    <title>Islands Faction Creator </title>
+</head>
+
+@code{
+    enum FactionTypes
+    {
+        Corporate_Faction,
+        National_Faction,
+        Major_Nation_Faction,
+        Religious_Faction,
+        Political_Faction,
+        
+        Social_Faction,
+        Criminal_Faction,
+        Legal_Faction,
+        Class_Faction,
+        Other_Faction,
+    }
+    
+    FactionTypes FactionType;
+}
+
+<body>
+    <h1>Islands Faction Creator</h1>
+    <p>Use this tool to create factions for the game!</p>
+<div>
+    
+    <label for="selectFactionType">Select Faction Type:</label>
+    <select @bind="@FactionType" id="selectFactionType">
+        @foreach (var option in Enum.GetValues(typeof(FactionTypes)))
+        {
+            <option value="@option">@option</option>
+        }
+    </select>
+    
+    <h2>@FactionType.ToString().Replace("_"," ")</h2>
+    
+    @if (FactionType == FactionTypes.Corporate_Faction)
+    {
+        <IslandsCorporationCreator></IslandsCorporationCreator>
+    }else if (FactionType == FactionTypes.Religious_Faction)
+    {
+        <IslandsReligionCreator></IslandsReligionCreator>
+    }else if (FactionType == FactionTypes.Criminal_Faction)
+    {
+        <IslandsCriminalGroupCreator></IslandsCriminalGroupCreator>
+    }else if (FactionType == FactionTypes.Social_Faction)
+    {
+        <IslandsSocialCreator></IslandsSocialCreator>
+    }else if (FactionType == FactionTypes.Class_Faction)
+    {
+        <IslandsClassCreator></IslandsClassCreator>
+    }else if (FactionType == FactionTypes.Political_Faction)
+    {
+        <IslandsPoliticalCreator></IslandsPoliticalCreator>
+    }else if (FactionType == FactionTypes.Other_Faction)
+    {
+        <IslandsOtherCreator></IslandsOtherCreator>
+    }else if (FactionType == FactionTypes.Social_Faction)
+    {
+        <IslandsSocialCreator></IslandsSocialCreator>
+    }else if (FactionType == FactionTypes.Legal_Faction)
+         {
+             <IslandsProfessionCreator></IslandsProfessionCreator>
+         }
+    else if (FactionType == FactionTypes.Major_Nation_Faction)
+    {
+        <IslandsMajorNationCreator></IslandsMajorNationCreator>
+    }else if (FactionType == FactionTypes.National_Faction)
+    {
+        <IslandsNationCreator></IslandsNationCreator>
+    }
+</div>
+</body>

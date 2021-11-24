@@ -1,0 +1,54 @@
+﻿@page "/Generators/TravellerItemCreator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.NPC_Services
+@using TravellerCharacter.CharacterCreator.Items
+@using TravellerWiki.Pages.Generators.Item_Creator
+@inject TravellerNPCService NPCService
+@inject TravellerItemStoreService ItemStore
+
+<title>Item Creator</title>
+
+
+<h1>Item Creator</h1>
+<p>
+    Select type of Item to Add:
+    <select @bind="typeOfItemToAdd">
+        @foreach (var itemType in Enum.GetValues(typeof(TravellerItemTypes)))
+        {
+            <option value="@itemType">@itemType</option>
+        }
+    </select>
+</p>
+<p>
+    @if (typeOfItemToAdd == TravellerItemTypes.Weapon)
+    {
+        <TravellerWeaponCreator />
+    }
+    else if (typeOfItemToAdd == TravellerItemTypes.Armour)
+    {
+        <TravellerArmourCreator />
+    }
+    else if (typeOfItemToAdd == TravellerItemTypes.Augment)
+    {
+        <TravellerAugmentCreator />
+    }
+    else if (typeOfItemToAdd == TravellerItemTypes.ItemGeneric)
+    {
+        <TravellerGenericItemCreator />
+    }
+    else if (typeOfItemToAdd == TravellerItemTypes.Weapon_Modification)
+    {
+        <TravellerSpecialAmmoCreator></TravellerSpecialAmmoCreator>
+    }
+    <br />
+</p>
+
+
+
+@code {
+    private TravellerItemTypes typeOfItemToAdd;
+}

@@ -1,0 +1,142 @@
+@page "/VoicesFromTheVoid/Articles/"
+@using System.Transactions
+@using VoicesFromTheVoidArticles
+@inject TravellerVoicesFromTheVoidService VoicesService
+@code{
+
+    [Parameter]
+    public string ArticleID { get; set; } = "1";
+
+    string searchText = "";
+    bool IncludeArticleName = true;
+    bool IncludeArticleAuthor = true;
+    bool IncludePublisher = true;
+    bool IncludeID = true;
+    bool IncludeParagraphs = true;
+
+    public void resetSearch()
+    {
+        searchText = "";
+    }
+
+    public List<VoicesFromTheVoidArticle> FindArticles()
+    {
+        var articles = new List<VoicesFromTheVoidArticle>();
+
+        var searchLowerCase = searchText.ToLower();
+
+        foreach (var issues in VoicesService.VoicesFromTheVoidIssues)
+        {
+            foreach (var article in issues.Articles)
+            {
+                if ((IncludeArticleName && article.ArticleName.ToLower().Contains(searchLowerCase))
+                    || (IncludeParagraphs && article.Paragraphs.Any(x => x.ToLower().Contains(searchLowerCase)))
+                    || (IncludeArticleAuthor && article.ArticleAuthor.ToLower().Contains(searchLowerCase))
+                    || (IncludePublisher && article.PublishersName.ToLower().Contains(searchLowerCase))
+                    || (IncludeID && article.ArticleID.ToString().ToLower().Contains(searchLowerCase)))
+                {
+                    articles.Add(article);
+                }
+            }
+        }
+
+        return articles;
+    }
+}
+    <head>
+        <title>
+            Voices From the Void Articles
+        </title>
+
+        <meta property="og:title" content="Known Universe Wiki - Voices Articles" />
+        <meta property="og:url" content="https://theseamnetwork.com/VoicesFromTheVoid/Articles/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta content="Voices from the Void is the North Western Islands larges void-paper, reporting on the most imporant goings on within the Islands. This page lists all of their currently published articles. Follow the exploits of your heros and adventures as well as read the reports of the previous grand adventures and events!" property="og:description" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+        <style>
+            .IndexSummery {
+                color: #ffe81F;
+                background-color: #595B63;
+                font-size: 1.5em;
+                margin: 0px;
+                padding: 2px;
+                padding-left: 2px;
+                padding-left: 14px;
+                border-style: solid;
+                border-bottom-width: 0.5em;
+                border-bottom-color: #A7A7A7;
+                text-align: center;
+            }
+
+            .checkBox {
+                background: gray;
+                border-color: lightgray;
+                border-style: solid;
+                border-width: 1px;
+            }
+        </style>
+    </head>
+<body>
+    <h1>Voices from the Void Articles</h1>
+    <p>This is the whole repository of article links, as they are attached to each issue.</p>
+
+<br />
+
+<div><label for="searchBox">Search Articles:</label>
+    <input type="search" @bind="searchText" id="searchBox" />
+    <button type="button">Search</button>
+    <button type="button" @onclick="resetSearch ">clear</button>
+</div>
+<br/>
+<div class="checkBox">
+        <label for="paragraph">Include Paragraphs in search</label>
+        <input type="checkbox" @bind="IncludeParagraphs" id="paragraph" />
+
+               <label for="name">Include the Articles Name in search</label>
+               <input type="checkbox" @bind="IncludeArticleName" id="name" />
+        <label for="author">Include Article Author in search</label>
+        <input type="checkbox" @bind="IncludeArticleAuthor" id="author" />
+               <label for="publisher">Include Article Publisher in search</label>
+               <input type="checkbox" @bind="IncludePublisher" id="publisher" />
+        <label for="id">Include Article ID in search</label>
+        <input type="checkbox" @bind="IncludeID" id="id" />
+    </div>
+<br/>
+    @if (!string.IsNullOrEmpty(searchText))
+    {
+
+        <div>
+            <p>Found: @FindArticles().Count Articles that contained: @searchText</p>
+            <nav>
+                <ul>
+                    @foreach (var searchResult in FindArticles())
+                    {
+                        <li><a href="VoicesFromTheVoid/Articles/@searchResult.ArticleID">@searchResult.ArticleName - @searchResult.ArticleAuthor</a></li>
+                    }
+                </ul>
+            </nav>
+
+        </div>
+    }
+    else
+    {
+        @foreach (var issue in VoicesService.VoicesFromTheVoidIssues)
+        {
+            <div>
+                <details>
+                    <summary class="IndexSummery">@issue.IssueName - #@issue.IssueNumber - [@issue.StartDate : @issue.EndDate]</summary>
+                    <p>@issue.IssueDescription</p>
+                    <ul>
+                        @foreach (var article in issue.Articles)
+                        {
+                            <li>
+                                <a href="VoicesFromTheVoid/Articles/@article.ArticleID">@article.ArticleName.Substring(0, Math.Min(60, article.ArticleName.Length)) - @article.ArticleAuthor [@article.PublicationDate](#@article.ArticleID)</a>
+                            </li>
+                        }
+                    </ul>
+                </details>
+            </div>
+        }
+    }
+</body>

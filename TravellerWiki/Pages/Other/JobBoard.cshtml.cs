@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JobBoardCreator;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TravellerWiki.Data;
@@ -31,7 +30,6 @@ namespace TravellerWiki
            }
          *
          */
-        [HttpPost("{TASID}")]
         public void OnPost(string TASID)
         {
             CanViewBoard = ValidTASMembershipIDs.Contains(TASID);
@@ -41,7 +39,6 @@ namespace TravellerWiki
             }
         }
 
-        [HttpGet("{JobID}")]
         public void GetSpecificJob(int JobID)
         {
         }

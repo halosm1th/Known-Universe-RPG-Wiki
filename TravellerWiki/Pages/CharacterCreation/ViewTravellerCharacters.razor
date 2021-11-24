@@ -1,0 +1,30 @@
+@page "/Characters/"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject TravellerCharacterStorageService storageService
+@inject TravellerNationsCharacterInfoService nationsService
+    <head>
+        <title>Character Store</title>
+        <meta property="og:title" content="Known Universe Wiki - Characters" />
+        <meta property="og:url" content="https://theseamnetwork.com/Characters" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta content="View the Known Universe Characters that have been created with the Character Creator. Such as: @storageService.GetCharacters.Aggregate("", (h,t) => h = h + "," + t)" property="og:description" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
+<div style="text-align: center">
+    <h1>Traveller Characters</h1>
+    <p>This is the list of characters that the Traveller Wiki currently has loaded in its memory banks from creation or complex npcs.</p>
+    <ul>
+        @foreach (var character in storageService.GetCharacters)
+        {
+            <li> <a href="/Character/@character.Key" target="_blank" rel="noreferrer noopener">@character.Value.ShortToString()</a></li>
+        }
+    </ul>
+</div>

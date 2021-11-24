@@ -1,0 +1,69 @@
+@page "/CharacterCreation/RollSurvival/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.Career_Service
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+@inject TravellerCareerService careerService;
+<head>
+    <title>Roll Survival (8/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void DoneSurvival()
+    {
+        if (PassedSurvival) NavManager.NavigateTo($"/CharacterCreation/RollEvent/{characterID}");
+        else NavManager.NavigateTo($"/CharacterCreation/RollMishap/{characterID}");
+    }
+
+    public bool RolledSurvival = false;
+    public bool HasRolled = false;
+    public bool PassedSurvival = false;
+
+    private int roll = 0;
+
+
+    public void RollSurvival()
+    {
+        roll = GetService().RollDice();
+        PassedSurvival = GetService().CheckSurvival(roll);
+        HasRolled = true;
+    }
+}
+<body>
+
+<h1>Traveller Character Creator</h1>
+<div class="creatorMarkup">
+    <h2>Select @GetService().Name's - Roll Survival</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="8" max="17"></progress>
+    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <div style="padding-left: 2em;">
+        <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
+        <p>Survival: @GetService().LastAssignment.Survival</p>
+        <button @onclick="RollSurvival">Roll Survival</button>
+        @if (HasRolled)
+        {
+            <p>You rolled with mods a: @(roll + GetService().GetAttributes.First(x => x.AttributeName == GetService().LastAssignment.Survival.AttributeToCheck).AttributeModifier)/@GetService().LastAssignment.Survival [@roll]</p>
+            <button @onclick="DoneSurvival">
+                @(PassedSurvival ? "Onto the event" : "Gimme my mishap")
+            </button>
+        }
+    </div>
+</div>
+</body>

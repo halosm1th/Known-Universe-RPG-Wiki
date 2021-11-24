@@ -1,0 +1,163 @@
+@page "/Languages/HighVersianLangauge/Translator"
+@using WikiServices.DataServices
+@using WikiServices.SimpleServiceDriverCode
+@inject HighVersianService highVersian
+<head>
+    <title>High Versian Translator</title>
+</head>
+<style>
+    .high {
+        font-family: 'high_versianregular';
+    }
+</style>
+
+@code
+{
+
+    List<string> PrefixsList { get; set; } = new List<string>();
+    string? PrefixID { get; set; }
+    string? RootID { get; set; }
+    string? PostfixID { get; set; }
+    HighVersianDefinition? Definition { get; set; } = null;
+
+    public void ResetTranslator()
+    {
+        PrefixsList = new List<string>();
+        PrefixID = "";
+        RootID = "";
+        PostfixID = "";
+        Definition = null;
+    }
+
+    public void addPrefix()
+    {
+        if(PrefixID != "" || PrefixID == " ")
+        PrefixsList.Add(PrefixID);
+    }
+
+    public HighVersianDefinition? GetValueFromHighVersianTerms(string searchID, List<HighVersianDefinition> definitions)
+    {
+        var index =  definitions.Select(x => x.Letters).ToList().BinarySearch(searchID);
+        return index >= 0 ? definitions[index] : null;
+    }
+
+    public void Translate()
+    {
+        
+        var prefixs = GetPrefixesForTranslation();
+
+        var root = GetValueFromHighVersianTerms(RootID, highVersian.Roots);
+        var postfix = GetValueFromHighVersianTerms(PostfixID,highVersian.Postfixes);
+
+        var prefix = prefixs.Aggregate("", (h, t) => h + t.Letters);
+       
+        var letters = $"{prefix ?? ""}{root?.Letters}{postfix?.Letters}";
+        var meaning = "";
+        meaning = GetHighVersianmeaning(letters, prefixs, root, postfix);
+        Definition = new HighVersianDefinition(letters,meaning);
+        highVersian.AddWord(Definition);
+
+    }
+
+    private List<HighVersianDefinition>? GetPrefixesForTranslation()
+    {
+        var prefixs = new List<HighVersianDefinition>();
+
+        if ((PrefixID != "" || PrefixID != " " || PrefixID != "None") && PrefixID != null)
+        {
+            PrefixsList.Add(PrefixID);
+        }
+
+        foreach (var enteredPrefix in PrefixsList)
+        {
+            var index = highVersian.Prefixes.Select(x => x.Letters).ToList().BinarySearch(enteredPrefix);
+            if (index >= 0)
+            {
+                prefixs.Add(highVersian.Prefixes[index]);
+            }
+        }
+
+        return prefixs;
+    }
+
+    private string? GetHighVersianmeaning(string? letters, List<HighVersianDefinition>? prefixs, HighVersianDefinition root,
+        HighVersianDefinition postfix)
+    {
+        string? meaning;
+        if (highVersian.Words.Count(x => x.Letters.ToLower() == letters.ToLower()) >= 1)
+        {
+            meaning = GetMeaningFromDictionary(letters);
+        }
+        else
+        {
+            meaning = GetMeaningFromParts(prefixs, root, postfix);
+        }
+
+        return meaning;
+    }
+
+    private static string? GetMeaningFromParts(List<HighVersianDefinition>? prefixs, HighVersianDefinition root, HighVersianDefinition postfix)
+    {
+        string? meaning;
+        var prefixMeaning = prefixs.Aggregate("", (h, t) => h += t.Meaning + ". ");
+        if (prefixMeaning.Length > 0) prefixMeaning = prefixMeaning.Substring(0, prefixMeaning.Length - 2);
+
+        meaning = $"{prefixMeaning ?? ""}. {root?.Meaning}. {postfix?.Meaning}";
+        return meaning;
+    }
+
+    private string? GetMeaningFromDictionary(string? letters)
+    {
+        string? meaning;
+        meaning = highVersian.Words
+            .First(x => x.Letters.ToLower() == letters.ToLower())
+            .Meaning ?? "Error";
+        return meaning;
+    }
+}
+
+<body>
+<h1>High Versian Translator</h1>
+
+<label for="prefix">Prefix: @foreach (var pre in PrefixsList)
+                               {
+                                   @($"{pre} ");
+                               }</label>
+<select id="prefix" @bind="PrefixID">
+    <option value="none" selected disabled hidden>None</option>
+    @foreach (var prefix in highVersian.Prefixes)
+    {
+        <option value="@prefix.Letters" title="@prefix.Meaning">@prefix.Letters</option>
+    }
+</select>
+<button @onclick="addPrefix" type="button`">+</button>
+
+
+<label for="root">Root</label>
+<select id="root" @bind="RootID">
+    <option value="none" selected disabled hidden>None</option>
+    @foreach (var root in highVersian.Roots)
+    {
+        <option value="@root.Letters" title="@root.Meaning">@root.Letters</option>
+    }
+</select>
+
+
+<label for="postfix">Postfix</label>
+<select id="postfix" @bind="PostfixID">
+    <option value="unfinished" selected disabled hidden>Select one</option>
+    @foreach (var postfix in highVersian.Postfixes)
+    {
+        <option value="@postfix.Letters" title="@postfix.Meaning">@postfix.Letters</option>
+    }
+</select>
+
+<button type="button" @onclick="Translate">Translate!</button>
+<button type="button" @onclick="ResetTranslator">Reset</button>
+
+@if (Definition != null)
+{
+    <h5>Translation: @Definition.Letters: @Definition.Meaning</h5>
+}
+
+</body>

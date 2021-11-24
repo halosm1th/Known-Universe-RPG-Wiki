@@ -1,0 +1,64 @@
+﻿@page "/WikiArticle/{ID}"
+@using WikiServices.DataServices
+@using TravellerWikiInfomationArticles
+@inject WikiArticleService ArticleService;
+
+@code {
+    [Parameter]
+    public string ID { get; set; }
+    
+    InformationArticle Article;
+
+    public void LoadARticle()
+    {
+        Article = ArticleService.GetArticle(ID ?? "1000");
+    }
+}
+
+@if (Article == null)
+{
+    LoadARticle();
+}
+
+@if (Article != null)
+{
+    <head>
+        <title>
+            @Article.Title
+        </title>
+
+        <meta property="og:title" content="@Article.Title" />
+        <meta property="og:site_name" content="Known Universe Wiki - @Article.Title" />
+        <meta property="og:url" content="https://theseamnetwork.com/WikiArticle/@Article.ID/" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta property="og:description" content="@Article.Summery" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
+    <h1>@Article.Title</h1>
+    <p>@Article.Summery</p>
+    <div style="border: solid #A7A7A7 2px;background: darkred;width:fit-content">
+        <p>
+            <label for="Headings">Topics in article</label>
+            <ol id="Headings">
+                @foreach (var heading in Article.Headings)
+                {
+                    <li>@heading</li>
+                }
+            </ol>
+        </p>
+    </div>
+    @foreach (var topic in Article.Body)
+    {
+        <details>
+            <summary class="IndexSummery">@topic.TopicTitle</summary>
+            <div style="border: solid #A7A7A7 5px; background:black;font-size: 18px; width: fit-content">
+                             @foreach (var paragraph in topic.TopicParagraphsInMarkdown)
+                             {
+                                 <p style="white-space: pre-line">@((MarkupString)Markdig.Markdown.ToHtml(paragraph))</p>
+                             }
+            </div>
+    </details>
+                             }
+}

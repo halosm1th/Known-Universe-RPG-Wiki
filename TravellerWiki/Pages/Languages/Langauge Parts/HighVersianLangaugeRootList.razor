@@ -1,0 +1,43 @@
+@page "/Languages/HighVersianLangauge/Root/"
+@using WikiServices.DataServices
+@using WikiServices.SimpleServiceDriverCode
+@inject HighVersianService highVersian
+<head>
+    <title>High Versian - @Root</title>
+</head>
+<style>
+    .high {
+        font-family: 'high_versianregular';
+    }
+</style>
+
+@code
+{
+
+    [Parameter]
+    public string Root { get; set; }
+
+    public HighVersianDefinition _root => GetPrefix();
+
+    public HighVersianDefinition GetPrefix()
+    {
+        return highVersian.Roots.FirstOrDefault(x => x.Letters.ToUpper() == Root.ToUpper());
+    }
+
+}
+
+<body>
+    <h1>High Versian roots</h1>
+    <p>These are the root words of the High Versian Language</p>
+    <ul>
+        @foreach (var letter in highVersian.Roots.OrderBy(x => x.Letters.First()))
+        {
+            <li>
+
+                <a href="/Languages/HighVersianLangauge/Root/@letter.Letters">
+                    <b class="high">@letter.Letters.ToUpper():</b> @letter.Meaning
+                </a>
+            </li>
+        }
+    </ul>
+</body>

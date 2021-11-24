@@ -1,0 +1,170 @@
+﻿@page "/Generators/TravellerSpecialAmmoCreator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using Newtonsoft.Json
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Items
+@inject TravellerItemStoreService ItemStore
+
+<title>Ammo Creator</title>
+
+
+<style>
+    th {
+        padding: 5px;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    td {
+        padding: 5px;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    table {
+        text-align: center;
+        border-style: solid;
+        border-width: 1px;
+    }
+</style>
+
+<h2>Traveller Special Ammo</h2>
+<div style="border-width: 1px; border: lightgray; border-style: solid; background: gray; ">
+    @if (weapon == null)
+    {
+        <p style="text-align: center">
+            <b>Name</b> <br /> <input type="text" @bind="Name" /><br />
+
+            <b>Range</b> <br /> <input type="text" @bind="Range" /><br />
+
+            <b>Damage</b> <br /> <input type="text" @bind="Damage" /><br />
+            <b>Ammo Cost Multiplier</b> <br /> <input type="number" @bind="AmmoMulCost" /><br />
+            <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
+
+            <label for="pistol">Pistol</label>
+            <input type="checkbox" id="pistol" @bind="Pistol" /><br />
+
+            <label for="rifle">Rifle</label>
+            <input type="checkbox" id="rifle" @bind="Rifle" /><br />
+
+            <label for="shotgun">Shotgun</label>
+            <input type="checkbox" id="shotgun" @bind="Shotgun" /><br />
+
+            <label for="heavy">Heavy</label>
+            <input type="checkbox" id="heavy" @bind="Heavy" /><br />
+
+            <b>Add Traits</b> <br />
+
+            @foreach (var t in weaponTraits)
+            {
+                <span title="@TravellerWeaponTrait.AnyTraitText(t)">
+                    @(t + ", ")
+                </span>
+            }
+            <select @bind="SelectedTrait" label="Add Trait">
+                @foreach (var trait in Enum.GetValues(typeof(TravellerWeaponTraits)))
+                {
+                    <option value="@trait">@trait</option>
+                }
+            </select> <button @onclick="AddTrait">Add Trait</button><br />
+
+
+            <b>Description</b> <br /> <input type="text" @bind="Description" spellcheck="true" /><br />
+            <button @onclick="AddWeapon">Add Special Ammo</button>
+        </p>
+    }
+    else
+    {
+        <p style="text-align: center">
+            @weapon.ToString() <input type="button"
+                                      id="btnCopy"
+                                      onClick="
+navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
+    /* clipboard successfully set */
+}, function () {
+    alert('Umm, there was an error!'); }) " value="Copy Json" />
+            <button @onclick="Reset">New Special Ammo</button>
+            <button @onclick="Clone">Clone</button>
+        </p>
+    }
+</div>
+
+
+
+@code {
+
+    private string Name = "";
+    string Range = "";
+    string Damage = "";
+    int AmmoMulCost = 1;
+    int TechLevel = 5;
+    TravellerWeaponTraits SelectedTrait = TravellerWeaponTraits.None;
+    List<TravellerWeaponTraits> weaponTraits = new List<TravellerWeaponTraits>();
+
+    private bool Pistol = false;
+    private bool Rifle = false;
+    private bool Shotgun = false;
+    private bool Heavy = false;
+
+    string Description = "";
+
+    TravellerSpecialAmmo weapon = null;
+    private int ID = 0;
+    Random r = new Random();
+
+
+    private void Reset()
+    {
+        weapon = null;
+        ID = 0;
+        Name = "";
+        Range = "";
+        Damage = "";
+        Description = "";
+
+        AmmoMulCost = 1;
+        TechLevel = 5;
+
+        weaponTraits = new List<TravellerWeaponTraits>();
+
+        Pistol = false;
+        Rifle = false;
+        Shotgun = false;
+        Heavy = false;
+    }
+
+    private void Clone()
+    {
+        weapon = null;
+    }
+
+
+
+    public void AddTrait()
+    {
+        weaponTraits.Add(SelectedTrait);
+        SelectedTrait = TravellerWeaponTraits.None;
+    }
+
+    public void AddWeapon()
+    {
+        weapon = new TravellerSpecialAmmo(Name, Range, Damage, AmmoMulCost, TechLevel, weaponTraits,
+            Pistol, Rifle, Shotgun, Heavy, Description);
+        GetID();
+
+        ItemStore.ItemStore.Add(ID, weapon);
+    }
+
+    private void GetID()
+    {
+        ID = r.Next(1004, 2000);
+        if (ItemStore.ItemStore.ContainsKey(ID))
+        {
+            GetID();
+        }
+    }
+
+}

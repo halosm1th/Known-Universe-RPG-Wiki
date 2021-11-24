@@ -1,0 +1,47 @@
+@page "/CharacterCreation/ApplyBenefit/{characterID}"
+@using System.Runtime.CompilerServices
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Apply Benefit (16/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    private string DoneRewardURL = "/CharacterCreation/Finished/";
+    private string CareerChangeURL ="/CharacterCreation/BenefitAssignment/";
+    private string LifeEventURL = "/CharacterCreation/RollMishap/";
+    
+}
+<body>
+
+    <div>
+        <h1>Traveller Character Creator</h1>
+        <div class="creatorMarkup">
+            <h2>Select @GetService().Name's - Apply Benefits</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="15" max="17"></progress>
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <CharacterCreationReward characterID="@characterID" DoneRewardURL="@DoneRewardURL"
+                                     CareerChangeURL="@CareerChangeURL" LifeEventURL="@LifeEventURL"
+                                     RewardList="GetService().ChosenBenefits" />
+
+        </div>
+    </div>
+    </body>

@@ -1,0 +1,487 @@
+﻿@page "/CharacterCreation/BuyGear/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Items
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerCharacterStorageService StorageService
+@inject TravellerNationsCharacterInfoService NationsService;
+@inject TravellerItemStoreService ItemStore
+<head>
+    <title>Buy Character Items</title>
+
+    <style>
+        
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        tr {
+            height: 50%;
+        }
+
+        td {
+            text-align: center;
+        }
+ .displayHeading {
+            padding: 5px;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .displayBody {
+            padding: 5px;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .display {
+            text-align: center;
+            border-style: solid;
+            border-width: 1px;
+        }
+    </style>
+</head>
+
+@code{
+
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void DoneFinished()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/Aging/{characterID}");
+    }
+
+    public void ViewCharacter()
+    {
+        StorageService.AddCharacter(characterID, GetService().GetPlayerCharacter());
+        NavManager.NavigateTo($"/Character/{characterID}");
+    }
+
+
+    TravellerItemTypes ItemSelected = TravellerItemTypes.Weapon;
+    string LimitText = String.Empty;
+
+    Dictionary<int, TravellerItem> GenericItems
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.GenericItemStore
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+            else
+            {
+                return ItemStore.GenericItemStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower()))
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+        }
+    }
+
+    Dictionary<int, TravellerAugments> Augments
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.AugmentsStore
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+            else
+            {
+                return ItemStore.AugmentsStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower()))
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+        }
+    }
+
+    Dictionary<int, TravellerArmour> Armours
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.ArmourStore
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+            else
+            {
+                return ItemStore.ArmourStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower()))
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+        }
+    }
+
+    Dictionary<int, TravellerWeapon> Weapons
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.WeaponStore
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+            else
+            {
+                return ItemStore.WeaponStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower()))
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+        }
+    }
+
+    Dictionary<int, TravellerSpecialAmmo> WeaponSpecialAmmo
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LimitText))
+            {
+                return ItemStore.SpecialAmmoStore
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+            else
+            {
+                return ItemStore.SpecialAmmoStore.
+                    Where(x => x.Value.Name.ToLower().Contains(LimitText.ToLower()))
+                    .Where(x => x.Value.Cost < Math.Min(MAX_COST,Math.Max(MIN_COST,currentCost))).
+                    ToDictionary(x => x.Key, x => x.Value);
+            }
+        }
+    }
+
+    readonly int MAX_COST = 2000;
+    int MIN_COST = 1;
+    int currentCost = 50;
+
+    int CreditsToSpend = 2000;
+
+    public void buyCart()
+    {
+        CreditsToSpend = CreditsToSpend - Cart.Aggregate(0, (s, n) => s + n.Cost);
+        foreach (var travellerItem in Cart)
+        {
+            GetService()._character.AddItem(travellerItem);
+        }
+
+        Cart = new List<TravellerItem>();
+    }
+
+    public void AddToCart(KeyValuePair<int, TravellerItem> item)
+    {
+        Cart.Add(item.Value);
+        //return EventCallback.Empty;
+    }
+
+
+    public void AddToCart(KeyValuePair<int, TravellerWeapon> item)
+    {
+        Cart.Add(item.Value);
+        //return EventCallback.Empty;
+    }
+
+    public void AddToCart(KeyValuePair<int, TravellerArmour> item)
+    {
+        Cart.Add(item.Value);
+        //return EventCallback.Empty;
+    }
+
+    public void AddToCart(KeyValuePair<int, TravellerAugments> item)
+    {
+        Cart.Add(item.Value);
+        //return EventCallback.Empty;
+    }
+
+    public void AddToCart(KeyValuePair<int, TravellerSpecialAmmo> item)
+    {
+        Cart.Add(item.Value);
+        //return EventCallback.Empty;
+    }
+
+    List<TravellerItem> Cart = new List<TravellerItem>();
+    List<TravellerItemTypes> GetItemTypes()
+    {
+        var types = Enum.GetValues(typeof(TravellerItemTypes));
+        var ret = new List<TravellerItemTypes>();
+        for(int i=0; i < types.Length; i++)
+        {
+            ret.Add((TravellerItemTypes) types.GetValue(i));
+        }
+
+        return ret;
+    }
+
+}
+<body>
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Buy @GetService().Name some gear!</h2>
+        <div>
+            <h4>You have: Cr&#8203;@CreditsToSpend left to spend on gear.</h4>
+            <table style="">
+                <tr style="">
+                    <td style="border-width:3px;border-style:solid;border-color:green;background-color:lightgray;color:black">
+                        <div style="vertical-align: top">
+                            <b>Select Categories</b>
+                            <label for="itemSelector">Filter Items By</label>
+                            <select id="itemSelector" @bind="ItemSelected">
+                                @foreach(var itemType in GetItemTypes())
+                                {
+                                    <option value="@itemType">@itemType</option>
+                                }
+                            </select>
+                            <label for="searchField">Filter by Name: </label>
+                            <input type="search" id="searchField" @bind="LimitText" />
+
+                            <label for="priceNumber">Max Price: Cr&#8203;@currentCost [@MIN_COST-@MAX_COST]</label>
+                            <input type="range" id="priceNumber" min="@MIN_COST" max="@MAX_COST" step="1" @bind="currentCost"/>
+                        </div>
+                    </td>
+
+                    <td>
+                        <b>Items</b>
+
+                        <table style="text-align: center" class="display">
+                            @if (ItemSelected == TravellerItemTypes.ItemGeneric)
+                            {
+
+                                <thead>
+                                    <tr>
+                                        <th class="displayHeading">Name</th>
+                                        <th class="displayHeading">Cost</th>
+                                        <th class="displayHeading">KG</th>
+                                        <th class="displayHeading">TL</th>
+                                        <th class="displayHeading">Description</th>
+                                        <th class="displayHeading">Add to Cart</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in GenericItems)
+                                    {
+                                    <tr>
+                                        <td class="displayBody">@item.Value.Name</td>
+                                        <td class="displayBody">Cr​@item.Value.Cost</td>
+                                        <td class="displayBody">@item.Value.KG</td>
+                                        <td class="displayBody">@item.Value.TechLevel</td>
+                                        <td class="displayBody">@item.Value.Description</td>
+                                        <td class="displayBody"><button type="button" @onclick="@(e => AddToCart(item))">Add To Cart</button></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            }
+                            else if (ItemSelected == TravellerItemTypes.Weapon)
+                            {
+                                <thead>
+                                    <tr>
+                                        <th class="displayHeading">Name</th>
+                                        <th class="displayHeading">Cost</th>
+                                        <th class="displayHeading">KG</th>
+                                        <th class="displayHeading">TL</th>
+                                        <th class="displayHeading">Range in Meters</th>
+                                        <th class="displayHeading">Damage</th>
+                                        <th class="displayHeading">Magazine Capacity</th>
+                                        <th class="displayHeading">Magazine Cost</th>
+                                        <th class="displayHeading">Weapon Traits</th>
+                                        <th class="displayHeading">Description</th>
+                                        <th class="displayHeading">Add to Cart</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Weapons)
+                                    {
+                                    <tr>
+                                        <td class="displayBody">@item.Value.Name</td>
+                                        <td class="displayBody">Cr​@item.Value.Cost</td>
+                                        <td class="displayBody">@item.Value.KG</td>
+                                        <td class="displayBody">@item.Value.TechLevel</td>
+                                        <td class="displayBody">@item.Value.RangeInMeters</td>
+                                        <td class="displayBody">@item.Value.Damage</td>
+                                        <td class="displayBody">@item.Value.MagazineCapacity</td>
+                                        <td class="displayBody">Cr​@item.Value.MagazineCost</td>
+                                        <td class="displayBody">
+                                            @foreach (var trait in item.Value.WeaponTraits)
+                                            {
+                                                <span title="@TravellerWeaponTrait.AnyTraitText(trait)">
+                                                    @(trait + ", ")
+                                                </span>
+                                            }
+                                        </td>
+                                        <td class="displayBody">@item.Value.Description</td>
+                                        <td class="displayBody"><button type="button" @onclick="@(e => AddToCart(item))">Add</button></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            }
+                            else if (ItemSelected == TravellerItemTypes.Augment)
+                            {
+                                <thead>
+                                    <tr>
+                                        <th class="displayHeading">Name</th>
+                                        <th class="displayHeading">Cost</th>
+                                        <th class="displayHeading">KG</th>
+                                        <th class="displayHeading">TL</th>
+                                        <th class="displayHeading">Improvement</th>
+                                        <th class="displayHeading">Location</th>
+                                        <th class="displayHeading">Description</th>
+                                        <th class="displayHeading">Add to Cart</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Augments)
+                                    {
+                                    <tr>
+                                        <td class="displayBody">@item.Value.Name</td>
+                                        <td class="displayBody">Cr​@item.Value.Cost</td>
+                                        <td class="displayBody">@item.Value.KG</td>
+                                        <td class="displayBody">@item.Value.TechLevel</td>
+                                        <td class="displayBody">@item.Value.Improvement</td>
+                                        <td class="displayBody">@item.Value.Location</td>
+                                        <td class="displayBody">@item.Value.Description</td>
+                                        <td class="displayBody"><button type="button" @onclick="@(e => AddToCart(item))">Add</button></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            }
+                            else if (ItemSelected == TravellerItemTypes.Armour)
+                            {
+
+                                <thead>
+                                    <tr>
+                                        <th class="displayHeading">Name</th>
+                                        <th class="displayHeading">Cost</th>
+                                        <th class="displayHeading">KG</th>
+                                        <th class="displayHeading">TL</th>
+                                        <th class="displayHeading">Protection</th>
+                                        <th class="displayHeading">Radiation Protection</th>
+                                        <th class="displayHeading">Description</th>
+                                        <th class="displayHeading">Add</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Armours)
+                                    {
+                                    <tr>
+                                        <td class="displayBody">@item.Value.Name</td>
+                                        <td class="displayBody">Cr​@item.Value.Cost</td>
+                                        <td class="displayBody">@item.Value.KG</td>
+                                        <td class="displayBody">@item.Value.TechLevel</td>
+                                        <td class="displayBody">@item.Value.Protection</td>
+                                        <td class="displayBody">@item.Value.RadiationProtection</td>
+                                        <td class="displayBody">@item.Value.Description</td>
+                                        <td class="displayBody"><button type="button" @onclick="@(e => AddToCart(item))">Add</button></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            }
+                            else if (ItemSelected == TravellerItemTypes.Weapon_Modification)
+                            {
+
+                                <thead>
+                                    <tr>
+                                        <th class="displayHeading">Name</th>
+                                        <th class="displayHeading">Ammo Cost Multiplier</th>
+                                        <th class="displayHeading">KG</th>
+                                        <th class="displayHeading">TL</th>
+                                        <th class="displayHeading">Damage</th>
+                                        <th class="displayHeading">Traits</th>
+                                        <th class="displayHeading">Pistol</th>
+                                        <th class="displayHeading">Rifle</th>
+                                        <th class="displayHeading">Shotgun</th>
+                                        <th class="displayHeading">Heavy</th>
+                                        <th class="displayHeading">Description</th>
+                                        <th class="displayHeading">Add To Cart</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in WeaponSpecialAmmo)
+                                    {
+                                    <tr>
+                                        <td class="displayBody">@item.Value.Name</td>
+                                        <td class="displayBody">x​@item.Value.AmmoMultiplierCost</td>
+                                        <td class="displayBody">@item.Value.KG</td>
+                                        <td class="displayBody">@item.Value.TechLevel</td>
+                                        <td class="displayBody">@item.Value.Damage</td>
+                                        <td class="displayBody">
+                                            @foreach (var trait in item.Value.AmmoTraits)
+                                            {
+                                                <span title="@TravellerWeaponTrait.AnyTraitText(trait)">
+                                                    @(trait + ", ")
+                                                </span>
+                                            }
+                                        </td>
+                                        <td class="displayBody">@(item.Value.AppliesToPistol ? "Yes" : "No")</td>
+                                        <td class="displayBody">@(item.Value.AppliesToRifle ? "Yes" : "No")</td>
+                                        <td class="displayBody">@(item.Value.AppliesToShotgun ? "Yes" : "No")</td>
+                                        <td class="displayBody">@(item.Value.AppliesToHeavy ? "Yes" : "No")</td>
+                                        <td class="displayBody">@item.Value.Description</td>
+                                        <td class="displayBody"><button type="button" @onclick="@(e => AddToCart(item))">Add</button></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            }
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-width:3px;border-style:solid;border-color:red;background-color:lightgray;color:black">
+                        <b>Items in Inventory</b>
+                        <ul>
+                            @foreach (var item in GetService()._character.Items)
+                            {
+                                <li>@item.Name: Cr&#8203;@item.Cost</li>
+                            }
+                        </ul>
+                    </td>
+                    <td style="border-width:3px;border-style:solid;border-color:blue;background-color:lightgray;color:black">
+                        <b>Items In Cart [@Cart.Aggregate(0, (s,n) => s+n.Cost)]</b>
+                        <ul>
+                            @foreach (var item in Cart)
+                            {
+                            <li>
+                            <span title="@item.ToString()">@item.Name: Cr&#8203;@item.Cost</span>
+                                <button type="button" @onclick="@((x) => Cart.Remove(item))">Remove from Cart</button> 
+                            </li>
+                            }
+                        </ul>
+                        @if (Cart.Aggregate(0, (s, n) => s + n.Cost) <= CreditsToSpend)
+                        {
+                            <button type="button" @onclick="buyCart">Buy Cart</button>
+                        }
+                        else
+                        {
+                            <b style="color:red">Your cart is too expensive, lose some items</b>
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <br />
+            <button @onclick="ViewCharacter">Finished, view character</button>
+        </div>
+    </div>
+</body>

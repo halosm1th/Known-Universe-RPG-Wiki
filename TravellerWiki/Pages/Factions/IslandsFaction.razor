@@ -1,0 +1,90 @@
+@page "/Factions/IslandsFaction/{FactionID}"
+@using TravellerWiki.Data
+@using System.Reflection
+@using TravellerFactionSystem
+@using TravellerFactionSystem.Faction_Types
+@inject TravellerFactionService _factionService
+
+@code{
+
+    [Parameter]
+    public string FactionID { get; set; }
+
+    Type previousType = default;
+
+    private TravellerFaction _faction = null;
+
+    public TravellerFaction GetFaction()
+    {
+        int factionID = 999;
+        if (_faction == null)
+        {
+            if (!int.TryParse(FactionID, out factionID))
+            {
+                factionID = 1000;
+            }
+
+            _faction = _factionService.GetTravellerFaction(factionID);
+        }
+
+        return _faction;
+    }
+
+}
+
+<head>
+    <title>@GetFaction().FactionName - Islands Faction</title>
+
+    <meta property="og:title" content="Known Universe Wiki - @_faction.FactionName [Faction]"/>
+    <meta property="og:url" content="/Factions/IslandsFaction/@FactionID"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="Generate missions for your travellers to undergo in the Known Universe." property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
+</head>
+
+<div>
+    <h1>@GetFaction().FactionName</h1>
+    <p> @((MarkupString) Markdig.Markdown.ToHtml(@GetFaction().ToString() ?? string.Empty))</p>
+</div>
+<div>
+    <h3>Important People </h3>
+    <ul style="background-color: rgb(244, 232, 31)">
+        <li style="color: black;">Head: <span title="@GetFaction().FactionHead.ToString()"> @GetFaction().FactionHead.Name [@GetFaction().FactionHead.ShortUPP()] (@GetFaction().FactionHead.Background, @GetFaction().FactionHead.Career) </span></li>
+        @foreach (var member in GetFaction().FactionMembers)
+        {
+            <li>
+                <span style="color: black;" title="@member.ToString()">@member.NPCAsset.PatronText: @member.NPCAsset.Name [@member.NPCAsset.ShortUPP()] (@member.NPCAsset.Background @member.NPCAsset.Career)</span>
+            </li>
+        }
+    </ul>
+</div>
+<div>
+    <h3>Faction Assets </h3>
+    <ul style="background-color: rgb(244, 232, 31);color: black;">
+        @foreach (var assets in GetFaction().FactionAssets().OrderBy(x => x.GetType().Name))
+        {
+
+            if (previousType != assets.GetType())
+            {
+                <br/>
+            }
+                
+            <li>
+                <span style="color: black;" title="@assets.FullToString()">@assets.ToString()</span>
+            </li>
+            
+            previousType = assets.GetType();
+        }
+    </ul>
+</div>
+<div>
+    @if (GetFaction() is TravellerCompany)
+    {
+        <a href="/Factions/IslandsCompanies">Back to Company List</a>
+    }
+    else if (GetFaction() is TravellerReligion)
+    {
+        <a href="/Factions/IslandsReligions">Back to Religion List</a>
+    }
+</div>

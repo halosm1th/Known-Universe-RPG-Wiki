@@ -1,10 +1,18 @@
 body {
-    font-family: BankFuturistic, Arial, Helvetica, sans-serif;
+    font-family: 'Space Mono', monospace;
     font-family: 'Fira Code', monospace;
     font-size: 14px;
     color: #ffe81F;
     background-color: #000;
 }
+
+.creatorMarkup {
+    text-align: center;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+}
+
 .hex {
     float: left;
     margin-right: -26px;
@@ -58,19 +66,18 @@ body {
 .flex-container > div {
     width: 20em;
     font-size: 15px;
-    border: solid;
+    border: solid silver;
     margin: 4px;
-    border-color: silver;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    padding: 0px;
+    padding: 0;
 }
 
 .grid-item {
-    padding: 0px;
+    padding: 0;
     text-align: center;
     width: 100%;
     height: 25%;
@@ -87,8 +94,7 @@ h1 {
     color: #ffe81F;
     background-color: #595B63;
     font-size: 2em;
-    margin: 0;
-    margin-bottom: 7px;
+    margin: 0 0 7px;
     padding: 4px;
     font-style: italic;
     text-align: center;
@@ -102,22 +108,44 @@ h2 {
     color: #ffe81F;
     background-color: #595B63;
     font-size: 1.5em;
-    margin: 0px;
-    padding: 2px;
-    padding-left: 14px;
+    margin: 0;
+    padding: 2px 2px 2px 14px;
     border-style: solid;
     border-bottom-width: 0.5em;
     border-bottom-color: #A7A7A7;
+}
+
+.IndexSummery {
+    color: #ffe81F;
+    background-color: #595B63;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 2px 2px 2px 14px;
+    border-style: solid;
+    border-bottom-width: 0.5em;
+    border-bottom-color: #A7A7A7;
+    text-align: center;
+}
+
+
+.SmallerSummery {
+    color: #ffe81F;
+    background-color: #995D63;
+    font-size: 1.0em;
+    margin: 0;
+    padding: 1px;
+    border-style: solid;
+    border-bottom-width: 0.5em;
+    border-bottom-color: #D8D8D8;
+    text-align: center;
 }
 
 h3 {
     color: #ffe81F;
     background-color: #595B63;
     font-size: 1.25em;
-    margin: 0px;
-    padding: 2px;
-    padding-left: 14px;
-    border-style: solid;
+    margin: 0;
+    padding: 2px 2px 2px 14px;
     border-style: solid;
     border-bottom-width: 0.5em;
     border-bottom-color: #A7A7A7;
@@ -137,10 +165,50 @@ a {
     text-transform: capitalize;
 }
 
+a:hover{
+    background-color: #FFa70C;
+    color:black;
+}
+
+.moveA {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.moveA:hover{
+    background-color: #ddd;
+    color:black;
+}
+
+.previousArticle{
+    background-color: #DD4444;
+    color: black;
+
+    text-align:left;
+}
+
+.allArticles{
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFa70C;
+    color: black;
+}
+
+.nextArticle{
+    background-color: #04AA6D;
+    color: white;
+    text-align:right;
+}
+
 table {
     background-color: #595B63;
     color: #00EDF7;
 }
+
 tbody {
     border-style: solid;
     color: #ffe81F;
@@ -152,7 +220,6 @@ tbody {
     border-style: solid;
     border-width: 2px;
     border-color: silver;
-
 }
 
 #seperator {
@@ -179,4 +246,7 @@ tbody {
     background-color: #595B63;
     display: table;
 }
-#blazor-error-ui { display:none}
+
+#blazor-error-ui {
+    display: none
+}

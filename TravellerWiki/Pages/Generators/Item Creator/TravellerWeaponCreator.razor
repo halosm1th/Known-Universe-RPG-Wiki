@@ -1,0 +1,134 @@
+﻿@page "/Generators/TravellerWeaponCreator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using Newtonsoft.Json
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Items
+@inject TravellerItemStoreService ItemStore
+
+<title>Weapon Creator</title>
+
+
+<h2>Traveller Weapon Creator</h2>
+<div style="border-width: 1px; border: lightgray; border-style: solid; background: gray;">
+    @if (weapon == null)
+    {
+        <p style="text-align: center">
+            <b>Name</b> <br /> <input type="text" @bind="Name" /><br />
+
+            <b>Cost</b> <br /> <input type="number" @bind="Cost" /><br />
+
+            <b>Weight in KG</b> <br /> <input type="number" @bind="KG" /><br />
+
+            <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
+
+            <b>Range In Meters</b> <br /> <input type="number" @bind="RangeInMeters" /><br />
+
+            <b>Damage</b> <br /> <input type="text" @bind="Damage" /><br />
+
+            <b>Magazine Capacity</b> <br /> <input type="number" @bind="MagazineCapacity" /><br />
+
+            <b>Magazine Cost</b> <br /> <input type="number" @bind="MagazineCost" /><br />
+
+            <b>Add Traits</b> <br />
+
+            @foreach (var t in weaponTraits)
+            {
+                <span title="@TravellerWeaponTrait.AnyTraitText(t)">
+                    @(t + ", ")
+                </span>
+            }
+            <select @bind="SelectedTrait" label="Add Trait">
+                @foreach (var trait in Enum.GetValues(typeof(TravellerWeaponTraits)))
+                {
+                    <option value="@trait">@trait</option>
+                }
+            </select> <button @onclick="AddTrait">Add Trait</button><br />
+
+
+            <b>Description</b> <br /> <input type="text" @bind="Description" spellcheck="true" /><br />
+
+            <button @onclick="AddWeapon">Add Weapon</button>
+        </p>
+    }
+    else
+    {
+        <p style="text-align: center">
+            @weapon.ToString() <input type="button"
+                                      id="btnCopy"
+                                      onClick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) " value="Copy Json" />
+            <button @onclick="Reset">New Weapon</button>
+            <button @onclick="Clone">Clone</button>
+        </p>
+    }
+</div>
+
+
+
+@code {
+
+    private string Name = "";
+    private int Cost = 10;
+    private int KG = 1;
+    private int TechLevel = 10;
+    private int RangeInMeters = 25;
+    private string Damage = "1D6";
+    private int MagazineCapacity = 6;
+    private int MagazineCost = 5;
+    string Description = "";
+    TravellerWeaponTraits SelectedTrait = TravellerWeaponTraits.None;
+    List<TravellerWeaponTraits> weaponTraits = new List<TravellerWeaponTraits>();
+    TravellerWeapon weapon = null;
+    private int ID = 0;
+    Random r = new Random();
+
+
+    private void Reset()
+    {
+        weapon = null;
+        ID = 0;
+        Name = "";
+        Cost = 10;
+        KG = 1;
+        TechLevel = 1;
+        RangeInMeters = 25;
+        Damage = "1D6";
+        MagazineCapacity = 6;
+        MagazineCost = 5;
+        Description = "";
+        weaponTraits = new List<TravellerWeaponTraits>();
+        SelectedTrait = TravellerWeaponTraits.None;
+    }
+
+    private void Clone()
+    {
+        weapon = null;
+    }
+
+    public void AddTrait()
+    {
+        weaponTraits.Add(SelectedTrait);
+        SelectedTrait = TravellerWeaponTraits.None;
+    }
+
+    public void AddWeapon()
+    {
+        weapon = new TravellerWeapon(Name, Cost, KG, TechLevel,
+            RangeInMeters, Damage, MagazineCapacity, MagazineCost, weaponTraits, Description);
+        GetID();
+
+        ItemStore.ItemStore.Add(ID, weapon);
+    }
+
+    private void GetID()
+    {
+        ID = r.Next(1004, 2000);
+        if (ItemStore.ItemStore.ContainsKey(ID))
+        {
+            GetID();
+        }
+    }
+
+}

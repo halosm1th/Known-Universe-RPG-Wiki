@@ -1,10 +1,18 @@
-@page "/CharacterCreation/Skills"
+@page "/CharacterCreationRules/Skills"
 @using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
 @using TravellerWiki.Data
 @inject TravellerSkillDisplayService DisplayService;
-<head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
-</head>
+    <head>
+        <title>Skills</title>
+        <meta property="og:title" content="Known Universe Wiki - Skills" />
+        <meta property="og:url" content="https://theseamnetwork.com/CharacterCreationRules/Skills" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta content="View a full list of skills that Travellers in the Known Universe may hold." property="og:description" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
 
 <body>
     <h1>Traveller Skills</h1>
@@ -13,8 +21,10 @@
         @foreach (var skill in DisplayService.GetTravellerSkills())
         {
         <li>
-            <h4>@skill.SkillName:</h4>
-            <p> @(new HtmlString(skill.Description).Value) </p>
+            <p>
+                <h4>@skill.SkillNameText: </h4>
+                @(new HtmlString(skill.SkillDescriptionText).Value)
+            </p>
         </li>
         }
     </ul>

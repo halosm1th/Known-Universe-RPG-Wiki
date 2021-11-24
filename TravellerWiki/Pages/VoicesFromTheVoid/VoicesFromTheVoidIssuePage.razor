@@ -1,0 +1,50 @@
+@page "/VoicesFromTheVoid/Issue/{IssueNumber}"
+@using System.Transactions
+@using VoicesFromTheVoidArticles
+@inject TravellerVoicesFromTheVoidService VoicesService
+@code{
+
+    [Parameter]
+    public string IssueNumber { get; set; } = "1";
+
+    public VoicesFromTheVoidIssue GetIssue()
+    {
+        int numb = 1;
+
+        if (!int.TryParse(IssueNumber, out numb))
+        {
+            numb = 1;
+        }
+        
+        return VoicesService.VoicesFromTheVoidIssues.First(x => x.IssueNumber == numb);
+    }
+
+    }
+    <head>
+        <title>
+            @GetIssue().IssueName
+        </title>
+
+        <meta property="og:title" content="Known Universe Wiki - @GetIssue().IssueName" />
+        <meta property="og:url" content="https://theseamnetwork.com/VoicesFromTheVoid/Issue/@IssueNumber/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta content="@GetIssue().IssueDescription" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+    </head>
+<body>
+    <div>
+        <h1>
+            Voices from the Void, Vol @GetIssue().IssueNumber (@GetIssue().IssueName): @GetIssue().StartDate-@GetIssue().EndDate
+        </h1>
+        <p>@GetIssue().IssueDescription</p>
+    </div>
+<section style="display: flex;flex-direction: row;flex-wrap: wrap;">
+    @foreach (var article in GetIssue().Articles.OrderBy(x => x.PublicationDate))
+    {
+        <article style="flex:400px;font-size: 20px;margin: 8px;border: solid 2px;background-color: rgb(167, 167, 167)">
+            <VoicesFromTheVoidIssueArticleComponent Article="@article"></VoicesFromTheVoidIssueArticleComponent>
+            </article>
+    }
+</section>
+</body>

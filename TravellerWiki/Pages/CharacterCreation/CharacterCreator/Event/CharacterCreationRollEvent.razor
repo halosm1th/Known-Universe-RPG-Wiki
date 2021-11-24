@@ -1,0 +1,82 @@
+@page "/CharacterCreation/RollEvent/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.CreationEvents
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager;
+@inject MultiPageCharacterCreationService MultiCharacterCreationService;
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Event (9/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    #region GetEvent
+    public void GetEvent()
+    {
+
+        var roll = GetService().RollDice();
+        GetService().GetEvent(roll);
+
+
+        if (GetService().CurrentTermsEvents.Peek() is TravellerEventLife)
+        {
+            GetService().AddEvent(GetService().GetLifeEvent(GetService().RollDice()));
+        }
+        if (GetService().CurrentTermsEvents.Peek() is TravellerEventMishap)
+        {
+            roll = GetService().RollDice(1);
+            GetService().AddEvent(GetService().GetMishap(roll));
+        }
+    }
+
+    //GetEventInjury
+
+    #endregion
+
+    #region Event Reward
+
+    private string DoneURL = "/CharacterCreation/RollAdvancement/";
+    private string InjuryURL = "/CharacterCreation/EventInjury/";
+    private string RewardURL = "/CharacterCreation/EventReward/";
+    private string CareerURL = "/CharacterCreation/EventAssignment/";
+
+    #endregion
+
+}
+<body>
+
+    <div>
+        <h1>Traveller Character Creator</h1>
+
+
+        <div class="creatorMarkup">
+
+            <h2>Select @GetService().Name's - Roll Event</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="10" max="17"></progress>
+
+            @if (GetService().CurrentTermsEvents.Count <= 0)
+            {
+                GetEvent();
+            }
+
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <CharacterCreationEventHandling characterID="@characterID" DoneURL="@DoneURL" InjuryURL="@InjuryURL"
+                                            RewardURl="@RewardURL" CareerURL="@CareerURL" />
+        </div>
+    </div>
+</body>

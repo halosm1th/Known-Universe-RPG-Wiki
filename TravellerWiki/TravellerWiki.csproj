@@ -1,8 +1,151 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\JSON\**" />
+    <Content Remove="Data\JSON\**" />
+    <EmbeddedResource Remove="Data\JSON\**" />
+    <None Remove="Data\JSON\**" />
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssueArticleComponent.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\IslandsFaction.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\TravellerHeadlineGenerator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsCorporationCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsReligionCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsFactionCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsCriminalGroupCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsSocialCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsProfessionCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsClassCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsPoliticalCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsOtherCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsPoliticalGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsReligion.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsSocialGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsCriminalGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsCompanies.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsProfessionalGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsClassGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsOtherGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsNationCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Creators\IslandsMajorNationCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsNationGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Factions\Groups\IslandsMajorNationGroups.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugeWords.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugeRootList.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugePrefixList.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugePostfixList.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Language Bits Specific\HighVersianLangaugeRoot.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Language Bits Specific\HighVersianLangaugePrefix.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\Language Bits Specific\HighVersianLangaugePostfix.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\HighVersianLangaugeTranslator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="placeName.txt" />
+    <Content Include="placeName.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\AxionAllianceNameList.txt" />
+    <Content Include="Data\NameLists\AxionAllianceNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\BritanniaNameList.txt" />
+    <Content Include="Data\NameLists\BritanniaNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\DeutschlandNameList.txt" />
+    <Content Include="Data\NameLists\DeutschlandNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\FederationNameList.txt" />
+    <Content Include="Data\NameLists\FederationNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\GermushianNameList.txt" />
+    <Content Include="Data\NameLists\GermushianNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\ImperialNameList.txt" />
+    <Content Include="Data\NameLists\ImperialNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\VersNameList.txt" />
+    <Content Include="Data\NameLists\VersNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Data\NameLists\XiaoMingNameList.txt" />
+    <Content Include="Data\NameLists\XiaoMingNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Data\TravellerNPC.cs" />
@@ -20,7 +163,7 @@
     <None Remove="wwwroot\Images\Oren_Wastes_2_Subsector.jpg" />
     <None Remove="wwwroot\Images\Oren_Wastes_3_Subsector.jpg" />
     <None Remove="wwwroot\Images\Oren_wastes_4_subsector.jpg" />
-    <None Remove="wwwroot\Images\Payette_subsector.jpg" />
+    <None Remove="wwwroot\Images\Payette_subsector.jpg" /> 
     <None Remove="wwwroot\Images\Stacyville_subsector.jpg" />
     <None Remove="wwwroot\Images\Wallwern_Subsector.jpg" />
     <None Remove="wwwroot\Images\Wynona_subsector.jpg" />
@@ -35,18 +178,128 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Markdig" Version="0.25.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Update="Pages\CharacterCreation\Career.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationBenefitAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationBuyGear.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\ViewTravellerCharacters.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\ViewTravellerCharacter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationDrawStats.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationChangeAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationReward.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationEventHandling.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventInjury.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationEventReward.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationMishapAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationMishapInjury.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationMishapReward.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Mishap\CharacterCreationRollMishap.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Event\CharacterCreationRollEvent.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Advance\CharacterCreationRollAdvance.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationRollSurvival.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Advance\CharacterCreationAdvanceSkill.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationSkillChoice.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationBackgroundSkills.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationAssignment.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationBasicTraining.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Base Career\CharacterCreationChooseCareer.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationBase.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationNationality.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationStats.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationName.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Basic Stuff\CharacterCreationNew.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationAgingInjury.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationApplyBenefit.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationFinished.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationAging.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\Benefit Rolls\CharacterCreationGenerateBenefit.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\PostEvent\CharacterCreationLeaveCareer.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\CharacterCreation\CharacterCreator\CharacterCreationInjury.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\CharacterCreation\CharacterSkills.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\CharacterCreation\CharacterCreation.razor">
+    <Content Update="Pages\CharacterCreation\CharacterCreationRules.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\CharacterCreation\NationInfoPage.cshtml">
@@ -55,13 +308,64 @@
     <Content Update="Pages\Galaxies\Asselyum.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerRewardCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerSkillChoiceCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerRankCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerSkillTableCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerQualificationCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerAttributeCheckCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerAssignmentCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerArmourCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerSpecialAmmoCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerItemsDisplay.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerGenericItemCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerAugmentCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerWeaponCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\Generators\TravellerMissionGenerator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Generators\TravellerNameGenerator.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Pages\Generators\Item Creator\TravellerItemCreator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\Career_Creator\TravellerCareerCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\TravellerNPCCrafter.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Pages\Generators\TravellerNPCGenerator.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Generators\TravellerComplexNPCGenerator.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Generators\TravellerSpecialNPCGenerator.razor">
@@ -70,7 +374,10 @@
     <Content Update="Pages\Other\JobBoard.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Other\LanguageFamilies.razor">
+    <Content Update="Pages\Languages\HighVersianLangauge.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\Languages\LanguageFamilies.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\RO.razor">
@@ -103,13 +410,37 @@
     <Content Update="Pages\Rules\SpecializedMagic.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Search.cshtml">
+    <Content Update="Pages\Other\Search.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Test.razor">
+    <Content Update="Pages\Subsectors\Subsector_Test.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid2.razor">
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidArticleComponent.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidArticlesPage.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidArticlePage.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoidIssuePage.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid5.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid4.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid3.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid2.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\WITC.razor">
@@ -124,16 +455,13 @@
     <Content Update="Pages\Other\ScaleOfTime.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Other\IslandsCompanies.razor">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Update="Pages\Other\CentralTension.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\ChurchOfSigmar.razor">
+    <Content Update="Pages\Wiki Pages\ChurchOfSigmar.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Deutschland.razor">
+    <Content Update="Pages\Wiki Pages\Deutschland.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Galaxies\Dewara.razor">
@@ -154,7 +482,7 @@
     <Content Update="Pages\Islands_Sector.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\IVFT.razor">
+    <Content Update="Pages\Wiki Pages\IVFT.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\KT.razor">
@@ -184,79 +512,82 @@
     <Content Update="Pages\Nations\STC.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Citra.razor">
+    <Content Update="Pages\Subsectors\Subsector_Citra.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Doland.razor">
+    <Content Update="Pages\Subsectors\Subsector_Doland.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Intercourse.razor">
+    <Content Update="Pages\Subsectors\Subsector_Intercourse.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Kendrick.razor">
+    <Content Update="Pages\Subsectors\Subsector_Kendrick.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_New_Islands.razor">
+    <Content Update="Pages\Subsectors\Subsector_New_Islands.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Old_Islands.razor">
+    <Content Update="Pages\Subsectors\Subsector_Old_Islands.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Olivehurst.razor">
+    <Content Update="Pages\Subsectors\Subsector_Olivehurst.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_Wastes_1.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_Wastes_1.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_Wastes_2.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_Wastes_2.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_Wastes_3.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_Wastes_3.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Oren_wastes_4.razor">
+    <Content Update="Pages\Subsectors\Subsector_Oren_wastes_4.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Payette.razor">
+    <Content Update="Pages\Subsectors\Subsector_Payette.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Stacyville.razor">
+    <Content Update="Pages\Subsectors\Subsector_Stacyville.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Wallwern.razor">
+    <Content Update="Pages\Subsectors\Subsector_Wallwern.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Wynona.razor">
+    <Content Update="Pages\Subsectors\Subsector_Wynona.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Subsector_Zaleski.razor">
+    <Content Update="Pages\Subsectors\Subsector_Zaleski.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Other\UCGalaxyPowerRating.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\UCM.razor">
+    <Content Update="Pages\Wiki Pages\UCM.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\UFE.razor">
+    <Content Update="Pages\Wiki Pages\UFE.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\VDS.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\Vers.razor">
+    <Content Update="Pages\Wiki Pages\Vers.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Pages\VoicesFromTheVoid\VoicesFromTheVoid1.razor">
+    <Content Update="Pages\VoicesFromTheVoid\OldArticles\VoicesFromTheVoid1.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\Nations\WIA.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Pages\_Host.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\site - Copy.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\css\site.css">
@@ -310,6 +641,55 @@
     <Content Update="wwwroot\Images\Zaleski_subsector.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TravellerCharacter\TravellerCharacter.csproj" />
+    <ProjectReference Include="..\TravellerGalaxyGenertor\TravellerGalaxyGenertor.csproj" />
+    <ProjectReference Include="..\TravellerWikiInfomationArticles\TravellerWikiInfomationArticles.csproj" />
+    <ProjectReference Include="..\VoicesFromTheVoidArticles\VoicesFromTheVoidArticles.csproj" />
+    <ProjectReference Include="..\WikiServices\WikiServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Factions\Classes.json" />
+    <_ContentIncludedByDefault Remove="Factions\Companies.json" />
+    <_ContentIncludedByDefault Remove="Factions\Criminals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Islands.json" />
+    <_ContentIncludedByDefault Remove="Factions\Legals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Majors.json" />
+    <_ContentIncludedByDefault Remove="Factions\Others.json" />
+    <_ContentIncludedByDefault Remove="Factions\Politicals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Classes.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Companies.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Criminals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Islands.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Legals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Majors.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Others.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Politicals.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Religions.json" />
+    <_ContentIncludedByDefault Remove="Factions\Real Json\Socials.json" />
+    <_ContentIncludedByDefault Remove="Factions\Religions.json" />
+    <_ContentIncludedByDefault Remove="Factions\Socials.json" />
+    <_ContentIncludedByDefault Remove="Items\Armours.json" />
+    <_ContentIncludedByDefault Remove="Items\Augments.json" />
+    <_ContentIncludedByDefault Remove="Items\Items.json" />
+    <_ContentIncludedByDefault Remove="Items\SpecialAmmo.json" />
+    <_ContentIncludedByDefault Remove="Items\Weapons.json" />
+    <_ContentIncludedByDefault Remove="SubsectorJson\NewIslands.json" />
+    <_ContentIncludedByDefault Remove="SubsectorJson\OldIslands.json" />
+    <_ContentIncludedByDefault Remove="SubsectorJson\OrenWastes3.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Generated" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,209 @@
+﻿@page "/Generators/TravellerNPCCrafter"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.NPC_Services
+@using TravellerCharacter.CharacterCreator.Items
+@using TravellerCharacter.CharcterTypes
+@inject TravellerNPCService NPCService
+@inject TravellerItemStoreService ItemStore
+
+    <head>
+        <title>NPC Crafter</title>
+        <meta property="og:title" content="Known Universe Wiki - NPC Crafter" />
+        <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerNPCCrafter/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta content="Sometimes you need a mob of guys with some gear, use the NPC Crafter to Craft those NPCs!" property="og:description" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
+
+<h1>NPC Crafter</h1>
+<p>
+<p>
+    Nationality: <select @bind="NationNameList">
+        <option>Federation</option>
+        <option>
+            Vers
+        </option>
+        <option>
+            Empire
+        </option>
+        <option>
+            Britannia
+        </option>
+        <option>Germushia</option>
+        <option>  Deutschland</option>
+        <option> XiaoMing</option>
+        <option>AxionAlliance</option>
+        <option> Any</option>
+    </select>
+    <br />
+</p>
+
+<p>
+    Background: <select @bind="NpcBackground">
+        @foreach (var item in Enum.GetValues(typeof(TravellerNPCBackgrounds)))
+        {
+            <option value="@((TravellerNPCBackgrounds) item)">@NPCService.GetBackgroundName((TravellerNPCBackgrounds)item)</option>
+        }
+    </select>
+
+    <br />
+    Career: <select @bind="NpcCareer">
+        @foreach (var item in Enum.GetValues(typeof(TravellerNPCCareers)))
+        {
+            <option value="@((TravellerNPCCareers) item)">@NPCService.GetCareerName((TravellerNPCCareers)item)</option>
+        }
+    </select>
+
+    <br />
+</p>
+
+@if (errorAddingItem)
+{
+    <h4 style="color: red">Error! Item [@ItemID] not found.</h4>
+}
+
+<p style="border: dimgrey; background: gray;border-width: 1px">
+    Items: <select list="items" @bind="ItemID">
+
+        @foreach (var item in ItemStore.ItemStore)
+        {
+            <option value="@item.Key">@item.Value.Name [@item.Value.TechLevel]</option>
+        }
+    </select>
+    <button @onclick="AddItem">Add Item</button>
+    <br />
+</p>
+
+<p>
+    Items: [
+    @{
+        var output = new StringBuilder();
+        foreach (var item in items)
+        {
+            output.Append(item.Name);
+            output.Append(", ");
+        }
+        if (output.Length > 1)
+        {
+            output.Remove(output.Length - 1, 1);
+        }
+        <b>@output.ToString()</b>
+    }]
+    <br />
+
+    Number of NPCs [@NPCCount]: <input type="range" @bind="NPCCount" min="1" max="100" step="1" />
+    <br />
+</p>
+<button class="" @onclick="AddNPC">Click me to Generate npcs</button>
+<br />
+        </p>
+<h2>Generated NPC's</h2>
+<table style="margin: 10px;">
+    <thead>
+        <tr>
+            <th style="padding: 10px;border-style: solid;text-align: center">Name</th>
+            <th style="padding: 10px;border-style: solid;text-align: center">UPP </th>
+            <th style="padding: 10px;border-style: solid;text-align: center">Background</th>
+            <th style="padding: 10px;border-style: solid;text-align: center">info</th>
+            <th style="padding: 10px;border-style: solid;text-align: center">Quirk</th>
+            <th style="padding: 10px;border-style: solid;text-align: center">Skills</th>
+            <th style="padding: 10px;border-style: solid;text-align: center">Items</th>
+            <th style="padding: 10px; border-style: solid;text-align: center">Copy</th>
+        </tr>
+    </thead>
+    @foreach (var npc in npcs)
+    {
+        <tbody style="color:#ffe81F">
+            <tr>
+                <td style="padding: 10px;border-style: solid;text-align: center">@npc.Name.Replace("_", " ")</td>
+                <td style="padding: 10px;border-style: solid;text-align: center">@npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex</td>
+
+                <td style="padding: 10px;border-style: solid;text-align: center">
+                    @npc.Background, @npc.Career.
+                </td>
+                <td style="padding: 10px;border-style: solid;text-align: center">@npc.PatronText</td>
+                <td style="padding: 10px;border-style: solid;text-align: center">@npc.QuirkText</td>
+                <td style="padding: 10px;border-style: solid;text-align: center">
+                    @{
+                        var skills = npc.SkillList.Select(skills
+                            => $"{skills.SkillName}:{skills.SkillValue}")
+                            .ToArray();
+
+                        foreach (var skill in skills)
+                        {
+                            var outSkill = skill + " ";
+                            @outSkill
+                        }
+                    }
+                </td>
+                <td style="padding: 10px;border-style: solid;text-align: center">
+                    @{
+                        var items = npc.Items.Select(item
+                            => $"{item}")
+                            .ToArray();
+
+                        foreach (var item in items)
+                        {
+                            var outSkill = item + ", ";
+                            @outSkill
+                        }
+                    }
+                </td>
+                <td>
+                    <input type="button"
+                           id="btnCopy"
+                           onClick="
+navigator.clipboard.writeText('@npc.ToString()').then(function() {
+    /* clipboard successfully set */
+}, function () {
+    alert('Umm, there was an error!'); }) " value="Copy" />
+                </td>
+            </tr>
+        </tbody>
+        <p></p>
+    }
+</table>
+
+
+@code {
+    private List<TravellerNPC> npcs = new List<TravellerNPC>();
+    private int NPCCount = 0;
+
+    private TravellerNameService.NationNameList NationNameList = TravellerNameService.NationNameList.Any;
+    private TravellerNPCBackgrounds NpcBackground;
+    private TravellerNPCCareers NpcCareer;
+    private List<TravellerItem> items = new List<TravellerItem>();
+    private int ItemID = 0;
+    private bool errorAddingItem = false;
+
+    public void AddItem()
+    {
+        var item = ItemStore.GetItem(ItemID);
+        if (item != null)
+        {
+            items.Add(item);
+            errorAddingItem = false;
+        }
+        else
+        {
+            errorAddingItem = true;
+        }
+    }
+
+    public void AddNPC()
+    {
+        for (int i = 0; i < NPCCount; i++)
+        {
+            npcs.Add(NPCService.GenerateNPC(NationNameList, NpcBackground, NpcCareer, items));
+        }
+        items = new List<TravellerItem>();
+    }
+
+
+}

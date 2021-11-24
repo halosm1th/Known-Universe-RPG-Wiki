@@ -1,0 +1,50 @@
+@page "/CharacterCreation/EventAssignment/{characterID}/{careerNameInput}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.Career_Service
+@using TravellerCharacter.CharacterCreator.Careers
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerCareerService CareerService;
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Event Assignment (9.5/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+    [Parameter]
+    public string careerNameInput { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    private string URL = "/CharacterCreation/RollAdvancement/";
+    public TravellerCareer GetCareer()
+    {
+        return CareerService.GetCareer(careerNameInput.Replace('_', ' '));
+    }
+
+}
+<body>
+
+    <div>
+        <h1>Traveller Character Creator</h1>
+        <h2>Select @GetService().Name's Assignment from event - @GetCareer().CareerName</h2>
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="9.5" max="17"></progress>
+        <div class="creatorMarkup">
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <CharacterCreationChangeAssignment characterID="@characterID" URL="@URL" careerNameInput="@careerNameInput" />
+        </div>
+    </div>
+</body>

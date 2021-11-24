@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -29,12 +30,17 @@ namespace SubsectorJsonGenerator
         public int Hydro { get; set; }
         public int Gov { get; set; }
         public int Pop { get; set; }
+        
+        public bool FuelDepo { get; set; }
+        public bool MilitaryBase { get; set; }
+        public bool OtherBase { get; set; }
 
         public int Law
         {
             get => _law;
             set => _law = value > 9? 9 : value;
         }
+        
 
         private int _law;
 
@@ -47,7 +53,7 @@ namespace SubsectorJsonGenerator
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var regex = new Regex(
-                @"(\w+)\s([1-8]):(\d+)\s([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])-([0-9a-fA-F])");
+                @"(\w+)\s([1-8]):(\d+)\s([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])-([0-9a-fA-F])\s([YN])([YN])([YN])");
             if (regex.IsMatch(UPP.Text))
             {
                 var parts = regex.Split(UPP.Text);
@@ -65,6 +71,10 @@ namespace SubsectorJsonGenerator
                 Gov= Int32.Parse(parts[9], NumberStyles.HexNumber);
                 Law= Int32.Parse(parts[10], NumberStyles.HexNumber);
                 Tech= Int32.Parse(parts[11], NumberStyles.HexNumber);
+                
+                FuelDepo = parts[12].ToUpper() == "Y";
+                MilitaryBase = parts[12].ToUpper() == "Y";
+                OtherBase = parts[12].ToUpper() == "Y";
 
                 DialogResult = true;
             }

@@ -1,5 +1,7 @@
 ﻿@page "/Career/"
+@using TravellerCharacter.Character_Services.Career_Service
 @using TravellerWiki.Data
+@using TravellerWiki.Data.Services.CareerService
 @model TravellerWiki.CareerModel
 @inject TravellerCareerService CareerService
 @{
@@ -10,17 +12,51 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
 
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <meta property="og:title" content="Known Universe Wiki - 
+        @if (Model.Career != null)
+        {
+            @Model.Career.CareerName;
+        }
+        else
+        {
+            @("Career");
+        }" />
+    <meta property="og:url" content="https://theseamnetwork.com/Career/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+    <meta content="
+        @if (Model.Career != null)
+        {
+            @Model.Career.CareerDescription
+        }
+        else
+        {
+            @("View the list of Careers available to your charactesr within the Known Universe.")
+        }" property="og:description" />
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
 
-    <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
+
+    <title>
+        @if (Model.Career != null)
+        {
+            @Model.Career.CareerName;
+        }
+        else
+        {
+            @("Career");
+        }
+</title>
+
+<base href="~/" />
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+<link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
-    @if (Model.Career != null)
-    {
-        var career = @Model.Career;
+@if (Model.Career != null)
+{
+    var career = @Model.Career;
     <a href="/Career/">
         <h1>@career.CareerName</h1>
     </a>
@@ -31,7 +67,7 @@
         <tr>
             <td>Nationality:</td>
             <td>
-                <a href="/CharacterCreation/NationInfoPage?nationName=@career.Nationality.NationName.Replace(" ", "_")">
+                <a href="/CharacterCreation/NationInfoPage?nationName=@career.Nationality.ToString().Replace(" ","_")">
                     @career.Nationality
                 </a>
             </td>
@@ -47,18 +83,11 @@
                 <ul>
                     @foreach (var qual in @career.Qualifications)
                     {
-                        <li>@qual.SkillName:@qual.BeatValue</li>
+                    <li>@qual.UnderlingAttribute.AttributeName:@qual.UnderlingAttribute.AttributableValue</li>
                     }
                 </ul>
             </td>
         </tr>
-        @if (career.Commission != null && career.Commission.HasCommision)
-        {
-            <tr>
-                <td>Commission:</td>
-                <td>@career.Commission.CommmsionCheck.ToString()</td>
-            </tr>
-        }
         @foreach (var assignment in career.Assignments)
         {
 
@@ -66,198 +95,159 @@
         }
     </table>
 
-        <h2>Mustering Out and Benefits</h2>
-        //Mustering out benefits table
-        <table style="text-align: center">
-            <thead>
-                <tr><th>1D</th><th>Cash</th><th>Benefits</th></tr>
-            </thead>
-            @{
-                int i = 1;
-            }
-            <tbody>
-                @foreach (var benefit in career.MusteringOutBenefits)
-                {
-                    <tr><td>@i</td><td>Cr @benefit.Cash </td><td>@benefit.Benefit</td></tr>
-                    i++;
-                }
-            </tbody>
-        </table>
-
-        //Skills tables
-        <h2>Skill Tables</h2>
-        <h3>Personal Development/Service Skills</h3>
-        <table style="text-align: center">
-            <thead>
-                <tr><th>1D</th><th style="padding: 2px">Personal Development Skills</th><th style="padding:2px">Service Skills</th></tr>
-            </thead>
-            <tbody>
-                @for (i = 0; i < career.PersonalDevelopmentSkillList.Count; i++)
-                {
-                    var personalSkill = career.PersonalDevelopmentSkillList[i];
-                    var serviceSkill = career.ServiceSkillsList[i];
-                    <tr>
-                        <td style="border: 2px;border-style: solid">@(i+1)</td>
-                        <td style="border: 2px;border-style: solid">@personalSkill</td>
-                        <td style="border: 2px;border-style: solid">@serviceSkill</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-        <h3>Assignment Skill & Survival/Advancement Tables</h3>
-        <table style="text-align: center">
-            <thead>
-                <tr><th>1D</th><th>@career.Assignments[0].Name</th><th>@career.Assignments[1].Name</th><th>@career.Assignments[2].Name</th></tr>
-            </thead>
-            <tbody>
-                @for (i = 0; i < @career.Assignments[0].SkillList.Count; i++)
-                {
-                    var assignment1 = career.Assignments[0].SkillList[i];
-                    var assignment2 = career.Assignments[1].SkillList[i];
-                    var assignment3 = career.Assignments[2].SkillList[i];
-                    <tr>
-                        <td style="margin: 2px;border-style: solid">@(i+1))</td>
-                        <td style="margin: 2px;border-style: solid">@assignment1</td>
-                        <td style="        margin: 2px;
-        border-style: solid">
-                            @assignment2
-                        </td>
-                        <td style="margin: 2px;border-style: solid">@assignment3</td>
-                    </tr>
-                }
-
-
-                <tr><th>Survival:</th><th>@career.Assignments[0].Survival</th><th>@career.Assignments[1].Survival</th><th>@career.Assignments[2].Survival</th></tr>
-                <tr><th>Advancement:</th><th>@career.Assignments[0].Advancement</th><th>@career.Assignments[1].Advancement</th><th>@career.Assignments[2].Advancement</th></tr>
-
-            </tbody>
-        </table>
-
-        @if (career.Commission?.HasCommision ?? false)
-        {
-            <h3>Commission Skills</h3>
-            <table style="text-align: center">
-                <thead>
-                    <tr><th>1D</th><th>Commission Skill list</th></tr>
-                </thead>
-                <tbody>
-                    @{ i = 1; }
-                    @foreach (var skill in career.Commission.CommissionSkillList)
-                    {
-                        <tr>
-                            <td>@i)</td>
-                            <td>@skill</td>
-                        </tr>
-                        i++;
-                    }
-                </tbody>
-            </table>
+    <h2>Mustering Out and Benefits</h2>
+    //Mustering out benefits table
+    <table style="text-align: center;">
+        <thead>
+        <tr><th style="width:2%">1D</th><th style="width:10%">Cash</th><th style="">Benefits</th></tr>
+        </thead>
+        @{
+            int i = 1;
         }
-        @if (career.AdvancedEducationSkillList != null)
+        <tbody>
+        @foreach (var benefit in career.MusteringOutBenefits)
         {
-            <h3>Advanced Education Skills</h3>
-            <table style="text-align: center">
-                <thead>
-                    <tr><th>1D</th><th>Advanced Education Skill list</th></tr>
-                </thead>
-                <tbody>
-                    @{ i = 1; }
-                    @foreach (var skill in career.AdvancedEducationSkillList)
-                    {
-                        <tr>
-                            <td>@i)</td>
-                            <td>@skill</td>
-                        </tr>
-                        i++;
-                    }
-                </tbody>
-            </table>
+            <tr><td>@i</td><td>Cr @benefit.Cash </td><td>@benefit.Benefit</td></tr>
+            i++;
+        }
+        </tbody>
+    </table>
+
+    //Skills tables
+    <h2>Skill Tables</h2>
+    <h3>Personal Development/Service Skills</h3>
+    <table style="text-align: center">
+        <thead>
+        <tr><th>1D</th><th style="padding: 2px">Personal Development Skills</th><th style="padding:2px">Service Skills</th></tr>
+        </thead>
+        <tbody>
+        @for (i = 0; i < career.PersonalDevelopmentSkillList.Count; i++)
+        {
+            var personalSkill = career.PersonalDevelopmentSkillList[i];
+            var serviceSkill = career.ServiceSkillsList[i];
+            <tr>
+                <td style="border: 2px;border-style: solid">@(i+1)</td>
+                <td style="border: 2px;border-style: solid">@personalSkill</td>
+                <td style="border: 2px;border-style: solid">@serviceSkill</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <h3>Assignment Skill & Survival/Advancement Tables</h3>
+    <table style="text-align: center">
+        <thead>
+        <tr><th>1D</th><th>@career.Assignments[0].Name</th><th>@career.Assignments[1].Name</th><th>@career.Assignments[2].Name</th></tr>
+        </thead>
+        <tbody>
+        @for (i = 0; i < @career.Assignments[0].SkillList.Count; i++)
+        {
+            var assignment1 = career.Assignments[0].SkillList[i];
+            var assignment2 = career.Assignments[1].SkillList[i];
+            var assignment3 = career.Assignments[2].SkillList[i];
+            <tr>
+                <td style="margin: 2px;border-style: solid">@(i+1))</td>
+                <td style="margin: 2px;border-style: solid">@assignment1</td>
+                <td style="        margin: 2px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          border-style: solid">
+                    @assignment2
+                </td>
+                <td style="margin: 2px;border-style: solid">@assignment3</td>
+            </tr>
         }
 
 
-        //Events tables
-        <h3>Events Table</h3>
-        <table>
-            <thead style="text-align: center">
-                <tr><th>#</th><th>Events</th></tr>
-            </thead>
-            <tbody>
-                @{ i = 2;}
-                @foreach (var eventText in career.Events)
-                {
-                    <tr>
-                        <td>@i)</td>
-                        <td>@eventText.EventText</td>
-                    </tr>
-                    i++;
-                }
-            </tbody>
-        </table>
+        <tr><th>Survival:</th><th>@career.Assignments[0].Survival</th><th>@career.Assignments[1].Survival</th><th>@career.Assignments[2].Survival</th></tr>
+        <tr><th>Advancement:</th><th>@career.Assignments[0].Advancement</th><th>@career.Assignments[1].Advancement</th><th>@career.Assignments[2].Advancement</th></tr>
 
-        //Mishaps Table
-        <h3>Mishaps Table</h3>
-        <table>
-            <thead style="text-align: center">
-                <tr><th>#</th><th>Mishap</th></tr>
-            </thead>
-            <tbody>
-                @{i = 1;}
-                @foreach (var mishap in career.Mishaps)
-                {
-                    <tr>
-                        <td>@i)</td>
-                        <td>@mishap.EventText</td>
-                    </tr>
-                    i++;
-                }
-            </tbody>
-        </table>
-
-        //Ranks bonuses tables
-        <h2>Ranks and Bonuses</h2>
+        </tbody>
+    </table>
 
 
-        <h3>Assignment Ranks and Bonus' Tables</h3>
-        <table style="text-align: center">
-            <thead>
-                <tr><th>Rank</th><th>@career.Assignments[0].Name Title</th><th>Bonus</th><th>@career.Assignments[1].Name Title</th><th>Bonus</th><th>@career.Assignments[2].Name Title</th><th>Bonus</th></tr>
-            </thead>
-            <tbody>
-                @for (i = 0; i < @career.Assignments[0].RanksAndBonuses.Count; i++)
-                {
-                    var assignment1RandAndBonus = career.Assignments[0].RanksAndBonuses[i];
-                    var assignment2RandAndBonus = career.Assignments[1].RanksAndBonuses[i];
-                    var assignment3RandAndBonus = career.Assignments[2].RanksAndBonuses[i];
-                    <tr>
-                        <td style="margin: 2px;border-style: solid">@(i + 1))</td>
-                        <td style="margin: 2px;border-style: solid">@assignment1RandAndBonus.title</td>
-                        <td style="margin: 2px;border-style: solid">@assignment1RandAndBonus.TravellerCharacterCreationReward.ToString()</td>
-                        <td style="margin: 2px;border-style: solid">@assignment2RandAndBonus.title</td>
-                        <td style="margin: 2px;border-style: solid">@assignment2RandAndBonus.TravellerCharacterCreationReward.ToString()</td>
-                        <td style="margin: 2px;border-style: solid">@assignment3RandAndBonus.title</td>
-                        <td style="margin: 2px;border-style: solid">@assignment3RandAndBonus.TravellerCharacterCreationReward.ToString()</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <h1>Careers</h1>
-        <ul>
-            @foreach (var careerNames in CareerService.GetCareers.OrderBy(career => career.Nationality.NationName))
-            {
+    //Events tables
+    <h3>Events Table</h3>
+    <table>
+        <thead style="text-align: center">
+        <tr><th style="border-style: solid; border-width: 1px; padding: 3px;">#</th><th style="border-style: solid; border-width: 1px; padding: 3px;">Events</th></tr>
+        </thead>
+        <tbody>
+        @{ i = 2;}
+        @foreach (var eventText in career.Events)
+        {
+            <tr>
+                <td style="border-style: solid; border-width: 1px;padding: 3px;">@i)</td>
+                <td style="border-style: solid; border-width: 1px;padding: 3px;">@eventText</td>
+            </tr>
+            i++;
+        }
+        </tbody>
+    </table>
 
-                <li>
-                    <a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality.NationName">@careerNames.Nationality.NationName</a>
-                    <p>@careerNames.CareerDescription</p>
-                </li>
-            }
-        </ul>
-    }
+    //Mishaps Table
+    <h3>Mishaps Table</h3>
+    <table>
+        <thead style="text-align: center">
+        <tr><th>#</th><th>Mishap</th></tr>
+        </thead>
+        <tbody>
+        @{i = 1;}
+        @foreach (var mishap in career.Mishaps)
+        {
+            <tr>
+                <td>@i)</td>
+               
+                <td>@mishap</td>
+            </tr>
+            i++;
+        }
+        </tbody>
+    </table>
+
+    //Ranks bonuses tables
+    <h2>Ranks and Bonuses</h2>
+
+
+    <h3>Assignment Ranks and Bonus' Tables</h3>
+    <table style="text-align: center">
+        <thead>
+        <tr><th>Rank</th><th>@career.Assignments[0].Name Title</th><th>Bonus</th><th>@career.Assignments[1].Name Title</th><th>Bonus</th><th>@career.Assignments[2].Name Title</th><th>Bonus</th></tr>
+        </thead>
+        <tbody>
+        @for (i = 0; i < @career.Assignments[0].RanksAndBonuses.Count; i++)
+        {
+            var assignment1RandAndBonus = career.Assignments[0].RanksAndBonuses[i];
+            var assignment2RandAndBonus = career.Assignments[1].RanksAndBonuses[i];
+            var assignment3RandAndBonus = career.Assignments[2].RanksAndBonuses[i];
+            <tr>
+                <td style="margin: 2px;border-style: solid">@(i + 1))</td>
+                <td style="margin: 2px;border-style: solid">@assignment1RandAndBonus.title</td>
+                <td style="margin: 2px;border-style: solid">@assignment1RandAndBonus.TravellerCharacterCreationReward.ToString()</td>
+                <td style="margin: 2px;border-style: solid">@assignment2RandAndBonus.title</td>
+                <td style="margin: 2px;border-style: solid">@assignment2RandAndBonus.TravellerCharacterCreationReward.ToString()</td>
+                <td style="margin: 2px;border-style: solid">@assignment3RandAndBonus.title</td>
+                <td style="margin: 2px;border-style: solid">@assignment3RandAndBonus.TravellerCharacterCreationReward.ToString()</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>Careers</h1>
+    <ul>
+        @foreach (var careerNames in CareerService.GetCareers().OrderBy(career => career.Nationality))
+        {
+
+            <li>
+                <a href="/Career?career=@careerNames.CareerName">@careerNames.CareerName </a> - <a href="/CharacterCreation/NationInfoPage?nationName=@careerNames.Nationality">@careerNames.Nationality</a>
+                <p>@careerNames.CareerDescription</p>
+            </li>
+        }
+    </ul>
+}
 <a href="/Career/">Go back to the Careers Page</a>
 
-    <h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
+<h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
 
 </body>
+</html>

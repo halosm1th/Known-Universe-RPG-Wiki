@@ -1,0 +1,96 @@
+﻿@page "/Generators/TravellerSkillChoiceCrafter"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Careers.SkillEntry
+@using TravellerCharacter.CharacterParts
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using TravellerWiki.Pages.Generators.Career_Creator
+@using TravellerWiki.Pages.Generators
+@inject TravellerCareerCreatorService CareerCreator
+
+    <div style="text-align: center;">
+        @if (finished)
+        {
+            <p>@Entry.ToString()</p>
+        }
+        else { 
+            @if (!HasChosenButtonOrSkill)
+            {
+                <button type="button" @onclick="ChooseSkill">Skill</button>
+                <button type="button" @onclick="ChooseAttribute">Attribute</button>
+            }
+            else
+            {
+                if (HasChosenSkill)
+                {
+                    <select @bind="PickedSkill">
+                            @foreach (var skill in Enum.GetValues(typeof(TravellerSkills)))
+                            {
+                                <option value="@skill">@skill</option>
+                            }
+                        </select>
+                    <button type="button" @onclick="SaveSkill">Save Skill</button>
+                }
+                else
+                {
+
+                    <select @bind="PickedAttribute">
+                            @foreach (var attr in Enum.GetValues(typeof(TravellerAttributes)))
+                            {
+                                <option value="@attr">@attr</option>
+                            }
+                        </select>
+
+                    <button type="button" @onclick="SaveAttribute">Save Attribute</button>
+                }
+            }
+        }
+    </div>
+
+@code {
+    bool HasChosenButtonOrSkill = false;
+    bool HasChosenSkill = false;
+
+    bool finished = false;
+
+
+    TravellerSkills PickedSkill;
+    TravellerAttributes PickedAttribute;
+    TravellerSkillTableEntry Entry;
+
+    public void SaveAttribute()
+    {
+        var entry = new TravellerSkillTableEntryAttribute(PickedAttribute);
+        SaveValue( entry);
+        finished = true;
+    }
+
+    public void SaveSkill()
+    {
+        var entry = new TravellerSkillTableEntrySkill(PickedSkill);
+        SaveValue( entry);
+        finished = true;
+    }
+
+    private void SaveValue(TravellerSkillTableEntry entry)
+    {
+        Entry = entry;
+        CareerCreator.AssignmentSkillTable.Add(entry);
+    }
+
+    public void ChooseSkill()
+    {
+        HasChosenButtonOrSkill = true;
+        HasChosenSkill = true;
+    }
+
+    public void ChooseAttribute()
+    {
+        HasChosenButtonOrSkill = true;
+        HasChosenSkill = false;
+    }
+}

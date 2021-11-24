@@ -1,0 +1,47 @@
+﻿@page "/Generators/TravellerRankCrafter"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using TravellerWiki.Pages.Generators.Career_Creator
+@using TravellerWiki.Pages.Generators
+@inject TravellerCareerCreatorService CareerCreator
+
+<div style="text-align: center;">
+    <div>
+        <label for="rankTitle">Title:</label>
+        <input type="text" id="rankTitle" @bind="rank" />
+
+        <label for="Reward">Reward</label>
+
+        <button @onclick="AddRank">Add Rank</button>
+    </div>
+
+    <table style="margin-left: auto;margin-right: auto;">
+        <thead>
+            <tr><th>Rank</th><th>Reward</th></tr>
+        </thead>
+        <tbody>
+            @foreach(var v in CareerCreator.AssignmentRanks)
+            {
+                <tr><td>@v.title</td><td>@v.perk</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    public string rank { get; set; }
+
+    public TravellerCharacterCreationReward reward;
+
+    public void AddRank()
+    {
+
+    }
+
+}

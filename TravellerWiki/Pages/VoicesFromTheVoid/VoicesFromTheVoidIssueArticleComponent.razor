@@ -1,0 +1,41 @@
+@page "/VoicesFromTheVoid/IssueArticleComponent/"
+@using System.Transactions
+@using VoicesFromTheVoidArticles
+@inject TravellerVoicesFromTheVoidService VoicesService
+@code{
+
+    [Parameter]
+    public VoicesFromTheVoidArticle Article { get; set; }
+
+    public string GetBackgroundColour()
+        => Article.Publisher switch
+        {
+            IslandsSectorPublishers.Travellers_Aid_Society => "Red",
+            IslandsSectorPublishers.Univeralis_Confederation_Bulletin => "DarkGreen",
+            IslandsSectorPublishers.Voices_From_The_Void => "Black",
+            _ => "Blue"
+            };
+
+}
+
+<div style="background: @GetBackgroundColour()">
+    <details>
+        <summary style="color: #ffe81F;background-color: #595B63;font-size: 1.5em;margin: 0;padding: 2px 2px 2px 14px;border-style: solid;border-bottom-width: 0.5em;border-bottom-color: #A7A7A7;">
+            @Article.ArticleName
+        </summary>
+    <p style="font-size:smaller;border: 4px solid #A7A7A7;background-color: #595B63;padding: 2px">@Article.ArticleAuthor, @Article.PublishersName, (Published on @Article.PublicationDate)</p>
+
+    @foreach (var paragraph in Article.Paragraphs)
+    {
+        @((MarkupString) Markdig.Markdown.ToHtml(paragraph))
+    }
+    <div style="text-align: center;">
+        <p>
+            <a href="/VoicesFromTheVoid/Articles/@Article.ArticleID.ToString()" class="moveA nextArticle">View Article Alone.</a>
+        </p>
+        </div>
+    <br/>
+    
+    </details>
+</div>
+

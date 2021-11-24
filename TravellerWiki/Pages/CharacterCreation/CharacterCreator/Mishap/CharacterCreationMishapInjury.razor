@@ -1,0 +1,37 @@
+@page "/CharacterCreation/MishapInjury/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Mishap Injury (9.5/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    private string URL = "/CharacterCreation/GenerateBenefit/";
+}
+<body>
+
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Select @GetService().Name's - Mishap Injury</h2>
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="9.5" max="17"></progress>
+        <CharacterCreationDrawStats CharacterID="@characterID" />
+        <CharacterCreationInjury CharacterID="@characterID" NextURL="@URL" />
+    </div>
+</body>

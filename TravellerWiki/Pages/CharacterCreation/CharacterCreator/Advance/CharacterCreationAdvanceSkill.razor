@@ -1,0 +1,134 @@
+@page "/CharacterCreation/GetAdvanceSkill/{characterID}/"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.Career_Service
+@using TravellerCharacter.CharacterCreator.Careers.SkillEntry
+@using TravellerCharacter.CharacterParts
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerCareerService CareerService;
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Advance Skill (11/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public bool isSuperSkill = false;
+    public bool HasChosenSkillTable = false;
+    public int chosenSkillTable = -1;
+    public int roll;
+    public string ChosenSkillTableName = "";
+
+
+    public void ApplySkill(TravellerSkillTableEntry skill)
+    {
+
+        GetService().ApplySkillTableResult(skill);
+        HasChosenSkillTable = true;
+        chosenSkillTable = -1;
+        ChosenSkillTableName = "";
+    }
+
+    public TravellerSkills ChosenSubSkill;
+    public TravellerSkills SuperSkill;
+    public void SelectSubSkill()
+    {
+        ApplySkill(new TravellerSkillTableEntrySkill(ChosenSubSkill));
+    }
+
+    public void RollSkill()
+    {
+        var skillTable = GetChosenSkillTable();
+
+        roll = GetService().RollOnSkillTable();
+        var skill = skillTable[roll];
+        if (GetService().IsSkill(skill) && GetService().IsSuperSkill(skill))
+        {
+            isSuperSkill = true;
+            SuperSkill = ((TravellerSkillTableEntrySkill)skill).Skill;
+        }
+        else
+        {
+            ApplySkill(skill);
+        }
+    }
+
+    private List<TravellerSkillTableEntry> GetChosenSkillTable()
+    {
+        return chosenSkillTable switch
+        {
+            0 => GetService().LastCareer.PersonalDevelopmentSkillList,
+            1 => GetService().LastCareer.ServiceSkillsList,
+            2 => GetService().LastAssignment.SkillList,
+            _ => GetService().LastCareer.PersonalDevelopmentSkillList
+        };
+    }
+
+
+    public void DonePickingSkills()
+    {
+        if (GetService().HardAdvanced) NavManager.NavigateTo($"/CharacterCreation/Aging/{characterID}");
+        else NavManager.NavigateTo($"/CharacterCreation/LeaveCareer/{characterID}");
+    }
+
+}
+<body>
+    <div>
+        <h1>Traveller Character Creator</h1>
+        <div class="creatorMarkup">
+            <h2>Roll Advance Skill - @GetService().LastCareer.CareerName - @GetService().Name </h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="11" max="17"></progress>
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            <div style="padding-left: 2em;">
+                @if (!HasChosenSkillTable && !isSuperSkill)
+                {
+                    <p>Select a skill table to roll on: </p>
+                    <select @bind="chosenSkillTable">
+                        <option value="0">Personal Development</option>
+                        <option value="1">Service Skills</option>
+                        <option value="2">@GetService().LastAssignment.Name</option>
+                    </select>
+                    <ol>
+
+                        @foreach (var skill in GetChosenSkillTable())
+                        {
+                            <li>@skill.Name</li>
+                        }
+                    </ol>
+                    <button @onclick="RollSkill">Roll on table</button>
+                }
+                else if (!HasChosenSkillTable && isSuperSkill)
+                {
+                    <h4>@SuperSkill</h4>
+                    <p>This is a skill with subskills, please pick one to specialized in.</p>
+                    <select @bind="ChosenSubSkill">
+                        @foreach (var subskill in GetService().GetSubSkills(SuperSkill))
+                        {
+                            <option value="@subskill">@subskill</option>
+                        }
+                    </select>
+                    <button @onclick="SelectSubSkill">Select Subskill</button>
+                }
+                else
+                {
+                    <p>Finished Gaining skill: @(isSuperSkill ? @ChosenSubSkill : @SuperSkill)</p>
+                    <button @onclick="DonePickingSkills">Done picking skills</button>
+                }
+            </div>
+        </div>
+    </div>
+</body>

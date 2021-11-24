@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TravellerCharacter.Character_Services;
 using TravellerWiki.Data;
 
 namespace TravellerWiki
@@ -16,7 +17,7 @@ namespace TravellerWiki
         [BindProperty] public TravellerNameService.NationNameList NameList { get; set; }
 
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPostAsync()
         {
             var temp = new TravellerNameService();
             ListOfNames = temp.GetNames(NumberOfNames, NameList);

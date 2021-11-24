@@ -1,0 +1,29 @@
+@page "/Languages/HighVersianLangauge/Words"
+@using WikiServices.DataServices
+@using WikiServices.SimpleServiceDriverCode
+@inject HighVersianService highVersian
+<head>
+    <title>High Versian</title>
+</head>
+<style>
+    .high {
+        font-family: 'high_versianregular';
+    }
+</style>
+
+<body>
+    <h1>High Versian Words</h1>
+    <a href="/Languages/HighVersianLangauge/">Back to language page.</a>
+    <p>The complete list of words in High Versian that are in the dictionary as common parlace beyond just being combind stuff. (IE I actually used them a bit)</p>
+    @foreach (var letter in highVersian.Letters())
+    {
+        <h5><b class="high">@letter.ToString() (@highVersian.Words.Count(x => x.Letters.StartsWith(letter.ToString())).ToString())</b></h5>
+            <ul>
+                @foreach (var word in highVersian.Words.Where(x => x.Letters.StartsWith(letter.ToString())))
+                {
+                    <li><b class="high">@word.Letters</b>: @word.Meaning</li>
+                }
+            </ul>
+    }
+
+</body>

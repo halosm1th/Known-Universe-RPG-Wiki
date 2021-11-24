@@ -3,10 +3,23 @@
 @using TravellerWiki.Data
 @using System.Linq;
 @using System.Text
-@using JobBoardCreator
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.NPC_Services
+@using WikiServices.DataServices
+@using WikiServices.SimpleServiceDriverCode
 @inject TravellerMissionGeneratorService MissionGenerator
 @inject TravellerSpecialNPCService NPCService
 
+    <head>
+        <title>Mission Generator</title>
+        <meta property="og:title" content="Known Universe Wiki - Mission Generator" />
+        <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerMissionGenerator/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta content="Generate missions for your travellers to undergo in the Known Universe." property="og:description" />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
 <h1>Mission Generator</h1>
 
 <input type="number" @bind="numberOfMissions" />
@@ -62,13 +75,13 @@
 
                                     var s = sb.ToString(); }
                             <div style="display: none;"> @s</div>
-                            <input type="button" 
-                                   id="btnCopy" 
-                                   onClick="
-    navigator.clipboard.writeText('@s').then(function() {
-                            /* clipboard successfully set */
-    }, function () {
-            alert('Umm, there was an error!'); }) "  value="Copy"/>
+                                <input type="button"
+                                       id="btnCopy"
+                                       onClick="
+navigator.clipboard.writeText('@s').then(function() {
+    /* clipboard successfully set */
+}, function () {
+    alert('Umm, there was an error!'); }) " value="Copy" />
                         </td>
                     </tr>
 

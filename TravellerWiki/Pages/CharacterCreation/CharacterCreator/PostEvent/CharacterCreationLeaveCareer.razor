@@ -1,0 +1,50 @@
+@page "/CharacterCreation/LeaveCareer/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Leave Career (14/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void LeaveCareer()
+    {
+        GetService().LeaveCareer();
+        NavManager.NavigateTo($"/CharacterCreation/GenerateBenefit/{characterID}");
+    }
+
+
+    public void StayInCareer()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/Finished/{characterID}");
+    }
+
+}
+<body>
+<h1>Traveller Character Creator</h1>
+
+<div class="creatorMarkup">
+    <h2>Select @GetService().Name's - Leave Career</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="14" max="17"></progress>
+    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <div style="padding-left: 2em;">
+        <p>Would you like to: <button @onclick="StayInCareer">Continue in your current Career</button> or <button @onclick="LeaveCareer">Leave your current Career</button> </p>
+    </div>
+</div>
+</body>

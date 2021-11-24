@@ -1,0 +1,46 @@
+@page "/Languages/HighVersianLangauge/Postfix/"
+@using WikiServices.DataServices
+@using WikiServices.SimpleServiceDriverCode
+@inject HighVersianService highVersian
+<head>
+    <title>High Versian - @Postfix</title>
+</head>
+<style>
+    .high {
+        font-family: 'high_versianregular';
+    }
+</style>
+
+@code
+{
+
+    [Parameter]
+    public string Postfix { get; set; }
+
+    public HighVersianDefinition _postfix => GetPostfix();
+
+    public HighVersianDefinition GetPostfix()
+    {
+        return highVersian.Postfixes.FirstOrDefault(x => x.Letters.ToUpper() == Postfix.ToUpper());
+    }
+
+
+}
+
+<body>
+    <h1>High Versian Postfix</h1>
+    <p>These are the postfix of the High Versian Language</p>
+    <ul>
+        @foreach (var letter in highVersian.Postfixes.OrderBy(x => x.Letters.First()))
+        {
+
+            <li>
+
+                <a href="/Languages/HighVersianLangauge/Postfix/@letter.Letters">
+                    <b class="high">@letter.Letters.ToUpper()</b>: @letter.Meaning
+                </a>
+            </li>
+        }
+    </ul>
+
+</body>

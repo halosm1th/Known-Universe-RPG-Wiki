@@ -1,0 +1,35 @@
+﻿@page "/Generators/TravellerQualificationCrafter"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.NPC_Services
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using TravellerWiki.Pages.Generators.Career_Creator
+@using TravellerWiki.Pages.Generators
+@inject TravellerCareerCreatorService CareerCreator
+@inject TravellerNPCService NPCService
+@inject TravellerItemStoreService ItemStore
+
+<div style="text-align: center;">
+    <h3>Qualification List:</h3>
+    <ul>
+        @foreach (var qual in CareerCreator.QualificationChecks)
+        {
+            <li>@qual</li>
+        }
+    </ul>
+    <div>
+        <b>Qualification </b>
+        
+            <TravellerAttributeCheckCrafter ListToAddTo="@CareerCreator.QualificationChecks" />
+        
+        
+    </div>
+</div>
+
+@code {
+
+}

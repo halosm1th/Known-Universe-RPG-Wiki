@@ -1,0 +1,32 @@
+﻿@page "/Generators/TravellerSkillTableCrafter"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using TravellerCharacter.Character_Services
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using TravellerWiki.Pages.Generators.Career_Creator
+@using TravellerWiki.Pages.Generators
+@inject TravellerCareerCreatorService CareerCreator
+
+<div style="text-align: center;">
+    <table style="margin-left: auto;margin-right: auto;">
+        <thead>
+            <tr><th>#</th><th>Skill or Attribute</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><TravellerSkillChoiceCrafter></TravellerSkillChoiceCrafter></td></tr>
+            <tr><td>2</td><td><TravellerSkillChoiceCrafter></TravellerSkillChoiceCrafter></td></tr>
+            <tr><td>3</td><td><TravellerSkillChoiceCrafter></TravellerSkillChoiceCrafter></td></tr>
+            <tr><td>4</td><td><TravellerSkillChoiceCrafter></TravellerSkillChoiceCrafter></td></tr>
+        <tr><td>5</td><td><TravellerSkillChoiceCrafter></TravellerSkillChoiceCrafter></td></tr>
+            <tr><td>6</td><td><TravellerSkillChoiceCrafter></TravellerSkillChoiceCrafter></td></tr>
+        </tbody>
+    </table>
+</div>
+
+@code {
+
+
+}

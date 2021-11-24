@@ -1,0 +1,121 @@
+@page "/CharacterCreation/BackgroundSkills/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterParts
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Background Skills (4/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    public void DoneBackgroundSkills()
+    {
+        NavManager.NavigateTo($"/CharacterCreation/ChooseCareer/{characterID}");
+    }
+
+
+    List<TravellerSkill> backgroundSkills = new List<TravellerSkill>();
+    int chosenBackgroundSkill = -1;
+    private int GetFirstUnusedBackgroundSkill()
+    {
+        var skillList = GetService().GetBackgoundSkills(GetService().Nationality);
+        foreach (var skill in skillList)
+        {
+            if (!backgroundSkills.Any(x => x.SkillName == skill.Value.SkillName))
+            {
+                return skill.Key;
+            }
+        }
+
+        return -1;
+    }
+
+    public void AddBackgroundSkill()
+    {
+        var skillList = GetService().GetBackgoundSkills(GetService().Nationality);
+        if (chosenBackgroundSkill == -1 || backgroundSkills.Any(x => x.SkillName == skillList[chosenBackgroundSkill].SkillName))
+        {
+            chosenBackgroundSkill = GetFirstUnusedBackgroundSkill();
+        }
+
+
+        backgroundSkills.Add(new TravellerSkill(skillList[chosenBackgroundSkill].SkillName, 0));
+    }
+
+    public void SaveSkills()
+    {
+        GetService().ApplyBackgroundSkills(backgroundSkills);
+        DoneBackgroundSkills();
+    }
+
+    public void ClearSkills()
+    {
+        backgroundSkills = new List<TravellerSkill>();
+    }
+
+}
+<body>
+<h1>Traveller Character Creator</h1>
+<div class="creatorMarkup">
+    <h2>Background skills - @GetService().Name - @GetService().Nationality.NationName</h2>
+    <label for="CharacterProgress">Character Creation Progress: </label>
+    <progress id="CharacterProgess" value="4" max="17"></progress>
+
+    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <div style="padding-left: 2em;">
+        <p>Already Chosen:@(backgroundSkills.Count > 0 ? backgroundSkills.Aggregate("", (h, t) => h + ", " + t).Remove(0, 1) : "None")</p>
+        @if (backgroundSkills.Count < GetService().NumberOfTravellerBackgroundSKills)
+        {
+            var skillList = GetService().GetBackgoundSkills(GetService().Nationality);
+            <p>
+                Select Background Skill (@(backgroundSkills.Count + 1)/@(GetService().NumberOfTravellerBackgroundSKills)):
+                <select @bind="chosenBackgroundSkill">
+                    @foreach (var skill in skillList)
+                    {
+                        if (backgroundSkills.All(x => x.SkillName != skill.Value.SkillName))
+                        {
+                            <option value="@skill.Key">@skill.Value</option>
+                        }
+                    }
+                </select>
+                <button @onclick="AddBackgroundSkill">Add skill</button>
+            </p>
+        }
+        else
+        {
+            <p>Confirm these are the skills you want</p>
+            <ul>
+                @foreach (var skill in backgroundSkills)
+                {
+                    <li>
+                        <details style="padding: 1px">
+                            <summary>
+                                @skill.SkillName
+                            </summary>
+                            @skill.SkillDescriptionText
+                        </details>
+                    </li>
+                }
+            </ul>
+            <button @onclick="SaveSkills">Save Skills</button>
+            <button @onclick="ClearSkills">Clear Skills</button>
+        }
+    </div>
+</div>
+</body>

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TravellerWiki.Data;
-using static TravellerWiki.Data.TravellerFreeFormMagicSystemsService;
+using WikiServices.InformationServices;
 
 namespace TravellerWiki
 {
@@ -26,7 +22,6 @@ namespace TravellerWiki
         private bool _hasSpell = false;
         [BindProperty] public string SpellText { get; set; }
 
-        [HttpGet]
         public void OnGet(int nation, int plane, int action,int target, int modifier, int requestedSpell = 0)
         {
             if (requestedSpell == 1)

@@ -1,0 +1,50 @@
+
+
+@page "/Languages/HighVersianLangauge/Postfix/{Postfix}"
+@using WikiServices.DataServices
+@using WikiServices.SimpleServiceDriverCode
+@inject HighVersianService highVersian
+<head>
+    <title>High Versian - @Postfix</title>
+</head>
+<style>
+    .high {
+        font-family: 'high_versianregular';
+    }
+</style>
+
+@code
+{
+
+    [Parameter]
+    public string Postfix { get; set; }
+
+    public HighVersianDefinition _postfix => GetPostfix();
+
+    public HighVersianDefinition GetPostfix()
+    {
+        return highVersian.Postfixes.FirstOrDefault(x => x.Letters.ToUpper() == Postfix.ToUpper());
+    }
+
+    public HighVersianDefinition GenerateWord(HighVersianDefinition prefix, HighVersianDefinition root )
+    {
+        return highVersian.GetWord(prefix.Letters, root.Letters, _postfix.Letters);
+    }
+
+}
+
+<body>
+    <h1>High Versian: <div class="high">@_postfix.Letters</div> </h1>
+    <a href="/Languages/HighVersianLangauge/">Back to language page.</a>
+    <p><b class="high">@_postfix.Letters</b> (@_postfix.Letters): @_postfix.Meaning</p>
+    <ul>
+        @foreach (var word in highVersian.Words.Where(word => word.Letters.ToUpper().EndsWith(_postfix.Letters.ToUpper()))  ?? new List<HighVersianDefinition>() )
+        {
+            <li>
+                <b class="high">@word.Letters</b>: @word.Meaning
+            </li>
+        }
+    </ul>
+
+
+</body>

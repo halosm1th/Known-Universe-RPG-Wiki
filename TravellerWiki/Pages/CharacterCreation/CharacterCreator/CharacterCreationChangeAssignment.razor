@@ -1,0 +1,86 @@
+@page "/CharacterCreation/ChangeAssignment/{characterID}/{careerNameInput}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.Character_Services.Career_Service
+@using TravellerCharacter.CharacterCreator.Careers
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerCareerService CareerService;
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+    [Parameter]
+    public string careerNameInput { get; set; }
+    [Parameter]
+    public string URL { get; set; }
+
+    string assignmentName = "";
+    TravellerAssignment chosenAssignment = null;
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+
+    public void selectAssignment()
+    {
+        var assignments = GetCareer().Assignments;
+        if (assignmentName == "")
+        {
+            chosenAssignment = assignments.First();
+        }
+        else
+        {
+            chosenAssignment = assignments.First(x => x.Name == assignmentName);
+        }
+        GetService().JoinCareer(GetCareer(), chosenAssignment);
+        DoneMishapAssignment();
+    }
+
+    public void DoneMishapAssignment()
+    {
+        GetService().GainBenefitForTerm();
+        NavManager.NavigateTo(URL + characterID);
+    }
+
+    public TravellerCareer GetCareer()
+    {
+        return CareerService.GetCareer(careerNameInput.Replace('_', ' '));
+    }
+
+}
+        <div style="padding-left: 2em;">
+            <p>
+                @GetService().LastEvent.EventText
+            </p>
+            <p>
+                @GetCareer().CareerName Assignments:
+                <ul>
+                    @foreach (var assignment in GetCareer().Assignments)
+                    {
+                        <li>@assignment.Name - @assignment.Description</li>
+                    }
+                </ul>
+            </p>
+            <p>
+                Select an Assignment:
+                <select @bind="assignmentName">
+                    @foreach (var assignment in GetCareer().Assignments)
+                    {
+                        <option value="@assignment.Name">@assignment.Name</option>
+                    }
+                </select>
+                <button @onclick="selectAssignment">Select Assignment & Join</button>
+            </p>
+        </div>

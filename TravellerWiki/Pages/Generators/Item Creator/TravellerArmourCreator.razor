@@ -1,0 +1,96 @@
+﻿@page "/Generators/TravellerArmourCreator"
+
+@using TravellerWiki.Data
+@using System.Linq;
+@using System.Text
+@using Newtonsoft.Json
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.Items
+@inject TravellerItemStoreService ItemStore
+
+<title>Armour Creator</title>
+
+
+<h2>Traveller Armour Creator</h2>
+<div style="border-width: 1px; border: lightgray; border-style: solid; background: gray;">
+    @if (weapon == null)
+    {
+        <p style="text-align: center">
+            <b>Name</b> <br /> <input type="text" @bind="Name" /><br />
+            <b>Cost</b> <br /> <input type="number" @bind="Cost" /><br />
+            <b>Weight in KG</b> <br /> <input type="number" @bind="KG" /><br />
+            <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
+            <b>Radiation Protection</b> <br /> <input type="number" @bind="RadProtection" /><br />
+            <b>Protection</b> <br /><input type="number" @bind="Protection" /><br />
+            <b>Description</b> <br /> <input type="text" @bind="Description" /><br />
+            <button @onclick="AddArmour">Add Armour</button>
+        </p>
+    }
+    else
+    {
+        <p style="text-align: center">
+            @weapon.ToString() <input type="button"
+                                      id="btnCopy"
+                                      onClick="
+navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
+    /* clipboard successfully set */
+}, function () {
+    alert('Umm, there was an error!'); }) " value="Copy Json" />
+            <button @onclick="Reset">New Armour</button>
+            <button @onclick="Clone">Clone</button>
+        </p>
+    }
+</div>
+
+
+
+@code {
+
+    private string Name = "";
+    private int Cost = 10;
+    private int KG = 1;
+    private int TechLevel = 1;
+    private int RadProtection = 0;
+    private int Protection = 0;
+    string Description = "";
+
+    TravellerArmour weapon = null;
+    private int ID = 0;
+    Random r = new Random();
+
+    public void AddArmour()
+    {
+        weapon = new TravellerArmour(Name, Cost, KG, TechLevel, RadProtection, RadProtection, Description);
+        GetID();
+
+        ItemStore.ItemStore.Add(ID, weapon);
+    }
+
+    private void Reset()
+    {
+        weapon = null;
+        ID = 0;
+        Name = "";
+        Cost = 10;
+        KG = 1;
+        TechLevel = 1;
+        RadProtection = 0;
+        Protection = 0;
+        Description = "";
+    }
+
+    public void Clone()
+    {
+        weapon = null;
+    }
+
+    private void GetID()
+    {
+        ID = r.Next(2002, 3000);
+        if (ItemStore.ItemStore.ContainsKey(ID))
+        {
+            GetID();
+        }
+    }
+
+}

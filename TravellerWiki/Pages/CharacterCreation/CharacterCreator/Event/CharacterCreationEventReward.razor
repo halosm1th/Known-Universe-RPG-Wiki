@@ -1,0 +1,49 @@
+@page "/CharacterCreation/EventReward/{characterID}"
+@using Microsoft.AspNetCore.Html
+@using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.CreationEvents
+@using TravellerWiki.Data
+@using TravellerWiki.Data.Services
+@using TravellerWiki.Data.Services.CareerService
+@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
+@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@inject NavigationManager NavManager
+@inject MultiPageCharacterCreationService MultiCharacterCreationService
+@inject TravellerNationsCharacterInfoService nationsService;
+<head>
+    <title>Event Reward (9.5/17) </title>
+
+</head>
+
+@code{
+    [Parameter]
+    public string characterID { get; set; }
+
+    public CharacterCreatorService GetService()
+    {
+        return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
+    }
+
+    private string DoneRewardURL = "/CharacterCreation/RollAdvancement/";
+    private string CareerChangeURL = "/CharacterCreation/EventAssignment/";
+    private string LifeEventURL = "/CharacterCreation/RollEvent/";
+
+}
+<body>
+
+    <div>
+        <h1>Traveller Character Creator</h1>
+        <div class="creatorMarkup">
+            <h2>Select @GetService().Name's - Event Reward</h2>
+            <label for="CharacterProgress">Character Creation Progress: </label>
+            <progress id="CharacterProgess" value="9.5" max="17"></progress>
+            <CharacterCreationDrawStats CharacterID="@characterID" />
+            @if (GetService().LastEvent is TravellerEventReward rwd)
+            {
+                <CharacterCreationReward characterID="@characterID" DoneRewardURL="@DoneRewardURL"
+                                         CareerChangeURL="@CareerChangeURL" LifeEventURL="@LifeEventURL"
+                                         RewardList="@rwd.Reward" />
+            }
+        </div>
+    </div>
+</body>

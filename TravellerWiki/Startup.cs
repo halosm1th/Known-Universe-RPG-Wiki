@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JobBoardCreator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +10,19 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TravellerCharacter.Character_Services;
+using TravellerCharacter.Character_Services.Career_Service;
+using TravellerCharacter.Character_Services.NPC_Services;
+using TravellerFactionSystem;
+using TravellerGalaxyGenertor;
 using TravellerWiki.Data;
+using TravellerWiki.Data.Services;
+using TravellerWiki.Data.Services.CareerService;
+using TravellerWiki.Pages.Wiki_Pages;
+using VoicesFromTheVoidArticles;
+using WikiServices.DataServices;
+using WikiServices.InformationServices;
+using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService;
 
 namespace TravellerWiki
 {
@@ -30,6 +41,9 @@ namespace TravellerWiki
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<TravellerVoicesFromTheVoidService>();
+            services.AddSingleton<HighVersianService>();
+            services.AddSingleton<TravellerItemStoreService>();
             services.AddSingleton<TravellerNPCService>();
             services.AddSingleton<TravellerSpecialNPCService>();
             services.AddSingleton<TravellerNameService>();
@@ -39,8 +53,17 @@ namespace TravellerWiki
             services.AddSingleton<TravellerCareerService>();
             services.AddSingleton<TravellerSkillDisplayService>();
             services.AddSingleton<TravellerFreeFormMagicSystemsService>();
+            services.AddSingleton<CharacterCreatorService>();
+            services.AddSingleton<MultiPageCharacterCreationService>();
+            services.AddSingleton<TravellerCharacterStorageService>();
+            services.AddSingleton<TravellerCareerCreatorService>();
+            services.AddSingleton<TravellerFactionService>();
+            services.AddSingleton<WikiArticleService>();
+
+            services.AddSingleton<TravellerComplexCharacterGeneratorService>();
 
             services.AddSingleton<TravellerMapService>();
+            services.AddSingleton<TravellerSubsectorGeneratorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +95,9 @@ namespace TravellerWiki
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
+                endpoints.MapControllerRoute(
+                    name: "Subsector Image Request",
+                    pattern: "{controller=SubsectorImageGenerator}/{action=GetImage}/{imageID?}");
                 endpoints.MapFallbackToPage("/_Host");
             });
         }

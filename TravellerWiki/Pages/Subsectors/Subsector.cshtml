@@ -1,0 +1,148 @@
+﻿@page "/Subsector/{subX}/{subY}"
+@using System.Text
+@using Microsoft.CodeAnalysis.CSharp.Syntax
+@using TravellerGalaxyGenertor
+@using TravellerMapSystem.Worlds
+@using TravellerWiki.Data
+@model TravellerWiki.SubsectorModel
+@inject TravellerMapService MapService
+@{
+    ViewData["Title"] = "Subsector";
+    var subsector = MapService.GetSubsector(Model.SubsectorX, Model.SubsectorY);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+<h1>@subsector.Name Subsector</h1>
+<p>The @subsector.Name Subsector is located in the <a href="Islands_Sector">Islands Sector sector</a> and has the following @subsector.WorldCount systems</p>
+<div class="hex-row">
+    @for (int y = 0; y < subsector.Systems.GetLength(1); y++)
+    {
+
+        @for (int x = 0; x < subsector.Systems.GetLength(0); x++)
+        {
+            var system = subsector.Systems[x, y];
+            var bases = new StringBuilder();
+            if (system.HasWorld)
+            {
+                if (((TravellerWorld) system.PrimaryWorld).GasGiant)
+                {
+                    bases.Append("O");
+                }
+                if (((TravellerWorld) system.PrimaryWorld).MilitaryBase)
+                {
+                    bases.Append("+");
+                }
+                if (((TravellerWorld) system.PrimaryWorld).OtherBase)
+                {
+                    bases.Append("*");
+                }
+            }
+            var hexType = x / 2 == 0 ? "hex even" : "hex";
+            <div class=@hexType style="margin: 10px; border-width: 10px;">
+                <div class="left"></div>
+                <div class="middle" style="text-align: center">
+                    <div>
+                        @system.X @system.Y
+                    </div>
+                    <div>@(system.HasWorld ? system.Name : "")</div>
+                    <div>
+                        @bases.ToString()
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+        }
+    }
+</div>
+<img src="Images/New_Islands_Subsector.jpg" alt="New Islands Subsector Map" style="width:50%;height:50%">
+    <h1>Planets</h1>
+    <div class="flex-container">
+        @foreach (var system in subsector.Systems.OfType<KnownUniverseSystem>().Where(world => world.HasWorld))
+        {
+            @foreach(var world in system.WorldsInSystem ){
+                <div>
+            <div>Name: @(world as TravellerWorld).Name</div>
+            <br />
+            <div>UWP: @(world as TravellerWorld).UWP</div>
+            <br />
+            <div>Starport Quality: @(world as TravellerWorld).StarportDescription()</div>
+            <br />
+            <div>Size: @(world as TravellerWorld).WorldSizeDescription()</div>
+            <br />
+            <div>Atmosphere: @(world as TravellerWorld).WorldAtmosphereDescrpition()</div>
+            <br />
+            <div>Hydrographics: @((TravellerWorld) world).WorldHydrographicsDescription()</div>
+            <br />
+            <div>Population: @((TravellerWorld) world).Population</div>
+            <br />
+            <div>Primary Government: @((TravellerWorld) world).GovernmentTypeDescrption()</div>
+            <br />
+            <div>Law Level: @((TravellerWorld) world).LawLevelDescription()</div>
+            <br />
+            <div>Tech Level: @((TravellerWorld) world).TechLevelDescription()</div>
+            <br />
+            <div>Temperature: @(world as TravellerWorld).GetTemperatureDescription()</div>
+            <br />
+
+            <div>Trade Codes</div>
+            <div style="color: orange">
+
+                @foreach (var tradeCode in ((TravellerWorld) world).GetTradeCodes())
+                {
+                    <div>@tradeCode</div>
+                }
+            </div>
+            <br />
+
+            <div>Bases in system</div>
+            @if ((world as TravellerWorld).GasGiant)
+            {
+                <div style="color:orangered">Fuel Depo(s)</div>
+            }
+            @if (((TravellerWorld) world).MilitaryBase)
+            {
+                <div style="color:#6bDA26">Military Base</div>
+            }
+            @if (((TravellerWorld) world).OtherBase)
+            {
+                <div style="color:white">Other Base</div>
+            }
+            <br />
+
+            @if (((TravellerWorld) world).Factions != null)
+            {
+                <div>Factions</div>
+                @foreach (var faction in ((TravellerWorld) world).Factions)
+                {
+                    <div style="color: #ffe81F">
+                        @((TravellerWorld) world).GovernmentTypeDescrption(faction.GovernmentType)
+                        <div style="color: darkorange; "> @((int)faction.Strength!=5? "It is a " + @faction.Strength.ToString().Replace('_',' ') : "The group has " + @faction.Strength.ToString().Replace('_',' '))</div>
+                        <div style="color:cyan">It is backed by the @faction.Backer</div>
+                    </div>
+
+                    <br />
+                }
+            }
+            <div>Quirk</div>
+            <div>
+                @((TravellerWorld) world).QuirkDescription()
+            </div>
+            <br />
+            <div>Controlled by</div>
+            <a> @((TravellerWorld) world).ControllingFaction</a>
+        </div>
+        }
+        }
+    </div>
+
+    <h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
+</body>
