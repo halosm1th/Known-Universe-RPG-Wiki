@@ -87,10 +87,12 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Ci","Skin, Flesh, Physical"),
             new HighVersianDefinition("Com","Mix, combined, added to (generally an object)"),
             new HighVersianDefinition("Con","With, Together"),
+            new HighVersianDefinition("Bon","Good"),
             new HighVersianDefinition("De","God/Heavenly/Godly"),
             new HighVersianDefinition("Dec​","Ten"),
             new HighVersianDefinition("Di","Two"),
             new HighVersianDefinition("Dom","Home, hearth, house"),
+            new HighVersianDefinition("E","Without, lacking."),
             new HighVersianDefinition("Ex","From (coming from), the place of begining, start; point of origin."),
             new HighVersianDefinition("Em","Combined / Shared (generally a person)"),
             new HighVersianDefinition("Ext","Extinguish, end, finish"),
@@ -131,7 +133,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Omn","All"),
             new HighVersianDefinition("Pat","Father"),
             new HighVersianDefinition("Mat","Mother"),
-            new HighVersianDefinition("De","Of/From [ie House OF Allusia]"),
+            new HighVersianDefinition("Da","Of/From [ie House OF Allusia]"),
             new HighVersianDefinition("Ne","Not, no"),
 
 
@@ -231,7 +233,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Ips","himself/herself/itself/being"),
             new HighVersianDefinition("Bell","War"),
             new HighVersianDefinition("Vid","See/View"),
-            new HighVersianDefinition("Mag","Magic"),
+            new HighVersianDefinition("Quit","Quit, stop, leave"),
 
         }.OrderBy(x => x.Letters.First()).ToList();
         

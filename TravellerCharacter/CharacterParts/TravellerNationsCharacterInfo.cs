@@ -23,7 +23,7 @@ namespace TravellerCharacter.CharacterParts
         public bool NationHasEntryRequirements => EntryRequirements.Count > 0;
         public TravellerCareer DrifterCareer => GetJob(_drifterText);
         private string _drifterText { get; }
-        public TravellerCareer[] DraftTable => GetJobs(_draftText.ToList()).ToArray();
+        public TravellerCareer[] DraftTable => _draftText == null? null : GetJobs(_draftText.ToList()).ToArray();
         private string[] _draftText { get; }
 
         public TravellerNationalities ParentNation { get; set; }

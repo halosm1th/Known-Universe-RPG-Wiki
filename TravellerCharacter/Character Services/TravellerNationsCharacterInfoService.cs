@@ -210,6 +210,7 @@ namespace TravellerCharacter.Character_Services
                      parentNation:"United Federation of Earth and her Colonies Among the Stars")},*/
            TravellerVersianCareers.VersianNation,
            TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorumNation,
+           TravellerPolandskianCareers.PolandskiaNation,
             /*{
                 "United Reverse Lords",
                 new TravellerNationsCharacterInfo("United Reverse Lords",
@@ -440,7 +441,6 @@ namespace TravellerCharacter.Character_Services
                         "Government Military",
                         "Cartel Military",
                     })},*/
-            TravellerPolandskianCareers.PolandskiaNation,
             /*
             {
                 "Trans Galactic Empire",
