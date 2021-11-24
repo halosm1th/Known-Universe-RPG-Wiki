@@ -234,6 +234,8 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Bell","War"),
             new HighVersianDefinition("Vid","See/View"),
             new HighVersianDefinition("Quit","Quit, stop, leave"),
+            new HighVersianDefinition("Orbit","Orbital, in space, or around an object or planet."),
+            new HighVersianDefinition("Mag","Magic."),
 
         }.OrderBy(x => x.Letters.First()).ToList();
         

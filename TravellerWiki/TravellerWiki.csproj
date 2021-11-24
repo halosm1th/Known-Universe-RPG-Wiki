@@ -646,6 +646,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TravellerCharacter\TravellerCharacter.csproj" />
     <ProjectReference Include="..\TravellerGalaxyGenertor\TravellerGalaxyGenertor.csproj" />
+    <ProjectReference Include="..\TravellerWikiInfomationArticles\TravellerWikiInfomationArticles.csproj" />
     <ProjectReference Include="..\VoicesFromTheVoidArticles\VoicesFromTheVoidArticles.csproj" />
     <ProjectReference Include="..\WikiServices\WikiServices.csproj" />
   </ItemGroup>

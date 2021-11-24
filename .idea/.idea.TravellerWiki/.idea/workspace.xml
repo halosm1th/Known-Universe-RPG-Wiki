@@ -14,10 +14,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="small fix">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added some new high versian words &amp; fixed a bug on the nation page.">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/WikiArticle.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/WikiArticles.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/InformationArticle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/InformationSection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/TravellerWikiInfomationArticles.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WikiServices/DataServices/WikiArticleService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerCharacter/Character Services/TravellerNationsCharacterInfoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/TravellerNationsCharacterInfoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionSystem.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionSystem.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VoicesFromTheVoidArticles/VoicesFromTheVoidArticles.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/VoicesFromTheVoidArticles/VoicesFromTheVoidArticles.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WikiServices/WikiServices.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/WikiServices.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +59,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/0/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TravellerWikiInfomationArticles/obj/Debug/net5.0/TravellerWikiInfomationArticles.GlobalUsings.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/2D/Environment.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/37/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateStarsWithoutNumberWorld.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57c2d4282221452cad4df86bbd5d6fa0a1fc70/363/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/94/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/10/Cast.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/6B/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -58,6 +74,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57c2d4282221452cad4df86bbd5d6fa0a1fc70/CE/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03bc5283fe494af2bcb7bd96d237878512c400/39/d0d64111/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/WikiServices/DataServices/HighVersianService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1834814c814c4aecb57971718461b2d686e80/3C/ComponentState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/A/HtmlRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -405,14 +422,7 @@
       <workItem from="1637347531653" duration="78000" />
       <workItem from="1637347703299" duration="133000" />
       <workItem from="1637348112587" duration="19268000" />
-      <workItem from="1637616255753" duration="19478000" />
-    </task>
-    <task id="LOCAL-00005" summary="More font fixes!">
-      <created>1626218391898</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1626218391898</updated>
+      <workItem from="1637616255753" duration="31403000" />
     </task>
     <task id="LOCAL-00006" summary="Fixed a small bug with a switch statement">
       <created>1626219144224</created>
@@ -750,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637642397893</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Added some new high versian words &amp; fixed a bug on the nation page.">
+      <created>1637721916034</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1637721916034</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -771,7 +788,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added hte new voices of the void article" />
     <MESSAGE value="Okay this might finally have fixed it." />
     <MESSAGE value="Fixed the date on voics from the void" />
     <MESSAGE value="Added some words to high versian and made the pages for it easier to use" />
@@ -796,7 +812,8 @@
     <MESSAGE value="This might allow cross platform image generation?" />
     <MESSAGE value="fixed some logging stuff" />
     <MESSAGE value="small fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="small fix" />
+    <MESSAGE value="Added some new high versian words &amp; fixed a bug on the nation page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some new high versian words &amp; fixed a bug on the nation page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -842,19 +859,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TravellerWiki/Pages/CharacterCreation/NationInfoPage.cshtml.cs</url>
-          <line>20</line>
-          <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Pages\CharacterCreation\NationInfoPage.cshtml.cs" initialLine="20" containingFunctionPresentation="method 'OnGet'">
-            <startOffsets>
-              <option value="804" />
-            </startOffsets>
-            <endOffsets>
-              <option value="828" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

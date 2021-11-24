@@ -18,6 +18,7 @@ using TravellerGalaxyGenertor;
 using TravellerWiki.Data;
 using TravellerWiki.Data.Services;
 using TravellerWiki.Data.Services.CareerService;
+using TravellerWiki.Pages.Wiki_Pages;
 using VoicesFromTheVoidArticles;
 using WikiServices.DataServices;
 using WikiServices.InformationServices;
@@ -57,6 +58,7 @@ namespace TravellerWiki
             services.AddSingleton<TravellerCharacterStorageService>();
             services.AddSingleton<TravellerCareerCreatorService>();
             services.AddSingleton<TravellerFactionService>();
+            services.AddSingleton<WikiArticleService>();
 
             services.AddSingleton<TravellerComplexCharacterGeneratorService>();
 
