@@ -78,9 +78,11 @@ namespace WikiServices.DataServices
             _ => $"{letter} is unknown"
         };
 
-        public List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>()
+        public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
         {
             new HighVersianDefinition("Apoc","Absolute, complete, total"),
+            new HighVersianDefinition("Ae","Very/Extremely Long"),
+            new HighVersianDefinition("Oe","Very/Extremely short"),
             new HighVersianDefinition("Ard","Burning"),
             new HighVersianDefinition("Auct","Authority / Commander / Author"),
             new HighVersianDefinition("Cen","Hundred"),
@@ -89,7 +91,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Con","With, Together"),
             new HighVersianDefinition("Bon","Good"),
             new HighVersianDefinition("De","God/Heavenly/Godly"),
-            new HighVersianDefinition("Dec​","Ten"),
+            new HighVersianDefinition("Dec","Ten"),
             new HighVersianDefinition("Di","Two"),
             new HighVersianDefinition("Dom","Home, hearth, house"),
             new HighVersianDefinition("E","Without, lacking."),
@@ -114,30 +116,34 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Mut","Mutate, change, modify"),
             new HighVersianDefinition("Ni","Nine"),
             new HighVersianDefinition("Okt","Eight"),
-            new HighVersianDefinition("Pi​","Five"),
+            new HighVersianDefinition("Pi","Five"),
             new HighVersianDefinition("Post","After, behind, back"),
             new HighVersianDefinition("Red","Again"),
             new HighVersianDefinition("Sal","Safe, Secury, saved, protected"),
             new HighVersianDefinition("San","Without, lacking, non"),
-            new HighVersianDefinition("Se​","Six"),
-            new HighVersianDefinition("Sep​","Seven"),
+            new HighVersianDefinition("Se","Six"),
+            new HighVersianDefinition("Sep","Seven"),
             new HighVersianDefinition("Ton","Stretching or extending"),
-            new HighVersianDefinition("Tri​","Three"),
+            new HighVersianDefinition("Tri","Three"),
             new HighVersianDefinition("Turb","Disturbance, disruption, trouble, stir"),
             new HighVersianDefinition("Un","One"),
             new HighVersianDefinition("Vesti","Energy/Current/Electricity"),
             new HighVersianDefinition("Vis","Void Power/Energy/Raw potential"),
-            new HighVersianDefinition("Vri​","Four"),
-            new HighVersianDefinition("​","No prefix"),
+            new HighVersianDefinition("Vri","Four"),
+            new HighVersianDefinition(" ","No prefix"),
             new HighVersianDefinition("Som","Sleep, asleep, sleeping"),
             new HighVersianDefinition("Omn","All"),
             new HighVersianDefinition("Pat","Father"),
             new HighVersianDefinition("Mat","Mother"),
             new HighVersianDefinition("Da","Of/From [ie House OF Allusia]"),
             new HighVersianDefinition("Ne","Not, no"),
-
-
-        }.OrderBy(x => x.Letters.First()).ToList();
+            new HighVersianDefinition("Vet","Old, elder"),
+            new HighVersianDefinition("Dae","Daemonic, having to with daemons"),
+            new HighVersianDefinition("Dem","Demonic, having to do with demons"),
+            new HighVersianDefinition("Del","Devil in nature, having to do with devils"),
+            new HighVersianDefinition("Ve","To, a function prefix to indicate something which does a thing, is moving towrds a thing, or other uses of the word To."),
+            new HighVersianDefinition("Pro","Top, highest, best")
+        }.OrderBy(x => x.Letters.First<char>()).ToList();
 
         public List<HighVersianDefinition> Roots { get; } = new List<HighVersianDefinition>()
         {
@@ -236,6 +242,8 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Quit","Quit, stop, leave"),
             new HighVersianDefinition("Orbit","Orbital, in space, or around an object or planet."),
             new HighVersianDefinition("Mag","Magic."),
+            new HighVersianDefinition("tern","Period or Length of time"),
+            new HighVersianDefinition("El","Battle, conflict, engagement."),
 
         }.OrderBy(x => x.Letters.First()).ToList();
         
@@ -343,6 +351,16 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Ili","A person who is dedicated or devoted to (focused, specialized)"),
             new HighVersianDefinition("'","Denotes male/masculine. [quickly stop the last sound]"),
             new HighVersianDefinition(";","Denotes female/feminine. [have the last sound go on for a moment longer]"),
+            
+            new HighVersianDefinition("Eas","A group using a group of objects."),
+            new HighVersianDefinition("Ias","A person using a group of objects."),
+            new HighVersianDefinition("Oas","The group of objects which are in use."),
+            new HighVersianDefinition("Uas","Someone else using a group of objects."),
+            
+            new HighVersianDefinition("Ais","A group of people using an object. "),
+            new HighVersianDefinition("Eis","The speaker’s group of people using another group."),
+            new HighVersianDefinition("Ois","The thing in use by the speakers’ group."),
+            new HighVersianDefinition("Uis","The person being spoken to by the speakers’ group."),
 
         }.OrderBy(x => x.Letters.First()).ToList();
 
@@ -625,6 +643,13 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Fordecaelia","The object of the very/greatly divine spirit"),
                 new HighVersianDefinition("Canda","The object of light"),
                 new HighVersianDefinition("Vidia","Seer (a person who experiences seeing)"),
+                new HighVersianDefinition("Magi","Mage or magic user"),
+                new HighVersianDefinition("Daemagi","Daemonic Magic User, evil mage. "),
+                new HighVersianDefinition("Daemes","A group of Daemons. "),
+                new HighVersianDefinition("Daeme","A Daemon. "),
+                new HighVersianDefinition("Aeterna","The object of eternal. (A very long period of time)"),
+                new HighVersianDefinition("Proelir","The best people of battle, the best warrriors."),
+                new HighVersianDefinition("Proelais","The best warrriors, who are using an object."),
                 
                 new HighVersianDefinition("Nesomfantasoi","avoiding thinking about, to lack the courage to do, to not want to do  (Literal: The sleep-illusion (dream) the person is presently NOT having.)"),
             };
