@@ -16,10 +16,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added some new high versian words &amp; fixed a bug on the nation page.">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -407,13 +406,7 @@
       <workItem from="1637347703299" duration="133000" />
       <workItem from="1637348112587" duration="19268000" />
       <workItem from="1637616255753" duration="31403000" />
-    </task>
-    <task id="LOCAL-00006" summary="Fixed a small bug with a switch statement">
-      <created>1626219144224</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1626219144224</updated>
+      <workItem from="1637902551173" duration="1504000" />
     </task>
     <task id="LOCAL-00007" summary="Added a new voices from the Void issue, and some articles to it.">
       <created>1626248372590</created>
@@ -751,7 +744,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637721916034</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="added mroe high versian words and Wiki articles">
+      <created>1637822676442</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1637822676442</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -772,7 +772,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Okay this might finally have fixed it." />
     <MESSAGE value="Fixed the date on voics from the void" />
     <MESSAGE value="Added some words to high versian and made the pages for it easier to use" />
     <MESSAGE value="Hopefully fixes a bug" />
@@ -797,7 +796,8 @@
     <MESSAGE value="fixed some logging stuff" />
     <MESSAGE value="small fix" />
     <MESSAGE value="Added some new high versian words &amp; fixed a bug on the nation page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some new high versian words &amp; fixed a bug on the nation page." />
+    <MESSAGE value="added mroe high versian words and Wiki articles" />
+    <option name="LAST_COMMIT_MESSAGE" value="added mroe high versian words and Wiki articles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
