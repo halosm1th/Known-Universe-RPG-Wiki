@@ -85,7 +85,7 @@ namespace TravellerCharacter.Character_Services.Career_Service.Versian_Careers
                             ("Farm Hand", new TravellerRewardSkill(Animals)),
                             ("Field Worker", new TravellerRewardSkill(Profession_Hydroponics)),
                             ("Master Field Worker", new TravellerRewardSkill(Mechanic)),
-                            ("Line Master", new TravellerRewardSkill(Profession_Biologicals)),
+                            ("Furlong Master", new TravellerRewardSkill(Profession_Biologicals)),
                             ("Field Master", new TravellerRewardSkill(Drive)),
                             ("Farm Master", new TravellerRewardAttribute(Social, 1)),
                         }),
