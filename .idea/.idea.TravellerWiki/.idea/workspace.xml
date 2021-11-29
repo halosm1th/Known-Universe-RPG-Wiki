@@ -16,9 +16,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added more Versian lore.">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added more verian lore and high versian words">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +63,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/A/HtmlRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1834814c814c4aecb57971718461b2d686e80/18/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/WikiServices/DataServices/HighVersianService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/12/HubConnectionHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/03bc5283fe494af2bcb7bd96d237878512c400/14F/Image{TPixel}.cs" root0="SKIP_HIGHLIGHTING" />
@@ -408,14 +408,7 @@
       <workItem from="1637347703299" duration="133000" />
       <workItem from="1637348112587" duration="19268000" />
       <workItem from="1637616255753" duration="31403000" />
-      <workItem from="1637902551173" duration="13250000" />
-    </task>
-    <task id="LOCAL-00009" summary="Made corporation stuff">
-      <created>1626325316536</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1626325316536</updated>
+      <workItem from="1637902551173" duration="14196000" />
     </task>
     <task id="LOCAL-00010" summary="Added the federation flag and set it as the iamge.">
       <created>1626412015314</created>
@@ -753,7 +746,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638039115830</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Added more verian lore and high versian words">
+      <created>1638169458331</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1638169458331</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +774,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Hopefully fixes a bug" />
     <MESSAGE value="Another bug fix, this time related to the links for the lists of pre/root/postfixes" />
     <MESSAGE value="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary" />
     <MESSAGE value="Fixed bug" />
@@ -799,7 +798,8 @@
     <MESSAGE value="added mroe high versian words and Wiki articles" />
     <MESSAGE value="Added more wiki articles!" />
     <MESSAGE value="Added more Versian lore." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more Versian lore." />
+    <MESSAGE value="Added more verian lore and high versian words" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more verian lore and high versian words" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -147,6 +147,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Civ","Civis/ Civillian /Citizen/Peasant"),
             new HighVersianDefinition("Cor","Convince/Sway/Court"),
             new HighVersianDefinition("Leg","Chosen/Selected/Appointed"),
+            new HighVersianDefinition("Vot","Vow/Promise"),
 
         }.OrderBy(x => x.Letters.First<char>()).ToList();
 
