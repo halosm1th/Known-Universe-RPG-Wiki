@@ -142,7 +142,12 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Dem","Demonic, having to do with demons"),
             new HighVersianDefinition("Del","Devil in nature, having to do with devils"),
             new HighVersianDefinition("Ve","To, a function prefix to indicate something which does a thing, is moving towrds a thing, or other uses of the word To."),
-            new HighVersianDefinition("Pro","Top, highest, best")
+            new HighVersianDefinition("Pro","Top, highest, best"),
+            new HighVersianDefinition("Nav","Ship/Vessel."),
+            new HighVersianDefinition("Civ","Civis/ Civillian /Citizen/Peasant"),
+            new HighVersianDefinition("Cor","Convince/Sway/Court"),
+            new HighVersianDefinition("Leg","Chosen/Selected/Appointed"),
+
         }.OrderBy(x => x.Letters.First<char>()).ToList();
 
         public List<HighVersianDefinition> Roots { get; } = new List<HighVersianDefinition>()
@@ -244,9 +249,16 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Mag","Magic."),
             new HighVersianDefinition("tern","Period or Length of time"),
             new HighVersianDefinition("El","Battle, conflict, engagement."),
+            new HighVersianDefinition("Mon","Money, Physical Currency"),
+            new HighVersianDefinition("Cas","Money/Credit, Pay, non-physical money/payment"),
+            new HighVersianDefinition("Merc","Pay/Wages/Reward/Rent/Bribe"),
+            new HighVersianDefinition("Quis","Question/quiz/investigate"),
+            new HighVersianDefinition("Alien","Foreign"),
+            new HighVersianDefinition("Per","Follower/Member of Unit or group/ The Group"),
 
         }.OrderBy(x => x.Letters.First()).ToList();
-        
+
+
         public List<HighVersianDefinition> Postfixes { get; } = new List<HighVersianDefinition>()
         {
             new HighVersianDefinition("A","An object or thing"),
@@ -301,8 +313,12 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Iam","My ROOT is in use. I’m in use by my ROOT"),
             new HighVersianDefinition("Iem","I am using my group of ROOT"),
             new HighVersianDefinition("Iom","I am using my ROOT"),
-            new HighVersianDefinition("Ium","You are using my ROOT; I am using your ROOT"),
 
+            new HighVersianDefinition("Ium","A place where people are kept"),
+            new HighVersianDefinition("Aum","A place where objects are kept"),
+            new HighVersianDefinition("Oum","A place where things used"),
+            new HighVersianDefinition("Eum","A place where groups are kept"),
+            
             new HighVersianDefinition("An","The area taken up by an object, the objects ‘space’"),
             new HighVersianDefinition("En","The area taken up by of a group"),
             new HighVersianDefinition("In","The area taken up by a person, a persons ‘place’"),
@@ -332,11 +348,11 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Os","A group presently doing"),
             new HighVersianDefinition("Us","Devote to or in service of a group or organization"),
 
-            new HighVersianDefinition("At","To make an object more ROOT"),
-            new HighVersianDefinition("Et","To make a group of / To make a group of somethings ROOT"),
-            new HighVersianDefinition("It","To make a person more ROOT"),
-            new HighVersianDefinition("Ot","To actively make more ROOT"),
-            new HighVersianDefinition("Ut","To make another person ROOT"),
+            new HighVersianDefinition("At","Object past tense"),
+            new HighVersianDefinition("Et","Group past tense"),
+            new HighVersianDefinition("It","Active/First Person past tense"),
+            new HighVersianDefinition("Ot","Past active tense"),
+            new HighVersianDefinition("Ut","Passive/Listener/Third person past tense"),
 
             new HighVersianDefinition("Aos","A group of objects which are doing something"),
             new HighVersianDefinition("Eos","A group of groups which is currently doing something; An organization"),
@@ -363,7 +379,6 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Uis","The person being spoken to by the speakers’ group."),
 
         }.OrderBy(x => x.Letters.First()).ToList();
-
 
         private static List<HighVersianDefinition> HighVersianWordDefinitions()
         {
@@ -440,7 +455,7 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Exiti","I exit, I leave"),
                 new HighVersianDefinition("Exito","To leave, to exit. Active form of exit; Dying (leaving life)"),
                 new HighVersianDefinition("Exitu","You exit, you leave, they exit"),
-                new HighVersianDefinition("Exitium","A person who is devoted to destruction/The Abyss"),
+                new HighVersianDefinition("Exitium","A place where people who quit are kept, the Abyss. "),
 
                 new HighVersianDefinition("Extinguere","Extinguish, snuff out light (Literal: End / Extinguish a group of fires for someone else’s)"),
 
@@ -456,7 +471,7 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Ignis","Fire/Flames. Or to set on fire (properly, in service of heat)"),
                 new HighVersianDefinition("Illusio","An illusion (Literal: You are currently doing/watching a bad play / show.) "),
                 new HighVersianDefinition("Immensa","Immense, vast, huge. (Literal: An idea of great size)"),
-                new HighVersianDefinition("Intendet","Intensify (Literal: To make a group not soft/tender)"),
+                new HighVersianDefinition("Intendet","Intensified (Literal: To have make a group not soft/tender)"),
 
                 new HighVersianDefinition("Liquidum","Bring forth water/to control water"),
 
@@ -648,10 +663,32 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Daemes","A group of Daemons. "),
                 new HighVersianDefinition("Daeme","A Daemon. "),
                 new HighVersianDefinition("Aeterna","The object of eternal. (A very long period of time)"),
-                new HighVersianDefinition("Proelir","The best people of battle, the best warrriors."),
-                new HighVersianDefinition("Proelais","The best warrriors, who are using an object."),
-                
+                new HighVersianDefinition("Proelir","The best people of battle, the best warrior's."),
+                new HighVersianDefinition("Proelais","The best warrior's, who are using an object."),
+
+                new HighVersianDefinition("Dommonan","The home of money: Bank/Treasury"),
+                new HighVersianDefinition("Domelis","The group who battle for (our) home: the army"),
+
                 new HighVersianDefinition("Nesomfantasoi","avoiding thinking about, to lack the courage to do, to not want to do  (Literal: The sleep-illusion (dream) the person is presently NOT having.)"),
+                
+                new HighVersianDefinition("Navstellaris","Stellar Navy (The people who work for the ships in space)"),
+                new HighVersianDefinition("Civum","The civil service (those in service to the civis"),
+                new HighVersianDefinition("Domempareor","Lords"),
+                new HighVersianDefinition("Vetthronis","(The People who sit on the) Old Thrones"),
+                new HighVersianDefinition("Comequites","Mixed/Shared Knights. Knights who are oathed to two lords"),
+                new HighVersianDefinition("Dacivis","From/Of the people/Civis"),
+                new HighVersianDefinition("Ebello","Currently without war/peace"),
+                new HighVersianDefinition("Ebellos","A group who are presently without war/pacifists"),
+                new HighVersianDefinition("Commercon","Traders (The group who does mixed pay)"),
+                new HighVersianDefinition("Coreos","A group which courts/seduces"),
+                
+                new HighVersianDefinition("Inquisis","Detectives/investigators (A group whose job is to ask small questions)"),
+                new HighVersianDefinition("Legvealienis","The ambassador's (the people chosen to doa  job in a foreign land. The group which is appointed to a foreign land)"),
+                new HighVersianDefinition("Imperum","Servant of the empire/government employee/agent of the state (The preson sent on behalf of hte larger group)"),
+                new HighVersianDefinition("Dabellot","of the past war"),
+                new HighVersianDefinition("Exversat","From Home (past tense)"),
+                new HighVersianDefinition("Damaxbellot","Of The Great War"),
+
             };
             if (text.Count > 0) return text.OrderBy(x => x?.Letters.First()).ToList();
             else return text;
