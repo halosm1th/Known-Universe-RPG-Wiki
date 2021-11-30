@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Newtonsoft.Json;
 using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 
@@ -12,19 +13,35 @@ namespace TravellerMapSystem.Worlds
     public class KnownUniverseSystem
     {
         #region Variables
-        public int X { get; }
-        public int Y { get; }
-        public bool HasWorld = false;
-        public string Name { get; }
-        public List<IWorld> WorldsInSystem { get; }
         
+        [JsonProperty]
+        public int X { get; set; }
+        
+        [JsonProperty]
+        public int Y { get; set; }
+        
+        [JsonProperty]
+        public bool HasWorld { get; set; }= false;
+        
+        [JsonProperty]
+        public string Name { get; set; }
+        
+        [JsonProperty]
+        public List<IWorld> WorldsInSystem { get; set; }
+        
+        
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int WorldCount => WorldsInSystem.Count;
-        public int AverageTechLevel => (WorldsInSystem.Aggregate(0,(h,t) => h + t.TechLevel) / WorldsInSystem.Count);
-
+        
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public int AverageTechLevel => (WorldsInSystem.Aggregate(0,(h,t) => h + t.TechLevel) / (WorldsInSystem.Count > 0? WorldsInSystem.Count : 1));
+        
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public BigInteger TotalPopulation =>
             WorldsInSystem.Aggregate(BigInteger.Zero, (h, t) => h + BigInteger.Parse(t.Population));
 
-        public IWorld PrimaryWorld => WorldsInSystem.First();
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public IWorld PrimaryWorld => WorldCount > 0? WorldsInSystem.First() : null;
         #endregion
         
 

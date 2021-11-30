@@ -15,6 +15,7 @@ namespace TravellerMapSystem
 {
     public class KnownUniverseSubsector
     {
+        #region Variables
         
         [JsonProperty]
         public KnownUniverseSystem[,] Systems;
@@ -32,7 +33,8 @@ namespace TravellerMapSystem
        // private static List<string> usedNames = new List<string>();
 
         private static Random random = new Random();
-
+#endregion
+        #region Constructor
         public KnownUniverseSubsector(int x,int y)
         {
             Name = GenerateName() + $" subsector {x},{y}";
@@ -56,13 +58,8 @@ namespace TravellerMapSystem
             Name = "";
             Systems = GenerateEmptySubsector();
         }
-        
-        public static string GenerateName()
-        {
-            var name = names[random.Next(0, names.Count)];
-            return name;
-        }
-
+        #endregion
+        #region Private Methods
         private KnownUniverseSystem[,] GenerateEmptySubsector()
         {
             var systems = new KnownUniverseSystem[10, 8];
@@ -76,7 +73,8 @@ namespace TravellerMapSystem
 
             return systems;
         }
-        
+        #endregion
+        #region Public Methods
         public void GenerateSubsector(int worldOdds = 50, int minSystemSize = 1, int maxSystemSize = 21)
         {
             if (maxSystemSize > 51)
@@ -107,12 +105,6 @@ namespace TravellerMapSystem
             }
         }
 
-        public Image GenerateSubSectorImage()
-        {
-            var drawing = new DrawSubsector(this);
-            return drawing.GenerateSubSectorImage();
-        }
-
         public void WriteSubsector(StreamWriter sw)
         {
             foreach (var system in Systems)
@@ -124,7 +116,15 @@ namespace TravellerMapSystem
                 }
             }
         }
+#endregion
+        #region Get Information
 
+        public Image GenerateSubSectorImage()
+        {
+            var drawing = new DrawSubsector(this);
+            return drawing.GenerateSubSectorImage();
+        }
+        
         public List<TravellerWorld> Worlds()
         {
             var worlds = new List<TravellerWorld>();
@@ -140,6 +140,11 @@ namespace TravellerMapSystem
         {
             return Systems[y, x];
         }
+
+        public string Json()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
         
         public override string ToString()
         {
@@ -152,6 +157,14 @@ namespace TravellerMapSystem
 
             return sb.ToString().Replace("\n","");
         }
-
+        #endregion
+        #region Static Methods
+        public static string GenerateName()
+        {
+            var name = names[random.Next(0, names.Count)];
+            return name;
+        }
+        #endregion
+        
     }
 }
