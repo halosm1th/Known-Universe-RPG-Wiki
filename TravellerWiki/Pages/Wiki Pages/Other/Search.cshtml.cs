@@ -1,41 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace TravellerWiki
 {
-
     public class SearchModel : PageModel
     {
+        private static readonly Dictionary<string, string> PageCrosses = GetPageCrosses();
 
         //Name,Data
         public Dictionary<string, string> SearchResults { get; set; }
+
+        [BindProperty] public string SearchString { get; set; }
+
         public void OnGet()
         {
         }
-        
+
 
         public IActionResult DisplayResults()
         {
             return Page();
         }
 
-        [BindProperty] public string SearchString { get; set; }
-
-
-        private static Dictionary<string, string> PageCrosses = GetPageCrosses();
-
         public IActionResult OnPost()
         {
             if (SearchString != null)
-            {
-
                 foreach (var page in PageCrosses)
-                {
                     if (page.Value.Contains(SearchString))
                     {
                         if (SearchResults == null)
@@ -48,8 +41,6 @@ namespace TravellerWiki
                             SearchResults[page.Key] = page.Value;
                         }
                     }
-                }
-            }
 
             return Page();
         }
@@ -70,10 +61,7 @@ namespace TravellerWiki
                 .ToList();
             var pageCrosses = new Dictionary<string, string>();
 
-            for (int i = 0; i < _PageNames.Count; i++)
-            {
-                pageCrosses[_PageNames[i]] = _PageValues[i];
-            }
+            for (var i = 0; i < _PageNames.Count; i++) pageCrosses[_PageNames[i]] = _PageValues[i];
 
             return pageCrosses;
         }

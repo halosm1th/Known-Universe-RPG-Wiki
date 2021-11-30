@@ -12,6 +12,6 @@
         Plentiful,
         Tons,
         Major_Influence,
-        Near_Complete_Control,
+        Near_Complete_Control
     }
 }

@@ -1,10 +1,6 @@
 @page "/CharacterCreation/Finished/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject  TravellerCharacterStorageService StorageService
@@ -15,6 +11,7 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
 
@@ -30,10 +27,12 @@
 
     public void BuyGear()
     {
-        StorageService.AddCharacter(characterID,GetService().GetPlayerCharacter());
+        StorageService.AddCharacter(characterID, GetService().GetPlayerCharacter());
         NavManager.NavigateTo($"/CharacterCreation/BuyGear/{characterID}");
     }
+
 }
+
 <body>
 
 <h1>Traveller Character Creator</h1>
@@ -41,7 +40,7 @@
     <h2>Select @GetService().Name's - Finished?</h2>
     <label for="CharacterProgress">Character Creation Progress: </label>
     <progress id="CharacterProgess" value="17" max="17"></progress>
-    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <CharacterCreationDrawStats CharacterID="@characterID"/>
     <div style="padding-left: 2em;">
         <p>Would you like to: <button @onclick="DoneFinished">Do another term</button> or <button @onclick="BuyGear">Thats it, save {@GetService().Name} and buy gear.</button></p>
     </div>

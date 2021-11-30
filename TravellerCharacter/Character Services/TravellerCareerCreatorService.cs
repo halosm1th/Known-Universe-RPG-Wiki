@@ -9,21 +9,21 @@ namespace TravellerCharacter.Character_Services
 {
     public class TravellerCareerCreatorService
     {
+        public List<(string title, TravellerCharacterCreationReward perk)> AssignmentRanks = new();
+
+        public List<TravellerSkillTableEntry> AssignmentSkillTable = new();
         public bool HasAttribute = false;
+
+        public TravellerAttributeCheck Qualification = null;
 
         public List<TravellerAttributeCheck> QualificationChecks { get; set; }
         public TravellerAttributeCheck AttributeToCheck { get; set; }
-        
-        public TravellerAttributeCheck Qualification = null;
 
         public string AssignmentName { get; set; }
         public string AssignmentDescription { get; set; }
 
-        public List<TravellerAttributeCheck> AssignmentSurvival { get; set; } = new List<TravellerAttributeCheck>();
-        public List<TravellerAttributeCheck> AssignmentAdvancement { get; set; } = new List<TravellerAttributeCheck>();
-
-        public List<TravellerSkillTableEntry> AssignmentSkillTable = new List<TravellerSkillTableEntry>();
-        public List<(string title, TravellerCharacterCreationReward perk)> AssignmentRanks = new List<(string title, TravellerCharacterCreationReward perk)>();
+        public List<TravellerAttributeCheck> AssignmentSurvival { get; set; } = new();
+        public List<TravellerAttributeCheck> AssignmentAdvancement { get; set; } = new();
         public List<TravellerAssignment> Assignments { get; set; }
 
         public string CareerName { get; set; }

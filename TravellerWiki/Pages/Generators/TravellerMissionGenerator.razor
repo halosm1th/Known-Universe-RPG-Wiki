@@ -1,104 +1,105 @@
 ﻿@page "/Generators/TravellerMissionGenerator"
-
-@using TravellerWiki.Data
-@using System.Linq;
-@using System.Text
-@using TravellerCharacter.Character_Services
-@using TravellerCharacter.Character_Services.NPC_Services
 @using WikiServices.DataServices
 @using WikiServices.SimpleServiceDriverCode
+@using TravellerCharacter.Character_Services.NPC_Services
+@using TravellerCharacter.Character_Services
+@using System.Text
 @inject TravellerMissionGeneratorService MissionGenerator
 @inject TravellerSpecialNPCService NPCService
 
-    <head>
-        <title>Mission Generator</title>
-        <meta property="og:title" content="Known Universe Wiki - Mission Generator" />
-        <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerMissionGenerator/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-        <meta content="Generate missions for your travellers to undergo in the Known Universe." property="og:description" />
-        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+<head>
+    <title>Mission Generator</title>
+    <meta property="og:title" content="Known Universe Wiki - Mission Generator"/>
+    <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerMissionGenerator/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="Generate missions for your travellers to undergo in the Known Universe." property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
 
-    </head>
+</head>
 <h1>Mission Generator</h1>
 
-<input type="number" @bind="numberOfMissions" />
+<input type="number" @bind="numberOfMissions"/>
 <button class="" @onclick="GenerateMissions">Click me to Generate some missions</button>
 
-        @if (missionList != null)
+@if (missionList != null)
+{
+    <table style="width: 100%;">
+        <thead style="text-align: center; padding: 5px;">
+        <tr>
+            <th>Mission</th><th>Target</th><th>Patron</th><th>Ally</th><th>Enemy</th><th>Opposition</th><th>copy</th>
+        </tr>
+        </thead>
+        <tbody style="text-align: center; padding: 5px; color: #ffe81F">
+        @foreach (var mission in missionList)
         {
-            <table style="width: 100%;">
-                <thead style="text-align: center; padding: 5px;">
-                    <tr><th>Mission</th><th>Target</th><th>Patron</th><th>Ally</th><th>Enemy</th><th>Opposition</th><th>copy</th></tr>
-                </thead>
-                <tbody style="text-align: center; padding: 5px; color: #ffe81F">
-                @foreach (var mission in missionList)
-                {
-                    var npcs = NPCService.GetNPC(5, TravellerNameService.NationNameList.Any);
-                    <tr id="tableInfo">
-                        <td>@mission.Mission</td>
-                        <td>@mission.Target - @npcs[0]</td>
-                        <td>@mission.Patron - @npcs[1]</td>
-                        <td>@mission.Ally - @npcs[2]</td>
-                        <td>@mission.Enemy - @npcs[3]</td>
-                        <td>@mission.Opposition - @npcs[4]</td>
-                        <td>
-                                @{
-                                    var sb = new StringBuilder();
-                                    sb.Append(@"Mission: ");
-                                    sb.Append(mission.Mission);
+            var npcs = NPCService.GetNPC(5, TravellerNameService.NationNameList.Any);
+            <tr id="tableInfo">
+                <td>@mission.Mission</td>
+                <td>@mission.Target - @npcs[0]</td>
+                <td>@mission.Patron - @npcs[1]</td>
+                <td>@mission.Ally - @npcs[2]</td>
+                <td>@mission.Enemy - @npcs[3]</td>
+                <td>@mission.Opposition - @npcs[4]</td>
+                <td>
+                    @{
+                        var sb = new StringBuilder();
+                        sb.Append(@"Mission: ");
+                        sb.Append(mission.Mission);
 
-                                    sb.Append(@"\nTarget: ");
-                                    sb.Append(mission.Target);
-                                    sb.Append(" - ");
-                                    sb.Append(npcs[0]);
+                        sb.Append(@"\nTarget: ");
+                        sb.Append(mission.Target);
+                        sb.Append(" - ");
+                        sb.Append(npcs[0]);
 
-                                    sb.Append(@"\nPatron: ");
-                                    sb.Append(mission.Patron);
-                                    sb.Append(" - ");
-                                    sb.Append(npcs[1]);
+                        sb.Append(@"\nPatron: ");
+                        sb.Append(mission.Patron);
+                        sb.Append(" - ");
+                        sb.Append(npcs[1]);
 
-                                    sb.Append(@"\nAlly: ");
-                                    sb.Append(mission.Ally);
-                                    sb.Append(" - ");
-                                    sb.Append(npcs[2]);
+                        sb.Append(@"\nAlly: ");
+                        sb.Append(mission.Ally);
+                        sb.Append(" - ");
+                        sb.Append(npcs[2]);
 
-                                    sb.Append(@"\nEnemy: ");
-                                    sb.Append(mission.Enemy);
-                                    sb.Append(" - ");
-                                    sb.Append(npcs[3]);
+                        sb.Append(@"\nEnemy: ");
+                        sb.Append(mission.Enemy);
+                        sb.Append(" - ");
+                        sb.Append(npcs[3]);
 
-                                    sb.Append(@"\nOpposition: ");
-                                    sb.Append(mission.Opposition);
-                                    sb.Append(" - ");
-                                    sb.Append(npcs[4]);
+                        sb.Append(@"\nOpposition: ");
+                        sb.Append(mission.Opposition);
+                        sb.Append(" - ");
+                        sb.Append(npcs[4]);
 
-                                    var s = sb.ToString(); }
-                            <div style="display: none;"> @s</div>
-                                <input type="button"
-                                       id="btnCopy"
-                                       onClick="
+                        var s = sb.ToString();
+                    }
+                    <div style="display: none;"> @s</div>
+                    <input type="button"
+                           id="btnCopy"
+                           onClick="
 navigator.clipboard.writeText('@s').then(function() {
     /* clipboard successfully set */
 }, function () {
-    alert('Umm, there was an error!'); }) " value="Copy" />
-                        </td>
-                    </tr>
-
-                }
-                </tbody>
-            </table>
+    alert('Umm, there was an error!'); }) " value="Copy"/>
+                </td>
+            </tr>
         }
+        </tbody>
+    </table>
+}
+
 @code {
-    private int numberOfMissions = 0;
+    private int numberOfMissions;
     private List<TravellerMission> missionList;
 
     private void GenerateMissions()
     {
         missionList = new List<TravellerMission>();
-        for (int i = 0; i < numberOfMissions; i++)
+        for (var i = 0; i < numberOfMissions; i++)
         {
             missionList.Add(MissionGenerator.GenerateTravellerMission());
         }
     }
+
 }

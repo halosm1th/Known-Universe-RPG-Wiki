@@ -1,34 +1,26 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace TravellerMapSystem
+﻿namespace TravellerMapSystem
 {
-    class KnownUniverseMegaSector
+    internal class KnownUniverseMegaSector
     {
         public string Name;
-        private KnownUniverseSuperSector[,] supersectors;
+        private readonly KnownUniverseSuperSector[,] supersectors;
 
         public KnownUniverseMegaSector(string name, int xSize, int ySize)
         {
             supersectors = new KnownUniverseSuperSector[ySize, xSize];
             Name = name;
-            for (int y = 0; y < ySize; y++)
+            for (var y = 0; y < ySize; y++)
+            for (var x = 0; x < xSize; x++)
             {
-                for (int x = 0; x < xSize; x++)
-                {
-                    var s = new KnownUniverseSuperSector(KnownUniverseSubsector.GenerateName(MapNameLists.Generic),x,y,6,6);
-                    supersectors[y, x] = s;
-                }
+                var s = new KnownUniverseSuperSector(KnownUniverseSubsector.GenerateName(MapNameLists.Generic), x, y, 6,
+                    6);
+                supersectors[y, x] = s;
             }
         }
 
         public void GenerateMegaSector(string path)
         {
-            foreach (var supers in supersectors)
-            {
-                supers.GenerateSuperSector();
-            }
+            foreach (var supers in supersectors) supers.GenerateSuperSector();
         }
     }
 }

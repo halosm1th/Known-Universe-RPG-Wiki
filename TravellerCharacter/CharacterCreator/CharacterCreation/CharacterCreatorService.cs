@@ -11,22 +11,86 @@ using TravellerCharacter.CharacterCreator.Items;
 using TravellerCharacter.CharacterCreator.TravellerInjuries;
 using TravellerCharacter.CharacterParts;
 using TravellerCharacter.CharcterTypes;
-using TravellerWiki.Data;
 
 namespace TravellerCharacter.CharacterCreator.CharacterCreation
 {
     public class CharacterCreatorService
     {
+        #region Constructor
+
+        public CharacterCreatorService()
+        {
+            HasCharacter = false;
+            HasName = false;
+            HasNationality = false;
+            HasBackgroundSkills = false;
+            HasHadJob = false;
+            FirstTermOfJob = true;
+            FinishedCharacterCreation = true;
+            BuyEquipment = false;
+            BenefitRollModifiers = new List<int>();
+        }
+
+        #endregion
+
+        #region Career Survival
+
+        public bool CheckSurvival(int roll)
+        {
+            var survival = _character.PreviousCareers.Peek().Item2.Survival;
+            var check = false;
+            try
+            {
+                var stat = _character.AttributeList.First(x => x.AttributeName == survival.AttributeToCheck);
+
+
+                check = survival.PassedCheck(roll + stat.AttributeModifier);
+
+                Mishapped = !check;
+
+                if (Mishapped) HasJob = false;
+            }
+            catch (InvalidOperationException)
+            {
+                _character.AddAttribute(survival.AttributeToCheck);
+                check = CheckSurvival(roll);
+            }
+
+            return check;
+        }
+
+        #endregion
+
+        #region CareerMishaps
+
+        public TravellerEventCharacterCreation GetMishap(int roll)
+        {
+            if (roll < 1 || roll > 6) throw new ArgumentOutOfRangeException("Error die roll was out of range!");
+
+            //The mishap table is supposed to be the numbers between 1 and 6. We must adjust for 
+            //Zero based indexing
+            var evnt = _character.LastCareer.Mishaps[roll - 1];
+            AddEvent(evnt);
+            return evnt;
+        }
+
+        #endregion
+
         #region Public Variables
+
         public PlayerTravellerCharacter _character;
         public TravellerNationsCharacterInfo Nationality => _character.Nationality;
         public string Name => _character.Name;
         public readonly int AgingCrisisCost = 10000;
         public TravellerCareer LastCareer => _character.LastCareer ?? null;
-        public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers => _character.PreviousCareers ?? null;
+
+        public Stack<(TravellerCareer Career, TravellerAssignment Assignment, int rank)> PreviousCareers =>
+            _character.PreviousCareers ?? null;
+
         public TravellerAssignment LastAssignment => _character.LastAssignment ?? null;
         public string LastRank => _character.LastRank ?? "None";
         public int LastRankNumber => _character.PreviousCareers.Peek().rank;
+
         public int NumberOfTravellerBackgroundSKills =>
             3 + _character.AttributeList.First(x => x.AttributeName == TravellerAttributes.Education).AttributeModifier;
 
@@ -38,17 +102,27 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         public List<int> BenefitRollModifiers { get; protected set; }
 
         public List<TravellerAttribute> GetAttributes => _character.AttributeList;
-        public TravellerAttribute GetTravellerAttribute(TravellerAttributes attribute) => GetAttributes.First(x => x.AttributeName == attribute) ?? new TravellerAttribute(attribute, -1);
+
+        public TravellerAttribute GetTravellerAttribute(TravellerAttributes attribute)
+        {
+            return GetAttributes.First(x => x.AttributeName == attribute) ?? new TravellerAttribute(attribute, -1);
+        }
 
         public List<TravellerAttribute> GetPhysicalAttributes => GetAttributes.Where(x => x.IsPhysical()).ToList();
         public List<TravellerAttribute> GetMentalAttributes => GetAttributes.Where(x => x.IsMental()).ToList();
 
-        public Stack<TravellerEventCharacterCreation> CurrentTermsEvents = new Stack<TravellerEventCharacterCreation>();
-        public TravellerEventCharacterCreation LastEvent => CurrentTermsEvents.Count > 0 ? CurrentTermsEvents.Peek() : new TravellerEventText("Error");
-        public List<TravellerCharacterCreationReward> ChosenBenefits = new List<TravellerCharacterCreationReward>();
+        public Stack<TravellerEventCharacterCreation> CurrentTermsEvents = new();
+
+        public TravellerEventCharacterCreation LastEvent => CurrentTermsEvents.Count > 0
+            ? CurrentTermsEvents.Peek()
+            : new TravellerEventText("Error");
+
+        public List<TravellerCharacterCreationReward> ChosenBenefits = new();
 
         #endregion
+
         #region Checks
+
         //Checks
 
         public void ResetChecks()
@@ -70,6 +144,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             FinishedCharacterCreation = false;
             BuyEquipment = false;
         }
+
         public bool HasCharacter { get; protected set; }
         public bool Dead { get; protected set; }
         public bool Advanced { get; protected set; }
@@ -85,34 +160,26 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         public bool HasJob { get; protected set; }
         public bool FirstTermOfJob { get; protected set; }
         public bool FinishedCharacterCreation { get; protected set; }
+
         public bool BuyEquipment { get; protected set; }
+
         //34 = 4 terms before aging begins to take effect.
         public bool HasAging => _character.Age > 34;
 
         #endregion
-        #region private variables
-        private Random dice = new Random();
-        private TravellerCareerService careerService = new TravellerCareerService();
-        private TravellerSpecialNPCService npcService = new TravellerSpecialNPCService();
-        #endregion
-        #region Constructor
-        public CharacterCreatorService()
-        {
-            HasCharacter = false;
-            HasName = false;
-            HasNationality = false;
-            HasBackgroundSkills = false;
-            HasHadJob = false;
-            FirstTermOfJob = true;
-            FinishedCharacterCreation = true;
-            BuyEquipment = false;
-            BenefitRollModifiers = new List<int>();
 
-        }
+        #region private variables
+
+        private readonly Random dice = new();
+        private readonly TravellerCareerService careerService = new();
+        private readonly TravellerSpecialNPCService npcService = new();
+
         #endregion
+
         #region Basic Character Stuff
+
         /// <summary>
-        /// Create a new empty Traveller Character
+        ///     Create a new empty Traveller Character
         /// </summary>
         public void NewCharacter()
         {
@@ -121,12 +188,11 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                 _character = new PlayerTravellerCharacter();
                 _character.Age = 18;
                 HasCharacter = true;
-
             }
         }
 
         /// <summary>
-        /// Assign the name of the Character
+        ///     Assign the name of the Character
         /// </summary>
         /// <param name="name">The name to give to the character</param>
         public void SetName(string name)
@@ -137,65 +203,71 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                 HasName = true;
             }
         }
+
         #endregion
+
         #region Stats
+
         /// <summary>
-        /// Generate the stats for the traveller character for the decided to allocate as they want
+        ///     Generate the stats for the traveller character for the decided to allocate as they want
         /// </summary>
         /// <param name="includePsi"> whether to include the psi stat in generation</param>
         /// <returns></returns>
         public List<int> GenerateStats(bool includePsi = false)
         {
-            int numberOfStats = 6 + (includePsi ? 1 : 0);
+            var numberOfStats = 6 + (includePsi ? 1 : 0);
             var result = new List<int>();
-            for (int i = 0; i < numberOfStats; i++)
-            {
-                result.Add(RollDice());
-            }
+            for (var i = 0; i < numberOfStats; i++) result.Add(RollDice());
 
             return result;
         }
 
         /// <summary>
-        /// Assign an attribute its value on the character, if one with that name exists, remove it and add the new one.
+        ///     Assign an attribute its value on the character, if one with that name exists, remove it and add the new one.
         /// </summary>
         /// <param name="attribute">The attribute to assign to the character sheet</param>
         public void AssignStat(TravellerAttribute attribute)
         {
             if (_character.AttributeList.Any(a => a.AttributeName == attribute.AttributeName))
-            {
                 _character.AttributeList.RemoveAll(a => a.AttributeName == attribute.AttributeName);
-            }
 
 
             _character.AttributeList.Add(attribute);
         }
+
         #endregion
+
         #region Nationality
+
         /// <summary>
-        /// Check if the nation has entry requirements. Should be called before Can Enter nation and apply nation.
+        ///     Check if the nation has entry requirements. Should be called before Can Enter nation and apply nation.
         /// </summary>
         /// <param name="nationality">The nationality to check</param>
         /// <returns></returns>
-        public bool NationHasEntryRequirements(TravellerNationsCharacterInfo nationality) => nationality.EntryRequirements.Count > 0;
+        public bool NationHasEntryRequirements(TravellerNationsCharacterInfo nationality)
+        {
+            return nationality.EntryRequirements.Count > 0;
+        }
 
         /// <summary>
-        /// Check if a traveller can enter the particular nationality
+        ///     Check if a traveller can enter the particular nationality
         /// </summary>
         /// <param name="nationality">The Nationality the traveller wishes to enter</param>
         /// <param name="attribute"></param>
         /// <param name="diceResult"></param>
         /// <returns></returns>
-        public bool CanEnterNationality(TravellerNationsCharacterInfo nationality, TravellerAttributeCheck attributeCheck,
+        public bool CanEnterNationality(TravellerNationsCharacterInfo nationality,
+            TravellerAttributeCheck attributeCheck,
             int diceResult)
         {
             return !HasNationality &&
-                   attributeCheck.PassedCheck(diceResult + _character.GetRelevantAttributeModifier(attributeCheck.UnderlingAttribute));
-
+                   attributeCheck.PassedCheck(diceResult +
+                                              _character.GetRelevantAttributeModifier(attributeCheck
+                                                  .UnderlingAttribute));
         }
 
         /// <summary>
-        /// Apply the nationalities stat changes and perks to the character
+        ///     Apply the nationalities stat changes and perks to the character
         /// </summary>
         /// <param name="nationality">The Chosen nationality</param>
         public void ApplyNationality(TravellerNationsCharacterInfo nationality)
@@ -209,43 +281,34 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         }
 
         /// <summary>
-        /// Apply the perks from the nation to the character
+        ///     Apply the perks from the nation to the character
         /// </summary>
         /// <param name="nationality">The chosen nationality</param>
         private void ApplyNationsPerks(List<TravellerCharacterCreationReward> perks)
         {
             foreach (var perk in perks)
-            {
                 if (perk is TravellerRewardItem itemReward)
-                {
                     foreach (var item in itemReward.Items)
-                    {
                         _character.AddItem(item);
-                    }
-                }
                 else if (perk is TravellerRewardSkill skillReward)
-                {
                     foreach (var skill in skillReward.Skilllist)
-                    {
                         _character.AddSkill(skill);
-                    }
-                }
-            }
         }
 
         /// <summary>
-        /// Apply the nations stat changes to the character
+        ///     Apply the nations stat changes to the character
         /// </summary>
         /// <param name="nationality">The chosen nationality to apply the changes from.</param>
         private void ApplyNationalityStatChange(List<(TravellerAttributes Stat, int ChangeBy)> statChanges)
         {
             foreach (var nationalityStatChange in statChanges)
-            {
                 _character.ChangeAttribute(nationalityStatChange.Stat, nationalityStatChange.ChangeBy);
-            }
         }
+
         #endregion
+
         #region BackgroundSkills
+
         public Dictionary<int, TravellerSkill> GetBackgoundSkills(TravellerNationsCharacterInfo nationality)
         {
             return nationality.BackgroundSkills;
@@ -255,32 +318,49 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         {
             if (HasBackgroundSkills) return;
 
-            foreach (var skill in skills)
-            {
-                _character.AddSkill(skill);
-            }
+            foreach (var skill in skills) _character.AddSkill(skill);
 
             HasBackgroundSkills = true;
         }
+
         #endregion
+
         #region Enter Career
 
-        public TravellerCareer GetCareer(string careerName) => careerService.GetCareer(careerName);
-        public TravellerAssignment GetAssignment(TravellerCareer career, string assignmentName) => GetAssignments(career).First(x => x.Name == assignmentName);
-        public List<TravellerCareer> GetTravellerCareers() => _character.Nationality.NationsCareers;
-        public TravellerCareer GetDrifter() => _character.Nationality.DrifterCareer;
+        public TravellerCareer GetCareer(string careerName)
+        {
+            return careerService.GetCareer(careerName);
+        }
+
+        public TravellerAssignment GetAssignment(TravellerCareer career, string assignmentName)
+        {
+            return GetAssignments(career).First(x => x.Name == assignmentName);
+        }
+
+        public List<TravellerCareer> GetTravellerCareers()
+        {
+            return _character.Nationality.NationsCareers;
+        }
+
+        public TravellerCareer GetDrifter()
+        {
+            return _character.Nationality.DrifterCareer;
+        }
 
         public TravellerCareer GetDrafted(int roll)
         {
-            if (roll > _character.Nationality.DraftTable.Length) throw new ArgumentOutOfRangeException("Error, draft roll outside expected range");
+            if (roll > _character.Nationality.DraftTable.Length)
+                throw new ArgumentOutOfRangeException("Error, draft roll outside expected range");
 
             return _character.Nationality.DraftTable[roll];
         }
 
         public bool CanEnterCareer(TravellerAttributeCheck careerCheck, int diceResult)
-            =>
-                careerCheck.PassedCheck(diceResult
-                    + _character.GetRelevantAttributeModifier(careerCheck.UnderlingAttribute) + QualificationModifier);
+        {
+            return careerCheck.PassedCheck(diceResult
+                                           + _character.GetRelevantAttributeModifier(careerCheck.UnderlingAttribute) +
+                                           QualificationModifier);
+        }
 
         public List<TravellerAssignment> GetAssignments(TravellerCareer career)
         {
@@ -301,9 +381,15 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         {
             HasJob = false;
         }
+
         #endregion
+
         #region Career Basic Training
-        public bool GetsBasicTraining() => FirstTermOfJob;
+
+        public bool GetsBasicTraining()
+        {
+            return FirstTermOfJob;
+        }
 
         public void ApplyRegularBasicTraining(TravellerSkillTableEntry basicTraining)
         {
@@ -311,41 +397,55 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             AddSkillTableEntryToCharacter(basicTraining);
             FirstTermOfJob = false;
         }
+
         public void ApplyFirstBasicTraining(TravellerCareer career)
         {
             if (!FirstTermOfJob && HasHadJob) throw new ArgumentException("Error, not first career");
-            foreach (var skill in career.ServiceSkillsList)
-            {
-                AddSkillTableEntryToCharacter(skill);
-            }
+            foreach (var skill in career.ServiceSkillsList) AddSkillTableEntryToCharacter(skill);
 
             HasHadJob = true;
             FirstTermOfJob = false;
         }
+
         #endregion
+
         #region Career Skills
+
         /// <summary>
-        /// Returns a value in the range for the skill table, will be between 0-5
+        ///     Returns a value in the range for the skill table, will be between 0-5
         /// </summary>
         /// <returns>Returns a value between 0-5</returns>
-        public int RollOnSkillTable() => RollDice(1) - 1;
+        public int RollOnSkillTable()
+        {
+            return RollDice(1) - 1;
+        }
 
         public List<(string, List<TravellerSkillTableEntry>)> GetSkillTables()
         {
             var tables = new List<(string, List<TravellerSkillTableEntry>)>();
             tables.Add(("Service Skills", _character.PreviousCareers.Peek().Item1.ServiceSkillsList));
-            tables.Add(("Personal Development Skills", _character.PreviousCareers.Peek().Item1.PersonalDevelopmentSkillList));
-            tables.Add(($"{_character.PreviousCareers.Peek().Item2.Name} Skills", _character.PreviousCareers.Peek().Item2.SkillList));
+            tables.Add(("Personal Development Skills",
+                _character.PreviousCareers.Peek().Item1.PersonalDevelopmentSkillList));
+            tables.Add(($"{_character.PreviousCareers.Peek().Item2.Name} Skills",
+                _character.PreviousCareers.Peek().Item2.SkillList));
 
             return tables;
         }
 
-        public bool IsSkill(TravellerSkillTableEntry skill) => skill is TravellerSkillTableEntrySkill;
+        public bool IsSkill(TravellerSkillTableEntry skill)
+        {
+            return skill is TravellerSkillTableEntrySkill;
+        }
 
         public bool IsSuperSkill(TravellerSkillTableEntry skill)
-            => TravellerSkill.IsSuperSkill(((TravellerSkillTableEntrySkill)skill).Skill);
+        {
+            return TravellerSkill.IsSuperSkill(((TravellerSkillTableEntrySkill)skill).Skill);
+        }
 
-        public bool IsSuperSkill(TravellerSkills skill) => TravellerSkill.IsSuperSkill(skill);
+        public bool IsSuperSkill(TravellerSkills skill)
+        {
+            return TravellerSkill.IsSuperSkill(skill);
+        }
 
         public bool ApplySkillTableResult(TravellerSkillTableEntry entry)
         {
@@ -353,31 +453,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         }
 
         #endregion
-        #region Career Survival
-        public bool CheckSurvival(int roll)
-        {
-            var survival = _character.PreviousCareers.Peek().Item2.Survival;
-            var check = false;
-            try
-            {
-                var stat = _character.AttributeList.First(x => x.AttributeName == survival.AttributeToCheck);
 
-
-                check = survival.PassedCheck(roll + stat.AttributeModifier);
-
-                Mishapped = !check;
-
-                if (Mishapped) HasJob = false;
-
-            }
-            catch (InvalidOperationException)
-            {
-                _character.AddAttribute(survival.AttributeToCheck);
-                check = CheckSurvival(roll);
-            }
-            return check;
-        }
-        #endregion
         #region Career Events
 
         public bool PassSkillCheck(TravellerSkillCheck check, int roll)
@@ -390,14 +466,15 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
 
             return check.PassedCheck(roll + DM);
         }
-        public TravellerEventCharacterCreation GetLifeEvent(int roll) => _character.LastCareer.GetLifeEvent(roll);
+
+        public TravellerEventCharacterCreation GetLifeEvent(int roll)
+        {
+            return _character.LastCareer.GetLifeEvent(roll);
+        }
 
         public TravellerEventCharacterCreation GetEvent(int roll)
         {
-            if (roll < 2 || roll > 12)
-            {
-                throw new ArgumentOutOfRangeException("Error die roll was out of range!");
-            }
+            if (roll < 2 || roll > 12) throw new ArgumentOutOfRangeException("Error die roll was out of range!");
 
             //The life event table is supposed to be the numbers between 2-12. We must adjust for 
             //Zero based indexing
@@ -414,20 +491,14 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         public void DoneEvent()
         {
             var temp = new Queue<TravellerEventCharacterCreation>();
-            foreach (var evnt in CurrentTermsEvents)
-            {
-                temp.Enqueue(evnt);
-            }
+            foreach (var evnt in CurrentTermsEvents) temp.Enqueue(evnt);
 
-            foreach (var evnt in temp)
-            {
-                _character.CharactersEvents.Push(evnt);
-            }
+            foreach (var evnt in temp) _character.CharactersEvents.Push(evnt);
             CurrentTermsEvents = new Stack<TravellerEventCharacterCreation>();
         }
 
         /// <summary>
-        /// Apply a reward to the character.
+        ///     Apply a reward to the character.
         /// </summary>
         /// <param name="reward">The reward given to the character</param>
         /// <returns>Returns true if the reward requires user input</returns>
@@ -446,16 +517,12 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             }
 
             if (reward is TravellerRewardWeapon)
-            {
                 //The traveller Must Pick out their weapon. 
                 return true;
-            }
 
             if (reward is TravellerRewardSkillChoice)
-            {
                 //The traveller must pick which skill to choose.
                 return true;
-            }
 
             if (reward is TravellerRewardQualification qualification)
             {
@@ -464,22 +531,16 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             }
 
             if (reward is TravellerRewardOther)
-            {
                 //Other rewards are not for the system!
                 return true;
-            }
 
             if (reward is TravellerRewardLifeEvent)
-            {
                 //Life events require a roll on a table!
                 return true;
-            }
 
             if (reward is TravellerRewardEmpty)
-            {
                 //If its an empty reward, nothing to do with it.
                 return false;
-            }
 
             if (reward is TravellerRewardContact contacts)
             {
@@ -499,24 +560,19 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
 
                 //if that somehow still snuck through!
                 foreach (var skill in skills.Skilllist)
-                {
-                    if (!_character.AddSkill(skill)) return true;
-                }
+                    if (!_character.AddSkill(skill))
+                        return true;
 
                 return false;
             }
 
-            if (reward is TravellerRewardJobChange)
-            {
-                return true;
-            }
+            if (reward is TravellerRewardJobChange) return true;
 
             if (reward is TravellerRewardItem items)
             {
                 foreach (var item in items.Items)
-                {
-                    if (!_character.AddItem(item)) return true;
-                }
+                    if (!_character.AddItem(item))
+                        return true;
 
                 return false;
             }
@@ -546,79 +602,54 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             }
 
             if (reward is TravellerRewardCombatImplant combatImplant)
-            {
                 return true;
-                /*_character.AddItem(new TravellerAugments("Combat Implant", 50000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)" ));
+            /*_character.AddItem(new TravellerAugments("Combat Implant", 50000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)" ));
                 */
-            }
 
             if (reward is TravellerRewardArmour armour)
-            {
                 return true;
-                /* _character.AddItem(new TravellerArmour("Armour", 10000, 0, 12, 0, 0,
+            /* _character.AddItem(new TravellerArmour("Armour", 10000, 0, 12, 0, 0,
                     "Select any type of armour with a limit of Cr10000 and TL 12. If you roll this benefit again, then you can either select another type of armour with the same limits or trade your original in for armour with a limit of Cr 25000."));
                 */
-            }
 
             if (reward is TravellerRewardBlade blade)
-            {
                 return true;
-                /*
+            /*
                 _character.AddItem(new TravellerWeapon("Blade", 2000, 0, 12, 0, "0D6",
                     0, 0, new List<TravellerWeaponTraits> { }, "Select any blade weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another blade or one level in the Melee (blades) skill."));
                 */
-            }
 
             if (reward is TravellerRewardGun gun)
-            {
-                return true; 
-                /*
+                return true;
+            /*
                 _character.AddItem(new TravellerWeapon("Gun", 2000, 0, 12, 0, "0D6",
                     0, 0, new List<TravellerWeaponTraits> { }, "Select any common or military ranged weapon with a limit of Cr1000 and TL 12. If you roll this benefit again, you may take another weapon or one level in the appropriate Gun Combat skill for a weapon already received as a benefit"));
                 */
-            }
 
             if (reward is TravellerRewardAugment augment)
-            {
                 return true;
-                /*
+            /*
                 _character.AddItem(
                     new TravellerAugments("Augment", 25000, 0, 12, "Gain any augmentations (see page 99) with a limit of Cr50000 and TL 12. If you roll this benefit again, then you may either take a different Augmentation or increase the one you already possess by one level (this may take it above the credit and TL limit)"));
                 */
-            }
 
             if (reward is TravellerRewardVehicle vehicle)
             {
-                _character.AddItem(new TravellerGenericItem(@vehicle.RewardText, 100000000, 0, 15));
+                _character.AddItem(new TravellerGenericItem(vehicle.RewardText, 100000000, 0, 15));
                 return false;
             }
 
             if (reward is TravellerRewardShip ship)
             {
-                _character.AddItem(new TravellerGenericItem(@ship.RewardText, 100000000, 0, 15));
+                _character.AddItem(new TravellerGenericItem(ship.RewardText, 100000000, 0, 15));
                 return false;
             }
 
             throw new ArgumentException("Error, this type fo reward isn't handled!");
-
         }
 
         #endregion
-        #region CareerMishaps
-        public TravellerEventCharacterCreation GetMishap(int roll)
-        {
-            if (roll < 1 || roll > 6)
-            {
-                throw new ArgumentOutOfRangeException("Error die roll was out of range!");
-            }
 
-            //The mishap table is supposed to be the numbers between 1 and 6. We must adjust for 
-            //Zero based indexing
-            var evnt = _character.LastCareer.Mishaps[roll - 1];
-            AddEvent(evnt);
-            return evnt;
-        }
-        #endregion
         #region Advancing
 
         public (string title, TravellerCharacterCreationReward TravellerCharacterCreationReward) GetRank()
@@ -631,7 +662,6 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
 
         public bool Advances(int roll)
         {
-
             var advance = _character.PreviousCareers.Peek().Item2.Advancement;
             var stat = _character.AttributeList.First(x => x.AttributeName == advance.AttributeToCheck);
 
@@ -640,10 +670,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             Advanced = check;
             HardAdvanced = false;
 
-            if (roll + stat.AttributeModifier >= 12)
-            {
-                HardAdvanced = true;
-            }
+            if (roll + stat.AttributeModifier >= 12) HardAdvanced = true;
 
             if (Advanced)
             {
@@ -655,10 +682,13 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
 
             return check;
         }
+
         #endregion
+
         #region Benefits
+
         /// <summary>
-        /// Gain ytour benefit for the term and finish the event.
+        ///     Gain ytour benefit for the term and finish the event.
         /// </summary>
         public void GainBenefitForTerm()
         {
@@ -675,15 +705,15 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                 PreviousCareers.Push(Currentcareer);
                 return retCar.MusteringOutBenefits;
             }
-            else
-            {
-                return LastCareer.MusteringOutBenefits;
-            }
+
+            return LastCareer.MusteringOutBenefits;
         }
 
         public int UseModifier(int usedBenefitModifier)
         {
-            if (usedBenefitModifier < 0 || usedBenefitModifier > BenefitRollModifiers.Count) throw new ArgumentOutOfRangeException($"Error argument was outside of range for benefit rolls. Got {usedBenefitModifier} but range is 0-{BenefitRollModifiers.Count}");
+            if (usedBenefitModifier < 0 || usedBenefitModifier > BenefitRollModifiers.Count)
+                throw new ArgumentOutOfRangeException(
+                    $"Error argument was outside of range for benefit rolls. Got {usedBenefitModifier} but range is 0-{BenefitRollModifiers.Count}");
 
             var benefit = BenefitRollModifiers[usedBenefitModifier];
             BenefitRollModifiers.RemoveAt(usedBenefitModifier);
@@ -697,13 +727,9 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             if (benefitNumber < 0) benefitNumber = 0;
 
             NumberOfBenefitRolls--;
-            if (cash)
-            {
-                return new TravellerRewardCredits(GetBenefits()[benefitNumber].cash);
-            }
+            if (cash) return new TravellerRewardCredits(GetBenefits()[benefitNumber].cash);
 
             return GetBenefits()[benefitNumber].benefits;
-
         }
 
         public void SelectBenefit(int benefitNumber, bool cash = false)
@@ -712,7 +738,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         }
 
         /// <summary>
-        /// Generate the benefit rolls, and reset the chosen benefits list.
+        ///     Generate the benefit rolls, and reset the chosen benefits list.
         /// </summary>
         /// <returns></returns>
         public Dictionary<int, int> GenerateBenefits()
@@ -722,18 +748,17 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
 
             var rolls = new Dictionary<int, int>();
 
-            for (int i = 0; i < NumberOfBenefitRolls; i++)
-            {
-                rolls.Add(i, rand.Next(0, 6));
-            }
+            for (var i = 0; i < NumberOfBenefitRolls; i++) rolls.Add(i, rand.Next(0, 6));
 
             return rolls;
         }
+
         #endregion
+
         #region Injuries
 
         /// <summary>
-        /// Apply damage to the character
+        ///     Apply damage to the character
         /// </summary>
         /// <param name="injury">The injury to apply</param>
         /// <param name="attributeEffected">The attribute to apply to the injury</param>
@@ -748,110 +773,109 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
 
         public void RepairAttribute(int amountToRepair, int costRoll, TravellerAttribute attributeToRepair)
         {
-            _character.AddDebt((costRoll * AgingCrisisCost) * amountToRepair);
+            _character.AddDebt(costRoll * AgingCrisisCost * amountToRepair);
             _character.ChangeAttribute(attributeToRepair.AttributeName, amountToRepair);
         }
 
         public List<TravellerAttribute> GetEffectedAttributes(TravellerInjury injury)
         {
             if (injury is TravellerInjurySpecific specific)
-            {
                 return GetPhysicalAttributes.Where(x => x.AttributeName == specific.Damage.AttributeName).ToList();
-            }
 
-            if (injury is TravellerInjuryMental)
-            {
-                return GetMentalAttributes;
-            }
+            if (injury is TravellerInjuryMental) return GetMentalAttributes;
 
             return GetPhysicalAttributes;
         }
+
         #endregion
+
         #region Aging
 
         /// <summary>
-        /// Apply aging for the term.
+        ///     Apply aging for the term.
         /// </summary>
         /// <returns>Returns if the character needs to make an aging roll or not.</returns>
         public bool ApplyAging()
         {
             _character.Age += 4;
-            return ((_character.Age - 18) / 4) >= 4;
+            return (_character.Age - 18) / 4 >= 4;
         }
 
         /// <summary>
-        /// See if you have to dela with the effects of aging.
+        ///     See if you have to dela with the effects of aging.
         /// </summary>
         /// <param name="roll">The roll for this terms aging, 2d6</param>
         /// <returns>whether or not you have to deal with the effects of an aging roll.</returns>
         public bool HasAgingEffect(int roll)
         {
             var ageModifiers = (_character.Age - 18) / 4;
-            var result = (roll - ageModifiers) <= 0;
-            
+            var result = roll - ageModifiers <= 0;
+
             return result;
-        } 
+        }
 
         /// <summary>
-        /// The effects of an aging roll
+        ///     The effects of an aging roll
         /// </summary>
         /// <param name="roll">What you rolled on aging.</param>
         /// <returns>The effects of your roll.</returns>
         public TravellerInjury AgingRoll(int roll)
         {
-            var aging = roll - ((_character.Age - 18) / 4);
+            var aging = roll - (_character.Age - 18) / 4;
             return aging switch
             {
                 0 => new TravellerInjury("Reduce one physical characteristic by 1", 1),
                 -1 => new TravellerMultiInjury("Reduce two physical characteristics by 1",
                     new List<TravellerInjury>
                     {
-                        new TravellerInjury("First",1),
-                        new TravellerInjury("Second",1),
+                        new("First", 1),
+                        new("Second", 1)
                     }),
                 -2 => new TravellerMultiInjury("Reduce three physical characteristics by 1",
                     new List<TravellerInjury>
                     {
-                        new TravellerInjury("First",1),
-                        new TravellerInjury("Second",1),
-                        new TravellerInjury("Third",1),
+                        new("First", 1),
+                        new("Second", 1),
+                        new("Third", 1)
                     }),
                 -3 => new TravellerMultiInjury("Reduce one physical characteristics by 2, two by 1",
                     new List<TravellerInjury>
                     {
-                        new TravellerInjury("First",2),
-                        new TravellerInjury("Second",1),
-                        new TravellerInjury("Third",1),
+                        new("First", 2),
+                        new("Second", 1),
+                        new("Third", 1)
                     }),
                 -4 => new TravellerMultiInjury("Reduce two physical characteristics by 2, one by 1",
                     new List<TravellerInjury>
                     {
-                        new TravellerInjury("First",2),
-                        new TravellerInjury("Second",2),
-                        new TravellerInjury("Third",1),
+                        new("First", 2),
+                        new("Second", 2),
+                        new("Third", 1)
                     }),
                 -5 => new TravellerMultiInjury("Reduce three physical characteristics by 2",
                     new List<TravellerInjury>
                     {
-                        new TravellerInjury("First",2),
-                        new TravellerInjury("Second",2),
-                        new TravellerInjury("Third",2),
+                        new("First", 2),
+                        new("Second", 2),
+                        new("Third", 2)
                     }),
                 _ => new TravellerMultiInjury("Reduce two physical characteristics by 2, and one mental by 1",
                     new List<TravellerInjury>
                     {
-                        new TravellerInjury("First",2),
-                        new TravellerInjury("Second",2),
-                        new TravellerInjuryMental("Third",1),
-                    }),
-
+                        new("First", 2),
+                        new("Second", 2),
+                        new TravellerInjuryMental("Third", 1)
+                    })
             };
         }
+
         #endregion
+
         #region Helper Methods
 
         public List<TravellerSkills> GetSubSkills(TravellerSkills skill)
-            => skill switch
+        {
+            return skill switch
             {
                 TravellerSkills.Animals => new List<TravellerSkills>
                 {
@@ -865,13 +889,13 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Art_Instrument,
                     TravellerSkills.Art_Preformer,
                     TravellerSkills.Art_VisualMedia,
-                    TravellerSkills.Art_Write,
+                    TravellerSkills.Art_Write
                 },
                 TravellerSkills.Athletics => new List<TravellerSkills>
                 {
                     TravellerSkills.Athletics_Dexterity,
                     TravellerSkills.Athletics_Endurance,
-                    TravellerSkills.Athletics_Strength,
+                    TravellerSkills.Athletics_Strength
                 },
                 TravellerSkills.Circle => new List<TravellerSkills>
                 {
@@ -879,7 +903,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Circle_Aether,
                     TravellerSkills.Circle_Material,
                     TravellerSkills.Circle_Nether,
-                    TravellerSkills.Circle_Void,
+                    TravellerSkills.Circle_Void
                 },
                 TravellerSkills.Drive => new List<TravellerSkills>
                 {
@@ -887,21 +911,21 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Drive_Mole,
                     TravellerSkills.Drive_Track,
                     TravellerSkills.Drive_Walker,
-                    TravellerSkills.Drive_Wheel,
+                    TravellerSkills.Drive_Wheel
                 },
                 TravellerSkills.Electronics => new List<TravellerSkills>
                 {
                     TravellerSkills.Electronics_Comms,
                     TravellerSkills.Electronics_Computers,
                     TravellerSkills.Electronics_RemoteOps,
-                    TravellerSkills.Electronics_Sensors,
+                    TravellerSkills.Electronics_Sensors
                 },
                 TravellerSkills.Engineer => new List<TravellerSkills>
                 {
                     TravellerSkills.Engineer_JDrive,
                     TravellerSkills.Engineer_LifeSupport,
                     TravellerSkills.Engineer_MDrive,
-                    TravellerSkills.Engineer_Power,
+                    TravellerSkills.Engineer_Power
                 },
                 TravellerSkills.Flyer => new List<TravellerSkills>
                 {
@@ -909,7 +933,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Flyer_Grav,
                     TravellerSkills.Flyer_Ornithopter,
                     TravellerSkills.Flyer_Roter,
-                    TravellerSkills.Flyer_Wing,
+                    TravellerSkills.Flyer_Wing
                 },
                 TravellerSkills.FreeForm => new List<TravellerSkills>
                 {
@@ -917,27 +941,26 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.FreeForm_Aether,
                     TravellerSkills.FreeForm_Material,
                     TravellerSkills.FreeForm_Nether,
-                    TravellerSkills.FreeForm_Void,
+                    TravellerSkills.FreeForm_Void
                 },
                 TravellerSkills.GunCombat => new List<TravellerSkills>
                 {
-
                     TravellerSkills.GunCombat_Archaic,
                     TravellerSkills.GunCombat_Energy,
-                    TravellerSkills.GunCombat_Slug,
+                    TravellerSkills.GunCombat_Slug
                 },
                 TravellerSkills.Gunner => new List<TravellerSkills>
                 {
                     TravellerSkills.Gunner_Capital,
                     TravellerSkills.Gunner_Ortillery,
                     TravellerSkills.Gunner_Screen,
-                    TravellerSkills.Gunner_Turret,
+                    TravellerSkills.Gunner_Turret
                 },
                 TravellerSkills.HeavyWeapons => new List<TravellerSkills>
                 {
                     TravellerSkills.HeavyWeapons_Artillery,
                     TravellerSkills.HeavyWeapons_ManPortable,
-                    TravellerSkills.HeavyWeapons_Vehicle,
+                    TravellerSkills.HeavyWeapons_Vehicle
                 },
                 TravellerSkills.JackLuck => new List<TravellerSkills>
                 {
@@ -964,7 +987,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Langauge_Utopian,
                     TravellerSkills.Language_Witcher,
                     TravellerSkills.Langauge_XiaoMing,
-                    TravellerSkills.Language_Sith,
+                    TravellerSkills.Language_Sith
                 },
                 TravellerSkills.Melee => new List<TravellerSkills>
                 {
@@ -972,13 +995,13 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Melee_Blade,
                     TravellerSkills.Melee_Bludgeon,
                     TravellerSkills.Melee_Natural,
-                    TravellerSkills.Melee_Void,
+                    TravellerSkills.Melee_Void
                 },
                 TravellerSkills.Pilot => new List<TravellerSkills>
                 {
                     TravellerSkills.Pilot_CapitalShips,
                     TravellerSkills.Pilot_SmallCraft,
-                    TravellerSkills.Pilot_Spacecraft,
+                    TravellerSkills.Pilot_Spacecraft
                 },
                 TravellerSkills.Profession => new List<TravellerSkills>
                 {
@@ -987,7 +1010,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Profession_CivilEngineering,
                     TravellerSkills.Profession_Construction,
                     TravellerSkills.Profession_Hydroponics,
-                    TravellerSkills.Profession_Polymers,
+                    TravellerSkills.Profession_Polymers
                 },
                 TravellerSkills.Religion => new List<TravellerSkills>
                 {
@@ -1001,7 +1024,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Religion_Sigmarism,
                     TravellerSkills.Religion_Sithism,
                     TravellerSkills.Religion_OrthodoxSithism,
-                    TravellerSkills.Religion_Witcherism,
+                    TravellerSkills.Religion_Witcherism
                 },
                 TravellerSkills.Science => new List<TravellerSkills>
                 {
@@ -1022,22 +1045,23 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
                     TravellerSkills.Science_Robotics,
                     TravellerSkills.Science_Sophontology,
                     TravellerSkills.Science_Voidology,
-                    TravellerSkills.Science_Xenology,
+                    TravellerSkills.Science_Xenology
                 },
                 TravellerSkills.Seafarer => new List<TravellerSkills>
                 {
                     TravellerSkills.Seafarer_OceanShips,
                     TravellerSkills.Seafarer_Personal,
                     TravellerSkills.Seafarer_Sail,
-                    TravellerSkills.Seafarer_Submarine,
+                    TravellerSkills.Seafarer_Submarine
                 },
                 TravellerSkills.Tactics => new List<TravellerSkills>
                 {
                     TravellerSkills.Tactics_Military,
-                    TravellerSkills.Tactics_Naval,
+                    TravellerSkills.Tactics_Naval
                 },
                 _ => new List<TravellerSkills>()
             };
+        }
 
         public bool AddSkillToCharacter(TravellerSkills skill)
         {
@@ -1046,10 +1070,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
 
         private bool AddSkillTableEntryToCharacter(TravellerSkillTableEntry skillTableEntry)
         {
-            if (skillTableEntry is TravellerSkillTableEntrySkill skill)
-            {
-                return _character.AddSkill(skill.Skill);
-            }
+            if (skillTableEntry is TravellerSkillTableEntrySkill skill) return _character.AddSkill(skill.Skill);
 
             if (skillTableEntry is TravellerSkillTableEntryAttribute attribute)
             {
@@ -1061,7 +1082,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         }
 
         /// <summary>
-        /// Roll a number of dice. Generate a random number for character creation.
+        ///     Roll a number of dice. Generate a random number for character creation.
         /// </summary>
         /// <param name="numberOfDice">The number of Dice to roll.</param>
         /// <param name="sides">The (inclusive) number of sides on the dice.</param>
@@ -1069,10 +1090,7 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
         public int RollDice(int numberOfDice = 2, int sidesPerDie = 6)
         {
             var result = 0;
-            for (int i = 0; i < numberOfDice; i++)
-            {
-                result += dice.Next(1, sidesPerDie + 1);
-            }
+            for (var i = 0; i < numberOfDice; i++) result += dice.Next(1, sidesPerDie + 1);
 
             //The lowest you can have is the number of dice, but the highest value of those dice
             var min = Math.Min(numberOfDice * sidesPerDie, result);
@@ -1080,9 +1098,11 @@ namespace TravellerCharacter.CharacterCreator.CharacterCreation
             return max;
         }
 
-        public PlayerTravellerCharacter GetPlayerCharacter() => _character;
+        public PlayerTravellerCharacter GetPlayerCharacter()
+        {
+            return _character;
+        }
 
         #endregion
-
     }
 }

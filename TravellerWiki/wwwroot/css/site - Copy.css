@@ -5,6 +5,7 @@ body {
     color: #ff9900;
     background-color: #000;
 }
+
 .hex {
     float: left;
     margin-right: -26px;
@@ -111,7 +112,7 @@ h2 {
 }
 
 h3 {
-    color: ##ff9900;
+    color: # #ff9900;
     background-color: #CC6666;
     font-size: 1.25em;
     margin: 0px;
@@ -141,6 +142,7 @@ table {
     background-color: #CC6666;
     color: #00EDF7;
 }
+
 tbody {
     border-style: solid;
     color: #ff9900;
@@ -178,4 +180,7 @@ tbody {
     background-color: #9999FF;
     display: table;
 }
-#blazor-error-ui { display:none}
+
+#blazor-error-ui {
+    display: none
+}

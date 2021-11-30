@@ -1,6 +1,4 @@
-﻿using TravellerMapSystem;
-
-namespace TravellerGalaxyGenertor.TravellerGalaxy.Interfaces
+﻿namespace TravellerGalaxyGenertor.TravellerGalaxy.Interfaces
 {
     public interface IWorldGenerator
     {

@@ -2,11 +2,13 @@
 {
     public class TravellerEventInjuryAndMore : TravellerEventInjury
     {
-        public TravellerEventCharacterCreation FollowupEvent { get; }
-        public TravellerEventInjuryAndMore(string eventText, TravellerEventCharacterCreation followupEvent) : base(eventText)
+        public TravellerEventInjuryAndMore(string eventText, TravellerEventCharacterCreation followupEvent) :
+            base(eventText)
         {
             FollowupEvent = followupEvent;
         }
+
+        public TravellerEventCharacterCreation FollowupEvent { get; }
 
         public override string ToString()
         {

@@ -1,9 +1,6 @@
 @page "/Languages/HighVersianLangauge"
 @using WikiServices.DataServices
 @inject HighVersianService highVersian
-@using static Language_Bits_Specific.HighVersianLangaugePostfix;
-@using static Language_Bits_Specific.HighVersianLangaugePrefix;
-@using static Language_Bits_Specific.HighVersianLangaugeRoot;
 <head>
     <title>High Versian</title>
 </head>
@@ -14,28 +11,30 @@
 </style>
 
 <body>
-    <h1>High Versian Language</h1>
+<h1>High Versian Language</h1>
 <p>Within the Human Empires of the Known Universe, two major language families have come to dominate the common thought, the Versian Language family and the Federation language family. But there are some other smaller Language families.</p>
 <a href="/Languages/HighVersianLangauge/Translator">Translate some stuff from High Versian.</a>
 
 <h2>High Versian Letters</h2>
-    <p>These are the letters of the High Versian Language</p>
+<p>These are the letters of the High Versian Language</p>
 <ul>
     @* ReSharper disable once HeapView.BoxingAllocation *@
     @foreach (var letter in highVersian.Letters())
     {
-        <li><b class="high">@letter.ToString().ToUpper():</b> @highVersian.GetLetterProunciation(letter) </li>
+        <li>
+            <b class="high">@letter.ToString().ToUpper():</b> @highVersian.GetLetterProunciation(letter)
+        </li>
     }
 </ul>
 
 <a href="/Languages/HighVersianLangauge/Prefix/">View Just Prefixes</a>
-<HighVersianLangaugePrefixList />
+<HighVersianLangaugePrefixList/>
 
 <a href="/Languages/HighVersianLangauge/Root/">View Just Roots</a>
-<HighVersianLangaugeRootList />
+<HighVersianLangaugeRootList/>
 
 <a href="/Languages/HighVersianLangauge/Postfix/">View Just Postfixes</a>
-<HighVersianLangaugePostfixList />
+<HighVersianLangaugePostfixList/>
 
 <a href="/Languages/HighVersianLangauge/Words">View full list of translated/known words.</a>
 <HighVersianLangaugeWords></HighVersianLangaugeWords>

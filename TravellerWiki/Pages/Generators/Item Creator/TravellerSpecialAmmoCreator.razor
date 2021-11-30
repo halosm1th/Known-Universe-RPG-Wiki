@@ -1,11 +1,7 @@
 ﻿@page "/Generators/TravellerSpecialAmmoCreator"
-
-@using TravellerWiki.Data
-@using System.Linq;
-@using System.Text
-@using Newtonsoft.Json
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.CharacterCreator.Items
+@using Newtonsoft.Json
 @inject TravellerItemStoreService ItemStore
 
 <title>Ammo Creator</title>
@@ -36,27 +32,27 @@
     @if (weapon == null)
     {
         <p style="text-align: center">
-            <b>Name</b> <br /> <input type="text" @bind="Name" /><br />
+            <b>Name</b> <br/> <input type="text" @bind="Name"/><br/>
 
-            <b>Range</b> <br /> <input type="text" @bind="Range" /><br />
+            <b>Range</b> <br/> <input type="text" @bind="Range"/><br/>
 
-            <b>Damage</b> <br /> <input type="text" @bind="Damage" /><br />
-            <b>Ammo Cost Multiplier</b> <br /> <input type="number" @bind="AmmoMulCost" /><br />
-            <b>Tech Level</b> <br /> <input type="number" @bind="TechLevel" /><br />
+            <b>Damage</b> <br/> <input type="text" @bind="Damage"/><br/>
+            <b>Ammo Cost Multiplier</b> <br/> <input type="number" @bind="AmmoMulCost"/><br/>
+            <b>Tech Level</b> <br/> <input type="number" @bind="TechLevel"/><br/>
 
             <label for="pistol">Pistol</label>
-            <input type="checkbox" id="pistol" @bind="Pistol" /><br />
+            <input type="checkbox" id="pistol" @bind="Pistol"/><br/>
 
             <label for="rifle">Rifle</label>
-            <input type="checkbox" id="rifle" @bind="Rifle" /><br />
+            <input type="checkbox" id="rifle" @bind="Rifle"/><br/>
 
             <label for="shotgun">Shotgun</label>
-            <input type="checkbox" id="shotgun" @bind="Shotgun" /><br />
+            <input type="checkbox" id="shotgun" @bind="Shotgun"/><br/>
 
             <label for="heavy">Heavy</label>
-            <input type="checkbox" id="heavy" @bind="Heavy" /><br />
+            <input type="checkbox" id="heavy" @bind="Heavy"/><br/>
 
-            <b>Add Traits</b> <br />
+            <b>Add Traits</b> <br/>
 
             @foreach (var t in weaponTraits)
             {
@@ -69,29 +65,29 @@
                 {
                     <option value="@trait">@trait</option>
                 }
-            </select> <button @onclick="AddTrait">Add Trait</button><br />
+            </select> <button @onclick="AddTrait">Add Trait</button><br/>
 
 
-            <b>Description</b> <br /> <input type="text" @bind="Description" spellcheck="true" /><br />
+            <b>Description</b> <br/> <input type="text" @bind="Description" spellcheck="true"/><br/>
             <button @onclick="AddWeapon">Add Special Ammo</button>
         </p>
     }
     else
     {
         <p style="text-align: center">
-            @weapon.ToString() <input type="button"
-                                      id="btnCopy"
-                                      onClick="
+            @weapon.ToString()
+            <input type="button"
+                   id="btnCopy"
+                   onClick="
 navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[ID])').then(function() {
     /* clipboard successfully set */
 }, function () {
-    alert('Umm, there was an error!'); }) " value="Copy Json" />
+    alert('Umm, there was an error!'); }) " value="Copy Json"/>
             <button @onclick="Reset">New Special Ammo</button>
             <button @onclick="Clone">Clone</button>
         </p>
     }
 </div>
-
 
 
 @code {
@@ -102,7 +98,7 @@ navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[
     int AmmoMulCost = 1;
     int TechLevel = 5;
     TravellerWeaponTraits SelectedTrait = TravellerWeaponTraits.None;
-    List<TravellerWeaponTraits> weaponTraits = new List<TravellerWeaponTraits>();
+    List<TravellerWeaponTraits> weaponTraits = new();
 
     private bool Pistol = false;
     private bool Rifle = false;
@@ -113,7 +109,7 @@ navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[
 
     TravellerSpecialAmmo weapon = null;
     private int ID = 0;
-    Random r = new Random();
+    Random r = new();
 
 
     private void Reset()
@@ -140,7 +136,6 @@ navigator.clipboard.writeText('@JsonConvert.SerializeObject(ItemStore.ItemStore[
     {
         weapon = null;
     }
-
 
 
     public void AddTrait()

@@ -27,17 +27,17 @@
 }
 
 <body>
-    <h1>High Versian roots</h1>
-    <p>These are the root words of the High Versian Language</p>
-    <ul>
-        @foreach (var letter in highVersian.Roots.OrderBy(x => x.Letters.First()))
-        {
-            <li>
+<h1>High Versian roots</h1>
+<p>These are the root words of the High Versian Language</p>
+<ul>
+    @foreach (var letter in highVersian.Roots.OrderBy(x => x.Letters.First()))
+    {
+        <li>
 
-                <a href="/Languages/HighVersianLangauge/Root/@letter.Letters">
-                    <b class="high">@letter.Letters.ToUpper():</b> @letter.Meaning
-                </a>
-            </li>
-        }
-    </ul>
+            <a href="/Languages/HighVersianLangauge/Root/@letter.Letters">
+                <b class="high">@letter.Letters.ToUpper():</b> @letter.Meaning
+            </a>
+        </li>
+    }
+</ul>
 </body>

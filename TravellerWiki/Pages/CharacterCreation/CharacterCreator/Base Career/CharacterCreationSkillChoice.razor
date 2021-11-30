@@ -1,14 +1,9 @@
 @page "/CharacterCreation/GenerateCareerSkill/{characterID}/"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.Career_Service
 @using TravellerCharacter.CharacterCreator.Careers.SkillEntry
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @using TravellerCharacter.CharacterParts
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerCareerService CareerService;
@@ -19,15 +14,17 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
+
     public CharacterCreatorService GetService()
     {
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
     }
 
-    public bool isSuperSkill = false;
-    public bool HasChosenSkillTable = false;
+    public bool isSuperSkill;
+    public bool HasChosenSkillTable;
     public int chosenSkillTable = -1;
     public int roll;
     public string ChosenSkillTableName = "";
@@ -35,7 +32,6 @@
 
     public void ApplySkill(TravellerSkillTableEntry skill)
     {
-
         GetService().ApplySkillTableResult(skill);
         HasChosenSkillTable = true;
         chosenSkillTable = -1;
@@ -46,6 +42,7 @@
     public string SkillName = "None";
     public TravellerSkills ChosenSubSkill;
     public TravellerSkills SuperSkill;
+
     public void SelectSubSkill()
     {
         ApplySkill(new TravellerSkillTableEntrySkill(ChosenSubSkill));
@@ -76,7 +73,7 @@
             1 => GetService().LastCareer.ServiceSkillsList,
             2 => GetService().LastAssignment.SkillList,
             _ => GetService().LastCareer.PersonalDevelopmentSkillList
-        };
+            };
     }
 
 
@@ -86,51 +83,52 @@
     }
 
 }
-<body>
-    
-    <div>
-        <h1>Traveller Character Creator</h1>
-        <div class="creatorMarkup">
-            <h2>Roll Skill - @GetService().LastCareer.CareerName - @GetService().Name </h2>
-            <label for="CharacterProgress">Character Creation Progress: </label>
-            <progress id="CharacterProgess" value="7" max="17"></progress>
-            <CharacterCreationDrawStats CharacterID="@characterID" />
-            <div style="padding-left: 2em;">
-                @if (!HasChosenSkillTable && !isSuperSkill)
-                {
-                    <p>Select a skill table to roll on: </p>
-                    <select @bind="chosenSkillTable">
-                        <option value="0">Personal Development</option>
-                        <option value="1">Service Skills</option>
-                        <option value="2">@GetService().LastAssignment.Name</option>
-                    </select>
-                    <ol>
 
-                        @foreach (var skill in GetChosenSkillTable())
-                        {
-                            <li>@skill.Name</li>
-                        }
-                    </ol>
-                    <button @onclick="RollSkill">Roll on table</button>
-                }
-                else if (!HasChosenSkillTable && isSuperSkill)
-                {
-                    <h4>@SuperSkill</h4>
-                    <p>This is a skill with subskills, please pick one to specialized in.</p>
-                    <select @bind="ChosenSubSkill">
-                        @foreach (var subskill in GetService().GetSubSkills(SuperSkill))
-                        {
-                            <option value="@subskill">@subskill</option>
-                        }
-                    </select>
-                    <button @onclick="SelectSubSkill">Select Subskill</button>
-                }
-                else
-                {
-                    <p>Finished Gaining skill: @(SkillName)</p>
-                    <button @onclick="DonePickingSkills">Done picking skills</button>
-                }
-            </div>
+<body>
+
+<div>
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Roll Skill - @GetService().LastCareer.CareerName - @GetService().Name </h2>
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="7" max="17"></progress>
+        <CharacterCreationDrawStats CharacterID="@characterID"/>
+        <div style="padding-left: 2em;">
+            @if (!HasChosenSkillTable && !isSuperSkill)
+            {
+                <p>Select a skill table to roll on: </p>
+                <select @bind="chosenSkillTable">
+                    <option value="0">Personal Development</option>
+                    <option value="1">Service Skills</option>
+                    <option value="2">@GetService().LastAssignment.Name</option>
+                </select>
+                <ol>
+
+                    @foreach (var skill in GetChosenSkillTable())
+                    {
+                        <li>@skill.Name</li>
+                    }
+                </ol>
+                <button @onclick="RollSkill">Roll on table</button>
+            }
+            else if (!HasChosenSkillTable && isSuperSkill)
+            {
+                <h4>@SuperSkill</h4>
+                <p>This is a skill with subskills, please pick one to specialized in.</p>
+                <select @bind="ChosenSubSkill">
+                    @foreach (var subskill in GetService().GetSubSkills(SuperSkill))
+                    {
+                        <option value="@subskill">@subskill</option>
+                    }
+                </select>
+                <button @onclick="SelectSubSkill">Select Subskill</button>
+            }
+            else
+            {
+                <p>Finished Gaining skill: @(SkillName)</p>
+                <button @onclick="DonePickingSkills">Done picking skills</button>
+            }
         </div>
     </div>
+</div>
 </body>

@@ -1,27 +1,24 @@
 @page "/CharacterCreation/Event/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @using TravellerCharacter.CharacterCreator.CreationEvents
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
 @namespace TravellerWiki.Pages.CharacterCreation.CharacterCreator
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager;
 @inject MultiPageCharacterCreationService MultiCharacterCreationService;
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>@ToString().Replace("TravellerWiki.Pages.", "") </title>
 
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
-    
+
     [Parameter]
     public string DoneURL { get; set; }
-    
+
     [Parameter]
     public string InjuryURL { get; set; }
 
@@ -30,14 +27,14 @@
 
     [Parameter]
     public string CareerURL { get; set; }
-    
+
     public CharacterCreatorService GetService()
     {
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
     }
 
-
     #region Event Reward
+
     public void DoneEvent()
     {
         GetService().GainBenefitForTerm();
@@ -53,18 +50,22 @@
     {
         NavManager.NavigateTo(RewardURL + characterID);
     }
+
     #endregion
 
     #region CareerChange
 
     string newCareerName = "";
+
     public void ChangeCareerEvent()
     {
-        NavManager.NavigateTo( CareerURL + $"{characterID}/{newCareerName}");
+        NavManager.NavigateTo(CareerURL + $"{characterID}/{newCareerName}");
     }
+
     #endregion
 
     #region Value Checks
+
     public int skillToCheckNumber = -1;
     public int attributeToCheckNumber = -1;
     int roll = -1;
@@ -111,8 +112,11 @@
     {
         GetService().AddEvent(evnt);
     }
+
     #endregion
+
 }
+
 <div style="padding-left: 2em;">
     <p>@GetService().LastEvent.EventText</p>
     @if (GetService().LastEvent is TravellerEventAttributeCheck attribute)
@@ -122,7 +126,7 @@
         <p>
             Select an attribute to check against:
             <select @bind="attributeToCheckNumber">
-                @for (int i = 0; i < attribute.AttributeChecks.Count; i++)
+                @for (var i = 0; i < attribute.AttributeChecks.Count; i++)
                 {
                     <option value="@i">@(attribute.AttributeChecks[i])</option>
                 }
@@ -151,7 +155,7 @@
             Select an skill to check against:
 
             <select @bind="skillToCheckNumber">
-                @for (int i = 0; i < skillCheck.SkillChecks.Count; i++)
+                @for (var i = 0; i < skillCheck.SkillChecks.Count; i++)
                 {
                     <option value="@i">@(skillCheck.SkillChecks[i])</option>
                 }
@@ -180,7 +184,6 @@
         var i = 0;
         @foreach (var evnt in multi.Events)
         {
-
             <button @onclick="() => EventChoiceMade(evnt)">Option @i: @evnt.EventText </button>
         }
     }

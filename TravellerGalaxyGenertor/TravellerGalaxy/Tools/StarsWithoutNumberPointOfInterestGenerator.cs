@@ -24,14 +24,16 @@ namespace TravellerMapSystem.Tools
             world.LocationType = GenerateLocation(rand);
             world.OccupiedBy = GenerateOccupiedLocation(world.LocationType, rand);
             world.Situation = GenerateSituation(world.LocationType, rand);
-            
+
             world.TechLevel = rand.Next(1, 16);
         }
 
         private string GenerateSituation(StarsWithoutNumberPoint worldLocationType, Random rand)
-        {return worldLocationType switch
+        {
+            return worldLocationType switch
             {
-                StarsWithoutNumberPoint.Deep_Space_station => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Deep_Space_station => rand.Next(1, 6) switch
+                {
                     1 => "Systems breaking down",
                     2 => "Foreign sabotage attempt",
                     3 => "Black market for the elite",
@@ -39,7 +41,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Supply base for pirates",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Asteroid_Base => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Asteroid_Base => rand.Next(1, 6) switch
+                {
                     1 => "Life support is threatened",
                     2 => "Base needs a new asteroid",
                     3 => "Dug out something nasty",
@@ -47,7 +50,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Hit a priceless vein of ore",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Remote_Moon_Base => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Remote_Moon_Base => rand.Next(1, 6) switch
+                {
                     1 => "Something dark has awoken",
                     2 => "Criminals trying to take over",
                     3 => "Moon plague breaking out",
@@ -55,7 +59,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Rich but badly-protected",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Ancient_Orbital_Ruin => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Ancient_Orbital_Ruin => rand.Next(1, 6) switch
+                {
                     1 => "Trying to stop it awakening",
                     2 => "Meddling with strange tech",
                     3 => "Impending tech calamity",
@@ -63,7 +68,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Fighting outside interlopers",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Research_Base => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Research_Base => rand.Next(1, 6) switch
+                {
                     1 => "Perilous research underway",
                     2 => "Hideously immoral research",
                     3 => "Held hostage by outsiders",
@@ -71,7 +77,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Selling black-market tech",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Asteroid_Belt => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Asteroid_Belt => rand.Next(1, 6) switch
+                {
                     1 => "Ruptured rock released a peril",
                     2 => "Foreign spy ships hide there",
                     3 => "Gold rush for new minerals",
@@ -79,7 +86,8 @@ namespace TravellerMapSystem.Tools
                     5 => "War between rival rocks",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Gas_Giant_Mine => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Gas_Giant_Mine => rand.Next(1, 6) switch
+                {
                     1 => "Things are emerging below",
                     2 => "They need vital supplies",
                     3 => "The workers are in revolt",
@@ -87,7 +95,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Alien remnants were found",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Refueling_Station => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Refueling_Station => rand.Next(1, 6) switch
+                {
                     1 => "A ship is in severe distress",
                     2 => "Pirates have taken over",
                     3 => "Has corrupt customs agents",
@@ -103,7 +112,8 @@ namespace TravellerMapSystem.Tools
         {
             return worldLocationType switch
             {
-                StarsWithoutNumberPoint.Deep_Space_station => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Deep_Space_station => rand.Next(1, 6) switch
+                {
                     1 => "Dangerously odd transhumans",
                     2 => "Freeze-dried ancient corpses",
                     3 => "Secretive military observers",
@@ -111,7 +121,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Deranged but brilliant scientist",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Asteroid_Base => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Asteroid_Base => rand.Next(1, 6) switch
+                {
                     1 => "Zealous religious sectarians",
                     2 => "Failed rebels from another world",
                     3 => "Wage-slave corporate miners",
@@ -119,7 +130,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Pirates masquerading as otherwise",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Remote_Moon_Base => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Remote_Moon_Base => rand.Next(1, 6) switch
+                {
                     1 => "Unlucky corporate researchers",
                     2 => "Reclusive hermit genius",
                     3 => "Remnants of a failed colony",
@@ -127,7 +139,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Lonely overseers and robot miners",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Ancient_Orbital_Ruin => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Ancient_Orbital_Ruin => rand.Next(1, 6) switch
+                {
                     1 => "Robots of dubious sentience",
                     2 => "Trigger-happy scavengers",
                     3 => "Government researchers",
@@ -135,7 +148,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Heirs of the original alien builders",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Research_Base => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Research_Base => rand.Next(1, 6) switch
+                {
                     1 => "Experiments that have gotten loose",
                     2 => "Scientists from a major local corp",
                     3 => "Black-ops governmental researchers",
@@ -143,7 +157,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Aliens studying the human locals",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Asteroid_Belt => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Asteroid_Belt => rand.Next(1, 6) switch
+                {
                     1 => "Grizzled belter mine laborers",
                     2 => "Ancient automated guardian drones",
                     3 => "Survivors of destroyed asteroid base",
@@ -151,7 +166,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Lonely military patrol base staff",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Gas_Giant_Mine => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Gas_Giant_Mine => rand.Next(1, 6) switch
+                {
                     1 => "Miserable gas-miner slaves or serfs",
                     2 => "Strange robots and their overseers",
                     3 => "Scientists studying the alien life",
@@ -159,7 +175,8 @@ namespace TravellerMapSystem.Tools
                     5 => "Impoverished separatist group",
                     _ => "Error"
                 },
-                StarsWithoutNumberPoint.Refueling_Station => rand.Next(1,6) switch{
+                StarsWithoutNumberPoint.Refueling_Station => rand.Next(1, 6) switch
+                {
                     1 => "Half-crazed hermit caretaker",
                     2 => "Sordid purveyors of decadent fun",
                     3 => "Extortionate corporate minions",
@@ -172,7 +189,9 @@ namespace TravellerMapSystem.Tools
         }
 
         private StarsWithoutNumberPoint GenerateLocation(Random rand)
-            => rand.Next(1, 9) switch{
+        {
+            return rand.Next(1, 9) switch
+            {
                 1 => StarsWithoutNumberPoint.Deep_Space_station,
                 2 => StarsWithoutNumberPoint.Asteroid_Base,
                 3 => StarsWithoutNumberPoint.Asteroid_Belt,
@@ -181,30 +200,30 @@ namespace TravellerMapSystem.Tools
                 6 => StarsWithoutNumberPoint.Asteroid_Belt,
                 7 => StarsWithoutNumberPoint.Gas_Giant_Mine,
                 8 => StarsWithoutNumberPoint.Refueling_Station,
-            _ => StarsWithoutNumberPoint.Refueling_Station
+                _ => StarsWithoutNumberPoint.Refueling_Station
             };
-
+        }
 
 
         private string GeneratePopulation(Random rand)
         {
             return rand.Next(2, 13) switch
             {
-                2 => rand.Next(0,11).ToString(),
-                3 => rand.Next(1,101).ToString(),
-                4 => rand.Next(100,500001).ToString(),
-                5 => rand.Next(500000,1000000).ToString(),
-                6 => rand.Next(1000000,9000000).ToString(),
-                7 => rand.Next(10000000,50000000).ToString(),
-                8 => rand.Next(50000000,100000000).ToString(),
-                9 => rand.Next(100000000,500000000).ToString(),
-                10 => rand.Next(500000000,1000000000).ToString(),
+                2 => rand.Next(0, 11).ToString(),
+                3 => rand.Next(1, 101).ToString(),
+                4 => rand.Next(100, 500001).ToString(),
+                5 => rand.Next(500000, 1000000).ToString(),
+                6 => rand.Next(1000000, 9000000).ToString(),
+                7 => rand.Next(10000000, 50000000).ToString(),
+                8 => rand.Next(50000000, 100000000).ToString(),
+                9 => rand.Next(100000000, 500000000).ToString(),
+                10 => rand.Next(500000000, 1000000000).ToString(),
                 11 => rand.Next(1000000000, 2139999999).ToString(),
-                12 => rand.Next(1,100000001).ToString(),
-                _ => rand.Next(1,101).ToString()
+                12 => rand.Next(1, 100000001).ToString(),
+                _ => rand.Next(1, 101).ToString()
             };
         }
-        
+
         private StarsWithoutNumberCurrentRelationship GenerateRelationship(Random rand)
         {
             return rand.Next(1, 9) switch
@@ -236,8 +255,8 @@ namespace TravellerMapSystem.Tools
                 _ => StarsWithoutNumberContactPoint.Shared_elite_families
             };
         }
-        
-        
+
+
         private StarsWithoutNumberOriginOfWorld GenerateOriginOfWorld(Random rand)
         {
             return rand.Next(1, 9) switch

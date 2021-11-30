@@ -1,12 +1,7 @@
 @page "/CharacterCreation/RollMishap/{characterID}"
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @using TravellerCharacter.CharacterCreator.CreationEvents
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager;
 @inject MultiPageCharacterCreationService MultiCharacterCreationService;
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -16,6 +11,7 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
 
@@ -25,9 +21,9 @@
     }
 
     #region GetEvent
+
     public void GetMishap()
     {
-
         var roll = GetService().RollDice(1);
         GetService().GetMishap(roll);
 
@@ -43,29 +39,31 @@
     #endregion
 
     #region Event Reward
-        
-    private string DoneURL ="/CharacterCreation/GenerateBenefit/";
-    private string InjuryURL = "/CharacterCreation/MishapInjury/";
-    private string RewardURL = "/CharacterCreation/MishapReward/";
-    private string CareerURL = "/CharacterCreation/MishapAssignment/";
-    
+
+    private readonly string DoneURL = "/CharacterCreation/GenerateBenefit/";
+    private readonly string InjuryURL = "/CharacterCreation/MishapInjury/";
+    private readonly string RewardURL = "/CharacterCreation/MishapReward/";
+    private readonly string CareerURL = "/CharacterCreation/MishapAssignment/";
+
     #endregion
+
 }
+
 <body>
 
-    <div>
-        <h1>Traveller Character Creator</h1>
-        <div class="creatorMarkup">
-            <h2>Select @GetService().Name's - Roll Mishap</h2>
-            <label for="CharacterProgress">Character Creation Progress: </label>
-            <progress id="CharacterProgess" value="9" max="17"></progress>
-            @if (GetService().CurrentTermsEvents.Count <= 0)
-            {
-                GetMishap();
-            }
-            <CharacterCreationDrawStats CharacterID="@characterID" />
-            <CharacterCreationEventHandling characterID="@characterID" DoneURL="@DoneURL" InjuryURL="@InjuryURL"
-                                            RewardURl="@RewardURL" CareerURL="@CareerURL" />
-        </div>
+<div>
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Select @GetService().Name's - Roll Mishap</h2>
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="9" max="17"></progress>
+        @if (GetService().CurrentTermsEvents.Count <= 0)
+        {
+            GetMishap();
+        }
+        <CharacterCreationDrawStats CharacterID="@characterID"/>
+        <CharacterCreationEventHandling characterID="@characterID" DoneURL="@DoneURL" InjuryURL="@InjuryURL"
+                                        RewardURl="@RewardURL" CareerURL="@CareerURL"/>
     </div>
+</div>
 </body>

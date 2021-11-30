@@ -21,10 +21,12 @@ namespace TravellerCharacter.Character_Services
             Any
         }
 
-        public static NationNameList GetNationalitiesNameList(TravellerNationalities nationalities)
-            => nationalities switch
-            {
+        private static readonly Random rand = new();
 
+        public static NationNameList GetNationalitiesNameList(TravellerNationalities nationalities)
+        {
+            return nationalities switch
+            {
                 TravellerNationalities.Universalis_Confederation => NationNameList.Any,
                 TravellerNationalities.Wicher => NationNameList.Any,
                 TravellerNationalities.United_Federation_of_Earth_and_her_Colonies_Among_the_Stars => NationNameList
@@ -47,9 +49,11 @@ namespace TravellerCharacter.Character_Services
                 TravellerNationalities.Artekkan_Guilds => NationNameList.AxionAlliance,
                 _ => NationNameList.Any
             };
+        }
 
         private List<string> GetNameList(NationNameList nation)
-            => nation switch
+        {
+            return nation switch
             {
                 NationNameList.Federation => TravellerNameLists.FederationNameList,
                 NationNameList.Britannia => TravellerNameLists.BritanniaNameList,
@@ -61,25 +65,23 @@ namespace TravellerCharacter.Character_Services
                 NationNameList.AxionAlliance => TravellerNameLists.AxionAllianceNameList,
                 _ => GetNameList(GetRandomNation())
             };
-
-        private static Random rand = new Random();
+        }
 
         public NationNameList GetRandomNation()
         {
-            var listOfNames = Enum.GetValues(typeof(TravellerNameService.NationNameList)).Length;
-            return (TravellerNameService.NationNameList)rand.Next(0, listOfNames);
+            var listOfNames = Enum.GetValues(typeof(NationNameList)).Length;
+            return (NationNameList)rand.Next(0, listOfNames);
         }
-        
+
         public List<string> GetNames(int numberOfNames, NationNameList nation)
         {
-
-            if (nation == TravellerNameService.NationNameList.Any)
+            if (nation == NationNameList.Any)
                 nation = GetRandomNation();
 
             var nameList = GetNameList(nation);
             var returnList = new List<string>();
 
-            for (int i = 0; i < numberOfNames; i++)
+            for (var i = 0; i < numberOfNames; i++)
             {
                 var sb = new StringBuilder();
                 sb.Append(nameList[rand.Next(0, nameList.Count)]);
@@ -91,5 +93,4 @@ namespace TravellerCharacter.Character_Services
             return returnList;
         }
     }
-
 }

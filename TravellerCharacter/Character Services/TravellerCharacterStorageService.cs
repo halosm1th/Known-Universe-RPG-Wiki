@@ -7,8 +7,10 @@ namespace TravellerCharacter.Character_Services
 {
     public class TravellerCharacterStorageService
     {
-        public static Dictionary<string, PlayerTravellerCharacter> CharacterList = new Dictionary<string, PlayerTravellerCharacter>();
-        public static Random random = new Random();
+        public static Dictionary<string, PlayerTravellerCharacter> CharacterList = new();
+        public static Random random = new();
+
+        public Dictionary<string, PlayerTravellerCharacter> GetCharacters => CharacterList;
 
         public void AddCharacter(string ID, PlayerTravellerCharacter character)
         {
@@ -23,33 +25,27 @@ namespace TravellerCharacter.Character_Services
             }
         }
 
-        public bool ContainsKey(string key) => CharacterList.ContainsKey(key);
+        public bool ContainsKey(string key)
+        {
+            return CharacterList.ContainsKey(key);
+        }
 
         public string GenerateKey()
         {
-            Random r = new Random();
+            var r = new Random();
             var key = r.Next().ToString();
-            if (ContainsKey(key))
-            {
-                return GenerateKey();
-            }
+            if (ContainsKey(key)) return GenerateKey();
 
             return key;
         }
-    
+
 
         public PlayerTravellerCharacter GetCharacter(string requestedKey)
         {
             foreach (var person in CharacterList)
-            {
                 if (person.Key == requestedKey)
-                {
                     return person.Value;
-                }
-            }
             return CharacterList.First(x => x.Key == requestedKey).Value;
         }
-
-        public Dictionary<string, PlayerTravellerCharacter> GetCharacters => CharacterList;
     }
 }

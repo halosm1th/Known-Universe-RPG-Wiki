@@ -1,15 +1,15 @@
 ﻿using TravellerCharacter.CharacterCreator.Careers.SkillEntry;
 using TravellerCharacter.CharacterParts;
-using TravellerWiki.Data;
 
 namespace TravellerCharacter.Character_Services.Career_Service
 {
-    class TravellerCareerServiceCareer
+    internal class TravellerCareerServiceCareer
     {
         public TravellerSkillTableEntry GetSkillTableEntry(TravellerSkills skill)
         {
             return new TravellerSkillTableEntrySkill(skill);
         }
+
         public TravellerSkillTableEntry GetSkillTableEntry(TravellerAttributes attribute)
         {
             return new TravellerSkillTableEntryAttribute(attribute);
@@ -19,6 +19,7 @@ namespace TravellerCharacter.Character_Services.Career_Service
         {
             return new TravellerSkillTableEntrySkill(skill);
         }
+
         public static TravellerSkillTableEntry GetSkillTableEntryStatic(TravellerAttributes attribute)
         {
             return new TravellerSkillTableEntryAttribute(attribute);

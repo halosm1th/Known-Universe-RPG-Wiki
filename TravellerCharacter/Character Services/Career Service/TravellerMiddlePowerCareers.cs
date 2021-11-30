@@ -3,7 +3,7 @@ using TravellerCharacter.CharacterCreator.Careers;
 
 namespace TravellerCharacter.Character_Services.Career_Service
 {
-    class TravellerMiddlePowerCareers : TravellerCareerServiceCareer
+    internal class TravellerMiddlePowerCareers : TravellerCareerServiceCareer
     {
         public void AddMiddlePowerCareers(List<TravellerCareer> careers)
         {
@@ -16,12 +16,15 @@ namespace TravellerCharacter.Character_Services.Career_Service
         private static void AddAxionAllianceCareers(List<TravellerCareer> careers)
         {
         }
+
         private static void AddGermushianCareers(List<TravellerCareer> careers)
         {
         }
+
         private static void AddUniversalisConfederationCareers(List<TravellerCareer> careers)
         {
         }
+
         private static void AddReverseCareer(List<TravellerCareer> careers)
         {
         }

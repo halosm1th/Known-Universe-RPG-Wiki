@@ -1,5 +1,3 @@
-
-
 @page "/Languages/HighVersianLangauge/Root/{Root}"
 @using WikiServices.DataServices
 @using WikiServices.SimpleServiceDriverCode
@@ -28,21 +26,24 @@
 
     public HighVersianDefinition GenerateWord(HighVersianDefinition prefix, HighVersianDefinition postfix)
     {
-        return  highVersian.GetWord(prefix.Letters, _root.Letters, postfix.Letters);
+        return highVersian.GetWord(prefix.Letters, _root.Letters, postfix.Letters);
     }
 
 }
 
 <body>
-    <h1>High Versian: <div class="high">@_root.Letters</div> </h1>
-    <a href="/Languages/HighVersianLangauge/">Back to language page.</a>
-    <p><b class="high">@_root.Letters</b> (@_root.Letters): @_root.Meaning</p>
-    <ul>
-        @foreach (var word in highVersian.Words.Where(word => word.Letters.ToUpper().Contains(_root.Letters.ToUpper())) ?? new List<HighVersianDefinition>() )
-        {
-            <li>
-                <b class="high">@word.Letters</b>: @word.Meaning
-            </li>
-        }
-    </ul>
+<h1>
+    High Versian:
+    <div class="high">@_root.Letters</div>
+</h1>
+<a href="/Languages/HighVersianLangauge/">Back to language page.</a>
+<p><b class="high">@_root.Letters</b> (@_root.Letters): @_root.Meaning</p>
+<ul>
+    @foreach (var word in highVersian.Words.Where(word => word.Letters.ToUpper().Contains(_root.Letters.ToUpper())) ?? new List<HighVersianDefinition>())
+    {
+        <li>
+            <b class="high">@word.Letters</b>: @word.Meaning
+        </li>
+    }
+</ul>
 </body>

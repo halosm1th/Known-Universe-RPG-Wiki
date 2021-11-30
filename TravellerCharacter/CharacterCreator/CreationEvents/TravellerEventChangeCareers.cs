@@ -2,12 +2,12 @@
 {
     public class TravellerEventChangeCareers : TravellerEventCharacterCreation
     {
-        public string NewCareerName { get; }
-
         public TravellerEventChangeCareers(string eventText, string newCareerName) : base(eventText)
         {
             NewCareerName = newCareerName;
         }
+
+        public string NewCareerName { get; }
 
         public override string ToString()
         {

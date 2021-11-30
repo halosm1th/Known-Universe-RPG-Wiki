@@ -1,15 +1,13 @@
-﻿using TravellerWiki.Data;
-
-namespace TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
+﻿namespace TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
 {
     public class TravellerRewardDebt : TravellerCharacterCreationReward
     {
-        public int Amount { get; }
-
         public TravellerRewardDebt(int credits)
         {
             Amount = credits;
         }
+
+        public int Amount { get; }
 
         public override string ToString()
         {
@@ -19,12 +17,12 @@ namespace TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
 
     public class TravellerRewardCredits : TravellerCharacterCreationReward
     {
-        public int Amount { get; }
-
         public TravellerRewardCredits(int credits)
         {
             Amount = credits;
         }
+
+        public int Amount { get; }
 
         public override string ToString()
         {

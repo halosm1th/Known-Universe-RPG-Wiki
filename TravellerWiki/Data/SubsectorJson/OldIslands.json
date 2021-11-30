@@ -1,6 +1,5 @@
 {
-  "Systems": 
-  [
+  "Systems": [
     [
       {
         "WorldSize": 0,
@@ -2073,5 +2072,7 @@
         "Stations": "     "
       }
     ]
-  ],"Name":"OldIslands","WorldCount":12
+  ],
+  "Name": "OldIslands",
+  "WorldCount": 12
 }

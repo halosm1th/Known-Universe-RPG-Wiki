@@ -1,35 +1,32 @@
 ﻿@page "/Character/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.CharacterCreator.Items
 @using TravellerCharacter.CharcterTypes
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @inject NavigationManager NavManager
 @inject TravellerCharacterStorageService storageService
 @inject TravellerItemStoreService ItemStore
 
-    <head>
-        <title>
-            View Character @if (!string.IsNullOrEmpty(characterID))
-            {
-                @GetService().Name
-            }
-        </title>
+<head>
+    <title>
+        View Character
+        @if (!string.IsNullOrEmpty(characterID))
+        {
+            @GetService().Name
+        }
+    </title>
 
-        <meta property="og:title" content="Known Universe Wiki - @GetService().Name" />
-        <meta property="og:url" content="https://theseamnetwork.com/Character/@characterID" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-        <meta content="View the Traveller Character: @GetService().ShortToString()." property="og:description" />
-        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+    <meta property="og:title" content="Known Universe Wiki - @GetService().Name"/>
+    <meta property="og:url" content="https://theseamnetwork.com/Character/@characterID"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="View the Traveller Character: @GetService().ShortToString()." property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
 
 
-    </head>
+</head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
 
@@ -44,6 +41,7 @@
     }
 
 }
+
 <style>
     table {
         text-align: center;
@@ -64,282 +62,284 @@
     }
 </style>
 <body>
-    <div style="text-align: center">
-        <h1>Traveller Character</h1>
-        <h2>@GetService().Name</h2>
-        <p>
-        </p>
+<div style="text-align: center">
+<h1>Traveller Character</h1>
+<h2>@GetService().Name</h2>
+<p>
+</p>
 
-        <details>
-            <summary class="IndexSummery">
-                <b>Basic Information</b>
-            </summary>
-            <p>
-                Name: @GetService().Name
-                <br />
-                Age: @GetService().Age
-                <br />
-                Nationality: @GetService().Nationality
-                <br />
-            </p>
-            <p>
-                <label for="attributeTable">
-                    <b>Attributes</b>
-                </label>
-                <table style="margin-left: auto;margin-right: auto;" id="attributeTable">
+<details>
+    <summary class="IndexSummery">
+        <b>Basic Information</b>
+    </summary>
+    <p>
+        Name: @GetService().Name
+        <br/>
+        Age: @GetService().Age
+        <br/>
+        Nationality: @GetService().Nationality
+        <br/>
+    </p>
+    <p>
+        <label for="attributeTable">
+            <b>Attributes</b>
+        </label>
+        <table style="margin-left: auto;margin-right: auto;" id="attributeTable">
 
-                    <thead>
-                        <tr>
-                            @foreach (var stat in GetService().AttributeList)
-                            {
-                                <th style="padding: 5px; border-style: solid; border-width: 1px;">@stat.AttributeName</th>
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            @foreach (var stat in GetService().AttributeList)
-                            {
-                                <td style="padding: 5px; border-style: solid; border-width: 1px;">@stat.AttributableValue</td>
-                            }
-                        </tr>
-
-                        <tr>
-                            @foreach (var stat in GetService().AttributeList)
-                            {
-                                <td style="padding: 5px; border-style: solid; border-width: 1px;"> [@stat.AttributeModifier]</td>
-                            }
-                        </tr>
-                    </tbody>
-                </table>
-                <br />
-            </p>
-            <p>
-                <h4>Skills</h4>
-                @foreach (var skill in GetService().SkillList)
+            <thead>
+            <tr>
+                @foreach (var stat in GetService().AttributeList)
                 {
-                    @($"{skill.SkillName}: {skill.SkillValue}, ")
+                    <th style="padding: 5px; border-style: solid; border-width: 1px;">@stat.AttributeName</th>
                 }
-            </p>
-        </details>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                @foreach (var stat in GetService().AttributeList)
+                {
+                    <td style="padding: 5px; border-style: solid; border-width: 1px;">@stat.AttributableValue</td>
+                }
+            </tr>
 
-        <details>
-            <summary class="IndexSummery">
-                <b>Previous Careers</b>
-            </summary>
-            <p>
-                <ol>
-                    @foreach (var career in GetService().PreviousCareers)
-                    {
-                        <li>@career.Career.CareerName - @career.Assignment [@career.Assignment.RanksAndBonuses[career.rank].title]</li>
-                    }
-                </ol>
-            </p>
-        </details>
+            <tr>
+                @foreach (var stat in GetService().AttributeList)
+                {
+                    <td style="padding: 5px; border-style: solid; border-width: 1px;"> [@stat.AttributeModifier]</td>
+                }
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+    </p>
+    <p>
+        <h4>Skills</h4>
+        @foreach (var skill in GetService().SkillList)
+        {
+            @($"{skill.SkillName}: {skill.SkillValue}, ")
+        }
+    </p>
+</details>
 
-        <details>
-            <summary class="IndexSummery">
-                <b>Items and stuff</b>
-            </summary>
-            <div>
-                <p>Add Item to Character: </p>
-                <select @bind="ChosenItemID">
-                    @foreach (var item in ItemStore.ItemStore)
-                    {
-                        <option value="@item.Key">@item.Value.Name [@item.Value.TechLevel]</option>
-                    }
+<details>
+    <summary class="IndexSummery">
+        <b>Previous Careers</b>
+    </summary>
+    <p>
+        <ol>
+            @foreach (var career in GetService().PreviousCareers)
+            {
+                <li>@career.Career.CareerName - @career.Assignment [@career.Assignment.RanksAndBonuses[career.rank].title]</li>
+            }
+        </ol>
+    </p>
+</details>
 
-                </select>
-                <button type="button" @onclick="AddItem">Add Items</button>
-            </div>
+<details>
+    <summary class="IndexSummery">
+        <b>Items and stuff</b>
+    </summary>
+    <div>
+        <p>Add Item to Character: </p>
+        <select @bind="ChosenItemID">
+            @foreach (var item in ItemStore.ItemStore)
+            {
+                <option value="@item.Key">@item.Value.Name [@item.Value.TechLevel]</option>
+            }
 
-
-            <div>
-                <div>
-                    <h4>Finances</h4>
-                    <p>
-                        @GetService().Finances
-                        <br />
-                    </p>
-                </div>
-
-                <div>
-                    <h4>Items</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Cost</th>
-                                <th>KG</th>
-                                <th>TL</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in GetService().Items
-                              .Where(x => (x.ItemType != TravellerItemTypes.Weapon)
-                                          && (x.ItemType != TravellerItemTypes.Armour)
-                                          && (x.ItemType != TravellerItemTypes.Augment)))
-                            {
-                                <tr>
-                                    <td>@item.Name</td>
-                                    <td>Cr​@item.Cost</td>
-                                    <td>@item.KG</td>
-                                    <td>@item.TechLevel</td>
-                                    <td>@item.Description</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    <br />
-                </div>
-
-                <div>
-                    <h4>Augments</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Cost</th>
-                                <th>KG</th>
-                                <th>TL</th>
-                                <th>Improvement</th>
-                                <th>Location</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in GetService().Augments)
-                            {
-                                <tr>
-                                    <td>@item.Name</td>
-                                    <td>Cr​@item.Cost</td>
-                                    <td>@item.KG</td>
-                                    <td>@item.TechLevel</td>
-                                    <td>@item.Improvement</td>
-                                    <td>@item.Location</td>
-                                    <td>@item.Description</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    <br />
-                </div>
-
-                <div>
-                    <h4>Armour</h4>
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Cost</th>
-                                <th>KG</th>
-                                <th>TL</th>
-                                <th>Protection</th>
-                                <th>Radiation Protection</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in GetService().Armour)
-                            {
-                                <tr>
-                                    <td>@item.Name</td>
-                                    <td>Cr​@item.Cost</td>
-                                    <td>@item.KG</td>
-                                    <td>@item.TechLevel</td>
-                                    <td>@item.Protection</td>
-                                    <td>@item.RadiationProtection</td>
-                                    <td>@item.Description</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    <br />
-                </div>
-
-                <div>
-                    <h3>Weapons</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Cost</th>
-                                <th>KG</th>
-                                <th>TL</th>
-                                <th>Range in Meters</th>
-                                <th>Damage</th>
-                                <th>Magazine Capacity</th>
-                                <th>Magazine Cost</th>
-                                <th>Weapon Traits</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in GetService().Weapons)
-                            {
-                                <tr>
-                                    <td>@item.Name</td>
-                                    <td>Cr​@item.Cost</td>
-                                    <td>@item.KG</td>
-                                    <td>@item.TechLevel</td>
-                                    <td>@item.RangeInMeters</td>
-                                    <td>@item.Damage</td>
-                                    <td>@item.MagazineCapacity</td>
-                                    <td>Cr​@item.MagazineCost</td>
-                                    <td>
-                                        @foreach (var trait in item.WeaponTraits)
-                                        {
-                                            <span title="@TravellerWeaponTrait.AnyTraitText(trait)">
-                                                @(trait + ", ")
-                                            </span>
-                                        }
-                                    </td>
-                                    <td>@item.Description</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    <br />
-                </div>
-            </div>
-        </details>
-
-        <details>
-            <summary class="IndexSummery">
-                <b>Contacts</b>
-            </summary>
-            <p>
-                <ul>
-                    @foreach (var contact in GetService().Contacts)
-                    {
-                        if (contact is TravellerSpecialNPC npc)
-                        {
-                            <li><b>@npc.Name:</b> @npc.PatronText - @npc.QuirkText. [@npc.Background - @npc.Career]</li>
-                        }
-                        else
-                        {
-                            <li>@contact</li>
-                        }
-                    }
-                </ul>
-                <br />
-            </p>
-        </details>
-
+        </select>
+        <button type="button" @onclick="AddItem">Add Items</button>
     </div>
+
+
+    <div>
+        <div>
+            <h4>Finances</h4>
+            <p>
+                @GetService().Finances
+                <br/>
+            </p>
+        </div>
+
+        <div>
+            <h4>Items</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in GetService().Items
+                    .Where(x => x.ItemType != TravellerItemTypes.Weapon
+                                && x.ItemType != TravellerItemTypes.Armour
+                                && x.ItemType != TravellerItemTypes.Augment))
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>Cr @item.Cost</td>
+                        <td>@item.KG</td>
+                        <td>@item.TechLevel</td>
+                        <td>@item.Description</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <br/>
+        </div>
+
+        <div>
+            <h4>Augments</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Improvement</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in GetService().Augments)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>Cr @item.Cost</td>
+                        <td>@item.KG</td>
+                        <td>@item.TechLevel</td>
+                        <td>@item.Improvement</td>
+                        <td>@item.Location</td>
+                        <td>@item.Description</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <br/>
+        </div>
+
+        <div>
+            <h4>Armour</h4>
+            <table>
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Protection</th>
+                    <th>Radiation Protection</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in GetService().Armour)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>Cr @item.Cost</td>
+                        <td>@item.KG</td>
+                        <td>@item.TechLevel</td>
+                        <td>@item.Protection</td>
+                        <td>@item.RadiationProtection</td>
+                        <td>@item.Description</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <br/>
+        </div>
+
+        <div>
+            <h3>Weapons</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>KG</th>
+                    <th>TL</th>
+                    <th>Range in Meters</th>
+                    <th>Damage</th>
+                    <th>Magazine Capacity</th>
+                    <th>Magazine Cost</th>
+                    <th>Weapon Traits</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in GetService().Weapons)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>Cr @item.Cost</td>
+                        <td>@item.KG</td>
+                        <td>@item.TechLevel</td>
+                        <td>@item.RangeInMeters</td>
+                        <td>@item.Damage</td>
+                        <td>@item.MagazineCapacity</td>
+                        <td>Cr @item.MagazineCost</td>
+                        <td>
+                            @foreach (var trait in item.WeaponTraits)
+                            {
+                                <span title="@TravellerWeaponTrait.AnyTraitText(trait)">
+                                    @(trait + ", ")
+                                </span>
+                            }
+                        </td>
+                        <td>@item.Description</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <br/>
+        </div>
+    </div>
+</details>
+
+<details>
+    <summary class="IndexSummery">
+        <b>Contacts</b>
+    </summary>
+    <p>
+        <ul>
+            @foreach (var contact in GetService().Contacts)
+            {
+                if (contact is TravellerSpecialNPC npc)
+                {
+                    <li><b>@npc.Name:</b> @npc.PatronText - @npc.QuirkText. [@npc.Background - @npc.Career]</li>
+                }
+                else
+                {
+                    <li>@contact</li>
+                }
+            }
+        </ul>
+        <br/>
+    </p>
+</details>
+
+</div>
 </body>
 
 @code{
-    int ChosenItemID = 0;
+    int ChosenItemID;
+
     public void AddItem()
     {
         GetService().Items.Add(ItemStore.GetItem(ChosenItemID));
         ChosenItemID = 0;
     }
+
 }

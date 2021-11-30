@@ -2,6 +2,15 @@
 {
     public class TravellerEventChoice : TravellerEventCharacterCreation
     {
+        public TravellerEventChoice(string eventText, TravellerEventCharacterCreation yesEvent,
+            TravellerEventCharacterCreation noEvent, string yesText = "Yes", string noText = "No") : base(eventText)
+        {
+            YesEvent = yesEvent;
+            NoEvent = noEvent;
+            YesText = yesText;
+            NoText = noText;
+        }
+
         public bool HasYesEvent => YesEvent != null;
         public bool HasNoEvent => NoEvent != null;
 
@@ -10,14 +19,6 @@
 
         public TravellerEventCharacterCreation YesEvent { get; }
         public TravellerEventCharacterCreation NoEvent { get; }
-
-        public TravellerEventChoice(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, string yesText = "Yes", string noText = "No") : base(eventText)
-        {
-            YesEvent = yesEvent;
-            NoEvent = noEvent;
-            YesText = yesText;
-            NoText = noText;
-        }
 
         public override string ToString()
         {

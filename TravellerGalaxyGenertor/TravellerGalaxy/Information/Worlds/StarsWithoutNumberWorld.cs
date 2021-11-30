@@ -1,5 +1,4 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 using Newtonsoft.Json;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Tools;
@@ -17,7 +16,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Long_Standing_Cooperative_Colony_World,
         Recent_Interstellar_Colony_From_Elsewhere
     }
-    
+
     public enum StarsWithoutNumberCurrentRelationship
     {
         Confirmed_hatred_of_each_other,
@@ -63,8 +62,9 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Warm,
         Burning
     }
-    
-    public enum StarsWithoutNumberBiosphere {
+
+    public enum StarsWithoutNumberBiosphere
+    {
         Remnant,
         Microbiol,
         No,
@@ -87,24 +87,6 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
 
     public class StarsWithoutNumberWorld : IWorld
     {
-        public string Name { get; }
-        [JsonProperty("WorldNumber")] public int WorldNumber { get; }
-        public string WorldType => "SWN World";
-        //public StarsWithoutNumberWorldTag WorldTag { get; set; }
-        public StarsWithoutNumberOriginOfWorld StarsWithoutNumberOriginOfWorld { get; set; }
-        public StarsWithoutNumberCurrentRelationship StarsWithoutNumberCurrentRelationship { get; set; }
-        public StarsWithoutNumberContactPoint StarsWithoutNumberContactPoint { get; set; }
-        
-        public StarsWithoutNumberAtmosphere Atmosphere { get; set; }
-        
-        public StarsWithoutNumberTemperature Temperature { get; set; }
-        
-        public StarsWithoutNumberBiosphere Biosphere { get; set; }
-        public string Population { get; set; }
-        public StarsWithoutNumberPopulation PopulationOutline { get; set; }
-        
-        public int TechLevel { get; set; }
-
         public StarsWithoutNumberWorld(string name, int number)
         {
             Name = $"{name}.{number.ToString()}";
@@ -112,24 +94,59 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
             var generator = new GenerateStarsWithoutNumberWorld();
             generator.GenerateWorld(this);
         }
-        
+
+        //public StarsWithoutNumberWorldTag WorldTag { get; set; }
+        public StarsWithoutNumberOriginOfWorld StarsWithoutNumberOriginOfWorld { get; set; }
+        public StarsWithoutNumberCurrentRelationship StarsWithoutNumberCurrentRelationship { get; set; }
+        public StarsWithoutNumberContactPoint StarsWithoutNumberContactPoint { get; set; }
+
+        public StarsWithoutNumberAtmosphere Atmosphere { get; set; }
+
+        public StarsWithoutNumberTemperature Temperature { get; set; }
+
+        public StarsWithoutNumberBiosphere Biosphere { get; set; }
+        public StarsWithoutNumberPopulation PopulationOutline { get; set; }
+        public string Name { get; }
+        [JsonProperty("WorldNumber")] public int WorldNumber { get; }
+        public string WorldType => "SWN World";
+        public string Population { get; set; }
+
+        public int TechLevel { get; set; }
+
         public string WorldData()
         {
             return ($"Name: {Name}\n" +
-                   //$"World Tag: {WorldTag}\n" +
-                   $"------------------------\n" +
-                   $"Atmosphere: {Atmosphere} ({GetAtmoSphereDescription()})\n" +
-                   $"Temperature: {Temperature} ({GetTemperatureDescription()})\n" +
-                   $"Biosphere: {Biosphere}\n" +
-                   $"Population: {PopulationOutline} ({Population})\n" +
-                   $"Tech Level:  {TechLevel}\n" +
-                   $"------------------------\n" +
-                   $"Origin of World: {StarsWithoutNumberOriginOfWorld}\n" +
-                   $"Current Relationship: {StarsWithoutNumberCurrentRelationship}\n" +
-                   $"Contact Point: {StarsWithoutNumberContactPoint}\n").Replace("_"," ");
+                    //$"World Tag: {WorldTag}\n" +
+                    "------------------------\n" +
+                    $"Atmosphere: {Atmosphere} ({GetAtmoSphereDescription()})\n" +
+                    $"Temperature: {Temperature} ({GetTemperatureDescription()})\n" +
+                    $"Biosphere: {Biosphere}\n" +
+                    $"Population: {PopulationOutline} ({Population})\n" +
+                    $"Tech Level:  {TechLevel}\n" +
+                    "------------------------\n" +
+                    $"Origin of World: {StarsWithoutNumberOriginOfWorld}\n" +
+                    $"Current Relationship: {StarsWithoutNumberCurrentRelationship}\n" +
+                    $"Contact Point: {StarsWithoutNumberContactPoint}\n").Replace("_", " ");
         }
+
+
+        public string ShortDescription()
+        {
+            return (
+                    $"{Name} came from {StarsWithoutNumberOriginOfWorld}, to whom its current relationship is {StarsWithoutNumberCurrentRelationship} and the two are in contact because of: {StarsWithoutNumberContactPoint}. " +
+                    $"{Name}'s biosphere is {Biosphere}, and its atmosphere is {Atmosphere}. The temperature is usually {Temperature}. " +
+                    $"Its population is {BigInteger.Parse(Population).ToString("N0")} and its tech level is {TechLevel}")
+                .Replace("_", " ");
+        }
+
+        public override string ToString()
+        {
+            return WorldData();
+        }
+
         private string GetTemperatureDescription()
-            => Temperature switch
+        {
+            return Temperature switch
             {
                 StarsWithoutNumberTemperature.Frozen => "Locked in perpetual ice",
                 StarsWithoutNumberTemperature.Cold => "Dominated by glaciers and tundra",
@@ -140,17 +157,11 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
                 StarsWithoutNumberTemperature.Burning => "Intolerably hot on its surface",
                 _ => "Earthlike in its ranges"
             };
-
-
-        public string ShortDescription()
-        {
-            return ($"{Name} came from {StarsWithoutNumberOriginOfWorld}, to whom its current relationship is {StarsWithoutNumberCurrentRelationship} and the two are in contact because of: {StarsWithoutNumberContactPoint}. " +
-                   $"{Name}'s biosphere is {Biosphere}, and its atmosphere is {Atmosphere}. The temperature is usually {Temperature}. " +
-                   $"Its population is {BigInteger.Parse(Population).ToString("N0")} and its tech level is {TechLevel}").Replace("_", " ");
         }
 
         private string GetAtmoSphereDescription()
-            => Atmosphere switch
+        {
+            return Atmosphere switch
             {
                 StarsWithoutNumberAtmosphere.Corrosive => "Corrosive, damaging to foreign objects",
                 StarsWithoutNumberAtmosphere.Inert => "Inert gas, useless for respiration",
@@ -158,13 +169,10 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
                 StarsWithoutNumberAtmosphere.Breathable => "A breathable mix",
                 StarsWithoutNumberAtmosphere.Thick => " Breathable with a pressure mask",
                 StarsWithoutNumberAtmosphere.Invasive => "Penetrating suit seals",
-                StarsWithoutNumberAtmosphere.Both_Corrosive_And_Invasive => "Both corrosive and invasive in its effects",
+                StarsWithoutNumberAtmosphere.Both_Corrosive_And_Invasive =>
+                    "Both corrosive and invasive in its effects",
                 _ => "Mix"
             };
-
-        public override string ToString()
-        {
-            return WorldData();
         }
     }
 }

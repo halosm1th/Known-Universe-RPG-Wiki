@@ -1,12 +1,7 @@
 @page "/CharacterCreation/GenerateBenefit/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.CharacterCreator.Careers
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -38,36 +33,32 @@
             GetService().PreviousCareers.Push(Currentcareer);
             return retCar;
         }
-        else
-        {
-            return GetService().LastCareer;
-        }
+        return GetService().LastCareer;
     }
 
     public void GenerateBenefits()
     {
         GeneratedBenefits = GetService().GenerateBenefits();
 
-        //We are a group of assholes. So you don't get to apply anything worse then possible.
+    //We are a group of assholes. So you don't get to apply anything worse then possible.
         if (GetService().BenefitRollModifiers.Count > 0)
         {
-            int benefitsToApply = 0;
+            var benefitsToApply = 0;
             if (GetService().BenefitRollModifiers.Count < GeneratedBenefits.Count)
             {
                 benefitsToApply = GetService().BenefitRollModifiers.Count;
-
             }
             else
             {
                 benefitsToApply = GeneratedBenefits.Count;
             }
 
-            //Loop over, one for each benefit!
-            for (int i = 0; i <benefitsToApply ; i++)
+    //Loop over, one for each benefit!
+            for (var i = 0; i < benefitsToApply; i++)
             {
                 GeneratedBenefits[i] += GetService().BenefitRollModifiers[i];
 
-                //First Get what is smaller, 6 or the Generated Benefit. Then Get what is larger, the benefit or 0. Therefore it is between 0-6 [1-7]
+    //First Get what is smaller, 6 or the Generated Benefit. Then Get what is larger, the benefit or 0. Therefore it is between 0-6 [1-7]
                 GeneratedBenefits[i] = Math.Max(Math.Min(6, GeneratedBenefits[i]), 0);
             }
         }
@@ -98,7 +89,7 @@
 
         if (!GeneratedBenefits.ContainsKey(chosenBenefitRoll))
         {
-            foreach(var key in GeneratedBenefits.Keys)
+            foreach (var key in GeneratedBenefits.Keys)
             {
                 chosenBenefitRoll = key;
                 return;
@@ -115,7 +106,7 @@
 
     public void SelectBenefit()
     {
-        GetService().SelectBenefit(GetChosenBenefitNumber(), false);
+        GetService().SelectBenefit(GetChosenBenefitNumber());
     }
 
     public void ApplyBenefits()
@@ -127,71 +118,76 @@
     {
         NavManager.NavigateTo($"/CharacterCreation/Finished/{characterID}");
     }
+
     #endregion
+
 }
+
 <body>
 
-    <div>
-        <h1>Traveller Character Creator</h1>
-        <div class="creatorMarkup">
-            <h2>Select @GetService().Name's - Benefits</h2>
-            <label for="CharacterProgress">Character Creation Progress: </label>
-            <progress id="CharacterProgess" value="15" max="17"></progress>
-            <CharacterCreationDrawStats CharacterID="@characterID" />
-            <div style="padding-left: 2em;">
-                @if (GeneratedBenefits == null)
-                {
-                    GenerateBenefits();
-                }
+<div>
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Select @GetService().Name's - Benefits</h2>
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="15" max="17"></progress>
+        <CharacterCreationDrawStats CharacterID="@characterID"/>
+        <div style="padding-left: 2em;">
+            @if (GeneratedBenefits == null)
+            {
+                GenerateBenefits();
+            }
 
 
-                <p>You have: @GetService().NumberOfBenefitRolls benefit rolls for the @GetCareer().CareerName with the following modifiers:  @(GetService().BenefitRollModifiers.Count > 0 ? @GetService().BenefitRollModifiers.Aggregate("", (h, t) => h += ", " + t).Remove(0, 1) : "None")</p>
+            <p>You have: @GetService().NumberOfBenefitRolls benefit rolls for the @GetCareer().CareerName with the following modifiers: @(GetService().BenefitRollModifiers.Count > 0 ? GetService().BenefitRollModifiers.Aggregate("", (h, t) => h += ", " + t).Remove(0, 1) : "None")</p>
+            <p>
+                The @GetCareer().CareerName Benefit Table looks like:
+                <table>
+                    <thead>
+                    <tr>
+                        <th style="width:2%">Number</th>
+                        <th style="width:10%">Cash/Money</th>
+                        <th style="">Benefit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @for (var i = 0; i < GetCareer().MusteringOutBenefits.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i)</td><td>Cr @GetCareer().MusteringOutBenefits[i].Cash</td><td>@GetCareer().MusteringOutBenefits[i].Benefit</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </p>
+            @if (GeneratedBenefits.Count > 0)
+            {
+                <p>You have: @(GeneratedBenefits.Any() ? GeneratedBenefits.Aggregate("", (h, t) => h += ", " + t.Value).Remove(0, 1) : "None") remaining.</p>
                 <p>
-                    The @GetCareer().CareerName Benefit Table looks like:
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width:2%">Number</th>
-                                <th style="width:10%">Cash/Money</th>
-                                <th style="">Benefit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (int i = 0; i < GetCareer().MusteringOutBenefits.Count; i++)
-                            {
-                                <tr><td>@(i)</td><td>Cr @GetCareer().MusteringOutBenefits[i].Cash</td><td>@GetCareer().MusteringOutBenefits[i].Benefit</td></tr>
-                            }
-                        </tbody>
-                    </table>
+                    Select Benefit Roll to use
+                    <select @bind="chosenBenefitRoll">
+                        @foreach (var roll in GeneratedBenefits)
+                        {
+                            <option value="@roll.Key">@roll.Value</option>
+                        }
+                    </select>
                 </p>
-                @if (GeneratedBenefits.Count > 0)
+                <p>
+                    <button @onclick="SelectCash">Cash</button> or <button @onclick="SelectBenefit"> Benefit </button>
+                </p>
+            }
+            else
+            {
+                @if (GetService().ChosenBenefits.Count > 0)
                 {
-                    <p>You have: @(GeneratedBenefits.Any() ? GeneratedBenefits.Aggregate("", (h, t) => h += ", " + t.Value).Remove(0, 1) : "None") remaining.</p>
-                    <p>
-                        Select Benefit Roll to use
-                        <select @bind="chosenBenefitRoll">
-                            @foreach (var roll in GeneratedBenefits)
-                            {
-                                <option value="@roll.Key">@roll.Value</option>
-                            }
-                        </select>
-                    </p>
-                    <p>
-                        <button @onclick="SelectCash">Cash</button> or <button @onclick="SelectBenefit"> Benefit </button>
-                    </p>
+                    <button @onclick="ApplyBenefits">Apply Benefits.</button>
                 }
                 else
                 {
-                    @if (GetService().ChosenBenefits.Count > 0)
-                    {
-                        <button @onclick="ApplyBenefits">Apply Benefits.</button>
-                    }
-                    else
-                    {
-                        <button @onclick="DoneGeneratingBenefits">Done Benefits.</button>
-                    }
+                    <button @onclick="DoneGeneratingBenefits">Done Benefits.</button>
                 }
-            </div>
+            }
         </div>
     </div>
+</div>
 </body>

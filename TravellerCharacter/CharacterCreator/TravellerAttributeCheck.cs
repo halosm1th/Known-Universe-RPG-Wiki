@@ -4,16 +4,6 @@ namespace TravellerCharacter.CharacterCreator
 {
     public class TravellerAttributeCheck
     {
-        public TravellerAttribute UnderlingAttribute { get; }
-
-        public TravellerAttributes AttributeToCheck => UnderlingAttribute.AttributeName;
-
-
-        public bool PassedCheck(int testValue)
-        {
-            return testValue >= UnderlingAttribute.AttributableValue;
-        }
-
         public TravellerAttributeCheck(TravellerAttributes attributeName, int beatValue)
         {
             UnderlingAttribute = new TravellerAttribute(attributeName, beatValue);
@@ -26,7 +16,16 @@ namespace TravellerCharacter.CharacterCreator
 
         public TravellerAttributeCheck()
         {
+        }
 
+        public TravellerAttribute UnderlingAttribute { get; }
+
+        public TravellerAttributes AttributeToCheck => UnderlingAttribute.AttributeName;
+
+
+        public bool PassedCheck(int testValue)
+        {
+            return testValue >= UnderlingAttribute.AttributableValue;
         }
 
 

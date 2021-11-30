@@ -54,6 +54,6 @@
         VeryBulky,
         VeryDangerous,
         Void,
-        Zero_G,
+        Zero_G
     }
 }

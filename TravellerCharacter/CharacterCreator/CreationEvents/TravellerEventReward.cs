@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward;
-using TravellerWiki.Data;
 
 namespace TravellerCharacter.CharacterCreator.CreationEvents
 {
     public class TravellerEventReward : TravellerEventCharacterCreation
     {
-        public List<TravellerCharacterCreationReward> Reward { get; }
-
         public TravellerEventReward(string text, TravellerCharacterCreationReward reward) : base(text)
         {
             Reward = new List<TravellerCharacterCreationReward>();
@@ -20,6 +17,8 @@ namespace TravellerCharacter.CharacterCreator.CreationEvents
             Reward = reward;
         }
 
+        public List<TravellerCharacterCreationReward> Reward { get; }
+
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -29,12 +28,11 @@ namespace TravellerCharacter.CharacterCreator.CreationEvents
 
             foreach (var reward in Reward)
             {
-                sb.Append(reward.ToString());
+                sb.Append(reward);
                 sb.Append(" ");
             }
 
             return sb.ToString();
         }
-
     }
 }

@@ -1,10 +1,6 @@
 @page "/CharacterCreation/Aging/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -14,6 +10,7 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
 
@@ -28,7 +25,7 @@
     }
 
     int roll = -1;
-    bool aging = false;
+    bool aging;
 
     public void NextTerm()
     {
@@ -41,13 +38,15 @@
             NavManager.NavigateTo($"/CharacterCreation/ChooseCareer/{characterID}");
         }
     }
+
 }
+
 <body>
 
 <h1>Traveller Character Creator</h1>
 <div class="creatorMarkup">
     <h2>Select @GetService().Name's - Aging</h2>
-    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <CharacterCreationDrawStats CharacterID="@characterID"/>
     <label for="CharacterProgress">Character Creation Progress: </label>
     <progress id="CharacterProgess" value="12" max="17"></progress>
     <div style="padding-left: 2em;">

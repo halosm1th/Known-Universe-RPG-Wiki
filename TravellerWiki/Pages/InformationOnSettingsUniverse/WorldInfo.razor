@@ -1,19 +1,23 @@
 ﻿@page "/WorldInfo/WorldInfo/{SubsectorID}/{SysX}/{SysY}/{WorldNumber}"
 @using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces
-@using TravellerGalaxyGenertor
-@using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
 @using TravellerMapSystem.Worlds
+@using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
+@using TravellerGalaxyGenertor
 
 @code {
+
     [Parameter]
     public string SysX { get; set; }
+
     [Parameter]
     public string SysY { get; set; }
+
     [Parameter]
     public string SubsectorID { get; set; }
+
     [Parameter]
     public string WorldNumber { get; set; }
-    
+
     private IWorld? _world;
 
     public void GetWorld()
@@ -21,14 +25,15 @@
         var sysXI = Convert.ToInt32(SysX);
         var sysYI = Convert.ToInt32(SysY);
 
-        int wn = 0;
+        var wn = 0;
         if (int.TryParse(WorldNumber, out wn))
         {
-            if(wn > 0) wn = wn - 1;
+            if (wn > 0) wn = wn - 1;
         }
 
         _world = TravellerSubsectorGeneratorService.GetSystem(SubsectorID, sysXI, sysYI).WorldsInSystem[wn];
     }
+
 }
 
 @if (_world == null)
@@ -36,85 +41,104 @@
     GetWorld();
 }
 
-@if(_world != null){
-<title>@_world.Name</title>
+@if (_world != null)
+{
+    <title>@_world.Name</title>
     <h3>@_world.Name</h3>
     <p>@_world.ShortDescription()</p>
     <p>View <a href="/InformationOnSetting/SubsectorInfo/@SubsectorID">Subector</a> or <a href="/InformationOnSetting/SystemInfo/@SubsectorID/@SysX/@SysY">System</a></p>
-                
-        @if (_world is TravellerWorld travellerWorld)
-        {
-            <p style="border-bottom: 1em;">
-                <h4>World Info</h4>
-                <div><b>Name</b>: @travellerWorld.Name</div>
-                <div><b>UWP:</b> @travellerWorld.UWP</div>
-                <div><b>Star</b>port Quality: @travellerWorld.StarportDescription()</div>
-                <div><b>Size</b>: @travellerWorld.WorldSizeDescription()</div>
-                <div><b>Atmosphere</b>: @travellerWorld.WorldAtmosphereDescrpition()</div>
-                <div><b>Hydrographics</b>: @travellerWorld.WorldHydrographicsDescription()</div>
-                <div><b>Population</b>: @travellerWorld.Population</div>
-                <div><b>Primary</b> Government: @travellerWorld.GovernmentTypeDescrption()</div>
-                <div><b>Law</b> Level: @travellerWorld.LawLevelDescription()</div>
-                <div><b>Tech</b> Level: @travellerWorld.TechLevelDescription()</div>
-                <div><b>Temperature</b>: @travellerWorld.GetTemperatureDescription()</div>
-                <br/>
-                <h4>Trade Codes</h4>
-                <div style="color: orange">
 
-                    @foreach (var tradeCode in travellerWorld.GetTradeCodes())
-                    {
-                        <div>@tradeCode</div>
-                    }
-                </div>
-                <br/>
+    @if (_world is TravellerWorld travellerWorld)
+    {
+        <p style="border-bottom: 1em;">
+            <h4>World Info</h4>
+            <div><b>Name</b>: @travellerWorld.Name</div>
+            <div>
+                <b>UWP:</b> @travellerWorld.UWP
+            </div>
+            <div><b>Star</b>port Quality: @travellerWorld.StarportDescription()</div>
+            <div><b>Size</b>: @travellerWorld.WorldSizeDescription()</div>
+            <div><b>Atmosphere</b>: @travellerWorld.WorldAtmosphereDescrpition()</div>
+            <div><b>Hydrographics</b>: @travellerWorld.WorldHydrographicsDescription()</div>
+            <div><b>Population</b>: @travellerWorld.Population</div>
+            <div><b>Primary</b> Government: @travellerWorld.GovernmentTypeDescrption()</div>
+            <div><b>Law</b> Level: @travellerWorld.LawLevelDescription()</div>
+            <div><b>Tech</b> Level: @travellerWorld.TechLevelDescription()</div>
+            <div><b>Temperature</b>: @travellerWorld.GetTemperatureDescription()</div>
+            <br/>
+            <h4>Trade Codes</h4>
+            <div style="color: orange">
 
-                <h4>Bases in system</h4>
-                @if (travellerWorld.GasGiant)
+                @foreach (var tradeCode in travellerWorld.GetTradeCodes())
                 {
-                    <div style="color:orangered">Fuel Depo(s)</div>
+                    <div>@tradeCode</div>
                 }
-                @if (travellerWorld.MilitaryBase)
-                {
-                    <div style="color:#6bDA26">Military Base</div>
-                }
-                @if (travellerWorld.OtherBase)
-                {
-                    <div style="color:white">Other Base</div>
-                }
+            </div>
+            <br/>
 
-                @if (travellerWorld.Factions != null)
+            <h4>Bases in system</h4>
+            @if (travellerWorld.GasGiant)
+            {
+                <div style="color:orangered">Fuel Depo(s)</div>
+            }
+            @if (travellerWorld.MilitaryBase)
+            {
+                <div style="color:#6bDA26">Military Base</div>
+            }
+            @if (travellerWorld.OtherBase)
+            {
+                <div style="color:white">Other Base</div>
+            }
+
+            @if (travellerWorld.Factions != null)
+            {
+                <div>Factions</div>
+                @foreach (var faction in travellerWorld.Factions)
                 {
-                    <div>Factions</div>
-                    @foreach (var faction in travellerWorld.Factions)
-                    {
-                        <p style="color: #ffe81F">
-                            <span style="color: darkorange; "> @((int)faction.Strength != 5 ? "A " + @faction.Strength.ToString().Replace('_', ' ') : "A group with " + @faction.Strength.ToString().Replace('_', ' '))</span>
-                                supports the @travellerWorld.ShortGovernmentTypeDescrption() form of government,
-                                <span style="color:cyan">and is backed by "@faction.Backer"</span>
-                            </p>
-                    }
+                    <p style="color: #ffe81F">
+                        <span style="color: darkorange; "> @((int)faction.Strength != 5 ? "A " + faction.Strength.ToString().Replace('_', ' ') : "A group with " + faction.Strength.ToString().Replace('_', ' '))</span>
+                        supports the @travellerWorld.ShortGovernmentTypeDescrption() form of government,
+                        <span style="color:cyan">and is backed by "@faction.Backer"</span>
+                    </p>
                 }
-                <div><b>Quirk</b>: @travellerWorld.QuirkDescription()</div>
-                <div><b>Controlled by</b>:<a> @travellerWorld.ControllingFaction</a></div>
+            }
+            <div><b>Quirk</b>: @travellerWorld.QuirkDescription()</div>
+            <div><b>Controlled by</b>:<a> @travellerWorld.ControllingFaction</a></div>
+        </p>
+    }
+    else if (_world is StarsWithoutNumberWorld starsWithoutNumberWorld)
+    {
+        <p style="border-bottom: 1em;">
+            <p><b>Name</b>: @starsWithoutNumberWorld.Name</p>
+            <p>
+                <b>Atmosphere</b> @starsWithoutNumberWorld.Atmosphere
             </p>
-        }
-        else if (_world is StarsWithoutNumberWorld starsWithoutNumberWorld)
-        {
-            <p style="border-bottom: 1em;">
-                <p><b>Name</b>: @starsWithoutNumberWorld.Name</p>
-                <p><b>Atmosphere</b> @starsWithoutNumberWorld.Atmosphere</p>
-                <p><b>Temperature</b> @starsWithoutNumberWorld.Temperature</p>
-                <p><b>Biosphere</b> @starsWithoutNumberWorld.Biosphere</p>
-                <p><b>Population</b> @starsWithoutNumberWorld.Population</p>
-                <p><b>Tech Level</b> @starsWithoutNumberWorld.TechLevel</p>
-                <p><b>Origin of World</b> @starsWithoutNumberWorld.StarsWithoutNumberOriginOfWorld</p>
-                <p><b>Current Relationship</b> @starsWithoutNumberWorld.StarsWithoutNumberCurrentRelationship</p>
-                <p><b>Contact Point</b> @starsWithoutNumberWorld.StarsWithoutNumberContactPoint</p>
-                <p><b>World Tag</b> starsWithoutNumberWorld.WorldTag</p>
+            <p>
+                <b>Temperature</b> @starsWithoutNumberWorld.Temperature
             </p>
-
-        }else if (_world is StarsWithoutNumberPointOfInterest swnPoi)
-        {
-            <p style="white-space: pre-line;border-bottom: 1em;">@swnPoi.ShortDescription()</p>
-        }
-        }
+            <p>
+                <b>Biosphere</b> @starsWithoutNumberWorld.Biosphere
+            </p>
+            <p>
+                <b>Population</b> @starsWithoutNumberWorld.Population
+            </p>
+            <p>
+                <b>Tech Level</b> @starsWithoutNumberWorld.TechLevel
+            </p>
+            <p>
+                <b>Origin of World</b> @starsWithoutNumberWorld.StarsWithoutNumberOriginOfWorld
+            </p>
+            <p>
+                <b>Current Relationship</b> @starsWithoutNumberWorld.StarsWithoutNumberCurrentRelationship
+            </p>
+            <p>
+                <b>Contact Point</b> @starsWithoutNumberWorld.StarsWithoutNumberContactPoint
+            </p>
+            <p><b>World Tag</b> starsWithoutNumberWorld.WorldTag</p>
+        </p>
+    }
+    else if (_world is StarsWithoutNumberPointOfInterest swnPoi)
+    {
+        <p style="white-space: pre-line;border-bottom: 1em;">@swnPoi.ShortDescription()</p>
+    }
+}

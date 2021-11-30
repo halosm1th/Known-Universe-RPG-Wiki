@@ -1,13 +1,8 @@
 @page "/CharacterCreation/BenefitAssignment/{characterID}/{careerNameInput}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.Career_Service
 @using TravellerCharacter.CharacterCreator.Careers
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerCareerService CareerService;
@@ -18,8 +13,10 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
+
     [Parameter]
     public string careerNameInput { get; set; }
 
@@ -28,24 +25,25 @@
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
     }
 
-    private string URL = "/CharacterCreation/Finished/";
+    private readonly string URL = "/CharacterCreation/Finished/";
 
-public TravellerCareer GetCareer()
+    public TravellerCareer GetCareer()
     {
         return CareerService.GetCareer(careerNameInput.Replace('_', ' '));
     }
 
 }
+
 <body>
 
-    <div>
-        <h1>Traveller Character Creator</h1>
-        <div class="creatorMarkup">
-            <h2>Select @GetService().Name's Assignment from Benefit - @GetCareer().CareerName</h2>
-            <label for="CharacterProgress">Character Creation Progress: </label>
-            <progress id="CharacterProgess" value="15.5" max="17"></progress>
-            <CharacterCreationDrawStats CharacterID="@characterID" />
-            <CharacterCreationChangeAssignment characterID="@characterID" URL="@URL" careerNameInput="@careerNameInput" />
-        </div>
+<div>
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Select @GetService().Name's Assignment from Benefit - @GetCareer().CareerName</h2>
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="15.5" max="17"></progress>
+        <CharacterCreationDrawStats CharacterID="@characterID"/>
+        <CharacterCreationChangeAssignment characterID="@characterID" URL="@URL" careerNameInput="@careerNameInput"/>
     </div>
+</div>
 </body>

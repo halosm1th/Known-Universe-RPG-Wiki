@@ -9,7 +9,7 @@ namespace TravellerCharacter.Character_Services
 {
     public class TravellerNationsCharacterInfoService
     {
-        private static List<TravellerNationsCharacterInfo> travellerNationsInfo = new List<TravellerNationsCharacterInfo>()
+        private static readonly List<TravellerNationsCharacterInfo> travellerNationsInfo = new()
         {
             /* {
                  "Universalis Confederation",
@@ -208,239 +208,239 @@ namespace TravellerCharacter.Character_Services
                          new TravellerAttributeCheck(Strength,8)
                      }, drifter:"Luna Knight", drafts:new string[]{"Luna Knight"},
                      parentNation:"United Federation of Earth and her Colonies Among the Stars")},*/
-           TravellerVersianCareers.VersianNation,
-           TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorumNation,
-           TravellerPolandskianCareers.PolandskiaNation,
+            TravellerVersianCareers.VersianNation,
+            TravellerEquitesOrdinisDeorum.EquitesOrdinisDeorumNation,
+            TravellerPolandskianCareers.PolandskiaNation
             /*{
-                "United Reverse Lords",
-                new TravellerNationsCharacterInfo("United Reverse Lords",
-                    backgroundText: "Following the Deutschland defaulting on their war debt, the Vers empire fell into civil war before eventually fracturing into two. The United Reverse Lords seeks to continue the great work done by Emperor Reveres and takes heavy inspiration from the First Vers Republic.",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Education,2),(Intelligence,2),(Social,-1),
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationItem(new List<TravellerItem>
-                        {
-                            new TravellerItem("United Reverse Lords Citizenship",100,1,10),
-                            new TravellerAugments("Optional Neural Net", 5000000,1,20,"A tiny but powerful semi-organic micro-computer embded at the base of a persons skull. The computer a 20mm rectangle, and serves as the interface for most augmentations. Once inserted into the skull, its tendrils will slowly spread throughout the users brain until fully integrated and able to intrepret commands without verbal cues.   is able to transmit multiple forms of data, Computer/5. Necessary component for most augmentations","Base of Skull"),
-
-                        }),
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Language_HighVersian, 1),
-                                new TravellerSkill(Langauge_LowVersian, 1),
-                                new TravellerSkill(Religion_Deorism),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        {0, new TravellerSkill(Admin)},
-                        {1, new TravellerSkill(Animals)},
-                        {2, new TravellerSkill(Art)},
-                        {3, new TravellerSkill(Athletics)},
-                        {4, new TravellerSkill(Carouse)},
-                        {5, new TravellerSkill(Drive)},
-                        {6, new TravellerSkill(Electronics)},
-                        {7, new TravellerSkill(Flyer)},
-                        {8, new TravellerSkill(Language)},
-                        {9, new TravellerSkill(Mechanic)},
-                        {10, new TravellerSkill(Medic)},
-                        {11, new TravellerSkill(Profession)},
-                        {12, new TravellerSkill(Science)},
-                        {13, new TravellerSkill(Seafarer)},
-                        {14, new TravellerSkill(Streetwise)},
-                        {15, new TravellerSkill(Survival)},
-                        {16, new TravellerSkill(VaccSuit)},
-                    },
-                    drifter:"Reverse Military Industry", drafts:new string[]
-                    {
-                        "Reverse Army", 
-                        "Reverse Navy", 
-                        "Reverse Spy"
-                    })},
-            {
-                "Xiao-Ming Mega Corporation",
-                new TravellerNationsCharacterInfo("Xiao-Ming Mega Corporation",
-                    backgroundText: "Following a bloody defeat in the great war and the loss of their control over the Axion Alliance, Xiao-Ming Industries has been forced to lay off a large amount of “wasteful expenditures”, otherwise known as employees. While many are still paying off their corporate conception/birth/life/property damage/etc-debts and thus are forced to continue to be impossibly employed.",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Dexterity,2),(Education,1),(Social,-2),(Intelligence,-1),
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationItem(new List<TravellerItem>
-                        {
-                            new TravellerItem("Xiao-Ming Exit Package (pays cost per month)",200,1,9),
-                            new TravellerItem("Xiao-Ming Employee Card",100,1,9),
-                        }),
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Langauge_XiaoMing, 1),
-                                new TravellerSkill(Language_AxiosPolitical, 1),
-                                new TravellerSkill(Religion_JediIsm),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        {0, new TravellerSkill(Admin)},
-                        {1, new TravellerSkill(Advocate)},
-                        {2, new TravellerSkill(Broker)},
-                        {3, new TravellerSkill(Athletics)},
-                        {4, new TravellerSkill(Astrogation)},
-                        {5, new TravellerSkill(Drive)},
-                        {6, new TravellerSkill(Navigation)},
-                        {7, new TravellerSkill(Flyer)},
-                        {8, new TravellerSkill(Language)},
-                        {9, new TravellerSkill(Mechanic)},
-                        {10, new TravellerSkill(Profession)},
-                        {11, new TravellerSkill(Profession)},
-                        {12, new TravellerSkill(Science)},
-                        {13, new TravellerSkill(Seafarer)},
-                        {14, new TravellerSkill(Streetwise)},
-                        {15, new TravellerSkill(Steward)},
-                        {16, new TravellerSkill(VaccSuit)},
-                    }, 
-                    drifter:"Production", 
-                    drafts:new string[]
-                    {
-                        "Defense Contracting"
-                    })},
-            {
-                "Communist Empire of the Deutschland",
-                new TravellerNationsCharacterInfo("Communist Empire of the Deutschland",
-                    backgroundText: "Backbreaking work, a constant diet of propaganda, the only relief being the even more propaganda filled church sermons. Life is nasty, brutish, and if you’re lucky, short. Labour camps await anyone caught trying to leave the Utopian communist wonderland, while positions that leave the communal-empire are covenanted to only the chosen few comrades of the empress and her closest admirals, generals, bankers, priests and friends.",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Education,-2),(Intelligence,-1),(Social,-2),(Strength,+4),(Endurance,+3),(Dexterity,+2),
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Language_germushian, 1),
-                                new TravellerSkill(Religion_Sigmarism),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        {0, new TravellerSkill(Deception)},
-                        {1, new TravellerSkill(Animals)},
-                        {2, new TravellerSkill(Stealth)},
-                        {3, new TravellerSkill(Athletics)},
-                        {4, new TravellerSkill(Persuade)},
-                        {5, new TravellerSkill(Drive)},
-                        {6, new TravellerSkill(Electronics)},
-                        {7, new TravellerSkill(Flyer)},
-                        {8, new TravellerSkill(Language)},
-                        {9, new TravellerSkill(Mechanic)},
-                        {10, new TravellerSkill(Medic)},
-                        {11, new TravellerSkill(Profession)},
-                        {12, new TravellerSkill(Science)},
-                        {13, new TravellerSkill(Seafarer)},
-                        {14, new TravellerSkill(Streetwise)},
-                        {15, new TravellerSkill(Survival)},
-                        {16, new TravellerSkill(VaccSuit)},
-                    }, 
-                    drifter:"Deutschland Prisoner", drafts:new string[]
-                    {
-                        "Deutschland Army", 
-                        "Deutschland Navy", 
-                        "Deutschland Colonizer",
-                        "Deutschland Priest"
-                    })},
-            {
-                "Church of Sigmar",
-                new TravellerNationsCharacterInfo("Church of Sigmar",
-                    backgroundText: "The holy light, the one true god, the only true god. The powerhouse behind the Deutschland and the creators of the almost demi-god like sigmarines. As well the churches inquisitors act as their magical enforcers and commanders. ",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Psionics,1), (Social,1), (Strength,1),
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationItem(new List<TravellerItem>
-                        {
-                            new TravellerItem("Sexton of Sigmar (Holy Relic)",10000,3,16),
-                        }),
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Language_germushian, 1),
-                                new TravellerSkill(Langauge_Sigmarian, 1),
-                                new TravellerSkill(Religion_Sigmarism),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        {0, new TravellerSkill(Advocate)},
-                        {1, new TravellerSkill(Language)},
-                        {2, new TravellerSkill(Melee)},
-                        {3, new TravellerSkill(GunCombat)},
-                        {4, new TravellerSkill(Carouse)},
-                        {5, new TravellerSkill(Deception)},
-                        {6, new TravellerSkill(Persuade)},
-                        {7, new TravellerSkill(Science)},
-                        {8, new TravellerSkill(Profession)},
-                        {9, new TravellerSkill(Medic)},
-                        {10, new TravellerSkill(Survival)},
-                        {11, new TravellerSkill(VaccSuit)},
-                    },
-                    entryRequirements:new List<TravellerAttributeCheck>
-                    {
-                        new TravellerAttributeCheck(Social,10),
-                        new TravellerAttributeCheck(Psionics,8)
-                    }, 
-                    drifter:"Deutschland Priest", drafts:new string[]
-                    {
-                        "Deutschland Priest", 
-                        "Sigmarine", 
-                        "Inquisitor of Sigmar"
-                    },
-                    parentNation:"Communist Empire of the Deutschland")},
-            {
-                "Germushian Free Republic",
-                new TravellerNationsCharacterInfo("Germushian Free Republic",
-                    backgroundText: "The best things in life may be free, but money, that's what you want. The Germushian Free Republic says Free Enterprise is the way forward. Government should be as out of the way as those pesky protestors. So long as you got the money that is. Of course, this drives the drug cartels who back the government to make sure that the average citizen actually has an okay life.",
-                    statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
-                    {
-                        (Education,+2),(Social,+2),(Endurance,-2),(Intelligence,-1),
-                    },
-                    perks:new List<TravellerCharacterCreationReward>
-                    {
-                        new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
-                                new TravellerSkill(Language_germushian, 1),
-                                new TravellerSkill(Language_Common, 1),
-                                new TravellerSkill(Religion_Lawgarism),
-
-                            })
-                    },
-                    backgroundSkills:new Dictionary<int, TravellerSkill>()
-                    {
-                        { 0, new TravellerSkill(Advocate)},
-                        { 1, new TravellerSkill(Animals)},
-                        { 2, new TravellerSkill(Broker)},
-                        { 3, new TravellerSkill(Deception)},
-                        { 4, new TravellerSkill(Carouse)},
-                        { 5, new TravellerSkill(Drive)},
-                        { 6, new TravellerSkill(Gambler)},
-                        { 7, new TravellerSkill(Flyer)},
-                        { 8, new TravellerSkill(Language)},
-                        { 9, new TravellerSkill(JackOfAllTrades)},
-                        { 10, new TravellerSkill(Persuade)},
-                        { 11, new TravellerSkill(Profession)},
-                        { 12, new TravellerSkill(Science)},
-                        { 13, new TravellerSkill(Steward)},
-                        { 14, new TravellerSkill(Streetwise)},
-                        { 15, new TravellerSkill(Stealth)},
-                        { 16, new TravellerSkill(VaccSuit)},
-                    }, 
-                    drifter:"Cartel Worker", 
-                    drafts:new string[]
-                    {
-                        "Government Military",
-                        "Cartel Military",
-                    })},*/
+                 "United Reverse Lords",
+                 new TravellerNationsCharacterInfo("United Reverse Lords",
+                     backgroundText: "Following the Deutschland defaulting on their war debt, the Vers empire fell into civil war before eventually fracturing into two. The United Reverse Lords seeks to continue the great work done by Emperor Reveres and takes heavy inspiration from the First Vers Republic.",
+                     statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
+                     {
+                         (Education,2),(Intelligence,2),(Social,-1),
+                     },
+                     perks:new List<TravellerCharacterCreationReward>
+                     {
+                         new TravellerRewardCharacterCreationItem(new List<TravellerItem>
+                         {
+                             new TravellerItem("United Reverse Lords Citizenship",100,1,10),
+                             new TravellerAugments("Optional Neural Net", 5000000,1,20,"A tiny but powerful semi-organic micro-computer embded at the base of a persons skull. The computer a 20mm rectangle, and serves as the interface for most augmentations. Once inserted into the skull, its tendrils will slowly spread throughout the users brain until fully integrated and able to intrepret commands without verbal cues.   is able to transmit multiple forms of data, Computer/5. Necessary component for most augmentations","Base of Skull"),
+ 
+                         }),
+                         new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
+                                 new TravellerSkill(Language_HighVersian, 1),
+                                 new TravellerSkill(Langauge_LowVersian, 1),
+                                 new TravellerSkill(Religion_Deorism),
+ 
+                             })
+                     },
+                     backgroundSkills:new Dictionary<int, TravellerSkill>()
+                     {
+                         {0, new TravellerSkill(Admin)},
+                         {1, new TravellerSkill(Animals)},
+                         {2, new TravellerSkill(Art)},
+                         {3, new TravellerSkill(Athletics)},
+                         {4, new TravellerSkill(Carouse)},
+                         {5, new TravellerSkill(Drive)},
+                         {6, new TravellerSkill(Electronics)},
+                         {7, new TravellerSkill(Flyer)},
+                         {8, new TravellerSkill(Language)},
+                         {9, new TravellerSkill(Mechanic)},
+                         {10, new TravellerSkill(Medic)},
+                         {11, new TravellerSkill(Profession)},
+                         {12, new TravellerSkill(Science)},
+                         {13, new TravellerSkill(Seafarer)},
+                         {14, new TravellerSkill(Streetwise)},
+                         {15, new TravellerSkill(Survival)},
+                         {16, new TravellerSkill(VaccSuit)},
+                     },
+                     drifter:"Reverse Military Industry", drafts:new string[]
+                     {
+                         "Reverse Army", 
+                         "Reverse Navy", 
+                         "Reverse Spy"
+                     })},
+             {
+                 "Xiao-Ming Mega Corporation",
+                 new TravellerNationsCharacterInfo("Xiao-Ming Mega Corporation",
+                     backgroundText: "Following a bloody defeat in the great war and the loss of their control over the Axion Alliance, Xiao-Ming Industries has been forced to lay off a large amount of “wasteful expenditures”, otherwise known as employees. While many are still paying off their corporate conception/birth/life/property damage/etc-debts and thus are forced to continue to be impossibly employed.",
+                     statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
+                     {
+                         (Dexterity,2),(Education,1),(Social,-2),(Intelligence,-1),
+                     },
+                     perks:new List<TravellerCharacterCreationReward>
+                     {
+                         new TravellerRewardCharacterCreationItem(new List<TravellerItem>
+                         {
+                             new TravellerItem("Xiao-Ming Exit Package (pays cost per month)",200,1,9),
+                             new TravellerItem("Xiao-Ming Employee Card",100,1,9),
+                         }),
+                         new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
+                                 new TravellerSkill(Langauge_XiaoMing, 1),
+                                 new TravellerSkill(Language_AxiosPolitical, 1),
+                                 new TravellerSkill(Religion_JediIsm),
+ 
+                             })
+                     },
+                     backgroundSkills:new Dictionary<int, TravellerSkill>()
+                     {
+                         {0, new TravellerSkill(Admin)},
+                         {1, new TravellerSkill(Advocate)},
+                         {2, new TravellerSkill(Broker)},
+                         {3, new TravellerSkill(Athletics)},
+                         {4, new TravellerSkill(Astrogation)},
+                         {5, new TravellerSkill(Drive)},
+                         {6, new TravellerSkill(Navigation)},
+                         {7, new TravellerSkill(Flyer)},
+                         {8, new TravellerSkill(Language)},
+                         {9, new TravellerSkill(Mechanic)},
+                         {10, new TravellerSkill(Profession)},
+                         {11, new TravellerSkill(Profession)},
+                         {12, new TravellerSkill(Science)},
+                         {13, new TravellerSkill(Seafarer)},
+                         {14, new TravellerSkill(Streetwise)},
+                         {15, new TravellerSkill(Steward)},
+                         {16, new TravellerSkill(VaccSuit)},
+                     }, 
+                     drifter:"Production", 
+                     drafts:new string[]
+                     {
+                         "Defense Contracting"
+                     })},
+             {
+                 "Communist Empire of the Deutschland",
+                 new TravellerNationsCharacterInfo("Communist Empire of the Deutschland",
+                     backgroundText: "Backbreaking work, a constant diet of propaganda, the only relief being the even more propaganda filled church sermons. Life is nasty, brutish, and if you’re lucky, short. Labour camps await anyone caught trying to leave the Utopian communist wonderland, while positions that leave the communal-empire are covenanted to only the chosen few comrades of the empress and her closest admirals, generals, bankers, priests and friends.",
+                     statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
+                     {
+                         (Education,-2),(Intelligence,-1),(Social,-2),(Strength,+4),(Endurance,+3),(Dexterity,+2),
+                     },
+                     perks:new List<TravellerCharacterCreationReward>
+                     {
+                         new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
+                                 new TravellerSkill(Language_germushian, 1),
+                                 new TravellerSkill(Religion_Sigmarism),
+ 
+                             })
+                     },
+                     backgroundSkills:new Dictionary<int, TravellerSkill>()
+                     {
+                         {0, new TravellerSkill(Deception)},
+                         {1, new TravellerSkill(Animals)},
+                         {2, new TravellerSkill(Stealth)},
+                         {3, new TravellerSkill(Athletics)},
+                         {4, new TravellerSkill(Persuade)},
+                         {5, new TravellerSkill(Drive)},
+                         {6, new TravellerSkill(Electronics)},
+                         {7, new TravellerSkill(Flyer)},
+                         {8, new TravellerSkill(Language)},
+                         {9, new TravellerSkill(Mechanic)},
+                         {10, new TravellerSkill(Medic)},
+                         {11, new TravellerSkill(Profession)},
+                         {12, new TravellerSkill(Science)},
+                         {13, new TravellerSkill(Seafarer)},
+                         {14, new TravellerSkill(Streetwise)},
+                         {15, new TravellerSkill(Survival)},
+                         {16, new TravellerSkill(VaccSuit)},
+                     }, 
+                     drifter:"Deutschland Prisoner", drafts:new string[]
+                     {
+                         "Deutschland Army", 
+                         "Deutschland Navy", 
+                         "Deutschland Colonizer",
+                         "Deutschland Priest"
+                     })},
+             {
+                 "Church of Sigmar",
+                 new TravellerNationsCharacterInfo("Church of Sigmar",
+                     backgroundText: "The holy light, the one true god, the only true god. The powerhouse behind the Deutschland and the creators of the almost demi-god like sigmarines. As well the churches inquisitors act as their magical enforcers and commanders. ",
+                     statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
+                     {
+                         (Psionics,1), (Social,1), (Strength,1),
+                     },
+                     perks:new List<TravellerCharacterCreationReward>
+                     {
+                         new TravellerRewardCharacterCreationItem(new List<TravellerItem>
+                         {
+                             new TravellerItem("Sexton of Sigmar (Holy Relic)",10000,3,16),
+                         }),
+                         new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
+                                 new TravellerSkill(Language_germushian, 1),
+                                 new TravellerSkill(Langauge_Sigmarian, 1),
+                                 new TravellerSkill(Religion_Sigmarism),
+ 
+                             })
+                     },
+                     backgroundSkills:new Dictionary<int, TravellerSkill>()
+                     {
+                         {0, new TravellerSkill(Advocate)},
+                         {1, new TravellerSkill(Language)},
+                         {2, new TravellerSkill(Melee)},
+                         {3, new TravellerSkill(GunCombat)},
+                         {4, new TravellerSkill(Carouse)},
+                         {5, new TravellerSkill(Deception)},
+                         {6, new TravellerSkill(Persuade)},
+                         {7, new TravellerSkill(Science)},
+                         {8, new TravellerSkill(Profession)},
+                         {9, new TravellerSkill(Medic)},
+                         {10, new TravellerSkill(Survival)},
+                         {11, new TravellerSkill(VaccSuit)},
+                     },
+                     entryRequirements:new List<TravellerAttributeCheck>
+                     {
+                         new TravellerAttributeCheck(Social,10),
+                         new TravellerAttributeCheck(Psionics,8)
+                     }, 
+                     drifter:"Deutschland Priest", drafts:new string[]
+                     {
+                         "Deutschland Priest", 
+                         "Sigmarine", 
+                         "Inquisitor of Sigmar"
+                     },
+                     parentNation:"Communist Empire of the Deutschland")},
+             {
+                 "Germushian Free Republic",
+                 new TravellerNationsCharacterInfo("Germushian Free Republic",
+                     backgroundText: "The best things in life may be free, but money, that's what you want. The Germushian Free Republic says Free Enterprise is the way forward. Government should be as out of the way as those pesky protestors. So long as you got the money that is. Of course, this drives the drug cartels who back the government to make sure that the average citizen actually has an okay life.",
+                     statChanges: new List<(TravellerAttributes Stat, int ChangeBy)>
+                     {
+                         (Education,+2),(Social,+2),(Endurance,-2),(Intelligence,-1),
+                     },
+                     perks:new List<TravellerCharacterCreationReward>
+                     {
+                         new TravellerRewardCharacterCreationSkill(new List<TravellerSkill> {
+                                 new TravellerSkill(Language_germushian, 1),
+                                 new TravellerSkill(Language_Common, 1),
+                                 new TravellerSkill(Religion_Lawgarism),
+ 
+                             })
+                     },
+                     backgroundSkills:new Dictionary<int, TravellerSkill>()
+                     {
+                         { 0, new TravellerSkill(Advocate)},
+                         { 1, new TravellerSkill(Animals)},
+                         { 2, new TravellerSkill(Broker)},
+                         { 3, new TravellerSkill(Deception)},
+                         { 4, new TravellerSkill(Carouse)},
+                         { 5, new TravellerSkill(Drive)},
+                         { 6, new TravellerSkill(Gambler)},
+                         { 7, new TravellerSkill(Flyer)},
+                         { 8, new TravellerSkill(Language)},
+                         { 9, new TravellerSkill(JackOfAllTrades)},
+                         { 10, new TravellerSkill(Persuade)},
+                         { 11, new TravellerSkill(Profession)},
+                         { 12, new TravellerSkill(Science)},
+                         { 13, new TravellerSkill(Steward)},
+                         { 14, new TravellerSkill(Streetwise)},
+                         { 15, new TravellerSkill(Stealth)},
+                         { 16, new TravellerSkill(VaccSuit)},
+                     }, 
+                     drifter:"Cartel Worker", 
+                     drafts:new string[]
+                     {
+                         "Government Military",
+                         "Cartel Military",
+                     })},*/
             /*
             {
                 "Trans Galactic Empire",
@@ -786,9 +786,15 @@ namespace TravellerCharacter.Character_Services
 
         public List<TravellerNationsCharacterInfo> GetNationsList =>
             GetTravellerNationsCharacterInfos().Select(x => x).ToList();
-        public List<TravellerNationsCharacterInfo> GetTravellerNationsCharacterInfos() =>
-            travellerNationsInfo;
-        public TravellerNationsCharacterInfo GetNationsCharacterInfo(TravellerNationalities nationality) => GetNationsList.First(x => x.Nationality == nationality);
 
+        public List<TravellerNationsCharacterInfo> GetTravellerNationsCharacterInfos()
+        {
+            return travellerNationsInfo;
+        }
+
+        public TravellerNationsCharacterInfo GetNationsCharacterInfo(TravellerNationalities nationality)
+        {
+            return GetNationsList.First(x => x.Nationality == nationality);
+        }
     }
 }

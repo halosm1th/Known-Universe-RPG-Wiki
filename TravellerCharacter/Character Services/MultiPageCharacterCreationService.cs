@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService;
+using TravellerCharacter.CharacterCreator.CharacterCreation;
 
 namespace TravellerCharacter.Character_Services
 {
     public class MultiPageCharacterCreationService
     {
-        public static Dictionary<string, CharacterCreatorService> CharacterCreationServices = new Dictionary<string, CharacterCreatorService>();
-        public static Random random = new Random();
-        public CharacterCreatorService GetCharacterCreatorService(string characterID) => CharacterCreationServices[characterID];
+        public static Dictionary<string, CharacterCreatorService> CharacterCreationServices = new();
+        public static Random random = new();
+
+        public CharacterCreatorService GetCharacterCreatorService(string characterID)
+        {
+            return CharacterCreationServices[characterID];
+        }
 
         public string CreateNewCreator()
         {
@@ -18,6 +22,5 @@ namespace TravellerCharacter.Character_Services
             CharacterCreationServices[key] = new CharacterCreatorService();
             return key;
         }
-
     }
 }

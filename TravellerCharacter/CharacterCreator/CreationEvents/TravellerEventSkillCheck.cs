@@ -7,26 +7,33 @@ namespace TravellerCharacter.CharacterCreator.CreationEvents
 {
     public class TravellerEventSkillCheck : TravellerEventChoice
     {
-        public List<TravellerSkillCheck> SkillChecks { get; }
-
-        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, (TravellerSkills skill, int value) skillCheck) : base(eventText, yesEvent, noEvent)
+        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent,
+            TravellerEventCharacterCreation noEvent, (TravellerSkills skill, int value) skillCheck) : base(eventText,
+            yesEvent, noEvent)
         {
             SkillChecks = new List<TravellerSkillCheck>();
-            SkillChecks.Add(new TravellerSkillCheck(skillCheck.skill,skillCheck.value));
+            SkillChecks.Add(new TravellerSkillCheck(skillCheck.skill, skillCheck.value));
         }
 
-        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, TravellerSkillCheck skillCheck) : base(eventText, yesEvent, noEvent)
+        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent,
+            TravellerEventCharacterCreation noEvent, TravellerSkillCheck skillCheck) : base(eventText, yesEvent,
+            noEvent)
         {
             SkillChecks = new List<TravellerSkillCheck>();
             SkillChecks.Add(skillCheck);
         }
-        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent, TravellerEventCharacterCreation noEvent, List<TravellerSkillCheck> skillChecks) : base(eventText, yesEvent, noEvent)
+
+        public TravellerEventSkillCheck(string eventText, TravellerEventCharacterCreation yesEvent,
+            TravellerEventCharacterCreation noEvent, List<TravellerSkillCheck> skillChecks) : base(eventText, yesEvent,
+            noEvent)
         {
             SkillChecks = skillChecks;
         }
 
+        public List<TravellerSkillCheck> SkillChecks { get; }
+
         /// <summary>
-        /// Make a skill check
+        ///     Make a skill check
         /// </summary>
         /// <param name="roll">The result of the die roll from the traveller, before modifiers</param>
         /// <param name="skillToCheckAgainst">the skill the traveller is using.</param>
@@ -46,11 +53,11 @@ namespace TravellerCharacter.CharacterCreator.CreationEvents
 
             foreach (var skill in SkillChecks)
             {
-                sb.Append(skill.ToString());
+                sb.Append(skill);
                 sb.Append(" ");
             }
 
-            sb.Append($". {YesText}:[{YesEvent.ToString()}]. {NoText}:{NoEvent}");
+            sb.Append($". {YesText}:[{YesEvent}]. {NoText}:{NoEvent}");
 
             return sb.ToString();
         }

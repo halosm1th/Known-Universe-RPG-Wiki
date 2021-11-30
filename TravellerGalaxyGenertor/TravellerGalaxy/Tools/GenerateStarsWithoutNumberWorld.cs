@@ -5,13 +5,8 @@ using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 
 namespace TravellerMapSystem.Tools
 {
-    public class GenerateStarsWithoutNumberWorld  : IWorldGenerator
+    public class GenerateStarsWithoutNumberWorld : IWorldGenerator
     {
-        public GenerateStarsWithoutNumberWorld()
-        {
-            
-        }
-
         public void GenerateWorld(IWorld worldToGenerate)
         {
             if (worldToGenerate == null) throw new NullReferenceException("Error, world is null");
@@ -22,13 +17,13 @@ namespace TravellerMapSystem.Tools
             var world = worldToGenerate as StarsWithoutNumberWorld;
 
             //world.WorldTag = GenerateWorldTag(rand);
-            
+
             world.Atmosphere = GenerateAtmosphere(rand);
             world.Temperature = GenerateTemperature(rand);
             world.Biosphere = GenerateBiosphere(rand);
-            (world.PopulationOutline,world.Population) = GeneratePopulation(rand);
-            world.TechLevel = GenerateTechLevel(rand,world.PopulationOutline);
-            
+            (world.PopulationOutline, world.Population) = GeneratePopulation(rand);
+            world.TechLevel = GenerateTechLevel(rand, world.PopulationOutline);
+
             world.StarsWithoutNumberContactPoint = GenerateContactPoint(rand);
             world.StarsWithoutNumberCurrentRelationship = GenerateRelationship(rand);
             world.StarsWithoutNumberOriginOfWorld = GenerateOriginOfWorld(rand);
@@ -52,22 +47,28 @@ namespace TravellerMapSystem.Tools
             return Math.Max(1, tl);
         }
 
-        private (StarsWithoutNumberPopulation,string) GeneratePopulation(Random rand)
+        private (StarsWithoutNumberPopulation, string) GeneratePopulation(Random rand)
         {
             return rand.Next(2, 13) switch
             {
-                2 => (StarsWithoutNumberPopulation.Failed_Colony, rand.Next(0,11).ToString()),
-                3 => (StarsWithoutNumberPopulation.Outpost, rand.Next(1,101).ToString()),
-                4 => (StarsWithoutNumberPopulation.Fewer_Then_A_Million_Inhabitants, rand.Next(100,500001).ToString()),
-                5 => (StarsWithoutNumberPopulation.Fewer_Then_A_Million_Inhabitants, rand.Next(500000,1000000).ToString()),
-                6 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants, rand.Next(1000000,9000000).ToString()),
-                7 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants, rand.Next(10000000,50000000).ToString()),
-                8 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants,rand.Next(50000000,100000000).ToString()),
-                9 => (StarsWithoutNumberPopulation.Hundreds_Of_Millions_Of_Inhabitants,rand.Next(100000000,500000000).ToString() ),
-                10 => (StarsWithoutNumberPopulation.Hundreds_Of_Millions_Of_Inhabitants, rand.Next(500000000,1000000000).ToString()),
-                11 => (StarsWithoutNumberPopulation.Billions_Of_Inhabitants, rand.Next(1000000000, 2139999999).ToString()),
-                12 => (StarsWithoutNumberPopulation.Alien_Inhabitants, rand.Next(1,100000001).ToString() ),
-                _ => (StarsWithoutNumberPopulation.Outpost,rand.Next(1,101).ToString() )
+                2 => (StarsWithoutNumberPopulation.Failed_Colony, rand.Next(0, 11).ToString()),
+                3 => (StarsWithoutNumberPopulation.Outpost, rand.Next(1, 101).ToString()),
+                4 => (StarsWithoutNumberPopulation.Fewer_Then_A_Million_Inhabitants, rand.Next(100, 500001).ToString()),
+                5 => (StarsWithoutNumberPopulation.Fewer_Then_A_Million_Inhabitants,
+                    rand.Next(500000, 1000000).ToString()),
+                6 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants, rand.Next(1000000, 9000000).ToString()),
+                7 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants,
+                    rand.Next(10000000, 50000000).ToString()),
+                8 => (StarsWithoutNumberPopulation.Several_Million_Inhabitants,
+                    rand.Next(50000000, 100000000).ToString()),
+                9 => (StarsWithoutNumberPopulation.Hundreds_Of_Millions_Of_Inhabitants,
+                    rand.Next(100000000, 500000000).ToString()),
+                10 => (StarsWithoutNumberPopulation.Hundreds_Of_Millions_Of_Inhabitants,
+                    rand.Next(500000000, 1000000000).ToString()),
+                11 => (StarsWithoutNumberPopulation.Billions_Of_Inhabitants,
+                    rand.Next(1000000000, 2139999999).ToString()),
+                12 => (StarsWithoutNumberPopulation.Alien_Inhabitants, rand.Next(1, 100000001).ToString()),
+                _ => (StarsWithoutNumberPopulation.Outpost, rand.Next(1, 101).ToString())
             };
         }
 
@@ -113,18 +114,18 @@ namespace TravellerMapSystem.Tools
         {
             return rand.Next(2, 13) switch
             {
-                 2 => StarsWithoutNumberAtmosphere.Corrosive,
-                 3 => StarsWithoutNumberAtmosphere.Inert,
-                 4 => StarsWithoutNumberAtmosphere.Airless_Or_Thin,
-                 5 => StarsWithoutNumberAtmosphere.Breathable,
-                 6 => StarsWithoutNumberAtmosphere.Breathable,
-                 7 => StarsWithoutNumberAtmosphere.Breathable,
-                 8 => StarsWithoutNumberAtmosphere.Breathable,
-                 9 => StarsWithoutNumberAtmosphere.Breathable,
-                 10 => StarsWithoutNumberAtmosphere.Thick,
-                 11 => StarsWithoutNumberAtmosphere.Invasive,
-                 12 => StarsWithoutNumberAtmosphere.Both_Corrosive_And_Invasive,
-                 _ => StarsWithoutNumberAtmosphere.Breathable
+                2 => StarsWithoutNumberAtmosphere.Corrosive,
+                3 => StarsWithoutNumberAtmosphere.Inert,
+                4 => StarsWithoutNumberAtmosphere.Airless_Or_Thin,
+                5 => StarsWithoutNumberAtmosphere.Breathable,
+                6 => StarsWithoutNumberAtmosphere.Breathable,
+                7 => StarsWithoutNumberAtmosphere.Breathable,
+                8 => StarsWithoutNumberAtmosphere.Breathable,
+                9 => StarsWithoutNumberAtmosphere.Breathable,
+                10 => StarsWithoutNumberAtmosphere.Thick,
+                11 => StarsWithoutNumberAtmosphere.Invasive,
+                12 => StarsWithoutNumberAtmosphere.Both_Corrosive_And_Invasive,
+                _ => StarsWithoutNumberAtmosphere.Breathable
             };
         }
 

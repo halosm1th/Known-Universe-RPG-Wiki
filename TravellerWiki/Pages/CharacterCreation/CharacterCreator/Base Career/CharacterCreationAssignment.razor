@@ -1,13 +1,8 @@
 @page "/CharacterCreation/Assignment/{characterID}/{careerNameInput}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.Career_Service
 @using TravellerCharacter.CharacterCreator.Careers
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerCareerService CareerService;
@@ -18,13 +13,16 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
+
     [Parameter]
     public string careerNameInput { get; set; }
 
     string assignmentName = "";
-    TravellerAssignment chosenAssignment = null;
+    TravellerAssignment chosenAssignment;
+
     public CharacterCreatorService GetService()
     {
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
@@ -57,6 +55,7 @@
     }
 
 }
+
 <body>
 
 <h1>Traveller Character Creator</h1>
@@ -64,7 +63,7 @@
     <h2>Select @GetService().Name's Assignment - @GetCareer().CareerName</h2>
     <label for="CharacterProgress">Character Creation Progress: </label>
     <progress id="CharacterProgess" value="5.5" max="17"></progress>
-    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <CharacterCreationDrawStats CharacterID="@characterID"/>
     <div style="padding-left: 2em;">
         <p>
             @GetCareer().CareerName Assignments:

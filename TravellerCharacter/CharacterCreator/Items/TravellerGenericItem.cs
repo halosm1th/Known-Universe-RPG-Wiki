@@ -16,13 +16,13 @@
 
     public class TravellerGenericItem : TravellerItem
     {
-        public TravellerGenericItemTypes ItemSubtype { get; set; }
-
         public TravellerGenericItem(string name, int cost, int kg, int tl, string description = "",
-            TravellerGenericItemTypes subType = TravellerGenericItemTypes.Other):
-            base(name,cost,kg,tl,description,TravellerItemTypes.ItemGeneric)
+            TravellerGenericItemTypes subType = TravellerGenericItemTypes.Other) :
+            base(name, cost, kg, tl, description)
         {
             ItemSubtype = subType;
         }
+
+        public TravellerGenericItemTypes ItemSubtype { get; set; }
     }
 }

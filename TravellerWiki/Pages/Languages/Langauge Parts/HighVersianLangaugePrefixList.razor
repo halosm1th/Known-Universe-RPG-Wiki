@@ -32,16 +32,16 @@
 }
 
 <body>
-    <h1>High Versian Prefixes</h1>
-    <p>These are the prefixes in the High Versian Language</p>
-    <ul>
-        @foreach (var letter in highVersian.Prefixes.OrderBy(x => x.Letters.First()))
-        {
-            <li>
-                <a href="/Languages/HighVersianLangauge/Prefix/@letter.Letters">
-                    <b class="high">@letter.Letters.ToUpper():</b>  @letter.Meaning
-                </a>
-            </li>
-        }
-    </ul>
+<h1>High Versian Prefixes</h1>
+<p>These are the prefixes in the High Versian Language</p>
+<ul>
+    @foreach (var letter in highVersian.Prefixes.OrderBy(x => x.Letters.First()))
+    {
+        <li>
+            <a href="/Languages/HighVersianLangauge/Prefix/@letter.Letters">
+                <b class="high">@letter.Letters.ToUpper():</b> @letter.Meaning
+            </a>
+        </li>
+    }
+</ul>
 </body>

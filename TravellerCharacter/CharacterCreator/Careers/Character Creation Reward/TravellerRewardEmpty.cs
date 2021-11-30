@@ -1,6 +1,4 @@
-﻿using TravellerWiki.Data;
-
-namespace TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
+﻿namespace TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
 {
     public class TravellerRewardEmpty : TravellerCharacterCreationReward
     {

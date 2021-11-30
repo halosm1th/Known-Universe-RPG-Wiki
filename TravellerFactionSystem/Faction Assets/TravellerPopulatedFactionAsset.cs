@@ -7,16 +7,12 @@ namespace TravellerFactionSystem.Faction_Assets
 {
     public class TravellerPopulatedFactionAsset : TravellerFactionAsset
     {
-        
-        public List<TravellerFactionPersonAsset> AssetPopulation { get; set; }
-        
-        public int MaxNumberOfPeopleWithAsset { get; set; }
-        public int MinNumberOfPeopleWithAsset { get; set; } 
-        [JsonIgnore] public int CurrentNumberOfPeopleWithAsset => AssetPopulation.Count;
-
-        public TravellerPopulatedFactionAsset(string name = "", string description = "", TravellerLocation currentLocation = default, 
-            TravellerFactionAssetValue economicValue = default, TravellerFactionAssetValue socialValue = default, TravellerFactionAssetValue politicalValue = default, 
-            List<TravellerFactionPersonAsset> assetPopulation = null, int maxNumberOfPeopleWithAsset = 1, int minNumberOfPeopleWithAsset = 1) 
+        public TravellerPopulatedFactionAsset(string name = "", string description = "",
+            TravellerLocation currentLocation = default,
+            TravellerFactionAssetValue economicValue = default, TravellerFactionAssetValue socialValue = default,
+            TravellerFactionAssetValue politicalValue = default,
+            List<TravellerFactionPersonAsset> assetPopulation = null, int maxNumberOfPeopleWithAsset = 1,
+            int minNumberOfPeopleWithAsset = 1)
             : base(name, description, currentLocation, economicValue, socialValue, politicalValue)
         {
             AssetPopulation = assetPopulation;
@@ -28,12 +24,19 @@ namespace TravellerFactionSystem.Faction_Assets
                 AssetPopulation = new List<TravellerFactionPersonAsset>();
                 var population = _random.Next(MinNumberOfPeopleWithAsset, MaxNumberOfPeopleWithAsset);
                 var npcGenerator = new TravellerNPCService();
-                for (int i = 0; i < population; i++)
+                for (var i = 0; i < population; i++)
                 {
                     var npc = npcGenerator.GenerateNPC(name.Aggregate(0, (h, t) => h + t) + AssetPopulation.Count);
-                    AssetPopulation.Add(new TravellerFactionPersonAsset(npc.PatronText,npc,$"Employee at: {name}",CurrentLocation));
+                    AssetPopulation.Add(new TravellerFactionPersonAsset(npc.PatronText, npc, $"Employee at: {name}",
+                        CurrentLocation));
                 }
             }
         }
+
+        public List<TravellerFactionPersonAsset> AssetPopulation { get; set; }
+
+        public int MaxNumberOfPeopleWithAsset { get; set; }
+        public int MinNumberOfPeopleWithAsset { get; set; }
+        [JsonIgnore] public int CurrentNumberOfPeopleWithAsset => AssetPopulation.Count;
     }
 }

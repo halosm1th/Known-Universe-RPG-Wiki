@@ -28,19 +28,18 @@
 }
 
 <body>
-    <h1>High Versian Postfix</h1>
-    <p>These are the postfix of the High Versian Language</p>
-    <ul>
-        @foreach (var letter in highVersian.Postfixes.OrderBy(x => x.Letters.First()))
-        {
+<h1>High Versian Postfix</h1>
+<p>These are the postfix of the High Versian Language</p>
+<ul>
+    @foreach (var letter in highVersian.Postfixes.OrderBy(x => x.Letters.First()))
+    {
+        <li>
 
-            <li>
-
-                <a href="/Languages/HighVersianLangauge/Postfix/@letter.Letters">
-                    <b class="high">@letter.Letters.ToUpper()</b>: @letter.Meaning
-                </a>
-            </li>
-        }
-    </ul>
+            <a href="/Languages/HighVersianLangauge/Postfix/@letter.Letters">
+                <b class="high">@letter.Letters.ToUpper()</b>: @letter.Meaning
+            </a>
+        </li>
+    }
+</ul>
 
 </body>

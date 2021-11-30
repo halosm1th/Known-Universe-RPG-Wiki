@@ -1,8 +1,7 @@
 @page "/Factions/IslandsFaction/{FactionID}"
-@using TravellerWiki.Data
-@using System.Reflection
 @using TravellerFactionSystem
 @using TravellerFactionSystem.Faction_Types
+@using Markdig
 @inject TravellerFactionService _factionService
 
 @code{
@@ -10,13 +9,13 @@
     [Parameter]
     public string FactionID { get; set; }
 
-    Type previousType = default;
+    Type previousType;
 
-    private TravellerFaction _faction = null;
+    private TravellerFaction _faction;
 
     public TravellerFaction GetFaction()
     {
-        int factionID = 999;
+        var factionID = 999;
         if (_faction == null)
         {
             if (!int.TryParse(FactionID, out factionID))
@@ -45,7 +44,7 @@
 
 <div>
     <h1>@GetFaction().FactionName</h1>
-    <p> @((MarkupString) Markdig.Markdown.ToHtml(@GetFaction().ToString() ?? string.Empty))</p>
+    <p> @((MarkupString)Markdown.ToHtml(GetFaction().ToString() ?? string.Empty))</p>
 </div>
 <div>
     <h3>Important People </h3>
@@ -64,16 +63,15 @@
     <ul style="background-color: rgb(244, 232, 31);color: black;">
         @foreach (var assets in GetFaction().FactionAssets().OrderBy(x => x.GetType().Name))
         {
-
             if (previousType != assets.GetType())
             {
                 <br/>
             }
-                
+
             <li>
                 <span style="color: black;" title="@assets.FullToString()">@assets.ToString()</span>
             </li>
-            
+
             previousType = assets.GetType();
         }
     </ul>

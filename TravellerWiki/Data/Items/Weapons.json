@@ -1,11 +1,95 @@
 {
-    "1100":{"RangeInMeters":0,"Damage":"12D12","MagazineCapacity":0,"MagainzeCost":10000,"WeaponTraits":[],"Description":"Void blade","Name":"Ordinis Void Blade","Cost":10000000,"KG":1,"TechLevel":20,"ItemType":1},
-    "1101":{"RangeInMeters":15,"Damage":"8D20","MagazineCapacity":1,"MagainzeCost":50000,"WeaponTraits":[],"Description":"Can Shoot a single overchaged shot that does 4D20 Damage with a ranged Gun Combat (Void) attack.","Name":"Equites Void Blade","Cost":12000000,"KG":1,"TechLevel":25,"ItemType":1},
-    "1102":{"RangeInMeters":0,"Damage":"12D12","MagazineCapacity":0,"MagainzeCost":10000,"WeaponTraits":[],"Description":"Void blade","Name":"Void Blade","Cost":5000000,"KG":1,"TechLevel":20,"ItemType":1},
-    
-    "1300":{"RangeInMeters":50,"Damage":"8D8","MagazineCapacity":10,"MagainzeCost":1000,"WeaponTraits":[], "Description":"The Special 10 shot revolver used by the Versian Knights","Name":"Knights Revolver","Cost":10000,"KG":2,"TechLevel":18,"ItemType":1},
-    
-    "1500":{"RangeInMeters":10,"Damage":"3D-3","MagazineCapacity":6,"MagainzeCost":5,"WeaponTraits":[], "Description":"A conventional six-shooter handgun.","Name":"Revolver","Cost":150,"KG":1,"TechLevel":5,"ItemType":1},
-    "1501":{"RangeInMeters":5,"Damage":"2D-3","MagazineCapacity":1,"MagazineCost":5,"WeaponTraits":[], "Description":"A flintlock or other primitive projectile weapon. Unless the weapon is especially well made, it will suffer DM-1 to all attacks. Antique pistols also require a successful Gun Combat (slug) check to reload","Name":"Antique Pistol","Cost":100,"KG":1,"TechLevel":3,"ItemType":1},
-    "1502":{"RangeInMeters":10,"Damage":"3D-3","MagazineCapacity":15,"MagazineCost":10,"WeaponTraits":[19],"Name":"Assault Pistol","Cost":250,"KG":1,"TechLevel":6,"Description":"An autopistol designed to fire bursts of fully-automatic fire, assault pistols are notoriously inaccurate and suffer DM-2 to all attack rolls when using burst or full auto modes. Travellers are advised to carry as many extra magazines as they can as the assault pistol burns ammunition very quickly (auto 2)","ItemType":1}
+  "1100": {
+    "RangeInMeters": 0,
+    "Damage": "12D12",
+    "MagazineCapacity": 0,
+    "MagainzeCost": 10000,
+    "WeaponTraits": [],
+    "Description": "Void blade",
+    "Name": "Ordinis Void Blade",
+    "Cost": 10000000,
+    "KG": 1,
+    "TechLevel": 20,
+    "ItemType": 1
+  },
+  "1101": {
+    "RangeInMeters": 15,
+    "Damage": "8D20",
+    "MagazineCapacity": 1,
+    "MagainzeCost": 50000,
+    "WeaponTraits": [],
+    "Description": "Can Shoot a single overchaged shot that does 4D20 Damage with a ranged Gun Combat (Void) attack.",
+    "Name": "Equites Void Blade",
+    "Cost": 12000000,
+    "KG": 1,
+    "TechLevel": 25,
+    "ItemType": 1
+  },
+  "1102": {
+    "RangeInMeters": 0,
+    "Damage": "12D12",
+    "MagazineCapacity": 0,
+    "MagainzeCost": 10000,
+    "WeaponTraits": [],
+    "Description": "Void blade",
+    "Name": "Void Blade",
+    "Cost": 5000000,
+    "KG": 1,
+    "TechLevel": 20,
+    "ItemType": 1
+  },
+  "1300": {
+    "RangeInMeters": 50,
+    "Damage": "8D8",
+    "MagazineCapacity": 10,
+    "MagainzeCost": 1000,
+    "WeaponTraits": [],
+    "Description": "The Special 10 shot revolver used by the Versian Knights",
+    "Name": "Knights Revolver",
+    "Cost": 10000,
+    "KG": 2,
+    "TechLevel": 18,
+    "ItemType": 1
+  },
+  "1500": {
+    "RangeInMeters": 10,
+    "Damage": "3D-3",
+    "MagazineCapacity": 6,
+    "MagainzeCost": 5,
+    "WeaponTraits": [],
+    "Description": "A conventional six-shooter handgun.",
+    "Name": "Revolver",
+    "Cost": 150,
+    "KG": 1,
+    "TechLevel": 5,
+    "ItemType": 1
+  },
+  "1501": {
+    "RangeInMeters": 5,
+    "Damage": "2D-3",
+    "MagazineCapacity": 1,
+    "MagazineCost": 5,
+    "WeaponTraits": [],
+    "Description": "A flintlock or other primitive projectile weapon. Unless the weapon is especially well made, it will suffer DM-1 to all attacks. Antique pistols also require a successful Gun Combat (slug) check to reload",
+    "Name": "Antique Pistol",
+    "Cost": 100,
+    "KG": 1,
+    "TechLevel": 3,
+    "ItemType": 1
+  },
+  "1502": {
+    "RangeInMeters": 10,
+    "Damage": "3D-3",
+    "MagazineCapacity": 15,
+    "MagazineCost": 10,
+    "WeaponTraits": [
+      19
+    ],
+    "Name": "Assault Pistol",
+    "Cost": 250,
+    "KG": 1,
+    "TechLevel": 6,
+    "Description": "An autopistol designed to fire bursts of fully-automatic fire, assault pistols are notoriously inaccurate and suffer DM-2 to all attack rolls when using burst or full auto modes. Travellers are advised to carry as many extra magazines as they can as the assault pistol burns ammunition very quickly (auto 2)",
+    "ItemType": 1
+  }
 }

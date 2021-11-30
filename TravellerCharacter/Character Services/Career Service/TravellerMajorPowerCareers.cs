@@ -5,7 +5,7 @@ using TravellerCharacter.CharacterCreator.Careers;
 
 namespace TravellerCharacter.Character_Services.Career_Service
 {
-    class TravellerMajorPowerCareers : TravellerCareerServiceCareer
+    internal class TravellerMajorPowerCareers : TravellerCareerServiceCareer
     {
         public void AddMajorPowerCareers(List<TravellerCareer> careers)
         {
@@ -174,6 +174,5 @@ namespace TravellerCharacter.Character_Services.Career_Service
         private static void AddXiaoMingCareers(List<TravellerCareer> careers)
         {
         }
-
     }
 }

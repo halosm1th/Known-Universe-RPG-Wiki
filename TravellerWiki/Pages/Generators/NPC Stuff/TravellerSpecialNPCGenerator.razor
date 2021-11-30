@@ -1,27 +1,23 @@
 ﻿@page "/Generators/TravellerSpecialNPCGenerator"
-
-@using TravellerWiki.Data
-@using System.Linq;
-@using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.NPC_Services
 @using TravellerCharacter.CharcterTypes
-@using WikiServices.DataServices
+@using TravellerCharacter.Character_Services
 @inject TravellerSpecialNPCService NPCService
 
-    <head>
-        <title>Special NPC Generator</title>
-        <meta property="og:title" content="Known Universe Wiki - Special NPC Generator" />
-        <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerSpecialNPCGenerator/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-        <meta content="Need ot have NPC who are important and who have feelings about the Travellesr, use this generator to spawn them!" property="og:description" />
-        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+<head>
+    <title>Special NPC Generator</title>
+    <meta property="og:title" content="Known Universe Wiki - Special NPC Generator"/>
+    <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerSpecialNPCGenerator/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="Need ot have NPC who are important and who have feelings about the Travellesr, use this generator to spawn them!" property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
 
 
-    </head>
+</head>
 
 <h1>Special NPC Generator</h1>
-<input type="number" @bind="NPCCount" />
+<input type="number" @bind="NPCCount"/>
 <select @bind="NationNameList">
     <option>Federation</option>
     <option>
@@ -34,7 +30,7 @@
         Britannia
     </option>
     <option>Germushia</option>
-    <option>  Deutschland</option>
+    <option> Deutschland</option>
     <option> XiaoMing</option>
     <option>AxionAlliance</option>
     <option> Any</option>
@@ -49,61 +45,69 @@ else
 {
     <table style="margin: 10px;height:100%;">
         <thead>
-            <tr>
-                <th style="padding: 10px;border-style: solid">Name</th>
-                <th style="padding: 10px;border-style: solid">UPP</th>
-                <th style="padding: 10px; border-style: solid">Skills</th>
-                <th style="padding: 10px;border-style: solid">Background</th>
-                <th style="padding: 10px;border-style: solid">Job</th>
-                <th style="padding: 10px;border-style: solid">Quirk</th>
-                <th style="padding: 10px;border-style: solid">Affinity</th>
-                <th style="padding: 10px;border-style: solid">Enmity</th>
-                <th style="padding: 10px;border-style: solid">Power</th>
-                <th style="padding: 10px;border-style: solid">Influence</th>
-            </tr>
+        <tr>
+            <th style="padding: 10px;border-style: solid">Name</th>
+            <th style="padding: 10px;border-style: solid">UPP</th>
+            <th style="padding: 10px; border-style: solid">Skills</th>
+            <th style="padding: 10px;border-style: solid">Background</th>
+            <th style="padding: 10px;border-style: solid">Job</th>
+            <th style="padding: 10px;border-style: solid">Quirk</th>
+            <th style="padding: 10px;border-style: solid">Affinity</th>
+            <th style="padding: 10px;border-style: solid">Enmity</th>
+            <th style="padding: 10px;border-style: solid">Power</th>
+            <th style="padding: 10px;border-style: solid">Influence</th>
+        </tr>
         </thead>
         @foreach (var npc in npcs)
         {
             <tbody style="color:#ffe81F">
-                <tr>
-                    <td style=" height: 30px;padding: 10px;border-style: solid">@npc.Name.Replace("_", " ")</td>
-                    <td style="height: 30px;padding: 10px; border-style: solid">
-                        @npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex
+            <tr>
+                <td style=" height: 30px;padding: 10px;border-style: solid">@npc.Name.Replace("_", " ")</td>
+                <td style="height: 30px;padding: 10px; border-style: solid">
+                    @npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex
 
-                    </td>
-                    <td style="height: 30px;padding: 10px; border-style: solid">
-                        @{
-                            var skills = npc.SkillList.Select(skills
-                                    => $"{skills.SkillNameText}:{skills.SkillValue}")
-                                .ToArray();
+                </td>
+                <td style="height: 30px;padding: 10px; border-style: solid">
+                    @{
+                        var skills = npc.SkillList.Select(skills
+                            => $"{skills.SkillNameText}:{skills.SkillValue}")
+                            .ToArray();
 
-                            foreach (var skill in skills)
-                            {
-                                var outSkill = skill + " ";
-                                @outSkill
-                            }
+                        foreach (var skill in skills)
+                        {
+                            var outSkill = skill + " ";
+                            @outSkill
                         }
-                    </td>
-                    <td style="        height: 30px;padding: 10px;
+                    }
+                </td>
+                <td style="        height: 30px;padding: 10px;
         border-style: solid">
-                        @npc.Background, @npc.Career.
-                    </td>
-                    <td style="        height: 30px;padding: 10px;
+                    @npc.Background, @npc.Career.
+                </td>
+                <td style="        height: 30px;padding: 10px;
         border-style: solid">
-                        @npc.PatronText
-    </td>
-    <td style="        height: 30px;padding: 10px;
+                    @npc.PatronText
+                </td>
+                <td style="        height: 30px;padding: 10px;
         border-style: solid">
-        @npc.QuirkText
-    </td>
-    <td style="padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.AffinityText(@npc.Affinity)">@TravellerSpecialNPC.AffinityDegree(@npc.Affinity)</a></td>
-    <td style="height: 30px;padding: 10px; border-style: solid;"><a href="." title="@TravellerSpecialNPC.EnmityText(@npc.Enmity)">@TravellerSpecialNPC.EnmityDegree(@npc.Enmity)</a></td>
-    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.PowerText(@npc.Power)"> @TravellerSpecialNPC.PowerDegree(@npc.Power)</a></td>
-    <td style="height: 30px;padding: 10px;border-style: solid"><a href="." title="@TravellerSpecialNPC.InfluenceText(@npc.Influence)">@TravellerSpecialNPC.InfluenceDegree(@npc.Influence)</a></td>
-</tr>
-</tbody>
-<p></p>
-}
+                    @npc.QuirkText
+                </td>
+                <td style="padding: 10px;border-style: solid">
+                    <a href="." title="@TravellerSpecialNPC.AffinityText(npc.Affinity)">@TravellerSpecialNPC.AffinityDegree(npc.Affinity)</a>
+                </td>
+                <td style="height: 30px;padding: 10px; border-style: solid;">
+                    <a href="." title="@TravellerSpecialNPC.EnmityText(npc.Enmity)">@TravellerSpecialNPC.EnmityDegree(npc.Enmity)</a>
+                </td>
+                <td style="height: 30px;padding: 10px;border-style: solid">
+                    <a href="." title="@TravellerSpecialNPC.PowerText(npc.Power)"> @TravellerSpecialNPC.PowerDegree(npc.Power)</a>
+                </td>
+                <td style="height: 30px;padding: 10px;border-style: solid">
+                    <a href="." title="@TravellerSpecialNPC.InfluenceText(npc.Influence)">@TravellerSpecialNPC.InfluenceDegree(npc.Influence)</a>
+                </td>
+            </tr>
+            </tbody>
+            <p></p>
+        }
     </table>
 }
 
@@ -122,4 +126,5 @@ else
     {
         npcs = NPCService.GetNPC(NPCCount, NationNameList);
     }
+
 }

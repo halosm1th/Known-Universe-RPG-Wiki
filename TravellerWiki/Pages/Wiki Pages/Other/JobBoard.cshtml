@@ -9,123 +9,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>@ToString().Replace("TravellerWiki.Pages.", "") </title>
 
 
-    <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
+    <base href="~/"/>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
+    <link href="css/site.css" rel="stylesheet"/>
 </head>
 <body>
-    <h1>JobBoard</h1>
-    @if (!Model.CanViewBoard && !Model.InvalidID)
+<h1>JobBoard</h1>
+@if (!Model.CanViewBoard && !Model.InvalidID)
+{
+    <form method="post">
+        <p>
+            Travellers Aid Society ID: <input type="password" name="TASID" value=""/>
+            <button>Login</button>
+        </p>
+    </form>
+    <p>Non-TAS Jobs</p>
+    <form method="get" asp-action="">
+        <p>Job ID:</p> <input type="number" name="JobID" value=""/>
+        <button>Search</button>
+    </form>
+    <br/>
+    @if (Model.JobID != null && JobBoardService.GetNonTASJobs(-1).Where(job => job.JobDescription == Model.JobID.ToString()).ToList().Count > 0)
     {
-        <form method="post">
-            <p>
-                Travellers Aid Society ID: <input type="password" name="TASID" value="" />
-                <button>Login</button>
-            </p>
-        </form>
-        <p>Non-TAS Jobs</p>
-        <form method="get" asp-action="">
-            <p>Job ID:</p> <input type="number" name="JobID" value="" />
-            <button>Search</button>
-        </form>
-        <br />
-        @if (@Model.JobID != null && JobBoardService.GetNonTASJobs(-1).Where(job => job.JobDescription == Model.JobID.ToString()).ToList().Count > 0)
-        {
-            <table style="width: 100%;font-size: large">
-                <thead style="text-align: center; padding: 5px;">
-                    <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Job ID</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th></tr>
-                </thead>
-                <tbody style="text-align: center; padding: 5px; color: #ffe81F">
-                    <tr id="tableInfo">
-                        @{ var job = JobBoardService.GetNonTASJobs(-1).First(job => job.JobDescription == Model.JobID.ToString()); }
-                        <td style="border-style: solid">@job.JobTitle</td>
-                        <td style="border-style: solid">@job.JobDescription</td>
-                        <td style="border-style: solid">Cr @job.JobPayment</td>
-                        <td style="border-style: solid">@job.NumberOfAccepted</td>
-                        <td style="border-style: solid">@job.SenderName - @job.Patron - @job.PatronQuirk</td>
-                        <td style="border-style: solid">@job.SenderLocation</td>
-                        <td style="border-style: solid">@job.IssuedOnDate</td>
-                        <td style="border-style: solid">@job.Ally</td>
-                        <td style="border-style: solid">@job.Enemy</td>
-                        <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
-                        <td style="border-style: solid">@job.Opposition</td>
-                    </tr>
-                </tbody>
-            </table>
-        }
-        else
-        {
-            if (@Model.JobID != null)
-            {
-                <p style="color: black; text-align: center; font-size: xx-large; background-color: red; padding: 5px">Error no job with the ID: @Model.JobID</p>
-            }
-
-            <table style="width: 100%">
-                <thead style="text-align: center; padding: 5px;">
-                    <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Job ID</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th></tr>
-                </thead>
-                <tbody style="text-align: center; padding: 5px; color: #ffe81F">
-                    @foreach (var job in JobBoardService.GetNonTASJobs(Model.JobID == null ? 15 : -1).OrderBy(job => Convert.ToInt32(job.JobDescription)))
-                    {
-                        <tr id="tableInfo">
-                            <td style="border-style: solid">@job.JobTitle</td>
-                            <td style="border-style: solid">@job.JobDescription</td>
-                            <td style="border-style: solid">Cr @job.JobPayment</td>
-                            <td style="border-style: solid">@job.NumberOfAccepted</td>
-                            <td style="border-style: solid">@job.SenderName - @job.Patron - @job.PatronQuirk</td>
-                            <td style="border-style: solid">@job.SenderLocation</td>
-                            <td style="border-style: solid">@job.IssuedOnDate</td>
-                            <td style="border-style: solid">@job.Ally</td>
-                            <td style="border-style: solid">@job.Enemy</td>
-                            <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
-                            <td style="border-style: solid">@job.Opposition</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        }
-    }
-
-    @if (!Model.CanViewBoard && Model.InvalidID)
-    {
-        <h2>ERROR, YOU HAVE BEEN KICKED OUT ASSHOLE!</h2>
-        <p>HA HA HA HA HA HA HA HA YOUR ID IS BANNED. YOU CANT GET INTO THE BOARD. I SURE HOPE YOU'RE TOO STEWPED TO FIGURE OUT HOW TO GET ROUND IT!</p>
-    }
-
-    @if (Model.CanViewBoard && !Model.InvalidID)
-    {
-        <p>Welcome to the traveller job board. Below is a listing of all available official TAS jobs.</p>
-
-
-        <table style="width:100%;">
+        <table style="width: 100%;font-size: large">
             <thead style="text-align: center; padding: 5px;">
-                <tr><th style="padding: 3px">Title</th><th style="padding: 5px">Description</th><th>Payment</th><th>Accepted</th><th>Max Accepted</th><th>Active</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>On Board</th><th>Issue Date</th><th>Expiry Date</th></tr>
+            <tr>
+                <th style="padding: 3px">Title</th><th style="padding: 5px">Job ID</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th>
+            </tr>
             </thead>
-            <tbody style="text-align: center; padding: 5px;color:#ffe81F">
-                @foreach (var job in JobBoardService.GetJobBoardJobs.Where(job => job.Visible))
-                {
-                    <tr id="tableInfo">
-                        <td style="border-style: solid">@job.JobTitle</td>
-                        <td style="border-style: solid">@job.JobDescription</td>
-                        <td style="border-style: solid">@job.JobPayment</td>
-                        <td style="border-style: solid">@job.NumberOfAccepted</td>
-                        <td style="border-style: solid">@job.NumberOfActive</td>
-                        <td style="border-style: solid">@job.MaxAccepts</td>
-                        <td style="border-style: solid">@job.SenderName</td>
-                        <td style="border-style: solid">@job.SenderLocation</td>
-                        <td style="border-style: solid">@job.JobBoardOfferedOn</td>
-                        <td style="border-style: solid">@job.IssuedOnDate</td>
-                        <td style="border-style: solid">@job.ExpiryDate</td>
-                    </tr>
-                }
+            <tbody style="text-align: center; padding: 5px; color: #ffe81F">
+            <tr id="tableInfo">
+                @{ var job = JobBoardService.GetNonTASJobs(-1).First(job => job.JobDescription == Model.JobID.ToString()); }
+                <td style="border-style: solid">@job.JobTitle</td>
+                <td style="border-style: solid">@job.JobDescription</td>
+                <td style="border-style: solid">Cr @job.JobPayment</td>
+                <td style="border-style: solid">@job.NumberOfAccepted</td>
+                <td style="border-style: solid">@job.SenderName - @job.Patron - @job.PatronQuirk</td>
+                <td style="border-style: solid">@job.SenderLocation</td>
+                <td style="border-style: solid">@job.IssuedOnDate</td>
+                <td style="border-style: solid">@job.Ally</td>
+                <td style="border-style: solid">@job.Enemy</td>
+                <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
+                <td style="border-style: solid">@job.Opposition</td>
+            </tr>
             </tbody>
         </table>
-    }   <h3><a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a></h3>
+    }
+    else
+    {
+        if (Model.JobID != null)
+        {
+            <p style="color: black; text-align: center; font-size: xx-large; background-color: red; padding: 5px">Error no job with the ID: @Model.JobID</p>
+        }
+
+        <table style="width: 100%">
+            <thead style="text-align: center; padding: 5px;">
+            <tr>
+                <th style="padding: 3px">Title</th><th style="padding: 5px">Job ID</th><th style="padding: 3px">Payment</th><th>Accepted</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>Issue Date</th><th>Ally</th><th>Enemy</th><th>Target</th><th>Opposition</th>
+            </tr>
+            </thead>
+            <tbody style="text-align: center; padding: 5px; color: #ffe81F">
+            @foreach (var job in JobBoardService.GetNonTASJobs(Model.JobID == null ? 15 : -1).OrderBy(job => Convert.ToInt32(job.JobDescription)))
+            {
+                <tr id="tableInfo">
+                    <td style="border-style: solid">@job.JobTitle</td>
+                    <td style="border-style: solid">@job.JobDescription</td>
+                    <td style="border-style: solid">Cr @job.JobPayment</td>
+                    <td style="border-style: solid">@job.NumberOfAccepted</td>
+                    <td style="border-style: solid">@job.SenderName - @job.Patron - @job.PatronQuirk</td>
+                    <td style="border-style: solid">@job.SenderLocation</td>
+                    <td style="border-style: solid">@job.IssuedOnDate</td>
+                    <td style="border-style: solid">@job.Ally</td>
+                    <td style="border-style: solid">@job.Enemy</td>
+                    <td style="border-style: solid">@job.Target - @job.TargetQuirk</td>
+                    <td style="border-style: solid">@job.Opposition</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+}
+
+@if (!Model.CanViewBoard && Model.InvalidID)
+{
+    <h2>ERROR, YOU HAVE BEEN KICKED OUT ASSHOLE!</h2>
+    <p>HA HA HA HA HA HA HA HA YOUR ID IS BANNED. YOU CANT GET INTO THE BOARD. I SURE HOPE YOU'RE TOO STEWPED TO FIGURE OUT HOW TO GET ROUND IT!</p>
+}
+
+@if (Model.CanViewBoard && !Model.InvalidID)
+{
+    <p>Welcome to the traveller job board. Below is a listing of all available official TAS jobs.</p>
+
+
+    <table style="width:100%;">
+        <thead style="text-align: center; padding: 5px;">
+        <tr>
+            <th style="padding: 3px">Title</th><th style="padding: 5px">Description</th><th>Payment</th><th>Accepted</th><th>Max Accepted</th><th>Active</th><th style="padding: 2px">Sender Name</th><th>Sender Location</th><th>On Board</th><th>Issue Date</th><th>Expiry Date</th>
+        </tr>
+        </thead>
+        <tbody style="text-align: center; padding: 5px;color:#ffe81F">
+        @foreach (var job in JobBoardService.GetJobBoardJobs.Where(job => job.Visible))
+        {
+            <tr id="tableInfo">
+                <td style="border-style: solid">@job.JobTitle</td>
+                <td style="border-style: solid">@job.JobDescription</td>
+                <td style="border-style: solid">@job.JobPayment</td>
+                <td style="border-style: solid">@job.NumberOfAccepted</td>
+                <td style="border-style: solid">@job.NumberOfActive</td>
+                <td style="border-style: solid">@job.MaxAccepts</td>
+                <td style="border-style: solid">@job.SenderName</td>
+                <td style="border-style: solid">@job.SenderLocation</td>
+                <td style="border-style: solid">@job.JobBoardOfferedOn</td>
+                <td style="border-style: solid">@job.IssuedOnDate</td>
+                <td style="border-style: solid">@job.ExpiryDate</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+<h3>
+    <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Search">Search</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Index">Home page</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Islands_Sector">Islands Sector</a> <a style="font-style:normal; font-size: larger; text-decoration: #ffe81F underline;" href="/Rules/">Rules</a>
+</h3>
 
 </body>

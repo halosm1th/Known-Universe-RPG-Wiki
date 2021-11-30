@@ -1,8 +1,6 @@
 @page "/CharacterCreation/Injury/{characterID}"
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
 @using TravellerCharacter.Character_Services
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @using TravellerCharacter.CharacterCreator.CreationEvents
 @using TravellerCharacter.CharacterCreator.TravellerInjuries
 @namespace TravellerWiki.Pages.CharacterCreation.CharacterCreator
@@ -10,11 +8,12 @@
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
 <head>
-    <title>@this.ToString().Replace("TravellerWiki.Pages.", "") </title>
+    <title>@ToString().Replace("TravellerWiki.Pages.", "") </title>
 
 </head>
 
 @code{
+
     [Parameter]
     public string CharacterID { get; set; }
 
@@ -34,12 +33,13 @@
 
     public int effectedStat = -1;
     public TravellerInjury ActualInjury = null;
-    List<TravellerInjury> AppliedInjuries = new List<TravellerInjury>();
+    List<TravellerInjury> AppliedInjuries = new();
     public int InjuryChoice = 0;
     bool SelectedInjury = false;
 
 
     public bool NeedsMedicalAid = false;
+
     private void ApplyNormalInjury()
     {
         SelectedInjury = true;
@@ -48,7 +48,6 @@
 
     private bool ApplyInjury(TravellerInjury injury)
     {
-
         if (effectedStat == -1)
         {
             effectedStat = 0;
@@ -74,7 +73,9 @@
         SelectedInjury = true;
         ((TravellerMultiInjury)ActualInjury).ResolveInjury(injury);
     }
+
 }
+
 <div>
     <div style="padding-left: 2em;">
         @if (GetService().LastEvent is TravellerEventSeverelyInjured injured)
@@ -150,66 +151,62 @@
             {
                 <button @onclick="DoneEvent">Okay.</button>
             }
-
-    }
-    else if (ActualInjury is TravellerMultiInjuryChoice injChoice)
-    {
-        @if (SelectedInjury)
+        }
+        else if (ActualInjury is TravellerMultiInjuryChoice injChoice)
         {
-
-            <button @onclick="DoneEvent">Okay.</button>
+            @if (SelectedInjury)
+            {
+                <button @onclick="DoneEvent">Okay.</button>
+            }
+            else
+            {
+                <p>
+                    Select an Injury:
+                    <select @bind="InjuryChoice">
+                        @for (var i = 0; i < injChoice.InjuryCount; i++)
+                        {
+                            <option value="@i">@injChoice.Injuries[i]</option>
+                        }
+                    </select>
+                </p>
+                <p>
+                    Select a stat to be effected:
+                    <select @bind="effectedStat">
+                        @{
+                            var injChoiceStats = GetService().GetEffectedAttributes(injChoice.Injuries[InjuryChoice]);
+                            for (var i = 0; i < injChoiceStats.Count; i++)
+                            {
+                                <option value="@i">@injChoiceStats[i]</option>
+                            }
+                        }
+                    </select>
+                    <button @onclick="ApplyMultiInjury">Apply Injury.</button>
+                </p>
+            }
         }
         else
         {
-            <p>
-                Select an Injury:
-                <select @bind="InjuryChoice">
-                    @for (int i = 0; i < injChoice.InjuryCount; i++)
-                    {
-                        <option value="@i">@injChoice.Injuries[i]</option>
-                    }
-                </select>
-            </p>
-            <p>
-                Select a stat to be effected:
-                <select @bind="effectedStat">
-                    @{
-                        var injChoiceStats = GetService().GetEffectedAttributes(injChoice.Injuries[InjuryChoice]);
-                        for (var i = 0; i < injChoiceStats.Count; i++)
-                        {
-                            <option value="@i">@injChoiceStats[i]</option>
+            @if (SelectedInjury)
+            {
+                <button @onclick="DoneEvent">Okay.</button>
+            }
+            else
+            {
+                <p>
+                    You suffer: @ActualInjury.InjuryDescription. Select a stat to be effected:
+                    <select @bind="effectedStat">
+                        @{
+                            var injChoiceStats = GetService().GetEffectedAttributes(ActualInjury);
+                            for (var i = 0; i < injChoiceStats.Count; i++)
+                            {
+                                <option value="@i">@injChoiceStats[i]</option>
+                            }
                         }
-                    }
-                </select>
-                <button @onclick="ApplyMultiInjury">Apply Injury.</button>
-            </p>
+                    </select>
+                    <button @onclick="ApplyNormalInjury">Apply Injury.</button>
+                </p>
+            }
         }
-    }
-    else
-    {
-        @if (SelectedInjury)
-        {
-
-            <button @onclick="DoneEvent">Okay.</button>
-        }
-        else
-        {
-            <p>
-                You suffer: @ActualInjury.InjuryDescription. Select a stat to be effected:
-                <select @bind="effectedStat">
-                    @{
-                        var injChoiceStats = GetService().GetEffectedAttributes(ActualInjury);
-                        for (var i = 0; i < injChoiceStats.Count; i++)
-                        {
-                            <option value="@i">@injChoiceStats[i]</option>
-                        }
-                    }
-                </select>
-                <button @onclick="ApplyNormalInjury">Apply Injury.</button>
-            </p>
-        }
-
-    }
 
     </div>
 </div>

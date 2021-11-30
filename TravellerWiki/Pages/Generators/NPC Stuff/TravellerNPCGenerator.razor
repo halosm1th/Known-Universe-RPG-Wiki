@@ -1,25 +1,21 @@
 ﻿@page "/Generators/TravellerNPCGenerator"
-
-@using TravellerWiki.Data
-@using System.Linq;
-@using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.NPC_Services
 @using TravellerCharacter.CharcterTypes
-@using WikiServices.DataServices
+@using TravellerCharacter.Character_Services
 @inject TravellerNPCService NPCService
 
-    <head>
-        <title>NPC Generator</title>
-        <meta property="og:title" content="Known Universe Wiki - NPC Generator" />
-        <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerNPCGenerator/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-        <meta content="A simple Traveller NPC." property="og:description" />
-        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+<head>
+    <title>NPC Generator</title>
+    <meta property="og:title" content="Known Universe Wiki - NPC Generator"/>
+    <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerNPCGenerator/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="A simple Traveller NPC." property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
 
-    </head>
+</head>
 <h1>NPC Generator</h1>
-<input type="number" @bind="NPCCount" />
+<input type="number" @bind="NPCCount"/>
 <select @bind="NationNameList">
     <option>Federation</option>
     <option>
@@ -32,7 +28,7 @@
         Britannia
     </option>
     <option>Germushia</option>
-    <option>  Deutschland</option>
+    <option> Deutschland</option>
     <option> XiaoMing</option>
     <option>AxionAlliance</option>
     <option> Any</option>
@@ -45,8 +41,8 @@
 }
 else
 {
-<table style="margin: 10px;">
-    <thead>
+    <table style="margin: 10px;">
+        <thead>
         <tr>
             <th style="padding: 10px;border-style: solid;text-align: center">Name</th>
             <th style="padding: 10px;border-style: solid;text-align: center">UPP </th>
@@ -56,10 +52,10 @@ else
             <th style="padding: 10px;border-style: solid;text-align: center">Skills</th>
             <th style="padding: 10px; border-style: solid;text-align: center">Copy</th>
         </tr>
-    </thead>
-    @foreach (var npc in npcs)
-    {
-        <tbody style="color:#ffe81F">
+        </thead>
+        @foreach (var npc in npcs)
+        {
+            <tbody style="color:#ffe81F">
             <tr>
                 <td style="padding: 10px;border-style: solid;text-align: center">@npc.Name.Replace("_", " ")</td>
                 <td style="padding: 10px;border-style: solid;text-align: center">@npc.Strength.AttributeHex@npc.Dexterity.AttributeHex@npc.Endurance.AttributeHex@npc.Intelligence.AttributeHex@npc.Education.AttributeHex@npc.Social.AttributeHex</td>
@@ -89,14 +85,14 @@ else
 navigator.clipboard.writeText('@npc.ToString()').then(function() {
     /* clipboard successfully set */
 }, function () {
-    alert('Umm, there was an error!'); }) " value="Copy" />
+    alert('Umm, there was an error!'); }) " value="Copy"/>
                 </td>
             </tr>
-        </tbody>
-    }
+            </tbody>
+        }
 
-    <p></p>
-</table>
+        <p></p>
+    </table>
 }
 
 @code {

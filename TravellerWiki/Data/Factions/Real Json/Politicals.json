@@ -1,3 +1,1234 @@
 [
-    {"FactionID":10170,"FactionName":"Pro-Independence Old Islanders","HeadquatersLocation":"New Home","OtherOwnedLocations":["Colchis"],"FoundedYear":{"Day":6,"Month":12,"Century":383,"Millennium":83,"Year":83383},"IslandsNation":19,"SupportingNationality":2,"PoliticalSway":3,"SocialSway":2,"EconomicSway":2,"FactionHead":{"Background":"Metropolis","Career":"PERFORMER","PatronText":"Traitor","QuirkText":"Shows pictures of his children","Name":"Fleming Annie","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":115,"SkillValue":3},{"SkillName":0,"SkillValue":1},{"SkillName":29,"SkillValue":1},{"SkillName":37,"SkillValue":0},{"SkillName":173,"SkillValue":2},{"SkillName":1,"SkillValue":0},{"SkillName":20,"SkillValue":1},{"SkillName":21,"SkillValue":2},{"SkillName":30,"SkillValue":0},{"SkillName":9,"SkillValue":3},{"SkillName":28,"SkillValue":1},{"SkillName":110,"SkillValue":1},{"SkillName":172,"SkillValue":1},{"SkillName":16,"SkillValue":0},{"SkillName":59,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":4},{"AttributeName":1,"AttributableValue":5},{"AttributeName":2,"AttributableValue":12},{"AttributeName":3,"AttributableValue":13},{"AttributeName":4,"AttributableValue":12},{"AttributeName":5,"AttributableValue":4}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},"FactionMembers":[{"Background":"Fringe","Career":"AGENT","PatronText":"Imperial Agent","QuirkText":"Attracted to a Traveller","Name":"Robert Helen","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":173,"SkillValue":4},{"SkillName":17,"SkillValue":1},{"SkillName":28,"SkillValue":2},{"SkillName":104,"SkillValue":1},{"SkillName":59,"SkillValue":0},{"SkillName":60,"SkillValue":1},{"SkillName":122,"SkillValue":1},{"SkillName":171,"SkillValue":1},{"SkillName":73,"SkillValue":2},{"SkillName":37,"SkillValue":1},{"SkillName":21,"SkillValue":1},{"SkillName":110,"SkillValue":0},{"SkillName":1,"SkillValue":0},{"SkillName":30,"SkillValue":0},{"SkillName":103,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":10},{"AttributeName":1,"AttributableValue":4},{"AttributeName":2,"AttributableValue":8},{"AttributeName":3,"AttributableValue":3},{"AttributeName":4,"AttributableValue":4},{"AttributeName":5,"AttributableValue":4}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Low-Tech","Career":"MEDIC","PatronText":"Revolutionary","QuirkText":"Loyal","Name":"Conley Parker","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":76,"SkillValue":2},{"SkillName":115,"SkillValue":2},{"SkillName":174,"SkillValue":1},{"SkillName":5,"SkillValue":1},{"SkillName":16,"SkillValue":0},{"SkillName":61,"SkillValue":1},{"SkillName":21,"SkillValue":0},{"SkillName":103,"SkillValue":1},{"SkillName":109,"SkillValue":0},{"SkillName":122,"SkillValue":0},{"SkillName":172,"SkillValue":0},{"SkillName":173,"SkillValue":0},{"SkillName":0,"SkillValue":2},{"SkillName":38,"SkillValue":1},{"SkillName":73,"SkillValue":1},{"SkillName":110,"SkillValue":1},{"SkillName":135,"SkillValue":1},{"SkillName":1,"SkillValue":0},{"SkillName":29,"SkillValue":0},{"SkillName":30,"SkillValue":0},{"SkillName":47,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":8},{"AttributeName":1,"AttributableValue":3},{"AttributeName":2,"AttributableValue":8},{"AttributeName":3,"AttributableValue":5},{"AttributeName":4,"AttributableValue":7},{"AttributeName":5,"AttributableValue":3}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Low-Tech","Career":"CITIZEN","PatronText":"Stowaway","QuirkText":"Aggressive","Name":"Phoenix Kaleb","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":76,"SkillValue":2},{"SkillName":115,"SkillValue":4},{"SkillName":174,"SkillValue":1},{"SkillName":5,"SkillValue":1},{"SkillName":16,"SkillValue":0},{"SkillName":61,"SkillValue":1},{"SkillName":21,"SkillValue":1},{"SkillName":103,"SkillValue":1},{"SkillName":109,"SkillValue":0},{"SkillName":122,"SkillValue":0},{"SkillName":172,"SkillValue":0},{"SkillName":173,"SkillValue":1},{"SkillName":38,"SkillValue":1},{"SkillName":30,"SkillValue":1},{"SkillName":47,"SkillValue":1},{"SkillName":135,"SkillValue":1},{"SkillName":1,"SkillValue":0},{"SkillName":9,"SkillValue":0},{"SkillName":28,"SkillValue":0},{"SkillName":29,"SkillValue":0},{"SkillName":101,"SkillValue":0},{"SkillName":102,"SkillValue":0},{"SkillName":110,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":12},{"AttributeName":1,"AttributableValue":9},{"AttributeName":2,"AttributableValue":14},{"AttributeName":3,"AttributableValue":12},{"AttributeName":4,"AttributableValue":4},{"AttributeName":5,"AttributableValue":7}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Colonist","Career":"SPACER (COMMAND)","PatronText":"Alien","QuirkText":"Helpful","Name":"Nadia Ramos","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":174,"SkillValue":2},{"SkillName":19,"SkillValue":1},{"SkillName":74,"SkillValue":1},{"SkillName":63,"SkillValue":1},{"SkillName":30,"SkillValue":0},{"SkillName":109,"SkillValue":0},{"SkillName":101,"SkillValue":0},{"SkillName":102,"SkillValue":0},{"SkillName":122,"SkillValue":0},{"SkillName":115,"SkillValue":0},{"SkillName":114,"SkillValue":2},{"SkillName":0,"SkillValue":1},{"SkillName":15,"SkillValue":1},{"SkillName":40,"SkillValue":1},{"SkillName":64,"SkillValue":1},{"SkillName":178,"SkillValue":1},{"SkillName":1,"SkillValue":0},{"SkillName":20,"SkillValue":0},{"SkillName":96,"SkillValue":0},{"SkillName":110,"SkillValue":0},{"SkillName":175,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":11},{"AttributeName":1,"AttributableValue":12},{"AttributeName":2,"AttributableValue":3},{"AttributeName":3,"AttributableValue":9},{"AttributeName":4,"AttributableValue":3},{"AttributeName":5,"AttributableValue":9}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Colonist","Career":"BARBARIAN","PatronText":"Diplomat","QuirkText":"Government informant","Name":"Frankie Levi","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":174,"SkillValue":4},{"SkillName":19,"SkillValue":1},{"SkillName":74,"SkillValue":1},{"SkillName":63,"SkillValue":1},{"SkillName":30,"SkillValue":0},{"SkillName":109,"SkillValue":1},{"SkillName":101,"SkillValue":0},{"SkillName":102,"SkillValue":0},{"SkillName":122,"SkillValue":1},{"SkillName":115,"SkillValue":1},{"SkillName":105,"SkillValue":2},{"SkillName":5,"SkillValue":1},{"SkillName":16,"SkillValue":0},{"SkillName":21,"SkillValue":0},{"SkillName":171,"SkillValue":0},{"SkillName":154,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":12},{"AttributeName":1,"AttributableValue":2},{"AttributeName":2,"AttributableValue":6},{"AttributeName":3,"AttributableValue":5},{"AttributeName":4,"AttributableValue":10},{"AttributeName":5,"AttributableValue":5}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Space Habitat","Career":"ADMINISTRATOR","PatronText":"Punk","QuirkText":"Aggressive","Name":"Byers Elaine","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":115,"SkillValue":2},{"SkillName":17,"SkillValue":1},{"SkillName":43,"SkillValue":1},{"SkillName":0,"SkillValue":3},{"SkillName":15,"SkillValue":0},{"SkillName":101,"SkillValue":0},{"SkillName":135,"SkillValue":1},{"SkillName":172,"SkillValue":0},{"SkillName":178,"SkillValue":0},{"SkillName":1,"SkillValue":1},{"SkillName":20,"SkillValue":1},{"SkillName":21,"SkillValue":1},{"SkillName":29,"SkillValue":1},{"SkillName":38,"SkillValue":1},{"SkillName":9,"SkillValue":0},{"SkillName":30,"SkillValue":0},{"SkillName":96,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":12},{"AttributeName":1,"AttributableValue":10},{"AttributeName":2,"AttributableValue":5},{"AttributeName":3,"AttributableValue":12},{"AttributeName":4,"AttributableValue":6},{"AttributeName":5,"AttributableValue":12}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Low-Tech","Career":"SCOUT","PatronText":"Naval Officer","QuirkText":"Government informant","Name":"Beasley Sophia","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":76,"SkillValue":2},{"SkillName":115,"SkillValue":2},{"SkillName":174,"SkillValue":1},{"SkillName":5,"SkillValue":1},{"SkillName":16,"SkillValue":0},{"SkillName":61,"SkillValue":1},{"SkillName":21,"SkillValue":1},{"SkillName":103,"SkillValue":1},{"SkillName":109,"SkillValue":0},{"SkillName":122,"SkillValue":1},{"SkillName":172,"SkillValue":0},{"SkillName":173,"SkillValue":1},{"SkillName":15,"SkillValue":1},{"SkillName":114,"SkillValue":1},{"SkillName":38,"SkillValue":1},{"SkillName":41,"SkillValue":1},{"SkillName":74,"SkillValue":1},{"SkillName":178,"SkillValue":1},{"SkillName":30,"SkillValue":0},{"SkillName":60,"SkillValue":0},{"SkillName":102,"SkillValue":0},{"SkillName":73,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":7},{"AttributeName":1,"AttributableValue":5},{"AttributeName":2,"AttributableValue":4},{"AttributeName":3,"AttributableValue":13},{"AttributeName":4,"AttributableValue":0},{"AttributeName":5,"AttributableValue":4}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Belter","Career":"BARBARIAN","PatronText":"Stowaway","QuirkText":"Looking for something","Name":"Elena Porter","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":116,"SkillValue":2},{"SkillName":74,"SkillValue":1},{"SkillName":178,"SkillValue":1},{"SkillName":15,"SkillValue":0},{"SkillName":21,"SkillValue":1},{"SkillName":36,"SkillValue":0},{"SkillName":101,"SkillValue":0},{"SkillName":102,"SkillValue":0},{"SkillName":122,"SkillValue":1},{"SkillName":135,"SkillValue":0},{"SkillName":105,"SkillValue":2},{"SkillName":174,"SkillValue":2},{"SkillName":5,"SkillValue":1},{"SkillName":115,"SkillValue":1},{"SkillName":16,"SkillValue":0},{"SkillName":109,"SkillValue":0},{"SkillName":171,"SkillValue":0},{"SkillName":154,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":9},{"AttributeName":1,"AttributableValue":10},{"AttributeName":2,"AttributableValue":12},{"AttributeName":3,"AttributableValue":3},{"AttributeName":4,"AttributableValue":6},{"AttributeName":5,"AttributableValue":11}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}},{"Background":"Space Habitat","Career":"SCHOLAR","PatronText":"Police Officer","QuirkText":"Has a dangerous secret","Name":"Gates Wilcox","Age":0,"JackOfAllTrades":-1,"Nationality":null,"SkillList":[{"SkillName":115,"SkillValue":2},{"SkillName":17,"SkillValue":1},{"SkillName":43,"SkillValue":1},{"SkillName":0,"SkillValue":0},{"SkillName":15,"SkillValue":0},{"SkillName":101,"SkillValue":0},{"SkillName":135,"SkillValue":4},{"SkillName":172,"SkillValue":0},{"SkillName":178,"SkillValue":0},{"SkillName":73,"SkillValue":2},{"SkillName":38,"SkillValue":1},{"SkillName":110,"SkillValue":1},{"SkillName":9,"SkillValue":0},{"SkillName":29,"SkillValue":0},{"SkillName":30,"SkillValue":0},{"SkillName":102,"SkillValue":0},{"SkillName":109,"SkillValue":0}],"AttributeList":[{"AttributeName":0,"AttributableValue":12},{"AttributeName":1,"AttributableValue":9},{"AttributeName":2,"AttributableValue":10},{"AttributeName":3,"AttributableValue":3},{"AttributeName":4,"AttributableValue":10},{"AttributeName":5,"AttributableValue":6}],"Items":[],"Contacts":[],"Finances":{"Credits":0,"Pension":0,"Debt":0,"ShipMortgage":0,"OtherIncome":0}}]}
+  {
+    "FactionID": 10170,
+    "FactionName": "Pro-Independence Old Islanders",
+    "HeadquatersLocation": "New Home",
+    "OtherOwnedLocations": [
+      "Colchis"
+    ],
+    "FoundedYear": {
+      "Day": 6,
+      "Month": 12,
+      "Century": 383,
+      "Millennium": 83,
+      "Year": 83383
+    },
+    "IslandsNation": 19,
+    "SupportingNationality": 2,
+    "PoliticalSway": 3,
+    "SocialSway": 2,
+    "EconomicSway": 2,
+    "FactionHead": {
+      "Background": "Metropolis",
+      "Career": "PERFORMER",
+      "PatronText": "Traitor",
+      "QuirkText": "Shows pictures of his children",
+      "Name": "Fleming Annie",
+      "Age": 0,
+      "JackOfAllTrades": -1,
+      "Nationality": null,
+      "SkillList": [
+        {
+          "SkillName": 115,
+          "SkillValue": 3
+        },
+        {
+          "SkillName": 0,
+          "SkillValue": 1
+        },
+        {
+          "SkillName": 29,
+          "SkillValue": 1
+        },
+        {
+          "SkillName": 37,
+          "SkillValue": 0
+        },
+        {
+          "SkillName": 173,
+          "SkillValue": 2
+        },
+        {
+          "SkillName": 1,
+          "SkillValue": 0
+        },
+        {
+          "SkillName": 20,
+          "SkillValue": 1
+        },
+        {
+          "SkillName": 21,
+          "SkillValue": 2
+        },
+        {
+          "SkillName": 30,
+          "SkillValue": 0
+        },
+        {
+          "SkillName": 9,
+          "SkillValue": 3
+        },
+        {
+          "SkillName": 28,
+          "SkillValue": 1
+        },
+        {
+          "SkillName": 110,
+          "SkillValue": 1
+        },
+        {
+          "SkillName": 172,
+          "SkillValue": 1
+        },
+        {
+          "SkillName": 16,
+          "SkillValue": 0
+        },
+        {
+          "SkillName": 59,
+          "SkillValue": 0
+        }
+      ],
+      "AttributeList": [
+        {
+          "AttributeName": 0,
+          "AttributableValue": 4
+        },
+        {
+          "AttributeName": 1,
+          "AttributableValue": 5
+        },
+        {
+          "AttributeName": 2,
+          "AttributableValue": 12
+        },
+        {
+          "AttributeName": 3,
+          "AttributableValue": 13
+        },
+        {
+          "AttributeName": 4,
+          "AttributableValue": 12
+        },
+        {
+          "AttributeName": 5,
+          "AttributableValue": 4
+        }
+      ],
+      "Items": [],
+      "Contacts": [],
+      "Finances": {
+        "Credits": 0,
+        "Pension": 0,
+        "Debt": 0,
+        "ShipMortgage": 0,
+        "OtherIncome": 0
+      }
+    },
+    "FactionMembers": [
+      {
+        "Background": "Fringe",
+        "Career": "AGENT",
+        "PatronText": "Imperial Agent",
+        "QuirkText": "Attracted to a Traveller",
+        "Name": "Robert Helen",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 173,
+            "SkillValue": 4
+          },
+          {
+            "SkillName": 17,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 28,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 104,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 59,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 60,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 122,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 171,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 73,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 37,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 21,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 110,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 1,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 103,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 10
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 4
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 8
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 3
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 4
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 4
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Low-Tech",
+        "Career": "MEDIC",
+        "PatronText": "Revolutionary",
+        "QuirkText": "Loyal",
+        "Name": "Conley Parker",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 76,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 115,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 174,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 5,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 16,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 61,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 21,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 103,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 109,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 122,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 172,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 173,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 0,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 38,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 73,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 110,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 135,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 1,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 29,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 47,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 8
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 3
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 8
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 5
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 7
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 3
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Low-Tech",
+        "Career": "CITIZEN",
+        "PatronText": "Stowaway",
+        "QuirkText": "Aggressive",
+        "Name": "Phoenix Kaleb",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 76,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 115,
+            "SkillValue": 4
+          },
+          {
+            "SkillName": 174,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 5,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 16,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 61,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 21,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 103,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 109,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 122,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 172,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 173,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 38,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 47,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 135,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 1,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 9,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 28,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 29,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 101,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 102,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 110,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 9
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 14
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 4
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 7
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Colonist",
+        "Career": "SPACER (COMMAND)",
+        "PatronText": "Alien",
+        "QuirkText": "Helpful",
+        "Name": "Nadia Ramos",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 174,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 19,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 74,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 63,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 109,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 101,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 102,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 122,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 115,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 114,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 0,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 15,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 40,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 64,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 178,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 1,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 20,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 96,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 110,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 175,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 11
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 3
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 9
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 3
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 9
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Colonist",
+        "Career": "BARBARIAN",
+        "PatronText": "Diplomat",
+        "QuirkText": "Government informant",
+        "Name": "Frankie Levi",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 174,
+            "SkillValue": 4
+          },
+          {
+            "SkillName": 19,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 74,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 63,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 109,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 101,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 102,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 122,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 115,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 105,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 5,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 16,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 21,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 171,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 154,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 2
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 6
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 5
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 10
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 5
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Space Habitat",
+        "Career": "ADMINISTRATOR",
+        "PatronText": "Punk",
+        "QuirkText": "Aggressive",
+        "Name": "Byers Elaine",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 115,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 17,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 43,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 0,
+            "SkillValue": 3
+          },
+          {
+            "SkillName": 15,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 101,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 135,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 172,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 178,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 1,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 20,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 21,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 29,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 38,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 9,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 96,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 10
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 5
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 6
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 12
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Low-Tech",
+        "Career": "SCOUT",
+        "PatronText": "Naval Officer",
+        "QuirkText": "Government informant",
+        "Name": "Beasley Sophia",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 76,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 115,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 174,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 5,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 16,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 61,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 21,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 103,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 109,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 122,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 172,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 173,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 15,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 114,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 38,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 41,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 74,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 178,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 60,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 102,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 73,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 7
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 5
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 4
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 13
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 0
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 4
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Belter",
+        "Career": "BARBARIAN",
+        "PatronText": "Stowaway",
+        "QuirkText": "Looking for something",
+        "Name": "Elena Porter",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 116,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 74,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 178,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 15,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 21,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 36,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 101,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 102,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 122,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 135,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 105,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 174,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 5,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 115,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 16,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 109,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 171,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 154,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 9
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 10
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 3
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 6
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 11
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      },
+      {
+        "Background": "Space Habitat",
+        "Career": "SCHOLAR",
+        "PatronText": "Police Officer",
+        "QuirkText": "Has a dangerous secret",
+        "Name": "Gates Wilcox",
+        "Age": 0,
+        "JackOfAllTrades": -1,
+        "Nationality": null,
+        "SkillList": [
+          {
+            "SkillName": 115,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 17,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 43,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 0,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 15,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 101,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 135,
+            "SkillValue": 4
+          },
+          {
+            "SkillName": 172,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 178,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 73,
+            "SkillValue": 2
+          },
+          {
+            "SkillName": 38,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 110,
+            "SkillValue": 1
+          },
+          {
+            "SkillName": 9,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 29,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 30,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 102,
+            "SkillValue": 0
+          },
+          {
+            "SkillName": 109,
+            "SkillValue": 0
+          }
+        ],
+        "AttributeList": [
+          {
+            "AttributeName": 0,
+            "AttributableValue": 12
+          },
+          {
+            "AttributeName": 1,
+            "AttributableValue": 9
+          },
+          {
+            "AttributeName": 2,
+            "AttributableValue": 10
+          },
+          {
+            "AttributeName": 3,
+            "AttributableValue": 3
+          },
+          {
+            "AttributeName": 4,
+            "AttributableValue": 10
+          },
+          {
+            "AttributeName": 5,
+            "AttributableValue": 6
+          }
+        ],
+        "Items": [],
+        "Contacts": [],
+        "Finances": {
+          "Credits": 0,
+          "Pension": 0,
+          "Debt": 0,
+          "ShipMortgage": 0,
+          "OtherIncome": 0
+        }
+      }
+    ]
+  }
 ]

@@ -4,135 +4,136 @@
 </head>
 
 <body>
-    <h1>Starship Registration information</h1>
-    <p>When a starship is constructed, it is registered with a specific naval construction code, which looks like: GOVERNMENT-CLASS-GALAXY-SHIPYARD-YEAR-NUMBER. As well as some other information. This page is all that information explained.</p><div>
-        <h2>Naval Construction Code</h2>
-        <p>Each ship, when constructed is given a naval construction code (NCC) as a sort of long form way to know who this ship is.</p>
-        <p>A code is laid out as such: GOVERNMENT-TYPE-GALAXY-SHIPYARD-YEAR-ID</p>
-        <h2>Registration ID</h2>
-        <p>The Registration ID (RID) is similar to the Naval Construction Code, but it is for the human who owns the ship and the government that it is registered instead of where it was built.</p>
-        <p>A registration ID is laid out as such: REGISTERED_GOVERNMENT-TYPE-OWNERSHIP_STATUS-NAME-OWNER_NAME</p>
-        <h2>Identify Friend or Foe</h2>
-        <p>Each ship is fixed with an IFF beacon that broadcasts which government it is loyal to. Each time it visits a system that said government owns, its IFF status is refreshed to active, if it hasn't visited a friendly system in 1 year, it becomes outdated.</p>
-        <p>IFF may have the following readings from a ship: FRIEND, FRIEND\OUTDATED, ENEMY, ENEMY\OUTDATED, NEUTRAl, NEUTRAL\OUTDATED, OTHER, OTHER\ERROR</p>
+<h1>Starship Registration information</h1>
+<p>When a starship is constructed, it is registered with a specific naval construction code, which looks like: GOVERNMENT-CLASS-GALAXY-SHIPYARD-YEAR-NUMBER. As well as some other information. This page is all that information explained.</p>
+<div>
+    <h2>Naval Construction Code</h2>
+    <p>Each ship, when constructed is given a naval construction code (NCC) as a sort of long form way to know who this ship is.</p>
+    <p>A code is laid out as such: GOVERNMENT-TYPE-GALAXY-SHIPYARD-YEAR-ID</p>
+    <h2>Registration ID</h2>
+    <p>The Registration ID (RID) is similar to the Naval Construction Code, but it is for the human who owns the ship and the government that it is registered instead of where it was built.</p>
+    <p>A registration ID is laid out as such: REGISTERED_GOVERNMENT-TYPE-OWNERSHIP_STATUS-NAME-OWNER_NAME</p>
+    <h2>Identify Friend or Foe</h2>
+    <p>Each ship is fixed with an IFF beacon that broadcasts which government it is loyal to. Each time it visits a system that said government owns, its IFF status is refreshed to active, if it hasn't visited a friendly system in 1 year, it becomes outdated.</p>
+    <p>IFF may have the following readings from a ship: FRIEND, FRIEND\OUTDATED, ENEMY, ENEMY\OUTDATED, NEUTRAl, NEUTRAL\OUTDATED, OTHER, OTHER\ERROR</p>
 
-        <h2>The blanks</h2>
-        <p>The NCC and RID both have various BLANKS that are filled in, some are constants, others are filled in when registered. This is an explanation for them</p>
-        <p>
-            Government (not complete):
-            <ul>
-                <li>UFE - United Federation of Earth</li>
-                <li>UFTN - United Federation of Terra Nova (Or Utopia or Takara)</li>
-                <li>UFL - United Federation Lord</li>
-                <li>UCS - United Colony of Saldor (or Maldeth or Tihara)</li>
-                <li>VRS - Versian Ship</li>
-                <li>DES - Deutschland Ship</li>
-                <li>GER - Germushian Ship</li>
-                <li>URS - United Reverse Ship</li>
-                <li>ISS - Imperial Star ship</li>
-                <li>FOS - First Order Ship</li>
-                <li>BRS - Britannian Royal Ship</li>
-                <li>XCS - Xiao-Ming Corporate Ship</li>
-                <li>AMS - Artekka Mining Ship</li>
-                <li>ADS - Axios Defense Ship</li>
-                <li>PHS - Polandskia Hunter Ship </li>
-            </ul>
-            Types:
-            <ul>
-                <li>
-                    General Types
-                    <ol>
-                        <li>Ship</li>
-                        <li>Small-Craft</li>
-                        <li>Capital-Ship</li>
-                        <li>System-Ship</li>
-                        <li>Star-ship</li>
-                        <li>Streamlined-Hull</li>
-                        <li>Standard-hull</li>
-                        <li>Dispersed-hull</li>
-                    </ol>
-                </li>
-                <li>
-                    Small-Craft:
-                    <ol>
-                        <li>Boat</li>
-                        <li>Shuttle</li>
-                        <li>Fighter</li>
-                        <li>Bomber</li>
-                        <li>Torpedo Boat</li>
-                    </ol>
-                </li>
-                <li>
-                    Star-Ships:
-                    <ol>
-                        <li>Blockade runner</li>
-                        <li>Courier</li>
-                        <li>Q-ship</li>
-                        <li>Trader/Merchant</li>
-                        <li>Freighter</li>
-                        <li>Liner</li>
-                        <li>Yacht</li>
-                    </ol>
-                </li>
-                <li>
-                    Military-Ships:
-                    <ol>
-                        <li>Cutter</li>
-                        <li>Corvette</li>
-                        <li>Frigate</li>
-                        <li>Destroyer</li>
-                        <li>System Defense Boat</li>
-                        <li>Troop Ship</li>
-                    </ol>
-                </li>
-                <li>
-                    Capital-Ships:
-                    <ol>
-                        <li>Cruiser</li>
-                        <li>Light Cruiser </li>
-                        <li>Heavy Cruiser</li>
-                        <li>Armoured Cruiser</li>
-                        <li>Strike Cruiser</li>
-                        <li>Carrier</li>
-                        <li>Escort Carrier</li>
-                        <li>Assault carrier</li>
-                        <li>Fleet Carrier</li>
-                        <li>Battle Tender</li>
-                        <li>Battle Rider</li>
-                        <li>Ballship</li>
-                        <li>BattleCruiser</li>
-                        <li>Dreadnought</li>
-                    </ol>
-                </li>
-                <li>
-                    Other-Ships:
-                    <ol>
-                        <li>Prison Ship</li>
-                        <li>Science Vessel</li>
-                        <li>Hospital Ship</li>
-                        <li>Space Artillery</li>
-                        <li>Starbase</li>
-                        <li>World Ship</li>
-                        <li>Colony Ship</li>
-
-                    </ol>
-                </li>
-                Ownership-Status (The intended goal of the current registered owner):
+    <h2>The blanks</h2>
+    <p>The NCC and RID both have various BLANKS that are filled in, some are constants, others are filled in when registered. This is an explanation for them</p>
+    <p>
+        Government (not complete):
+        <ul>
+            <li>UFE - United Federation of Earth</li>
+            <li>UFTN - United Federation of Terra Nova (Or Utopia or Takara)</li>
+            <li>UFL - United Federation Lord</li>
+            <li>UCS - United Colony of Saldor (or Maldeth or Tihara)</li>
+            <li>VRS - Versian Ship</li>
+            <li>DES - Deutschland Ship</li>
+            <li>GER - Germushian Ship</li>
+            <li>URS - United Reverse Ship</li>
+            <li>ISS - Imperial Star ship</li>
+            <li>FOS - First Order Ship</li>
+            <li>BRS - Britannian Royal Ship</li>
+            <li>XCS - Xiao-Ming Corporate Ship</li>
+            <li>AMS - Artekka Mining Ship</li>
+            <li>ADS - Axios Defense Ship</li>
+            <li>PHS - Polandskia Hunter Ship </li>
+        </ul>
+        Types:
+        <ul>
+            <li>
+                General Types
                 <ol>
-                    <li>Company</li>
-                    <li>Gift</li>
-                    <li>Military</li>
-                    <li>Navel</li>
-                    <li>Lord</li>
-                    <li>Peace</li>
-                    <li>Medical</li>
-                    <li>Supply</li>
-                    <li>Personal</li>
-                    <li>Trade</li>
-                    <li>Other</li>
+                    <li>Ship</li>
+                    <li>Small-Craft</li>
+                    <li>Capital-Ship</li>
+                    <li>System-Ship</li>
+                    <li>Star-ship</li>
+                    <li>Streamlined-Hull</li>
+                    <li>Standard-hull</li>
+                    <li>Dispersed-hull</li>
                 </ol>
-            </ul>
-        </p>
-    </div>
+            </li>
+            <li>
+                Small-Craft:
+                <ol>
+                    <li>Boat</li>
+                    <li>Shuttle</li>
+                    <li>Fighter</li>
+                    <li>Bomber</li>
+                    <li>Torpedo Boat</li>
+                </ol>
+            </li>
+            <li>
+                Star-Ships:
+                <ol>
+                    <li>Blockade runner</li>
+                    <li>Courier</li>
+                    <li>Q-ship</li>
+                    <li>Trader/Merchant</li>
+                    <li>Freighter</li>
+                    <li>Liner</li>
+                    <li>Yacht</li>
+                </ol>
+            </li>
+            <li>
+                Military-Ships:
+                <ol>
+                    <li>Cutter</li>
+                    <li>Corvette</li>
+                    <li>Frigate</li>
+                    <li>Destroyer</li>
+                    <li>System Defense Boat</li>
+                    <li>Troop Ship</li>
+                </ol>
+            </li>
+            <li>
+                Capital-Ships:
+                <ol>
+                    <li>Cruiser</li>
+                    <li>Light Cruiser </li>
+                    <li>Heavy Cruiser</li>
+                    <li>Armoured Cruiser</li>
+                    <li>Strike Cruiser</li>
+                    <li>Carrier</li>
+                    <li>Escort Carrier</li>
+                    <li>Assault carrier</li>
+                    <li>Fleet Carrier</li>
+                    <li>Battle Tender</li>
+                    <li>Battle Rider</li>
+                    <li>Ballship</li>
+                    <li>BattleCruiser</li>
+                    <li>Dreadnought</li>
+                </ol>
+            </li>
+            <li>
+                Other-Ships:
+                <ol>
+                    <li>Prison Ship</li>
+                    <li>Science Vessel</li>
+                    <li>Hospital Ship</li>
+                    <li>Space Artillery</li>
+                    <li>Starbase</li>
+                    <li>World Ship</li>
+                    <li>Colony Ship</li>
+
+                </ol>
+            </li>
+            Ownership-Status (The intended goal of the current registered owner):
+            <ol>
+                <li>Company</li>
+                <li>Gift</li>
+                <li>Military</li>
+                <li>Navel</li>
+                <li>Lord</li>
+                <li>Peace</li>
+                <li>Medical</li>
+                <li>Supply</li>
+                <li>Personal</li>
+                <li>Trade</li>
+                <li>Other</li>
+            </ol>
+        </ul>
+    </p>
+</div>
 
 </body>

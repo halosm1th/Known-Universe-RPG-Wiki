@@ -1,21 +1,19 @@
 ﻿@page "/Generators/TravellerHeadlineGenerator"
-
-@using TravellerWiki.Data
-@using System.Linq;
 @using TravellerFactionSystem
 @using TravellerFactionSystem.Faction_Types
+@using Markdig
 @inject TravellerFactionService _factionService;
 
-    <head>
-        <title>Traveller Headline Generator</title>
-        <meta property="og:title" content="Known Universe Wiki - Mission Generator" />
-        <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerMissionGenerator/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-        <meta content="Generate missions for your travellers to undergo in the Known Universe." property="og:description" />
-        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+<head>
+    <title>Traveller Headline Generator</title>
+    <meta property="og:title" content="Known Universe Wiki - Mission Generator"/>
+    <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerMissionGenerator/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="Generate missions for your travellers to undergo in the Known Universe." property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
 
-    </head>
+</head>
 <div style="text-align: center">
     <h1>Headline Generator</h1>
 
@@ -26,14 +24,14 @@
         <div style="background-color: darkblue; border: darkcyan;">
             @foreach (var headline in headlineList)
             {
-                <p>  @((MarkupString) Markdig.Markdown.ToHtml(headline))</p>
+                <p> @((MarkupString)Markdown.ToHtml(headline))</p>
             }
         </div>
     }
 </div>
 
 @code {
-    private List<string> headlineList = new List<string>();
+    private readonly List<string> headlineList = new();
 
     private enum FactionTypes
     {
@@ -48,7 +46,7 @@
         Political,
         Other
     }
-    
+
     private enum Actions
     {
         Offers,
@@ -76,25 +74,25 @@
         Planet,
         Faction
     }
-    
+
     private void GeneateHeadline()
     {
         var random = new Random();
 
-        var faction = (FactionTypes) random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
-        var action = (Actions) random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
-        var target = (Targets) random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
+        var faction = (FactionTypes)random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
+        var action = (Actions)random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
+        var target = (Targets)random.Next(0, Enum.GetValues(typeof(FactionTypes)).Length);
 
         var factionName = faction.ToString();
         var targetText = target.ToString();
-        
+
         factionName = GetFactionName(faction, random);
 
         targetText = GetTargetText(target, random);
 
-        var headline = $"{factionName} {action.ToString().Replace("_"," ") } {targetText}";
-        
-        headlineList.Add(headline); 
+        var headline = $"{factionName} {action.ToString().Replace("_", " ")} {targetText}";
+
+        headlineList.Add(headline);
     }
 
     private string GetTargetText(Targets target, Random random)
@@ -109,29 +107,32 @@
                     || x is TravellerSocialGroup
                     || x is TravellerProfessionalGroup
                     || x is TravellerCrimeGroup)
-                 .ToList();
+                .ToList();
             var fac = factions[random.Next(0, factions.Count)];
             text = $"[{fac.FactionName}](/Factions/IslandsFaction/{fac.FactionID})";
-        }else if (target == Targets.Faction)
+        }
+        else if (target == Targets.Faction)
         {
             var factions = _factionService.Factions;
             var fac = factions[random.Next(0, factions.Count)];
             text = $"[{fac.FactionName}](/Factions/IslandsFaction/{fac.FactionID})";
-        }else if (target == Targets.Person)
+        }
+        else if (target == Targets.Person)
         {
             var factions = _factionService.Factions;
             var faction = factions[random.Next(0, factions.Count)];
-            if (random.Next(0, 2) == 1 && faction.FactionMembers != null && faction.FactionMembers.Count>0)
+            if (random.Next(0, 2) == 1 && faction.FactionMembers != null && faction.FactionMembers.Count > 0)
             {
                 var person = faction.FactionMembers;
-                text = $"{person[random.Next(0,person.Count)].Name} [[{faction.FactionName}]](/Factions/IslandsFaction/{faction.FactionID})";
+                text = $"{person[random.Next(0, person.Count)].Name} [[{faction.FactionName}]](/Factions/IslandsFaction/{faction.FactionID})";
             }
             else
             {
                 var person = faction.FactionHead.Name;
                 text = $"{person} [[{faction.FactionName}]](/Factions/IslandsFaction/{faction.FactionID})";
             }
-        }else if (target == Targets.Planet)
+        }
+        else if (target == Targets.Planet)
         {
             var worlds = _factionService.WorldsHeldByFactions();
             var world = worlds[random.Next(0, worlds.Count)];
@@ -147,13 +148,13 @@
         }
         else
         {
-            text =  target.ToString();
+            text = target.ToString();
         }
 
         return text;
     }
-    
-    
+
+
     private string GetFactionName(FactionTypes faction, Random random)
     {
         string factionName;
@@ -166,51 +167,46 @@
         {
             var companies = _factionService.Factions.Where(x => x is TravellerCompany).ToList();
             factionName = GetFactionNameText(random, companies);
-            
         }
         else if (faction == FactionTypes.Criminal)
         {
             var companies = _factionService.Factions.Where(x => x is TravellerCrimeGroup).ToList();
             factionName = GetFactionNameText(random, companies);
-            
         }
         else if (faction == FactionTypes.SocailGroupOrMovement)
         {
             var companies = _factionService.Factions.Where(x => x is TravellerSocialGroup).ToList();
             factionName = GetFactionNameText(random, companies);
-            
         }
         else if (faction == FactionTypes.Profession)
         {
             var companies = _factionService.Factions.Where(x => x is TravellerProfessionalGroup).ToList();
             factionName = GetFactionNameText(random, companies);
-            
         }
         else if (faction == FactionTypes.Class)
         {
             var companies = _factionService.Factions.Where(x => x is TravellerClassGroup).ToList();
             factionName = GetFactionNameText(random, companies);
-            
         }
         else if (faction == FactionTypes.Political)
         {
             var companies = _factionService.Factions.Where(x => x is TravellerPoliticalGroup).ToList();
             factionName = GetFactionNameText(random, companies);
-            
         }
         else if (faction == FactionTypes.Other)
         {
             var companies = _factionService.Factions.Where(x => x is TravellerOtherGroup).ToList();
             factionName = GetFactionNameText(random, companies);
-            
-        }else if (faction == FactionTypes.Nation)
+        }
+        else if (faction == FactionTypes.Nation)
         {
             var nations = _factionService.Factions.Where(x => x is TravellerNationGroup).ToList();
-            factionName = GetFactionNameText(random,nations);
-        }else if (faction == FactionTypes.MajorNation)
+            factionName = GetFactionNameText(random, nations);
+        }
+        else if (faction == FactionTypes.MajorNation)
         {
             var nations = _factionService.Factions.Where(x => x is TravellerMajorNationGroup).ToList();
-            factionName = GetFactionNameText(random,nations);
+            factionName = GetFactionNameText(random, nations);
         }
         else
         {

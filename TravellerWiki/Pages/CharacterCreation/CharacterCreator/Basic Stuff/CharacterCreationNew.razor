@@ -1,10 +1,6 @@
 @page "/CharacterCreation/New"
 @page "/CharacterCreation/"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService CharacterCreationService;
 <head>
@@ -21,10 +17,11 @@
     }
 
 }
+
 <body>
 <h1>Traveller Character Creator</h1>
-    <div style="text-align: center">
-        <p>Do you wish to create a traveller character</p>
-        <button class="" @onclick="CreateCharacter">Create Character</button>
-    </div>
+<div style="text-align: center">
+    <p>Do you wish to create a traveller character</p>
+    <button class="" @onclick="CreateCharacter">Create Character</button>
+</div>
 </body>

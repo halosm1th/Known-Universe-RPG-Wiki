@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using TravellerCharacter.CharacterCreator.Careers;
 using TravellerCharacter.CharcterTypes;
-using TravellerWiki.Data.Services.CareerService;
 
 namespace TravellerCharacter.Character_Services.Career_Service
 {
     public class TravellerCareerService
     {
-
         public static List<TravellerCareer> StaticListOfCareers = LoadListOfJobs();
+
+        private static List<TravellerCareer> _careers = new();
         public List<TravellerCareer> ListOfCareers = LoadListOfJobs();
 
-        private static List<TravellerCareer> _careers = new List<TravellerCareer>();
         public static List<TravellerCareer> LoadListOfJobs()
         {
             Console.WriteLine("Adding Careers");
@@ -33,7 +32,6 @@ namespace TravellerCharacter.Character_Services.Career_Service
                 majorPowers.AddMajorPowerCareers(_careers);
                 //middlePowers.AddMiddlePowerCareers(_careers);
                 minorPowers.AddMinorPowers(_careers);
-
             }
 
             return _careers;
@@ -46,8 +44,9 @@ namespace TravellerCharacter.Character_Services.Career_Service
 
         public List<TravellerCareer> GetCareers(TravellerNationalities nationality)
         {
-            return ListOfCareers.Where(x => x.Nationality==nationality).ToList();
+            return ListOfCareers.Where(x => x.Nationality == nationality).ToList();
         }
+
         public List<TravellerCareer> GetCareers()
         {
             return ListOfCareers;

@@ -1,15 +1,10 @@
 @page "/Factions/IslandsMajorNationCreator"
-@using TravellerWiki.Data
-@using System.Runtime.CompilerServices
-@using Microsoft.AspNetCore.Components
-@using Microsoft.AspNetCore.Components.Web
-@using Newtonsoft.Json
-@using TravellerCharacter.CharcterTypes
 @using TravellerFactionSystem
 @using TravellerFactionSystem.Faction_Types
 @using TravellerFactionSystem.FactionEnums
-@using TravellerWiki.Data.Services.CareerService
+@using TravellerCharacter.CharcterTypes
 @using VoicesFromTheVoidArticles
+@using Newtonsoft.Json
 @inject TravellerFactionService _factionService
 @inject NavigationManager NavManager
 
@@ -22,8 +17,8 @@
     string FactionHeadName = "";
     TravellerIslandsNations NationWithin;
     TravellerNationalities NationAlignedWith;
-    
-    TravellerDateTime FoundingDateTime = new TravellerDateTime();
+
+    TravellerDateTime FoundingDateTime = new();
     TravellerFactionPoliticalSway PoliticalSway;
     TravellerFactionSocialSway SocialSway;
     TravellerFactionEconomicSway EconomicSway;
@@ -31,8 +26,8 @@
     int FoundingMonth = 1;
     readonly int FoundingMil = 83;
     int FoundingCen = 350;
-    
-    List<TravellerLocation> OtherLocations = new List<TravellerLocation>();
+
+    List<TravellerLocation> OtherLocations = new();
     string OtherPlanetName = "";
     int opPX = 1;
     int opPY = 1;
@@ -41,17 +36,17 @@
 
     TravellerMajorNationGroup Faction = null;
 
-    
+
     public void AddNextPlanet()
     {
-        OtherLocations.Add(new TravellerLocation(OtherPlanetName,opSX,opSY,opPX,opPY));
+        OtherLocations.Add(new TravellerLocation(OtherPlanetName, opSX, opSY, opPX, opPY));
         OtherPlanetName = "";
         opSX = 1;
         opSY = 1;
         opPX = 1;
         opPY = 1;
     }
-    
+
     public void CreateFaction()
     {
         FoundingDateTime = new TravellerDateTime(FoundingDay, FoundingMonth, FoundingMil, FoundingCen);
@@ -60,10 +55,10 @@
         var hq = new TravellerLocation(HeadQuartersWorldName, subLoc.hqSX, subLoc.hqSY, parLoc.hqPX, parLoc.hqPY);
 
         Faction = new TravellerMajorNationGroup(
-            hq,NationWithin, NationAlignedWith,FactionHeadName,OtherLocations,FoundingDateTime,
-            PoliticalSway,SocialSway,EconomicSway);
+            hq, NationWithin, NationAlignedWith, FactionHeadName, OtherLocations, FoundingDateTime,
+            PoliticalSway, SocialSway, EconomicSway);
     }
-    
+
     public void GenerateSwayValues()
     {
         var random = new Random();
@@ -73,14 +68,17 @@
         SocialSway = values.socialSway;
         EconomicSway = values.economicSway;
     }
-    
+
     public void SaveFaction()
     {
         _factionService.AddFaction(Faction);
         NavManager.NavigateTo($"/Factions/IslandsFaction/{Faction.FactionID.ToString()}");
     }
+
 }
-<div><p>
+
+<div>
+    <p>
         <span style="background-color: blue; border: deepskyblue 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="majorNationality">Select Nationality: </label>
             <select @bind="@NationAlignedWith" id="majorNationality">
@@ -97,7 +95,8 @@
             <input type="text" @bind="@FactionHeadName" id="ceoName"/>
         </span>
         (Leave empty to generate random value)
-    </p><p>
+    </p>
+    <p>
         <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="headquartersLocation">Headquarters Location: </label>
             <input type="search" list="worldNames" @bind="@HeadQuartersWorldName" id="headquartersLocation"/>
@@ -139,29 +138,29 @@
                     <option value="@value">@value </option>
                 }
             </select>
-            
+
         </span>
         <span style="background-color: green; border: greenyellow 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="sociallSway">Social Sway: </label>
             <select @bind="@SocialSway" id="sociallSway">
-                
+
                 @foreach (var value in Enum.GetValues(typeof(TravellerFactionSocialSway)))
                 {
                     <option value="@value">@value </option>
                 }
             </select>
-            
+
         </span>
         <span style="background-color: blue; border: deepskyblue 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="economicSway">Economic Sway: </label>
             <select @bind="@EconomicSway" id="economicSway">
-                
+
                 @foreach (var value in Enum.GetValues(typeof(TravellerFactionEconomicSway)))
                 {
                     <option value="@value">@value </option>
                 }
             </select>
-            
+
         </span>
         <button type="button" @onclick="GenerateSwayValues">Generate Random Values</button>
     </p>
@@ -171,13 +170,13 @@
         <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="establishDay">Establishment Day: </label>
             <input type="number" @bind="@FoundingDay" id="establishDay"/>
-            
+
         </span>
         <span style="background-color: green; border: greenyellow 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
-               <label for="establishMonth">Establishment Month: </label>
+            <label for="establishMonth">Establishment Month: </label>
             <input type="number" @bind="@FoundingMonth" id="establishMonth"/>
-            
-</span>
+
+        </span>
         <span style="background-color: blue; border: deepskyblue 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="establishYear">Establishment Century (Mil is 83): </label>
             <input type="number" @bind="@FoundingCen" id="establishYear"/>
@@ -186,8 +185,8 @@
     <p>
         Other Planest controlled by this faction: @OtherLocations.Aggregate("", (h, t) => h + ", " + t)
         <span style="background-color: darkgray; border: #A7A7A7 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
-        <label for="otherPlanetName">Other Planet's Name</label>
-        <input type="text" @bind="@OtherPlanetName" id="otherPlanetName">
+            <label for="otherPlanetName">Other Planet's Name</label>
+            <input type="text" @bind="@OtherPlanetName" id="otherPlanetName">
             <label for="opPX">Location: </label>
             <input type="number" @bind="@opPX" id="opPX" style="width:3em"/>
             <label for="opPY">,</label>
@@ -196,16 +195,20 @@
             <input type="number" @bind="@opSX" id="opSX" style="width:3em"/>
             <label for="opSY">'</label>
             <input type="number" @bind="@opSY" id="opSY" style="width:3em"/>
-        <button type="button" @onclick="AddNextPlanet">Add Planet</button>
+            <button type="button" @onclick="AddNextPlanet">Add Planet</button>
         </span>
     </p>
-    
+
     @if (Faction == null)
     {
-        <p><button @onclick="@CreateFaction">Create Faction</button></p>
+        <p>
+            <button @onclick="@CreateFaction">Create Faction</button>
+        </p>
     }
     else
     {
-        <p><button onclick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Factions Json</button> <button @onclick="@SaveFaction">Add Faction</button></p>
+        <p>
+            <button onclick="navigator.clipboard.writeText('@JsonConvert.SerializeObject(Faction)').then(function() {/* clipboard successfully set */}, function () {alert('Umm, there was an error!'); }) ">Get Factions Json</button> <button @onclick="@SaveFaction">Add Faction</button>
+        </p>
     }
 </div>

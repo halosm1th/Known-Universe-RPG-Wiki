@@ -4,15 +4,16 @@ using TravellerWiki.Data.Services.CareerService.NationsCareeres;
 
 namespace TravellerCharacter.Character_Services.Career_Service.Basic_Careers
 {
-    class TravellerMationCareer : TravellerBasicCareers
+    internal class TravellerMationCareer : TravellerBasicCareers
     {
+        private Random random = new();
+
         public static TravellerCareer NationCareer()
         {
             var career = new TravellerMationCareer();
 
             return career.GetNationCareer();
         }
-        Random random = new Random();
 
         public TravellerCareer GetNationCareer()
         {

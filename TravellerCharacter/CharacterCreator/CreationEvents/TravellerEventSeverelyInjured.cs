@@ -9,7 +9,10 @@ namespace TravellerCharacter.CharacterCreator.CreationEvents
         {
         }
 
-        public TravellerInjury GetSevereInjury(int roll1, int roll2) => GetInjury(Math.Min(roll1, roll2));
+        public TravellerInjury GetSevereInjury(int roll1, int roll2)
+        {
+            return GetInjury(Math.Min(roll1, roll2));
+        }
 
         public override string ToString()
         {

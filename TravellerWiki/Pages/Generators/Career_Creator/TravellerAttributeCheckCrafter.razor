@@ -1,31 +1,25 @@
 ﻿@page "/Generators/TravellerAttributeCheckCrafter"
-
-@using TravellerWiki.Data
-@using System.Linq;
-@using System.Text
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.CharacterCreator
 @using TravellerCharacter.CharacterParts
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
 @inject TravellerCareerCreatorService CareerCreator
 
-    <div style="text-align: center;">
-        <form>
-            <label for="careerName">Attribute Name: </label>
-            <select @bind="Name" id="careerName">
-                @foreach (var attr in Enum.GetValues(typeof(TravellerAttributes)))
-                {
-                    <option value="@attr">@attr</option>
-                }
-            </select>
+<div style="text-align: center;">
+    <form>
+        <label for="careerName">Attribute Name: </label>
+        <select @bind="Name" id="careerName">
+            @foreach (var attr in Enum.GetValues(typeof(TravellerAttributes)))
+            {
+                <option value="@attr">@attr</option>
+            }
+        </select>
 
-            <label for="checkNum">Check Number: </label>
-            <input type="number" @bind="CheckNum" id="checkNum" />
-            <button @onclick="AddAttribute">Add Attribute</button>
-                   </form>
+        <label for="checkNum">Check Number: </label>
+        <input type="number" @bind="CheckNum" id="checkNum"/>
+        <button @onclick="AddAttribute">Add Attribute</button>
+    </form>
 
-    </div>
+</div>
 
 @code {
     TravellerAttributes Name = TravellerAttributes.Strength;

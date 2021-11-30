@@ -1,12 +1,7 @@
 @page "/CharacterCreation/RollSurvival/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.Career_Service
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -17,6 +12,7 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
 
@@ -32,10 +28,10 @@
     }
 
     public bool RolledSurvival = false;
-    public bool HasRolled = false;
-    public bool PassedSurvival = false;
+    public bool HasRolled;
+    public bool PassedSurvival;
 
-    private int roll = 0;
+    private int roll;
 
 
     public void RollSurvival()
@@ -44,7 +40,9 @@
         PassedSurvival = GetService().CheckSurvival(roll);
         HasRolled = true;
     }
+
 }
+
 <body>
 
 <h1>Traveller Character Creator</h1>
@@ -52,7 +50,7 @@
     <h2>Select @GetService().Name's - Roll Survival</h2>
     <label for="CharacterProgress">Character Creation Progress: </label>
     <progress id="CharacterProgess" value="8" max="17"></progress>
-    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <CharacterCreationDrawStats CharacterID="@characterID"/>
     <div style="padding-left: 2em;">
         <p> @GetService().Name's stats @GetService()._character.AttributeList.Aggregate("", (h, t) => h += t + ", ")</p>
         <p>Survival: @GetService().LastAssignment.Survival</p>

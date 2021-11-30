@@ -6,30 +6,30 @@ namespace TravellerCharacter.Character_Services.NPC_Services
 {
     public class TravellerSpecialNPCService : TravellerNPCService
     {
-
-        private static Random rand = new Random();
+        private static readonly Random rand = new();
 
         public List<TravellerSpecialNPC> GetNPC(int npcCount, TravellerNameService.NationNameList nationNameList)
         {
             var npcList = new List<TravellerSpecialNPC>();
             try
             {
-                for (int i = 0; i < npcCount; i++)
+                for (var i = 0; i < npcCount; i++)
                 {
                     var npc = GenerateTravellerSpecialNpc(nationNameList);
                     npcList.Add(npc);
                 }
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+
             return npcList;
         }
 
         private TravellerNPCRelationship GetRelationship(int relationship)
-            => relationship switch
+        {
+            return relationship switch
             {
                 0 => TravellerNPCRelationship.Ally,
                 1 => TravellerNPCRelationship.Contact,
@@ -37,9 +37,11 @@ namespace TravellerCharacter.Character_Services.NPC_Services
                 3 => TravellerNPCRelationship.Rival,
                 _ => TravellerNPCRelationship.Contact
             };
+        }
 
         private int GetAffinity(TravellerNPCRelationship relationship)
-            => relationship switch
+        {
+            return relationship switch
             {
                 TravellerNPCRelationship.Ally => rand.Next(2, 13),
                 TravellerNPCRelationship.Contact => rand.Next(1, 7) + 1,
@@ -47,9 +49,11 @@ namespace TravellerCharacter.Character_Services.NPC_Services
                 TravellerNPCRelationship.Enemy => 0,
                 _ => 0
             };
+        }
 
         private int GetEnmity(TravellerNPCRelationship relationship)
-            => relationship switch
+        {
+            return relationship switch
             {
                 TravellerNPCRelationship.Rival => rand.Next(1, 7) + 1,
                 TravellerNPCRelationship.Contact => rand.Next(1, 7) - 1,
@@ -57,10 +61,17 @@ namespace TravellerCharacter.Character_Services.NPC_Services
                 TravellerNPCRelationship.Enemy => 0,
                 _ => 0
             };
+        }
 
-        private int GetPower() => rand.Next(2, 13);
+        private int GetPower()
+        {
+            return rand.Next(2, 13);
+        }
 
-        private int GetInfluence() => rand.Next(2, 13);
+        private int GetInfluence()
+        {
+            return rand.Next(2, 13);
+        }
 
         public TravellerSpecialNPC GenerateTravellerSpecialNpc(string name, TravellerNPCRelationship relationshipType)
         {
@@ -71,7 +82,7 @@ namespace TravellerCharacter.Character_Services.NPC_Services
             var power = TravellerSpecialNPC.PowerInfluenceModifier(GetPower());
             var influence = TravellerSpecialNPC.PowerInfluenceModifier(GetInfluence());
 
-            var npc = new TravellerSpecialNPC()
+            var npc = new TravellerSpecialNPC
             {
                 SkillList = baseNPC.SkillList,
                 AttributeList = baseNPC.AttributeList,
@@ -100,7 +111,7 @@ namespace TravellerCharacter.Character_Services.NPC_Services
             var power = TravellerSpecialNPC.PowerInfluenceModifier(GetPower());
             var influence = TravellerSpecialNPC.PowerInfluenceModifier(GetInfluence());
 
-            var npc = new TravellerSpecialNPC()
+            var npc = new TravellerSpecialNPC
             {
                 SkillList = baseNPC.SkillList,
                 AttributeList = baseNPC.AttributeList,

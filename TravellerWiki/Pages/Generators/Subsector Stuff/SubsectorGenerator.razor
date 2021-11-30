@@ -1,51 +1,53 @@
 ﻿@page "/Generators/SubsectorGenerator/"
 @using TravellerGalaxyGenertor
 @using TravellerMapSystem
-@using TravellerWiki.Pages.InformationOnSettingsUniverse;
 @inject TravellerSubsectorGeneratorService subsectorGenerator; 
 @inject NavigationManager NavManager
 @inject IJSRuntime JsRuntime;
 
 <h3>SubsectorGenerator</h3>
+
 @code {
     int subsectorDensity = 50;
     int maxNumberOfPlanets = 4;
     private readonly int minSystemCount = 1;
-    
+
     public string subsectorName;
     private string subsectorID { get; set; }
 
     public void GenerateSubsector()
     {
-        //todo make this a drop down menu
-        subsectorID = subsectorGenerator.GenerateSubsector(MapNameLists.Versian,subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
+    //todo make this a drop down menu
+        subsectorID = subsectorGenerator.GenerateSubsector(MapNameLists.Versian, subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
         var url = $"/InformationOnSetting/SubsectorInfo/{subsectorID}";
         JsRuntime.InvokeVoidAsync("open", url, "_blank");
     }
-    
-    
-    }
-    <h2>Traveller Subsector Generator</h2>
+
+
+}
+
+<h2>Traveller Subsector Generator</h2>
 <p>
     <label for="name">Name:</label>
-    <input type="text"  id="name" placeholder="Subsector Name" @bind="subsectorName"/>
+    <input type="text" id="name" placeholder="Subsector Name" @bind="subsectorName"/>
 
-    <br />
+    <br/>
     <label for="density">Density: @subsectorDensity</label>
     <input type="range" min="1" max="100" step="1" id="density" @bind="subsectorDensity"/>
-    
-    <br />
+
+    <br/>
     <label for="maxGenWorld">Max Number Of Worlds per system: @maxNumberOfPlanets</label>
     <input type="range" min="1" max="22" step="1" id="maxGenWorld" @bind="maxNumberOfPlanets"/>
-    
+
     <br/>
     <button type="submit" @onclick="GenerateSubsector">Generate Subsector</button>
-    
+
     <br/>
     <a href="/Generators/GeneratedSubsectors/">Click to see all generated subsectors.</a>
 </p>
 
 
-@if(!string.IsNullOrEmpty(subsectorID)){
+@if (!string.IsNullOrEmpty(subsectorID))
+{
     <a href="/InformationOnSetting/SubsectorInfo/@subsectorID">Click me to view your generated subsector. ID #@subsectorID</a>
-    }
+}

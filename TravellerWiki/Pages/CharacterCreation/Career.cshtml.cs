@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TravellerCharacter.Character_Services.Career_Service;
 using TravellerCharacter.CharacterCreator.Careers;
-using TravellerWiki.Data;
-using TravellerWiki.Data.Services.CareerService;
 
 namespace TravellerWiki
 {
     public class CareerModel : PageModel
     {
         public TravellerCareer Career;
-        private TravellerCareerService careerService = new TravellerCareerService();
+        private readonly TravellerCareerService careerService = new();
+
         public void OnGet(string career)
         {
             if (!string.IsNullOrEmpty(career))

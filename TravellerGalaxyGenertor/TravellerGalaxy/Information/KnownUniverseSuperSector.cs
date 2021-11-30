@@ -1,32 +1,28 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace TravellerMapSystem
 {
-    class KnownUniverseSuperSector
+    internal class KnownUniverseSuperSector
     {
         public string Name;
-        KnownUniverseSector[,] sectors;
+        private readonly KnownUniverseSector[,] sectors;
 
-        public KnownUniverseSuperSector(string name,int x, int y ,int xSize, int ySize)
+        public KnownUniverseSuperSector(string name, int x, int y, int xSize, int ySize)
         {
-            sectors = new KnownUniverseSector[ySize,xSize];
+            sectors = new KnownUniverseSector[ySize, xSize];
             Name = name + $" {x},{y}";
         }
 
         public void GenerateSuperSector()
         {
-            for (int y = 0; y < sectors.GetLength(0); y++)
+            for (var y = 0; y < sectors.GetLength(0); y++)
+            for (var x = 0; x < sectors.GetLength(1); x++)
             {
-                for (int x = 0; x <sectors.GetLength(1); x++)
-                {
-                    var s = new KnownUniverseSector();
+                var s = new KnownUniverseSector();
 
-                    s.GenerateSubsectors(40);
-                    sectors[y, x] = s;
-                }
+                s.GenerateSubsectors(40);
+                sectors[y, x] = s;
             }
         }
 

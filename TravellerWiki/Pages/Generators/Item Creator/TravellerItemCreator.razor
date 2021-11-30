@@ -1,12 +1,7 @@
 ﻿@page "/Generators/TravellerItemCreator"
-
-@using TravellerWiki.Data
-@using System.Linq;
-@using System.Text
-@using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.NPC_Services
 @using TravellerCharacter.CharacterCreator.Items
-@using TravellerWiki.Pages.Generators.Item_Creator
+@using TravellerCharacter.Character_Services
 @inject TravellerNPCService NPCService
 @inject TravellerItemStoreService ItemStore
 
@@ -26,27 +21,26 @@
 <p>
     @if (typeOfItemToAdd == TravellerItemTypes.Weapon)
     {
-        <TravellerWeaponCreator />
+        <TravellerWeaponCreator/>
     }
     else if (typeOfItemToAdd == TravellerItemTypes.Armour)
     {
-        <TravellerArmourCreator />
+        <TravellerArmourCreator/>
     }
     else if (typeOfItemToAdd == TravellerItemTypes.Augment)
     {
-        <TravellerAugmentCreator />
+        <TravellerAugmentCreator/>
     }
     else if (typeOfItemToAdd == TravellerItemTypes.ItemGeneric)
     {
-        <TravellerGenericItemCreator />
+        <TravellerGenericItemCreator/>
     }
     else if (typeOfItemToAdd == TravellerItemTypes.Weapon_Modification)
     {
         <TravellerSpecialAmmoCreator></TravellerSpecialAmmoCreator>
     }
-    <br />
+    <br/>
 </p>
-
 
 
 @code {

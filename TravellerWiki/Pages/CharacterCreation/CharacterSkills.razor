@@ -1,31 +1,30 @@
 @page "/CharacterCreationRules/Skills"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
-@using TravellerWiki.Data
+@using Microsoft.AspNetCore.Html
 @inject TravellerSkillDisplayService DisplayService;
-    <head>
-        <title>Skills</title>
-        <meta property="og:title" content="Known Universe Wiki - Skills" />
-        <meta property="og:url" content="https://theseamnetwork.com/CharacterCreationRules/Skills" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-        <meta content="View a full list of skills that Travellers in the Known Universe may hold." property="og:description" />
-        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+<head>
+    <title>Skills</title>
+    <meta property="og:title" content="Known Universe Wiki - Skills"/>
+    <meta property="og:url" content="https://theseamnetwork.com/CharacterCreationRules/Skills"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="View a full list of skills that Travellers in the Known Universe may hold." property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
 
-    </head>
+</head>
 
 <body>
-    <h1>Traveller Skills</h1>
-    <p>Below is the list of skills within my Traveller game and a brief decription of them. Many are taken from Mongoose Traveller second edition, all credit for those skills and their descriptions goes to Mongoose Publishing.</p>
-    <ul>
-        @foreach (var skill in DisplayService.GetTravellerSkills())
-        {
+<h1>Traveller Skills</h1>
+<p>Below is the list of skills within my Traveller game and a brief decription of them. Many are taken from Mongoose Traveller second edition, all credit for those skills and their descriptions goes to Mongoose Publishing.</p>
+<ul>
+    @foreach (var skill in DisplayService.GetTravellerSkills())
+    {
         <li>
             <p>
                 <h4>@skill.SkillNameText: </h4>
                 @(new HtmlString(skill.SkillDescriptionText).Value)
             </p>
         </li>
-        }
-    </ul>
+    }
+</ul>
 </body>

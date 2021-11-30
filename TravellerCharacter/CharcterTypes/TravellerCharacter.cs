@@ -12,14 +12,32 @@ namespace TravellerCharacter.CharcterTypes
     //Test
     public abstract class TravellerCharacter
     {
+        #region Constructor
+
+        public TravellerCharacter()
+        {
+            SkillList = new List<TravellerSkill>();
+            AttributeList = new List<TravellerAttribute>();
+            Items = new List<TravellerItem>();
+            Augments = new List<TravellerAugments>();
+            Armour = new List<TravellerArmour>();
+            Weapons = new List<TravellerWeapon>();
+            Finances = new TravellerFinances(0, 0, 0, 0, 0);
+            Contacts = new List<TravellerCharacter>();
+            JackOfAllTrades = -1;
+        }
+
+        #endregion
+
         #region Public Variables
+
         public string? Name { get; set; }
         public int Age { get; set; }
-        public int JackOfAllTrades { get; set; } 
+        public int JackOfAllTrades { get; set; }
         public TravellerNationsCharacterInfo? Nationality { get; set; }
 
         public List<TravellerSkill> SkillList { get; set; }
-        public List<TravellerAttribute> AttributeList{ get; set; }
+        public List<TravellerAttribute> AttributeList { get; set; }
 
         public List<TravellerItem> Items { get; set; }
 
@@ -34,10 +52,7 @@ namespace TravellerCharacter.CharcterTypes
             }
             set
             {
-                foreach (var travellerAugmentse in value)
-                {
-                    Items.Add(travellerAugmentse);
-                }
+                foreach (var travellerAugmentse in value) Items.Add(travellerAugmentse);
             }
         }
 
@@ -49,14 +64,10 @@ namespace TravellerCharacter.CharcterTypes
                 return Items.Where(x => x.ItemType == TravellerItemTypes.Armour && x is TravellerArmour)
                     .Cast<TravellerArmour>()
                     .ToList();
-
             }
             set
             {
-                foreach (var travellerAugmentse in value)
-                {
-                    Items.Add(travellerAugmentse);
-                }
+                foreach (var travellerAugmentse in value) Items.Add(travellerAugmentse);
             }
         }
 
@@ -66,16 +77,13 @@ namespace TravellerCharacter.CharcterTypes
             get
             {
                 return Items.Where(x =>
-                    x.ItemType == TravellerItemTypes.Weapon && x is TravellerWeapon)
+                        x.ItemType == TravellerItemTypes.Weapon && x is TravellerWeapon)
                     .Cast<TravellerWeapon>()
                     .ToList();
             }
             set
             {
-                foreach (var travellerAugmentse in value)
-                {
-                    Items.Add(travellerAugmentse);
-                }
+                foreach (var travellerAugmentse in value) Items.Add(travellerAugmentse);
             }
         }
 
@@ -88,40 +96,30 @@ namespace TravellerCharacter.CharcterTypes
             get => Finances.Debt;
             set => Finances.Debt += value;
         }
-        
+
         [JsonIgnore]
         public int Credits
         {
             get => Finances.Credits;
             set => Finances.Credits += value;
         }
-        
+
         [JsonIgnore]
         public int Pension
         {
             get => Finances.Pension;
             set => Finances.Pension += value;
         }
+
         #endregion
-        #region Constructor
-        public TravellerCharacter()
-        {
-            SkillList = new List<TravellerSkill>();
-            AttributeList = new List<TravellerAttribute>();
-            Items = new List<TravellerItem>();
-            Augments = new List<TravellerAugments>();
-            Armour = new List<TravellerArmour>();
-            Weapons = new List<TravellerWeapon>();
-            Finances = new TravellerFinances(0,0,0,0,0);
-            Contacts = new List<TravellerCharacter>();
-            JackOfAllTrades = -1;
-        }
-        #endregion
+
         #region Get Values
+
         public int GetRelevantAttributeModifier(TravellerAttributes attribute)
         {
             return AttributeList.First(x => x.AttributeName != attribute).AttributeModifier;
         }
+
         public int GetRelevantAttributeModifier(TravellerAttribute attribute)
         {
             return GetRelevantAttributeModifier(attribute.AttributeName);
@@ -149,8 +147,10 @@ namespace TravellerCharacter.CharcterTypes
             return null;
         }
 
-        #endregion  
+        #endregion
+
         #region Add values to character
+
         public bool AddSkill(TravellerSkill skill)
         {
             if (SkillList.Any(s => s.SkillName == skill.SkillName))
@@ -159,16 +159,13 @@ namespace TravellerCharacter.CharcterTypes
                 skillToIncrease.Increase(skill.SkillValue);
                 return true;
             }
-            else
-            {
-                SkillList.Add(skill);
-                return true;
-            }
 
+            SkillList.Add(skill);
+            return true;
         }
 
         /// <summary>
-        /// Add a skill to the traveller character
+        ///     Add a skill to the traveller character
         /// </summary>
         /// <param name="skill">The skill to be added</param>
         /// <returns>Whether the skill was added successfully or not.</returns>
@@ -176,19 +173,16 @@ namespace TravellerCharacter.CharcterTypes
         {
             //If it is a super Skill, return false so that the user can pick the skill.
             if (TravellerSkill.IsSuperSkill(skill)) return false;
-            
+
             if (SkillList.Any(s => s.SkillName == skill))
             {
                 var skillToIncrease = SkillList.First(s => s.SkillName == skill);
                 skillToIncrease.Increase(1);
                 return true;
             }
-            else
-            {
-                SkillList.Add(new TravellerSkill(skill));
-                return true;
-            }
 
+            SkillList.Add(new TravellerSkill(skill));
+            return true;
         }
 
         public bool AddAttribute(TravellerAttributes attribute)
@@ -199,16 +193,13 @@ namespace TravellerCharacter.CharcterTypes
                 attributeToIncrease.ModifyStat(1);
                 return true;
             }
-            else
-            {
-                AttributeList.Add(new TravellerAttribute(attribute,0));
-                return true;
-            }
 
+            AttributeList.Add(new TravellerAttribute(attribute, 0));
+            return true;
         }
 
         /// <summary>
-        /// Add an item to the traveller
+        ///     Add an item to the traveller
         /// </summary>
         /// <param name="item">The item to add</param>
         /// <returns>If the item was return successfully or not.</returns>
@@ -218,7 +209,9 @@ namespace TravellerCharacter.CharcterTypes
 
             return true;
         }
+
         #endregion
+
         #region Finances
 
         public void AddDebt(int amountOfDebtToAdd)
@@ -231,10 +224,13 @@ namespace TravellerCharacter.CharcterTypes
         {
             Credits += amountOfCreditsToAdd;
         }
+
         #endregion
+
         #region Change Attribute
+
         /// <summary>
-        /// Modify a traveller Attribute on the character
+        ///     Modify a traveller Attribute on the character
         /// </summary>
         /// <param name="attribute">The attribute to change</param>
         /// <param name="value">the amount to change it by</param>
@@ -267,11 +263,9 @@ namespace TravellerCharacter.CharcterTypes
                     attributeToChange.ModifyStat(attribute.AttributableValue);
                     return true;
                 }
-                else
-                {
-                    AttributeList.Add(attribute);
-                    return true;
-                }
+
+                AttributeList.Add(attribute);
+                return true;
             }
             catch (ArgumentNullException)
             {
@@ -282,7 +276,9 @@ namespace TravellerCharacter.CharcterTypes
                 return false;
             }
         }
+
         #endregion
+
         #region overrides
 
         public string ShortToString()
@@ -296,13 +292,11 @@ namespace TravellerCharacter.CharcterTypes
             sb.Append(Age);
             sb.Append("] ");
             sb.Append(" ");
-            foreach (var attr in AttributeList)
-            {
-                sb.Append($"{attr.ToString()} ");
-            }
+            foreach (var attr in AttributeList) sb.Append($"{attr} ");
 
             return sb.ToString();
         }
+
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -338,22 +332,23 @@ namespace TravellerCharacter.CharcterTypes
                 sb.Append(travellerAttribute);
                 sb.Append("] ");
             }
+
             sb.Append("\n");
             sb.Append("\nContacts: ");
-            
+
             foreach (var contact in Contacts)
             {
                 sb.Append("{");
-                sb.Append(contact.ToString());
+                sb.Append(contact);
                 sb.Append("}\n");
             }
 
             sb.Append("\n\n");
 
 
-
             return sb.ToString();
         }
+
         #endregion
     }
 }

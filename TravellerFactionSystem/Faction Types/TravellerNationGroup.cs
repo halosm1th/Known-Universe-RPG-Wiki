@@ -10,22 +10,23 @@ namespace TravellerFactionSystem.Faction_Types
 {
     public class TravellerNationGroup : TravellerFaction
     {
-        protected static TravellerFactionService _factionService = new TravellerFactionService();
+        protected static TravellerFactionService _factionService = new();
 
-        [JsonIgnore]
-        public List<TravellerFaction> FactionsAlignedWithNation =>
-            _factionService.Factions.Where(x => x.IslandsNation == this.IslandsNation).ToList();
-        
-        public TravellerNationGroup(TravellerLocation headquatersLocation, 
+        public TravellerNationGroup(TravellerLocation headquatersLocation,
             TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality,
-            string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear, 
-            TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway, 
-            TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null, 
-            List<TravellerFactionPersonAsset> factionMembers = null) 
-            : base(islandsNation.ToString().Replace("_"," "), headquatersLocation, islandsNation, supportingNationality, factionHeadName, 
+            string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear,
+            TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway,
+            TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null,
+            List<TravellerFactionPersonAsset> factionMembers = null)
+            : base(islandsNation.ToString().Replace("_", " "), headquatersLocation, islandsNation,
+                supportingNationality, factionHeadName,
                 otherOwnedLocations, foundedYear, politicalSway, socialSway, economicSway, factionHead, factionMembers)
         {
         }
+
+        [JsonIgnore]
+        public List<TravellerFaction> FactionsAlignedWithNation =>
+            _factionService.Factions.Where(x => x.IslandsNation == IslandsNation).ToList();
 
 
         public string GetAlignedFactions()
@@ -33,10 +34,10 @@ namespace TravellerFactionSystem.Faction_Types
             var factions = FactionsAlignedWithNation.Select(x => x.FactionNameLink).ToList();
             return string.Join(", ", factions);
         }
-        
+
         public override string ToString()
         {
-            string factionType = "Islands Nation";
+            var factionType = "Islands Nation";
 
             return
                 $"The {factionType} known as {FactionName} first appeared in the Islands in {FoundedYear} on {HeadquatersLocation}. It is currently headed by {FactionHead.Name}" +

@@ -7,30 +7,27 @@ namespace TravellerCharacter.CharcterTypes
 {
     public class TravellerNPC : TravellerCharacter
     {
-        
         [JsonIgnore]
         public TravellerAttribute Strength =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Strength);
-        
+
         [JsonIgnore]
         public TravellerAttribute Dexterity =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Dexterity);
-        
+
         [JsonIgnore]
         public TravellerAttribute Endurance =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Endurance);
-        
+
         [JsonIgnore]
         public TravellerAttribute Intelligence =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Intelligence);
-        
-        [JsonIgnore]
 
+        [JsonIgnore]
         public TravellerAttribute Education =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Intelligence);
-        
-        [JsonIgnore]
 
+        [JsonIgnore]
         public TravellerAttribute Social =>
             AttributeList.FirstOrDefault(attribute => attribute.AttributeName == TravellerAttributes.Intelligence);
 
@@ -52,7 +49,7 @@ namespace TravellerCharacter.CharcterTypes
             sb.Append(Social.AttributeHex);
             return sb.ToString();
         }
-        
+
         public string UPP()
         {
             var sb = new StringBuilder();
@@ -69,7 +66,7 @@ namespace TravellerCharacter.CharcterTypes
 
         private string NPCBackgroundAndCareer()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append(Background);
             sb.Append(", ");
             sb.Append(Career);
@@ -79,7 +76,7 @@ namespace TravellerCharacter.CharcterTypes
 
         private string NPCTextAndQuirk()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append(PatronText);
             sb.Append(", ");
             sb.Append(QuirkText);
@@ -101,6 +98,5 @@ namespace TravellerCharacter.CharcterTypes
 
             return sb.ToString();
         }
-
     }
 }

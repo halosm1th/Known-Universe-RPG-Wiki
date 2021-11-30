@@ -1,9 +1,6 @@
 ﻿@page
-@model TravellerWiki.TravellerNameGeneratorModel
-@using System.Linq;
 @using TravellerCharacter.Character_Services
-@using TravellerWiki.Data
-@using WikiServices.DataServices
+@model TravellerWiki.TravellerNameGeneratorModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Name Generator";
@@ -11,28 +8,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <meta property="og:title" content="Known Universe Wiki - Name Generator" />
-    <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerNameGenerator/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-    <meta content="Generate names for your characters who inhabit the Known Universe." property="og:description" />
-    <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta property="og:title" content="Known Universe Wiki - Name Generator"/>
+    <meta property="og:url" content="https://theseamnetwork.com/Generators/TravellerNameGenerator/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta content="Generate names for your characters who inhabit the Known Universe." property="og:description"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
 
     <title>Name Generator</title>
 
 
-    <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
+    <base href="~/"/>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
+    <link href="css/site.css" rel="stylesheet"/>
 </head>
 <body>
 <h1>Traveller Name Generator</h1>
 
 <form method="post">
-    Number of names to Generate: <input type="number" asp-for="NumberOfNames" />
+    Number of names to Generate: <input type="number" asp-for="NumberOfNames"/>
     Nation name list:
     <select asp-items="Html.GetEnumSelectList<TravellerNameService.NationNameList>()" asp-for="NameList"></select>
     <button class="" type="submit">Generate some names!</button>
@@ -48,7 +45,7 @@
             <p>@name</p>
         }
 
-        <br />
+        <br/>
     }
 }
 </body>

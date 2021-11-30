@@ -1,7 +1,7 @@
 @page "/VoicesFromTheVoid/Articles/{articleID}"
-@using System.Transactions
 @using VoicesFromTheVoidArticles
 @inject TravellerVoicesFromTheVoidService VoicesService
+
 @code{
 
     [Parameter]
@@ -18,7 +18,7 @@
         return numb;
     }
 
-    private VoicesFromTheVoidArticle _article = null;
+    private VoicesFromTheVoidArticle _article;
 
     private VoicesFromTheVoidArticle GetArticle()
     {
@@ -29,54 +29,59 @@
         }
         return _article;
     }
-    
+
 
     private VoicesFromTheVoidArticle GetArticle(int articleID)
     {
         return VoicesService.GetArticle(articleID);
     }
 
-    private bool ShowPrevious() 
-        => GetID()-1 > VoicesService.BaseArticleID;
+    private bool ShowPrevious()
+    {
+        return GetID() - 1 > VoicesService.BaseArticleID;
+    }
 
-    private bool ShowNext() 
-        => GetID()+1 <= VoicesService.CurrentArticleID;
+    private bool ShowNext()
+    {
+        return GetID() + 1 <= VoicesService.CurrentArticleID;
+    }
 
-    
+
 
 }
-    <head>
-        <title>
-            @GetArticle().ArticleName
-        </title>
 
-        <meta property="og:title" content="@GetArticle().ArticleName" />
-        <meta property="og:site_name" content="Known Universe Wiki - @GetArticle().ArticleName" />
-        <meta property="og:url" content="https://theseamnetwork.com/VoicesFromTheVoid/Articles/" />
-        <meta property="og:type" content="article" />
-        <meta property="og:article:published_time " content="@GetArticle().PublicationDate.ToIsoTime()" />
-        <meta property="article:author" content="@GetArticle().ArticleAuthor">
-        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
-        <meta property="og:description" content="@GetArticle().ArticleName By @GetArticle().ArticleAuthor in @GetArticle().PublishersName [@GetArticle().PublicationDate]: @GetArticle().Paragraphs.First().Substring(0,Math.Min(120,GetArticle().Paragraphs.First().Length))" />
-        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+<head>
+    <title>
+        @GetArticle().ArticleName
+    </title>
 
-    </head>
+    <meta property="og:title" content="@GetArticle().ArticleName"/>
+    <meta property="og:site_name" content="Known Universe Wiki - @GetArticle().ArticleName"/>
+    <meta property="og:url" content="https://theseamnetwork.com/VoicesFromTheVoid/Articles/"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:article:published_time " content="@GetArticle().PublicationDate.ToIsoTime()"/>
+    <meta property="article:author" content="@GetArticle().ArticleAuthor">
+    <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png"/>
+    <meta property="og:description" content="@GetArticle().ArticleName By @GetArticle().ArticleAuthor in @GetArticle().PublishersName [@GetArticle().PublicationDate]: @GetArticle().Paragraphs.First().Substring(0, Math.Min(120, GetArticle().Paragraphs.First().Length))"/>
+    <meta content="#ffe81F" data-react-helmet="true" name="theme-color"/>
+
+</head>
 <body>
-    <VoicesFromTheVoidArticleComponent Article="@GetArticle()"></VoicesFromTheVoidArticleComponent>
+<VoicesFromTheVoidArticleComponent Article="@GetArticle()"></VoicesFromTheVoidArticleComponent>
 <br/>
 @if (ShowPrevious())
 {
     <div style="text-align:left;display:inline-block;">
-<a href="/VoicesFromTheVoid/Articles/@((GetID() - 1).ToString())" class="moveA previousArticle">&laquo; Previous (@GetArticle(GetID()-1).ArticleName)</a>
-</div>
+        <a href="/VoicesFromTheVoid/Articles/@((GetID() - 1).ToString())" class="moveA previousArticle">&laquo; Previous (@GetArticle(GetID() - 1).ArticleName)</a>
+    </div>
 }
 <div style="text-align:center;display:inline-block;">
-<a href="/VoicesFromTheVoid/Articles/" class="moveA allArticles">View all Articles</a>
+    <a href="/VoicesFromTheVoid/Articles/" class="moveA allArticles">View all Articles</a>
 </div>
 @if (ShowNext())
 {
     <div style="text-align:right;display:inline-block;">
-    <a href="/VoicesFromTheVoid/Articles/@((GetID() + 1).ToString())" class="moveA nextArticle">Next (@GetArticle(GetID()+1).ArticleName) &raquo;</a>
-                                                                                                                                          </div>
+        <a href="/VoicesFromTheVoid/Articles/@((GetID() + 1).ToString())" class="moveA nextArticle">Next (@GetArticle(GetID() + 1).ArticleName) &raquo;</a>
+    </div>
 }
 </body>

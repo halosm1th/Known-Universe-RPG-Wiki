@@ -1,11 +1,6 @@
 @page "/CharacterCreation/BasicTraining/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -15,11 +10,17 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
 
-    bool DonePickingSkills = false;
-    public void ChangeDonePickingSkills() => DonePickingSkills = !DonePickingSkills;
+    bool DonePickingSkills;
+
+    public void ChangeDonePickingSkills()
+    {
+        DonePickingSkills = !DonePickingSkills;
+    }
+
     public CharacterCreatorService GetService()
     {
         return MultiCharacterCreationService.GetCharacterCreatorService(characterID);
@@ -30,7 +31,7 @@
         NavManager.NavigateTo($"/CharacterCreation/GenerateCareerSkill/{characterID}");
     }
 
-    public bool HasBasicTrainingSkill = false;
+    public bool HasBasicTrainingSkill;
     public string ChosenBasicTrainingSkillName = "";
 
     public void ChooseBasicTrainingSkill()
@@ -48,6 +49,7 @@
     }
 
 }
+
 <body>
 
 <h1>Traveller Character Creator</h1>
@@ -55,7 +57,7 @@
     <h2>Basic Training - @GetService().LastCareer.CareerName</h2>
     <label for="CharacterProgress">Character Creation Progress: </label>
     <progress id="CharacterProgess" value="6" max="17"></progress>
-    <CharacterCreationDrawStats CharacterID="@characterID" />
+    <CharacterCreationDrawStats CharacterID="@characterID"/>
     <div style="padding-left: 2em;">
         @if (GetService().GetsBasicTraining() && !GetService().HasHadJob)
         {

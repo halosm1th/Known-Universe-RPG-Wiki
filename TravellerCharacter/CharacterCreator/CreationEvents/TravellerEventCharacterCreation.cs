@@ -2,12 +2,12 @@
 {
     public abstract class TravellerEventCharacterCreation
     {
-        public string EventText { get; set; }
-
         public TravellerEventCharacterCreation(string eventText)
         {
             EventText = eventText;
         }
+
+        public string EventText { get; set; }
 
         public override string ToString()
         {

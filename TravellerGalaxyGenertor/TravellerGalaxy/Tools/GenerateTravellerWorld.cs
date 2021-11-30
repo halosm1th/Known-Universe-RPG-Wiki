@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using TravellerFactionSystem;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
@@ -8,102 +7,134 @@ using TravellerMapSystem.Worlds;
 
 namespace TravellerMapSystem.Tools
 {
-    class GenerateTravellerWorld : IWorldGenerator
+    internal class GenerateTravellerWorld : IWorldGenerator
     {
-        
-        private static Random die = new Random();
+        private static readonly Random die = new();
+
+
+        private int _factionCount;
+
+        public void GenerateWorld(IWorld worldToGenerate)
+        {
+            if (worldToGenerate.GetType() != typeof(TravellerWorld))
+                throw new TypeAccessException("Error expects traveller world!");
+
+            if (worldToGenerate == null) throw new NullReferenceException("Expects non null world!");
+
+            var world = worldToGenerate as TravellerWorld;
+
+            world.WorldSize = (WorldSize)Math.Max(0, Roll2D6(2));
+            world.WorldAtmosphere =
+                (WorldAtmosphere)Math.Max(0, world.WorldSize <= 0 ? 0 : Roll2D6((int)world.WorldSize - 7));
+            world.WorldHydrographics =
+                Math.Max(0, world.WorldAtmosphere <= 0 ? 0 : Roll2D6((int)world.WorldAtmosphere - 7));
+
+            world.PopulationStat = Math.Max(0, Roll2D6(2));
+            world.GovernmentType = Math.Max(0, Roll2D6(world.PopulationStat - 7));
+            world.LawLevel = Math.Max(0, Roll2D6(world.GovernmentType - 7));
+
+            world.StarportQuality = CalculateStarport(world);
+            world.TechLevel = Math.Max(0, Roll2D6(GetTechModifiers(world), 1, 7));
+
+            world.GasGiant = Roll2D6() <= 10;
+            world.MilitaryBase = Roll2D6() >= 8;
+            world.OtherBase = Roll2D6() >= 8;
+            world.Quirk = GenerateQuirk();
+            world.Temperature = GenerateTemperature(world);
+            world.Factions = GenerateFactions(world);
+
+            var r = new Random(world.Name.Aggregate(0, (h, t) => h + t));
+            var size = "";
+            size += r.Next(0, 10);
+            for (var i = 0; i < world.PopulationStat - 1; i++) size += r.Next(0, 9);
+
+            world.Population = size;
+        }
+
         private int Roll2D6(int modifier = 0, int bottom = 2, int top = 13)
         {
             return die.Next(bottom, top) - modifier;
         }
 
         /// <summary>
-        /// Does not work
+        ///     Does not work
         /// </summary>
         /// <param name="world"></param>
         /// <param name="uwp"></param>
         public void GenerateWorldFromText(TravellerWorld world, string uwp)
-        {/*
-            //Example:Longleaf 1:2 a36b3f4 - e YNY
-            var parts = uwp.Split(' ');
-            if (parts.Length < 4)
-            {
-                throw new ArgumentException("not enough args");
-            }
-
-            var name = parts[0];
-            var code = parts[2];
-            var stations = parts[3];
-
-            world.Name = name;
-
-            if (stations[0] == 'Y') world.GasGiant = true;
-            if (stations[1] == 'Y') world.MilitaryBase = true;
-            if (stations[2] == 'Y') world.OtherBase = true;
-
-            for (int i = 0; i < code.Length; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        if (code[i] == 'x' || code[i] == 'X')
+        {
+            /*
+                        //Example:Longleaf 1:2 a36b3f4 - e YNY
+                        var parts = uwp.Split(' ');
+                        if (parts.Length < 4)
                         {
-                            world.StarportQuality = 15;
+                            throw new ArgumentException("not enough args");
                         }
-
-                        else
+            
+                        var name = parts[0];
+                        var code = parts[2];
+                        var stations = parts[3];
+            
+                        world.Name = name;
+            
+                        if (stations[0] == 'Y') world.GasGiant = true;
+                        if (stations[1] == 'Y') world.MilitaryBase = true;
+                        if (stations[2] == 'Y') world.OtherBase = true;
+            
+                        for (int i = 0; i < code.Length; i++)
                         {
-                            world.StarportQuality = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                            switch (i)
+                            {
+                                case 0:
+                                    if (code[i] == 'x' || code[i] == 'X')
+                                    {
+                                        world.StarportQuality = 15;
+                                    }
+            
+                                    else
+                                    {
+                                        world.StarportQuality = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                                    }
+                                    break;
+                                case 1:
+                                    world.WorldSize = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                                    break;
+                                case 2:
+                                    world.WorldAtmosphere= int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                                    break;
+                                case 3:
+                                    world.WorldHydrographics = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                                    break;
+                                case 4:
+                                    world.Popuation = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                                    break;
+                                case 5:
+                                    world.GovernmentType = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                                    break;
+                                case 6:
+                                    world.LawLevel = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
+                                    break;
+                                case 8:
+                                    var letter = code[i].ToString();
+                                    world.TechLevel = int.Parse(letter, NumberStyles.HexNumber);
+                                    break;
+                            }
+            
                         }
-                        break;
-                    case 1:
-                        world.WorldSize = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 2:
-                        world.WorldAtmosphere= int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 3:
-                        world.WorldHydrographics = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 4:
-                        world.Popuation = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 5:
-                        world.GovernmentType = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 6:
-                        world.LawLevel = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                        break;
-                    case 8:
-                        var letter = code[i].ToString();
-                        world.TechLevel = int.Parse(letter, NumberStyles.HexNumber);
-                        break;
-                }
-
-            }
-            */
+                        */
         }
 
         private StarportQuality CalculateStarport(TravellerWorld world)
         {
-            int modifier = 0;
+            var modifier = 0;
 
             if (world.PopulationStat >= 8)
-            {
                 modifier += 1;
-            }
             else if (world.PopulationStat >= 10)
-            {
                 modifier += 2;
-            }
             else if (world.PopulationStat <= 4)
-            {
                 modifier -= 1;
-            }
-            else if (world.PopulationStat <= 2)
-            {
-                modifier -= 2;
-            }
+            else if (world.PopulationStat <= 2) modifier -= 2;
 
             var rVal = 0;
             var result = Roll2D6(modifier);
@@ -116,6 +147,7 @@ namespace TravellerMapSystem.Tools
 
             return (StarportQuality)rVal;
         }
+
         private int GetTechModifiers(TravellerWorld world)
         {
             int modifier;
@@ -225,8 +257,8 @@ namespace TravellerMapSystem.Tools
 
             return 0 - modifier;
         }
-        
-         private Quirks GenerateQuirk()
+
+        private Quirks GenerateQuirk()
         {
             var quirks = Enum.GetValues(typeof(Quirks));
             return (Quirks)die.Next(0, quirks.Length);
@@ -235,7 +267,7 @@ namespace TravellerMapSystem.Tools
         private Temperatures GenerateTemperature(TravellerWorld world)
         {
             var roll = Roll2D6();
-            GetWorldTemperatureModifier(world,ref roll);
+            GetWorldTemperatureModifier(world, ref roll);
 
             switch (roll)
             {
@@ -263,8 +295,6 @@ namespace TravellerMapSystem.Tools
             return Temperatures.Error;
         }
 
-        
-        private int _factionCount = 0;
         private void GenerateInitialFactionCount(TravellerWorld world)
         {
             var rand = die;
@@ -277,11 +307,12 @@ namespace TravellerMapSystem.Tools
         {
             var factions = new List<(int, FactionSize, string)>();
             GenerateInitialFactionCount(world);
-            for (int i = 0; i < _factionCount; i++)
+            for (var i = 0; i < _factionCount; i++)
             {
                 var travFac = new TravellerFactionService();
-                var faction =  travFac.Factions[Roll2D6(0, 0, travFac.Factions.Count)] ?? null;
-                factions.Add((Roll2D6(0,0,16), GetFactionStrengthFromNumber(die.Next(0, 6)), faction?.FactionName ?? "unknown"));
+                var faction = travFac.Factions[Roll2D6(0, 0, travFac.Factions.Count)] ?? null;
+                factions.Add((Roll2D6(0, 0, 16), GetFactionStrengthFromNumber(die.Next(0, 6)),
+                    faction?.FactionName ?? "unknown"));
             }
 
             return factions;
@@ -302,7 +333,7 @@ namespace TravellerMapSystem.Tools
             }
         }
 
-        private void GetWorldTemperatureModifier(TravellerWorld world,ref int numb)
+        private void GetWorldTemperatureModifier(TravellerWorld world, ref int numb)
         {
             switch ((int)world.WorldAtmosphere)
             {
@@ -333,44 +364,6 @@ namespace TravellerMapSystem.Tools
                     numb += 6;
                     break;
             }
-        }
-
-        public void GenerateWorld(IWorld worldToGenerate)
-        {
-            if (worldToGenerate.GetType() != typeof(TravellerWorld))
-                throw new TypeAccessException("Error expects traveller world!");
-
-            if (worldToGenerate == null) throw new NullReferenceException("Expects non null world!");
-            
-            var world = worldToGenerate as TravellerWorld;
-            
-            world.WorldSize = (WorldSize)Math.Max(0, Roll2D6(2));
-            world.WorldAtmosphere = (WorldAtmosphere)Math.Max(0, world.WorldSize <= 0 ? 0 : Roll2D6((int)world.WorldSize - 7));
-            world.WorldHydrographics = Math.Max(0, world.WorldAtmosphere <= 0 ? 0 : Roll2D6((int)world.WorldAtmosphere - 7));
-
-            world.PopulationStat = Math.Max(0, Roll2D6(2));
-            world.GovernmentType = Math.Max(0, Roll2D6(world.PopulationStat - 7));
-            world.LawLevel = Math.Max(0, Roll2D6(world.GovernmentType - 7));
-
-            world.StarportQuality = CalculateStarport(world);
-            world.TechLevel = Math.Max(0, Roll2D6(GetTechModifiers(world), 1, 7));
-
-            world.GasGiant = Roll2D6() <= 10;
-            world.MilitaryBase = Roll2D6() >= 8;
-            world.OtherBase = Roll2D6() >= 8;
-            world.Quirk = GenerateQuirk();
-            world.Temperature = GenerateTemperature(world);
-            world.Factions = GenerateFactions(world);
-            
-            var r = new Random(world.Name.Aggregate(0, (h,t) => h+t));
-            var size = "";
-            size += r.Next(0, 10);
-            for (int i = 0; i < world.PopulationStat-1; i++)
-            {
-                size += r.Next(0,9);
-            }
-
-            world.Population = size;
         }
     }
 }

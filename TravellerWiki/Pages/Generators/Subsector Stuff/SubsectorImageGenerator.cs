@@ -1,8 +1,5 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
+﻿using System.IO;
 using Microsoft.AspNetCore.Mvc;
-using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using TravellerGalaxyGenertor;
 

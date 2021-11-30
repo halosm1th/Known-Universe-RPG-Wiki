@@ -1,20 +1,23 @@
 @page "/VoicesFromTheVoid/ArticleComponent/"
-@using System.Transactions
 @using VoicesFromTheVoidArticles
+@using Markdig
 @inject TravellerVoicesFromTheVoidService VoicesService
+
 @code{
 
     [Parameter]
     public VoicesFromTheVoidArticle Article { get; set; }
 
     public string GetBackgroundColour()
-        => Article.Publisher switch
+    {
+        return Article.Publisher switch
         {
             IslandsSectorPublishers.Travellers_Aid_Society => "Red",
             IslandsSectorPublishers.Univeralis_Confederation_Bulletin => "DarkGreen",
             IslandsSectorPublishers.Voices_From_The_Void => "Black",
             _ => "Blue"
             };
+    }
 
 }
 
@@ -24,7 +27,6 @@
 
     @foreach (var paragraph in Article.Paragraphs)
     {
-        @((MarkupString)Markdig.Markdown.ToHtml(paragraph))
+        @((MarkupString)Markdown.ToHtml(paragraph))
     }
 </div>
-

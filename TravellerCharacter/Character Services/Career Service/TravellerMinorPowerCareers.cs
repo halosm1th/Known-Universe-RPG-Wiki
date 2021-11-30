@@ -5,7 +5,7 @@ using TravellerCharacter.CharacterCreator.Careers;
 
 namespace TravellerCharacter.Character_Services.Career_Service
 {
-    class TravellerMinorPowerCareers : TravellerCareerServiceCareer
+    internal class TravellerMinorPowerCareers : TravellerCareerServiceCareer
     {
         public void AddMinorPowers(List<TravellerCareer> careers)
         {
@@ -20,15 +20,17 @@ namespace TravellerCharacter.Character_Services.Career_Service
         private static void AddArtekkanCareer(List<TravellerCareer> careers)
         {
         }
+
         private static void AddFirstOrderCareer(List<TravellerCareer> careers)
         {
         }
+
         private static void AddBritanniaCareer(List<TravellerCareer> careers)
         {
         }
+
         private static void AddIVFTCareer(List<TravellerCareer> careers)
         {
         }
-
     }
 }

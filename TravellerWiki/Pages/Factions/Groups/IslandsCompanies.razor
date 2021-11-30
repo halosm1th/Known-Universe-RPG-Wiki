@@ -12,625 +12,1031 @@
 }
 
 <body>
-    <h1>Islands Companies</h1>
+<h1>Islands Companies</h1>
 <p>Within the North Western Islands there are many companies, this is a simple breakdown of the different major industries and who the largest players within the industries are. <a href="/Factions/IslandsFactionCreator">Click here to add a new company to the list.</a></p>
+<div>
+<h2>The List</h2>
+
+@foreach (var industry in Enum.GetValues(typeof(TravellerIndustries)))
+{
     <div>
-        <h2>The List</h2>
-        
-    @foreach(var industry in Enum.GetValues(typeof(TravellerIndustries))){
-        <div>
-        <h3>@(((TravellerIndustries) industry).ToString().Replace("_"," "))</h3>
-            <table>
+        <h3>@(((TravellerIndustries)industry).ToString().Replace("_", " "))</h3>
+        <table>
+            <thead style="text-align: center; padding: 5px;">
+            <tr>
+                <th style="text-align: center; padding: 5px;">Name</th>
+                <th style="text-align: center; padding: 5px;">Headquarters</th>
+                <th style="text-align: center; padding: 5px;">Loyal to</th>
+                <th style="text-align: center; padding: 5px;">CEO</th>
+                <th style="text-align: center; padding: 5px;">Founded Year</th>
+                <th style="text-align: center; padding: 5px;">Stock Info</th>
+                <th style="text-align: center; padding: 5px;">Revenue</th>
+                <th style="text-align: center; padding: 5px;">Market Cap</th>
+                <th style="text-align: center; padding: 5px;">Dividend</th>
+                <th style="text-align: center; padding: 5px;">Locations</th>
+                <th style="text-align: center; padding: 5px;">Political Sway</th>
+                <th style="text-align: center; padding: 5px;">Social Sway</th>
+                <th style="text-align: center; padding: 5px;">Economic Sway</th>
+            </tr>
+            </thead>
+            <tbody style="color:#ffe81F">
+            @foreach (var company in Companies.Where(x => x.Industry == (TravellerIndustries)industry))
+            {
+                <tr id="tableInfo">
+                    <td style="text-align: center">
+                        <a href="/Factions/IslandsFaction/@company.FactionID">@company.FactionName</a>
+                    </td>
+                    <td style="text-align: center">@company.HeadquatersLocation</td>
+                    <td style="text-align: center">@company.IslandsNation.ToString().Replace("_", " ") [@company.SupportingNationality.ToString().Replace("_", " ")]</td>
+                    <td style="text-align: center">@company.CeoName</td>
+                    <td style="text-align: center">@company.FoundedYear</td>
+                    <td style="text-align: center">@company.CurrentSharePrice</td>
+                    <td style="text-align: center">Cr @company.Revenues.</td>
+                    <td style="text-align: center">Cr @company.MarketCap.</td>
+                    <td style="text-align: center">@company.DividentPercent%.</td>
+                    <td style="text-align: center">@(company.HasOtherLocation ? string.Join(", ", company.OtherOwnedLocations) : "None")</td>
+                    <td style="text-align: center">@company.PoliticalSway.ToString().Replace("_", " ")</td>
+                    <td style="text-align: center">@company.SocialSway.ToString().Replace("_", " ")</td>
+                    <td style="text-align: center">@company.EconomicSway.ToString().Replace("_", " ")</td>
+
+                </tr>
+            }
+
+            </tbody>
+        </table>
+        <br/>
+    </div>
+}
+<div>
+    <h3>Fuel Industries</h3>
+    <ul>
+        <li>
+            Tillium - Primarily used by Germushia, Deutschland, and Polandskia along with their allies.
+            <table style="border-style: solid; text-align: center; padding: 2px;">
                 <thead style="text-align: center; padding: 5px;">
                 <tr>
-                    <th style="text-align: center; padding: 5px;">Name</th>
-                    <th style="text-align: center; padding: 5px;">Headquarters</th>
-                    <th style="text-align: center; padding: 5px;">Loyal to</th>
-                    <th style="text-align: center; padding: 5px;">CEO</th>
-                    <th style="text-align: center; padding: 5px;">Founded Year</th>
-                    <th style="text-align: center; padding: 5px;">Stock Info</th>
-                    <th style="text-align: center; padding: 5px;">Revenue</th>
-                    <th style="text-align: center; padding: 5px;">Market Cap</th>
-                    <th style="text-align: center; padding: 5px;">Dividend</th>
-                    <th style="text-align: center; padding: 5px;">Locations</th>
-                    <th style="text-align: center; padding: 5px;">Political Sway</th>
-                    <th style="text-align: center; padding: 5px;">Social Sway</th>
-                    <th style="text-align: center; padding: 5px;">Economic Sway</th>
+                    <th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th>
                 </tr>
                 </thead>
                 <tbody style="color:#ffe81F">
-                @foreach (var company in Companies.Where(x => x.Industry == (TravellerIndustries) industry))
-                {
-        
-                    <tr id="tableInfo">
-                        <td style="text-align: center"><a href="/Factions/IslandsFaction/@company.FactionID">@company.FactionName</a></td>
-                        <td style="text-align: center">@company.HeadquatersLocation</td>
-                        <td style="text-align: center">@company.IslandsNation.ToString().Replace("_"," ") [@company.SupportingNationality.ToString().Replace("_"," ")]</td>
-                        <td style="text-align: center">@company.CeoName</td>
-                        <td style="text-align: center">@company.FoundedYear</td>
-                        <td style="text-align: center">@company.CurrentSharePrice</td>
-                        <td style="text-align: center">Cr @company.Revenues.</td>
-                        <td style="text-align: center">Cr @company.MarketCap.</td>
-                        <td style="text-align: center">@company.DividentPercent%.</td>
-                        <td style="text-align: center">@(company.HasOtherLocation? string.Join(", ", company.OtherOwnedLocations) : "None")</td>
-                        <td style="text-align: center">@company.PoliticalSway.ToString().Replace("_"," ")</td>
-                        <td style="text-align: center">@company.SocialSway.ToString().Replace("_"," ")</td>
-                        <td style="text-align: center">@company.EconomicSway.ToString().Replace("_"," ")</td>
-                                                                                                
-                    </tr>
-                }
-                                                                                            
+                <tr id="tableInfo">
+                    <td>Novatek</td><td>Knoxboro</td><td>Doty</td><td>Deutschland/Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Wintershall</td><td>Freeborn</td><td>Kerkhoven</td><td>Germushia/Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Baywa</td><td>Hoopeston</td><td>Pulcifer</td><td>WITC/Intercourse Subsector Trade Consortium</td>
+                </tr>
                 </tbody>
             </table>
-            <br/>
-        </div>
-    }
-        <div>
-            <h3>Fuel Industries</h3>
-            <ul>
-                <li>
-                    Tillium - Primarily used by Germushia, Deutschland, and Polandskia along with their allies.
-                    <table style="border-style: solid; text-align: center; padding: 2px;">
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Novatek</td><td>Knoxboro</td><td>Doty</td><td>Deutschland/Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Wintershall</td><td>Freeborn</td><td>Kerkhoven</td><td>Germushia/Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Baywa</td><td>Hoopeston</td><td>Pulcifer</td><td>WITC/Intercourse Subsector Trade Consortium</td></tr>
-                        </tbody>
-                    </table>
-                </li>
+        </li>
 
-                <li>
-                    Dilithium - Primarily used by the United Federation of Earth and the Xiao-Ming Mega Corporation
-                    <table style="border-style: solid; text-align: center; padding: 2px;">
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Standil</td><td>Camuy</td><td>Alvyn</td><td>UFE/Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>PGNiG</td><td>Terrel</td><td>Ijamsville</td><td>Polandskia/United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Kupi Litowy</td><td>Thippe464</td><td>Agucaitov</td><td>Polandskia/United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Covinium</td><td>Bronaugh</td><td>Covina</td><td>Polandskia/United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Guntnium</td><td>Gunipped</td><td>Gunipped</td><td>Vers/Gunipped Stellar Empire</td></tr>
-                            <tr id="tableInfo"><td>Citra-Dilithium</td><td>Sauquoit</td><td>Sumas</td><td>Xiao-Ming/Ionia-Waskish Trade Pact</td></tr>
-                        </tbody>
-                    </table>
-                </li>
+        <li>
+            Dilithium - Primarily used by the United Federation of Earth and the Xiao-Ming Mega Corporation
+            <table style="border-style: solid; text-align: center; padding: 2px;">
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Standil</td><td>Camuy</td><td>Alvyn</td><td>UFE/Western Islands Alliance</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>PGNiG</td><td>Terrel</td><td>Ijamsville</td><td>Polandskia/United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Kupi Litowy</td><td>Thippe464</td><td>Agucaitov</td><td>Polandskia/United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Covinium</td><td>Bronaugh</td><td>Covina</td><td>Polandskia/United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Guntnium</td><td>Gunipped</td><td>Gunipped</td><td>Vers/Gunipped Stellar Empire</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Citra-Dilithium</td><td>Sauquoit</td><td>Sumas</td><td>Xiao-Ming/Ionia-Waskish Trade Pact</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
 
-                <li>
-                    Aldminium - Primarily used by the Vers Empire, Imperial Versian Federated Territories and, the United Reverse lords along with their allies.
-                    <table style="border-style: solid; text-align: center; padding: 2px;">
-                        <thead>
-                            <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Imperial Aldminium Company</td><td>Renwick</td><td>Renwick</td><td>Empire/Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Aldminius Extrus</td><td>Dagget</td><td>Esperanza</td><td>Vers/Esperanza</td></tr>
-                            <tr id="tableInfo"><td>Spirdinium</td><td>Tekamah</td><td>Tekamah</td><td>Axion Alliance/SpiritWood Senate</td></tr>
-                        </tbody>
-                    </table>
-                </li>
+        <li>
+            Aldminium - Primarily used by the Vers Empire, Imperial Versian Federated Territories and, the United Reverse lords along with their allies.
+            <table style="border-style: solid; text-align: center; padding: 2px;">
+                <thead>
+                <tr>
+                    <th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Imperial Aldminium Company</td><td>Renwick</td><td>Renwick</td><td>Empire/Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Aldminius Extrus</td><td>Dagget</td><td>Esperanza</td><td>Vers/Esperanza</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Spirdinium</td><td>Tekamah</td><td>Tekamah</td><td>Axion Alliance/SpiritWood Senate</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
 
-                <li>
-                    Kyber - Primarily used by the Trans Galatic Empire and Britannia along with their allies.
-                    <table style="border-style: solid; text-align: center; padding: 2px;">
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Imperial Kyber Company</td><td>Norwell</td><td>Renwick</td><td>Empire/Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Kaweah Kyber</td><td>Kaweah</td><td>Kitterdge</td><td>Vers/Rex van der Ostrovski</td></tr>
-                            <tr id="tableInfo"><td>KMV</td><td>Charenton</td><td>Mott</td><td>Germushia/Citra Sector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Red Rockyber</td><td>Vina</td><td>Richy</td><td>URL/Red Rock Republic</td></tr>
-                        </tbody>
-                    </table>
-                </li>
+        <li>
+            Kyber - Primarily used by the Trans Galatic Empire and Britannia along with their allies.
+            <table style="border-style: solid; text-align: center; padding: 2px;">
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Imperial Kyber Company</td><td>Norwell</td><td>Renwick</td><td>Empire/Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Kaweah Kyber</td><td>Kaweah</td><td>Kitterdge</td><td>Vers/Rex van der Ostrovski</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>KMV</td><td>Charenton</td><td>Mott</td><td>Germushia/Citra Sector Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Red Rockyber</td><td>Vina</td><td>Richy</td><td>URL/Red Rock Republic</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
 
-                <li>
-                    Liquid Hydrogen - Primarily used by the smaller nations within the islands, or as an emergency fuel source.
-                    <table style="border-style: solid; text-align: center; padding: 2px;">
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Chevron</td><td>Harzenslus</td><td>New Colchis</td><td>New Colchis Business Board</td></tr>
-                            <tr id="tableInfo"><td>Coserv</td><td>Travnis</td><td>Olitar</td><td>Olitar Protectorate</td></tr>
-                            <tr id="tableInfo"><td>Nisource</td><td>Parcoal</td><td>Smila</td><td>Harwichport-Simla-Parcoal Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>Hailbortun</td><td>Lokleen</td><td>Lokleen</td><td>Starcan Alliance</td></tr>
-                            <tr id="tableInfo"><td>Coltex</td><td>CadWurry</td><td>CadWurry</td><td>Star-Tan Confederacy</td></tr>
-                            <tr id="tableInfo"><td>Voidlive</td><td>Trevor</td><td>Trevor</td><td>United Baronies/Trevor</td></tr>
-                        </tbody>
-                    </table>
-                </li>
+        <li>
+            Liquid Hydrogen - Primarily used by the smaller nations within the islands, or as an emergency fuel source.
+            <table style="border-style: solid; text-align: center; padding: 2px;">
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Chevron</td><td>Harzenslus</td><td>New Colchis</td><td>New Colchis Business Board</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Coserv</td><td>Travnis</td><td>Olitar</td><td>Olitar Protectorate</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Nisource</td><td>Parcoal</td><td>Smila</td><td>Harwichport-Simla-Parcoal Trade Pact</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Hailbortun</td><td>Lokleen</td><td>Lokleen</td><td>Starcan Alliance</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Coltex</td><td>CadWurry</td><td>CadWurry</td><td>Star-Tan Confederacy</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Voidlive</td><td>Trevor</td><td>Trevor</td><td>United Baronies/Trevor</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
 
-                <li>
-                    Gaz - Primarily used by the cheap and crappy. It'll run your ship, and it'll make a message of the engines as it does so.
-                    <table style="border-style: solid; text-align: center; padding: 2px;">
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
-                        </thead>
-                        <tbody style="color: #ffe81F;border-style: solid">
-                            <tr id="tableInfo"><td>Essig Gaz</td><td>Kandiyohi</td><td>Essig</td><td>United Reverse Lords/Essig Kitarchy</td></tr>
-                            <tr id="tableInfo"><td>Commune Gaz</td><td>Cuzzart</td><td>Kunia</td><td>Deutschland/Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Kotlik Gaz</td><td>Natalia</td><td>Natalia</td><td>UFE/Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td>Evotis Gaz</td><td>Evotis</td><td>Evotis</td><td>Axion Alliance/Tilova Pact</td></tr>
-                            <tr id="tableInfo"><td>Coila Gaz</td><td>Boelus</td><td>Mahnomen</td><td>Vers/Coila Military Alliance</td></tr>
-                        </tbody>
-                    </table>
-                </li>
+        <li>
+            Gaz - Primarily used by the cheap and crappy. It'll run your ship, and it'll make a message of the engines as it does so.
+            <table style="border-style: solid; text-align: center; padding: 2px;">
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th>
+                </tr>
+                </thead>
+                <tbody style="color: #ffe81F;border-style: solid">
+                <tr id="tableInfo">
+                    <td>Essig Gaz</td><td>Kandiyohi</td><td>Essig</td><td>United Reverse Lords/Essig Kitarchy</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Commune Gaz</td><td>Cuzzart</td><td>Kunia</td><td>Deutschland/Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Kotlik Gaz</td><td>Natalia</td><td>Natalia</td><td>UFE/Kotlik Tribunal</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Evotis Gaz</td><td>Evotis</td><td>Evotis</td><td>Axion Alliance/Tilova Pact</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Coila Gaz</td><td>Boelus</td><td>Mahnomen</td><td>Vers/Coila Military Alliance</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
 
-                <li>
-                    Diminilius - A mixture of various other types of fuel being worked on by the Independent Defense Federation.
-                    <table style="border-style: solid; text-align: center; padding: 5px;">
-                        <thead style=" text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Imperial Diminium</td><td>Orphee</td><td>Orphee</td><td>Independent Defense Federation</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Starship production</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center">Headquarters</th><th style="text-align: center">Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Kessun Industries</td><td>Kirksey</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>CNZ</td><td>Fosterville</td><td>Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>Ciayk</td><td>Gurnee</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Hatvu</td><td>Gattaman</td><td>Rex van der Ostrovski</td></tr>
-                            <tr id="tableInfo"><td>Hyamtai Starship Group</td><td>Owlshead</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>General Starships</td><td>Delrey</td><td>Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td>Star</td><td>Tenstrike</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Deimlar</td><td>Leupp</td><td>Red Rock Republic</td></tr>
-                            <tr id="tableInfo"><td>Tayuna</td><td>Bodeywalk</td><td>Venhut Dominate States</td></tr>
-                            <tr id="tableInfo"><td>Valczrugis</td><td>Essig</td><td>Essig Kitarchy</td></tr>
-                            <tr id="tableInfo"><td>Bomibrdar</td><td>Mainhair</td><td>Mainhair Military Republic</td></tr>
-                            <tr id="tableInfo"><td>Pravest</td><td>Balaton</td><td>Citra Subsector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Nuva Bys</td><td>Pulcifer</td><td>Intercourse Subsector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Zynvu</td><td>Pooler</td><td>Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>Exogan</td><td>Hume</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Smort</td><td>Serendip Belt</td><td>Independent Defense Federation</td></tr>
-                            <tr id="tableInfo"><td>Korres</td><td>Amondiage</td><td>Old Islands Defense League</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+        <li>
+            Diminilius - A mixture of various other types of fuel being worked on by the Independent Defense Federation.
+            <table style="border-style: solid; text-align: center; padding: 5px;">
+                <thead style=" text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Primary Mining Planet</th><th>Primary Refining Planet</th><th>Government</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Imperial Diminium</td><td>Orphee</td><td>Orphee</td><td>Independent Defense Federation</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+<div>
+<h3>Starship production</h3>
+<ul>
+    <li>
+        <table>
+            <thead style="text-align: center; padding: 5px;">
+            <tr>
+                <th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center">Headquarters</th><th style="text-align: center">Loyal to</th>
+            </tr>
+            </thead>
+            <tbody style="color:#ffe81F">
+            <tr id="tableInfo">
+                <td>Kessun Industries</td><td>Kirksey</td><td>Dominate Supremius</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>CNZ</td><td>Fosterville</td><td>Western Islands Alliance</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Ciayk</td><td>Gurnee</td><td>Western Islands Trade Consortium</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Hatvu</td><td>Gattaman</td><td>Rex van der Ostrovski</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Hyamtai Starship Group</td><td>Owlshead</td><td>Western Islands Commune</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>General Starships</td><td>Delrey</td><td>Kotlik Tribunal</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Star</td><td>Tenstrike</td><td>United Baronies</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Deimlar</td><td>Leupp</td><td>Red Rock Republic</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Tayuna</td><td>Bodeywalk</td><td>Venhut Dominate States</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Valczrugis</td><td>Essig</td><td>Essig Kitarchy</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Bomibrdar</td><td>Mainhair</td><td>Mainhair Military Republic</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Pravest</td><td>Balaton</td><td>Citra Subsector Trade Consortium</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Nuva Bys</td><td>Pulcifer</td><td>Intercourse Subsector Trade Consortium</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Zynvu</td><td>Pooler</td><td>Western Islands Alliance</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Exogan</td><td>Hume</td><td>Western Islands Trade Consortium</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Smort</td><td>Serendip Belt</td><td>Independent Defense Federation</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Korres</td><td>Amondiage</td><td>Old Islands Defense League</td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
 
-            <h2>Starship design</h2>
-            <ul>
-                <li>
-                    <table>
-                        <thead>
-                            <tr><th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center; padding: 5px;">Headquarters</th><th style="text-align: center; padding: 5px;">Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Chribengla Designs</td><td>Doswell</td><td>Ionia-Waskish Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>Callian Stellar Imaginators</td><td>Gattman</td><td>Rex van der Ostrovski</td></tr>
-                            <tr id="tableInfo"><td>Earley Void Visionaries</td><td>Kula</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Fiskren Starship Designs</td><td>Keldron</td><td>Western Islands Alliance</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+<h2>Starship design</h2>
+<ul>
+    <li>
+        <table>
+            <thead>
+            <tr>
+                <th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center; padding: 5px;">Headquarters</th><th style="text-align: center; padding: 5px;">Loyal to</th>
+            </tr>
+            </thead>
+            <tbody style="color:#ffe81F">
+            <tr id="tableInfo">
+                <td>Chribengla Designs</td><td>Doswell</td><td>Ionia-Waskish Trade Pact</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Callian Stellar Imaginators</td><td>Gattman</td><td>Rex van der Ostrovski</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Earley Void Visionaries</td><td>Kula</td><td>Dominate Supremius</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Fiskren Starship Designs</td><td>Keldron</td><td>Western Islands Alliance</td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
 
-            <h2>Starship Drive (Engine/Generator) production</h2>
-            <ul>
-                <li>
-                    <table>
-                        <thead>
-                            <tr style="text-align: center; padding: 5px;"><th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center; padding: 5px;">Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Muica</td><td>Immokalee</td><td>Spiritwood Senate</td></tr>
-                            <tr id="tableInfo"><td>Hetz Thrusters</td><td>Michigamme</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Adwin Drives</td><td>Brill</td><td>Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td>Vaith</td><td>Birney</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Zukcyped</td><td>Genspace</td><td>Sar-Tan Confederacy</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+<h2>Starship Drive (Engine/Generator) production</h2>
+<ul>
+    <li>
+        <table>
+            <thead>
+            <tr style="text-align: center; padding: 5px;">
+                <th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center; padding: 5px;">Headquarters</th><th>Loyal to</th>
+            </tr>
+            </thead>
+            <tbody style="color:#ffe81F">
+            <tr id="tableInfo">
+                <td>Muica</td><td>Immokalee</td><td>Spiritwood Senate</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Hetz Thrusters</td><td>Michigamme</td><td>Dominate Supremius</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Adwin Drives</td><td>Brill</td><td>Kotlik Tribunal</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Vaith</td><td>Birney</td><td>Western Islands Commune</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Zukcyped</td><td>Genspace</td><td>Sar-Tan Confederacy</td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
 
-            <h2>Starship FTL production</h2>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;" `>
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Rolls-Rayce</td><td>Seyonus</td><td>Guniped Stellar Empire</td></tr>
-                            <tr id="tableInfo"><td>Vackers</td><td>Lightfoot</td><td>Citra Subsector Trade Constortium</td></tr>
-                            <tr id="tableInfo"><td>Ailsu</td><td>Delrey</td><td>Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td>Huckling Carl</td><td>Waskish</td><td>Ionia-Waskish Trade pact</td></tr>
-                            <tr id="tableInfo"><td>Wesleck reseach and Development</td><td>Rison</td><td>Jeffers-Kosse Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>Huet Racing Engines</td><td>Graytown</td><td>Rex van der Ostrovski</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+<h2>Starship FTL production</h2>
+<ul>
+    <li>
+        <table>
+            <thead style="text-align: center; padding: 5px;" `>
+            <tr>
+                <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+            </tr>
+            </thead>
+            <tbody style="color:#ffe81F">
+            <tr id="tableInfo">
+                <td>Rolls-Rayce</td><td>Seyonus</td><td>Guniped Stellar Empire</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Vackers</td><td>Lightfoot</td><td>Citra Subsector Trade Constortium</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Ailsu</td><td>Delrey</td><td>Kotlik Tribunal</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Huckling Carl</td><td>Waskish</td><td>Ionia-Waskish Trade pact</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Wesleck reseach and Development</td><td>Rison</td><td>Jeffers-Kosse Trade Pact</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Huet Racing Engines</td><td>Graytown</td><td>Rex van der Ostrovski</td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
 
-            <h2>Starship Sensor production</h2>
-            <ul>
-                <li>
-                    <table>
-                        <thead>
-                            <tr><th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center; padding: 5px;">Headquarters</th><th style="text-align: center; padding: 5px;">Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Adz Nagnazo</td><td>Lavon</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Umphinol Advanced Sensors</td><td>Tontogany</td><td>Western Islands Trade Constortium</td></tr>
-                            <tr id="tableInfo"><td>Arthur Grella</td><td>Joyuse</td><td>Independent Defense Federation</td></tr>
-                            <tr id="tableInfo"><td>Barksdillun </td><td>Tonganoxie</td><td>United Baronies</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-            <h2>Starship Engine(Thrusters) production</h2>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Red Origin Engines</td><td>Glasgo</td><td>Rex van der Ostrovski</td></tr>
-                            <tr id="tableInfo"><td>Spacy Ship Engines</td><td>Wilsonburg</td><td>Jeffers-Kosse Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>Starz Explorer Engines</td><td>Hitterdal</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Ergomash Rockets</td><td>Tescott</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Anzeni Drives</td><td>Ridgeview</td><td>Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td>Cintrex</td><td>Hartland</td><td>United Baronies</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Space Station design</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Gensler</td><td>Fosterville</td><td>Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>Ingenium Group</td><td>Singer</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>The Jerde Partnership</td><td>Bremerton</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Vanderweil Engineers</td><td>Henefer</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>KPFF Consulting Engineers</td><td>Topas</td><td>Neubayern-Topas Alliance</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Space Station production</h3>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Vackers Station Production</td><td>Lightfoot</td><td>Citra Subsector Trade Constortium</td></tr>
-                            <tr id="tableInfo"><td>Amondiage Station Production</td><td>Amondiage</td><td>Old Islands Defense Federation</td></tr>
-                            <tr id="tableInfo"><td>NAME</td><td>Rainford</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Rainyard Station Producers</td><td>LOCATION</td><td>NATION</td></tr>
-                            <tr id="tableInfo"><td>Lithia Soviet Stations</td><td>Lithia</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Pulcifer Stations</td><td>Pulcifer</td><td>Intercourse Subsector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Kotlik Judical Station Creation Committee</td><td>Redhook</td><td>Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td>Joyuse Station Builders</td><td>Joyuse</td><td>Independent Defense Federation</td></tr>
-                            <tr id="tableInfo"><td>Alliance Station Producers</td><td>Erbacon</td><td>Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>Colchis Station Builders</td><td>Colchis</td><td>Old Islands Defense League</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-    <div>
-        <h3>Small Arms manufacturing</h3>
-        <ul>
-            <h2>Energy Weapons - Pistols</h2>
-            <li>
-                <table>
-                    <thead style="text-align: center; padding: 5px;">
-                    <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                    </thead>
-                    <tbody style="color:#ffe81F">
-                    <tr id="tableInfo"><td>Adcor Defense</td><td>Waban</td><td>Western Islands Commune</td></tr>
-                    <tr id="tableInfo"><td>Imperial-Redara</td><td>Lackawaxen</td><td>Ionia-Waskish Trade Pact</td></tr>
-                    <tr id="tableInfo"><td>Islands-Rok</td><td>Cownansville</td><td>Rex van der Ostrovski</td></tr>
-                    </tbody>
-                </table>
-            </li>
-            <h2>Energy Weapons - Rifles</h2>
-            <li>
-                <table>
-                    <thead>
-                    <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                    </thead>
-                    <tbody style="color:#ffe81F">
-                    <tr id="tableInfo"><td>Fincantieri</td><td>Loris</td><td>Rex van der Ostrovski</td></tr>
-                    <tr id="tableInfo"><td>Fallbrook Armouries</td><td>Fallbrook</td><td>Dominate Supremius</td></tr>
-                    <tr id="tableInfo"><td>Weskcan Energy</td><td>Weskcan</td><td>Domindate Supremius</td></tr>
-                    <tr id="tableInfo"><td>Glasgo Electroarms</td><td>Glasgo</td><td>Rex van der Ostrovski</td></tr>
-                    <tr id="tableInfo"><td>Lacamp Commune Energy Weapons</td><td>Lacamp</td><td>Western Islands Commune</td></tr>
-                    </tbody>
-                </table>
-            </li>
-            <h2>Slug Weapons - Pistols</h2>
-            <li>
-                <table>
-                    <thead style="text-align: center; padding: 5px;">
-                    <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                    </thead>
-                    <tbody style="color:#ffe81F">
-                    <tr id="tableInfo"><td>Neartek-Pistols Islands</td><td>Mabscott</td><td>Western Islands Alliance</td></tr>
-                    <tr id="tableInfo"><td>Colchis Killers</td><td>New Colchis</td><td>New Colchis Business Board</td></tr>
-                    <tr id="tableInfo"><td>Lacamp Lead</td><td>Lacamp</td><td>Western Islands Commune</td></tr>
-                    <tr id="tableInfo"><td>Gunripped Guns</td><td>Gunripped</td><td>Gunripped Stellar Empire</td></tr>
-                    <tr id="tableInfo"><td>Berrsburg Armoury</td><td>Berrysburg</td><td>Dominate Supremius</td></tr>
-                    <tr id="tableInfo"><td>bakersville Ballistics</td><td>Bakersville</td><td>Intercourse Subsector Trade Consortium</td></tr>
-                    <tr id="tableInfo"><td>Kills Bril</td><td>Brill</td><td>Kotlik Tribunal</td></tr>
-                    <tr id="tableInfo"><td>Hammers from Hermleigh</td><td>Hermleigh</td><td>Western Islands Commune</td></tr>
-                    <tr id="tableInfo"><td>New Home New Weapons</td><td>New Home</td><td>Old Islands Defense League</td></tr>
-                    <tr id="tableInfo"><td>Bro ur Naught gunna Bullteave this</td><td>Bronaugh</td><td>United Baronies</td></tr>
-                    </tbody>
-                </table>
-            </li>
-            <h2>Slug Weapons - Rifles</h2>
-            <li>
-                <table>
-                    <thead style="text-align: center; padding: 5px;">
-                    <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                    </thead>
-                    <tbody style="color:#ffe81F">
-                    <tr id="tableInfo"><td>Neartek-Rifles Islands</td><td>Mabscott</td><td>Western Islands Alliance</td></tr>
-                    <tr id="tableInfo"><td>Morriston Munintions</td><td>Morriston</td><td>Rex van der Ostrovski</td></tr>
-                    <tr id="tableInfo"><td>Hartland Rifles</td><td>Hartland</td><td>United Baronies</td></tr>
-                    <tr id="tableInfo"><td>Doswell Dukels</td><td>Doswell</td><td>Ionia-Waskish Trade Pact</td></tr>
-                    <tr id="tableInfo"><td>Ulson and Fathers</td><td>Holmen</td><td>Rex can der Ostrovski</td></tr>
-                    </tbody>
-                </table>
-            </li>
-        </ul>
-    </div>
-        
-        <div>
-            <h3>Recreational Substances</h3>
-            <p>Gas</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Praxiar Kush</td><td>Nappanee</td><td>OIDL</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+<h2>Starship Sensor production</h2>
+<ul>
+    <li>
+        <table>
+            <thead>
+            <tr>
+                <th style="text-align: center; padding: 5px;">Name</th><th style="text-align: center; padding: 5px;">Headquarters</th><th style="text-align: center; padding: 5px;">Loyal to</th>
+            </tr>
+            </thead>
+            <tbody style="color:#ffe81F">
+            <tr id="tableInfo">
+                <td>Adz Nagnazo</td><td>Lavon</td><td>Western Islands Commune</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Umphinol Advanced Sensors</td><td>Tontogany</td><td>Western Islands Trade Constortium</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Arthur Grella</td><td>Joyuse</td><td>Independent Defense Federation</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Barksdillun </td><td>Tonganoxie</td><td>United Baronies</td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+<h2>Starship Engine(Thrusters) production</h2>
+<ul>
+    <li>
+        <table>
+            <thead style="text-align: center; padding: 5px;">
+            <tr>
+                <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+            </tr>
+            </thead>
+            <tbody style="color:#ffe81F">
+            <tr id="tableInfo">
+                <td>Red Origin Engines</td><td>Glasgo</td><td>Rex van der Ostrovski</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Spacy Ship Engines</td><td>Wilsonburg</td><td>Jeffers-Kosse Trade Pact</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Starz Explorer Engines</td><td>Hitterdal</td><td>Western Islands Trade Consortium</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Ergomash Rockets</td><td>Tescott</td><td>Western Islands Commune</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Anzeni Drives</td><td>Ridgeview</td><td>Kotlik Tribunal</td>
+            </tr>
+            <tr id="tableInfo">
+                <td>Cintrex</td><td>Hartland</td><td>United Baronies</td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+</div>
+<div>
+    <h3>Space Station design</h3>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Gensler</td><td>Fosterville</td><td>Western Islands Alliance</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Ingenium Group</td><td>Singer</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>The Jerde Partnership</td><td>Bremerton</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Vanderweil Engineers</td><td>Henefer</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>KPFF Consulting Engineers</td><td>Topas</td><td>Neubayern-Topas Alliance</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+<div>
+    <h3>Space Station production</h3>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Vackers Station Production</td><td>Lightfoot</td><td>Citra Subsector Trade Constortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Amondiage Station Production</td><td>Amondiage</td><td>Old Islands Defense Federation</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>NAME</td><td>Rainford</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Rainyard Station Producers</td><td>LOCATION</td><td>NATION</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Lithia Soviet Stations</td><td>Lithia</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Pulcifer Stations</td><td>Pulcifer</td><td>Intercourse Subsector Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Kotlik Judical Station Creation Committee</td><td>Redhook</td><td>Kotlik Tribunal</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Joyuse Station Builders</td><td>Joyuse</td><td>Independent Defense Federation</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Alliance Station Producers</td><td>Erbacon</td><td>Western Islands Alliance</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Colchis Station Builders</td><td>Colchis</td><td>Old Islands Defense League</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+<div>
+    <h3>Small Arms manufacturing</h3>
+    <ul>
+        <h2>Energy Weapons - Pistols</h2>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Adcor Defense</td><td>Waban</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Imperial-Redara</td><td>Lackawaxen</td><td>Ionia-Waskish Trade Pact</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Islands-Rok</td><td>Cownansville</td><td>Rex van der Ostrovski</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+        <h2>Energy Weapons - Rifles</h2>
+        <li>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Fincantieri</td><td>Loris</td><td>Rex van der Ostrovski</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Fallbrook Armouries</td><td>Fallbrook</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Weskcan Energy</td><td>Weskcan</td><td>Domindate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Glasgo Electroarms</td><td>Glasgo</td><td>Rex van der Ostrovski</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Lacamp Commune Energy Weapons</td><td>Lacamp</td><td>Western Islands Commune</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+        <h2>Slug Weapons - Pistols</h2>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Neartek-Pistols Islands</td><td>Mabscott</td><td>Western Islands Alliance</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Colchis Killers</td><td>New Colchis</td><td>New Colchis Business Board</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Lacamp Lead</td><td>Lacamp</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Gunripped Guns</td><td>Gunripped</td><td>Gunripped Stellar Empire</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Berrsburg Armoury</td><td>Berrysburg</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>bakersville Ballistics</td><td>Bakersville</td><td>Intercourse Subsector Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Kills Bril</td><td>Brill</td><td>Kotlik Tribunal</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Hammers from Hermleigh</td><td>Hermleigh</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>New Home New Weapons</td><td>New Home</td><td>Old Islands Defense League</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Bro ur Naught gunna Bullteave this</td><td>Bronaugh</td><td>United Baronies</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+        <h2>Slug Weapons - Rifles</h2>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Neartek-Rifles Islands</td><td>Mabscott</td><td>Western Islands Alliance</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Morriston Munintions</td><td>Morriston</td><td>Rex van der Ostrovski</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Hartland Rifles</td><td>Hartland</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Doswell Dukels</td><td>Doswell</td><td>Ionia-Waskish Trade Pact</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Ulson and Fathers</td><td>Holmen</td><td>Rex can der Ostrovski</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
 
-            <p>Solid</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Bioverativ</td><td>Uphitera</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Unichem</td><td>Sar-Tan</td><td>Sar-Tan Confederacy</td></tr>
-                            <tr id="tableInfo"><td>Locus</td><td>Immokalee</td><td>Spiritwood Senate</td></tr>
-                            <tr id="tableInfo"><td>Proteolix</td><td>Kenduskeag</td><td>United Baronies</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+<div>
+    <h3>Recreational Substances</h3>
+    <p>Gas</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Praxiar Kush</td><td>Nappanee</td><td>OIDL</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
 
-            <p>Liquid</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Anheuser Ricard</td><td>Ventura</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Kirin Yanghe</td><td>Nuremberg</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Molson-Heineken Group Holdings</td><td>Thendara</td><td>Intercourse Sector Trade Pact</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Private Military Companies</h3>
-            <p></p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Unity Resources Group</td><td>Hume</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Triple Grunmman Services</td><td>Esperanza</td><td>Esperanza Planetary Government</td></tr>
-                            <tr id="tableInfo"><td>Halogen Security</td><td>Eveleth</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Integrated Risk Management Service</td><td>Joyuse</td><td>Independent Defense Federation</td></tr>
-                            <tr id="tableInfo"><td>Aegus Defense Services</td><td>Nappanee</td><td>Old Islands Defense League</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Emergency Services</h3>
-            <p>Fuel Rescue</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Sause-Teekay Corp</td><td>Saltsburg</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Arrow-Euronav</td><td>Seyonus</td><td>Gunipped Stellar Empire</td></tr>
-                            <tr id="tableInfo"><td>Coletta's Tankers</td><td>Formoso</td><td>Western Islands Commune</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-            <p>Emergency Rescue/Repair</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Omega Wrecker Services</td><td>Lavernia</td><td>Spiritwood Senate</td></tr>
-                            <tr id="tableInfo"><td>Sectorwide Rescue</td><td>Kosse</td><td>Jeffers-Kosse Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>Coady's Repair</td><td>Fishertown</td><td>Western Islands Trade Consortium</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-            <p>Police</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Acadie Highway Police</td><td>Amondiage</td><td>Old Islands Defense League</td></tr>
-                            <tr id="tableInfo"><td>Gardow</td><td>Garrisonville</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>G4Si</td><td>Red Rock</td><td>Red Rock Republic</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-            <p>Other Emergency Services</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>United Health Group</td><td>Aquebogue</td><td>Citra Subsector Trade Constortium</td></tr>
-                            <tr id="tableInfo"><td>Cardinal Health Inc.</td><td>Etty</td><td>United Baronies</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Fuel Depo Companies</h3>
-            <p></p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>Gazprim Mobil</td><td>Henefer</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>National Shell Fuels</td><td>Quasqueton</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Royal Chevron</td><td>Uncode</td><td>Mainhair Military Republic</td></tr>
-                            <tr id="tableInfo"><td>ConocoEquinor</td><td>Sargents</td><td>Cirta Sector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>PhillipEni</td><td>Bouse</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Irving-Wilson Fuel Group</td><td>Delrey</td><td>Kotlik Tribunal</td></tr>
-                            <tr id="tableInfo"><td> Sunolca</td><td>Seco</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Pepsan</td><td>Moncut</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Getty Gaz</td><td>Uphitera</td><td>Western Islands Commune </td></tr>
-                            <tr id="tableInfo"><td>Cost-Cutter Fuel</td><td>Richey</td><td>Red Rock Republic</td></tr>
-                            <tr id="tableInfo"><td>Nisa Stores</td><td>Seco</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Tasco</td><td>Jonancy</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>11-7</td><td>New Colchis</td><td>New Colchis Business Board</td></tr>
-                            <tr id="tableInfo"><td>Commune COOP</td><td>Thibodaux</td><td>Western Islands Commune</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Shipping</h3>
-            <p>Local Clustesr</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>LocNav</td><td>Kirksey</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Serendip Central</td><td>Serendip Belt</td><td>Independent Defense Federation</td></tr>
-                            <tr id="tableInfo"><td>Ewals Cargo Care</td><td>Marchand</td><td>United Baronies</td></tr>
-                            <tr id="tableInfo"><td>Foreland Shipping</td><td>Evotis</td><td>Tilova Pact</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+    <p>Solid</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Bioverativ</td><td>Uphitera</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Unichem</td><td>Sar-Tan</td><td>Sar-Tan Confederacy</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Locus</td><td>Immokalee</td><td>Spiritwood Senate</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Proteolix</td><td>Kenduskeag</td><td>United Baronies</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
 
-            <p>Subsector</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>SubNav</td><td>Kirksey</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Bank Line</td><td>Esperanza</td><td>Esperanza Planetary Government</td></tr>
-                            <tr id="tableInfo"><td>Maton Group</td><td>Lightfoot</td><td>Citra Sector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Grimaldi Hai Lines</td><td>Simla</td><td>Harwichport-Simla-Parcol Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>X-Press Delivery</td><td>Pulcifer</td><td>Intercourse Islands Trade Constrium</td></tr>
-                            <tr id="tableInfo"><td>Colchis Lines</td><td>Colchis</td><td>Old Islands Defense League</td></tr>
-                            <tr id="tableInfo"><td>Via US</td><td>Kerkhoven</td><td>Western Islands Trade Constrium</td></tr>
-                            <tr id="tableInfo"><td>New Colchis Trade</td><td>New Colchis</td><td>New Colchis Business Board</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+    <p>Liquid</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Anheuser Ricard</td><td>Ventura</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Kirin Yanghe</td><td>Nuremberg</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Molson-Heineken Group Holdings</td><td>Thendara</td><td>Intercourse Sector Trade Pact</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+<div>
+    <h3>Private Military Companies</h3>
+    <p></p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Unity Resources Group</td><td>Hume</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Triple Grunmman Services</td><td>Esperanza</td><td>Esperanza Planetary Government</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Halogen Security</td><td>Eveleth</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Integrated Risk Management Service</td><td>Joyuse</td><td>Independent Defense Federation</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Aegus Defense Services</td><td>Nappanee</td><td>Old Islands Defense League</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+<div>
+    <h3>Emergency Services</h3>
+    <p>Fuel Rescue</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Sause-Teekay Corp</td><td>Saltsburg</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Arrow-Euronav</td><td>Seyonus</td><td>Gunipped Stellar Empire</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Coletta's Tankers</td><td>Formoso</td><td>Western Islands Commune</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+    <p>Emergency Rescue/Repair</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Omega Wrecker Services</td><td>Lavernia</td><td>Spiritwood Senate</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Sectorwide Rescue</td><td>Kosse</td><td>Jeffers-Kosse Trade Pact</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Coady's Repair</td><td>Fishertown</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+    <p>Police</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Acadie Highway Police</td><td>Amondiage</td><td>Old Islands Defense League</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Gardow</td><td>Garrisonville</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>G4Si</td><td>Red Rock</td><td>Red Rock Republic</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+    <p>Other Emergency Services</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>United Health Group</td><td>Aquebogue</td><td>Citra Subsector Trade Constortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Cardinal Health Inc.</td><td>Etty</td><td>United Baronies</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+<div>
+    <h3>Fuel Depo Companies</h3>
+    <p></p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>Gazprim Mobil</td><td>Henefer</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>National Shell Fuels</td><td>Quasqueton</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Royal Chevron</td><td>Uncode</td><td>Mainhair Military Republic</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>ConocoEquinor</td><td>Sargents</td><td>Cirta Sector Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>PhillipEni</td><td>Bouse</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Irving-Wilson Fuel Group</td><td>Delrey</td><td>Kotlik Tribunal</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td> Sunolca</td><td>Seco</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Pepsan</td><td>Moncut</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Getty Gaz</td><td>Uphitera</td><td>Western Islands Commune </td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Cost-Cutter Fuel</td><td>Richey</td><td>Red Rock Republic</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Nisa Stores</td><td>Seco</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Tasco</td><td>Jonancy</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>11-7</td><td>New Colchis</td><td>New Colchis Business Board</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Commune COOP</td><td>Thibodaux</td><td>Western Islands Commune</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+<div>
+    <h3>Shipping</h3>
+    <p>Local Clustesr</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>LocNav</td><td>Kirksey</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Serendip Central</td><td>Serendip Belt</td><td>Independent Defense Federation</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Ewals Cargo Care</td><td>Marchand</td><td>United Baronies</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Foreland Shipping</td><td>Evotis</td><td>Tilova Pact</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
 
-            <p>Sectore-Wide</p>
-            <ul>
-                <li>
-                    <table>
-                        <thead style="text-align: center; padding: 5px;">
-                            <tr><th>Name</th><th>Headquarters</th><th>Loyal to</th></tr>
-                        </thead>
-                        <tbody style="color:#ffe81F">
-                            <tr id="tableInfo"><td>SecNav</td><td>Kirksey</td><td>Dominate Supremius</td></tr>
-                            <tr id="tableInfo"><td>Metrolink</td><td>Waskish</td><td>Ionia-Waskish Trade Pact</td></tr>
-                            <tr id="tableInfo"><td>TriLine</td><td>Whippleville</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Take u There</td><td>Fishertown</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Roundsend</td><td>Alstead</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Quik n Safe</td><td>Bellport</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Acadie Highway Runners</td><td>Amondiage</td><td></td></tr>
-                            <tr id="tableInfo"><td>Allliance Allies Movers</td><td>Kingstree</td><td>Western Islands Alliance</td></tr>
-                            <tr id="tableInfo"><td>Citra Subsector Trade Consortium</td><td>Lightfoot</td><td>Cirta Subsector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Intercourse Subsector Trade Consortium</td><td>Pulcifer</td><td>Intercourse Subsector Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Western Islands Trade Consortium</td><td>Kerkhoven</td><td>Western Islands Trade Consortium</td></tr>
-                            <tr id="tableInfo"><td>Commune Freight</td><td>Gassaway</td><td>Western Islands Commune</td></tr>
-                            <tr id="tableInfo"><td>Kings Transport</td><td>Morriston</td><td>Rex van der Ostrovski</td></tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <p>Subsector</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>SubNav</td><td>Kirksey</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Bank Line</td><td>Esperanza</td><td>Esperanza Planetary Government</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Maton Group</td><td>Lightfoot</td><td>Citra Sector Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Grimaldi Hai Lines</td><td>Simla</td><td>Harwichport-Simla-Parcol Trade Pact</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>X-Press Delivery</td><td>Pulcifer</td><td>Intercourse Islands Trade Constrium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Colchis Lines</td><td>Colchis</td><td>Old Islands Defense League</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Via US</td><td>Kerkhoven</td><td>Western Islands Trade Constrium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>New Colchis Trade</td><td>New Colchis</td><td>New Colchis Business Board</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+
+    <p>Sectore-Wide</p>
+    <ul>
+        <li>
+            <table>
+                <thead style="text-align: center; padding: 5px;">
+                <tr>
+                    <th>Name</th><th>Headquarters</th><th>Loyal to</th>
+                </tr>
+                </thead>
+                <tbody style="color:#ffe81F">
+                <tr id="tableInfo">
+                    <td>SecNav</td><td>Kirksey</td><td>Dominate Supremius</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Metrolink</td><td>Waskish</td><td>Ionia-Waskish Trade Pact</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>TriLine</td><td>Whippleville</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Take u There</td><td>Fishertown</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Roundsend</td><td>Alstead</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Quik n Safe</td><td>Bellport</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Acadie Highway Runners</td><td>Amondiage</td><td></td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Allliance Allies Movers</td><td>Kingstree</td><td>Western Islands Alliance</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Citra Subsector Trade Consortium</td><td>Lightfoot</td><td>Cirta Subsector Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Intercourse Subsector Trade Consortium</td><td>Pulcifer</td><td>Intercourse Subsector Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Western Islands Trade Consortium</td><td>Kerkhoven</td><td>Western Islands Trade Consortium</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Commune Freight</td><td>Gassaway</td><td>Western Islands Commune</td>
+                </tr>
+                <tr id="tableInfo">
+                    <td>Kings Transport</td><td>Morriston</td><td>Rex van der Ostrovski</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>
+</div>
 </body>

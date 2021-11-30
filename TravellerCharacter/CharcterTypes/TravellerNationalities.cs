@@ -3,7 +3,7 @@
     public enum TravellerNationalities
     {
         Universalis_Confederation,
-        Wicher, 
+        Wicher,
         United_Federation_of_Earth_and_her_Colonies_Among_the_Stars,
         Luna_Knights,
         Fifth_Vers_Empire,

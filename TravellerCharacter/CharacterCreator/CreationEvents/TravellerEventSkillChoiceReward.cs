@@ -2,15 +2,15 @@
 using System.Text;
 using TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward;
 using TravellerCharacter.CharacterParts;
-using TravellerWiki.Data;
 
 namespace TravellerCharacter.CharacterCreator.CreationEvents
 {
     public class TravellerEventSkillChoiceReward : TravellerEventReward
     {
-        public TravellerEventSkillChoiceReward(string text, List<TravellerSkills> skills) : base(text, new List<TravellerCharacterCreationReward>())
+        public TravellerEventSkillChoiceReward(string text, List<TravellerSkills> skills) : base(text,
+            new List<TravellerCharacterCreationReward>())
         {
-            Reward.Add(new TravellerRewardSkillChoice(1,skills));
+            Reward.Add(new TravellerRewardSkillChoice(1, skills));
         }
 
         public override string ToString()
@@ -22,7 +22,7 @@ namespace TravellerCharacter.CharacterCreator.CreationEvents
 
             foreach (var skill in Reward)
             {
-                sb.Append(skill.ToString());
+                sb.Append(skill);
                 sb.Append(" ");
             }
 

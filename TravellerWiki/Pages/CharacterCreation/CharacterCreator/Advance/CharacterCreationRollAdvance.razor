@@ -1,12 +1,7 @@
 @page "/CharacterCreation/RollAdvancement/{characterID}"
-@using Microsoft.AspNetCore.Html
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.Character_Services.Career_Service
-@using TravellerWiki.Data
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using  TravellerWiki.Pages.CharacterCreation.CharacterCreator;
-@using CharacterCreatorService = TravellerCharacter.CharacterCreator.CharacterCreation.CharacterCreatorService
+@using TravellerCharacter.CharacterCreator.CharacterCreation
 @inject NavigationManager NavManager
 @inject MultiPageCharacterCreationService MultiCharacterCreationService
 @inject TravellerNationsCharacterInfoService nationsService;
@@ -17,6 +12,7 @@
 </head>
 
 @code{
+
     [Parameter]
     public string characterID { get; set; }
 
@@ -27,16 +23,15 @@
 
     public void DoneAdvance()
     {
-
         if (PassedAdvancement) NavManager.NavigateTo($"/CharacterCreation/GetAdvanceSkill/{characterID}/");
         else NavManager.NavigateTo($"/CharacterCreation/LeaveCareer/{characterID}");
     }
 
     public bool RolledAdvancement = false;
-    public bool HasRolled = false;
-    public bool PassedAdvancement = false;
+    public bool HasRolled;
+    public bool PassedAdvancement;
 
-    private int roll = 0;
+    private int roll;
 
 
     public void RollAdvancement()
@@ -46,33 +41,35 @@
         HasRolled = true;
         GetService().GainBenefitForTerm();
     }
+
 }
+
 <body>
 
-    <div>
-        <h1>Traveller Character Creator</h1>
-        <div class="creatorMarkup">
-            <h2>Select @GetService().Name's - Roll Advancement</h2>
-            <label for="CharacterProgress">Character Creation Progress: </label>
-            <progress id="CharacterProgess" value="10" max="17"></progress>
-            <CharacterCreationDrawStats CharacterID="@characterID" />
-            <div style="padding-left: 2em;">
-                <p>
-                    Current Advancement Modifiers: @GetService().AdvancementModifier +
-                    @GetService().GetAttributes.First(x => x.AttributeName == @GetService().LastAssignment.Advancement.AttributeToCheck).AttributeModifier
-                </p>
-                <p>Advancement: @GetService().LastAssignment.Advancement</p>
+<div>
+    <h1>Traveller Character Creator</h1>
+    <div class="creatorMarkup">
+        <h2>Select @GetService().Name's - Roll Advancement</h2>
+        <label for="CharacterProgress">Character Creation Progress: </label>
+        <progress id="CharacterProgess" value="10" max="17"></progress>
+        <CharacterCreationDrawStats CharacterID="@characterID"/>
+        <div style="padding-left: 2em;">
+            <p>
+                Current Advancement Modifiers: @GetService().AdvancementModifier +
+                @GetService().GetAttributes.First(x => x.AttributeName == GetService().LastAssignment.Advancement.AttributeToCheck).AttributeModifier
+            </p>
+            <p>Advancement: @GetService().LastAssignment.Advancement</p>
 
-                <button @onclick="RollAdvancement">Roll Advancement</button>
-                @if (HasRolled)
-                {
-                    <p>You rolled with mods a: @(roll + GetService().GetAttributes.First(x => x.AttributeName == GetService().LastAssignment.Advancement.AttributeToCheck).AttributeModifier)/@GetService().LastAssignment.Advancement [@roll]</p>
-                    <b>@(PassedAdvancement ? "You passed" : "You failed")</b>
-                    <button @onclick="DoneAdvance">
-                        @(PassedAdvancement ? "Get Advance Skill" : "Oh well.")
-                    </button>
-                }
-            </div>
+            <button @onclick="RollAdvancement">Roll Advancement</button>
+            @if (HasRolled)
+            {
+                <p>You rolled with mods a: @(roll + GetService().GetAttributes.First(x => x.AttributeName == GetService().LastAssignment.Advancement.AttributeToCheck).AttributeModifier)/@GetService().LastAssignment.Advancement [@roll]</p>
+                <b>@(PassedAdvancement ? "You passed" : "You failed")</b>
+                <button @onclick="DoneAdvance">
+                    @(PassedAdvancement ? "Get Advance Skill" : "Oh well.")
+                </button>
+            }
         </div>
     </div>
+</div>
 </body>

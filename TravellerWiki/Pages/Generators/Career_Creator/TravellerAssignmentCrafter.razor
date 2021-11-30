@@ -1,28 +1,20 @@
 ﻿@page "/Generators/TravellerAssignmentCrafter"
-
-@using TravellerWiki.Data
-@using System.Linq;
-@using System.Text
 @using TravellerCharacter.Character_Services
 @using TravellerCharacter.CharacterCreator
 @using TravellerCharacter.CharacterCreator.Careers
 @using TravellerCharacter.CharacterCreator.Careers.Character_Creation_Reward
 @using TravellerCharacter.CharacterCreator.Careers.SkillEntry
-@using TravellerWiki.Data.Services
-@using TravellerWiki.Data.Services.CareerService
-@using TravellerWiki.Pages.Generators.Career_Creator
-@using TravellerWiki.Pages.Generators
 @inject TravellerCareerCreatorService CareerCreator
 
 <div style="text-align: center;">
     <h2>Assignment Crafter</h2>
     <form>
         <label for="careerName">Assignment Name: </label>
-        <input type="text" spellcheck="true" @bind="@CareerCreator.AssignmentName" id="careerName" />
-        <br />
+        <input type="text" spellcheck="true" @bind="@CareerCreator.AssignmentName" id="careerName"/>
+        <br/>
         <b>Assignment Description</b>
         <textarea spellcheck="true" @bind="@CareerCreator.AssignmentDescription" cols="40" rows="5">
-</textarea><br />
+</textarea><br/>
         <b>Survival</b>
         @if (CareerCreator.AssignmentSurvival.Count > 0)
         {
@@ -30,9 +22,9 @@
         }
         else
         {
-            <TravellerAttributeCheckCrafter ListToAddTo="CareerCreator.AssignmentSurvival" />
+            <TravellerAttributeCheckCrafter ListToAddTo="CareerCreator.AssignmentSurvival"/>
         }
-        <br />
+        <br/>
         <b>Advancement</b>
         @if (CareerCreator.AssignmentAdvancement.Count > 0)
         {
@@ -40,9 +32,9 @@
         }
         else
         {
-            <TravellerAttributeCheckCrafter ListToAddTo="CareerCreator.AssignmentAdvancement" />
+            <TravellerAttributeCheckCrafter ListToAddTo="CareerCreator.AssignmentAdvancement"/>
         }
-        <br />
+        <br/>
         <TravellerSkillTableCrafter></TravellerSkillTableCrafter>
         <TravellerRankCrafter></TravellerRankCrafter>
         <button type="button" @onclick="AddAssignment">Add Assignment</button>
