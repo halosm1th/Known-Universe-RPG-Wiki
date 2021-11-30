@@ -684,7 +684,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\SubsectorJson\GeneratedSubsectors" />
     <Folder Include="wwwroot\Images\Generated" />
   </ItemGroup>
 

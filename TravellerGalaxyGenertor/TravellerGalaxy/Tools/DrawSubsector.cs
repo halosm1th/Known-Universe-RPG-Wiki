@@ -49,8 +49,6 @@ namespace TravellerMapSystem.Tools
                         {
                             //Get HexCoords
 
-                            DrawLocationText(row, col, fontSize, HEIGHT, WIDTH, font, subsector, brush);
-
                             if (_knownUniverseSubsectorToDraw.Systems[row, col].HasWorld)
                             {
                                 var world =
@@ -160,9 +158,12 @@ namespace TravellerMapSystem.Tools
                 private static Image CreateGrid()
                 {
                     Image retImage = null;
+                    var fontSize = 18;
                     using (var grid = new Image<Rgb24>(xSize, ySize))
                     {
                         var brush = new SolidBrush(Color.White);
+                        var BlackBrush = new SolidBrush(Color.Black);
+                        var font = SystemFonts.CreateFont("Arial", fontSize);
                         grid.Mutate(x => x.Fill(brush, new Rectangle(0, 0, xSize, ySize)));
 
                         for (int row = 0; row < 10; row++)
@@ -170,7 +171,10 @@ namespace TravellerMapSystem.Tools
                             for (int col = 0; col < 8; col++)
                             {
                                 var points = HexToPoints(HEIGHT, row, col);
-                                grid.Mutate(x => x.DrawPolygon(Color.Black,1,points));
+                                grid.Mutate(x => x.DrawPolygon(Color.Black,2,points));
+                                
+
+                                DrawLocationText(row, col, fontSize, HEIGHT, WIDTH, font, grid, BlackBrush);
                             }
                         }
 

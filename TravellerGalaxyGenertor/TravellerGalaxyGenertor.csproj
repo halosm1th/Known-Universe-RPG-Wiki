@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TravellerFactionSystem\TravellerFactionSystem.csproj" />
+      <ProjectReference Include="..\WikiServices\WikiServices.csproj" />
     </ItemGroup>
 
 </Project>

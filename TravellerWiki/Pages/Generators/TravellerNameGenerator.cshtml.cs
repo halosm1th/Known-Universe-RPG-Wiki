@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TravellerCharacter.Character_Services;
 using TravellerWiki.Data;
+using WikiServices.DataServices;
 
 namespace TravellerWiki
 {

@@ -11,11 +11,13 @@ namespace TravellerMapSystem
     {
         public KnownUniverseSubsector[,] Subsectors;
         public string Name;
+        private MapNameLists _nameList;
 
-        public KnownUniverseSector()
+        public KnownUniverseSector(MapNameLists nameLists = MapNameLists.Generic)
         {
             Subsectors = new KnownUniverseSubsector[4,4];
-            Name = KnownUniverseSubsector.GenerateName();
+            Name = KnownUniverseSubsector.GenerateName(nameLists);
+            _nameList = nameLists;
         }
 
         public void GenerateSubsectors(int worldChance = 50)
@@ -25,7 +27,7 @@ namespace TravellerMapSystem
                 for (int x = 0; x < Subsectors.GetLength(1); x++)
                 {
                     Subsectors[y,x] = new KnownUniverseSubsector(x,y);
-                    Subsectors[y,x].GenerateSubsector(worldChance);
+                    Subsectors[y,x].GenerateSubsector(_nameList, worldChance);
                 }
             }
         }

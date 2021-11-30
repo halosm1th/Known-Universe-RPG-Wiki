@@ -10,6 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CharacterCreationTest\CharacterCreationTest.csproj" />
       <ProjectReference Include="..\TravellerCharacter\TravellerCharacter.csproj" />
       <ProjectReference Include="..\TravellerFactionSystem\TravellerFactionSystem.csproj" />
       <ProjectReference Include="..\TravellerWikiInfomationArticles\TravellerWikiInfomationArticles.csproj" />

@@ -1,5 +1,6 @@
 ﻿@page "/Generators/SubsectorGenerator/"
 @using TravellerGalaxyGenertor
+@using TravellerMapSystem
 @using TravellerWiki.Pages.InformationOnSettingsUniverse;
 @inject TravellerSubsectorGeneratorService subsectorGenerator; 
 @inject NavigationManager NavManager
@@ -13,10 +14,11 @@
     
     public string subsectorName;
     private string subsectorID { get; set; }
-    
+
     public void GenerateSubsector()
     {
-        subsectorID = subsectorGenerator.GenerateSubsector(subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
+        //todo make thsia  drop down menu
+        subsectorID = subsectorGenerator.GenerateSubsector(MapNameLists.Versian,subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
         var url = $"/InformationOnSetting/SubsectorInfo/{subsectorID}";
         JsRuntime.InvokeVoidAsync("open", url, "_blank");
     }
@@ -41,8 +43,6 @@
     
     <br/>
     <a href="/Generators/GeneratedSubsectors/">Click to see all generated subsectors.</a>
-    <br/>
-    <a href="/Generators/CreateSubsectorFromJson/">Click here to add a subsector from Json.</a>
 </p>
 
 

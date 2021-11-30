@@ -37,10 +37,10 @@ namespace TravellerGalaxyGenertor
             return Subsectors[id].GenerateSubSectorImage();
         }
 
-        public string GenerateSubsector(string name, int denisity, int minSize = 1, int maxSize = 6)
+        public string GenerateSubsector(MapNameLists nameLists ,string name, int denisity, int minSize = 1, int maxSize = 6)
         {
             var subsector = new KnownUniverseSubsector(name);
-            subsector.GenerateSubsector(denisity,minSize,maxSize);
+            subsector.GenerateSubsector(nameLists, denisity,minSize,maxSize);
 
             return AddSubsector(subsector);
         }

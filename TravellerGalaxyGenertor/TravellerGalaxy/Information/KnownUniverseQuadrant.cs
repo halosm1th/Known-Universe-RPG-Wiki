@@ -23,7 +23,7 @@ namespace TravellerMapSystem
             {
                 for (int x = 0; x < megaSectors.GetLength(1); x++)
                 {
-                    var mega = new KnownUniverseMegaSector(KnownUniverseSubsector.GenerateName(), MEGA_X_SIZE, MEGA_Y_SIZE);
+                    var mega = new KnownUniverseMegaSector(KnownUniverseSubsector.GenerateName(MapNameLists.Generic), MEGA_X_SIZE, MEGA_Y_SIZE);
                     megaSectors[y, x] = mega;
                     mega.GenerateMegaSector(path);
 

@@ -9,10 +9,17 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TravellerMapSystem.Tools;
 using TravellerMapSystem.Worlds;
+using WikiServices.DataServices;
 using Image = SixLabors.ImageSharp.Image;
 
 namespace TravellerMapSystem
 {
+    public enum MapNameLists
+    {
+        Generic,
+        Versian
+    }
+    
     public class KnownUniverseSubsector
     {
         #region Variables
@@ -29,15 +36,19 @@ namespace TravellerMapSystem
             Worlds().Aggregate(BigInteger.Zero, (h, t) => h + (t == null? 0 : BigInteger.Parse(t.Population )));
         
         [JsonIgnore]
-        private static List<string> names = File.ReadAllLines(Directory.GetCurrentDirectory() + "/placeName.txt").ToList();
+        private static List<string> genericNames = File.ReadAllLines(Directory.GetCurrentDirectory() + "/placeName.txt").ToList();
+
+        private static List<string> versianNames =
+            new HighVersianService().Words.Select(x => x.Letters)
+                .ToList();
        // private static List<string> usedNames = new List<string>();
 
         private static Random random = new Random();
 #endregion
         #region Constructor
-        public KnownUniverseSubsector(int x,int y)
+        public KnownUniverseSubsector(int x,int y, MapNameLists nameLists = MapNameLists.Generic)
         {
-            Name = GenerateName() + $" subsector {x},{y}";
+            Name = GenerateName(nameLists) + $" subsector {x},{y}";
             Systems = new KnownUniverseSystem[10, 8];
         }
         
@@ -45,7 +56,7 @@ namespace TravellerMapSystem
         {
             if (string.IsNullOrEmpty(name))
             {
-                name = names[random.Next(0, names.Count)];
+                name = genericNames[random.Next(0, genericNames.Count)];
             }
             
             Name = name;
@@ -75,7 +86,7 @@ namespace TravellerMapSystem
         }
         #endregion
         #region Public Methods
-        public void GenerateSubsector(int worldOdds = 50, int minSystemSize = 1, int maxSystemSize = 21)
+        public void GenerateSubsector(MapNameLists nameList, int worldOdds = 50, int minSystemSize = 1, int maxSystemSize = 21)
         {
             if (maxSystemSize > 51)
             {
@@ -93,7 +104,7 @@ namespace TravellerMapSystem
                 {
                     if (random.Next(0, 101) <= worldOdds)
                     {
-                        Systems[y, x] = new KnownUniverseSystem(x, y, GenerateName(),random.Next(minSystemSize, maxSystemSize));
+                        Systems[y, x] = new KnownUniverseSystem(x, y, GenerateName(nameList),random.Next(minSystemSize, maxSystemSize));
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine(Systems[y, x].ToString());
                     }
@@ -163,9 +174,13 @@ namespace TravellerMapSystem
         }
         #endregion
         #region Static Methods
-        public static string GenerateName()
+        public static string GenerateName(MapNameLists nameLists)
         {
-            var name = names[random.Next(0, names.Count)];
+            string name = "";
+            if (nameLists == MapNameLists.Versian)
+                name =  versianNames[random.Next(0, versianNames.Count)];
+            else  name = genericNames[random.Next(0, genericNames.Count)];
+            
             return name;
         }
         #endregion

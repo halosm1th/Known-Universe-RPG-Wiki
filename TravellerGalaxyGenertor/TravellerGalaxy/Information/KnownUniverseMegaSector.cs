@@ -17,7 +17,7 @@ namespace TravellerMapSystem
             {
                 for (int x = 0; x < xSize; x++)
                 {
-                    var s = new KnownUniverseSuperSector(KnownUniverseSubsector.GenerateName(),x,y,6,6);
+                    var s = new KnownUniverseSuperSector(KnownUniverseSubsector.GenerateName(MapNameLists.Generic),x,y,6,6);
                     supersectors[y, x] = s;
                 }
             }
