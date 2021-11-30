@@ -38,13 +38,13 @@ namespace TravellerWiki
             services.AddSingleton<TravellerVoicesFromTheVoidService>();
             services.AddSingleton<HighVersianService>();
             services.AddSingleton<TravellerItemStoreService>();
-            services.AddSingleton<TravellerNPCService>();
-            services.AddSingleton<TravellerSpecialNPCService>();
-            services.AddSingleton<TravellerNameService>();
-            services.AddSingleton<TravellerNationsCharacterInfoService>();
+            services.AddSingleton<TravellerCharacter.Character_Services.NPC_Services.TravellerNPCService>();
+            services.AddSingleton<TravellerCharacter.Character_Services.NPC_Services.TravellerSpecialNPCService>();
+            services.AddSingleton<TravellerCharacter.Character_Services.TravellerNameService>();
+            services.AddSingleton<TravellerCharacter.Character_Services.TravellerNationsCharacterInfoService>();
             services.AddSingleton<TravellerJobBoardService>();
             services.AddSingleton<TravellerMissionGeneratorService>();
-            services.AddSingleton<TravellerCareerService>();
+            services.AddSingleton<TravellerCharacter.Character_Services.Career_Service.TravellerCareerService>();
             services.AddSingleton<TravellerSkillDisplayService>();
             services.AddSingleton<TravellerFreeFormMagicSystemsService>();
             services.AddSingleton<CharacterCreatorService>();
