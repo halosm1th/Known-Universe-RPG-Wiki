@@ -37,7 +37,16 @@ namespace TravellerGalaxyGenertor
         {
             return Subsectors[id];
         }
+        
+        public Dictionary<string, KnownUniverseSubsector> AllSubsectors()
+        {
+            if (Subsectors.Count > 0)
+            {
+                return Subsectors;
+            }
 
+            return new Dictionary<string, KnownUniverseSubsector>();
+        }
         public string AddSubsector(KnownUniverseSubsector sub)
         {
             var id = (sub.Name.Aggregate(0, (h, t) => h + t) + (int) sub.WorldCount).ToString();

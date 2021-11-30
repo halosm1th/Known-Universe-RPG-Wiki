@@ -1,0 +1,24 @@
+﻿@page "/Generators/GeneratedSubsectors/"
+@using TravellerGalaxyGenertor
+@using TravellerGalaxyGenertor.TravellerGalaxy.Information;
+@inject TravellerSubsectorGeneratorService subsectorGenerator; 
+<title>Generated Subsectors</title>
+<h3>Generated Subsectors</h3>
+
+<p>These are the subsectors which have been generated since the site was last reset.
+
+    <ul>
+        @if (subsectorGenerator.AllSubsectors().Count > 0)
+        {
+            @foreach (var subsector in subsectorGenerator.AllSubsectors())
+            {
+
+                <li><a href="/InformationOnSetting/SubsectorInfo/@subsector.Key">The @subsector.Value.Name Subsector.</a></li>
+            }
+        }
+    </ul>
+</p>
+
+@code {
+    
+}
