@@ -258,6 +258,12 @@ namespace TravellerMapSystem.Worlds
             var worldGenerator = new GenerateTravellerWorld();
             worldGenerator.GenerateWorld(this);
         }
+
+        [JsonConstructor]
+        public TravellerWorld()
+        {
+            
+        }
         #endregion
     
         public string WorldData()

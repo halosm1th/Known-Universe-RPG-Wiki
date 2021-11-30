@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 using SixLabors.ImageSharp;
 using TravellerMapSystem;
 using TravellerMapSystem.Worlds;
@@ -12,7 +14,22 @@ namespace TravellerGalaxyGenertor
 
         public TravellerSubsectorGeneratorService()
         {
-            if(Subsectors == null) Subsectors = new Dictionary<string, KnownUniverseSubsector>();
+            if (Subsectors == null)
+            {
+                Subsectors = new Dictionary<string, KnownUniverseSubsector>();
+                GetGeneratedSubsectors();
+            }
+            
+        }
+
+        public void GetGeneratedSubsectors()
+        {
+            var loc = Directory.GetCurrentDirectory() + "/Data/SubsectorJson/GeneratedSubsectors";
+            var files = Directory.GetFiles(loc, "*.json").ToList();
+            foreach (var file in files)
+            {
+                AddSubsector(File.ReadAllText(file));
+            }
         }
 
         public Image GenerateSubSectorImage(string id)
@@ -50,6 +67,20 @@ namespace TravellerGalaxyGenertor
         public string AddSubsector(KnownUniverseSubsector sub)
         {
             var id = (sub.Name.Aggregate(0, (h, t) => h + t) + (int) sub.WorldCount).ToString();
+            Subsectors.Add(id,sub);
+
+            return id;
+        }
+
+        public string AddSubsector(string json)
+        {
+            var sub = JsonConvert.DeserializeObject<KnownUniverseSubsector>(json,
+                new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.Auto
+                });
+            var id = (sub.Name.Aggregate(0, (h, t) => h + t) + (int) sub.WorldCount).ToString();
+            
             Subsectors.Add(id,sub);
 
             return id;

@@ -143,7 +143,11 @@ namespace TravellerMapSystem
 
         public string Json()
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(this,
+                new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.Auto
+                });
         }
         
         public override string ToString()
