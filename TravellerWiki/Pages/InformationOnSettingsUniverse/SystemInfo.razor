@@ -29,6 +29,7 @@
 
 @if (_system != null){
     <h3>@_system.Name (@_system.X, @_system.Y) [@_system.WorldCount]</h3>
+    <title>@_system.Name (@_system.X, @_system.Y)</title>
     <p>The @_system.Name system is home to @_system.WorldCount worlds, with an average tech level of @_system.AverageTechLevel. Its primary world is: @_system.PrimaryWorld</p>
     <ul>
     @foreach (var world in _system.WorldsInSystem)

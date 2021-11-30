@@ -33,6 +33,7 @@
 
 @if(subsector != null) {
     <div>
+        <title> @subsector.Name Subsector</title>
         <h2> The @subsector.Name Subsector.</h2>
         <p>The @subsector.Name has a popualtion of: @subsector.TotalPopulation.ToString("N0"), spread across @subsector.WorldCount worlds.</p>
         <img alt="the subsector map" src="SubsectorImageGenerator/GetImage/@SubsectorID" width="50%" height="50%"/>
