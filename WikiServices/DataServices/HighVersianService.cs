@@ -164,6 +164,8 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Glor","Glory"),
             new HighVersianDefinition("Ti","Name of/Title"),
             new HighVersianDefinition("Tul","Job/Role/Position"),
+            new HighVersianDefinition("Tel","Over a great distance"),
+            new HighVersianDefinition("Lep","Charm"),
 
 
 
@@ -416,6 +418,13 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Eis","The speaker’s group of people using another group."),
             new HighVersianDefinition("Ois","The thing in use by the speakers’ group."),
             new HighVersianDefinition("Uis","The person being spoken to by the speakers’ group."),
+            
+            new HighVersianDefinition("Aou","An object currently doing to you"),
+            new HighVersianDefinition("Eou","A group which is currently  doing to you"),
+            new HighVersianDefinition("Iou","I am currently doing to you"),
+            new HighVersianDefinition("Uou","Someone else doing to you or you doing to someone else."),
+
+
 
         }.OrderBy(x => x.Letters.First()).ToList();
 
@@ -742,6 +751,13 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Mit","My past tense"),
                 new HighVersianDefinition("Emversium","The vers empire"),
                 new HighVersianDefinition("Honia","(My) honour, the speakers persons honour"),
+                new HighVersianDefinition("Missila", "Short range missile / bullet (implies physical object)"),
+                new HighVersianDefinition("Telsila","Long range missile / Energy Lance (implies energy object)"),
+                new HighVersianDefinition("Magmissila","Magic short range missle."),
+                new HighVersianDefinition("Magtelsila","Magic long range missle."),
+                new HighVersianDefinition("Redvido","Read"),
+                new HighVersianDefinition("Redlegvido","Read a section"),
+
 
 
             };
@@ -752,6 +768,36 @@ namespace WikiServices.DataServices
         public List<HighVersianDefinition> Words => GenerateWords();
 
         private static List<HighVersianDefinition> _words = new List<HighVersianDefinition>();
+
+        public Dictionary<HighVersianDefinition, string> GetAllTerms()
+        {
+            var dict = new Dictionary<HighVersianDefinition, string>();
+
+            foreach (var pre in Prefixes)
+            {
+                dict.Add(pre, "Prefix");
+            }
+            
+            
+            foreach (var root in Roots)
+            {
+                dict.Add(root, "Root");
+            }
+            
+            
+            foreach (var post in Postfixes)
+            {
+                dict.Add(post, "Suffix");
+            }
+            
+            
+            foreach (var word in Words)
+            {
+                dict.Add(word, "Word");
+            }
+            
+            return dict;
+        }
 
 
         private static int cacheHits = 0;

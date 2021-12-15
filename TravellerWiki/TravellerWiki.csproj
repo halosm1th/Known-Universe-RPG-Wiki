@@ -308,6 +308,9 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Content Remove="Data\SubsectorJson\GeneratedSubsectors\Test.json" />
+        <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugeAllTerms.razor">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>

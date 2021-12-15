@@ -17,16 +17,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/SubsectorJson/GeneratedSubsectors/Everly.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/SectorGenerator.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SectorInfo.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SubectorImage.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugeAllTerms.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Versian Careers/TravellerEquitesOrdinisDeorum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Versian Careers/TravellerEquitesOrdinisDeorum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SubsectorInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SubsectorInfo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugeWords.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Langauge Parts/HighVersianLangaugeWords.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -431,13 +426,8 @@
       <workItem from="1638761694589" duration="3658000" />
       <workItem from="1638859453895" duration="2047000" />
       <workItem from="1638992050884" duration="3496000" />
-    </task>
-    <task id="LOCAL-00023" summary="Added two new voices from the void articles, and patched a small bug.">
-      <created>1627368587211</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1627368587211</updated>
+      <workItem from="1639542269236" duration="1247000" />
+      <workItem from="1639591798553" duration="4011000" />
     </task>
     <task id="LOCAL-00024" summary="A small bug allowing companies to now have employees">
       <created>1627437087626</created>
@@ -775,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638397022848</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="added a bunch fo ne stuff, including a subsector syste,!">
+      <created>1639542306245</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1639542306245</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -796,7 +793,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="4.5" />
     <MESSAGE value="4.75" />
     <MESSAGE value="Added anotehr world generator and some code to display stuff." />
     <MESSAGE value="Added a new world type kinda ish, iz cool ngl." />
@@ -821,7 +817,8 @@
     <MESSAGE value="Maybe this fixes a bug?" />
     <MESSAGE value="Added a ton more Versian Lore." />
     <MESSAGE value="Added some picutres, adn finished the EOD lore." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some picutres, adn finished the EOD lore." />
+    <MESSAGE value="added a bunch fo ne stuff, including a subsector syste,!" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a bunch fo ne stuff, including a subsector syste,!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
