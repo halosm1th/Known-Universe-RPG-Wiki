@@ -16,10 +16,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Maybe this fixes a bug?">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/SubsectorJson/GeneratedSubsectors/Everly.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/SectorGenerator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SectorInfo.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SubectorImage.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EquitesOrdinisDeorum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EquitesOrdinisDeorum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Versian Careers/TravellerEquitesOrdinisDeorum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Versian Careers/TravellerEquitesOrdinisDeorum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SubsectorInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/SubsectorInfo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,21 +62,17 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/0/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWikiInfomationArticles/obj/Debug/net5.0/TravellerWikiInfomationArticles.GlobalUsings.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/2D/Environment.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerCharacter/Character Services/TravellerNameService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/37/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57c2d4282221452cad4df86bbd5d6fa0a1fc70/363/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Generators/SubsectorGenerator.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E6E6B40B-308C-4FE1-9C93-7C26C144C865/94/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/10/Cast.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/6B/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1834814c814c4aecb57971718461b2d686e80/40/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/8C/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWikiInfomationArticles/WikiInformationArticles.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57c2d4282221452cad4df86bbd5d6fa0a1fc70/CE/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03bc5283fe494af2bcb7bd96d237878512c400/39/d0d64111/Image.cs" root0="SKIP_HIGHLIGHTING" />
@@ -76,7 +80,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31F94AF4-0455-4C4C-BD4F-AB58A9F2D1BF/1e/72596dbe/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/233E8C8F-0E85-4B63-AE7F-9B374A12D146/A/HtmlRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1834814c814c4aecb57971718461b2d686e80/18/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/WikiServices/DataServices/HighVersianService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/12/HubConnectionHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/168/Future.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/03bc5283fe494af2bcb7bd96d237878512c400/14F/Image{TPixel}.cs" root0="SKIP_HIGHLIGHTING" />
@@ -88,23 +91,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/811d1130feda42d799a309852a934cf729600/E/FontCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E9B0F59C-E0A9-46B8-9667-F96EA18AE0EE/4/ObjectMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/135/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6611c4b3f5284b449d610fe09724517db5870/26/TypeConverter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/262/AsyncValueTaskMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c5eb583d6e9649e89752bc7d54539d561cb480/D2/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba9d728c935c4ac4969671c9208b6dad83070/46/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/16B/Task.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3A/ComponentState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/AD61CA47-F8B7-4CC6-93A0-BA44CC73B5C7/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/29/ComponentHub.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6e6b40b308c4fe19c937c26c144c8658f5388/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterCreationTest/Charcters/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/WikiServices/DataServices/HighVersianService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Generators/Subsector Stuff/SubsectorGenerator.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3F/RendererSynchronizationContextDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
@@ -112,7 +109,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/3E/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/348E7DD4-58A6-4CBB-9BB3-7999DFCB4952/31/CircuitHost.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/1F/RenderHandle.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Thomas/source/repos/halosm1th/Known-Universe-RPG-Wiki/TravellerWiki/Pages/Languages/Language Bits Specific/HighVersianLangaugePrefix.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/11/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/27220A0A-4BB4-48DE-B152-026A74593545/33/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57c2d4282221452cad4df86bbd5d6fa0a1fc70/482/List.cs" root0="SKIP_HIGHLIGHTING" />
@@ -430,20 +426,11 @@
       <workItem from="1637348112587" duration="19268000" />
       <workItem from="1637616255753" duration="31403000" />
       <workItem from="1637902551173" duration="14196000" />
-    </task>
-    <task id="LOCAL-00021" summary="More fixes! still need to readd the faction data tho">
-      <created>1626849924030</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1626849924030</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Some final overhauls to the faciton system, the basics of faction assets added, and some more void news stories!">
-      <created>1627365660522</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1627365660522</updated>
+      <workItem from="1638683550646" duration="1195000" />
+      <workItem from="1638685607345" duration="3236000" />
+      <workItem from="1638761694589" duration="3658000" />
+      <workItem from="1638859453895" duration="2047000" />
+      <workItem from="1638992050884" duration="3496000" />
     </task>
     <task id="LOCAL-00023" summary="Added two new voices from the void articles, and patched a small bug.">
       <created>1627368587211</created>
@@ -774,7 +761,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638255064877</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Added a ton more Versian Lore.">
+      <created>1638335394211</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1638335394211</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Added some picutres, adn finished the EOD lore.">
+      <created>1638397022848</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1638397022848</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,8 +796,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="more linux fun" />
-    <MESSAGE value="Try 4? :(" />
     <MESSAGE value="4.5" />
     <MESSAGE value="4.75" />
     <MESSAGE value="Added anotehr world generator and some code to display stuff." />
@@ -820,7 +819,9 @@
     <MESSAGE value="Wooooooooooooooooooooooooooooooow reformed every file to make it fit jetbrains files" />
     <MESSAGE value="noberbs" />
     <MESSAGE value="Maybe this fixes a bug?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maybe this fixes a bug?" />
+    <MESSAGE value="Added a ton more Versian Lore." />
+    <MESSAGE value="Added some picutres, adn finished the EOD lore." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some picutres, adn finished the EOD lore." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -830,12 +831,6 @@
           <line>200</line>
           <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Pages\Generators\TravellerNPCCrafter.razor" initialLine="197" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -844,12 +839,6 @@
           <line>186</line>
           <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Pages\Generators\TravellerNPCCrafter.razor" initialLine="183" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>

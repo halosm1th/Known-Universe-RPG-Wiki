@@ -35,10 +35,11 @@ namespace TravellerMapSystem.Tools
 
         private void DrawWorlds(Image subsector)
         {
-            var fontSize = 18;
+            var fontSize = 16;
 
             var brush = new SolidBrush(Color.Black);
-            var font = SystemFonts.CreateFont("Arial", fontSize);
+            var fontWorld = SystemFonts.CreateFont("High Versian", fontSize);
+            var fontRest = SystemFonts.CreateFont("Arial", fontSize+2);
 
             for (var row = 0; row < _knownUniverseSubsectorToDraw.Systems.GetLength(0); row++)
             for (var col = 0; col < _knownUniverseSubsectorToDraw.Systems.GetLength(1); col++)
@@ -48,10 +49,10 @@ namespace TravellerMapSystem.Tools
                 {
                     var world =
                         _knownUniverseSubsectorToDraw.Systems[row, col].PrimaryWorld as TravellerWorld;
-                    DrawSystemName(row, col, fontSize, HEIGHT, WIDTH, font, subsector, brush);
-                    DrawUniversalWorldProfile(HEIGHT, row, col, WIDTH, font, subsector, brush, world);
+                    DrawSystemName(row, col, fontSize, HEIGHT, WIDTH, fontWorld, subsector, brush);
+                    DrawUniversalWorldProfile(HEIGHT, row, col, WIDTH, fontRest, subsector, brush, world);
 
-                    DrawSystemStation(subsector, row, col, fontSize, world, font, brush);
+                    DrawSystemStation(subsector, row, col, fontSize, world, fontRest, brush);
                 }
         }
 
@@ -66,7 +67,7 @@ namespace TravellerMapSystem.Tools
             var text = $"{world.Stations}".ToUpper();
 
             var x = col * (WIDTH * 0.75f);
-            x += WIDTH / 2 - text.Length * Font.Size / 2.5f;
+            x += WIDTH / 2 - text.Length * Font.Size / 2.8f;
             x += Font.Size;
 
             subsector.Mutate(ctx => ctx.DrawText(text, Font, brush, new PointF(x, y)));
@@ -83,7 +84,7 @@ namespace TravellerMapSystem.Tools
             if (col % 2 == 1) y += height / 2;
 
             var x = col * (width * 0.75f);
-            x += width / 2 - text.Length * Font.Size / 4.0f;
+            x += width / 2 - text.Length * Font.Size / 4.5f;
 
             graphics.Mutate(ctx => ctx.DrawText(text, Font, brush, new PointF(x, y)));
         }

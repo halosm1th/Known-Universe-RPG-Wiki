@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using SixLabors.ImageSharp;
 
 namespace TravellerMapSystem
@@ -9,10 +11,25 @@ namespace TravellerMapSystem
         public string Name;
         public KnownUniverseSubsector[,] Subsectors;
 
+        public Dictionary<string, string> SubsectorNames { get; }
+
+        public int WorldCount => Subsectors.Cast<List<KnownUniverseSubsector>>()
+            .Aggregate(0, (h, t) => h +
+                                    t.Aggregate(0, (h, t) => h + WorldCount));
+
         public KnownUniverseSector(MapNameLists nameLists = MapNameLists.Generic)
         {
             Subsectors = new KnownUniverseSubsector[4, 4];
             Name = KnownUniverseSubsector.GenerateName(nameLists);
+            SubsectorNames = new Dictionary<string, string>();
+            _nameList = nameLists;
+        }
+        
+        public KnownUniverseSector(string name, MapNameLists nameLists = MapNameLists.Generic)
+        {
+            Subsectors = new KnownUniverseSubsector[4, 4];
+            Name = name;
+            SubsectorNames = new Dictionary<string, string>();
             _nameList = nameLists;
         }
 

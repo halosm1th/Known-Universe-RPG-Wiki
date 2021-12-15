@@ -31,7 +31,9 @@ namespace TravellerCharacter.Character_Services.Career_Service.Versian_Careers
                 new TravellerRewardItem(new List<TravellerItem>
                 {
                     TravellerItemStoreService.GetItemStatic("Versian Citizenship"),
-                    TravellerItemStoreService.GetItemStatic("Ordinis Void Blade"),
+                    TravellerItemStoreService.GetItemStatic("Knights Void Blade"),
+                    TravellerItemStoreService.GetItemStatic("Knights Pistol"),
+                    TravellerItemStoreService.GetItemStatic("Titles Cape"),
                     TravellerItemStoreService.GetItemStatic("Ordinis Armour")
                 }),
                 new TravellerRewardSkill(new List<TravellerSkill>
@@ -89,8 +91,8 @@ namespace TravellerCharacter.Character_Services.Career_Service.Versian_Careers
                 new List<TravellerAssignment>
                 {
                     new(
-                        "Order of Offense",
-                        "You are the defenders of the faith, you use the powers of the planes to keep the Empire safe and your lord in power.",
+                        "Oath of Knightly Service",
+                        "You are the defenders of the Knighthood, you use the powers of the planes to keep the Empire safe and your lord in power, and to expand your own honour, while protecting your brother knghts..",
                         new TravellerAttributeCheck(Psionics, 8),
                         new TravellerAttributeCheck(Strength, 8),
                         new List<TravellerSkillTableEntry>
@@ -120,8 +122,8 @@ namespace TravellerCharacter.Character_Services.Career_Service.Versian_Careers
                         }),
 
                     new(
-                        "Order of Defense",
-                        "You are the defenders of your Brothers. You use powers from beyond the material, as well as a deeper understanding of science and medicine to help keep those in the order alive and well defended.",
+                        "Oath of Service to the Gods",
+                        "You are the defenders of your Brothers. You use powers from the gods, as well as a deeper understanding of science and medicine to help keep those in the order alive and well defended. ",
                         new TravellerAttributeCheck(Psionics, 8),
                         new TravellerAttributeCheck(Endurance, 6),
                         new List<TravellerSkillTableEntry>
@@ -151,8 +153,8 @@ namespace TravellerCharacter.Character_Services.Career_Service.Versian_Careers
                         }),
 
                     new(
-                        "Order of Utility",
-                        "The order of utility, the largest of the orders, if you join the Order of Utility you develop the support position for your fellow knights. While Defense and Offense may be leading the charge on the battlefield, Utility is decoding the enemies battle plans while simultaneously other operatives schmooze the opposing leaders.",
+                        "Oath To the Mages Guild",
+                        "You serve the Mages Guild, in doing so you go undercover and root out issues, taking care of issues as they arise, whatever the enviroment.",
                         new TravellerAttributeCheck(Psionics, 8),
                         new TravellerAttributeCheck(Education, 8),
                         new List<TravellerSkillTableEntry>

@@ -1,0 +1,16 @@
+﻿@page "/SubsectorImage/{SubsectorID}/{Width}/{Height}"
+@using TravellerGalaxyGenertor
+@inject TravellerSubsectorGeneratorService subsectorGenerator; 
+<img alt="the subsector map" src="SubsectorImageGenerator/GetImage/@SubsectorID" width="@Width%" height="@Height%"/>
+@code{
+
+    [Parameter]
+    public string SubsectorID { get; set; }
+
+    [Parameter]
+    public int Width { get; set; } = 50;
+
+    [Parameter]
+    public int Height { get; set; } = 50;
+
+}

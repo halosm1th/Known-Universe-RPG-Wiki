@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
@@ -20,6 +21,7 @@ namespace TravellerGalaxyGenertor
         }
 
         private static Dictionary<string, KnownUniverseSubsector> Subsectors { get; set; }
+        private static Dictionary<string, KnownUniverseSector> Sectors { get; set; }
 
         public void GetGeneratedSubsectors()
         {
@@ -42,9 +44,22 @@ namespace TravellerGalaxyGenertor
             return AddSubsector(subsector);
         }
 
+        public string GenerateSector(string name)
+        {
+            var sector = new KnownUniverseSector(name);
+            sector.GenerateSubsectors();
+
+            return AddSector(sector);
+        }
+
         public static KnownUniverseSystem GetSystem(string subsectorID, int x, int y)
         {
             return Subsectors[subsectorID].GetSystem(x, y);
+        }
+        
+        public KnownUniverseSector GetSector(string id)
+        {
+            return Sectors[id];
         }
 
         public KnownUniverseSubsector GetSubsector(string id)
@@ -64,6 +79,20 @@ namespace TravellerGalaxyGenertor
             var id = (sub.Name.Aggregate(0, (h, t) => h + t) + (int)sub.WorldCount).ToString();
             Subsectors.Add(id, sub);
 
+            return id;
+        }
+        
+        public string AddSector(KnownUniverseSector sub)
+        {
+            var id = (sub.Name.Aggregate(0, (h, t) => h + t) + (int)sub.WorldCount).ToString();
+            Sectors.Add(id, sub);
+
+            foreach (var subsector in sub.Subsectors)
+            {
+                var subsectorID = AddSubsector(subsector);
+                sub.SubsectorNames.Add(subsectorID,subsector.Name);
+            }
+            
             return id;
         }
 

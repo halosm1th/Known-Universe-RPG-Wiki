@@ -1,0 +1,3255 @@
+﻿{
+  "Name": "Everly",
+  "Systems": [
+    [
+      {
+        "X": 0,
+        "Y": 0,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 0,
+        "HasWorld": true,
+        "Name": "AUCTUMBRIE",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 6,
+            "WorldName": "AUCTUMBRIE.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A63D577-7",
+            "Stations": "  O +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 3,
+            "WorldHydrographics": 13,
+            "WorldPopulation": 5,
+            "WorldFactionCount": 3,
+            "WorldQuirk": 2,
+            "WorldTemperature": 1,
+            "Factions": [
+              {
+                "Item1": 5,
+                "Item2": 2,
+                "Item3": "Bank of Esperanza"
+              },
+              {
+                "Item1": 13,
+                "Item2": 0,
+                "Item3": "Safe and Singer Sound Armour"
+              },
+              {
+                "Item1": 8,
+                "Item2": 1,
+                "Item3": "D-Liver Some Lead"
+              }
+            ],
+            "Population": "75450",
+            "GovernmentType": 7,
+            "LawLevel": 7,
+            "TechLevel": 7,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 1,
+            "CurrentRelationship": 7,
+            "ContactPoint": 2,
+            "LocationType": 3,
+            "OccupiedBy": "Trigger-happy scavengers",
+            "Situation": "Meddling with strange tech",
+            "WorldType": "Point of Interest",
+            "Name": "AUCTUMBRIE.2",
+            "Population": "758713107",
+            "TechLevel": 1,
+            "WorldNumber": 2
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 2,
+            "WorldName": "AUCTUMBRIE.3",
+            "WorldType": "Traveller world",
+            "WorldNumber": 3,
+            "WorldControllingFaction": 0,
+            "UWP": "A2794D1-4",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 7,
+            "WorldHydrographics": 9,
+            "WorldPopulation": 4,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 10,
+            "WorldTemperature": 1,
+            "Factions": [
+              {
+                "Item1": 13,
+                "Item2": 4,
+                "Item3": "Communist Belters Retail"
+              },
+              {
+                "Item1": 2,
+                "Item2": 2,
+                "Item3": "Southern Defensive Emporium"
+              }
+            ],
+            "Population": "7288",
+            "GovernmentType": 13,
+            "LawLevel": 1,
+            "TechLevel": 4,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 4,
+        "TotalPopulation": 758795845,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 6,
+          "WorldName": "AUCTUMBRIE.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A63D577-7",
+          "Stations": "  O +",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 3,
+          "WorldHydrographics": 13,
+          "WorldPopulation": 5,
+          "WorldFactionCount": 3,
+          "WorldQuirk": 2,
+          "WorldTemperature": 1,
+          "Factions": [
+            {
+              "Item1": 5,
+              "Item2": 2,
+              "Item3": "Bank of Esperanza"
+            },
+            {
+              "Item1": 13,
+              "Item2": 0,
+              "Item3": "Safe and Singer Sound Armour"
+            },
+            {
+              "Item1": 8,
+              "Item2": 1,
+              "Item3": "D-Liver Some Lead"
+            }
+          ],
+          "Population": "75450",
+          "GovernmentType": 7,
+          "LawLevel": 7,
+          "TechLevel": 7,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 2,
+        "Y": 0,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 3,
+        "Y": 0,
+        "HasWorld": true,
+        "Name": "MIO",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 0,
+            "WorldName": "MIO.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "E000A4F-6",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 0,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 10,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 20,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 14,
+                "Item2": 4,
+                "Item3": "Thendara Trade Bank"
+              }
+            ],
+            "Population": "9726460806",
+            "GovernmentType": 4,
+            "LawLevel": 15,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 1,
+        "AverageTechLevel": 6,
+        "TotalPopulation": 9726460806,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 0,
+          "WorldName": "MIO.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "E000A4F-6",
+          "Stations": "  O  ",
+          "WorldStarportQuality": 14,
+          "WorldAtmosphere": 0,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 10,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 20,
+          "WorldTemperature": 3,
+          "Factions": [
+            {
+              "Item1": 14,
+              "Item2": 4,
+              "Item3": "Thendara Trade Bank"
+            }
+          ],
+          "Population": "9726460806",
+          "GovernmentType": 4,
+          "LawLevel": 15,
+          "TechLevel": 6,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 4,
+        "Y": 0,
+        "HasWorld": true,
+        "Name": "COMPOSITAE",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 10,
+            "WorldName": "COMPOSITAE.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "EA38384-6",
+            "Stations": "  O +",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 3,
+            "WorldHydrographics": 8,
+            "WorldPopulation": 3,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 10,
+            "WorldTemperature": 0,
+            "Factions": [
+              {
+                "Item1": 5,
+                "Item2": 1,
+                "Item3": "Barnwell Electric Comments Industries."
+              }
+            ],
+            "Population": "345",
+            "GovernmentType": 8,
+            "LawLevel": 4,
+            "TechLevel": 6,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 2,
+            "CurrentRelationship": 6,
+            "ContactPoint": 6,
+            "LocationType": 0,
+            "OccupiedBy": "Eccentric oligarch and minions",
+            "Situation": "Supply base for pirates",
+            "WorldType": "Point of Interest",
+            "Name": "COMPOSITAE.2",
+            "Population": "7975067",
+            "TechLevel": 6,
+            "WorldNumber": 2
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 6,
+        "TotalPopulation": 7975412,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 10,
+          "WorldName": "COMPOSITAE.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "EA38384-6",
+          "Stations": "  O +",
+          "WorldStarportQuality": 14,
+          "WorldAtmosphere": 3,
+          "WorldHydrographics": 8,
+          "WorldPopulation": 3,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 10,
+          "WorldTemperature": 0,
+          "Factions": [
+            {
+              "Item1": 5,
+              "Item2": 1,
+              "Item3": "Barnwell Electric Comments Industries."
+            }
+          ],
+          "Population": "345",
+          "GovernmentType": 8,
+          "LawLevel": 4,
+          "TechLevel": 6,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 5,
+        "Y": 0,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 6,
+        "Y": 0,
+        "HasWorld": true,
+        "Name": "DAEMAGI",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 5,
+            "WorldName": "DAEMAGI.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A5C3689-6",
+            "Stations": "     ",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 12,
+            "WorldHydrographics": 3,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 22,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 14,
+                "Item2": 2,
+                "Item3": "Kotlik Tribunal"
+              },
+              {
+                "Item1": 0,
+                "Item2": 5,
+                "Item3": "Mabton Pharmaceuticals Ltd."
+              }
+            ],
+            "Population": "372830",
+            "GovernmentType": 8,
+            "LawLevel": 9,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": false,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 5,
+            "WorldName": "DAEMAGI.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "D5E04D0-0",
+            "Stations": "*    ",
+            "WorldStarportQuality": 13,
+            "WorldAtmosphere": 14,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 4,
+            "WorldFactionCount": 3,
+            "WorldQuirk": 34,
+            "WorldTemperature": 1,
+            "Factions": [
+              {
+                "Item1": 1,
+                "Item2": 3,
+                "Item3": "Ionia Spinal Weapons"
+              },
+              {
+                "Item1": 0,
+                "Item2": 1,
+                "Item3": "His Magesties Construction"
+              },
+              {
+                "Item1": 11,
+                "Item2": 5,
+                "Item3": "Moncut Turrets"
+              }
+            ],
+            "Population": "8181",
+            "GovernmentType": 13,
+            "LawLevel": 0,
+            "TechLevel": 0,
+            "MilitaryBase": false,
+            "GasGiant": false,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 5,
+            "CurrentRelationship": 3,
+            "ContactPoint": 2,
+            "LocationType": 6,
+            "OccupiedBy": "Miserable gas-miner slaves or serfs",
+            "Situation": "Alien remnants were found",
+            "WorldType": "Point of Interest",
+            "Name": "DAEMAGI.3",
+            "Population": "3601527",
+            "TechLevel": 6,
+            "WorldNumber": 3
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 4,
+        "TotalPopulation": 3982538,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 5,
+          "WorldName": "DAEMAGI.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A5C3689-6",
+          "Stations": "     ",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 12,
+          "WorldHydrographics": 3,
+          "WorldPopulation": 6,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 22,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 14,
+              "Item2": 2,
+              "Item3": "Kotlik Tribunal"
+            },
+            {
+              "Item1": 0,
+              "Item2": 5,
+              "Item3": "Mabton Pharmaceuticals Ltd."
+            }
+          ],
+          "Population": "372830",
+          "GovernmentType": 8,
+          "LawLevel": 9,
+          "TechLevel": 6,
+          "MilitaryBase": false,
+          "GasGiant": false,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 7,
+        "Y": 0,
+        "HasWorld": true,
+        "Name": "DAEMES",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 6,
+            "WorldName": "DAEMES.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A6392E4-0",
+            "Stations": "  O +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 3,
+            "WorldHydrographics": 9,
+            "WorldPopulation": 2,
+            "WorldFactionCount": 3,
+            "WorldQuirk": 7,
+            "WorldTemperature": 1,
+            "Factions": [
+              {
+                "Item1": 1,
+                "Item2": 0,
+                "Item3": "Hard Hat's from Hume"
+              },
+              {
+                "Item1": 13,
+                "Item2": 3,
+                "Item3": "Our Way to Help"
+              },
+              {
+                "Item1": 4,
+                "Item2": 3,
+                "Item3": "Honest Hume's Humans"
+              }
+            ],
+            "Population": "51",
+            "GovernmentType": 14,
+            "LawLevel": 4,
+            "TechLevel": 0,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 1,
+            "StarsWithoutNumberCurrentRelationship": 6,
+            "StarsWithoutNumberContactPoint": 0,
+            "Atmosphere": 0,
+            "Temperature": 3,
+            "Biosphere": 1,
+            "PopulationOutline": 0,
+            "Name": "DAEMES.2",
+            "WorldNumber": 2,
+            "WorldType": "SWN World",
+            "Population": "1",
+            "TechLevel": 1
+          }
+        ],
+        "WorldCount": 2,
+        "TotalPopulation": 52,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 6,
+          "WorldName": "DAEMES.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A6392E4-0",
+          "Stations": "  O +",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 3,
+          "WorldHydrographics": 9,
+          "WorldPopulation": 2,
+          "WorldFactionCount": 3,
+          "WorldQuirk": 7,
+          "WorldTemperature": 1,
+          "Factions": [
+            {
+              "Item1": 1,
+              "Item2": 0,
+              "Item3": "Hard Hat's from Hume"
+            },
+            {
+              "Item1": 13,
+              "Item2": 3,
+              "Item3": "Our Way to Help"
+            },
+            {
+              "Item1": 4,
+              "Item2": 3,
+              "Item3": "Honest Hume's Humans"
+            }
+          ],
+          "Population": "51",
+          "GovernmentType": 14,
+          "LawLevel": 4,
+          "TechLevel": 0,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 1,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 1,
+        "HasWorld": true,
+        "Name": "TONITRUA",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 6,
+            "WorldName": "TONITRUA.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "D6481C4-3",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 13,
+            "WorldAtmosphere": 4,
+            "WorldHydrographics": 8,
+            "WorldPopulation": 1,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 27,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 12,
+                "Item2": 5,
+                "Item3": "Busters Baby-Tainment Toys"
+              }
+            ],
+            "Population": "4",
+            "GovernmentType": 12,
+            "LawLevel": 4,
+            "TechLevel": 3,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          }
+        ],
+        "WorldCount": 1,
+        "AverageTechLevel": 3,
+        "TotalPopulation": 4,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 6,
+          "WorldName": "TONITRUA.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "D6481C4-3",
+          "Stations": "* O  ",
+          "WorldStarportQuality": 13,
+          "WorldAtmosphere": 4,
+          "WorldHydrographics": 8,
+          "WorldPopulation": 1,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 27,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 12,
+              "Item2": 5,
+              "Item3": "Busters Baby-Tainment Toys"
+            }
+          ],
+          "Population": "4",
+          "GovernmentType": 12,
+          "LawLevel": 4,
+          "TechLevel": 3,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 2,
+        "Y": 1,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 3,
+        "Y": 1,
+        "HasWorld": true,
+        "Name": "MINACES",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 1,
+            "WorldName": "MINACES.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "C1E0990-1",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 12,
+            "WorldAtmosphere": 14,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 9,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 11,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 1,
+                "Item2": 4,
+                "Item3": "Imperial Droids"
+              },
+              {
+                "Item1": 4,
+                "Item2": 4,
+                "Item3": "Sustone Robotics"
+              }
+            ],
+            "Population": "880120780",
+            "GovernmentType": 9,
+            "LawLevel": 0,
+            "TechLevel": 1,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 0,
+            "WorldName": "MINACES.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "A0003B8-3",
+            "Stations": "     ",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 0,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 3,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 15,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 9,
+                "Item2": 0,
+                "Item3": "Schallere Toys"
+              }
+            ],
+            "Population": "316",
+            "GovernmentType": 11,
+            "LawLevel": 8,
+            "TechLevel": 3,
+            "MilitaryBase": false,
+            "GasGiant": false,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 3,
+            "CurrentRelationship": 4,
+            "ContactPoint": 7,
+            "LocationType": 6,
+            "OccupiedBy": "Scrappers in the ruined old mine",
+            "Situation": "Alien remnants were found",
+            "WorldType": "Point of Interest",
+            "Name": "MINACES.3",
+            "Population": "16433946",
+            "TechLevel": 5,
+            "WorldNumber": 3
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 3,
+        "TotalPopulation": 896555042,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 1,
+          "WorldName": "MINACES.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "C1E0990-1",
+          "Stations": "* O  ",
+          "WorldStarportQuality": 12,
+          "WorldAtmosphere": 14,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 9,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 11,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 1,
+              "Item2": 4,
+              "Item3": "Imperial Droids"
+            },
+            {
+              "Item1": 4,
+              "Item2": 4,
+              "Item3": "Sustone Robotics"
+            }
+          ],
+          "Population": "880120780",
+          "GovernmentType": 9,
+          "LawLevel": 0,
+          "TechLevel": 1,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 4,
+        "Y": 1,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 1,
+        "HasWorld": true,
+        "Name": "AURA",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 2,
+            "WorldName": "AURA.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "B2A86D0-1",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 11,
+            "WorldAtmosphere": 10,
+            "WorldHydrographics": 8,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 2,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 8,
+                "Item2": 3,
+                "Item3": "Free Robotiks Movement"
+              },
+              {
+                "Item1": 2,
+                "Item2": 3,
+                "Item3": "Royal Garbs"
+              }
+            ],
+            "Population": "576211",
+            "GovernmentType": 13,
+            "LawLevel": 0,
+            "TechLevel": 1,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 3,
+            "CurrentRelationship": 1,
+            "ContactPoint": 0,
+            "LocationType": 0,
+            "OccupiedBy": "Deranged but brilliant scientist",
+            "Situation": "Vault for dangerous pretech",
+            "WorldType": "Point of Interest",
+            "Name": "AURA.2",
+            "Population": "6119431",
+            "TechLevel": 9,
+            "WorldNumber": 2
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 5,
+            "StarsWithoutNumberCurrentRelationship": 0,
+            "StarsWithoutNumberContactPoint": 3,
+            "Atmosphere": 3,
+            "Temperature": 3,
+            "Biosphere": 1,
+            "PopulationOutline": 4,
+            "Name": "AURA.3",
+            "WorldNumber": 3,
+            "WorldType": "SWN World",
+            "Population": "136565848",
+            "TechLevel": 16
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 8,
+        "TotalPopulation": 143261490,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 2,
+          "WorldName": "AURA.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "B2A86D0-1",
+          "Stations": "  O  ",
+          "WorldStarportQuality": 11,
+          "WorldAtmosphere": 10,
+          "WorldHydrographics": 8,
+          "WorldPopulation": 6,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 2,
+          "WorldTemperature": 3,
+          "Factions": [
+            {
+              "Item1": 8,
+              "Item2": 3,
+              "Item3": "Free Robotiks Movement"
+            },
+            {
+              "Item1": 2,
+              "Item2": 3,
+              "Item3": "Royal Garbs"
+            }
+          ],
+          "Population": "576211",
+          "GovernmentType": 13,
+          "LawLevel": 0,
+          "TechLevel": 1,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 6,
+        "Y": 1,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 7,
+        "Y": 1,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 2,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 2,
+        "HasWorld": true,
+        "Name": "CONTAGIOS",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 9,
+            "WorldName": "CONTAGIOS.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A968690-6",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 6,
+            "WorldHydrographics": 8,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 10,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 11,
+                "Item2": 3,
+                "Item3": "The Royal Medicine Chest"
+              }
+            ],
+            "Population": "087658",
+            "GovernmentType": 9,
+            "LawLevel": 0,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 9,
+            "WorldName": "CONTAGIOS.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "E9A37A4-6",
+            "Stations": "     ",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 10,
+            "WorldHydrographics": 3,
+            "WorldPopulation": 7,
+            "WorldFactionCount": 0,
+            "WorldQuirk": 32,
+            "WorldTemperature": 2,
+            "Factions": [],
+            "Population": "6148071",
+            "GovernmentType": 10,
+            "LawLevel": 4,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": false,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 6,
+        "TotalPopulation": 6235729,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 9,
+          "WorldName": "CONTAGIOS.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A968690-6",
+          "Stations": "* O  ",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 6,
+          "WorldHydrographics": 8,
+          "WorldPopulation": 6,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 10,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 11,
+              "Item2": 3,
+              "Item3": "The Royal Medicine Chest"
+            }
+          ],
+          "Population": "087658",
+          "GovernmentType": 9,
+          "LawLevel": 0,
+          "TechLevel": 6,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 2,
+        "Y": 2,
+        "HasWorld": true,
+        "Name": "AEDIFICATA",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 3,
+            "WorldName": "AEDIFICATA.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "C3D0747-6",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 12,
+            "WorldAtmosphere": 13,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 7,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 21,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 14,
+                "Item2": 2,
+                "Item3": "Nebelwelt Manufacturing"
+              },
+              {
+                "Item1": 3,
+                "Item2": 5,
+                "Item3": "Grabbin from Bladin"
+              }
+            ],
+            "Population": "5760635",
+            "GovernmentType": 4,
+            "LawLevel": 7,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 3,
+            "CurrentRelationship": 0,
+            "ContactPoint": 0,
+            "LocationType": 5,
+            "OccupiedBy": "Grizzled belter mine laborers",
+            "Situation": "Foreign spy ships hide there",
+            "WorldType": "Point of Interest",
+            "Name": "AEDIFICATA.2",
+            "Population": "68684",
+            "TechLevel": 5,
+            "WorldNumber": 2
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 3,
+            "StarsWithoutNumberCurrentRelationship": 6,
+            "StarsWithoutNumberContactPoint": 4,
+            "Atmosphere": 3,
+            "Temperature": 3,
+            "Biosphere": 1,
+            "PopulationOutline": 3,
+            "Name": "AEDIFICATA.3",
+            "WorldNumber": 3,
+            "WorldType": "SWN World",
+            "Population": "33547280",
+            "TechLevel": 4
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 5,
+        "TotalPopulation": 39376599,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 3,
+          "WorldName": "AEDIFICATA.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "C3D0747-6",
+          "Stations": "* O  ",
+          "WorldStarportQuality": 12,
+          "WorldAtmosphere": 13,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 7,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 21,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 14,
+              "Item2": 2,
+              "Item3": "Nebelwelt Manufacturing"
+            },
+            {
+              "Item1": 3,
+              "Item2": 5,
+              "Item3": "Grabbin from Bladin"
+            }
+          ],
+          "Population": "5760635",
+          "GovernmentType": 4,
+          "LawLevel": 7,
+          "TechLevel": 6,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 3,
+        "Y": 2,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 4,
+        "Y": 2,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 2,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 6,
+        "Y": 2,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 7,
+        "Y": 2,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 3,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 3,
+        "HasWorld": true,
+        "Name": "PUTRIDUS",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 7,
+            "WorldName": "PUTRIDUS.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A7B091F-2",
+            "Stations": "* O +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 11,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 9,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 6,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 3,
+                "Item2": 2,
+                "Item3": "Business Board Investment Capital"
+              }
+            ],
+            "Population": "744307218",
+            "GovernmentType": 1,
+            "LawLevel": 15,
+            "TechLevel": 2,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 1,
+            "CurrentRelationship": 6,
+            "ContactPoint": 1,
+            "LocationType": 5,
+            "OccupiedBy": "Pirates hiding out among the rocks",
+            "Situation": "Ancient ruins dot the rocks",
+            "WorldType": "Point of Interest",
+            "Name": "PUTRIDUS.2",
+            "Population": "299815048",
+            "TechLevel": 1,
+            "WorldNumber": 2
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 1,
+        "TotalPopulation": 1044122266,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 7,
+          "WorldName": "PUTRIDUS.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A7B091F-2",
+          "Stations": "* O +",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 11,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 9,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 6,
+          "WorldTemperature": 3,
+          "Factions": [
+            {
+              "Item1": 3,
+              "Item2": 2,
+              "Item3": "Business Board Investment Capital"
+            }
+          ],
+          "Population": "744307218",
+          "GovernmentType": 1,
+          "LawLevel": 15,
+          "TechLevel": 2,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 2,
+        "Y": 3,
+        "HasWorld": true,
+        "Name": "ARDENS",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 5,
+            "WorldName": "ARDENS.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A5C05B7-4",
+            "Stations": "  O +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 12,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 5,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 13,
+            "WorldTemperature": 5,
+            "Factions": [
+              {
+                "Item1": 1,
+                "Item2": 3,
+                "Item3": "Imperial Tillium Company"
+              }
+            ],
+            "Population": "82170",
+            "GovernmentType": 11,
+            "LawLevel": 7,
+            "TechLevel": 4,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 7,
+            "StarsWithoutNumberCurrentRelationship": 6,
+            "StarsWithoutNumberContactPoint": 2,
+            "Atmosphere": 3,
+            "Temperature": 3,
+            "Biosphere": 6,
+            "PopulationOutline": 0,
+            "Name": "ARDENS.2",
+            "WorldNumber": 2,
+            "WorldType": "SWN World",
+            "Population": "5",
+            "TechLevel": 1
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 2,
+        "TotalPopulation": 82175,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 5,
+          "WorldName": "ARDENS.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A5C05B7-4",
+          "Stations": "  O +",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 12,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 5,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 13,
+          "WorldTemperature": 5,
+          "Factions": [
+            {
+              "Item1": 1,
+              "Item2": 3,
+              "Item3": "Imperial Tillium Company"
+            }
+          ],
+          "Population": "82170",
+          "GovernmentType": 11,
+          "LawLevel": 7,
+          "TechLevel": 4,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 3,
+        "Y": 3,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 4,
+        "Y": 3,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 3,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 6,
+        "Y": 3,
+        "HasWorld": true,
+        "Name": "ILLUSIO",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 9,
+            "WorldName": "ILLUSIO.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "E9A71F0-6",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 10,
+            "WorldHydrographics": 7,
+            "WorldPopulation": 1,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 28,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 6,
+                "Item2": 0,
+                "Item3": "Commune Law"
+              },
+              {
+                "Item1": 7,
+                "Item2": 5,
+                "Item3": "Imperial-Owned Stores"
+              }
+            ],
+            "Population": "0",
+            "GovernmentType": 15,
+            "LawLevel": 0,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 6,
+            "CurrentRelationship": 7,
+            "ContactPoint": 4,
+            "LocationType": 5,
+            "OccupiedBy": "Grizzled belter mine laborers",
+            "Situation": "Ruptured rock released a peril",
+            "WorldType": "Point of Interest",
+            "Name": "ILLUSIO.2",
+            "Population": "5867138",
+            "TechLevel": 5,
+            "WorldNumber": 2
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 5,
+        "TotalPopulation": 5867138,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 9,
+          "WorldName": "ILLUSIO.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "E9A71F0-6",
+          "Stations": "  O  ",
+          "WorldStarportQuality": 14,
+          "WorldAtmosphere": 10,
+          "WorldHydrographics": 7,
+          "WorldPopulation": 1,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 28,
+          "WorldTemperature": 3,
+          "Factions": [
+            {
+              "Item1": 6,
+              "Item2": 0,
+              "Item3": "Commune Law"
+            },
+            {
+              "Item1": 7,
+              "Item2": 5,
+              "Item3": "Imperial-Owned Stores"
+            }
+          ],
+          "Population": "0",
+          "GovernmentType": 15,
+          "LawLevel": 0,
+          "TechLevel": 6,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 7,
+        "Y": 3,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 4,
+        "HasWorld": true,
+        "Name": "TURBATUR",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 8,
+            "WorldName": "TURBATUR.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "B8586C0-6",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 11,
+            "WorldAtmosphere": 5,
+            "WorldHydrographics": 8,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 15,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 7,
+                "Item2": 1,
+                "Item3": "First Standard Electronics"
+              }
+            ],
+            "Population": "035876",
+            "GovernmentType": 12,
+            "LawLevel": 0,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 1,
+            "StarsWithoutNumberCurrentRelationship": 1,
+            "StarsWithoutNumberContactPoint": 4,
+            "Atmosphere": 3,
+            "Temperature": 4,
+            "Biosphere": 2,
+            "PopulationOutline": 1,
+            "Name": "TURBATUR.2",
+            "WorldNumber": 2,
+            "WorldType": "SWN World",
+            "Population": "34",
+            "TechLevel": 7
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 1,
+            "WorldName": "TURBATUR.3",
+            "WorldType": "Traveller world",
+            "WorldNumber": 3,
+            "WorldControllingFaction": 0,
+            "UWP": "B111036B-5",
+            "Stations": "  O +",
+            "WorldStarportQuality": 11,
+            "WorldAtmosphere": 17,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 3,
+            "WorldFactionCount": 3,
+            "WorldQuirk": 2,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 2,
+                "Item2": 4,
+                "Item3": "Bank of Esperanza"
+              },
+              {
+                "Item1": 12,
+                "Item2": 4,
+                "Item3": "Princes Peridoical"
+              },
+              {
+                "Item1": 3,
+                "Item2": 3,
+                "Item3": "Bakersville Venture Capital"
+              }
+            ],
+            "Population": "000",
+            "GovernmentType": 6,
+            "LawLevel": 11,
+            "TechLevel": 5,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 6,
+        "TotalPopulation": 35910,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 8,
+          "WorldName": "TURBATUR.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "B8586C0-6",
+          "Stations": "* O  ",
+          "WorldStarportQuality": 11,
+          "WorldAtmosphere": 5,
+          "WorldHydrographics": 8,
+          "WorldPopulation": 6,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 15,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 7,
+              "Item2": 1,
+              "Item3": "First Standard Electronics"
+            }
+          ],
+          "Population": "035876",
+          "GovernmentType": 12,
+          "LawLevel": 0,
+          "TechLevel": 6,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 1,
+        "Y": 4,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 2,
+        "Y": 4,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 3,
+        "Y": 4,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 4,
+        "Y": 4,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 4,
+        "HasWorld": true,
+        "Name": "FORSILO",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 1,
+            "WorldName": "FORSILO.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "B1A23F0-3",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 11,
+            "WorldAtmosphere": 10,
+            "WorldHydrographics": 2,
+            "WorldPopulation": 3,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 35,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 14,
+                "Item2": 2,
+                "Item3": "Stalinksy Sound & Communication"
+              }
+            ],
+            "Population": "560",
+            "GovernmentType": 15,
+            "LawLevel": 0,
+            "TechLevel": 3,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 5,
+            "CurrentRelationship": 0,
+            "ContactPoint": 0,
+            "LocationType": 0,
+            "OccupiedBy": "Eccentric oligarch and minions",
+            "Situation": "Black market for the elite",
+            "WorldType": "Point of Interest",
+            "Name": "FORSILO.2",
+            "Population": "626967562",
+            "TechLevel": 14,
+            "WorldNumber": 2
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 8,
+        "TotalPopulation": 626968122,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 1,
+          "WorldName": "FORSILO.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "B1A23F0-3",
+          "Stations": "  O  ",
+          "WorldStarportQuality": 11,
+          "WorldAtmosphere": 10,
+          "WorldHydrographics": 2,
+          "WorldPopulation": 3,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 35,
+          "WorldTemperature": 3,
+          "Factions": [
+            {
+              "Item1": 14,
+              "Item2": 2,
+              "Item3": "Stalinksy Sound & Communication"
+            }
+          ],
+          "Population": "560",
+          "GovernmentType": 15,
+          "LawLevel": 0,
+          "TechLevel": 3,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 6,
+        "Y": 4,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 7,
+        "Y": 4,
+        "HasWorld": true,
+        "Name": "AEDIFICATA",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 0,
+            "WorldName": "AEDIFICATA.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "C0003E0-0",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 12,
+            "WorldAtmosphere": 0,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 3,
+            "WorldFactionCount": 3,
+            "WorldQuirk": 6,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 4,
+                "Item2": 1,
+                "Item3": "Pickin for Plumtree"
+              },
+              {
+                "Item1": 1,
+                "Item2": 5,
+                "Item3": "The Royal Medicine Chest"
+              },
+              {
+                "Item1": 14,
+                "Item2": 3,
+                "Item3": "Our Protective layer"
+              }
+            ],
+            "Population": "576",
+            "GovernmentType": 14,
+            "LawLevel": 0,
+            "TechLevel": 0,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 3,
+            "CurrentRelationship": 0,
+            "ContactPoint": 0,
+            "LocationType": 5,
+            "OccupiedBy": "Grizzled belter mine laborers",
+            "Situation": "Foreign spy ships hide there",
+            "WorldType": "Point of Interest",
+            "Name": "AEDIFICATA.2",
+            "Population": "68684",
+            "TechLevel": 5,
+            "WorldNumber": 2
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 3,
+            "StarsWithoutNumberCurrentRelationship": 6,
+            "StarsWithoutNumberContactPoint": 4,
+            "Atmosphere": 3,
+            "Temperature": 3,
+            "Biosphere": 1,
+            "PopulationOutline": 3,
+            "Name": "AEDIFICATA.3",
+            "WorldNumber": 3,
+            "WorldType": "SWN World",
+            "Population": "33547280",
+            "TechLevel": 4
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 3,
+        "TotalPopulation": 33616540,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 0,
+          "WorldName": "AEDIFICATA.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "C0003E0-0",
+          "Stations": "  O  ",
+          "WorldStarportQuality": 12,
+          "WorldAtmosphere": 0,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 3,
+          "WorldFactionCount": 3,
+          "WorldQuirk": 6,
+          "WorldTemperature": 3,
+          "Factions": [
+            {
+              "Item1": 4,
+              "Item2": 1,
+              "Item3": "Pickin for Plumtree"
+            },
+            {
+              "Item1": 1,
+              "Item2": 5,
+              "Item3": "The Royal Medicine Chest"
+            },
+            {
+              "Item1": 14,
+              "Item2": 3,
+              "Item3": "Our Protective layer"
+            }
+          ],
+          "Population": "576",
+          "GovernmentType": 14,
+          "LawLevel": 0,
+          "TechLevel": 0,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 5,
+        "HasWorld": true,
+        "Name": "CICATRIS",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 3,
+            "WorldName": "CICATRIS.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A383909-6",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 8,
+            "WorldHydrographics": 3,
+            "WorldPopulation": 9,
+            "WorldFactionCount": 4,
+            "WorldQuirk": 30,
+            "WorldTemperature": 1,
+            "Factions": [
+              {
+                "Item1": 1,
+                "Item2": 5,
+                "Item3": "Kosse's Kings Kommandments"
+              },
+              {
+                "Item1": 10,
+                "Item2": 5,
+                "Item3": "Gun Equipped Ammunition "
+              },
+              {
+                "Item1": 7,
+                "Item2": 2,
+                "Item3": "Xiao-Will Suits and Stuff"
+              },
+              {
+                "Item1": 9,
+                "Item2": 1,
+                "Item3": "Royal Electronics"
+              }
+            ],
+            "Population": "683526501",
+            "GovernmentType": 0,
+            "LawLevel": 9,
+            "TechLevel": 6,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 2,
+            "WorldName": "CICATRIS.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "A2D18A0-6",
+            "Stations": "  O +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 13,
+            "WorldHydrographics": 1,
+            "WorldPopulation": 8,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 6,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 13,
+                "Item2": 0,
+                "Item3": "Tales from the Tree"
+              }
+            ],
+            "Population": "12076405",
+            "GovernmentType": 10,
+            "LawLevel": 0,
+            "TechLevel": 6,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 6,
+        "TotalPopulation": 695602906,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 3,
+          "WorldName": "CICATRIS.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A383909-6",
+          "Stations": "* O  ",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 8,
+          "WorldHydrographics": 3,
+          "WorldPopulation": 9,
+          "WorldFactionCount": 4,
+          "WorldQuirk": 30,
+          "WorldTemperature": 1,
+          "Factions": [
+            {
+              "Item1": 1,
+              "Item2": 5,
+              "Item3": "Kosse's Kings Kommandments"
+            },
+            {
+              "Item1": 10,
+              "Item2": 5,
+              "Item3": "Gun Equipped Ammunition "
+            },
+            {
+              "Item1": 7,
+              "Item2": 2,
+              "Item3": "Xiao-Will Suits and Stuff"
+            },
+            {
+              "Item1": 9,
+              "Item2": 1,
+              "Item3": "Royal Electronics"
+            }
+          ],
+          "Population": "683526501",
+          "GovernmentType": 0,
+          "LawLevel": 9,
+          "TechLevel": 6,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 1,
+        "Y": 5,
+        "HasWorld": true,
+        "Name": "EMPARIOR",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 0,
+            "WorldName": "EMPARIOR.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "E000981-3",
+            "Stations": "*    ",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 0,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 9,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 30,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 9,
+                "Item2": 3,
+                "Item3": "Our Protective layer"
+              }
+            ],
+            "Population": "474310357",
+            "GovernmentType": 8,
+            "LawLevel": 1,
+            "TechLevel": 3,
+            "MilitaryBase": false,
+            "GasGiant": false,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 1,
+            "CurrentRelationship": 0,
+            "ContactPoint": 7,
+            "LocationType": 7,
+            "OccupiedBy": "Brainless automated vendors",
+            "Situation": "A ship is in severe distress",
+            "WorldType": "Point of Interest",
+            "Name": "EMPARIOR.2",
+            "Population": "80025410",
+            "TechLevel": 15,
+            "WorldNumber": 2
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 9,
+        "TotalPopulation": 554335767,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 0,
+          "WorldName": "EMPARIOR.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "E000981-3",
+          "Stations": "*    ",
+          "WorldStarportQuality": 14,
+          "WorldAtmosphere": 0,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 9,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 30,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 9,
+              "Item2": 3,
+              "Item3": "Our Protective layer"
+            }
+          ],
+          "Population": "474310357",
+          "GovernmentType": 8,
+          "LawLevel": 1,
+          "TechLevel": 3,
+          "MilitaryBase": false,
+          "GasGiant": false,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 2,
+        "Y": 5,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 3,
+        "Y": 5,
+        "HasWorld": true,
+        "Name": "THORNAR",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 2,
+            "WorldName": "THORNAR.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "B2796D4-1",
+            "Stations": "  O +",
+            "WorldStarportQuality": 11,
+            "WorldAtmosphere": 7,
+            "WorldHydrographics": 9,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 6,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 8,
+                "Item2": 3,
+                "Item3": "Sturgeons Stores"
+              },
+              {
+                "Item1": 13,
+                "Item2": 2,
+                "Item3": "BodeyWak Boys"
+              }
+            ],
+            "Population": "560472",
+            "GovernmentType": 13,
+            "LawLevel": 4,
+            "TechLevel": 1,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 1,
+        "AverageTechLevel": 1,
+        "TotalPopulation": 560472,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 2,
+          "WorldName": "THORNAR.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "B2796D4-1",
+          "Stations": "  O +",
+          "WorldStarportQuality": 11,
+          "WorldAtmosphere": 7,
+          "WorldHydrographics": 9,
+          "WorldPopulation": 6,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 6,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 8,
+              "Item2": 3,
+              "Item3": "Sturgeons Stores"
+            },
+            {
+              "Item1": 13,
+              "Item2": 2,
+              "Item3": "BodeyWak Boys"
+            }
+          ],
+          "Population": "560472",
+          "GovernmentType": 13,
+          "LawLevel": 4,
+          "TechLevel": 1,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 4,
+        "Y": 5,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 5,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 6,
+        "Y": 5,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 7,
+        "Y": 5,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 6,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 6,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 2,
+        "Y": 6,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 3,
+        "Y": 6,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 4,
+        "Y": 6,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 6,
+        "HasWorld": true,
+        "Name": "FLUXA",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 8,
+            "WorldName": "FLUXA.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "E8902A6-1",
+            "Stations": "    +",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 9,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 2,
+            "WorldFactionCount": 0,
+            "WorldQuirk": 4,
+            "WorldTemperature": 5,
+            "Factions": [],
+            "Population": "93",
+            "GovernmentType": 10,
+            "LawLevel": 6,
+            "TechLevel": 1,
+            "MilitaryBase": true,
+            "GasGiant": false,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 2,
+            "StarsWithoutNumberCurrentRelationship": 2,
+            "StarsWithoutNumberContactPoint": 7,
+            "Atmosphere": 3,
+            "Temperature": 4,
+            "Biosphere": 2,
+            "PopulationOutline": 0,
+            "Name": "FLUXA.2",
+            "WorldNumber": 2,
+            "WorldType": "SWN World",
+            "Population": "10",
+            "TechLevel": 1
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 10,
+            "WorldName": "FLUXA.3",
+            "WorldType": "Traveller world",
+            "WorldNumber": 3,
+            "WorldControllingFaction": 0,
+            "UWP": "EA5E5D4-1",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 5,
+            "WorldHydrographics": 14,
+            "WorldPopulation": 5,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 28,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 5,
+                "Item2": 4,
+                "Item3": "Britannian Automatons"
+              }
+            ],
+            "Population": "08823",
+            "GovernmentType": 13,
+            "LawLevel": 4,
+            "TechLevel": 1,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 1,
+        "TotalPopulation": 8926,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 8,
+          "WorldName": "FLUXA.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "E8902A6-1",
+          "Stations": "    +",
+          "WorldStarportQuality": 14,
+          "WorldAtmosphere": 9,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 2,
+          "WorldFactionCount": 0,
+          "WorldQuirk": 4,
+          "WorldTemperature": 5,
+          "Factions": [],
+          "Population": "93",
+          "GovernmentType": 10,
+          "LawLevel": 6,
+          "TechLevel": 1,
+          "MilitaryBase": true,
+          "GasGiant": false,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 6,
+        "Y": 6,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 7,
+        "Y": 6,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 2,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 3,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 4,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 6,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 7,
+        "Y": 7,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 8,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 8,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 2,
+        "Y": 8,
+        "HasWorld": true,
+        "Name": "BEAUTITAS",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 2,
+            "WorldName": "BEAUTITAS.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A2D19010-3",
+            "Stations": "*   +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 13,
+            "WorldHydrographics": 1,
+            "WorldPopulation": 9,
+            "WorldFactionCount": 4,
+            "WorldQuirk": 27,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 9,
+                "Item2": 5,
+                "Item3": "Super-Chains"
+              },
+              {
+                "Item1": 8,
+                "Item2": 1,
+                "Item3": "Joyuse Joy-toys"
+              },
+              {
+                "Item1": 6,
+                "Item2": 3,
+                "Item3": "Commune Wholesellars"
+              },
+              {
+                "Item1": 3,
+                "Item2": 4,
+                "Item3": "Nuken Home"
+              }
+            ],
+            "Population": "442635421",
+            "GovernmentType": 0,
+            "LawLevel": 16,
+            "TechLevel": 3,
+            "MilitaryBase": true,
+            "GasGiant": false,
+            "OtherBase": true
+          }
+        ],
+        "WorldCount": 1,
+        "AverageTechLevel": 3,
+        "TotalPopulation": 442635421,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 2,
+          "WorldName": "BEAUTITAS.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A2D19010-3",
+          "Stations": "*   +",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 13,
+          "WorldHydrographics": 1,
+          "WorldPopulation": 9,
+          "WorldFactionCount": 4,
+          "WorldQuirk": 27,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 9,
+              "Item2": 5,
+              "Item3": "Super-Chains"
+            },
+            {
+              "Item1": 8,
+              "Item2": 1,
+              "Item3": "Joyuse Joy-toys"
+            },
+            {
+              "Item1": 6,
+              "Item2": 3,
+              "Item3": "Commune Wholesellars"
+            },
+            {
+              "Item1": 3,
+              "Item2": 4,
+              "Item3": "Nuken Home"
+            }
+          ],
+          "Population": "442635421",
+          "GovernmentType": 0,
+          "LawLevel": 16,
+          "TechLevel": 3,
+          "MilitaryBase": true,
+          "GasGiant": false,
+          "OtherBase": true
+        }
+      },
+      {
+        "X": 3,
+        "Y": 8,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 4,
+        "Y": 8,
+        "HasWorld": true,
+        "Name": "SU",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 9,
+            "WorldName": "SU.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "D975846-3",
+            "Stations": "    +",
+            "WorldStarportQuality": 13,
+            "WorldAtmosphere": 7,
+            "WorldHydrographics": 5,
+            "WorldPopulation": 8,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 19,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 6,
+                "Item2": 0,
+                "Item3": "Stalinksy Sound & Communication"
+              },
+              {
+                "Item1": 8,
+                "Item2": 3,
+                "Item3": "BodeyWak Boys"
+              }
+            ],
+            "Population": "18568363",
+            "GovernmentType": 4,
+            "LawLevel": 6,
+            "TechLevel": 3,
+            "MilitaryBase": true,
+            "GasGiant": false,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 5,
+            "WorldName": "SU.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "A591664-1",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 9,
+            "WorldHydrographics": 1,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 14,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 2,
+                "Item2": 1,
+                "Item3": "Regents Retail"
+              },
+              {
+                "Item1": 5,
+                "Item2": 5,
+                "Item3": "Ionia Spinal Weapons"
+              }
+            ],
+            "Population": "622832",
+            "GovernmentType": 6,
+            "LawLevel": 4,
+            "TechLevel": 1,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 2,
+        "TotalPopulation": 19191195,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 9,
+          "WorldName": "SU.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "D975846-3",
+          "Stations": "    +",
+          "WorldStarportQuality": 13,
+          "WorldAtmosphere": 7,
+          "WorldHydrographics": 5,
+          "WorldPopulation": 8,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 19,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 6,
+              "Item2": 0,
+              "Item3": "Stalinksy Sound & Communication"
+            },
+            {
+              "Item1": 8,
+              "Item2": 3,
+              "Item3": "BodeyWak Boys"
+            }
+          ],
+          "Population": "18568363",
+          "GovernmentType": 4,
+          "LawLevel": 6,
+          "TechLevel": 3,
+          "MilitaryBase": true,
+          "GasGiant": false,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 5,
+        "Y": 8,
+        "HasWorld": true,
+        "Name": "INQUISIS",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 5,
+            "WorldName": "INQUISIS.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A5C01E3-3",
+            "Stations": "  O +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 12,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 1,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 26,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 3,
+                "Item2": 0,
+                "Item3": "D-Liver Some Lead"
+              }
+            ],
+            "Population": "9",
+            "GovernmentType": 14,
+            "LawLevel": 3,
+            "TechLevel": 3,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 5,
+            "StarsWithoutNumberCurrentRelationship": 1,
+            "StarsWithoutNumberContactPoint": 5,
+            "Atmosphere": 3,
+            "Temperature": 3,
+            "Biosphere": 3,
+            "PopulationOutline": 2,
+            "Name": "INQUISIS.2",
+            "WorldNumber": 2,
+            "WorldType": "SWN World",
+            "Population": "766597",
+            "TechLevel": 2
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 2,
+        "TotalPopulation": 766606,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 5,
+          "WorldName": "INQUISIS.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "A5C01E3-3",
+          "Stations": "  O +",
+          "WorldStarportQuality": 10,
+          "WorldAtmosphere": 12,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 1,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 26,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 3,
+              "Item2": 0,
+              "Item3": "D-Liver Some Lead"
+            }
+          ],
+          "Population": "9",
+          "GovernmentType": 14,
+          "LawLevel": 3,
+          "TechLevel": 3,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 6,
+        "Y": 8,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 7,
+        "Y": 8,
+        "HasWorld": true,
+        "Name": "FIMUI;",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 5,
+            "WorldName": "FIMUI;.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "E5766310-4",
+            "Stations": "* O +",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 7,
+            "WorldHydrographics": 6,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 19,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 7,
+                "Item2": 3,
+                "Item3": "Venhut-Dominate Resource Extraction Ltd."
+              },
+              {
+                "Item1": 3,
+                "Item2": 4,
+                "Item3": "Joyuse Joy-toys"
+              }
+            ],
+            "Population": "685034",
+            "GovernmentType": 3,
+            "LawLevel": 16,
+            "TechLevel": 4,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 6,
+            "WorldName": "FIMUI;.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "A66A91D-5",
+            "Stations": "* O +",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 6,
+            "WorldHydrographics": 10,
+            "WorldPopulation": 9,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 21,
+            "WorldTemperature": 4,
+            "Factions": [
+              {
+                "Item1": 2,
+                "Item2": 0,
+                "Item3": "Voices From the Void"
+              },
+              {
+                "Item1": 4,
+                "Item2": 2,
+                "Item3": "Nuremberg Construction"
+              }
+            ],
+            "Population": "112273678",
+            "GovernmentType": 1,
+            "LawLevel": 13,
+            "TechLevel": 5,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": true
+          }
+        ],
+        "WorldCount": 2,
+        "AverageTechLevel": 4,
+        "TotalPopulation": 112958712,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 5,
+          "WorldName": "FIMUI;.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "E5766310-4",
+          "Stations": "* O +",
+          "WorldStarportQuality": 14,
+          "WorldAtmosphere": 7,
+          "WorldHydrographics": 6,
+          "WorldPopulation": 6,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 19,
+          "WorldTemperature": 2,
+          "Factions": [
+            {
+              "Item1": 7,
+              "Item2": 3,
+              "Item3": "Venhut-Dominate Resource Extraction Ltd."
+            },
+            {
+              "Item1": 3,
+              "Item2": 4,
+              "Item3": "Joyuse Joy-toys"
+            }
+          ],
+          "Population": "685034",
+          "GovernmentType": 3,
+          "LawLevel": 16,
+          "TechLevel": 4,
+          "MilitaryBase": true,
+          "GasGiant": true,
+          "OtherBase": true
+        }
+      }
+    ],
+    [
+      {
+        "X": 0,
+        "Y": 9,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 1,
+        "Y": 9,
+        "HasWorld": true,
+        "Name": "MUA;",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 0,
+            "WorldName": "MUA;.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "C000287-5",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 12,
+            "WorldAtmosphere": 0,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 2,
+            "WorldFactionCount": 1,
+            "WorldQuirk": 26,
+            "WorldTemperature": 0,
+            "Factions": [
+              {
+                "Item1": 1,
+                "Item2": 4,
+                "Item3": "Kenduskeag Stock Market"
+              }
+            ],
+            "Population": "75",
+            "GovernmentType": 8,
+            "LawLevel": 7,
+            "TechLevel": 5,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          }
+        ],
+        "WorldCount": 1,
+        "AverageTechLevel": 5,
+        "TotalPopulation": 75,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 0,
+          "WorldName": "MUA;.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "C000287-5",
+          "Stations": "  O  ",
+          "WorldStarportQuality": 12,
+          "WorldAtmosphere": 0,
+          "WorldHydrographics": 0,
+          "WorldPopulation": 2,
+          "WorldFactionCount": 1,
+          "WorldQuirk": 26,
+          "WorldTemperature": 0,
+          "Factions": [
+            {
+              "Item1": 1,
+              "Item2": 4,
+              "Item3": "Kenduskeag Stock Market"
+            }
+          ],
+          "Population": "75",
+          "GovernmentType": 8,
+          "LawLevel": 7,
+          "TechLevel": 5,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 2,
+        "Y": 9,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 3,
+        "Y": 9,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 4,
+        "Y": 9,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 5,
+        "Y": 9,
+        "HasWorld": false,
+        "Name": "",
+        "WorldsInSystem": []
+      },
+      {
+        "X": 6,
+        "Y": 9,
+        "HasWorld": true,
+        "Name": "NECESSOI",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 9,
+            "WorldName": "NECESSOI.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "E967790-1",
+            "Stations": "  O  ",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 6,
+            "WorldHydrographics": 7,
+            "WorldPopulation": 7,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 34,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 2,
+                "Item2": 4,
+                "Item3": "Bank of Esperanza"
+              },
+              {
+                "Item1": 6,
+                "Item2": 5,
+                "Item3": "Royal Garbs"
+              }
+            ],
+            "Population": "3021376",
+            "GovernmentType": 9,
+            "LawLevel": 0,
+            "TechLevel": 1,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": false
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 9,
+            "WorldName": "NECESSOI.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "E9995A2-6",
+            "Stations": "* O +",
+            "WorldStarportQuality": 14,
+            "WorldAtmosphere": 9,
+            "WorldHydrographics": 9,
+            "WorldPopulation": 5,
+            "WorldFactionCount": 0,
+            "WorldQuirk": 35,
+            "WorldTemperature": 2,
+            "Factions": [],
+            "Population": "82828",
+            "GovernmentType": 10,
+            "LawLevel": 2,
+            "TechLevel": 6,
+            "MilitaryBase": true,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberPointOfInterest, TravellerGalaxyGenertor",
+            "OriginOfWorld": 5,
+            "CurrentRelationship": 4,
+            "ContactPoint": 3,
+            "LocationType": 4,
+            "OccupiedBy": "Secret employees of a foreign power",
+            "Situation": "Science monsters run amok",
+            "WorldType": "Point of Interest",
+            "Name": "NECESSOI.3",
+            "Population": "23723180",
+            "TechLevel": 5,
+            "WorldNumber": 3
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 4,
+        "TotalPopulation": 26827384,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "WorldSize": 9,
+          "WorldName": "NECESSOI.1",
+          "WorldType": "Traveller world",
+          "WorldNumber": 1,
+          "WorldControllingFaction": 0,
+          "UWP": "E967790-1",
+          "Stations": "  O  ",
+          "WorldStarportQuality": 14,
+          "WorldAtmosphere": 6,
+          "WorldHydrographics": 7,
+          "WorldPopulation": 7,
+          "WorldFactionCount": 2,
+          "WorldQuirk": 34,
+          "WorldTemperature": 3,
+          "Factions": [
+            {
+              "Item1": 2,
+              "Item2": 4,
+              "Item3": "Bank of Esperanza"
+            },
+            {
+              "Item1": 6,
+              "Item2": 5,
+              "Item3": "Royal Garbs"
+            }
+          ],
+          "Population": "3021376",
+          "GovernmentType": 9,
+          "LawLevel": 0,
+          "TechLevel": 1,
+          "MilitaryBase": false,
+          "GasGiant": true,
+          "OtherBase": false
+        }
+      },
+      {
+        "X": 7,
+        "Y": 9,
+        "HasWorld": true,
+        "Name": "DICENMELA",
+        "WorldsInSystem": [
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 8,
+            "WorldName": "DICENMELA.1",
+            "WorldType": "Traveller world",
+            "WorldNumber": 1,
+            "WorldControllingFaction": 0,
+            "UWP": "A8110658-3",
+            "Stations": "*    ",
+            "WorldStarportQuality": 10,
+            "WorldAtmosphere": 1,
+            "WorldHydrographics": 16,
+            "WorldPopulation": 6,
+            "WorldFactionCount": 3,
+            "WorldQuirk": 12,
+            "WorldTemperature": 3,
+            "Factions": [
+              {
+                "Item1": 15,
+                "Item2": 1,
+                "Item3": "Royal Construction"
+              },
+              {
+                "Item1": 11,
+                "Item2": 0,
+                "Item3": "Bro I've made some Ammo"
+              },
+              {
+                "Item1": 8,
+                "Item2": 3,
+                "Item3": "Spiritwood Extractions"
+              }
+            ],
+            "Population": "708785",
+            "GovernmentType": 5,
+            "LawLevel": 8,
+            "TechLevel": 3,
+            "MilitaryBase": false,
+            "GasGiant": false,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+            "WorldSize": 3,
+            "WorldName": "DICENMELA.2",
+            "WorldType": "Traveller world",
+            "WorldNumber": 2,
+            "WorldControllingFaction": 0,
+            "UWP": "D3E00D1-2",
+            "Stations": "* O  ",
+            "WorldStarportQuality": 13,
+            "WorldAtmosphere": 14,
+            "WorldHydrographics": 0,
+            "WorldPopulation": 0,
+            "WorldFactionCount": 2,
+            "WorldQuirk": 19,
+            "WorldTemperature": 2,
+            "Factions": [
+              {
+                "Item1": 7,
+                "Item2": 1,
+                "Item3": "Preventium Pulverziatorium"
+              },
+              {
+                "Item1": 13,
+                "Item2": 0,
+                "Item3": "The Kotlik Exchange "
+              }
+            ],
+            "Population": "2",
+            "GovernmentType": 13,
+            "LawLevel": 1,
+            "TechLevel": 2,
+            "MilitaryBase": false,
+            "GasGiant": true,
+            "OtherBase": true
+          },
+          {
+            "$type": "TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds.StarsWithoutNumberWorld, TravellerGalaxyGenertor",
+            "StarsWithoutNumberOriginOfWorld": 3,
+            "StarsWithoutNumberCurrentRelationship": 1,
+            "StarsWithoutNumberContactPoint": 0,
+            "Atmosphere": 4,
+            "Temperature": 4,
+            "Biosphere": 2,
+            "PopulationOutline": 2,
+            "Name": "DICENMELA.3",
+            "WorldNumber": 3,
+            "WorldType": "SWN World",
+            "Population": "926997",
+            "TechLevel": 6
+          }
+        ],
+        "WorldCount": 3,
+        "AverageTechLevel": 3,
+        "TotalPopulation": 1635784,
+        "PrimaryWorld": {
+          "$type": "TravellerMapSystem.Worlds.TravellerWorld, TravellerGalaxyGenertor",
+          "Factions": [
+            {
+              "Item1": 15,
+              "Item2": 1,
+              "Item3": "Royal Construction"
+            },
+            {
+              "Item1": 11,
+              "Item2": 0,
+              "Item3": "Bro I've made some Ammo"
+            },
+            {
+              "Item1": 8,
+              "Item2": 3,
+              "Item3": "Spiritwood Extractions"
+            }
+          ],
+          "GasGiant": false,
+          "GovernmentType": 5,
+          "LawLevel": 8,
+          "MilitaryBase": false,
+          "OtherBase": true,
+          "Population": "708785",
+          "Stations": "*    ",
+          "TechLevel": 3,
+          "UWP": "A8110658-3",
+          "WorldAtmosphere": 1,
+          "WorldControllingFaction": 0,
+          "WorldFactionCount": 3,
+          "WorldHydrographics": 16,
+          "WorldName": "DICENMELA.1",
+          "WorldNumber": 1,
+          "WorldPopulation": 6,
+          "WorldQuirk": 12,
+          "WorldSize": 8,
+          "WorldStarportQuality": 10,
+          "WorldTemperature": 3,
+          "WorldType": "Traveller world"
+  }}]],
+  "TotalPopulation":13113126080,
+  "WorldCount":59
+}

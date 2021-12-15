@@ -1,0 +1,60 @@
+﻿@page "/InformationOnSetting/SectorInfo/{SubsectorID}"
+@using TravellerGalaxyGenertor
+@using TravellerMapSystem
+@inject TravellerSubsectorGeneratorService subsectorGenerator; 
+
+@code {
+
+    [Parameter]
+    public string SubsectorID { get; set; }
+
+    private string _subsectorID = "";
+
+    public KnownUniverseSector? sector { get; set; }
+
+    public void GetSubsector()
+    {
+        sector = subsectorGenerator.GetSector(SubsectorID);
+        _subsectorID = SubsectorID;
+    }
+
+    public string SaveSubsector()
+    {
+        if (string.IsNullOrEmpty(_subsectorID) || sector == null) return "{}";
+
+        Console.WriteLine("I was clicked!");
+        return ""; //sector.Json();
+    }
+
+}
+
+@if (sector == null || SubsectorID != _subsectorID)
+{
+    GetSubsector();
+}
+
+@if (sector != null)
+{
+    <div>
+        <title> @sector.Name Subsector</title>
+        <h2> The @sector.Name Subsector.</h2>
+        <p>Has @sector.WorldCount worlds.</p>
+        <SubectorImage SubsectorID="@_subsectorID" Width="50" Height="50"> </SubectorImage>
+
+        <br/>
+        <button type="button"
+                id="btnCopy"
+                onclick="navigator.clipboard.writeText(`@SaveSubsector()`).then(function() {
+            /* clipboard successfully set */
+        }, function () {alert('Umm, there was an error!'); })">
+            Save Subsector
+        </button>
+        <h3>The Systems of the @sector.Name subsector!</h3>
+        <p>
+            @foreach (var subsector in sector.SubsectorNames)
+            {
+                <a href="/InformationOnSetting/SubsectorInfo/@subsector.Key"><SubectorImage SubsectorID="@subsector.Key"></SubectorImage></a>
+            }
+        </p>
+    </div>
+}

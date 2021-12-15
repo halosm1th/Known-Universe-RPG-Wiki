@@ -148,6 +148,24 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Cor","Convince/Sway/Court"),
             new HighVersianDefinition("Leg","Chosen/Selected/Appointed"),
             new HighVersianDefinition("Vot","Vow/Promise"),
+            new HighVersianDefinition("Fra","Sibling/Brother/Sister"),
+            new HighVersianDefinition("Urg","Urgent/Vital/Important"),
+            new HighVersianDefinition("Ot","Rest/Liesure/waiting"),
+            new HighVersianDefinition("Col","Collective/collaberative"),
+            new HighVersianDefinition("Sci","Understand/learn/knowledge/know"),
+            new HighVersianDefinition("En","In/at/on/upon/from"),
+            new HighVersianDefinition("Pri","First/Primary/Top/Highest"),
+            new HighVersianDefinition("Doc","Tech/Intrust/inform"),
+            new HighVersianDefinition("Ob","Before/Infront"),
+            new HighVersianDefinition("Ante","Before"),
+            new HighVersianDefinition("Cog","Know/think (to)"),
+            new HighVersianDefinition("Fam","Family/household/clan"),
+            new HighVersianDefinition("Hon","Honour"),
+            new HighVersianDefinition("Glor","Glory"),
+            new HighVersianDefinition("Ti","Name of/Title"),
+            new HighVersianDefinition("Tul","Job/Role/Position"),
+
+
 
         }.OrderBy(x => x.Letters.First<char>()).ToList();
 
@@ -256,12 +274,32 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Quis","Question/quiz/investigate"),
             new HighVersianDefinition("Alien","Foreign"),
             new HighVersianDefinition("Per","Follower/Member of Unit or group/ The Group"),
+            new HighVersianDefinition("Iuv","Help/assist/aid"),
+            new HighVersianDefinition("Loq","Talk/Converse/Discuss"),
+            new HighVersianDefinition("Paen","Pain/hurt"),
+            new HighVersianDefinition("Tec","Cover/defend/Protect"),
+            new HighVersianDefinition("Ment","Mental Mind"),
+            new HighVersianDefinition("Fort","Strong/Powerful/Firm"),
+
+
 
         }.OrderBy(x => x.Letters.First()).ToList();
 
 
         public List<HighVersianDefinition> Postfixes { get; } = new List<HighVersianDefinition>()
         {
+
+            
+            new HighVersianDefinition("Eot","A group which did (past tense)"),
+            new HighVersianDefinition("Aot","An object which did past tense"),
+            new HighVersianDefinition("Iot","first person persent past tense"),
+            new HighVersianDefinition("Uot","Third person/listener present past-tense"),
+            
+            new HighVersianDefinition("Ado","An object w/ the state or condition of"),
+            new HighVersianDefinition("Ido","I am in the state/condition"),
+            new HighVersianDefinition("Edo","They are in the state/condition"),
+            new HighVersianDefinition("Udo","You are in the state/condition"),
+            
             new HighVersianDefinition("A","An object or thing"),
             new HighVersianDefinition("e","A group/Plural"),
             new HighVersianDefinition("i","A person, singular, generally the speaker / First Person"),
@@ -281,7 +319,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Ue","A group who works for someone else, a group acting for someone else"),
 
 
-            new HighVersianDefinition("ai","A person using an object"),
+            new HighVersianDefinition("ai","The speakers object"),
             new HighVersianDefinition("ei","The persons group"),
             new HighVersianDefinition("oi","The thing which the person is presently doing"),
             new HighVersianDefinition("ui","The person being spoken to"),
@@ -385,6 +423,12 @@ namespace WikiServices.DataServices
         {
             var text = new List<HighVersianDefinition>()
             {
+                new HighVersianDefinition("Votdaous","Promise of serving/actively"),
+                new HighVersianDefinition("Coganteexitot","Think before you destroy"),
+                new HighVersianDefinition("Votdaus","Oath to"),
+                new HighVersianDefinition("Votveus","Oath of service to"),
+                new HighVersianDefinition("Collegeos","Collage/University"),
+                new HighVersianDefinition("Scimaga","The science of Magic"),
                 new HighVersianDefinition("Aedificata","An object or thing which builds. (Factory)"),
                 new HighVersianDefinition("Aedificate","Build"),
                 new HighVersianDefinition("Aedifici","A person who builds"),
@@ -689,6 +733,16 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Dabellot","of the past war"),
                 new HighVersianDefinition("Exversat","From Home (past tense)"),
                 new HighVersianDefinition("Damaxbellot","Of The Great War"),
+                new HighVersianDefinition("Fraequies","Brother-Knights/fellow knights"),
+                new HighVersianDefinition("Necessoit","I am needed/required"),
+                new HighVersianDefinition("Veiuvir","I need to help"),
+                new HighVersianDefinition("Enurgo","in something which is urgent"),
+                new HighVersianDefinition("Negotloqo","Negotations"),
+                new HighVersianDefinition("Redpaenot","Appologize/regreats"),
+                new HighVersianDefinition("Mit","My past tense"),
+                new HighVersianDefinition("Emversium","The vers empire"),
+                new HighVersianDefinition("Honia","(My) honour, the speakers persons honour"),
+
 
             };
             if (text.Count > 0) return text.OrderBy(x => x?.Letters.First()).ToList();
