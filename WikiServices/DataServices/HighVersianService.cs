@@ -166,6 +166,10 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Tul","Job/Role/Position"),
             new HighVersianDefinition("Tel","Over a great distance"),
             new HighVersianDefinition("Lep","Charm"),
+            new HighVersianDefinition("`","used when one one term ends with the same letter as the next term to replace the second shared letter"),
+            new HighVersianDefinition("-","used to denote the end of a term, not generally used, but can be used to make text more clear"),
+            new HighVersianDefinition("Por","I bring/bear/give birth to/produce/spawn"),
+            new HighVersianDefinition("Vol","Fly, hover, float."),
 
 
 
@@ -282,6 +286,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Tec","Cover/defend/Protect"),
             new HighVersianDefinition("Ment","Mental Mind"),
             new HighVersianDefinition("Fort","Strong/Powerful/Firm"),
+            new HighVersianDefinition("Circ","Circular line or orbit."),
 
 
 
@@ -292,109 +297,128 @@ namespace WikiServices.DataServices
         {
 
             
+            new HighVersianDefinition("*ot","active past tense"),
             new HighVersianDefinition("Eot","A group which did (past tense)"),
             new HighVersianDefinition("Aot","An object which did past tense"),
             new HighVersianDefinition("Iot","first person persent past tense"),
             new HighVersianDefinition("Uot","Third person/listener present past-tense"),
             
+            
+            new HighVersianDefinition("*do","A * in the state or condition of"),
             new HighVersianDefinition("Ado","An object w/ the state or condition of"),
             new HighVersianDefinition("Ido","I am in the state/condition"),
             new HighVersianDefinition("Edo","They are in the state/condition"),
             new HighVersianDefinition("Udo","You are in the state/condition"),
             
-            new HighVersianDefinition("A","An object or thing"),
+            new HighVersianDefinition("a","An object or thing"),
             new HighVersianDefinition("e","A group/Plural"),
             new HighVersianDefinition("i","A person, singular, generally the speaker / First Person"),
             new HighVersianDefinition("o","Present tense / at the moment"),
             new HighVersianDefinition("u","For someone else, a person but not the speaker, the person being spoken of/to (can be second person but more often refers to the third person)"),
 
 
+            new HighVersianDefinition("*a","* using an object"),
             new HighVersianDefinition("ia","A person using or experiencing an object"),
             new HighVersianDefinition("ea","A group using or experiencing an object"),
             new HighVersianDefinition("oa","A object currently doing something; an objecting being used by another object"),
             new HighVersianDefinition("ua","Someone else using an object"),
 
 
+            new HighVersianDefinition("*e","A group of *"),
             new HighVersianDefinition("ae","A group of objects"),
             new HighVersianDefinition("ie","A group of people, a group of leaders, the speakers group"),
             new HighVersianDefinition("oe","Happening in the present moment to a group"),
             new HighVersianDefinition("Ue","A group who works for someone else, a group acting for someone else"),
 
 
+            new HighVersianDefinition("*i","* in First person"),
             new HighVersianDefinition("ai","The speakers object"),
-            new HighVersianDefinition("ei","The persons group"),
-            new HighVersianDefinition("oi","The thing which the person is presently doing"),
+            new HighVersianDefinition("ei","The speakers group"),
+            new HighVersianDefinition("oi","The thing which the speaker is presently doing"),
             new HighVersianDefinition("ui","The person being spoken to"),
 
 
+            new HighVersianDefinition("*o","Actively doing/present tense"),
             new HighVersianDefinition("ao","An object presently doing"),
             new HighVersianDefinition("eo","A group presently doing"),
             new HighVersianDefinition("io","I am person who is currently / presently doing"),
             new HighVersianDefinition("uo","You are/someone is currently doing / Second Person"),
 
 
+            new HighVersianDefinition("*u","The other person, listen or third party."),
             new HighVersianDefinition("Au","An object of the other person or party"),
             new HighVersianDefinition("eu","A group with the other person; the other persons group"),
             new HighVersianDefinition("iu","Me to you, my group to your group. "),
             new HighVersianDefinition("ou","Your current group, your group is actively"),
 
 
+            new HighVersianDefinition("*l","Role/Purpose of"),
             new HighVersianDefinition("Al","An object which is"),
             new HighVersianDefinition("El","A group which is"),
             new HighVersianDefinition("Il","A person who is"),
             new HighVersianDefinition("Ol","Which is currently"),
             new HighVersianDefinition("Ul","Another who is"),
 
+            new HighVersianDefinition("*m","In use, being used for/by"),
             new HighVersianDefinition("Am","An object being used"),
             new HighVersianDefinition("Em","A group being used/multiple things being used"),
             new HighVersianDefinition("Im","A person being used, working"),
             new HighVersianDefinition("Om","Actively in use, being done / current / happening presently"),
             new HighVersianDefinition("Um","Devoted to / In service of / Sent on behalf of; Or the listening being used/being told what to do"),
 
+            new HighVersianDefinition("I*m","My Root is in use by / I'm in use by"),
             new HighVersianDefinition("Iam","My ROOT is in use. I’m in use by my ROOT"),
             new HighVersianDefinition("Iem","I am using my group of ROOT"),
             new HighVersianDefinition("Iom","I am using my ROOT"),
 
+            new HighVersianDefinition("*um","A place where * are _"),
             new HighVersianDefinition("Ium","A place where people are kept"),
             new HighVersianDefinition("Aum","A place where objects are kept"),
             new HighVersianDefinition("Oum","A place where things used"),
             new HighVersianDefinition("Eum","A place where groups are kept"),
             
+            new HighVersianDefinition("*n","Area/Space, location, physical presence"),
             new HighVersianDefinition("An","The area taken up by an object, the objects ‘space’"),
             new HighVersianDefinition("En","The area taken up by of a group"),
             new HighVersianDefinition("In","The area taken up by a person, a persons ‘place’"),
             new HighVersianDefinition("On","An area in use, the active use of an area"),
             new HighVersianDefinition("Un","The area taken up, used by, or occupied by someone else."),
 
+            new HighVersianDefinition("*r","Job/Role/Purpose"),
             new HighVersianDefinition("Ar","The thing which does a job"),
             new HighVersianDefinition("Ir","The person who does a job or role"),
             new HighVersianDefinition("Or","A job or role"),
             new HighVersianDefinition("Er","A group of jobs/roles"),
             new HighVersianDefinition("Ur","The listeners role or job"),
 
+            new HighVersianDefinition("*or","Active form of job"),
             new HighVersianDefinition("Aor","An object which does/is doing a job or role"),
             new HighVersianDefinition("Eor","A group who does or is doing the root job or role"),
             new HighVersianDefinition("Ior","A person (generally the speaker) who does/is doing the root job"),
             new HighVersianDefinition("Uor","Someone who does or is doing a job or role, generally the listener"),
 
+            new HighVersianDefinition("*re","Group by purpose/type"),
             new HighVersianDefinition("Are","A group of objects which do a role"),
             new HighVersianDefinition("Ere","A super group, larger category, a group of groups/jobs"),
             new HighVersianDefinition("Ire","A group of core people who do a role, your peers role"),
             new HighVersianDefinition("Ore","Their current purpose; actively doing"),
             new HighVersianDefinition("Ure","The role of the group of listeners"),
 
+            new HighVersianDefinition("*s","Group"),
             new HighVersianDefinition("As","A group of things/objects"),
             new HighVersianDefinition("Es","A group of, plural"),
             new HighVersianDefinition("Is","An organization/group of people"),
             new HighVersianDefinition("Os","A group presently doing"),
             new HighVersianDefinition("Us","Devote to or in service of a group or organization"),
 
+            new HighVersianDefinition("*t","Past Tense"),
             new HighVersianDefinition("At","Object past tense"),
             new HighVersianDefinition("Et","Group past tense"),
             new HighVersianDefinition("It","Active/First Person past tense"),
             new HighVersianDefinition("Ot","Past active tense"),
             new HighVersianDefinition("Ut","Passive/Listener/Third person past tense"),
 
+            new HighVersianDefinition("*os","Group Active Tense Verb"),
             new HighVersianDefinition("Aos","A group of objects which are doing something"),
             new HighVersianDefinition("Eos","A group of groups which is currently doing something; An organization"),
             new HighVersianDefinition("Ios","A group of people doing something, the active tense of a group of people"),
@@ -409,20 +433,23 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("'","Denotes male/masculine. [quickly stop the last sound]"),
             new HighVersianDefinition(";","Denotes female/feminine. [have the last sound go on for a moment longer]"),
             
+            new HighVersianDefinition("*as","Group object verb."),
             new HighVersianDefinition("Eas","A group using a group of objects."),
             new HighVersianDefinition("Ias","A person using a group of objects."),
             new HighVersianDefinition("Oas","The group of objects which are in use."),
             new HighVersianDefinition("Uas","Someone else using a group of objects."),
             
+            new HighVersianDefinition("*is","A group of people verb "),
             new HighVersianDefinition("Ais","A group of people using an object. "),
             new HighVersianDefinition("Eis","The speaker’s group of people using another group."),
             new HighVersianDefinition("Ois","The thing in use by the speakers’ group."),
             new HighVersianDefinition("Uis","The person being spoken to by the speakers’ group."),
             
-            new HighVersianDefinition("Aou","An object currently doing to you"),
-            new HighVersianDefinition("Eou","A group which is currently  doing to you"),
-            new HighVersianDefinition("Iou","I am currently doing to you"),
-            new HighVersianDefinition("Uou","Someone else doing to you or you doing to someone else."),
+            new HighVersianDefinition("*ou","a thing currently doing something to lister/passive person in the conversation"),
+            new HighVersianDefinition("Aou","An object currently doing to listener"),
+            new HighVersianDefinition("Eou","A group which is currently  doing to listener"),
+            new HighVersianDefinition("Iou","I am currently doing to listener"),
+            new HighVersianDefinition("Uou","Someone else doing to listener else or listener doing to someone else."),
 
 
 
@@ -431,7 +458,12 @@ namespace WikiServices.DataServices
         private static List<HighVersianDefinition> HighVersianWordDefinitions()
         {
             var text = new List<HighVersianDefinition>()
-            {
+            {                
+                new HighVersianDefinition("Redporo","Report (to again bear/produce) [lit:  producing again]"),
+                new HighVersianDefinition("Magat","(Active Past Tense) Magic. Exampl magic was put here."),
+                new HighVersianDefinition("Circa","Disc, dish, plate.[lit: an object which is circular]"),
+
+                
                 new HighVersianDefinition("Votdaous","Promise of serving/actively"),
                 new HighVersianDefinition("Coganteexitot","Think before you destroy"),
                 new HighVersianDefinition("Votdaus","Oath to"),
@@ -755,7 +787,7 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Telsila","Long range missile / Energy Lance (implies energy object)"),
                 new HighVersianDefinition("Magmissila","Magic short range missle."),
                 new HighVersianDefinition("Magtelsila","Magic long range missle."),
-                new HighVersianDefinition("Redvido","Read"),
+                new HighVersianDefinition("Redvido","(to) Read"),
                 new HighVersianDefinition("Redlegvido","Read a section"),
 
 

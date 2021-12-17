@@ -1,0 +1,29 @@
+﻿@page "/WikiArticle"
+@using WikiServices.DataServices
+@using TravellerWikiInfomationArticles
+@inject WikiArticleService ArticleService;
+<h3>Wiki Articles</h3>
+
+@code {
+    List<InformationArticle> Articles;
+
+    public void LoadARticle()
+    {
+        Articles = ArticleService.AllArticles;
+    }
+}
+
+@if (Articles == null)
+{
+    LoadARticle();
+}
+
+@if (Articles != null)
+{
+    <ul>
+    @foreach (var article in Articles)
+    {
+        <li><a href="/WikiArticle/@article.ID"><b>@article.Title</b></a>:  @((MarkupString)Markdig.Markdown.ToHtml(article.Summery))</li>
+    }
+    </ul>
+}

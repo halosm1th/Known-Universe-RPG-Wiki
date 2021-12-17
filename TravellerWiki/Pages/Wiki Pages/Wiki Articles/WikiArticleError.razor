@@ -1,0 +1,31 @@
+﻿@page "/WikiArticle/Error/{ID}"
+@using WikiServices.DataServices
+@using TravellerWikiInfomationArticles
+@inject WikiArticleService ArticleService;
+
+@code {
+    [Parameter]
+    public string ID { get; set; }
+
+    string ArticleName => ID.Replace("/", "").Replace("_"," ");
+
+
+}
+
+    <head>
+        <title>
+            Error @ArticleName Not Found 
+        </title>
+
+        <meta property="og:title" content="No Article Found" />
+        <meta property="og:site_name" content="Known Universe Wiki - @ArticleName" />
+        <meta property="og:url" content="https://theseamnetwork.com/WikiArticle/Error/" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://thesteamnetwork.com/Images/FederationFlag.png" />
+        <meta property="og:description" content="The @ArticleName could not be found, sorry about that." />
+        <meta content="#ffe81F" data-react-helmet="true" name="theme-color" />
+
+    </head>
+    <h1>Could not find @ArticleName</h1>
+<p>The wiki could not find the @ArticleName. I might not have written it yet, sorry about that.</p>
+<a href="/WikiArticle/">Go back to the article list?</a>

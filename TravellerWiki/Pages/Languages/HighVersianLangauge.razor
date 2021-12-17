@@ -21,9 +21,9 @@
     @* ReSharper disable once HeapView.BoxingAllocation *@
     @foreach (var letter in highVersian.Letters())
     {
-        <li>
-            <b class="high">@letter.ToString().ToUpper():</b> @highVersian.GetLetterProunciation(letter)
-        </li>
+            <li>
+                <b class="high">@letter.ToString().ToUpper():</b> @highVersian.GetLetterProunciation(letter)
+            </li>
     }
 </ul>
 
