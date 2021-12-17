@@ -80,6 +80,10 @@ namespace WikiServices.DataServices
 
         public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("Tan","Hold, have, grasp/posses"),
+                        new HighVersianDefinition("Pra","Protection, defense"),
+                        new HighVersianDefinition("A","From, away from, out of/after, since/By, by means of"),
+                        new HighVersianDefinition("Loq","Say, Speak"),
             new HighVersianDefinition("Apoc","Absolute, complete, total"),
             new HighVersianDefinition("Ae","Very/Extremely Long"),
             new HighVersianDefinition("Oe","Very/Extremely short"),
@@ -177,6 +181,12 @@ namespace WikiServices.DataServices
 
         public List<HighVersianDefinition> Roots { get; } = new List<HighVersianDefinition>()
         {
+            new HighVersianDefinition("Port","Portal, door"),
+            new HighVersianDefinition("Os","Mouth, opening/hatch"),
+            new HighVersianDefinition("Ling","Language"),
+            new HighVersianDefinition("Skut","Shield"),
+            new HighVersianDefinition("Vent","Center, middle/Stomach"),
+
             new HighVersianDefinition("Aedific","Build/Craft/Create"),
             new HighVersianDefinition("Ac","Threat, Attack, Action"),
             new HighVersianDefinition("Akw","Water/liquid"),
@@ -286,7 +296,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Tec","Cover/defend/Protect"),
             new HighVersianDefinition("Ment","Mental Mind"),
             new HighVersianDefinition("Fort","Strong/Powerful/Firm"),
-            new HighVersianDefinition("Circ","Circular line or orbit."),
+            new HighVersianDefinition("Sirk","Circular line or orbit."),
 
 
 
@@ -458,15 +468,23 @@ namespace WikiServices.DataServices
         private static List<HighVersianDefinition> HighVersianWordDefinitions()
         {
             var text = new List<HighVersianDefinition>()
-            {                
+            {            
+                
+                new HighVersianDefinition("Tanportao","Hold portal/Currently held portal"),
+                new HighVersianDefinition("Cando","(Present Tense) Light"),
+                new HighVersianDefinition("Osa","(object) mouth"),
+                new HighVersianDefinition("Visosa","Energy/void/Magic Mouth (object)"),
                 new HighVersianDefinition("Redporo","Report (to again bear/produce) [lit:  producing again]"),
                 new HighVersianDefinition("Magat","(Active Past Tense) Magic. Exampl magic was put here."),
                 new HighVersianDefinition("Circa","Disc, dish, plate.[lit: an object which is circular]"),
-
-                
+                new HighVersianDefinition("Salamaldeios","Protection from evil for my group"),
+                new HighVersianDefinition("Langas","(The) Languages (object)"),
+                new HighVersianDefinition("Langa","(An) Lanuage (object)"),
+                new HighVersianDefinition("Somudo","(Go to) sleep/ you are asleep?"),
+                new HighVersianDefinition("Loqventio","Ventriloqism [lit: I am currently speaking from my stomach]"),
                 new HighVersianDefinition("Votdaous","Promise of serving/actively"),
                 new HighVersianDefinition("Coganteexitot","Think before you destroy"),
-                new HighVersianDefinition("Votdaus","Oath to"),
+                 new HighVersianDefinition("Votdaus","Oath to"),
                 new HighVersianDefinition("Votveus","Oath of service to"),
                 new HighVersianDefinition("Collegeos","Collage/University"),
                 new HighVersianDefinition("Scimaga","The science of Magic"),

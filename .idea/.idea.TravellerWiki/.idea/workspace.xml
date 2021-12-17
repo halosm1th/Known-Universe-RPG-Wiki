@@ -16,27 +16,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Wiki Articles/WikiArticleError.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/Flags/VersianFlag.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/open-iconic/font/fonts/highversian-regular6-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/open-iconic/font/fonts/highversian-regular6-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EmptyArticle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/VersianGender.cs" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added the Versian Flag!">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/FederationFlag.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/HighVersianLangauge.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/UFE.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/UFE.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Vers.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Vers.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/WikiArticle.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Wiki Articles/WikiArticle.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/WikiArticles.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Wiki Articles/WikiArticles.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/FederationFlag.png" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/Flags/FederationFlag.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/eod.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/EOD_Images/eod.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/versEmpireRelations.png" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/EOD_Images/versEmpireRelations.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/versNobility.png" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/EOD_Images/versNobility.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/HighVersianStylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/HighVersianStylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EquitesOrdinisDeorum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EquitesOrdinisDeorum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -443,14 +428,7 @@
       <workItem from="1638992050884" duration="3496000" />
       <workItem from="1639542269236" duration="1247000" />
       <workItem from="1639591798553" duration="14687000" />
-      <workItem from="1639766591061" duration="1011000" />
-    </task>
-    <task id="LOCAL-00025" summary="Made the assets now just display locations, and added more islands to Islands.json">
-      <created>1627443596811</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1627443596811</updated>
+      <workItem from="1639766591061" duration="1807000" />
     </task>
     <task id="LOCAL-00026" summary="Added more Islands">
       <created>1627445007224</created>
@@ -788,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639599555789</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Added the Versian Flag!">
+      <created>1639767687081</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1639767687081</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,7 +794,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added anotehr world generator and some code to display stuff." />
     <MESSAGE value="Added a new world type kinda ish, iz cool ngl." />
     <MESSAGE value="This might allow cross platform image generation?" />
     <MESSAGE value="fixed some logging stuff" />
@@ -834,7 +818,8 @@
     <MESSAGE value="Added some picutres, adn finished the EOD lore." />
     <MESSAGE value="added a bunch fo ne stuff, including a subsector syste,!" />
     <MESSAGE value="Added a new page to view high Versian terms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new page to view high Versian terms" />
+    <MESSAGE value="Added the Versian Flag!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the Versian Flag!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

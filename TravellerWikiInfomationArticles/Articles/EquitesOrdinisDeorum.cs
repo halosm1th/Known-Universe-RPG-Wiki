@@ -270,8 +270,7 @@ namespace TravellerWikiInfomationArticles.Articles
                             "Their Armour, Void-blade, pistol, 5 x stun mags, 15 x AP mags, 25 x HEAPPC mags, 5 x Plasma Grenades, 5 x Smoke Grenades, 5 x Frag Grenade, 5 x EMP Grenade, as well as clothes for their role, both Formal Dresswear, clothes for duty aboard their ship, a dress uniform for their military service, as well as common cloths befitting their class as Militorius, they also have a Signet ring to signify their legal authority, and their Cape to demonstrate their title. Finally all Knights have either a landing Castle or Landing fort.",
                         "- EOD members are famous for their orange, glowing eyes. This effect is especially prominent after having consumed Aldminum, but generally happens after any usage of Magic.",
                         "- To gain more power then they usually have access to, it is common for EOD members to crush up aldminum crystals and snort the dust. The raw void energy held within allows for a stronger connection to the Void, though consuming too much at once is known to poison the user. Chronic consumption is known to lead to addiction.",
-                        "- [The inverted Versian rank pyramid](/Images/EOD_Images/versEmpireRelations.png)",
-                        "- [The Versian chain of where ranks lie relative to other ranks from their feudal liege.](/Images/EOD_Images/versNobility.png)"
+
                     }),
                 });
     }
