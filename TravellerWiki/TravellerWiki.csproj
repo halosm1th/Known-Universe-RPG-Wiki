@@ -274,19 +274,10 @@
         <Content Update="Pages\Wiki Pages\Subsectors\Subsector_Zaleski.razor">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <Content Update="Pages\Wiki Pages\Other\CentralTension.razor">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Update="Pages\Wiki Pages\Other\EarthStandardTime.razor">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
         <Content Update="Pages\Wiki Pages\Other\JobBoard.cshtml">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Content Update="Pages\Wiki Pages\Other\ScaleOfTime.razor">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Update="Pages\Wiki Pages\Other\Search.cshtml">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Content Update="Pages\Wiki Pages\Other\StarshipRegistrationInformation.razor">
@@ -309,6 +300,24 @@
         </Content>
         <Content Remove="Data\SubsectorJson\GeneratedSubsectors\Test.json" />
         <Content Update="Pages\Languages\Langauge Parts\HighVersianLangaugeAllTerms.razor">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\EOD_Images\eod.PNG">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\EOD_Images\versEmpireRelations.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\EOD_Images\VersianFamilyTree.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\EOD_Images\versNobility.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\Flags\FederationFlag.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\Flags\VersianFlag.bmp">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

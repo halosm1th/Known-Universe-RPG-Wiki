@@ -16,12 +16,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added the Versian Flag!">
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/FederationFlag.png" afterDir="false" />
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/EOD_Images/VersianFamilyTree.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/CentralTension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EarthStandardTime.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Vers.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Vers.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EquitesOrdinisDeorum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/EquitesOrdinisDeorum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Galaxies/Asselyum.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Galaxies/Asselyum.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Other/CentralTension.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Other/EarthStandardTime.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Other/Search.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Other/Search.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/VersianGender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/Articles/VersianGender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWikiInfomationArticles/WikiInformationArticles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,6 +185,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -428,14 +439,10 @@
       <workItem from="1638992050884" duration="3496000" />
       <workItem from="1639542269236" duration="1247000" />
       <workItem from="1639591798553" duration="14687000" />
-      <workItem from="1639766591061" duration="1807000" />
-    </task>
-    <task id="LOCAL-00026" summary="Added more Islands">
-      <created>1627445007224</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1627445007224</updated>
+      <workItem from="1639766591061" duration="2163000" />
+      <workItem from="1639894136972" duration="2737000" />
+      <workItem from="1640140092057" duration="1556000" />
+      <workItem from="1640141812780" duration="1577000" />
     </task>
     <task id="LOCAL-00027" summary="Added some new void news articles, as well as the basics for a basic fantasy RP charactrer creeator">
       <created>1628537099771</created>
@@ -773,7 +780,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639767687081</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Fixed a few small things">
+      <created>1639768688670</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1639768688670</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,7 +808,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added a new world type kinda ish, iz cool ngl." />
     <MESSAGE value="This might allow cross platform image generation?" />
     <MESSAGE value="fixed some logging stuff" />
     <MESSAGE value="small fix" />
@@ -819,7 +832,8 @@
     <MESSAGE value="added a bunch fo ne stuff, including a subsector syste,!" />
     <MESSAGE value="Added a new page to view high Versian terms" />
     <MESSAGE value="Added the Versian Flag!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the Versian Flag!" />
+    <MESSAGE value="Fixed a few small things" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a few small things" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

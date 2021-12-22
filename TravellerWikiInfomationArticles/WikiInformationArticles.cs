@@ -10,6 +10,7 @@ namespace TravellerWikiInfomationArticles
         {
             TravellerWikiInfomationArticles.Articles.EquitesOridinsDeorum.GetArticle(),
             VersianGender.GetArticle(),
+            EarthStandardTime.GetArticle(),
         };
 
         public static string GetArticleIDByName(string name)

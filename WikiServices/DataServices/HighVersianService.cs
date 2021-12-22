@@ -80,6 +80,9 @@ namespace WikiServices.DataServices
 
         public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("Fals","False"),
+            new HighVersianDefinition("Ver","True"),
+            new HighVersianDefinition("Paup","Poor"),
             new HighVersianDefinition("Tan","Hold, have, grasp/posses"),
                         new HighVersianDefinition("Pra","Protection, defense"),
                         new HighVersianDefinition("A","From, away from, out of/after, since/By, by means of"),
@@ -469,7 +472,11 @@ namespace WikiServices.DataServices
         {
             var text = new List<HighVersianDefinition>()
             {            
-                
+                new HighVersianDefinition("Deversarian","Godly Versarian, Deutschlander"),
+                new HighVersianDefinition("Monversarian","Monied Versarian, Germushian"),
+                new HighVersianDefinition("Paupversarian","Poor Versarian, Poldandskian"),
+                new HighVersianDefinition("Falsfrau","False Brother, Imperial"),
+                new HighVersianDefinition("Terrua","Person born in the UFE"),
                 new HighVersianDefinition("Tanportao","Hold portal/Currently held portal"),
                 new HighVersianDefinition("Cando","(Present Tense) Light"),
                 new HighVersianDefinition("Osa","(object) mouth"),
