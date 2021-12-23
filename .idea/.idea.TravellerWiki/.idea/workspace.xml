@@ -16,7 +16,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added Versian Gender">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Updated the family tree">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/EOD_Images/VersianFamilyTree.png" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/EOD_Images/VersianFamilyTree.png" afterDir="false" />
     </list>
@@ -432,14 +432,7 @@
       <workItem from="1639766591061" duration="2163000" />
       <workItem from="1639894136972" duration="2737000" />
       <workItem from="1640140092057" duration="1556000" />
-      <workItem from="1640141812780" duration="4153000" />
-    </task>
-    <task id="LOCAL-00028" summary="Added hte new voices of the void article">
-      <created>1634583489654</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1634583489654</updated>
+      <workItem from="1640141812780" duration="4762000" />
     </task>
     <task id="LOCAL-00029" summary="Okay this might finally have fixed it.">
       <created>1634583689218</created>
@@ -777,7 +770,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640149445144</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Updated the family tree">
+      <created>1640228305480</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1640228305480</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -798,7 +798,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fixed some logging stuff" />
     <MESSAGE value="small fix" />
     <MESSAGE value="Added some new high versian words &amp; fixed a bug on the nation page." />
     <MESSAGE value="added mroe high versian words and Wiki articles" />
@@ -823,7 +822,8 @@
     <MESSAGE value="Added the Versian Flag!" />
     <MESSAGE value="Fixed a few small things" />
     <MESSAGE value="Added Versian Gender" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Versian Gender" />
+    <MESSAGE value="Updated the family tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated the family tree" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
