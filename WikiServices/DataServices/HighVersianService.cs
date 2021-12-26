@@ -80,6 +80,12 @@ namespace WikiServices.DataServices
 
         public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("Hab","(To) owe something/under obligation to/must"),
+            new HighVersianDefinition("Sid","Cede/Submit/Yield/Give"),
+            new HighVersianDefinition("Sub","Under/Beneth/Below"),
+            new HighVersianDefinition("Mit","Send/Dispatch/Release"),
+            new HighVersianDefinition("Fin","Finished/Done/Over/Completed"),
+            new HighVersianDefinition("Tra","Against"),
             new HighVersianDefinition("Fals","False"),
             new HighVersianDefinition("Ver","True"),
             new HighVersianDefinition("Paup","Poor"),
@@ -456,7 +462,7 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Ais","A group of people using an object. "),
             new HighVersianDefinition("Eis","The speaker’s group of people using another group."),
             new HighVersianDefinition("Ois","The thing in use by the speakers’ group."),
-            new HighVersianDefinition("Uis","The person being spoken to by the speakers’ group."),
+            new HighVersianDefinition("Uis","Us/We/Your group and my group together"),
             
             new HighVersianDefinition("*ou","a thing currently doing something to lister/passive person in the conversation"),
             new HighVersianDefinition("Aou","An object currently doing to listener"),
@@ -607,7 +613,7 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Molior","A person who builds/crafts/creates (less like construction, more like artist/craftsmen)"),
                 new HighVersianDefinition("Mora","Delayed (Literal: Lots of objects or items)"),
                 new HighVersianDefinition("Morantes","Lingering, remaining. (Literal: A Large group of smells or orders)"),
-                new HighVersianDefinition("Mortuis","The dead. (Literal: A group of large [bloated] bodies)"),
+                new HighVersianDefinition("Mortues","The dead. (Literal: A group of large [bloated] bodies)"),
 
                 new HighVersianDefinition("Mu","They"),
                 new HighVersianDefinition("Mu’","He"),
