@@ -16,10 +16,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added a few extra high versian words" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterCreationTest/Charcters/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/thoma/RiderProjects/Known-Universe-RPG-Wiki/WikiServices/DataServices/HighVersianService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -392,14 +390,7 @@
       <workItem from="1640141812780" duration="4762000" />
       <workItem from="1640454368831" duration="1364000" />
       <workItem from="1640472291542" duration="126000" />
-      <workItem from="1640548430195" duration="1241000" />
-    </task>
-    <task id="LOCAL-00029" summary="Okay this might finally have fixed it.">
-      <created>1634583689218</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1634583689218</updated>
+      <workItem from="1640548430195" duration="1541000" />
     </task>
     <task id="LOCAL-00030" summary="Fixed the date on voics from the void">
       <created>1634584257576</created>
@@ -737,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640228305480</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Added a few extra high versian words">
+      <created>1640549965177</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1640549965177</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -757,7 +755,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="small fix" />
     <MESSAGE value="Added some new high versian words &amp; fixed a bug on the nation page." />
     <MESSAGE value="added mroe high versian words and Wiki articles" />
     <MESSAGE value="Added more wiki articles!" />
@@ -782,7 +779,8 @@
     <MESSAGE value="Fixed a few small things" />
     <MESSAGE value="Added Versian Gender" />
     <MESSAGE value="Updated the family tree" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the family tree" />
+    <MESSAGE value="Added a few extra high versian words" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a few extra high versian words" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

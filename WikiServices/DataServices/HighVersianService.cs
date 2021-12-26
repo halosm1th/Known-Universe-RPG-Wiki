@@ -614,13 +614,13 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Mora","Delayed (Literal: Lots of objects or items)"),
                 new HighVersianDefinition("Morantes","Lingering, remaining. (Literal: A Large group of smells or orders)"),
                 new HighVersianDefinition("Mortues","The dead. (Literal: A group of large [bloated] bodies)"),
-
                 new HighVersianDefinition("Mu","They"),
                 new HighVersianDefinition("Mu’","He"),
                 new HighVersianDefinition("Mu;","She"),
                 new HighVersianDefinition("Mua","It"),
                 new HighVersianDefinition("Mua’","It (Male)"),
                 new HighVersianDefinition("Mua;","It (female)"),
+                new HighVersianDefinition("Mio","I am, I am doing, me presently"),
 
                 new HighVersianDefinition("Mue","You (plural, group)"),
                 new HighVersianDefinition("Mue’","Guys/Men"),
