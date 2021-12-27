@@ -80,6 +80,11 @@ namespace WikiServices.DataServices
 
         public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("It","Thus, so, consequency"),
+            new HighVersianDefinition("Sib","Food/Meal"),
+            new HighVersianDefinition("Dic","Say, utter/State/Declare"),
+            new HighVersianDefinition("Dan","Giving/Offering"),
+            new HighVersianDefinition("Arm","Tool of War/battle, arms, weapons/armour"),
             new HighVersianDefinition("Hab","(To) owe something/under obligation to/must"),
             new HighVersianDefinition("Sid","Cede/Submit/Yield/Give"),
             new HighVersianDefinition("Sub","Under/Beneth/Below"),
@@ -276,8 +281,6 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Sanct","Sacred, Holy, divine, religious"),
             new HighVersianDefinition("Glad","Sword, Blade, etc"),
             new HighVersianDefinition("Siens","Knowing, understanding"),
-            new HighVersianDefinition("Armor","Armour, protective clothing"),
-            new HighVersianDefinition("Arm","Clothing"),
             new HighVersianDefinition("Thron","Throne, head seat, master-chair"),
             new HighVersianDefinition("En","In/at/from/upon/within/under/while/during"),
             new HighVersianDefinition("Qies","Rest/sleep/ To stop. (pronounced quies)"),
@@ -306,6 +309,9 @@ namespace WikiServices.DataServices
             new HighVersianDefinition("Ment","Mental Mind"),
             new HighVersianDefinition("Fort","Strong/Powerful/Firm"),
             new HighVersianDefinition("Sirk","Circular line or orbit."),
+            new HighVersianDefinition("Vest","Clothes/Cloth"),
+            new HighVersianDefinition("Ofis","Factory/Office/Place of Work"),
+
 
 
 
@@ -478,6 +484,8 @@ namespace WikiServices.DataServices
         {
             var text = new List<HighVersianDefinition>()
             {            
+                new HighVersianDefinition("",""),
+                new HighVersianDefinition("Armor","Armour, protective clothing"),
                 new HighVersianDefinition("Deversarian","Godly Versarian, Deutschlander"),
                 new HighVersianDefinition("Monversarian","Monied Versarian, Germushian"),
                 new HighVersianDefinition("Paupversarian","Poor Versarian, Poldandskian"),
