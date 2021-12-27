@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WikiServices.SimpleServiceDriverCode;
+// ReSharper disable StringLiteralTypo
 
 namespace WikiServices.DataServices
 {
@@ -484,7 +485,6 @@ namespace WikiServices.DataServices
         {
             var text = new List<HighVersianDefinition>()
             {            
-                new HighVersianDefinition("",""),
                 new HighVersianDefinition("Armor","Armour, protective clothing"),
                 new HighVersianDefinition("Deversarian","Godly Versarian, Deutschlander"),
                 new HighVersianDefinition("Monversarian","Monied Versarian, Germushian"),
@@ -828,9 +828,6 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Magtelsila","Magic long range missle."),
                 new HighVersianDefinition("Redvido","(to) Read"),
                 new HighVersianDefinition("Redlegvido","Read a section"),
-
-
-
             };
             if (text.Count > 0) return text.OrderBy(x => x?.Letters.First()).ToList();
             else return text;
@@ -869,12 +866,8 @@ namespace WikiServices.DataServices
             
             return dict;
         }
-
-
-        private static int cacheHits = 0;
-        private static int valuesInChache => _words.Count;
-        private static int cacheMiss = 0;
-
+        
+        
         public HighVersianDefinition GetWord(string prefix, string root, string postfix)
         {
             if (_words == null || _words.Count <= 0) GenerateWords();
@@ -887,25 +880,13 @@ namespace WikiServices.DataServices
             
             if (containsWord)
             {
-                cacheHits++;
-            
-                //Console.ForegroundColor = ConsoleColor.Green;
-                //Console.WriteLine($"Looking for: {spellingOfWord}. Found: {containsWord} [{cacheHits.ToString()}:{cacheMiss.ToString()}/{valuesInChache.ToString()}]");
-            
+             
                 return Words.First(x => x.Letters == spellingOfWord);
             }
             else
             {
                 return new HighVersianDefinition("ERROR", "Not Found -- No word with a more complex meaning then the literal form of its translation.");
-                //Bad Code, slows stuff down too much
-/*                cacheMiss++;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Looking for: {spellingOfWord}. Found: {containsWord} [{cacheHits.ToString()}:{cacheMiss.ToString()}/{valuesInChache.ToString()}]");
-            
-                var meaning = GetWordMeaning(prefix,root,postfix);
-                var word = new HighVersianDefinition(spellingOfWord, meaning);
-                AddWord(word);
-                return word;*/
+                
             }
         }
 
