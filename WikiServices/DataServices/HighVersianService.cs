@@ -81,6 +81,8 @@ namespace WikiServices.DataServices
 
         public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("Ad", "Going to, Towards/ Up towards/near/at/destintion"),
+            new HighVersianDefinition("Lat","To hide/conceal/keep hidden/keep out of sight"),
             new HighVersianDefinition("It","Thus, so, consequency"),
             new HighVersianDefinition("Sib","Food/Meal"),
             new HighVersianDefinition("Dic","Say, utter/State/Declare"),
@@ -485,6 +487,34 @@ namespace WikiServices.DataServices
         {
             var text = new List<HighVersianDefinition>()
             {            
+                new HighVersianDefinition("Itadaedificoi","(Present tense) Thus, I am going to build/create."),
+                new HighVersianDefinition("Hona","Honor (the object honor)"),
+                new HighVersianDefinition("Mia","Me using the proceeding object"),
+                new HighVersianDefinition("Neglora","Without glory [Lit. Without the object of glory]"),
+                new HighVersianDefinition("Dano","(Present tense) to Give/Giving"),
+                new HighVersianDefinition("ehonore","People whose current purpose is lacking honour"),
+                new HighVersianDefinition("Eteo","and this group which I am talking about"),
+                new HighVersianDefinition("Collegeos Scimaga","Mages Guild/College of Mages"),
+                new HighVersianDefinition("Maxcollegere","The greatest or largest collage. The super college"),
+                new HighVersianDefinition("Dicum","A place where people are said to be."),
+                new HighVersianDefinition("Puapcivel","Poor Civis/A group of citizens who are poor"),
+                new HighVersianDefinition("Imtelarmofison","Great Weapons Factory. [Lit: the large long-reaching weapons factory]"),
+                new HighVersianDefinition("adputrida","The destination which is destroyed. [lit: Towards/the desitination is a destroyed or ruined object]"),
+                new HighVersianDefinition("V'extao","To this end. [Lit: to the object which is current the end/exit ]"),
+                new HighVersianDefinition("Nelato","(preesnt tense) Not hiding."),
+                new HighVersianDefinition("Habiuvuis","We should/Must/Ought be helping"),
+                new HighVersianDefinition("Tracives","Against a group of Civillians/Citizens "),
+                new HighVersianDefinition("Conelo","With (the) current Fight/battle/conflict"),
+                new HighVersianDefinition("Finmeo","(present tense) I am done/Finished"),
+                new HighVersianDefinition("Demalfantasia","God of People experencing false Images"),
+                new HighVersianDefinition("Vero","(Present Tense) true/truth"),
+                new HighVersianDefinition("Vido","(present tense) see/look"),
+                new HighVersianDefinition("eto","(present tense) and"),
+                new HighVersianDefinition("Vesido","(present tense) To submit"),
+                new HighVersianDefinition("Equiturs","The Knights (third person)"),
+                new HighVersianDefinition("Habmandatuis","We must command [lit: Our groups must command/order]"),
+                new HighVersianDefinition("Viscando","Void-Light/Magic Light"),
+                new HighVersianDefinition("V'exto","(Present tense) To stop, exit, end or extinguish."),
                 new HighVersianDefinition("Armor","Armour, protective clothing"),
                 new HighVersianDefinition("Deversarian","Godly Versarian, Deutschlander"),
                 new HighVersianDefinition("Monversarian","Monied Versarian, Germushian"),
@@ -613,7 +643,7 @@ namespace WikiServices.DataServices
                 new HighVersianDefinition("Mandatum","A command / following a command / A command to be followed"),
 
                 new HighVersianDefinition("Mi","Me"),
-                new HighVersianDefinition("Mio","We, With me (my group)"),
+                new HighVersianDefinition("Miu","We, With me (my group)"),
 
                 new HighVersianDefinition("Minaces","Threaten, threatening (Literal: A group of small violence)"),
                 new HighVersianDefinition("Minamichi","My little friend, my pet (general a small animal)"),

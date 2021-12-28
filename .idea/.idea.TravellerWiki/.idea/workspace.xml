@@ -16,7 +16,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Added new high Versian Prefixes and roots">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Fixed a small bug with having empty variables in the high versian stuff">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
     </list>
@@ -52,6 +52,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/thoma/RiderProjects/Known-Universe-RPG-Wiki/WikiServices/DataServices/HighVersianService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf436ac5cbaab2b6b1287ede3c7cd7e20516e661885a2538c9618359e8fd/FontCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
@@ -394,14 +395,7 @@
       <workItem from="1640454368831" duration="1364000" />
       <workItem from="1640472291542" duration="126000" />
       <workItem from="1640548430195" duration="2644000" />
-      <workItem from="1640647915077" duration="307000" />
-    </task>
-    <task id="LOCAL-00032" summary="Hopefully fixes a bug">
-      <created>1636443354353</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1636443354353</updated>
+      <workItem from="1640647915077" duration="2398000" />
     </task>
     <task id="LOCAL-00033" summary="Another bug fix, this time related to the links for the lists of pre/root/postfixes">
       <created>1636443654614</created>
@@ -739,7 +733,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640648219808</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Fixed a small bug with having empty variables in the high versian stuff">
+      <created>1640648483066</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1640648483066</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -759,7 +760,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added more wiki articles!" />
     <MESSAGE value="Added more Versian lore." />
     <MESSAGE value="Added more verian lore and high versian words" />
     <MESSAGE value="Added a page with all subectors" />
@@ -784,7 +784,8 @@
     <MESSAGE value="Added a few extra high versian words" />
     <MESSAGE value="Added more high versian words" />
     <MESSAGE value="Added new high Versian Prefixes and roots" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new high Versian Prefixes and roots" />
+    <MESSAGE value="Fixed a small bug with having empty variables in the high versian stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a small bug with having empty variables in the high versian stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
