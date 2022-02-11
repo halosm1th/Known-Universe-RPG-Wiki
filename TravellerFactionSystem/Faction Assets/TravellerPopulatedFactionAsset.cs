@@ -2,18 +2,19 @@
 using System.Linq;
 using Newtonsoft.Json;
 using TravellerCharacter.Character_Services.NPC_Services;
+using TravellerFactionSystem.Location;
 
 namespace TravellerFactionSystem.Faction_Assets
 {
     public class TravellerPopulatedFactionAsset : TravellerFactionAsset
     {
         public TravellerPopulatedFactionAsset(string name = "", string description = "",
-            TravellerLocation currentLocation = default,
+            int currentLocationID = default,
             TravellerFactionAssetValue economicValue = default, TravellerFactionAssetValue socialValue = default,
             TravellerFactionAssetValue politicalValue = default,
             List<TravellerFactionPersonAsset> assetPopulation = null, int maxNumberOfPeopleWithAsset = 1,
             int minNumberOfPeopleWithAsset = 1)
-            : base(name, description, currentLocation, economicValue, socialValue, politicalValue)
+            : base(name, description, currentLocationID, economicValue, socialValue, politicalValue)
         {
             AssetPopulation = assetPopulation;
             MaxNumberOfPeopleWithAsset = maxNumberOfPeopleWithAsset;
@@ -28,7 +29,7 @@ namespace TravellerFactionSystem.Faction_Assets
                 {
                     var npc = npcGenerator.GenerateNPC(name.Aggregate(0, (h, t) => h + t) + AssetPopulation.Count);
                     AssetPopulation.Add(new TravellerFactionPersonAsset(npc.PatronText, npc, $"Employee at: {name}",
-                        CurrentLocation));
+                        currentLocationID));
                 }
             }
         }

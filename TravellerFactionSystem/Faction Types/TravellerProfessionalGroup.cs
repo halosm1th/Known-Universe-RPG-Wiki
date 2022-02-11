@@ -3,18 +3,19 @@ using TravellerCharacter.CharcterTypes;
 using TravellerFactionSystem.Faction_Assets;
 using TravellerFactionSystem.FactionEnums;
 using VoicesFromTheVoidArticles;
+using TravellerFactionSystem.Location;
 
 namespace TravellerFactionSystem.Faction_Types
 {
     public class TravellerProfessionalGroup : TravellerFaction
     {
-        public TravellerProfessionalGroup(string factionName, TravellerLocation headquatersLocation,
+        public TravellerProfessionalGroup(string factionName, int headquatersTextLocation,
             TravellerIslandsNations islandsNation, TravellerNationalities supportingNationality,
-            string factionHeadName, List<TravellerLocation> otherOwnedLocations, TravellerDateTime foundedYear,
+            string factionHeadName, List<int> otherOwnedLocations, TravellerDateTime foundedYear,
             TravellerFactionPoliticalSway politicalSway, TravellerFactionSocialSway socialSway,
             TravellerFactionEconomicSway economicSway, TravellerNPC factionHead = null,
             List<TravellerFactionPersonAsset> factionMembers = null)
-            : base(factionName, headquatersLocation, islandsNation, supportingNationality, factionHeadName,
+            : base(factionName, headquatersTextLocation, islandsNation, supportingNationality, factionHeadName,
                 otherOwnedLocations, foundedYear, politicalSway, socialSway, economicSway, factionHead, factionMembers)
         {
         }
@@ -24,7 +25,7 @@ namespace TravellerFactionSystem.Faction_Types
             var factionType = "Professionial Group";
 
             return
-                $"The {factionType} known as {FactionName} first came to prominence in the Islands in {FoundedYear} on {HeadquatersLocation}. It is currently headed by {FactionHead.Name}" +
+                $"The {factionType} known as {FactionName} first came to prominence in the Islands in {FoundedYear} on {HeadquatersTextLocation}. It is currently headed by {FactionHead.Name}" +
                 $"and it functions as a part of the {IslandsNation.ToString().Replace("_", " ")} with help from {SupportingNationality.ToString().Replace("_", " ")}." +
                 $"This {factionType} has {PoliticalSway.ToString().Replace("_", " ")} political sway. " +
                 $"{EconomicSway.ToString().Replace("_", " ")} economic sway, " +

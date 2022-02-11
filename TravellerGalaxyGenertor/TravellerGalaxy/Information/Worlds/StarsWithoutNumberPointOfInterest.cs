@@ -1,10 +1,12 @@
 ﻿using System.Numerics;
+using TravellerFactionSystem;
+using TravellerFactionSystem.Location;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Tools;
 
 namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
 {
-    public class StarsWithoutNumberPointOfInterest : IWorld
+    public class StarsWithoutNumberPointOfInterest : TravellerLocation, IWorld 
     {
         public StarsWithoutNumberPointOfInterest(string name, int number)
         {

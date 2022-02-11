@@ -1,6 +1,8 @@
-﻿namespace TravellerMapSystem
+﻿using TravellerFactionSystem.Location;
+
+namespace TravellerMapSystem
 {
-    internal class KnownUniverseQuadrant
+    internal class KnownUniverseQuadrant : TravellerLocation
     {
         private readonly int MEGA_X_SIZE = 8;
         private readonly int MEGA_Y_SIZE = 8;

@@ -10,6 +10,7 @@ using TravellerCharacter.CharcterTypes;
 using TravellerFactionSystem.Faction_Assets;
 using TravellerFactionSystem.FactionEnums;
 using VoicesFromTheVoidArticles;
+using TravellerFactionSystem.Location;
 
 namespace TravellerFactionSystem
 {
@@ -92,7 +93,7 @@ namespace TravellerFactionSystem
 
         public int FactionID { get; set; }
         public string FactionName { get; set; }
-        public TravellerLocation HeadquatersLocation { get; set; }
+        public int HeadquatersLocationID { get; set; }
         public TravellerDateTime FoundedYear { get; set; }
         public TravellerIslandsNations IslandsNation { get; set; }
         public TravellerNationalities SupportingNationality { get; set; }
@@ -114,8 +115,10 @@ namespace TravellerFactionSystem
 
         [JsonIgnore]
         public List<TravellerLocation> OtherOwnedLocations =>
-            FactionLocations.Select(x => x.CurrentLocation)
+            FactionLocations.Select(x => x.GetLocation())
                 .ToList();
+
+        [JsonIgnore] public TravellerLocation HeadquatersTextLocation => TravellerLocationService.GetLocation(HeadquatersLocationID);
 
         [JsonIgnore] public string FactionAssetText => string.Join(", ", FactionAssets().Select(x => x.ToString()));
         [JsonIgnore] protected Random _randomGenerator { get; }
@@ -147,7 +150,9 @@ namespace TravellerFactionSystem
         #region Constructors
 
         [JsonConstructor]
-        public TravellerFaction(string factionName, TravellerLocation hqLoc, TravellerIslandsNations isalndsNation,
+        public TravellerFaction(string factionName, 
+            int hqLoc, 
+            TravellerIslandsNations isalndsNation,
             TravellerNationalities nationality, TravellerDateTime foundingDate,
             TravellerFactionPoliticalSway polSway, TravellerFactionSocialSway socSway,
             TravellerFactionEconomicSway ecoSway, TravellerNPC factionHead = null,
@@ -155,7 +160,7 @@ namespace TravellerFactionSystem
             List<TravellerPlanetaryBaseAsset> baseLocations = null, int factionId = default)
         {
             FactionName = factionName;
-            HeadquatersLocation = hqLoc;
+            HeadquatersLocationID = hqLoc;
             IslandsNation = isalndsNation;
             SupportingNationality = nationality;
             FoundedYear = foundingDate;
@@ -169,16 +174,16 @@ namespace TravellerFactionSystem
         }
 
         public TravellerFaction(string factionName = "",
-            TravellerLocation hqLoc = default,
+            int hqLoc = default,
             TravellerIslandsNations islandsNation = default, TravellerNationalities supportingNationality = default,
-            string factionHeadName = "", List<TravellerLocation> otherOwnedLocations = null,
+            string factionHeadName = "", List<int> otherOwnedLocations = null,
             TravellerDateTime foundedYear = null, TravellerFactionPoliticalSway politicalSway = default,
             TravellerFactionSocialSway socialSway = default, TravellerFactionEconomicSway economicSway = default,
             TravellerNPC factionHead = null, List<TravellerFactionPersonAsset> factionMembers = null,
             List<TravellerPlanetaryBaseAsset> baseLocations = null)
         {
             FactionName = factionName;
-            HeadquatersLocation = hqLoc;
+            HeadquatersLocationID = hqLoc;
             FoundedYear = foundedYear;
             IslandsNation = islandsNation;
             SupportingNationality = supportingNationality;
@@ -191,10 +196,10 @@ namespace TravellerFactionSystem
                 new List<TravellerFactionPersonAsset>(factionMembers ?? new List<TravellerFactionPersonAsset>());
             FactionID = GenerateFactionID();
 
-            if (HeadquatersLocation != null)
+            if (HeadquatersLocationID != 0)
             {
                 var factionSeed = factionName.Aggregate(0, (h, t) => h + t)
-                                  + HeadquatersLocation.LocationName.Aggregate(0, (h, t) => h + t)
+                                  + HeadquatersLocationID
                                   + (int)IslandsNation
                                   - ((int)supportingNationality + 1);
 
@@ -242,19 +247,19 @@ namespace TravellerFactionSystem
             if (FactionLocations == null)
             {
                 FactionLocations = new List<TravellerPlanetaryBaseAsset>();
-                if (HeadquatersLocation != null)
+                if (HeadquatersLocationID != 0)
                     FactionLocations.Add(
-                        new TravellerPlanetaryBaseAsset(HeadquatersLocation?.LocationName,
+                        new TravellerPlanetaryBaseAsset($"Headquaters of {factionName}",
                             $"The headquarters of {factionName}",
-                            HeadquatersLocation,
+                            HeadquatersLocationID,
                             new TravellerFactionAssetValue(20, 50),
                             new TravellerFactionAssetValue(20, 50),
                             new TravellerFactionAssetValue(20, 50),
                             null, 10, 1, TravellerPlanetaryBaseLevels.Planetary_Control));
 
-                foreach (var otherLocation in otherOwnedLocations ?? new List<TravellerLocation>())
+                foreach (var otherLocation in otherOwnedLocations ?? new List<int>())
                     FactionLocations.Add(
-                        new TravellerPlanetaryBaseAsset(otherLocation.LocationName,
+                        new TravellerPlanetaryBaseAsset(TravellerLocationService.GetLocation(HeadquatersLocationID).LocationName,
                             $"A planet controlled by {factionName}",
                             otherLocation,
                             new TravellerFactionAssetValue(10, 25),

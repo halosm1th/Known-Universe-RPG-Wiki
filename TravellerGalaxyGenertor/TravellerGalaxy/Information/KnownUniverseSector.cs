@@ -2,10 +2,11 @@
 using System.IO;
 using System.Linq;
 using SixLabors.ImageSharp;
+using TravellerFactionSystem.Location;
 
 namespace TravellerMapSystem
 {
-    public class KnownUniverseSector
+    public class KnownUniverseSector : TravellerLocation
     {
         private readonly MapNameLists _nameList;
         public string Name;

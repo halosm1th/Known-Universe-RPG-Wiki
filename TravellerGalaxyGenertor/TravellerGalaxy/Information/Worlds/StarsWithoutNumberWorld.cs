@@ -1,5 +1,7 @@
 ﻿using System.Numerics;
 using Newtonsoft.Json;
+using TravellerFactionSystem;
+using TravellerFactionSystem.Location;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Tools;
 
@@ -85,7 +87,7 @@ namespace TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds
         Alien_Inhabitants
     }
 
-    public class StarsWithoutNumberWorld : IWorld
+    public class StarsWithoutNumberWorld : TravellerLocation, IWorld
     {
         public StarsWithoutNumberWorld(string name, int number)
         {

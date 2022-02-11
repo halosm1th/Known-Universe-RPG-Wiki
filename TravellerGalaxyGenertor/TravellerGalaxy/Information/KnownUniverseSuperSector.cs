@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
+using TravellerFactionSystem.Location;
 
 namespace TravellerMapSystem
 {
-    internal class KnownUniverseSuperSector
+    internal class KnownUniverseSuperSector : TravellerLocation
     {
         public string Name;
         private readonly KnownUniverseSector[,] sectors;

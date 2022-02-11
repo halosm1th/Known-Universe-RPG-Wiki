@@ -1,6 +1,8 @@
-﻿namespace TravellerMapSystem
+﻿using TravellerFactionSystem.Location;
+
+namespace TravellerMapSystem
 {
-    internal class KnownUniverseMegaSector
+    internal class KnownUniverseMegaSector : TravellerLocation
     {
         public string Name;
         private readonly KnownUniverseSuperSector[,] supersectors;

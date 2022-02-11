@@ -17,28 +17,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorCreatorService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/CreateSubsector.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Sigmarian Language/SigmarianLangauge.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Sigmarian Language/SigmarianLanguageWords.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/open-iconic/font/fonts/HighVersian-Regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WikiServices/DataServices/SigmarianService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerFactionSystem/Location/TravellerLocation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerFactionSystem/Location/TravellerLocationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseBanditFacility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseBanditHideout.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseCitzens_Republic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseCorporateOutpost.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseCorporate_City.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseFree_City.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseFuedal_Holding.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseMilitaryBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseOwned_City.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniversePlanetarySettlement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniversePrivateVilla.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseRefugeeSettlement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseResearchOutpost.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Settlemeant/KnownUniverseSectarianHideout.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseBuilding.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/SettlementSize.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Assets/TravellerFactionPersonAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Assets/TravellerFactionPersonAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Assets/TravellerPlanetaryBaseAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Assets/TravellerPlanetaryBaseAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Assets/TravellerPopulatedFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Assets/TravellerPopulatedFactionAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerClassGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerClassGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerCompanyGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerCompanyGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerCrimeGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerCrimeGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerMajorNationGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerMajorNationGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerNationGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerNationGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerOtherGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerOtherGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerPoliticalGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerPoliticalGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerProfessionalGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerProfessionalGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerReligiousGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerReligiousGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerSocialGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerSocialGroup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionAsset.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionSystem.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionSystem.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerLocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Location/TravellerTextLocation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseGalaxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseGalaxy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseMegaSector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseMegaSector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseQuadrant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseQuadrant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSuperSector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSuperSector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/StarsWithoutNumberPointOfInterest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/StarsWithoutNumberPointOfInterest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/StarsWithoutNumberWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/StarsWithoutNumberWorld.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/SubsectorGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/SubsectorGenerator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/LanguageFamilies.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/LanguageFamilies.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WikiServices/WikiServices.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/WikiServices.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsClassGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCriminalGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCriminalGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsMajorNationGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsNationGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsOtherGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsPoliticalGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsPoliticalGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsProfessionalGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsProfessionalGroups.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsReligion.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsReligion.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsSocialGroups.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +98,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -79,6 +129,7 @@
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7e231682be8652744726acc6de35323daa68061429db55e0c251114902f60/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -420,13 +471,7 @@
       <workItem from="1642824527095" duration="4934000" />
       <workItem from="1643338387399" duration="2241000" />
       <workItem from="1644528254809" duration="8438000" />
-    </task>
-    <task id="LOCAL-00034" summary="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary">
-      <created>1637047262463</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1637047262463</updated>
+      <workItem from="1644598546714" duration="1987000" />
     </task>
     <task id="LOCAL-00035" summary="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary">
       <created>1637047294565</created>
@@ -764,7 +809,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640650529758</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="A different take on location system">
+      <created>1644550577157</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1644550577157</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -784,7 +836,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added more verian lore and high versian words" />
     <MESSAGE value="Added a page with all subectors" />
     <MESSAGE value="reorganized a bunch of stuff" />
     <MESSAGE value="Added a possible save system for subsectors." />
@@ -809,7 +860,8 @@
     <MESSAGE value="Added new high Versian Prefixes and roots" />
     <MESSAGE value="Fixed a small bug with having empty variables in the high versian stuff" />
     <MESSAGE value="Added a few more high Versian Words" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a few more high Versian Words" />
+    <MESSAGE value="A different take on location system" />
+    <option name="LAST_COMMIT_MESSAGE" value="A different take on location system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -831,12 +883,56 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor</url>
-          <line>51</line>
-          <properties documentPath="C:\Users\Thomas\source\repos\halosm1th\Known-Universe-RPG-Wiki\TravellerWiki\Pages\Factions\Creators\IslandsMajorNationCreator.razor" initialLine="55" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
+          <url>file://$PROJECT_DIR$/TravellerFactionSystem/Location/TravellerLocationService.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\thoma\RiderProjects\Known-Universe-RPG-Wiki\TravellerFactionSystem\Location\TravellerLocationService.cs" initialLine="15" containingFunctionPresentation="method 'GetLocation'">
+            <startOffsets>
+              <option value="475" />
+            </startOffsets>
+            <endOffsets>
+              <option value="496" />
+            </endOffsets>
           </properties>
-          <option name="timeStamp" value="20" />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TravellerFactionSystem/Location/TravellerLocationService.cs</url>
+          <line>15</line>
+          <properties documentPath="C:\Users\thoma\RiderProjects\Known-Universe-RPG-Wiki\TravellerFactionSystem\Location\TravellerLocationService.cs" initialLine="15" containingFunctionPresentation="method 'GetLocation'">
+            <startOffsets>
+              <option value="440" />
+            </startOffsets>
+            <endOffsets>
+              <option value="452" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerNationGroup.cs</url>
+          <line>42</line>
+          <properties documentPath="C:\Users\thoma\RiderProjects\Known-Universe-RPG-Wiki\TravellerFactionSystem\Faction Types\TravellerNationGroup.cs" initialLine="42" containingFunctionPresentation="method 'ToString'">
+            <startOffsets>
+              <option value="1778" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2730" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TravellerFactionSystem/Faction Types/TravellerNationGroup.cs</url>
+          <line>40</line>
+          <properties documentPath="C:\Users\thoma\RiderProjects\Known-Universe-RPG-Wiki\TravellerFactionSystem\Faction Types\TravellerNationGroup.cs" initialLine="40" containingFunctionPresentation="method 'ToString'">
+            <startOffsets>
+              <option value="1729" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1764" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

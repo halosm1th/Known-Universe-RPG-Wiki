@@ -5,7 +5,9 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Newtonsoft.Json;
+using TravellerFactionSystem;
 using TravellerFactionSystem.FactionEnums;
+using TravellerFactionSystem.Location;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 using TravellerMapSystem.Tools;
 
@@ -127,7 +129,7 @@ namespace TravellerMapSystem.Worlds
 
     #endregion
 
-    public class TravellerWorld : IWorld
+    public class TravellerWorld : TravellerLocation, IWorld
     {
         public string WorldData()
         {

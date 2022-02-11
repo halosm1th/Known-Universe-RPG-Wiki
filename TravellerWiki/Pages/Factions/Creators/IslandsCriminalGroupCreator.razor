@@ -5,6 +5,7 @@
 @using TravellerCharacter.CharcterTypes
 @using VoicesFromTheVoidArticles
 @using Newtonsoft.Json
+@using TravellerFactionSystem.Location
 @inject TravellerFactionService _factionService
 @inject NavigationManager NavManager
 
@@ -40,7 +41,7 @@
 
     public void AddNextPlanet()
     {
-        OtherLocations.Add(new TravellerLocation(OtherPlanetName, opSX, opSY, opPX, opPY));
+        OtherLocations.Add(new TravellerTextLocation(OtherPlanetName, opSX, opSY, opPX, opPY));
         OtherPlanetName = "";
         opSX = 1;
         opSY = 1;
@@ -51,9 +52,10 @@
     public void CreateCriminalGroup()
     {
         FoundingDateTime = new TravellerDateTime(FoundingDay, FoundingMonth, FoundingMil, FoundingCen);
-        var hq = new TravellerLocation(HeadQuartersWorldName, hqSX, hqSY, hqPX, hqPY);
+        var hq = new TravellerTextLocation(HeadQuartersWorldName, hqSX, hqSY, hqPX, hqPY);
 
-        Faction = new TravellerCrimeGroup(FactionName, hq, NationWithin, NationAlignedWith, FactionHeadName, OtherLocations, FoundingDateTime,
+        Faction = new TravellerCrimeGroup(FactionName, hq.LocationID, NationWithin, NationAlignedWith, FactionHeadName, 
+            OtherLocations.Select(x => x.LocationID).ToList(), FoundingDateTime,
             PoliticalSway, SocialSway, EconomicSway);
     }
 

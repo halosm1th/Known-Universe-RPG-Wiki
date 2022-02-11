@@ -1,6 +1,8 @@
-﻿namespace TravellerMapSystem
+﻿using TravellerFactionSystem.Location;
+
+namespace TravellerMapSystem
 {
-    internal class KnownUniverseGalaxy
+    internal class KnownUniverseGalaxy : TravellerLocation
     {
         public readonly int QUADRANT_SIZE = 3;
         public string Name;

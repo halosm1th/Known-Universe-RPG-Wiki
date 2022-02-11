@@ -1,8 +1,8 @@
-﻿namespace TravellerFactionSystem
+﻿namespace TravellerFactionSystem.Location
 {
-    public class TravellerLocation
+    public  class TravellerTextLocation : TravellerLocation
     {
-        public TravellerLocation(string locationName = "", int subSectorX = 1, int subSectorY = 1, int parsecX = 1,
+        public TravellerTextLocation(string locationName = "", int subSectorX = 1, int subSectorY = 1, int parsecX = 1,
             int parsecY = 1)
         {
             if (subSectorX <= 0) subSectorX = 1;
@@ -31,7 +31,7 @@
         public int ParsecX { get; set; }
         public int ParsecY { get; set; }
 
-        public string LocationName { get; set; }
+        public new string LocationName { get; set; }
 
         public override string ToString()
         {

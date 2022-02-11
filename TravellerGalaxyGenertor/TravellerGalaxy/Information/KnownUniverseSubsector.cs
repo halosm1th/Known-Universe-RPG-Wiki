@@ -7,6 +7,8 @@ using System.Numerics;
 using System.Text;
 using Newtonsoft.Json;
 using SixLabors.ImageSharp;
+using TravellerFactionSystem;
+using TravellerFactionSystem.Location;
 using TravellerMapSystem.Tools;
 using TravellerMapSystem.Worlds;
 using WikiServices.DataServices;
@@ -19,7 +21,7 @@ namespace TravellerMapSystem
         Versian
     }
 
-    public class KnownUniverseSubsector
+    public class KnownUniverseSubsector : TravellerLocation
     {
         #region Private Methods
 

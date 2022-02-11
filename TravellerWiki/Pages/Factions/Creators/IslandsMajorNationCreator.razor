@@ -5,6 +5,7 @@
 @using TravellerCharacter.CharcterTypes
 @using VoicesFromTheVoidArticles
 @using Newtonsoft.Json
+@using TravellerFactionSystem.Location
 @inject TravellerFactionService _factionService
 @inject NavigationManager NavManager
 
@@ -39,7 +40,7 @@
 
     public void AddNextPlanet()
     {
-        OtherLocations.Add(new TravellerLocation(OtherPlanetName, opSX, opSY, opPX, opPY));
+        OtherLocations.Add(new TravellerTextLocation(OtherPlanetName, opSX, opSY, opPX, opPY));
         OtherPlanetName = "";
         opSX = 1;
         opSY = 1;
@@ -52,10 +53,10 @@
         FoundingDateTime = new TravellerDateTime(FoundingDay, FoundingMonth, FoundingMil, FoundingCen);
         var subLoc = (hqSX,hqSY);
         var parLoc = (hqPX,hqPY);
-        var hq = new TravellerLocation(HeadQuartersWorldName, subLoc.hqSX, subLoc.hqSY, parLoc.hqPX, parLoc.hqPY);
+        var hq = new TravellerTextLocation(HeadQuartersWorldName, subLoc.hqSX, subLoc.hqSY, parLoc.hqPX, parLoc.hqPY);
 
         Faction = new TravellerMajorNationGroup(
-            hq, NationWithin, NationAlignedWith, FactionHeadName, OtherLocations, FoundingDateTime,
+            hq.LocationID, NationWithin, NationAlignedWith, FactionHeadName, OtherLocations.Select(x => x.LocationID).ToList(), FoundingDateTime,
             PoliticalSway, SocialSway, EconomicSway);
     }
 

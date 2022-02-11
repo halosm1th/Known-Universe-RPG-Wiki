@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Newtonsoft.Json;
+using TravellerFactionSystem.Location;
 
 namespace TravellerFactionSystem
 {
@@ -9,13 +10,13 @@ namespace TravellerFactionSystem
         [JsonIgnore] protected Random _random;
 
         public TravellerFactionAsset(string name = "Faction Asset", string description = "A Faction Asset",
-            TravellerLocation currentLocation = default,
+            int currentLocationID = default,
             TravellerFactionAssetValue economicValue = default, TravellerFactionAssetValue socialValue = default,
             TravellerFactionAssetValue politicalValue = default)
         {
             Name = name;
             Description = description;
-            CurrentLocation = currentLocation;
+            CurrentLocationID = currentLocationID;
             EconomicValue = economicValue;
             SocialValue = socialValue;
             PoliticalValue = politicalValue;
@@ -27,7 +28,7 @@ namespace TravellerFactionSystem
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public TravellerLocation CurrentLocation { get; set; }
+        public int CurrentLocationID { get; set; }
 
         public TravellerFactionAssetValue EconomicValue { get; set; }
         public TravellerFactionAssetValue SocialValue { get; set; }
@@ -36,12 +37,12 @@ namespace TravellerFactionSystem
         public virtual string FullToString()
         {
             return
-                $"{Name} ({CurrentLocation}): {Description}. [P: [{PoliticalValue}] E: [{EconomicValue}] S: [{SocialValue}]]";
+                $"{Name} ({CurrentLocationID}): {Description}. [P: [{PoliticalValue}] E: [{EconomicValue}] S: [{SocialValue}]]";
         }
 
         public override string ToString()
         {
-            return $"{Name}: {Description} [{CurrentLocation}].";
+            return $"{Name}: {Description} [{CurrentLocationID}].";
         }
     }
 }

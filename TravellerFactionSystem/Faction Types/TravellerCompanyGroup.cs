@@ -6,24 +6,34 @@ using Newtonsoft.Json;
 using TravellerCharacter.CharcterTypes;
 using TravellerFactionSystem.FactionEnums;
 using VoicesFromTheVoidArticles;
+using TravellerFactionSystem.Location;
 
 namespace TravellerFactionSystem.Faction_Types
 {
     public class TravellerCompany : TravellerFaction
     {
-        public TravellerCompany(string factionName = "", TravellerLocation headquatersLocation = default,
+        public TravellerCompany() : base()
+        {
+            
+        }
+        
+        public TravellerCompany(string factionName = "",
+            TravellerLocation headquatersTextLocation = default,
             TravellerIslandsNations islandsNation = TravellerIslandsNations.Western_Islands_Trade_Federation,
             TravellerIndustries industry = default,
             TravellerNationalities supportingNationality = default,
             string factionHeadName = "",
-            List<TravellerLocation> otherOwnedLocations = null,
+            List<int> otherOwnedLocations = null,
             TravellerDateTime foundedYear = null,
             TravellerFactionPoliticalSway politicalSway = TravellerFactionPoliticalSway.Some,
             TravellerFactionSocialSway socialSway = TravellerFactionSocialSway.Average,
             TravellerFactionEconomicSway economicSway = TravellerFactionEconomicSway.Above_Average,
+
+
             uint currentSharesOnMarket = 1, uint currentSharePrice = 1, uint maxSharePrice = 1, uint minSharePrice = 1,
             uint revenues = 1, double dividentPercent = 1)
-            : base(factionName, headquatersLocation, islandsNation, supportingNationality, factionHeadName,
+            : base(factionName, headquatersTextLocation.LocationID, islandsNation, supportingNationality,
+                factionHeadName,
                 otherOwnedLocations, foundedYear, politicalSway, socialSway, economicSway)
         {
             CurrentSharesOnMarket = currentSharesOnMarket;
@@ -54,11 +64,67 @@ namespace TravellerFactionSystem.Faction_Types
                 FactionName = nameType switch
                 {
                     0 =>
-                        $"{FactionHeadName.Split(" ").First() + "'s"} {Industry} on {HeadquatersLocation} {GetRandomEndTag()}",
-                    1 => $"{Industry} on {HeadquatersLocation} {GetRandomEndTag()}",
+                        $"{FactionHeadName.Split(" ").First() + "'s"} {Industry} on {HeadquatersTextLocation} {GetRandomEndTag()}",
+                    1 => $"{Industry} on {HeadquatersTextLocation} {GetRandomEndTag()}",
                     2 =>
-                        $"{FactionHeadName.Split(" ").First() + "'s"} {HeadquatersLocation} {Industry} {GetRandomEndTag()}",
-                    _ => $"{HeadquatersLocation} {Industry} {GetRandomEndTag()}"
+                        $"{FactionHeadName.Split(" ").First() + "'s"} {HeadquatersTextLocation} {Industry} {GetRandomEndTag()}",
+                    _ => $"{HeadquatersTextLocation} {Industry} {GetRandomEndTag()}"
+                };
+            }
+            
+        }
+
+        public TravellerCompany(string factionName = "", 
+            int headquatersTextLocation = default,
+            TravellerIslandsNations islandsNation = TravellerIslandsNations.Western_Islands_Trade_Federation,
+            TravellerIndustries industry = default,
+            TravellerNationalities supportingNationality = default,
+            string factionHeadName = "",
+            List<int> otherOwnedLocations = null,
+            TravellerDateTime foundedYear = null,
+            TravellerFactionPoliticalSway politicalSway = TravellerFactionPoliticalSway.Some,
+            TravellerFactionSocialSway socialSway = TravellerFactionSocialSway.Average,
+            TravellerFactionEconomicSway economicSway = TravellerFactionEconomicSway.Above_Average,
+            
+            
+            uint currentSharesOnMarket = 1, uint currentSharePrice = 1, uint maxSharePrice = 1, uint minSharePrice = 1,
+            uint revenues = 1, double dividentPercent = 1)
+            : base(factionName, headquatersTextLocation, islandsNation, supportingNationality, factionHeadName,
+                otherOwnedLocations, foundedYear, politicalSway, socialSway, economicSway)
+        {
+            CurrentSharesOnMarket = currentSharesOnMarket;
+            CurrentSharePrice = currentSharePrice;
+            MaxSharePrice = maxSharePrice;
+            MinSharePrice = minSharePrice;
+            Revenues = revenues;
+            DividentPercent = dividentPercent;
+            Industry = industry;
+
+            if (currentSharePrice == 1 && maxSharePrice == 1 && minSharePrice == 1)
+            {
+                var priceInfo = GenerateSharePriceInformation(_randomGenerator);
+                var shareInfo = GenerateMarketInfo(_randomGenerator);
+
+                MaxSharePrice = priceInfo.max;
+                MinSharePrice = priceInfo.min;
+                CurrentSharePrice = priceInfo.current;
+
+                CurrentSharesOnMarket = shareInfo.marketShares;
+                Revenues = shareInfo.revenue;
+                DividentPercent = shareInfo.dividend;
+            }
+
+            if (string.IsNullOrEmpty(FactionName))
+            {
+                var nameType = _randomGenerator.Next(0, 4);
+                FactionName = nameType switch
+                {
+                    0 =>
+                        $"{FactionHeadName.Split(" ").First() + "'s"} {Industry} on {HeadquatersTextLocation} {GetRandomEndTag()}",
+                    1 => $"{Industry} on {HeadquatersTextLocation} {GetRandomEndTag()}",
+                    2 =>
+                        $"{FactionHeadName.Split(" ").First() + "'s"} {HeadquatersTextLocation} {Industry} {GetRandomEndTag()}",
+                    _ => $"{HeadquatersTextLocation} {Industry} {GetRandomEndTag()}"
                 };
             }
         }
@@ -131,7 +197,7 @@ namespace TravellerFactionSystem.Faction_Types
         public override string ToString()
         {
             return
-                $"{FactionName} was founded in {FoundedYear}, and its main industry is {Industry.ToString().Replace("_", " ")}. It is headquartered on {HeadquatersLocation} and its CEO is named {CeoName}. " +
+                $"{FactionName} was founded in {FoundedYear}, and its main industry is {Industry.ToString().Replace("_", " ")}. It is headquartered on {HeadquatersTextLocation} and its CEO is named {CeoName}. " +
                 $"The company operates under the laws of {IslandsNation.ToString().Replace("_", " ")} but its parent/partner company is in {SupportingNationality.ToString().Replace("_", " ")}. " +
                 $"The Companies current Share Price is [Cr: {CurrentSharePrice} Min: {MinSharePrice} Max: {MaxSharePrice}], it makes Cr {Revenues}/Year, pays a dividend of {DividentPercent}%, and has a market cap of Cr {MarketCap}. " +
                 $"The Company has {PoliticalSway} political sway, {SocialSway} social sway, and {EconomicSway} economic sway. " +

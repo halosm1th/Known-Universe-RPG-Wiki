@@ -4,12 +4,14 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Newtonsoft.Json;
+using TravellerFactionSystem;
+using TravellerFactionSystem.Location;
 using TravellerGalaxyGenertor.TravellerGalaxy.Information.Worlds;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
 
 namespace TravellerMapSystem.Worlds
 {
-    public class KnownUniverseSystem
+    public class KnownUniverseSystem : TravellerLocation
     {
         public KnownUniverseSystem(string name, int x, int y, string uwp, bool army, bool fuel, bool other, string controllingFaction = "Local Powers", int systemSize = 1)
         {
