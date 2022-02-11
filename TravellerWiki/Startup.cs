@@ -37,6 +37,7 @@ namespace TravellerWiki
             services.AddServerSideBlazor();
             services.AddSingleton<TravellerVoicesFromTheVoidService>();
             services.AddSingleton<HighVersianService>();
+            services.AddSingleton<SigmarianService>();
             services.AddSingleton<TravellerItemStoreService>();
             services.AddSingleton<TravellerCharacter.Character_Services.NPC_Services.TravellerNPCService>();
             services.AddSingleton<TravellerCharacter.Character_Services.NPC_Services.TravellerSpecialNPCService>();
@@ -58,6 +59,7 @@ namespace TravellerWiki
 
             services.AddSingleton<TravellerMapService>();
             services.AddSingleton<TravellerSubsectorGeneratorService>();
+            services.AddSingleton<TravellerSubsectorCreatorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

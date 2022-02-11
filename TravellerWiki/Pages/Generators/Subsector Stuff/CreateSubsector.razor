@@ -1,0 +1,73 @@
+﻿@page "/Generators/CreateSubsector/"
+@using TravellerGalaxyGenertor
+@using TravellerFactionSystem
+@inject TravellerSubsectorCreatorService subsectorCreator; 
+@inject TravellerSubsectorGeneratorService subsectorGenerator; 
+@inject TravellerFactionService _factionService;
+@inject IJSRuntime JsRuntime;
+<title>Create Subsector</title>
+<h3>Create Subsector</h3>
+
+<p>
+    Enter the UPP for the planet you wish to add to the subsector in the following format: NAME X:Y UPP NNN
+</p>
+<p>
+    <label for="subName">Name:</label>
+    <input type="text" id="subName" @bind="SubsectorName"/>
+</p>
+<p>
+    <label for="uwpInfoBox">UWP:</label>
+    <input type="text" id="uwpInfoBox" @bind="uwpText"/>
+    <label for="controllingFaction">Controlling Faction: </label>
+    <input  list="nationFactions" id="controllingFaction" @bind="controllingFaction"/>
+    <datalist id="nationFactions">
+        @foreach (var nation in _factionService.IslandsNations)
+        {
+            <option value="@nation.FactionName"></option>
+        }
+    </datalist>
+    
+    
+    <button type="button" @onclick="AddToList">Add to list</button>
+</p>
+<p>
+    
+    <label for="maxGenWorld">Number of Worlds in System: @extraWorlds</label>
+    <input type="range" min="@MinExtraWorld" max="@MaxExtraWorld" step="1" id="maxGenWorld" @bind="extraWorlds"/>
+</p>
+<ul>
+        @foreach (var uwp in uwps)
+        {
+            <li>
+                @uwp
+            </li>
+        }
+</ul>
+<button type="button"  @onclick="Generate">Generate Subsector</button>
+
+@code {
+    List<(string, string)> uwps = new List<(string, string)>();
+    string uwpText = "";
+    string SubsectorName = "";
+    string controllingFaction = "Local Powers";
+    int extraWorlds = 1;
+    int MinExtraWorld = 1;
+    int MaxExtraWorld = 10;
+    
+    public void AddToList()
+    {
+        if(!string.IsNullOrEmpty(uwpText)){
+        uwps.Add((uwpText, controllingFaction));
+        uwpText = "";
+            controllingFaction = "Local Powers";
+        }
+    }
+
+    public void Generate()
+    {
+        var subsectorID = subsectorCreator.CreateSubsectorFromData(SubsectorName, uwps, extraWorlds,subsectorGenerator);
+        var url = $"/InformationOnSetting/SubsectorInfo/{subsectorID}";
+        JsRuntime.InvokeVoidAsync("open", url, "_blank");
+    }
+
+}

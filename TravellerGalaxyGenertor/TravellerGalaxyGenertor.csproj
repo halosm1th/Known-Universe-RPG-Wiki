@@ -7,9 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
-        <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4"/>
-        <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta13"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4" />
+        <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta13" />
     </ItemGroup>
 
 
@@ -21,8 +21,8 @@
 
 
     <ItemGroup>
-        <ProjectReference Include="..\TravellerFactionSystem\TravellerFactionSystem.csproj"/>
-        <ProjectReference Include="..\WikiServices\WikiServices.csproj"/>
+        <ProjectReference Include="..\TravellerFactionSystem\TravellerFactionSystem.csproj" />
+        <ProjectReference Include="..\WikiServices\WikiServices.csproj" />
     </ItemGroup>
 
 </Project>

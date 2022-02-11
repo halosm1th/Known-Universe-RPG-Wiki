@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using TravellerFactionSystem.Faction_Types;
+using TravellerFactionSystem.FactionEnums;
 using VoicesFromTheVoidArticles;
 using static TravellerFactionSystem.FactionEnums.TravellerIslandsNations;
 using static TravellerFactionSystem.FactionEnums.TravellerIndustries;
@@ -19,6 +20,9 @@ namespace TravellerFactionSystem
         {
             return _factions.First(x => x.FactionID == factionID);
         }
+
+        public List<TravellerNationGroup> IslandsNations =>
+            Factions.Where(x => x.GetType() == typeof(TravellerNationGroup)).Cast<TravellerNationGroup>().ToList(); 
 
         public List<TravellerLocation> WorldsHeldByFactions()
         {

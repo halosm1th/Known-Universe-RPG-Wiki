@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -54,6 +55,8 @@ namespace TravellerMapSystem
 
         [JsonProperty] public string Name;
 
+        [JsonProperty] public int SubsectorX;
+        [JsonProperty] public int SubsectorY;
         public long WorldCount => Systems.Cast<KnownUniverseSystem>().Aggregate(0, (h, t) => h + t.WorldCount);
 
         public BigInteger TotalPopulation =>
@@ -73,6 +76,18 @@ namespace TravellerMapSystem
 
         #region Constructor
 
+        public KnownUniverseSubsector(string name, List<(string,string)> SystemInfo,  int otherWorldsInSystem = 1)
+        {
+            Name = name;
+            Systems = GenerateEmptySubsector();
+
+            foreach (var system in GetSystemInfoAsPieces(SystemInfo))
+            {
+                Systems[system.y, system.x] = new KnownUniverseSystem(system.name,  system.x, system.y, system.uwp,
+                    system.army,system.fuel,system.other, system.faction, otherWorldsInSystem);
+            }
+        }
+        
         public KnownUniverseSubsector(int x, int y, MapNameLists nameLists = MapNameLists.Generic)
         {
             Name = GenerateName(nameLists) + $" subsector {x},{y}";
@@ -94,6 +109,44 @@ namespace TravellerMapSystem
             Systems = GenerateEmptySubsector();
         }
 
+        #endregion
+        
+        #region Private Methods
+
+        public List<(string name, int x, int y, string uwp,string faction, bool army, bool fuel, bool other)> 
+            GetSystemInfoAsPieces(List<(string, string)> systemInfo) => systemInfo.Select(x => GetSystemInfoPiece(x)).ToList();
+
+        public (string name, int x, int y, string uwp, string faction, bool army, bool fuel, bool other) GetSystemInfoPiece((string, string) systemInfoFull)
+        {
+            var systemInfo = systemInfoFull.Item1;
+            var faction = systemInfoFull.Item2;
+            var parts = systemInfo.Split(' ');
+            if (parts.Length != 4) 
+                throw new InvalidEnumArgumentException($"Error! Was expecting the format: NAME X:Y UWP BASES\n" +
+                                                       $"But got: {systemInfo}");
+
+            var name = parts[0];
+            var loc = parts[1];
+            var uwp = parts[2];
+            var bools = parts[3];
+
+            var x = Convert.ToInt32(loc.Split(':')[0]) -1;
+            var y = Convert.ToInt32(loc.Split(':')[1]) -1;
+
+            (bool army, bool fuel, bool other) = SplitSystemInfoBools(bools);
+
+            return (name, x, y, uwp, faction,army, fuel, other);
+        }
+
+        public (bool army, bool fuel, bool other) SplitSystemInfoBools(string systemBools)
+        {
+            systemBools = systemBools.ToLower();
+            var army = systemBools[0] == 'y';
+            var fuel = systemBools[1] == 'y';
+            var other = systemBools[2] == 'y';
+
+            return (army, fuel, other);
+        }
         #endregion
 
         #region Public Methods
@@ -133,6 +186,41 @@ namespace TravellerMapSystem
         #endregion
 
         #region Get Information
+
+        /// <summary>
+        /// Check if the subsector has a world which matches the name
+        /// </summary>
+        /// <param name="worldName">Example: Test(2,3:4'4)</param>
+        /// <returns></returns>
+        public bool HasWorld(string worldName)
+        {
+            bool hasWorld = false;
+
+            for (int y = 0; y < Systems.GetLength(0); y++)
+            {
+                for (int x = 0; x < Systems.GetLength(1); x++)
+                {
+                    if ($"{Systems[y, x].Name}({x},{y}:{SubsectorX}'{SubsectorY}" == worldName)
+                        return true;
+                }
+            }
+            
+            return hasWorld;
+        }
+
+        public KnownUniverseSystem GetWorld(string worldName)
+        {
+                for (int y = 0; y < Systems.GetLength(0); y++)
+                {
+                    for (int x = 0; x < Systems.GetLength(1); x++)
+                    {
+                        if ($"{Systems[y, x].Name}({x},{y}:{SubsectorX}'{SubsectorY}" == worldName)
+                            return Systems[y,x];
+                    }
+                }
+
+                return null;
+        }
 
         public Image GenerateSubSectorImage()
         {

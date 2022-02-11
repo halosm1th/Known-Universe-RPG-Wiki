@@ -6,14 +6,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CharacterCreationTest\CharacterCreationTest.csproj"/>
-        <ProjectReference Include="..\TravellerCharacter\TravellerCharacter.csproj"/>
-        <ProjectReference Include="..\TravellerFactionSystem\TravellerFactionSystem.csproj"/>
-        <ProjectReference Include="..\TravellerWikiInfomationArticles\TravellerWikiInfomationArticles.csproj"/>
+        <ProjectReference Include="..\CharacterCreationTest\CharacterCreationTest.csproj" />
+        <ProjectReference Include="..\TravellerCharacter\TravellerCharacter.csproj" />
+        <ProjectReference Include="..\TravellerFactionSystem\TravellerFactionSystem.csproj" />
+        <ProjectReference Include="..\TravellerWikiInfomationArticles\TravellerWikiInfomationArticles.csproj" />
     </ItemGroup>
 
 </Project>

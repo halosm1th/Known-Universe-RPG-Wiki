@@ -81,6 +81,16 @@ namespace WikiServices.DataServices
 
         public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("Pas","Can/Able/May"),
+            new HighVersianDefinition("Ult","Beyond"),
+            new HighVersianDefinition("Hoc","This"),
+            new HighVersianDefinition("Sol","Sun"),
+            new HighVersianDefinition("Dai","Day"),
+            new HighVersianDefinition("Vit","Life/Living/Vitals"),
+            new HighVersianDefinition("Su","There are"),
+            new HighVersianDefinition("Que","Each"),
+            new HighVersianDefinition("Er","Will"),
+            new HighVersianDefinition("Nom","Name"),
             new HighVersianDefinition("Ad", "Going to, Towards/ Up towards/near/at/destintion"),
             new HighVersianDefinition("Lat","To hide/conceal/keep hidden/keep out of sight"),
             new HighVersianDefinition("It","Thus, so, consequency"),
@@ -197,7 +207,16 @@ namespace WikiServices.DataServices
         }.OrderBy(x => x.Letters.First<char>()).ToList();
 
         public List<HighVersianDefinition> Roots { get; } = new List<HighVersianDefinition>()
-        {
+        {            
+            new HighVersianDefinition("Parc","Parish/The eccliestatical area of a preacher"),
+
+            new HighVersianDefinition("Tand","Eventually, Finally, At last"),
+            new HighVersianDefinition("Laus","Praise, Commend"),
+            new HighVersianDefinition("Exanimum ","The Nether (Plane)"),
+            new HighVersianDefinition("Spatium","The Void (Plane)"),
+            new HighVersianDefinition("Guid","Guide, Lead"),
+            new HighVersianDefinition("T","Him/Them/Her"),
+            new HighVersianDefinition("Nat","Born/Birthed/New"),
             new HighVersianDefinition("Port","Portal, door"),
             new HighVersianDefinition("Os","Mouth, opening/hatch"),
             new HighVersianDefinition("Ling","Language"),

@@ -25,21 +25,24 @@ namespace TravellerMapSystem.Tools
             _knownUniverseSubsectorToDraw = knownUniverseSubsectorToDraw;
         }
 
-        public Image GenerateSubSectorImage()
+        public Image GenerateSubSectorImage(bool highVersian = false)
         {
             Image subsector = GRID.CloneAs<Rgb24>();
-            DrawWorlds(subsector);
+            DrawWorlds(subsector, highVersian);
 
             return subsector;
         }
 
-        private void DrawWorlds(Image subsector)
+        private void DrawWorlds(Image subsector, bool highVersian = false)
         {
-            var fontSize = 16;
-
             var brush = new SolidBrush(Color.Black);
-            var fontWorld = SystemFonts.CreateFont("High Versian", fontSize);
+
+            var fontSize = 16;
             var fontRest = SystemFonts.CreateFont("Arial", fontSize+2);
+            Font fontWorld;
+            
+            if (highVersian) fontWorld = SystemFonts.CreateFont("High Versian", fontSize);
+            else fontWorld = fontRest;
 
             for (var row = 0; row < _knownUniverseSubsectorToDraw.Systems.GetLength(0); row++)
             for (var col = 0; col < _knownUniverseSubsectorToDraw.Systems.GetLength(1); col++)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using TravellerFactionSystem;
 using TravellerGalaxyGenertor.TravellerGalaxy.Interfaces;
@@ -23,32 +24,59 @@ namespace TravellerMapSystem.Tools
 
             var world = worldToGenerate as TravellerWorld;
 
-            world.WorldSize = (WorldSize)Math.Max(0, Roll2D6(2));
-            world.WorldAtmosphere =
-                (WorldAtmosphere)Math.Max(0, world.WorldSize <= 0 ? 0 : Roll2D6((int)world.WorldSize - 7));
-            world.WorldHydrographics =
-                Math.Max(0, world.WorldAtmosphere <= 0 ? 0 : Roll2D6((int)world.WorldAtmosphere - 7));
+            GeneateWorldPhysicalInfo(world);
+            GenerateWorldSocialInfo(world);
+            GenerateStarportAndTechInfo(world);
+            GenerateWorldBases(world);
+            GenerateMinorDetails(world); 
+            GenerateWorldPopulationSize(world);
 
-            world.PopulationStat = Math.Max(0, Roll2D6(2));
-            world.GovernmentType = Math.Max(0, Roll2D6(world.PopulationStat - 7));
-            world.LawLevel = Math.Max(0, Roll2D6(world.GovernmentType - 7));
+        }
 
-            world.StarportQuality = CalculateStarport(world);
-            world.TechLevel = Math.Max(0, Roll2D6(GetTechModifiers(world), 1, 7));
-
-            world.GasGiant = Roll2D6() <= 10;
-            world.MilitaryBase = Roll2D6() >= 8;
-            world.OtherBase = Roll2D6() >= 8;
-            world.Quirk = GenerateQuirk();
-            world.Temperature = GenerateTemperature(world);
-            world.Factions = GenerateFactions(world);
-
+        private static void GenerateWorldPopulationSize(TravellerWorld? world)
+        {
             var r = new Random(world.Name.Aggregate(0, (h, t) => h + t));
             var size = "";
             size += r.Next(0, 10);
             for (var i = 0; i < world.PopulationStat - 1; i++) size += r.Next(0, 9);
-
+            
             world.Population = size;
+        }
+
+        private void GenerateMinorDetails(TravellerWorld? world)
+        {
+            world.Quirk = GenerateQuirk();
+            world.Temperature = GenerateTemperature(world);
+            world.Factions = GenerateFactions(world);
+        }
+
+        private void GenerateStarportAndTechInfo(TravellerWorld? world)
+        {
+            world.StarportQuality = CalculateStarport(world);
+            world.TechLevel = Math.Max(0, Roll2D6(GetTechModifiers(world), 1, 7));
+        }
+
+        private void GenerateWorldBases(TravellerWorld world)
+        {
+            world.GasGiant = Roll2D6() <= 10;
+            world.MilitaryBase = Roll2D6() >= 8;
+            world.OtherBase = Roll2D6() >= 8;
+        }
+
+        private void GenerateWorldSocialInfo(TravellerWorld? world)
+        {
+            world.PopulationStat = Math.Max(0, Roll2D6(2));
+            world.GovernmentType = Math.Max(0, Roll2D6(world.PopulationStat - 7));
+            world.LawLevel = Math.Max(0, Roll2D6(world.GovernmentType - 7));
+        }
+
+        private void GeneateWorldPhysicalInfo(TravellerWorld? world)
+        {
+            world.WorldSize = (WorldSize) Math.Max(0, Roll2D6(2));
+            world.WorldAtmosphere =
+                (WorldAtmosphere) Math.Max(0, world.WorldSize <= 0 ? 0 : Roll2D6((int) world.WorldSize - 7));
+            world.WorldHydrographics =
+                Math.Max(0, world.WorldAtmosphere <= 0 ? 0 : Roll2D6((int) world.WorldAtmosphere - 7));
         }
 
         private int Roll2D6(int modifier = 0, int bottom = 2, int top = 13)
@@ -63,66 +91,31 @@ namespace TravellerMapSystem.Tools
         /// <param name="uwp"></param>
         public void GenerateWorldFromText(TravellerWorld world, string uwp)
         {
-            /*
-                        //Example:Longleaf 1:2 a36b3f4 - e YNY
-                        var parts = uwp.Split(' ');
-                        if (parts.Length < 4)
-                        {
-                            throw new ArgumentException("not enough args");
-                        }
-            
-                        var name = parts[0];
-                        var code = parts[2];
-                        var stations = parts[3];
-            
-                        world.Name = name;
-            
-                        if (stations[0] == 'Y') world.GasGiant = true;
-                        if (stations[1] == 'Y') world.MilitaryBase = true;
-                        if (stations[2] == 'Y') world.OtherBase = true;
-            
-                        for (int i = 0; i < code.Length; i++)
-                        {
-                            switch (i)
-                            {
-                                case 0:
-                                    if (code[i] == 'x' || code[i] == 'X')
-                                    {
-                                        world.StarportQuality = 15;
-                                    }
-            
-                                    else
-                                    {
-                                        world.StarportQuality = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                                    }
-                                    break;
-                                case 1:
-                                    world.WorldSize = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                                    break;
-                                case 2:
-                                    world.WorldAtmosphere= int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                                    break;
-                                case 3:
-                                    world.WorldHydrographics = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                                    break;
-                                case 4:
-                                    world.Popuation = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                                    break;
-                                case 5:
-                                    world.GovernmentType = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                                    break;
-                                case 6:
-                                    world.LawLevel = int.Parse(code[i].ToString(), NumberStyles.HexNumber);
-                                    break;
-                                case 8:
-                                    var letter = code[i].ToString();
-                                    world.TechLevel = int.Parse(letter, NumberStyles.HexNumber);
-                                    break;
-                            }
-            
-                        }
-                        */
+            uwp = uwp.ToLower();
+            uwp = uwp.Remove(7, 1);
+            world.StarportQuality = DecodeStarport(uwp[0]);
+            world.WorldSize  = (WorldSize) int.Parse(uwp[1].ToString(), System.Globalization.NumberStyles.HexNumber);
+            world.WorldAtmosphere = (WorldAtmosphere) int.Parse(uwp[2].ToString(), System.Globalization.NumberStyles.HexNumber);
+            world.WorldHydrographics = int.Parse(uwp[3].ToString(), System.Globalization.NumberStyles.HexNumber);
+            world.PopulationStat = int.Parse(uwp[4].ToString(), System.Globalization.NumberStyles.HexNumber);;
+            world.GovernmentType = int.Parse(uwp[5].ToString(), System.Globalization.NumberStyles.HexNumber);
+            world.LawLevel = int.Parse(uwp[6].ToString(), System.Globalization.NumberStyles.HexNumber);
+            world.TechLevel = int.Parse(uwp[7].ToString(), System.Globalization.NumberStyles.HexNumber);
+
+            GenerateMinorDetails(world);
+            GenerateWorldPopulationSize(world);
         }
+
+        private StarportQuality DecodeStarport(char starportLetter)
+            => starportLetter switch
+            {
+                'a' => StarportQuality.A,
+                'b' => StarportQuality.B,
+                'c' => StarportQuality.C,
+                'd' => StarportQuality.D,
+                'e' => StarportQuality.E,
+                _ => StarportQuality.X
+            };
 
         private StarportQuality CalculateStarport(TravellerWorld world)
         {

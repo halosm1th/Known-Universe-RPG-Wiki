@@ -169,7 +169,7 @@ namespace TravellerFactionSystem
         }
 
         public TravellerFaction(string factionName = "",
-            TravellerLocation headquatersLocation = default,
+            TravellerLocation hqLoc = default,
             TravellerIslandsNations islandsNation = default, TravellerNationalities supportingNationality = default,
             string factionHeadName = "", List<TravellerLocation> otherOwnedLocations = null,
             TravellerDateTime foundedYear = null, TravellerFactionPoliticalSway politicalSway = default,
@@ -178,7 +178,7 @@ namespace TravellerFactionSystem
             List<TravellerPlanetaryBaseAsset> baseLocations = null)
         {
             FactionName = factionName;
-            HeadquatersLocation = headquatersLocation;
+            HeadquatersLocation = hqLoc;
             FoundedYear = foundedYear;
             IslandsNation = islandsNation;
             SupportingNationality = supportingNationality;
@@ -191,10 +191,10 @@ namespace TravellerFactionSystem
                 new List<TravellerFactionPersonAsset>(factionMembers ?? new List<TravellerFactionPersonAsset>());
             FactionID = GenerateFactionID();
 
-            if (headquatersLocation != null)
+            if (HeadquatersLocation != null)
             {
                 var factionSeed = factionName.Aggregate(0, (h, t) => h + t)
-                                  + headquatersLocation.LocationName.Aggregate(0, (h, t) => h + t)
+                                  + HeadquatersLocation.LocationName.Aggregate(0, (h, t) => h + t)
                                   + (int)IslandsNation
                                   - ((int)supportingNationality + 1);
 
@@ -242,11 +242,11 @@ namespace TravellerFactionSystem
             if (FactionLocations == null)
             {
                 FactionLocations = new List<TravellerPlanetaryBaseAsset>();
-                if (headquatersLocation != null)
+                if (HeadquatersLocation != null)
                     FactionLocations.Add(
-                        new TravellerPlanetaryBaseAsset(headquatersLocation.LocationName,
+                        new TravellerPlanetaryBaseAsset(HeadquatersLocation?.LocationName,
                             $"The headquarters of {factionName}",
-                            headquatersLocation,
+                            HeadquatersLocation,
                             new TravellerFactionAssetValue(20, 50),
                             new TravellerFactionAssetValue(20, 50),
                             new TravellerFactionAssetValue(20, 50),

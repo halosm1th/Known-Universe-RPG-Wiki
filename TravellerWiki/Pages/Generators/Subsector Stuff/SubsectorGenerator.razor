@@ -18,7 +18,7 @@
     public void GenerateSubsector()
     {
     //todo make this a drop down menu
-        subsectorID = subsectorGenerator.GenerateSubsector(MapNameLists.Versian, subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
+        subsectorID = subsectorGenerator.GenerateSubsector(MapNameLists.Generic, subsectorName, subsectorDensity, minSystemCount, maxNumberOfPlanets);
         var url = $"/InformationOnSetting/SubsectorInfo/{subsectorID}";
         JsRuntime.InvokeVoidAsync("open", url, "_blank");
     }
@@ -44,6 +44,7 @@
 
     <br/>
     <a href="/Generators/GeneratedSubsectors/">Click to see all generated subsectors.</a>
+    <a href="/Generators/CreateSubsector/">Click to create a Subsector yourself.</a>
 </p>
 
 

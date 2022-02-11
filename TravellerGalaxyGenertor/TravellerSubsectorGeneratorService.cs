@@ -30,6 +30,12 @@ namespace TravellerGalaxyGenertor
             foreach (var file in files) AddSubsector(File.ReadAllText(file));
         }
 
+        public List<KnownUniverseSystem> GetWorlds(string worldName)
+        {
+            return Subsectors.Where(x => x.Value.HasWorld(worldName))
+                .Select(x => x.Value.GetWorld(worldName)).ToList();
+        }
+
         public Image GenerateSubSectorImage(string id)
         {
             return Subsectors[id].GenerateSubSectorImage();

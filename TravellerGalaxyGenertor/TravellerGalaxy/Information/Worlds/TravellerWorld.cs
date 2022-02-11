@@ -289,10 +289,15 @@ namespace TravellerMapSystem.Worlds
             Population = ExactPop;
         }
 
-        public TravellerWorld(string worldText)
+        public TravellerWorld(string name, string uwp, bool armyBase, bool fuelBase, bool otherBase)
         {
+            Name = name;
             var generator = new GenerateTravellerWorld();
-            generator.GenerateWorldFromText(this, worldText);
+            MilitaryBase = armyBase;
+            OtherBase = otherBase;
+            GasGiant = fuelBase;
+            
+            generator.GenerateWorldFromText(this, uwp);
         }
 
         public TravellerWorld(string systemName, int worldNumber)

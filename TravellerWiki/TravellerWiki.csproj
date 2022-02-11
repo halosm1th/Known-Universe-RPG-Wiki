@@ -320,6 +320,12 @@
         <Content Update="wwwroot\Images\Flags\VersianFlag.bmp">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        <Content Update="Pages\Languages\Sigmarian Language\SigmarianLangauge.razor">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="Pages\Languages\Sigmarian Language\SigmarianLanguageWords.razor">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
