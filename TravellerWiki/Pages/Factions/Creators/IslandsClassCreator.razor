@@ -40,6 +40,24 @@
     TravellerClassGroup Faction = null;
 
 
+    int lookupName = 0;
+    public void loadFaction()
+    {
+        var fac = _factionService.GetTravellerFaction(lookupName) as TravellerClassGroup;
+
+        FactionName = fac.FactionName;
+        FactionHeadName = fac.FactionHeadName;
+        NationWithin = fac.IslandsNation;
+        NationAlignedWith = fac.SupportingNationality;
+        FoundingDay = fac.FoundedYear.Day;
+        FoundingMonth = fac.FoundedYear.Month;
+        FoundingCen = fac.FoundedYear.Century;
+        PoliticalSway = fac.PoliticalSway;
+        EconomicSway = fac.EconomicSway;
+        SocialSway = fac.SocialSway;
+
+        if(fac.HeadquatersTextLocation != null) HeadQuartersWorldName = fac.HeadquatersTextLocation.LocationName;
+    }
     public void AddNextPlanet()
     {
         OtherLocations.Add(new TravellerTextLocation(OtherPlanetName, opSX, opSY, opPX, opPY));
@@ -82,6 +100,16 @@
 
 <div>
 
+    <p>
+        <label for="lookupName">Lookup faction to edit name: </label>
+        <select id="lookupName" @bind="lookupName">
+        @foreach (var name in _factionService.Factions)
+            {
+                <option value="@name.FactionID">@name.FactionName</option>
+            }
+        </select>
+        <button type="button" @onclick="loadFaction">Load Faction</button>
+    </p>
     <p>
         <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="factionName">Class/Social-Rank Name: </label>

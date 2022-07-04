@@ -82,6 +82,9 @@ namespace WikiServices.DataServices
 
         public  List<HighVersianDefinition> MaleNouns { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("Igna","Fire/Warmth/Heat"),
+            new HighVersianDefinition("Ma","Me"),
+            new HighVersianDefinition("Da","You"),
             new HighVersianDefinition("Una","One (of an object)"),
             new HighVersianDefinition("Libra","Book"),
             new HighVersianDefinition("Deas","Gods"),
@@ -101,6 +104,8 @@ namespace WikiServices.DataServices
         
         public  List<HighVersianDefinition> FemaleNouns { get; } = new List<HighVersianDefinition>
         {
+            new HighVersianDefinition("Du","You"),
+            new HighVersianDefinition("Mu","Me"),
             new HighVersianDefinition("Unu","One, number"),
             new HighVersianDefinition("Diu","Two, number"),
             new HighVersianDefinition("Triu","Three, number"),
@@ -115,6 +120,8 @@ namespace WikiServices.DataServices
         
         public List<HighVersianDefinition> Verbs { get; } = new List<HighVersianDefinition>()
         {
+            new HighVersianDefinition("Dano","Give/Grant/Gift"),
+            new HighVersianDefinition("Peto","Ask, Request"),
             new HighVersianDefinition("Sao","There are"),
             new HighVersianDefinition("Loqo",""),
             new HighVersianDefinition("Disco","Learn/Understand"),
@@ -141,10 +148,12 @@ namespace WikiServices.DataServices
         
         public List<HighVersianDefinition> Adverbs { get; } = new List<HighVersianDefinition>()
         {
+            new HighVersianDefinition("Place","Please do (verb) or pleasing (verb)"),
             new HighVersianDefinition("Ere","Will"),
             new HighVersianDefinition("Que","Each"),
             new HighVersianDefinition("Pre","First/Start"),
             new HighVersianDefinition("Mole","Crafted"),
+            new HighVersianDefinition("Me","I am (as in I am walking, I am asking you something, I am eating)"),
             
         }.OrderBy(x => x.Letters.First()).ToList();
         

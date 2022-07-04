@@ -326,6 +326,9 @@
         <Content Update="Pages\Languages\Sigmarian Language\SigmarianLanguageWords.razor">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        <Content Update="Pages\History Stuff\Papers.razor">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>

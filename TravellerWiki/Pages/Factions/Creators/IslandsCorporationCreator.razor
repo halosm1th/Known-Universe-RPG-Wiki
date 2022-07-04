@@ -47,6 +47,27 @@
     TravellerCompany Corporation = null;
 
 
+    int lookupName = 0;
+    public void loadFaction()
+    {
+        var fac = _factionService.GetTravellerFaction(lookupName) as TravellerCompany;
+        
+        FactionName = fac.FactionName;
+        CEOName = fac.CeoName;
+        NationWithin = fac.IslandsNation;
+        NationAlignedWith = fac.SupportingNationality;
+        Industry = fac.Industry;
+        FoundingDay = fac.FoundedYear.Day;
+        FoundingMonth = fac.FoundedYear.Month;
+        FoundingCen = fac.FoundedYear.Century;
+        PoliticalSway = fac.PoliticalSway;
+        EconomicSway = fac.EconomicSway;
+        SocialSway = fac.SocialSway;
+
+        if(fac.HeadquatersTextLocation != null) HeadQuartersWorldName = fac.HeadquatersTextLocation.LocationName;
+    }
+
+
     public void AddNextPlanet()
     {
         OtherLocations.Add(new TravellerTextLocation(OtherPlanetName, opSX, opSY, opPX, opPY));
@@ -111,7 +132,16 @@
 }
 
 <div>
-
+    <p>
+        <label for="lookupName">Lookup faction to edit name: </label>
+        <select id="lookupName" @bind="lookupName">
+        @foreach (var name in _factionService.Factions.Where(x => x.GetType() == typeof(TravellerCompany)))
+            {
+                <option value="@name.FactionID">@name.FactionName</option>
+            }
+        </select>
+        <button type="button" @onclick="loadFaction">Load Faction</button>
+    </p>
     <p>
         <span style="background-color: red; border: mediumvioletred 2px solid; display:inline-block; padding: 2px 2px 2px 2px;color: white">
             <label for="factionName">Corporation Name: </label>
@@ -153,9 +183,9 @@
             <label for="hqSY">'</label>
             <input type="number" @bind="@hqSY" id="hqSY" style="width:3em"/>
             <datalist id="worldNames">
-                @foreach (var world in _factionService.WorldsHeldByFactions())
+                @foreach (var world in TravellerLocationService.Locations.Values.Select(x => x.LocationName))
                 {
-                    <option value="@world.LocationName">@world</option>
+                    <option value="@world">@world</option>
                 }
             </datalist>
         </span>

@@ -2,7 +2,9 @@
 using System.IO;
 using System.Linq;
 using SixLabors.ImageSharp;
-using TravellerFactionSystem.Location;
+using TravellerLocationSystem;
+using TravellerMapSystem.Worlds;
+using TravellerLocation = TravellerFactionSystem.Location.TravellerLocation;
 
 namespace TravellerMapSystem
 {
@@ -56,6 +58,16 @@ namespace TravellerMapSystem
                 //  Console.ForegroundColor = ConsoleColor.Green;
                 File.WriteAllText(directory + $"\\{subsector.Name}.txt", subsector.ToString());
             }
+        }
+
+        public KnownUniverseSystem GetSystem(TravellerSectorLocation location)
+        {
+            return GetSubsector(location.SectorX,location.SectorY).GetSystem(location.SubsectorX, location.SubsectorY);
+        }
+
+        public KnownUniverseSubsector GetSubsector(int x, int y)
+        {
+            return Subsectors[x, y];
         }
     }
 }

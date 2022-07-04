@@ -27,6 +27,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCharacter", "Trave
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerWikiInfomationArticles", "TravellerWikiInfomationArticles\TravellerWikiInfomationArticles.csproj", "{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerNations", "TravellerNations\TravellerNations.csproj", "{9CBF15D5-17F1-488B-92E9-7C345F26CB1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerLocationSystem", "TravellerLocationSystem\TravellerLocationSystem.csproj", "{A195F7C7-9CF6-4444-B8F5-334C2BD1C71B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerEconomy", "TravellerEconomy\TravellerEconomy.csproj", "{1FD8D06C-1C82-48DF-A2AE-5B3A6DFCE4C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerPoliticsGameSystem", "TravellerPoliticsGameSystem\TravellerPoliticsGameSystem.csproj", "{FE4ED4E0-3A7F-4E8F-90AD-6BEF2A2222C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoliticsGameConsole", "PoliticsGameConsole\PoliticsGameConsole.csproj", "{E6A9A9BB-0712-40F3-927E-AB1BDA0C8A63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +91,26 @@ Global
 		{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CBF15D5-17F1-488B-92E9-7C345F26CB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CBF15D5-17F1-488B-92E9-7C345F26CB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CBF15D5-17F1-488B-92E9-7C345F26CB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CBF15D5-17F1-488B-92E9-7C345F26CB1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A195F7C7-9CF6-4444-B8F5-334C2BD1C71B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A195F7C7-9CF6-4444-B8F5-334C2BD1C71B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A195F7C7-9CF6-4444-B8F5-334C2BD1C71B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A195F7C7-9CF6-4444-B8F5-334C2BD1C71B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD8D06C-1C82-48DF-A2AE-5B3A6DFCE4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD8D06C-1C82-48DF-A2AE-5B3A6DFCE4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD8D06C-1C82-48DF-A2AE-5B3A6DFCE4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD8D06C-1C82-48DF-A2AE-5B3A6DFCE4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4ED4E0-3A7F-4E8F-90AD-6BEF2A2222C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4ED4E0-3A7F-4E8F-90AD-6BEF2A2222C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4ED4E0-3A7F-4E8F-90AD-6BEF2A2222C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4ED4E0-3A7F-4E8F-90AD-6BEF2A2222C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A9A9BB-0712-40F3-927E-AB1BDA0C8A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A9A9BB-0712-40F3-927E-AB1BDA0C8A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A9A9BB-0712-40F3-927E-AB1BDA0C8A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A9A9BB-0712-40F3-927E-AB1BDA0C8A63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

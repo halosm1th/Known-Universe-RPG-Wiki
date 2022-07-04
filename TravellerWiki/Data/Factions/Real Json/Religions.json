@@ -3,7 +3,7 @@
     "NumberOfFollowers": 443,
     "FactionID": 10166,
     "FactionName": "Sigmarism",
-    "HeadquatersLocation": "Gassaway",
+    "HeadquatersLocationID": "Gassaway",
     "OtherOwnedLocations": [
       "Olitar",
       "Tescott",
@@ -1832,4 +1832,5 @@
       }
     ]
   }
+  
 ]

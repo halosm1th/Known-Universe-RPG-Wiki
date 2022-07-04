@@ -80,7 +80,9 @@ namespace WikiServices.DataServices
         };
 
         public  List<HighVersianDefinition> Prefixes { get; } = new List<HighVersianDefinition>
-        {
+        {            
+            new HighVersianDefinition("Pet","Ask, Request Beg."),
+
             new HighVersianDefinition("Pas","Can/Able/May"),
             new HighVersianDefinition("Ult","Beyond"),
             new HighVersianDefinition("Hoc","This"),
@@ -208,6 +210,8 @@ namespace WikiServices.DataServices
 
         public List<HighVersianDefinition> Roots { get; } = new List<HighVersianDefinition>()
         {            
+            
+            new HighVersianDefinition("Plac","Pleasing, agreeable, welcomed, acceptable"),
             new HighVersianDefinition("Parc","Parish/The eccliestatical area of a preacher"),
 
             new HighVersianDefinition("Tand","Eventually, Finally, At last"),
