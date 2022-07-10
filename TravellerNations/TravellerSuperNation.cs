@@ -29,7 +29,7 @@ public class TravellerSuperNation : ITravellerEconomicNation
         var memerNames = "";
         foreach (var memb in MemberNations)
         {
-            memerNames += memb.NationName + " ";
+            memerNames += memb.ToString() + " ";
         }
 
         return $"{Name}: {memerNames}";

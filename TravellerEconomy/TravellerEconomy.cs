@@ -11,18 +11,22 @@ public class TravellerEconomy
     public TravellerEconomicCore EconomicCore;
     private TravellerEconomicCore _income;
     private TravellerEconomicCore _expenditure;
-    
-    public bool FoodCrisis { get; private set; }
-    public bool PopCrisis { get; private set;}
-    public bool ResourceCrisis { get; private set;}
-    public bool TechCrisis { get; private set;}
-    public bool MoneyCrisis { get;private set; }
+
+    public bool FoodCrisis { get; private set; } = false;
+    public bool PopCrisis { get; private set;}= false;
+    public bool ResourceCrisis { get; private set;}= false;
+    public bool TechCrisis { get; private set;}= false;
+    public bool MoneyCrisis { get;private set; }= false;
 
     public ITravellerEconomicNation EconomyOf { get; }
 
     public TravellerEconomy(ITravellerEconomicNation holdingNation)
     {
         EconomyOf = holdingNation;
+        
+        EconomicCore = new TravellerEconomicCore();
+        _income = new TravellerEconomicCore();
+        _expenditure= new TravellerEconomicCore();
     }
     
     public void UpdateEconomicStatus()
@@ -96,6 +100,7 @@ public class TravellerEconomy
         var income = new TravellerEconomicCore(_income.Money, _income.Resources, _income.Food, _income.Workers);
         CalculateSystemIncome(income);
         income.MultiplyTechToIncome();
+        _income = income;
     }
 
     private void CalculateSystemIncome(TravellerEconomicCore income)
@@ -215,6 +220,6 @@ public class TravellerEconomy
     public override string ToString()
     {
         return $"Money: ${EconomicCore.Money}. Workers: {EconomicCore.Workers}, " +
-               $"Industry: {EconomicCore.Resources}, Food: {EconomicCore.Food}, Tech Level: {EconomicCore.TechLevel})";
+               $"Industry: {EconomicCore.Resources}, Food: {EconomicCore.Food}, Tech Level: {EconomicCore.TechLevel}";
     }
 }

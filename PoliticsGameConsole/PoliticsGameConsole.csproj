@@ -11,4 +11,12 @@
       <ProjectReference Include="..\TravellerPoliticsGameSystem\TravellerPoliticsGameSystem.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="Everly.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>

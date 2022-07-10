@@ -18,65 +18,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PoliticsGameConsole/PoliticsGameConsole.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PoliticsGameConsole/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerEconomy/IExpenditure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerEconomy/ITravellerEconomicNation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerEconomy/TravellerEconomicCore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerEconomy/TravellerEconomy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerEconomy/TravellerEconomy.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TradeCodes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerLocationSystem/ITravellerLocateable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerLocationSystem/TravellerLocation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerLocationSystem/TravellerLocationSystem.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerLocationSystem/TravellerSectorLocation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerLocationSystem/TravellerSubsectorLocation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerLocationSystem/TravellerSystemLocation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerNations/IMilitaryAsset.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerNations/TravellerNation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerNations/TravellerNations.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerNations/TravellerSuperNation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerNations/globals.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerPoliticsGameSystem/TravellerPoliticsGameCore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerPoliticsGameSystem/TravellerPoliticsGameSystem.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/A Method to Organize the Readings from Winter Semester.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/A unique toleration an examination of relgious toleration in Early Modern Polish-Lithuanian Commonwealth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Changes to Political, Economic and Social Structures During the Mexican Revolution.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Comparing Articles about the Medieval Financial Revolution.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Differences Between the Cold War Military Dictatorships of Argentina, Brazil, and Chile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Effects of Neoliberalism on Latin America.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Examining Differences and Similarities in Narratives on Latin American Independence.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Examining Religious Diversity in Roman North Africa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Exploring the Discrepancies in the Conversion of the Kievan Rus’.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Money Owed – Why Constantinople Was Sacked.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Reflections on Caritas In Veritate in the Post-COVID world.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Review of The Wisdom of the Beguines.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Successes and Limitations of the Cuban Revolution.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Three Questions on Medieval History.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Data/Papers/Two Methods to Organize Readings in HIST 3990.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/History Stuff/Papers.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PoliticsGameConsole/Everly.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/Location/TravellerLocationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/Location/TravellerLocationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PoliticsGameConsole/PoliticsGameConsole.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PoliticsGameConsole/PoliticsGameConsole.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PoliticsGameConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PoliticsGameConsole/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerEconomy/ITravellerEconomicNation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerEconomy/ITravellerEconomicNation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerEconomy/TravellerEconomicCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerEconomy/TravellerEconomicCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerEconomy/TravellerEconomy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerEconomy/TravellerEconomy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Real Json/Religions.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Data/Factions/Real Json/Religions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsClassCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCorporationCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsCriminalGroupCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsMajorNationCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsNationCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsOtherCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsPoliticalCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsProfessionCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsReligionCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Factions/Creators/IslandsSocialCreator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/SigmarianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/SigmarianService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerNations/TravellerNation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerNations/TravellerNation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerNations/TravellerSuperNation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerNations/TravellerSuperNation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerPoliticsGameSystem/TravellerPoliticsGameCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerPoliticsGameSystem/TravellerPoliticsGameCore.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,20 +68,35 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf436ac5cbaab2b6b1287ede3c7cd7e20516e661885a2538c9618359e8fd/FontCollection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterCreationTest/Charcters/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7e231682be8652744726acc6de35323daa68061429db55e0c251114902f60/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TravellerLocationSystem/TravellerSectorLocation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerLocationSystem/TravellerSystemLocation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerLocationSystem/TravellerSubsectorLocation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerLocationSystem/TravellerLocation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerLocationSystem/ITravellerLocateable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ad457575d35dcbff26c9a5e3fb1d92f1d3c55f25ef6ebf475367b5d8/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4050ba48b7e252908212d892189d928884eb8c726d4f447f53c29d6ecd4411/Exception.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7e231682be8652744726acc6de35323daa68061429db55e0c251114902f60/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TravellerLocationSystem/TravellerSectorLocation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -207,6 +174,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.49904397" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="TEXT" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -499,21 +467,7 @@
       <workItem from="1650735111705" duration="1020000" />
       <workItem from="1650736754217" duration="677000" />
       <workItem from="1655178550413" duration="645000" />
-      <workItem from="1656901601401" duration="9763000" />
-    </task>
-    <task id="LOCAL-00036" summary="Fixed bug">
-      <created>1637047343185</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1637047343185</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Started a massive refactor by pulling in my old map generation code, and then started refactoring that, but in the process have begun a full refactor of the codebase">
-      <created>1637290246673</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1637290246673</updated>
+      <workItem from="1656901601401" duration="14262000" />
     </task>
     <task id="LOCAL-00038" summary="Refactored a lot of stuff into seperate things within the codebase so that its easier to extend in the future">
       <created>1637302581224</created>
@@ -844,7 +798,21 @@
       <option name="project" value="LOCAL" />
       <updated>1644600650516</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Added a bunch fo different stuff">
+      <created>1656976827050</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1656976827050</updated>
+    </task>
+    <task id="LOCAL-00086" summary="removed some stuff">
+      <created>1656976888515</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1656976888515</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -864,8 +832,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="reorganized a bunch of stuff" />
-    <MESSAGE value="Added a possible save system for subsectors." />
     <MESSAGE value="Added a possible working system for loading subsector data!" />
     <MESSAGE value="Hopefully added the generated subsector to the list of generated subsectors" />
     <MESSAGE value="Made a few things prettier" />
@@ -889,7 +855,9 @@
     <MESSAGE value="Added a few more high Versian Words" />
     <MESSAGE value="A different take on location system" />
     <MESSAGE value="Added a system so that factions and systems can now interact" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a system so that factions and systems can now interact" />
+    <MESSAGE value="Added a bunch fo different stuff" />
+    <MESSAGE value="removed some stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed some stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -936,11 +904,27 @@
           </properties>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TravellerEconomy/TravellerEconomy.cs</url>
+          <line>111</line>
+          <properties documentPath="C:\Users\thoma\RiderProjects\Known-Universe-RPG-Wiki\TravellerEconomy\TravellerEconomy.cs" initialLine="111" containingFunctionPresentation="method 'CalculateSystemIncome'">
+            <startOffsets>
+              <option value="3621" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3653" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Type#TravellerNations.TravellerNation" memberName="Economy" />
         <PinnedItemInfo parentTag="Type#TravellerCharacter.CharacterCreator.Careers.TravellerCareer" memberName="Nationality" />
+        <PinnedItemInfo parentTag="Type#TravellerNations.TravellerNation" memberName="Expenitures" />
+        <PinnedItemInfo parentTag="Frame#TravellerEconomySystem.TravellerEconomy.CalculateSystemIncome" memberName="income" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

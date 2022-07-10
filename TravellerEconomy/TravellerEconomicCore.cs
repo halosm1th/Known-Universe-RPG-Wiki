@@ -10,7 +10,7 @@ public class TravellerEconomicCore
     public int Workers { get; internal set; }
     public int TechLevel { get; internal set; }
 
-    public TravellerEconomicCore(int money=0, int resources=0, int food=0, int workers=0, int techLevel =0)
+    public TravellerEconomicCore(int money=0, int resources=0, int food=0, int workers=0, int techLevel =1)
     {
         Money = money;
         Resources = resources;

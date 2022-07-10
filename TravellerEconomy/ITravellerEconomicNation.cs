@@ -5,6 +5,6 @@ namespace TravellerEconomySystem;
 
 public interface ITravellerEconomicNation
 {
-    public Dictionary<TravellerLocationSystem.TravellerSectorLocation, KnownUniverseSystem> Systems { get; }
+    public Dictionary<TravellerLocationSystem.TravellerLocation, KnownUniverseSystem> Systems { get; }
     public Dictionary<string, IExpenditure> Expenitures { get; }
 }

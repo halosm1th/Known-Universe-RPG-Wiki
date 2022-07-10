@@ -68,6 +68,11 @@ namespace TravellerGalaxyGenertor
             return Sectors.First(x => x.Value.Name == SectorName).Key;
         }
         
+        public string GetSubsectorID(string SubsectorName)
+        {
+            return Subsectors.First(x => x.Value.Name == SubsectorName).Key;
+        }
+        
         public KnownUniverseSector GetSector(string id)
         {
             return Sectors[id];
