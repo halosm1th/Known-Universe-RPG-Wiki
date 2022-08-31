@@ -9,6 +9,7 @@
     <projectFile>CharacterCreationTest/CharacterCreationTest.csproj</projectFile>
     <projectFile>SubsectorJson/SubsectorJson.csproj</projectFile>
     <projectFile>TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj</projectFile>
+    <projectFile>PoliticsGameConsole/PoliticsGameConsole.csproj</projectFile>
     <projectFile profileName="IIS Express">TravellerWiki/TravellerWiki.csproj</projectFile>
     <projectFile profileName="TravellerWiki">TravellerWiki/TravellerWiki.csproj</projectFile>
   </component>
@@ -17,28 +18,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorCreatorService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/CreateSubsector.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Sigmarian Language/SigmarianLangauge.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/Sigmarian Language/SigmarianLanguageWords.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/css/open-iconic/font/fonts/HighVersian-Regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WikiServices/DataServices/SigmarianService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerFactionSystem/TravellerFactionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/KnownUniverseSubsector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/KnownUniverseSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/DrawSubsector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerSubsectorGeneratorService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/SubsectorGenerator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Generators/Subsector Stuff/SubsectorGenerator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/LanguageFamilies.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Languages/LanguageFamilies.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/DataServices/HighVersianService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WikiServices/WikiServices.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WikiServices/WikiServices.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,13 +54,19 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf436ac5cbaab2b6b1287ede3c7cd7e20516e661885a2538c9618359e8fd/FontCollection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterCreationTest/Charcters/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4050ba48b7e252908212d892189d928884eb8c726d4f447f53c29d6ecd4411/Exception.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7e231682be8652744726acc6de35323daa68061429db55e0c251114902f60/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TravellerFactionSystem/TravellerLocation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/thoma/RiderProjects/Known-Universe-RPG-Wiki/WikiServices/DataServices/HighVersianService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ad457575d35dcbff26c9a5e3fb1d92f1d3c55f25ef6ebf475367b5d8/List.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -421,13 +408,6 @@
       <workItem from="1643338387399" duration="2241000" />
       <workItem from="1644528254809" duration="8438000" />
     </task>
-    <task id="LOCAL-00034" summary="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary">
-      <created>1637047262463</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1637047262463</updated>
-    </task>
     <task id="LOCAL-00035" summary="Added a Simple High Versian to English Concept Translator, will add english to high versian maybe probably not at some point. Though might end up adding a feature whereby people can type in text and it searches the high versian dictionary for the word. While adding words translated with this to the dictionary">
       <created>1637047294565</created>
       <option name="number" value="00035" />
@@ -764,7 +744,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640650529758</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Added a new high versian word">
+      <created>1657492672374</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1657492672374</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -784,7 +771,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added more verian lore and high versian words" />
     <MESSAGE value="Added a page with all subectors" />
     <MESSAGE value="reorganized a bunch of stuff" />
     <MESSAGE value="Added a possible save system for subsectors." />
@@ -809,7 +795,8 @@
     <MESSAGE value="Added new high Versian Prefixes and roots" />
     <MESSAGE value="Fixed a small bug with having empty variables in the high versian stuff" />
     <MESSAGE value="Added a few more high Versian Words" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a few more high Versian Words" />
+    <MESSAGE value="Added a new high versian word" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new high versian word" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -842,7 +829,10 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Type#TravellerNations.TravellerNation" memberName="Economy" />
         <PinnedItemInfo parentTag="Type#TravellerCharacter.CharacterCreator.Careers.TravellerCareer" memberName="Nationality" />
+        <PinnedItemInfo parentTag="Type#TravellerNations.TravellerNation" memberName="Expenitures" />
+        <PinnedItemInfo parentTag="Frame#TravellerEconomySystem.TravellerEconomy.CalculateSystemIncome" memberName="income" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

@@ -508,8 +508,8 @@ namespace WikiServices.DataServices
             var text = new List<HighVersianDefinition>()
             {            
                 new HighVersianDefinition("Itadaedificoi","(Present tense) Thus, I am going to build/create."),
-                new HighVersianDefinition("Librum","Library (place where books are stored)"),
-                new HighVersianDefinition("ProLibrum","Super/Grand Library (huge/important place where books are stored)"),
+                new HighVersianDefinition("Libraum","Library (place where books are stored)"),
+                new HighVersianDefinition("ProLibraum","Super/Grand Library (huge/important place where books are stored)"),
                 new HighVersianDefinition("Hona","Honor (the object honor)"),
                 new HighVersianDefinition("Mia","Me using the proceeding object"),
                 new HighVersianDefinition("Neglora","Without glory [Lit. Without the object of glory]"),
