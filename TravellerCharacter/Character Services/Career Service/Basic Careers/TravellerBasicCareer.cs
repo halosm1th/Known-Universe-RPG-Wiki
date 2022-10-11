@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
-using TravellerCharacter.Character_Services.Career_Service;
-using TravellerCharacter.Character_Services.Career_Service.Basic_Careers;
 using TravellerCharacter.CharacterCreator.Careers;
 
-namespace TravellerWiki.Data.Services.CareerService.NationsCareeres
+namespace TravellerCharacter.Character_Services.Career_Service.Basic_Careers
 {
-    internal class TravellerBasicCareers : TravellerMinorPowerCareers
+    internal class TravellerBasicCareer : TravellerMinorPowerCareers
     {
         public static void AddNationCareers(List<TravellerCareer> careers)
         {
-            var career = TravellerMationCareer.NationCareer();
+            var career = TravellerNationCareer.NationCareer();
 
             careers.Add(career);
         }

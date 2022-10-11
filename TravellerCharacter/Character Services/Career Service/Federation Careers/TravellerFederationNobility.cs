@@ -1,14 +1,15 @@
 ﻿using System;
 using TravellerCharacter.CharacterCreator.Careers;
 
-namespace TravellerCharacter.Character_Services.Career_Service.Basic_Careers
+namespace TravellerCharacter.Character_Services.Career_Service.Federation_Careers
 {
-    internal class TravellerNationCareer : TravellerBasicCareer {
+    internal class TravellerFederationNobility : TravellerFederationCareers
+    {
         private Random random = new();
 
         public static TravellerCareer NationCareer()
         {
-            var career = new TravellerNationCareer();
+            var career = new TravellerFederationNobility();
 
             return career.GetNationCareer();
         }
