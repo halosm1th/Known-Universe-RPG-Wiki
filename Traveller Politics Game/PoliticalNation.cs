@@ -42,6 +42,7 @@ class PoliticalNation
 
     public List<PoliticsGameSystem> NationalSystems { get; }
     public Dictionary<string,Capital> DynamicCosts { get; }
+    public Dictionary<string,Capital> DynamicIncomes { get; }
     public Capital TotalCosts
     {
         get
@@ -57,7 +58,7 @@ class PoliticalNation
     #endregion
 
     public PoliticalNation(string playerName = "test player", string nationName = "test nation", List<Fleet> nationalFleets = default, 
-        List<PoliticsGameSystem> nationalSystems = default, Dictionary<string, Capital> dynamicCosts = default)
+        List<PoliticsGameSystem> nationalSystems = default, Dictionary<string, Capital> dynamicCosts = default, Dictionary<string, Capital> dynamicIncomes = default)
     {
         PlayerName = playerName;
         NationName = nationName;
@@ -65,9 +66,11 @@ class PoliticalNation
         if (nationalFleets == default) nationalFleets = new List<Fleet>();
         if (nationalSystems == default) nationalSystems = new List<PoliticsGameSystem>();
         if (dynamicCosts == default) dynamicCosts = new Dictionary<string, Capital>();
+        if (dynamicIncomes == default) dynamicIncomes = new Dictionary<string, Capital>();
         NationalFleets = nationalFleets;
         NationalSystems = nationalSystems;
         DynamicCosts = dynamicCosts;
+        DynamicIncomes = dynamicIncomes;
     }
     
     #region Costs
@@ -145,8 +148,71 @@ public Capital GetResources()
     var pop = GetGeneratedPopulation();
     var fuel = GetGeneratedFuel();
 
+    credits += GetDynamicCredits();
+    food += GetDynamicFood();
+    prod += GetDynamicProd();
+    pop += GetDynamicPop();
+    fuel += GetDynamicFuel();
+    
     return new Capital(credits, food, prod, pop, fuel);
 }
+
+private int GetDynamicPop()
+{    int population = 0;
+
+    foreach (var dync in DynamicIncomes)
+    {
+        population += dync.Value.Population;
+    }
+    
+    return population;
+}
+
+private int GetDynamicProd()
+{    int production = 0;
+
+    foreach (var dync in DynamicIncomes)
+    {
+        production += dync.Value.Production;
+    }
+    
+    return production;
+}
+
+private int GetDynamicFood()
+{    int food = 0;
+
+    foreach (var dync in DynamicIncomes)
+    {
+        food += dync.Value.Food;
+    }
+    
+    return food;
+}
+
+private int GetDynamicFuel()
+{    int fuel = 0;
+
+    foreach (var dync in DynamicIncomes)
+    {
+        fuel += dync.Value.Fuel;
+    }
+    
+    return fuel;
+}
+
+private int GetDynamicCredits()
+{
+    int credits = 0;
+
+    foreach (var dync in DynamicIncomes)
+    {
+        credits += dync.Value.Credits;
+    }
+    
+    return credits;
+}
+
 private int GetGeneratedFuel()
 {
     return NationalSystems.Where(x => x.FuelWorld)
@@ -181,12 +247,20 @@ private int GetGeneratedCredits()
 #region Managing Nation  
 public bool MoveFleet(Location src, Location dest)
 {
-    if (!NationalFleets.Any(x => x.Location == src))
-    {
-        return false;
-    }
+    if (!HasFleet(src)) return false;
 
     NationalFleets.First(x => x.Location == src).MoveFleet(dest);
+    return true;
+}
+
+
+public bool ModifyFleet(Location src, Location dest, int amount)
+{
+    if (!HasFleet(src)) return false;
+    
+    var fleet =  NationalFleets.First(x => x.Location == src);
+    fleet.MoveFleet(dest);
+    fleet.ModifyFleet(amount);
     return true;
 }
 
@@ -219,6 +293,17 @@ public int GetTechLevel()
 
         return techLevel;
     }
+
+
+private bool HasFleet(Location src)
+{
+    if (NationalFleets.All(x => x.Location != src))
+    {
+        return false;
+    }
+
+    return true;
+}
 #endregion
 
 public override string ToString()
