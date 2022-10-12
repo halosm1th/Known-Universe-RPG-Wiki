@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCharacter", "Trave
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerWikiInfomationArticles", "TravellerWikiInfomationArticles\TravellerWikiInfomationArticles.csproj", "{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traveller Politics Game", "Traveller Politics Game\Traveller Politics Game.csproj", "{3B4358EB-D0E4-4FD4-9749-EFEFD750E8D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB583674-6DF2-4AD7-9BF8-5FF2447C93B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B4358EB-D0E4-4FD4-9749-EFEFD750E8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B4358EB-D0E4-4FD4-9749-EFEFD750E8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B4358EB-D0E4-4FD4-9749-EFEFD750E8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B4358EB-D0E4-4FD4-9749-EFEFD750E8D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

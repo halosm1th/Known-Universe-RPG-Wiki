@@ -1,0 +1,13 @@
+﻿Subsector Old Islands Subsector
+Neubayern 2:2 A7889C9-C 
+Sansterre 7:2 A87A943-C 
+SchlesienBelt 3:3 C000367-B 
+StGenevieve 5:3 c560100-a 
+StDenis 8:3 D735764-7 
+SturgeonsLaw 1:4 DAC1451-9 
+Achille 7:4 E301335-9 
+NewHome 3:5 A565857-D 
+Acadie 6:5 C868563-9 
+Amondiage 7:5 A5629A9-C 
+Colchis 4:6 B676898-9 
+Quichotte 1:9 E576667-6

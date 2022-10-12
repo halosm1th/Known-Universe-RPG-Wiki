@@ -1,0 +1,34 @@
+﻿Subsector Doland subsector
+https://thesteamnetwork.com/Subsector_Doland
+
+
+Pacifica 5:1 e1c0a0C-a 
+Goldbar 6:1 a5b6188-c 
+Delray 3:2 c9967a1-5 
+Greenhurst 5:2 b2e04f0-d 
+Swampscott 7:2 a3976b7-9 
+Kinzers 3:3 f64e55c-2 
+Nogales 5:3 a9727a8-9 
+Tokeland 7:3 c1e09a7-d 
+Keldron 2:4 a0c3576-10 
+Schallere 3:4 a0d05e5-f 
+Whitesboro 5:4 f6d5859-4 
+Rosslyn 6:4 ca4c5e0-2 
+Lapaz 2:5 a4a15e3-9 
+Daggett 8:5 e6954a9-3
+Alvyn 6:6 a9a0a0C-C 
+Fosterville 1:7 a8867b6-7 
+Savonburg 2:7 a4f24f3-c 
+Browerville 3:7 e75b099-1 
+Camuy 5:7 d0C0837-9 
+Covina 8:7 d591957-5 
+Mabscott 3:8 a587a3e-f
+Quanah 5:8 a2772a2-8 
+Bronaugh 8:8 a957467-b
+Timpson 2:9 a4e081C-c 
+Erbacon 3:9 aa2745c-c 
+Autaugaville 4:9 a54e555-9 
+Pooler 6:9 a7c21d2-8 
+Chatfield 4:10 f67b637-0
+Kingstree 6:10 a57aa72-D
+Crum 8:10 a11000100-d

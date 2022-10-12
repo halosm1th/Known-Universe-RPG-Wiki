@@ -1,0 +1,21 @@
+﻿4,4:4,1 Rison a8b3272-e NYN N
+4,4:7,1 Willseyville e78b673-7 NYN N 
+4,4:3,2 Sumpter e3945b6-7 NNN N
+4,4:8,2 Graytown b882a5a-d NYN N
+4,4:6,3 Wardville c4f20B0-6 YYN N
+4,4:8,3 Guayanilla d2d43f0-5 NYN N
+4,4:5,4 Watauga e9395a1-4 YYN N
+4,4:6,4 Gurdon a11205c0-e YYN N
+4,4:7,4 Priddy d819596-6 NNN N
+4,4:8,4 Loris ba84765-6 NNN N
+4,4:2,5 Levant c72aa93-d NYY N
+4,4:3,5 Wahpeton e4a0766-6 NYN N
+4,4:4,5 Cadyville 4:5 a3b42B0-d YYN N
+4,4:6,5 Langford d4980C0-3 NYN N
+4,4:7,5 Cawood e5966b5-3 YYN N
+4,4:3,6 Whigham a95476a-c NYY N
+4,4:4,6 Nada e4a6483-9 NYN N
+4,4:6,7 Vintondale a1e045c-C NYY N 
+4,4:8,7 Tams a490096-a NYY N
+4,4:7,8 Cowansville e0c0490-9 NYN N 
+4,4:5,9 Marchand a6690b0-d NYN N

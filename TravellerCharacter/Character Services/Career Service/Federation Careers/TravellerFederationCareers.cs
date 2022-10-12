@@ -10,8 +10,8 @@ namespace TravellerCharacter.Character_Services.Career_Service.Federation_Career
             var Navy = TravellerFederationNavy.NationCareer();
             careers.Add(Navy);
                         
-            var Knight = TravellerLunaKnights.LunaKnight();
-            careers.Add(Knight);
+            //var Knight = TravellerLunaKnights.LunaKnight();
+            //careers.Add(Knight);
             
             var Citizen = TravellerFederationCitizen.NationCareer();
             careers.Add(Navy);

@@ -10,6 +10,7 @@
     <projectFile>SubsectorJson/SubsectorJson.csproj</projectFile>
     <projectFile>TravellerGalaxyGenertor/TravellerGalaxyGenertor.csproj</projectFile>
     <projectFile>PoliticsGameConsole/PoliticsGameConsole.csproj</projectFile>
+    <projectFile>Traveller Politics Game/Traveller Politics Game.csproj</projectFile>
     <projectFile profileName="IIS Express">TravellerWiki/TravellerWiki.csproj</projectFile>
     <projectFile profileName="TravellerWiki">TravellerWiki/TravellerWiki.csproj</projectFile>
   </component>
@@ -18,21 +19,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/FederationCitizen.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/FederationGovernment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/FederationScholar.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationArmy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationCareers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationLordsMilitary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationNavy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationNobility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationPrisoner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationScout.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerLunaKnight.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/Fleet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Citra.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Doland.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Intercourse.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Kendrick.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/New Islands.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Old Islands.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Olivehurst.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Oren Wastes 1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Oren Wastes 2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Oren Wastes 3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Oren Wastes 4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Payette.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Stacyville.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Wallwern.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Temp/Wynona.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/IslandsWorlds/Zaleski.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticsGame.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/System.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Traveller Politics Game/Traveller Politics Game.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Basic Careers/TravellerBasicCareer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Basic Careers/TravellerBasicCareer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Basic Careers/TravellerNationCareer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Basic Careers/TravellerNationCareer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravellerCharacter/TravellerCharacter.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/TravellerCharacter.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationCareers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationCareers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerLunaKnight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerLunaKnight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Information/Worlds/TravellerWorld.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerGalaxyGenertor/TravellerGalaxy/Tools/GenerateTravellerWorld.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/WorldInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/InformationOnSettingsUniverse/WorldInfo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Subsectors/Subsector.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Wiki Pages/Subsectors/Subsector.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +82,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2e5a78beee0f4abd8ed7ef3636048cf1a20268/a0/a493af5e/Number.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf436ac5cbaab2b6b1287ede3c7cd7e20516e661885a2538c9618359e8fd/FontCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterCreationTest/Charcters/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4050ba48b7e252908212d892189d928884eb8c726d4f447f53c29d6ecd4411/Exception.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
@@ -162,7 +179,7 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.TravellerWiki">
+  <component name="RunManager" selected=".NET Project.Traveller Politics Game">
     <configuration name="Publish TravellerFactionSystem to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/TravellerFactionSystem/bin/Release/net5.0/publish" target_framework="net5.0" uuid_high="7797284247241245342" uuid_low="-4882073600492591447" />
       <method v="2" />
@@ -252,6 +269,25 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/SubsectorJsonGenerator/SubsectorJsonGenerator.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Traveller Politics Game" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Traveller Politics Game/Traveller Politics Game.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -422,13 +458,8 @@
       <workItem from="1644528254809" duration="8438000" />
       <workItem from="1661956843388" duration="1924000" />
       <workItem from="1662066234998" duration="1771000" />
-    </task>
-    <task id="LOCAL-00036" summary="Fixed bug">
-      <created>1637047343185</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1637047343185</updated>
+      <workItem from="1665524672540" duration="10204000" />
+      <workItem from="1665546049404" duration="4414000" />
     </task>
     <task id="LOCAL-00037" summary="Started a massive refactor by pulling in my old map generation code, and then started refactoring that, but in the process have begun a full refactor of the codebase">
       <created>1637290246673</created>
@@ -766,7 +797,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661956896819</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Not sure what all I was doing, but i was doing something!">
+      <created>1665524811304</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1665524811304</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -786,7 +824,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="reorganized a bunch of stuff" />
     <MESSAGE value="Added a possible save system for subsectors." />
     <MESSAGE value="Added a possible working system for loading subsector data!" />
     <MESSAGE value="Hopefully added the generated subsector to the list of generated subsectors" />
@@ -811,7 +848,8 @@
     <MESSAGE value="Added a few more high Versian Words" />
     <MESSAGE value="Added a new high versian word" />
     <MESSAGE value="Added some high versian words" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some high versian words" />
+    <MESSAGE value="Not sure what all I was doing, but i was doing something!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Not sure what all I was doing, but i was doing something!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

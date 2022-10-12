@@ -1,0 +1,16 @@
+﻿Subsector New Islands Subsector
+Zulflucht 1:1 C545720-8 
+Berlichingen 8:1 D500437-8
+Topas 7:2 D420899-7 
+Gloire 3:3 C764567-9 
+SerendipBelt 5:3 A000949-C 
+Wellington 1:5 C8B0263-A 
+Elysee 7:5 B502532-9 
+Esperanza 1:6 A674ABC-B
+Besancon 7:6 C201341-9 
+Herzenslust 6:6 E995765-6 
+NewColchis 5:7 A8959AA-C 
+Joyuse 8:8 A7899B9-C 
+Orphee 6:9 X8856a0-0 
+StHilaire 1:10 B579763-A 
+Nebelwelt 2:10 C879425-5

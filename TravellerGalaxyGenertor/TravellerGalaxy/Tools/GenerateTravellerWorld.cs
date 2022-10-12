@@ -89,7 +89,8 @@ namespace TravellerMapSystem.Tools
         /// </summary>
         /// <param name="world"></param>
         /// <param name="uwp"></param>
-        public void GenerateWorldFromText(TravellerWorld world, string uwp)
+        /// <param name="generateMinorDetails">Generate the minor details of the system; you don't alwaus need these things though.</param>
+        public void GenerateWorldFromText(TravellerWorld world, string uwp, bool generateMinorDetails = true)
         {
             uwp = uwp.ToLower();
             uwp = uwp.Remove(7, 1);
@@ -97,13 +98,16 @@ namespace TravellerMapSystem.Tools
             world.WorldSize  = (WorldSize) int.Parse(uwp[1].ToString(), System.Globalization.NumberStyles.HexNumber);
             world.WorldAtmosphere = (WorldAtmosphere) int.Parse(uwp[2].ToString(), System.Globalization.NumberStyles.HexNumber);
             world.WorldHydrographics = int.Parse(uwp[3].ToString(), System.Globalization.NumberStyles.HexNumber);
-            world.PopulationStat = int.Parse(uwp[4].ToString(), System.Globalization.NumberStyles.HexNumber);;
+            world.PopulationStat = int.Parse(uwp[4].ToString(), System.Globalization.NumberStyles.HexNumber);
             world.GovernmentType = int.Parse(uwp[5].ToString(), System.Globalization.NumberStyles.HexNumber);
             world.LawLevel = int.Parse(uwp[6].ToString(), System.Globalization.NumberStyles.HexNumber);
             world.TechLevel = int.Parse(uwp[7].ToString(), System.Globalization.NumberStyles.HexNumber);
 
-            GenerateMinorDetails(world);
-            GenerateWorldPopulationSize(world);
+            if (generateMinorDetails)
+            {
+                GenerateMinorDetails(world);
+                GenerateWorldPopulationSize(world);
+            }
         }
 
         private StarportQuality DecodeStarport(char starportLetter)

@@ -1,0 +1,47 @@
+﻿Subsector Oren Wastes 1 subsector
+https://thesteamnetwork.com/Subsector_Oren_Wastes_1 
+
+
+Barhamsville 2:1 c0f481f-a
+Norwell 4:1 f6d097a-4 
+Dunlo 5:1 fa7282A-1
+SpriggYoung 6:1 a5772a5-c
+Longleaf 1:2 a36b3f4-e 
+Reedsville 3:2 a77777b-8 
+Berrysburg 5:2 c38491C-8 
+Oran 7:2 c1f3B20-9 
+Ridgefield 8:2 a572187-8 
+Lovilia 1:3 a5d63c4-a 
+Sperryville 4:3 c2d0B20-6 
+Henefer 5:3 a86c0b3-7 
+Fallbrook 6:3 c9886c1-6 
+Kayenta 7:3 a6b6393-b 
+Ramer 8:3 e55621A-3 
+Saldee 1:4 a7b15e4-7 
+Templeville 2:4 a3A05c3-d 
+Modena 3:4 b0c03e3-b 
+BarcoPicacho 4:4 aa1A01C-a 
+GwynneThorn 6:4 a7293e1-8 
+Tenino 8:4 a6d42f0-b 
+Bruni 4:5 ea7627a-7 
+Renwick 5:5 ea94979-6 
+Wetumka 6:5 aa56574-e 
+Weskan 8:5 e99a54e-5 
+Hazelcrest 3:6 c598792-8 
+Laconia 4:6 a55ba1e-A 
+Cresson 7:6 a658749-9 
+Rushford 1:7 a81e4f0-c 
+Bouse 2:7 a0a64c0-f 
+Bandera 4:7 c6851d4-3 
+Plumtree 7:7 d0b36a9-7 
+Kirksey 8:7 a6b04e3-b 
+Bulger 1:8 d2d60C0-5 
+Verden 2:8 e2f093d-9 
+McLouth 5:8 ab104d0-c 
+Turbeville 6:8 db0247c-7 
+Rangeley 7:8 a9197b1-b 
+Conconully 6:9 e984559-4 
+Quasqueton 8:9 c287490-8 
+Donegal 5:10 a19657a-b 
+Harwichport 6:10 e86ca1a-a 
+Bellemead 8:10 d75c487-5

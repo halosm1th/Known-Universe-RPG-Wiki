@@ -1,0 +1,23 @@
+﻿Subsector Wynona 
+Brill 1:1 a8853c2-a
+Milesville 6:1 b1B157b-9
+Cuzzart 8:1 f77a5e0-3
+Delrey 1:2 aa3d8a3-e 
+Kunia 8:2 b4b091d-d 
+Hutto 4:3 a2d51c4-a 
+Wellston 6:4 ca5775b-9 
+Birney 7:4 b9a99a3-b 
+Millport 2:5 e739559-9 
+Elbe 3:5 e9373a4-6
+Lithia 7:6 a4d16c5-9
+Hadlyme 2:7 ea76694-4
+Hassell 5:7 f900674-2
+Formoso 8:7 a86a7b2-9
+Knoxboro 4:8 f7486c5-0
+Twining 6:8 aa0045d-b
+Silvana 8:8 d7827a1-3
+Saxis 4:9 e8861b1-3
+Steptoe 1:10 da8b55e-8
+Doty 3:10 aa4e3a4-b
+Lavon 6:10 a919a85-e
+Griggsville 7:10 e88b869-5

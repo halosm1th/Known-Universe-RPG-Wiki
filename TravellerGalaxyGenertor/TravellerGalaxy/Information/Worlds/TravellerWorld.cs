@@ -57,8 +57,7 @@ namespace TravellerMapSystem.Worlds
         Low,
         Unusual
     }
-
-
+    
     public enum Quirks
     {
         Sexist,
@@ -113,8 +112,7 @@ namespace TravellerMapSystem.Worlds
         Boiling,
         Error
     }
-
-
+    
     public enum FactionSize
     {
         Obscure_Group,
@@ -123,6 +121,28 @@ namespace TravellerMapSystem.Worlds
         Notable_Group,
         Significant_Group,
         Overwhealming_Popular_Support
+    }
+
+    public enum TradeCodes
+    {
+        Ag,
+        As,
+        Ba,
+        De,
+        Fl,
+        Ga,
+        Hi,
+        Ht,
+        Ie,
+        In,
+        Lo,
+        Lt,
+        Na,
+        Ni,
+        Po,
+        Ri,
+        Va,
+        Wa
     }
 
     #endregion
@@ -145,7 +165,7 @@ namespace TravellerMapSystem.Worlds
                    "------------------------\n" +
                    $"Travel Warning: {TravelWarning()}\n" +
                    $@"Trade Codes:
-                    {GetTradeCodes().Aggregate("", (h, t) =>
+                    {GetTradeCodesMeanings().Aggregate("", (h, t) =>
                     {
                         var sb = new StringBuilder(); sb.Append(h);
                         sb.Append(" ");
@@ -232,6 +252,8 @@ namespace TravellerMapSystem.Worlds
             }
         }
 
+        public List<TradeCodes> WorldTradeCodes => DetermineTradeCodes();
+
         #endregion
 
         #region World Variables
@@ -297,7 +319,7 @@ namespace TravellerMapSystem.Worlds
             OtherBase = otherBase;
             GasGiant = fuelBase;
             
-            generator.GenerateWorldFromText(this, uwp);
+            generator.GenerateWorldFromText(this, uwp,false);
         }
 
         public TravellerWorld(string systemName, int worldNumber)
@@ -582,125 +604,123 @@ namespace TravellerMapSystem.Worlds
             };
         }
 
-        public List<string> GetTradeCodes()
+        public List<TradeCodes> DetermineTradeCodes()
         {
-            var tradeCodes = new List<Func<string>>
+            var tradeCodes = new List<TradeCodes>();
+            
+            if ((int) WorldAtmosphere > 3 && (int) WorldAtmosphere < 9 && WorldHydrographics > 3 &&
+                WorldHydrographics < 9 && PopulationStat > 4 && PopulationStat < 8)
             {
-                () =>
-                {
-                    return (int)WorldAtmosphere > 3 && (int)WorldAtmosphere < 9 && WorldHydrographics > 3 &&
-                           WorldHydrographics < 9 && PopulationStat > 4 && PopulationStat < 8
-                        ? "(Ag)riculture: Dedicated to farming and food production. Often, they are divided into vast semi-feudal estates."
-                        : "";
-                },
-                () =>
-                {
-                    return
-                        WorldAtmosphere == 0 && WorldAtmosphere == 0 && WorldHydrographics == 0
-                            ? "(As)teroids: Usually mining colonies, but can also be orbital factories or colonies."
-                            : "";
-                },
-                () =>
-                {
-                    return PopulationStat == 0 && GovernmentType == 0 && LawLevel == 0
-                        ? "(Ba)rren: Uncolonised and empty."
-                        : "";
-                },
-                () =>
-                {
-                    return (int)WorldAtmosphere >= 2 && WorldHydrographics == 0
-                        ? "(De)sert: Dry and barely habitable"
-                        : "";
-                },
-                () =>
-                {
-                    return (int)WorldAtmosphere >= 10 && WorldHydrographics >= 1
-                        ? "(Fl)uid Oceans: Worlds where the surface liquid is something other than water, and so are incompatible with Earth-derived life"
-                        : "";
-                },
-                () =>
-                {
-                    return (int)WorldSize > 5 && (int)WorldSize < 9
-                                              && ((int)WorldAtmosphere == 5 || (int)WorldAtmosphere == 6 ||
-                                                  (int)WorldAtmosphere == 8) && WorldHydrographics >= 5 &&
-                                              WorldHydrographics <= 7
-                        ? "(Ga)rden: Worlds that are like earth"
-                        : "";
-                },
-                () => { return PopulationStat >= 9 ? "(Hi)gh population: A population in the billions" : ""; },
-                () =>
-                {
-                    return TechLevel >= 12
-                        ? "(Ht)High Tech: Among the most technologically advanced in Charted Space"
-                        : "";
-                },
-                () =>
-                {
-                    return (WorldAtmosphere == 0 || (int)WorldAtmosphere == 1)
-                           && WorldHydrographics > 1
-                        ? "(Ie)Ice-Capped: Worlds that have most of their surface liquid frozen in polar ice caps, and are cold and dry."
-                        : "";
-                },
-                () =>
-                {
-                    return PopulationStat >= 9 &&
-                           (WorldAtmosphere >= 0 && (int)WorldAtmosphere <= 2
-                            || (int)WorldAtmosphere == 4 || (int)WorldAtmosphere == 7 || (int)WorldAtmosphere == 9)
-                        ? "(In)dustrial: Dominated by factories and cities."
-                        : "";
-                },
-                () =>
-                {
-                    return PopulationStat <= 3 ? "(Lo)w population: A population of only a few thousand or less." : "";
-                },
-                () =>
-                {
-                    return TechLevel <= 5 ? "(Lt)Low tech: Pre-industrial and cannot produce advanced goods." : "";
-                },
-                () =>
-                {
-                    return WorldAtmosphere >= 0 && (int)WorldAtmosphere <= 3 && WorldHydrographics >= 0 &&
-                           WorldHydrographics <= 3 && PopulationStat >= 6
-                        ? "(Na) Non-Agricultural: Too dry or barren to support their populations using conventional food production."
-                        : "";
-                },
-                () =>
-                {
-                    return PopulationStat <= 6 && PopulationStat >= 0
-                        ? "(Ni) Non-Industrial: Too low in population to maintain an extensive industrial base. "
-                        : "";
-                },
-                () =>
-                {
-                    return (int)WorldAtmosphere >= 2 && (int)WorldAtmosphere <= 5 && WorldHydrographics >= 0 &&
-                           WorldHydrographics <= 3
-                        ? "(Po)or: Lacking resources, viable land or sufficient population to be anything other than marginal colonies."
-                        : "";
-                },
-                () =>
-                {
-                    return ((int)WorldAtmosphere == 6 || (int)WorldAtmosphere == 8) && PopulationStat >= 6 &&
-                           PopulationStat <= 8 && GovernmentType >= 4 && GovernmentType <= 9
-                        ? "(Ri)ch: Blessed with a stable government and viable."
-                        : "";
-                },
-                () => { return WorldAtmosphere == 0 ? "(Va)cuum: No atmosphere." : ""; },
-                () =>
-                {
-                    return WorldHydrographics >= 10
-                        ? "(Wa)ter World: Almost entirely water-ocean across their surface."
-                        : "";
-                }
-            };
-
-            var tradeCode = new List<string>();
-            foreach (var trade in tradeCodes)
+                tradeCodes.Add(TradeCodes.Ag);
+            }
+            if (WorldAtmosphere == 0 && WorldAtmosphere == 0 && WorldHydrographics == 0)
             {
-                var result = trade();
-                if (result != "") tradeCode.Add(trade());
+                tradeCodes.Add(TradeCodes.As);
+            }
+            if (PopulationStat == 0 && GovernmentType == 0 && LawLevel == 0)
+            {
+                tradeCodes.Add(TradeCodes.Ba);
+            }
+            if ((int)WorldAtmosphere >= 2 && WorldHydrographics == 0)
+            {
+                tradeCodes.Add(TradeCodes.De);
+            }
+            if ((int)WorldAtmosphere >= 10 && WorldHydrographics >= 1)
+            {
+                tradeCodes.Add(TradeCodes.Fl);
+            }
+            if ((int)WorldSize > 5 && (int)WorldSize < 9
+                                   && ((int)WorldAtmosphere == 5 || (int)WorldAtmosphere == 6 ||
+                                       (int)WorldAtmosphere == 8) && WorldHydrographics >= 5 &&
+                                   WorldHydrographics <= 7)
+            {
+                tradeCodes.Add(TradeCodes.Ga);
+            }
+            if (PopulationStat >= 9)
+            {
+                tradeCodes.Add(TradeCodes.Hi);
+            }
+            if (TechLevel >= 12)
+            {
+                tradeCodes.Add(TradeCodes.Ht);
+            }
+            if ((WorldAtmosphere == 0 || (int)WorldAtmosphere == 1)
+                && WorldHydrographics > 1)
+            {
+                tradeCodes.Add(TradeCodes.Ie);
+            }
+            if (PopulationStat >= 9 &&
+                (WorldAtmosphere >= 0 && (int)WorldAtmosphere <= 2
+                 || (int)WorldAtmosphere == 4 || (int)WorldAtmosphere == 7 || (int)WorldAtmosphere == 9))
+            {
+                tradeCodes.Add(TradeCodes.In);
+            }
+            if (PopulationStat <= 3)
+            {
+                tradeCodes.Add(TradeCodes.Lo);
+            }
+            if ( TechLevel <= 5 )
+            {
+                tradeCodes.Add(TradeCodes.Lt);
+            }
+            if (WorldAtmosphere >= 0 && (int)WorldAtmosphere <= 3 && WorldHydrographics >= 0 &&
+                WorldHydrographics <= 3 && PopulationStat >= 6)
+            {
+                tradeCodes.Add(TradeCodes.Na);
+            }
+            if (PopulationStat <= 6 && PopulationStat >= 0)
+            {
+                tradeCodes.Add(TradeCodes.Ni);
+            }
+            if ((int)WorldAtmosphere >= 2 && (int)WorldAtmosphere <= 5 && WorldHydrographics >= 0 &&
+                WorldHydrographics <= 3)
+            {
+                tradeCodes.Add(TradeCodes.Po);
+            }
+            if (((int)WorldAtmosphere == 6 || (int)WorldAtmosphere == 8) && PopulationStat >= 6 &&
+                PopulationStat <= 8 && GovernmentType >= 4 && GovernmentType <= 9)
+            {
+                tradeCodes.Add(TradeCodes.Ri);
+            }
+            if (WorldAtmosphere == 0 )
+            {
+                tradeCodes.Add(TradeCodes.Va);
+            }
+            
+            if (WorldHydrographics >= 10)
+            {
+                tradeCodes.Add(TradeCodes.Wa);
             }
 
-            return tradeCode;
+            return tradeCodes;
+        }
+        
+        public List<string> GetTradeCodesMeanings()
+        {
+            var meanings = new List<string>();
+            foreach (var tradecode in WorldTradeCodes)
+            {
+                if(tradecode == TradeCodes.Ag) meanings.Add("(Ag)riculture: Dedicated to farming and food production. Often, they are divided into vast semi-feudal estates.");
+                else if (tradecode == TradeCodes.As) meanings.Add("(As)teroids: Usually mining colonies, but can also be orbital factories or colonies.");
+                else if (tradecode == TradeCodes.Ba) meanings.Add("(Ba)rren: Uncolonised and empty.");
+                else if (tradecode == TradeCodes.De) meanings.Add("(De)sert: Dry and barely habitable");
+                else if (tradecode == TradeCodes.Fl) meanings.Add("(Fl)uid Oceans: Worlds where the surface liquid is something other than water, and so are incompatible with Earth-derived life");
+                else if (tradecode == TradeCodes.Ga) meanings.Add("(Ga)rden: Worlds that are like earth");
+                else if (tradecode == TradeCodes.Hi) meanings.Add("(Hi)gh population: A population in the billions");
+                else if (tradecode == TradeCodes.Ht) meanings.Add("(Ht)High Tech: Among the most technologically advanced in Charted Space");
+                else if (tradecode == TradeCodes.Ie) meanings.Add("(Ie)Ice-Capped: Worlds that have most of their surface liquid frozen in polar ice caps, and are cold and dry.");
+                else if (tradecode == TradeCodes.In) meanings.Add("(In)dustrial: Dominated by factories and cities.");
+                else if (tradecode == TradeCodes.Lo) meanings.Add("(Lo)w population: A population of only a few thousand or less.");
+                else if (tradecode == TradeCodes.Lt) meanings.Add("(Lt)Low tech: Pre-industrial and cannot produce advanced goods.");
+                else if (tradecode == TradeCodes.Na) meanings.Add("(Na) Non-Agricultural: Too dry or barren to support their populations using conventional food production.");
+                else if (tradecode == TradeCodes.Ni) meanings.Add("(Ni) Non-Industrial: Too low in population to maintain an extensive industrial base. ");
+                else if (tradecode == TradeCodes.Po) meanings.Add("(Po)or: Lacking resources, viable land or sufficient population to be anything other than marginal colonies.");
+                else if (tradecode == TradeCodes.Ri) meanings.Add("(Ri)ch: Blessed with a stable government and viable.");
+                else if (tradecode == TradeCodes.Va) meanings.Add("(Va)cuum: No atmosphere.");
+                else if (tradecode == TradeCodes.Wa) meanings.Add("(Wa)ter World: Almost entirely water-ocean across their surface.");
+            }
+
+            return meanings;
         }
 
         private bool TravelWarning()

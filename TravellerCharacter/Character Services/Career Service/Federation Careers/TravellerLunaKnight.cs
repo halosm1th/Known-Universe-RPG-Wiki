@@ -15,6 +15,7 @@ using static TravellerCharacter.CharacterParts.TravellerAttributes;
 
 namespace TravellerCharacter.Character_Services.Career_Service.Federation_Careers
 {
+    /*
     internal class TravellerLunaKnights : TravellerFederationCareers
     {
         private Random random = new();
@@ -214,5 +215,5 @@ namespace TravellerCharacter.Character_Services.Career_Service.Federation_Career
                 }
             );
         }
-    }
+    }*/
 }

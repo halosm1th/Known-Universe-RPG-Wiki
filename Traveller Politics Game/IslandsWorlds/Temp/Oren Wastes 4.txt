@@ -1,0 +1,17 @@
+﻿Subsector Oren Wastes 4 subsector
+Tonganoxie 2:1 b2B0a5b-c 
+Ijamsville 3:1 c763a63-c 
+Terrell 3:2 e3d381b-6 
+Fowlerton 7:2 a74e989-a
+Belchertown 6:3 f936a1B-3 
+Blissfield 5:4 a0e03f0-B 
+Hume 4:5 a7b71f4-e 
+Trevor 1:6 e1C04f0-8 
+Niwot 6:7 e46391f-6 
+Vacherie 7:7 a73c736-8 
+Hitterdal 4:9 a5b4955-e 
+Kahului 5:9 c289546-a 
+Fishertown 6:9 a83e485-c 
+Mangham 7:9 e381291-8 
+Ashville 7:10 c5797c7-6 
+Coolin 8:10 c947197-5

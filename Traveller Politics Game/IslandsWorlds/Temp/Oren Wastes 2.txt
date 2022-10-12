@@ -1,0 +1,15 @@
+﻿Subsector Oren Wastes 2 Subsector
+Thedrilar 1:1 C631100-B 
+Uphitera 3:2 B449536-8 
+Mamyria 4:2 D30047B-C 
+ChedRippe 5:3 X430100-9
+Ucury 4:3 C3559A6-A 
+Hotania 2:3 A7730C0-8
+Seyonus 8:3 A9651C0-D
+Gunripped 7:5 A65781109 
+Struchia 6:5 C5C11F2-7
+Agucaitov 4:6 A7A77B4-D
+Drilion8JA 4:8 AAC01B4-D
+Evotis 4:9 A2A194E-B 
+Tilova 5:10 E4A947B-9
+Thippe464 7:9 A88411A-C
