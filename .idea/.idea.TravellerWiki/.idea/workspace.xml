@@ -18,9 +18,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="added the basic code for my politics game">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/Fleet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/Fleet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticsGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticsGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/System.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +61,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2e5a78beee0f4abd8ed7ef3636048cf1a20268/a0/a493af5e/Number.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf436ac5cbaab2b6b1287ede3c7cd7e20516e661885a2538c9618359e8fd/FontCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterCreationTest/Charcters/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4050ba48b7e252908212d892189d928884eb8c726d4f447f53c29d6ecd4411/Exception.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationCareers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -64,8 +69,9 @@
     <setting file="file://$PROJECT_DIR$/TravellerFactionSystem/TravellerLocation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a1ad32abaee44480b66c2c1fcee9628cca92a4cd272eced5781564201180/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ad457575d35dcbff26c9a5e3fb1d92f1d3c55f25ef6ebf475367b5d8/List.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ad457575d35dcbff26c9a5e3fb1d92f1d3c55f25ef6ebf475367b5d8/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/IslandsFaction.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
@@ -432,6 +438,12 @@
       <workItem from="1662066234998" duration="1771000" />
       <workItem from="1665524672540" duration="10204000" />
       <workItem from="1665546049404" duration="5686000" />
+      <workItem from="1665712011956" duration="4122000" />
+      <workItem from="1665796910971" duration="9316000" />
+      <workItem from="1665869932918" duration="14219000" />
+      <workItem from="1665957939255" duration="74000" />
+      <workItem from="1665959490303" duration="9454000" />
+      <workItem from="1666121920625" duration="4603000" />
     </task>
     <task id="LOCAL-00038" summary="Refactored a lot of stuff into seperate things within the codebase so that its easier to extend in the future">
       <created>1637302581224</created>

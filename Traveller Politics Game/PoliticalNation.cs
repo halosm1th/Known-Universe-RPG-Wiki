@@ -13,17 +13,18 @@ class PoliticalNation
     
 
     private readonly int FOOD_GENERATOR_MODIFIER = 3;
-    private readonly int PRODUCTION_GENERATOR_MODIFIER = 2;
-    private readonly int POPULATION_GENERATOR_MODIFIER = 4;
-    private readonly int FUEL_GENERATOR_MODIFIER = 1;
+    private readonly int PRODUCTION_GENERATOR_MODIFIER = 3;
+    private readonly int POPULATION_GENERATOR_MODIFIER = 2;
+    private readonly int FUEL_GENERATOR_MODIFIER = 3;
     
     
     private readonly int POOR_VALUE = 10;
     private readonly int PRODUCTION_COST_VALUE = 1;
     private readonly int PROD_TECHLEVEL_MOD = 6;
     private readonly int AGRI_COST_VALUE = 1;
+    private readonly int AGRI_TECHLEVEL_MOD = 1;
     private readonly int FUEL_COST_VALUE = 1;
-    private readonly int POP_COST_VALUE = 1;
+    private readonly int POP_COST_VALUE = 2;
     private readonly int POP_TECHLEVEL_MODIFIER = 2;
     #endregion
     
@@ -36,6 +37,7 @@ class PoliticalNation
     
     #region public Variables
     public string PlayerName { get; }
+    public int NationID { get; }
     public string NationName { get; }
     
     public List<Fleet> NationalFleets { get; }
@@ -57,11 +59,12 @@ class PoliticalNation
     }
     #endregion
 
-    public PoliticalNation(string playerName = "test player", string nationName = "test nation", List<Fleet> nationalFleets = default, 
+    public PoliticalNation(int nationID, string playerName = "test player", string nationName = "test nation", List<Fleet> nationalFleets = default, 
         List<PoliticsGameSystem> nationalSystems = default, Dictionary<string, Capital> dynamicCosts = default, Dictionary<string, Capital> dynamicIncomes = default)
     {
         PlayerName = playerName;
         NationName = nationName;
+        NationID = nationID;
 
         if (nationalFleets == default) nationalFleets = new List<Fleet>();
         if (nationalSystems == default) nationalSystems = new List<PoliticsGameSystem>();
@@ -111,32 +114,45 @@ class PoliticalNation
 
             if (system.Tags.Contains(TradeCodes.Na))
             {
-                food = AGRI_COST_VALUE * TechLevel;
+                food = AGRI_COST_VALUE * TechLevel/AGRI_TECHLEVEL_MOD;
             }
 
             if (system.Tags.Contains(TradeCodes.Ni))
             {
                 prod = PRODUCTION_COST_VALUE * (TechLevel/PROD_TECHLEVEL_MOD);
+                credits = POOR_VALUE * (TechLevel / PROD_TECHLEVEL_MOD);
             }
 
             if (system.Tags.Contains(TradeCodes.Lo))
             {
                 pop = POP_COST_VALUE * (TechLevel/POP_TECHLEVEL_MODIFIER);
-                fuel = FUEL_COST_VALUE * TechLevel;
+                fuel = (FUEL_COST_VALUE) * (TechLevel/POP_TECHLEVEL_MODIFIER);
+                food = AGRI_COST_VALUE * (TechLevel / POP_TECHLEVEL_MODIFIER);
             }
 
             costs.Add(system.LocName, new Capital(credits, food, prod, pop, fuel));
         }
     }
 
+    private int _dynamicCostCounter = 0;
+    
     public void AddDynamicCost(string name, Capital cost)
     {
+        name = $"#{_dynamicCostCounter} {name}";
         DynamicCosts.Add(name,cost);
+        _dynamicCostCounter++;
     }
 
-    public void RemoveDynamicCost(string name)
+    
+    public void AddDynamicIncome(string name, Capital cost)
     {
-        DynamicCosts.Remove(name);
+        DynamicIncomes.Add(name,cost);
+    }
+
+    public void RemoveDynamicCost(string id)
+    {
+        var name = DynamicCosts.First(x => x.Key.StartsWith(id));
+        DynamicCosts.Remove(name.Key);
     }
     #endregion
     #region Gaining Capital
@@ -221,7 +237,7 @@ private int GetGeneratedFuel()
 
 private int GetGeneratedPopulation()
 {
-    return NationalSystems.Where(x => x.Tags.Contains(TradeCodes.Po))
+    return NationalSystems.Where(x => x.Tags.Contains(TradeCodes.Hi))
         .Aggregate(0,(h,t) => h+(1 * POPULATION_GENERATOR_MODIFIER) * TechLevel);
 }
 
@@ -261,6 +277,56 @@ public bool ModifyFleet(Location src, Location dest, int amount)
     var fleet =  NationalFleets.First(x => x.Location == src);
     fleet.MoveFleet(dest);
     fleet.ModifyFleet(amount);
+    return true;
+}
+
+public bool RemoveSystem(Location system)
+{
+    if (NationalSystems.Any(x => x.SystemLocation == system))
+    {
+        NationalSystems.Remove(NationalSystems.First(x => x.SystemLocation == system));
+        return true;
+    }
+
+    return false;
+}
+
+public bool AddSystem(PoliticsGameSystem system)
+{
+    if (NationalSystems.Any(x => x.SystemLocation == system.SystemLocation))
+    {
+        return false;
+    }
+    
+    NationalSystems.Add(system);
+
+    return true;
+}
+
+public Fleet? GetFleetAt(Location location)
+{
+    if (HasFleet(location))
+    {
+        return NationalFleets.First(x => x.Location == location);
+    }
+
+    return null;
+}
+
+public Fleet? GetFleet(Location loc, int techLevel)
+{
+    return NationalFleets.First(x => x.Location == loc && x.TechLevel == techLevel);
+}
+
+public bool RemoveFleet(Fleet fleet)
+{
+    NationalFleets.Remove(fleet);
+    return false;
+}
+
+public bool AddFleet(Fleet fleetToAdd)
+{
+    NationalFleets.Add(fleetToAdd);
     return true;
 }
 
@@ -308,14 +374,20 @@ private bool HasFleet(Location src)
 
 public override string ToString()
 {
+    var inc = GetResources();
+    var costs = TotalCosts;
+    var profit = new Capital(inc.Credits - costs.Credits,
+        inc.Food - costs.Food, inc.Production - costs.Production,
+        inc.Population - costs.Population, inc.Fuel - costs.Fuel);
     return $"{NationName} ({PlayerName}):" +
            $"\n\tTech Level: {TechLevel}" +
            $"\n\tIncome: {GetResources().ToString().Replace("Capital","")}" +
            $"\n\tCosts: {TotalCosts.ToString().Replace("Capital","")}" +
+           $"\n\tProfit: {profit.ToString().Replace("Capital","")}" +
            $"\n\tFleets:" +
            $"{GetFleetText()}" +
-           $"\n\tSystems:" +
-           $"{GetSystemsText()}";
+           $"\n\t# of Systems Controlled:" +
+           $"{NationalSystems.Count}";
 }
 
 private string GetFleetText()

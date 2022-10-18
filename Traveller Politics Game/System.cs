@@ -17,8 +17,9 @@ class PoliticsGameSystem
     public override string ToString()
     {
         return $"{SystemLocation} {Name} {World.UWP} | " +
-               $"{Tags.Aggregate("",(h,t)=> h + t.ToString() + " ")}| " +
-               $"Is Fuel World: {FuelWorld}";
+               $"Mil: {World.MilitaryBase}, Depo: {World.GasGiant}, Othr: {World.OtherBase}  | " +
+               $"Is Fuel World: {FuelWorld} | " +
+               $"{Tags.Aggregate("",(h,t)=> h + t.ToString() + " ")}";
     }
 
     public PoliticsGameSystem(string UWP)
@@ -65,12 +66,16 @@ class PoliticsGameSystem
         var parts = location.Split(':');
         var subsector = parts[0].Split(',');
         var parsec = parts[1].Split(',');
-
-        var sx = Convert.ToInt32(subsector[0]);
-        var sy = Convert.ToInt32(subsector[1]);
-        var px = Convert.ToInt32(parsec[0]);
-        var py = Convert.ToInt32(parsec[1]);
+        
+        var (sx,sy) = DecodeSubsector(subsector);
+        var (px,py) = DecodeParsec(parsec);
 
         return new Location(sx,sy,px,py);
     }
+
+    public static (int px, int py) DecodeParsec(string[] parsec)
+        => (Convert.ToInt32(parsec[0]), Convert.ToInt32(parsec[1]));
+
+    public static (int sx, int sy) DecodeSubsector(string[] subsector) 
+        => (Convert.ToInt32(subsector[0]), Convert.ToInt32(subsector[1]));
 }
