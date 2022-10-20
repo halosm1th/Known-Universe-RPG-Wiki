@@ -34,6 +34,7 @@ namespace VoicesFromTheVoidArticles
                 _VoicesFromTheVoidIssues.Add(VoicesIssue6.AddIssue6()); 
                 _VoicesFromTheVoidIssues.Add(VoicesIssue7.AddIssue7());
                 _VoicesFromTheVoidIssues.Add(VoicesIssue8.AddIssue8());
+                _VoicesFromTheVoidIssues.Add(VoicesIssue9.AddIssue9());
             }
 
 
