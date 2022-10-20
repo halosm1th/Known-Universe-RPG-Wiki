@@ -24,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticsGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticsGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Traveller Politics Game/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/System.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +155,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.Traveller Politics Game">
@@ -443,14 +444,9 @@
       <workItem from="1665869932918" duration="14219000" />
       <workItem from="1665957939255" duration="74000" />
       <workItem from="1665959490303" duration="9454000" />
-      <workItem from="1666121920625" duration="4603000" />
-    </task>
-    <task id="LOCAL-00038" summary="Refactored a lot of stuff into seperate things within the codebase so that its easier to extend in the future">
-      <created>1637302581224</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1637302581224</updated>
+      <workItem from="1666121920625" duration="20463000" />
+      <workItem from="1666217877209" duration="220000" />
+      <workItem from="1666218186339" duration="7061000" />
     </task>
     <task id="LOCAL-00039" summary="Finished the basic version of the subsector generator">
       <created>1637346408439</created>
@@ -788,7 +784,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665550749900</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Basics of stuff is finished for the politics game!">
+      <created>1666127290128</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1666127290128</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -808,7 +811,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added a possible working system for loading subsector data!" />
     <MESSAGE value="Hopefully added the generated subsector to the list of generated subsectors" />
     <MESSAGE value="Made a few things prettier" />
     <MESSAGE value="Some minor changes" />
@@ -833,7 +835,8 @@
     <MESSAGE value="Added some high versian words" />
     <MESSAGE value="Not sure what all I was doing, but i was doing something!" />
     <MESSAGE value="added the basic code for my politics game" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the basic code for my politics game" />
+    <MESSAGE value="Basics of stuff is finished for the politics game!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basics of stuff is finished for the politics game!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

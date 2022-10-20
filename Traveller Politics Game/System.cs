@@ -16,7 +16,7 @@ class PoliticsGameSystem
 
     public override string ToString()
     {
-        return $"{SystemLocation} {Name} {World.UWP} | " +
+        return $"| {SystemLocation} | {Name} | {World.UWP} | " +
                $"Mil: {World.MilitaryBase}, Depo: {World.GasGiant}, Othr: {World.OtherBase}  | " +
                $"Is Fuel World: {FuelWorld} | " +
                $"{Tags.Aggregate("",(h,t)=> h + t.ToString() + " ")}";

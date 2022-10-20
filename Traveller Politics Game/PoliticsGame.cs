@@ -1,6 +1,8 @@
-﻿using System.Diagnostics.SymbolStore;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.SymbolStore;
 using System.Security.AccessControl;
 using Newtonsoft.Json.Serialization;
+using SixLabors.ImageSharp.Processing;
 using TravellerCharacter.Character_Services;
 using TravellerMapSystem.Worlds;
 
@@ -65,12 +67,39 @@ class PoliticsGame
             {
                 PrintRound();
                 PrintAllNations();
+                CalculateRoundProfits();
                 newRound = false;
             }
 
             GetCommand();
             InterpretCommand();
         } while (round < 9);
+    }
+
+    private void CalculateRoundProfits()
+    {
+        var totalprofit = new Capital();
+        foreach (var nation in Nations)
+        {
+            var profit = nation.Resources - nation.TotalCosts;
+            totalprofit += profit;
+        }
+
+        if (totalprofit.Credits < 0
+            || totalprofit.Food < 0
+            || totalprofit.Population < 0
+            || totalprofit.Production < 0
+            || totalprofit.Fuel < 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+
+        Console.WriteLine($"Total profit: {totalprofit}");
+        Console.ForegroundColor = ConsoleColor.Gray;
     }
 
     private void PrintAllNations()
@@ -130,28 +159,37 @@ class PoliticsGame
         }else if (commandName == "next")
         {
             NextRound();
-        }else if (commandName == "displaysubsector" || commandName == "ds")
+        }else if (commandName == "splitkings")
+        {
+            SplitKings();
+        }else if (commandName == "startbigrecession" || commandName == "sbr")
+        {
+            foreach (var nation in Nations)
+            {
+                nation.InRecession = true;
+            }
+        }else if (commandName == "endbigrecession" || commandName == "ebr")
+        {
+            foreach (var nation in Nations)
+            {
+                nation.InRecession = false;
+            }
+        }
+        else if (commandName == "displaysubsector" || commandName == "ds")
         {
             // ds SubX:SubY
             DisplaySubsectorCommand();
         }else if (commandName == "transfersystem" || commandName == "ts")
         {
             TransferSystem(commandParts);
-        }else if (commandName == "listnationid" || commandName == "lsid")
+        }else if (commandName == "listnationid" || commandName == "lnid")
         {
             ListNations();
         }else if (commandName == "listnation" || commandName == "ln")
         {
-            var nationID = 0;
-            if (Int32.TryParse(commandParts[1], out nationID))
-            {
-                var nation = Nations.First(x => x.NationID == nationID);
-                Console.WriteLine(nation);
-            }
-            else
-            {
-                Console.WriteLine("Error no nation with that ID");
-            }
+            var nation = GetNation(commandParts);
+            if (nation == null) return;
+            Console.WriteLine(nation);
         }else if (commandName == "movefleet" || commandName == "mf")
         {
             MoveFleet(commandParts);
@@ -187,6 +225,17 @@ class PoliticsGame
             {
                 Console.WriteLine($"{system}");
             }
+        }else if (commandName == "listfleets" || commandName == "lf")
+        {
+            var nation = GetNation(commandParts);
+
+            var numb = 0;
+            
+            foreach (var fleet in nation.NationalFleets)
+            {
+                numb++;
+                Console.WriteLine($"Fl. #{numb} TL {fleet.TechLevel} Loc. {fleet.Location}");
+            }
         }
         else if (commandName == "adc" || commandName == "adddynamiccost")
         {
@@ -207,10 +256,41 @@ class PoliticsGame
         }else if (commandName == "transferfleet" || commandName == "tf")
         {
             TransferFleet(commandParts);
+        }else if (commandName == "removesystem" || commandName == "rs")
+        {
+            var nation = GetNation(commandParts);
+            var location = PoliticsGameSystem.DecodeLocation(commandParts[2]);
+
+            if (nation.RemoveSystem(location))
+            {
+                Console.WriteLine("removed the system");
+            }
+            else
+            {
+                Console.WriteLine("There was an error removing the system");
+            }
+        }else if (commandName == "addsystem" || commandName == "as")
+        {
+            var nation = GetNation(commandParts);
+            var location = PoliticsGameSystem.DecodeLocation(commandParts[2]);
+
+            if (nation.AddSystem(GetSystemByLocation(location)))
+            {
+                Console.WriteLine("The system has been added");
+            }
+            else
+            {
+                Console.WriteLine("There was an error adding the system");
+            }
+        }else if (commandName == "tradedeal" || commandName == "td")
+        {
+            AddTradeDeal();
         }
         else if (commandName == "help" || commandName == "?")
         {
             Console.WriteLine("Commands:");
+            Console.WriteLine("startbigrecession (sbr) -- Start big recession; really fuck the economy up.");
+            Console.WriteLine("endbigrecession (ebr) -- End a sectorwide recession.");
             Console.WriteLine("buildfleet (bf) NATIONID FleetTechLevel Subx,Suby:parX,parY -- build a fleet at the given fleet");
             Console.WriteLine("removefleet (rf) NATIONID subx,suby:parx,pary -- remove a fleet at the given location");
             Console.WriteLine("transferfleet (tf) srcNation:destNation subx,suby:parx,pary techLevel -- transfer THE FIRST FLEET OWNED BY SRC NATION AT SYSTEM TO DEST NATIONS CONTROL.");
@@ -228,12 +308,191 @@ class PoliticsGame
             Console.WriteLine("adddynamiccost (adc) nationsID #credits #food #prod #pop #fuel -- add a new dynamic cost");
             Console.WriteLine("clear (cls) -- clear the screen");
             Console.WriteLine("listsystems (ls) nationID -- list the systems controlled by the supplied nation id");
+            Console.WriteLine("removesystem (rs) nationID subx,suby:parx,pary -- remove a system from the nation");
+            Console.WriteLine("addsystem (as) nationID subx,suby:parx,pary -- add a system to the nation");
+            Console.WriteLine("splitkings -- a special command");
         }
         else
         {
             Console.WriteLine($"Error command: {commandName} is not a valid command.\nTry help to list commands.");
         }
         
+    }
+
+    private void AddTradeDeal()
+    {
+        Console.WriteLine("Enter nation one ID");
+        var nationOneText = Console.ReadLine();
+
+        Console.WriteLine("Enter nation two ID");
+        var nationTwoText = Console.ReadLine();
+
+        if (!int.TryParse(nationOneText, out var nationOneID))
+        {
+            Console.WriteLine("Error invalid ID.");
+            return;
+        }
+        
+        if (!int.TryParse(nationTwoText, out var nationTwoID))
+        {
+            Console.WriteLine("Error invalid ID.");
+            return;
+        }
+
+        var nationOne = Nations.First(x => x.NationID == nationOneID);
+        var nationTwo = Nations.First(x => x.NationID == nationTwoID);
+
+        Console.WriteLine($"For: {nationOne.NationName}: Enter #credits #food #prod #pop #fuel to trade or 0 for none." +
+                          "\nExample: 10 2 0 4 5");
+        var NationOneTradeCosts = Console.ReadLine().Split(" ");
+
+        Console.WriteLine($"For: {nationTwo.NationName}: Enter #credits #food #prod #pop #fuel to trade or 0 for none." +
+                          "\nExample: 10 2 0 4 5");
+        var NationTwoTradeCosts = Console.ReadLine().Split(" ");
+
+        try
+        {
+            var nationOneCapitalCost = new Capital(NationOneTradeCosts);
+            var nationTwoCapitalCost = new Capital(NationTwoTradeCosts);
+            
+            nationOne.AddDynamicIncome($"Trade deal with: {nationTwo.NationName} (Rnd {round})",nationTwoCapitalCost);
+            nationOne.AddDynamicCost($"Trade deal with: {nationTwo.NationName} (Rnd {round})",nationOneCapitalCost);
+            
+            nationTwo.AddDynamicIncome($"Trade deal with: {nationOne.NationName} (Rnd {round})",nationOneCapitalCost);
+            nationTwo.AddDynamicCost($"Trade deal with: {nationOne.NationName} (Rnd {round})",nationTwoCapitalCost);
+            Console.WriteLine("Trade deal added.");
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("There was an error with the Trade Deal.");
+        }
+    }
+
+
+    private bool HasSplit = false;
+    private void SplitKings()
+    {
+        if (HasSplit)
+        {
+            Console.WriteLine("The kings have already split");
+        }else
+        {
+            HasSplit = true;
+        bool joinDominate = false;
+        var choice = "";
+        Console.WriteLine("Splitting the kings;");
+
+        do
+        {
+            Console.WriteLine("Does the North want to join the (u)nion or the (d)ominate?");
+            choice = Console.ReadLine();
+            if (choice?.ToLower()[0] == 'd' )
+            {
+                joinDominate = true;
+            }
+        } while (choice.ToLower()[0] != 'u' && choice.ToLower()[0] != 'd');
+
+        //Whether they join or not, they loose the systems.
+        
+        var king = Nations.First(x => x.NationName == "Rex van der Sever");
+        king.RemoveSystems(new List<Location>()
+        {
+            new(3,1, 1, 1),
+            new(3,1, 2, 1),
+            new(3,1, 1, 2),
+            new(3,1, 1, 3),
+            new(3,1, 2, 3),
+
+            new(2,1, 8, 1),
+            new(2,1, 8, 2),
+            new(2,1, 7, 4),
+            new(2,1, 6, 4),
+            new(2,1, 7, 6),
+            new(2,1, 5, 7),
+            new(2,1, 4, 8),
+            new(2,1, 6, 8),
+            new(2,1, 8, 7),
+            new(2,1, 8, 8),
+            new(2,1, 4, 9),
+            new(2,1, 1, 10),
+            new(2,1, 3, 10),
+            new(2,1, 6, 10),
+            new(2,1, 7, 10),
+            new(2, 2, 1, 1),
+        });
+        
+        //If they join the dominate, then the old systems join Kotlik. Otherwise the other half joins Red Rock
+        if (joinDominate)
+        {
+            var kotlik = Nations.First(x => x.NationName.Contains("Military Junta"));
+
+            kotlik.AddSystems(GetSystemsByLocation(new List<Location>()
+            {
+                new(3,1, 1, 1),
+                new(3,1, 2, 1),
+                new(3,1, 1, 2),
+                new(3,1, 1, 3),
+                new(3,1, 2, 3),
+
+                new(2,1, 8, 1),
+                new(2,1, 8, 2),
+                new(2,1, 7, 4),
+                new(2,1, 6, 4),
+                new(2,1, 7, 6),
+                new(2,1, 5, 7),
+                new(2,1, 4, 8),
+                new(2,1, 6, 8),
+                new(2,1, 8, 7),
+                new(2,1, 8, 8),
+                new(2,1, 4, 9),
+                new(2,1, 1, 10),
+                new(2,1, 3, 10),
+                new(2,1, 6, 10),
+                new(2,1, 7, 10),
+                new(2, 2, 1, 1),
+            }));
+        }
+        else
+        {
+            var redRock = Nations.First(x => x.NationID == 4);
+
+            redRock.AddSystems(GetSystemsByLocation(new List<Location>()
+            {
+                new (3,1,6,1),
+                new (3,1,7,2),
+                new (3,1,8,2),
+                new (3,1,8,3),
+                new (3,1,5,3),
+                new (3,1,4,3),
+                new (3,1,6,3),
+                new (3,1,6,4),
+                new (3,1,5,5),
+                new (3,1,6,5),
+                new (3,1,8,5),
+                new (3,1,2,5),
+                new (3,1,2,6),
+                new (3,1,3,7),
+                new (3,1,4,6),
+                new (3,1,4,7),
+                new (3,1,4,8),
+                new (3,1,3,10),
+                new (3,1,7,7),
+                new (3,1,7,8),
+                new (3,1,7,9),
+                new (3,1,7,10),
+                new (3,2,7,1),
+
+                new (4,1,5,1),
+                new (4,1,6,1),
+                new (4,1,6,2),
+                new (4,1,6,4),
+                new (4,1,2,3),
+                new (4,1,3,4),
+                new (4,1,1,5),
+                new (4,1,2,5),
+            }));
+            }
+        }
     }
 
     private void TransferFleet(string[] commandParts)
