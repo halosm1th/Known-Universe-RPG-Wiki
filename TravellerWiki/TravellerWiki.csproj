@@ -326,6 +326,21 @@
         <Content Update="Pages\Languages\Sigmarian Language\SigmarianLanguageWords.razor">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        <Content Update="Pages\PoliticsGame\PoliticsGameInfo">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\PoliticsGameImages\Fleet_Starting_Locations.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\PoliticsGameImages\Map_Clear.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\PoliticsGameImages\MapSymbolKey.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\Images\PoliticsGameImages\NationColoursKey.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>

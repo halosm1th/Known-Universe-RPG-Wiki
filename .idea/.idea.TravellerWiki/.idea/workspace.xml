@@ -18,14 +18,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="">
+    <list default="true" id="7d873b3f-ae49-49ee-98b5-ddf53f8468f5" name="Default Changelist" comment="Whew, more political game stuff">
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/PoliticsGame/ClearMap.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/PoliticsGame/ColourMap.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/Pages/PoliticsGame/PoliticsGameInfo.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/PoliticsGameImages/Fleet_Starting_Locations.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/PoliticsGameImages/MapSymbolKey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/PoliticsGameImages/Map_Clear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TravellerWiki/wwwroot/Images/PoliticsGameImages/NationColoursKey.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravellerWiki/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/Fleet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/Fleet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticalNations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/PoliticsGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/PoliticsGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Traveller Politics Game/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Traveller Politics Game/System.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/Pages/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravellerWiki/TravellerWiki.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +70,7 @@
     <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/Career Service/Federation Careers/TravellerFederationCareers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerWiki/Pages/Factions/Groups/IslandsCompanies.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7e231682be8652744726acc6de35323daa68061429db55e0c251114902f60/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/thoma/RiderProjects/Known-Universe-RPG-Wiki/Traveller Politics Game/Fleet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerFactionSystem/TravellerLocation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SubsectorJsonGenerator/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TravellerCharacter/Character Services/NameLists/TravellerNameLists.cs" root0="SKIP_HIGHLIGHTING" />
@@ -158,7 +162,7 @@
     <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.Traveller Politics Game">
+  <component name="RunManager" selected=".NET Launch Settings Profile.TravellerWiki">
     <configuration name="Publish TravellerFactionSystem to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/TravellerFactionSystem/bin/Release/net5.0/publish" target_framework="net5.0" uuid_high="7797284247241245342" uuid_low="-4882073600492591447" />
       <method v="2" />
@@ -446,14 +450,7 @@
       <workItem from="1665959490303" duration="9454000" />
       <workItem from="1666121920625" duration="20463000" />
       <workItem from="1666217877209" duration="220000" />
-      <workItem from="1666218186339" duration="7061000" />
-    </task>
-    <task id="LOCAL-00039" summary="Finished the basic version of the subsector generator">
-      <created>1637346408439</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1637346408440</updated>
+      <workItem from="1666218186339" duration="9754000" />
     </task>
     <task id="LOCAL-00040" summary="Maybe this fixed something?">
       <created>1637347829506</created>
@@ -791,7 +788,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666127290128</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Whew, more political game stuff">
+      <created>1666226228636</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1666226228637</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -811,7 +815,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Hopefully added the generated subsector to the list of generated subsectors" />
     <MESSAGE value="Made a few things prettier" />
     <MESSAGE value="Some minor changes" />
     <MESSAGE value="Hopefully fixed something?" />
@@ -836,7 +839,8 @@
     <MESSAGE value="Not sure what all I was doing, but i was doing something!" />
     <MESSAGE value="added the basic code for my politics game" />
     <MESSAGE value="Basics of stuff is finished for the politics game!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basics of stuff is finished for the politics game!" />
+    <MESSAGE value="Whew, more political game stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Whew, more political game stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
