@@ -289,15 +289,13 @@ class PoliticsGame
         else if (commandName == "help" || commandName == "?")
         {
             Console.WriteLine("Commands:");
-            Console.WriteLine("startbigrecession (sbr) -- Start big recession; really fuck the economy up.");
-            Console.WriteLine("endbigrecession (ebr) -- End a sectorwide recession.");
             Console.WriteLine("buildfleet (bf) NATIONID FleetTechLevel Subx,Suby:parX,parY -- build a fleet at the given fleet");
             Console.WriteLine("removefleet (rf) NATIONID subx,suby:parx,pary -- remove a fleet at the given location");
             Console.WriteLine("transferfleet (tf) srcNation:destNation subx,suby:parx,pary techLevel -- transfer THE FIRST FLEET OWNED BY SRC NATION AT SYSTEM TO DEST NATIONS CONTROL.");
             Console.WriteLine("listnation (ln) NATIONID -- lists information about the nation with a given ID");
             Console.WriteLine("listnationid (lnid) -- lists all nations and their ID's");
             Console.WriteLine("help (?) -- display this menu");
-            Console.WriteLine("exitgame (eg) -- exit the game");
+            //Console.WriteLine("exitgame (eg) -- exit the game");
             Console.WriteLine("next -- move the game to the next round");
             Console.WriteLine("transfersystem (ts) SrcNationID:DestNationId sysSubX,sysSubY:sysParX,sysParY -- transfer the given system from the target nation to the destination nation");
             Console.WriteLine("displaysubsector (ds) subX,subY -- display the subector at the x and y coordinates");
@@ -306,11 +304,15 @@ class PoliticsGame
             Console.WriteLine("listincome (ldi) nationID -- list the chosen nations dynamic incomes");
             Console.WriteLine("listexpenses (lde) nationID -- list the chosen nations dynamic costs");
             Console.WriteLine("adddynamiccost (adc) nationsID #credits #food #prod #pop #fuel -- add a new dynamic cost");
-            Console.WriteLine("clear (cls) -- clear the screen");
+           //Console.WriteLine("clear (cls) -- clear the screen");
             Console.WriteLine("listsystems (ls) nationID -- list the systems controlled by the supplied nation id");
             Console.WriteLine("removesystem (rs) nationID subx,suby:parx,pary -- remove a system from the nation");
             Console.WriteLine("addsystem (as) nationID subx,suby:parx,pary -- add a system to the nation");
             Console.WriteLine("splitkings -- a special command");
+            Console.WriteLine("startbigrecession (sbr) -- Start big recession; really fuck the economy up.");
+            Console.WriteLine("endbigrecession (ebr) -- End a sectorwide recession.");
+            Console.WriteLine("aliens -- Start the aliens");
+
         }
         else
         {

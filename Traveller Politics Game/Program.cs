@@ -12,6 +12,11 @@ namespace Traveller_Politics_Game
             var game = new PoliticsGame();
             
             game.PlayGame();
+
+            do
+            {
+
+            } while (Console.ReadLine() != "I love Barbaras big sexy boobs");
         }
     }
 
